@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Bingo for Breweries & Bars | Keep Your Brewery Packed</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #fafafa; color: #1a1a1a; line-height: 1.7; }
+    
+    header { background: #fff; border-bottom: 1px solid #eee; padding: 1rem 2rem; position: sticky; top: 0; z-index: 100; }
+    header h1 { color: #2D9F4E; font-size: 1.5rem; }
+    nav { margin-top: 0.5rem; }
+    nav a { margin-right: 2rem; text-decoration: none; color: #666; font-size: 0.95rem; transition: color 0.3s; }
+    nav a:hover { color: #2D9F4E; }
+    
+    .hero {
+      background: linear-gradient(135deg, #2D9F4E 0%, #1e7636 100%);
+      color: white;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 215, 0, 0.1);
+      border-radius: 50%;
+    }
+    
+    .hero-content {
+      max-width: 700px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      line-height: 1.5;
+    }
+    
+    .cta-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      padding: 1.1rem 2.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #FFD700;
+      color: #1a1a1a;
+    }
+    
+    .btn-primary:hover {
+      background: #FFC700;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+    
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    
+    h2 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #2D9F4E;
+    }
+    
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      color: #555;
+      line-height: 1.8;
+    }
+    
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    
+    .feature {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+    
+    .feature:hover {
+      border-color: #2D9F4E;
+      box-shadow: 0 15px 35px rgba(45, 159, 78, 0.12);
+      transform: translateY(-5px);
+    }
+    
+    .feature h3 {
+      font-size: 1.4rem;
+      color: #2D9F4E;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .feature p {
+      font-size: 0.95rem;
+      color: #666;
+    }
+    
+    .testimonial-section {
+      background: #f9f9f9;
+      padding: 4rem 2rem;
+    }
+    
+    .testimonial {
+      max-width: 650px;
+      margin: 0 auto;
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      border-left: 5px solid #FFD700;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    
+    .testimonial p {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+      color: #333;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    .testimonial-author {
+      font-weight: 700;
+      color: #2D9F4E;
+      font-style: normal;
+    }
+    
+    .final-cta {
+      background: linear-gradient(135deg, #2D9F4E 0%, #1e7636 100%);
+      color: white;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    
+    .final-cta h2 {
+      color: white;
+      margin-bottom: 1rem;
+    }
+    
+    .final-cta p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 2rem 0;
+    }
+    
+    ul li {
+      padding: 0.8rem 0;
+      padding-left: 2.5rem;
+      position: relative;
+      color: #555;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    
+    ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #2D9F4E;
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+    
+    footer { background: #333; color: white; text-align: center; padding: 2rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Fat City Entertainment</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/">Products</a>
+      <a href="/">About</a>
+      <a href="/">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Keep Your Brewery Packed</h1>
+      <p>Music Bingo fills slow nights and builds customer loyalty. Proven. Works.</p>
+      <div class="cta-group">
+        <button class="btn btn-primary">Get Music Bingo Kit</button>
+        <button class="btn btn-secondary">See What's Included</button>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>The Problem Every Brewery Faces</h2>
+    <p>Tuesday through Thursday nights kill your margins. Your best customers stay home. Competitors steal your regulars.</p>
+    <ul>
+      <li>Slow nights = lost revenue</li>
+      <li>No reason for customers to return midweek</li>
+      <li>Entertainment costs feel too risky</li>
+      <li>One-time events don't build loyalty</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>What's Included in Your Kit</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>🎵 500+ Songs</h3>
+        <p>Hand-picked hits your crowd loves. No obscure cuts. Pop, rock, hip-hop, country, dance — the songs people want to hear.</p>
+      </div>
+      <div class="feature">
+        <h3>🎰 Printable Cards</h3>
+        <p>50+ unique card combinations. Print once, reuse forever. High-quality PDF ready to go.</p>
+      </div>
+      <div class="feature">
+        <h3>🎧 MP3 Files</h3>
+        <p>Ready to play on any sound system. Drop into Spotify, Apple Music, or your PA system.</p>
+      </div>
+      <div class="feature">
+        <h3>📖 Host Guide</h3>
+        <p>Step-by-step instructions. Tips from 5,000+ events. How to set up, run the game, award prizes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="testimonial-section">
+    <div class="testimonial">
+      <p>"We've run Music Bingo every Thursday for 8 months. Thursday revenue is up 180%. People come because they know we have Music Bingo. It's become our signature night."</p>
+      <div class="testimonial-author">— Marcus T., Brew & Bliss Brewery, Portland OR</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>How It Works</h2>
+    <p>Simple. Download. Print. Host. Repeat.</p>
+    <ul>
+      <li><strong>Week 1:</strong> Download kit. Print cards. Run your first event.</li>
+      <li><strong>Week 2:</strong> Refine your event. Learn what your crowd loves.</li>
+      <li><strong>Week 3+:</strong> Run it every week. Watch your customer base grow.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Why Breweries Choose Fat City</h2>
+    <ul>
+      <li>Tested in 100+ breweries and bars nationwide</li>
+      <li>Download once, use forever (lifetime license)</li>
+      <li>Professional content curated specifically for bars</li>
+      <li>Email support included</li>
+      <li>98% customer satisfaction rate</li>
+    </ul>
+  </section>
+
+  <div class="final-cta">
+    <h2>Ready to Fill Your Brewery?</h2>
+    <p>Music Bingo works. Thousands of breweries trust Fat City.</p>
+    <button class="btn btn-primary">Get Started Now</button>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Fat City Entertainment. All rights reserved.</p>
+  </footer>
+</body>
+</html>
