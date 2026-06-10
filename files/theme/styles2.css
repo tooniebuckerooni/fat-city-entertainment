@@ -1,0 +1,48 @@
+html, body {
+	padding: 0;
+	margin: 0;
+	font-family: "Source Sans Pro";
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+h1 {
+ 	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+.container {
+	width: 90%;
+}
+
+.options {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+
+.option-text {
+	font-size: 18px;
+}
+
+.generate-button {
+	width: 160px;
+	height: 35px;
+	background-color: "#fff";
+	border-radius: 8px;
+	/*border-width: 1;*/
+	/*border-color: "#eee";*/
+	transition: all 0.3s ease-in;
+}
+
+.generate-button:hover {
+	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in;
+}
+
+td, th {
+	border: 1px solid black;
+}

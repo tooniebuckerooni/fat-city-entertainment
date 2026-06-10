@@ -1,0 +1,22 @@
+Migrate fatcityentertainment.com from Weebly to static GitHub Pages site
+
+Every public URL is preserved: 32 exported pages, 73 product pages
+(/store/pNN/, incl. 2 hidden products), 8 store categories, 107 blog
+posts plus archives/categories/pagination (extensionless URLs served
+as directory index.html).
+
+- Weebly platform JS/CSS removed; CDN assets (sites.css, fonts, icon
+  fonts, jQuery, slideshow) self-hosted under /assets/
+- Product Add-to-Cart replaced with LemonSqueezy buy buttons driven
+  by assets/js/ls-links.js (see LEMONSQUEEZY-TODO.md for the 73-item
+  re-listing checklist)
+- Weebly video embeds converted to native video tags (files in /uploads)
+- Cloudflare email obfuscation decoded back to real mailto: links
+- Legacy URLs (/4/post/, /blog/, /inspiration/, old store slugs,
+  renamed pages) rewritten to match the live site's redirect behavior
+- Booking forms point at a Formspree placeholder (YOUR_FORM_ID)
+- 519 Weebly-generated image derivatives fetched from the live site
+- CNAME, robots.txt, sitemap.xml (original 213 URLs), 404 page
+- _tools/ holds the scraper/transformer pipeline and raw scraped pages
+
+Co-Authored-By: Claude Fable 5 <noreply@anthropic.com>

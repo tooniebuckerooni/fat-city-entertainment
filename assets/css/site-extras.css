@@ -1,0 +1,55 @@
+/* Post-Weebly additions: pure-CSS desktop dropdown menus (Weebly's main.js
+   used to build these as JS flyouts) plus small cleanups. */
+
+/* Desktop nav dropdowns */
+.desktop-nav li.wsite-menu-item-wrap,
+.desktop-nav li.wsite-menu-subitem-wrap {
+  position: relative;
+}
+.desktop-nav .wsite-menu-wrap {
+  display: none !important;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 3000;
+  min-width: 230px;
+  background: #1d1d1d;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  padding: 4px 0;
+}
+.desktop-nav li:hover > .wsite-menu-wrap,
+.desktop-nav li:focus-within > .wsite-menu-wrap {
+  display: block !important;
+}
+/* nested (third-level) flyouts open to the side */
+.desktop-nav .wsite-menu .wsite-menu-wrap {
+  top: 0;
+  left: 100%;
+}
+.desktop-nav .wsite-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.desktop-nav .wsite-menu li {
+  display: block;
+  float: none;
+}
+.desktop-nav .wsite-menu a.wsite-menu-subitem {
+  display: block;
+  padding: 10px 16px;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* Hide leftover commerce / membership UI if any slipped through */
+#wsite-mini-cart,
+.wsite-com-search,
+#wsite-com-product-fulfillment-options-container {
+  display: none !important;
+}
+
+/* LemonSqueezy buy button spacing on product pages */
+#wsite-com-product-buy .ls-buy {
+  margin-top: 10px;
+}

@@ -1,0 +1,8 @@
+# migration tooling artifacts
+_tools/node_modules/
+_tools/*-log.txt
+.claude/
+
+# _tools/scraped/ is committed on purpose: it is the raw archival copy of the
+# live Weebly pages, the only source if a transform fix is ever needed after
+# Weebly shuts down.
