@@ -42,6 +42,12 @@
   text-align: left;
 }
 
+/* Weebly's JS-driven section "reveal" effect hid banner content until their
+   platform JS animated it in; that JS is gone, so force content visible. */
+[class*="wsite-section-effect"] .wsite-section-content > * {
+  visibility: visible !important;
+}
+
 /* Hide leftover commerce / membership UI if any slipped through */
 #wsite-mini-cart,
 .wsite-com-search,
