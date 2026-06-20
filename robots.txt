@@ -1,5 +1,4 @@
 User-agent: *
-Disallow: /_tools/
 Allow: /
 
 Sitemap: https://www.fatcityentertainment.com/sitemap.xml
