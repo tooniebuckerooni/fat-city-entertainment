@@ -243,6 +243,13 @@ footer a:hover { color: var(--text); }
 .reveal { opacity: 0; transform: translateY(18px); animation: rise 0.7s forwards; }
 @keyframes rise { to { opacity: 1; transform: none; } }
 
+/* Respect reduced-motion: render reveal content immediately, no animation,
+   so it can never get stuck invisible at opacity:0. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; animation: none; }
+  .bulbs { animation: none; }
+}
+
 /* ---- Responsive ------------------------------------------------------- */
 @media (max-width: 900px) {
   .grid-3, .cols-3, .steps, .store-grid { grid-template-columns: 1fr 1fr; }
