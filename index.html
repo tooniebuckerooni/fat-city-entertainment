@@ -161,22 +161,22 @@
             <p>All your favorites back to the Malt Shop. Now includes a Song Title version + callsheet. 33 songs.</p>
             <div class="price"><span class="now">CA$7.50</span><span class="was">CA$12.50</span></div>
             <!-- LS overlay button: data-ls maps to LS_CHECKOUT in the script below -->
-            <a class="btn btn-buy" data-ls="goldenoldies" href="#">Download</a>
+            <a class="btn btn-buy" data-ls="goldenoldies" href="#">Buy</a>
           </div>
           <div class="product">
-            <span class="cat-pill">Generator</span>
-            <h3>Bingo Card Generator Pro</h3>
-            <p>Lifetime access. Generate up to 250 randomized, print-perfect cards for any game you own.</p>
-            <div class="price"><span class="now">CA$99.00</span><span class="was">CA$149.00</span></div>
-            <a class="btn btn-buy" data-ls="bingocardgeneratorpro" href="#">Download</a>
+            <span class="cat-pill">Card Maker</span>
+            <h3>Bingo Card Generator</h3>
+            <p>Make your own randomized, print-perfect bingo cards online — no download, no install. Free to use.</p>
+            <div class="price"><span class="now">Free</span></div>
+            <a class="btn btn-buy" href="https://bingocardgenerator.online" target="_blank" rel="noopener">Open the Generator →</a>
           </div>
           <div class="product">
             <span class="sale-flag">Best Value</span>
             <span class="cat-pill">Bundle</span>
             <h3>Music Bingo Gold Club</h3>
-            <p>Unlock all 49 games + Bingo Card Generator Pro included. New game roughly every week, free upon release.</p>
+            <p>Unlock all 49 games. New game roughly every week, free upon release.</p>
             <div class="price"><span class="now">CA$329.00</span><span class="was">CA$775.00</span></div>
-            <a class="btn btn-buy" data-ls="goldclub" href="#">Download</a>
+            <a class="btn btn-buy" data-ls="goldclub" href="#">Buy</a>
           </div>
         </div>
         <div style="margin-top:34px;">
@@ -262,11 +262,13 @@
        ===================================================================== -->
   <script>
     const LS_CHECKOUT = {
-      goldenoldies:          "https://YOURSTORE.lemonsqueezy.com/buy/REPLACE-UUID?embed=1",
-      bingocardgeneratorpro: "https://YOURSTORE.lemonsqueezy.com/buy/REPLACE-UUID?embed=1",
-      goldclub:              "https://YOURSTORE.lemonsqueezy.com/buy/REPLACE-UUID?embed=1"
+      goldenoldies: "https://YOURSTORE.lemonsqueezy.com/buy/REPLACE-UUID?embed=1",
+      goldclub:     "https://YOURSTORE.lemonsqueezy.com/buy/REPLACE-UUID?embed=1"
     };
     document.querySelectorAll('[data-ls]').forEach(el => {
+      // Label the purchase button from the card's own price (no hardcoded prices)
+      const now = el.closest('.product') && el.closest('.product').querySelector('.price .now');
+      if (now) el.textContent = 'Buy · ' + now.textContent.trim();
       const url = LS_CHECKOUT[el.dataset.ls];
       if (url && !url.includes('REPLACE-UUID')) { el.href = url; el.classList.add('lemonsqueezy-button'); }
       else { el.addEventListener('click', e => { e.preventDefault(); alert('Add this product\'s Lemon Squeezy checkout link in LS_CHECKOUT.'); }); }
