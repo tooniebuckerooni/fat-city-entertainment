@@ -249,8 +249,17 @@ footer a:hover { color: var(--text); }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 680px) {
-  .nav-links { display: none; }
   .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute; top: 100%; left: 0; right: 0;
+    flex-direction: column; align-items: stretch; gap: 0;
+    background: rgba(13,11,10,0.98); border-bottom: 1px solid var(--line);
+    padding: 10px 24px 18px;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 12px 0; }
+  .nav-links .btn { margin-top: 10px; align-self: flex-start; }
   .grid-3, .cols-3, .steps, .store-grid, .foot-grid { grid-template-columns: 1fr; }
   .hero { padding: 60px 0 50px; }
 }

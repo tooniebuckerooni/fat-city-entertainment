@@ -26,14 +26,14 @@
   <header>
     <div class="wrap nav">
       <a class="brand" href="/">FAT CITY<span>.</span></a>
-      <nav class="nav-links">
+      <nav class="nav-links" id="primary-nav">
         <a href="/partyentertainment.html">Our Games</a>
         <a href="/printmusicbingocards.html">Bingo Card Maker</a>
         <a href="/triviahostresources.html">Blog</a>
         <a href="/contact.html">Contact</a>
         <a href="/trivia-store.html" class="btn btn-primary" style="padding:9px 18px;font-size:0.85rem;">Shop</a>
       </nav>
-      <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+      <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="primary-nav">☰</button>
     </div>
   </header>
 
@@ -232,6 +232,19 @@
       </div>
     </div>
   </footer>
+
+  <!-- Mobile nav: real open/close toggle, keeps aria-expanded in sync -->
+  <script>
+    (function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('primary-nav');
+      if (!toggle || !nav) return;
+      toggle.addEventListener('click', function () {
+        var open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    })();
+  </script>
 
   <!-- =====================================================================
        LEMON SQUEEZY OVERLAY CHECKOUT
