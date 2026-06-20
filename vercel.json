@@ -4,17 +4,7 @@
   "trailingSlash": false,
   "redirects": [
     {
-      "source": "/store/p:id/:slug*",
-      "destination": "/trivia-store.html",
-      "permanent": true
-    },
-    {
-      "source": "/store/c:id/:slug*",
-      "destination": "/trivia-store.html",
-      "permanent": true
-    },
-    {
-      "source": "/store/:path*",
+      "source": "/store/:path((?!p65/).*)",
       "destination": "/trivia-store.html",
       "permanent": true
     }
