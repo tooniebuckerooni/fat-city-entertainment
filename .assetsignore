@@ -1,0 +1,8 @@
+# Files Cloudflare Pages/Workers should NOT upload as static assets.
+# The mirror keeps these in the repo; they're just excluded from deploy.
+#
+# Cloudflare Pages caps a single asset at 25 MiB. This video is 27.3 MiB, so it
+# can't be served by Pages until it's compressed under 25 MiB or moved to
+# external hosting (YouTube / Cloudflare Stream / R2). Until then it's skipped;
+# the <video> on partyentertainment.html will show its poster but not play.
+uploads/4/3/3/6/43362499/fat_bottom_trivia_party_games_260.mp4
