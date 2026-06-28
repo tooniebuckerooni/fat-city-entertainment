@@ -12,7 +12,7 @@ HTML/CSS that opens LS checkout in an overlay.
 | `index.html` | Homepage — real content pulled from the live site |
 | `trivia-store.html` | Store with all 11 products + real CA$ pricing |
 | `styles.css` | Shared styling (neon dive-bar / game-show theme) |
-| `vercel.json` | Keeps `.html` URLs intact + 301s old `/store/*` URLs |
+| `.nojekyll` | Tells GitHub Pages to serve files as-is (no Jekyll build) |
 | `robots.txt`, `sitemap.xml` | SEO, with your real URLs preserved |
 
 Open `index.html` in a browser to preview. Both pages share `styles.css`.
@@ -31,44 +31,63 @@ That's the only payment-specific code in the whole site.
 
 ---
 
-## 2. Deploy to Vercel (free hosting)
+## 2. Deploy to GitHub Pages (free hosting)
 
-You already have Vercel connected, so:
+Same stack as your other sites: **GitHub Pages serves the files, Cloudflare sits
+in front** for redirects + HTTPS + CDN.
 
-1. Push this folder to a new GitHub repo (your `tooniebuckerooni` account).
-2. In Vercel: **New Project → import the repo**. No build step — it's static.
-   Framework preset: **Other**. Output: the repo root.
-3. Deploy. You'll get a `*.vercel.app` URL to test against first.
+1. Push the repo to GitHub (`tooniebuckerooni/fat-city-entertainment`), `main`.
+2. Repo → **Settings → Pages** → Source = **Deploy from a branch**,
+   Branch = `main`, folder = `/ (root)`. `.nojekyll` makes Pages serve files
+   as-is (important — it stops Jekyll from hiding `_tools/` and similar).
+3. You get `https://tooniebuckerooni.github.io/...`. **Click through everything
+   here first** — this is your pre-DNS staging URL. The `/store/*` 301s and
+   apex→www come from Cloudflare (step 3), so those won't fire on github.io, but
+   every page and internal link will.
 
-`vercel.json` is set so `/trivia-store.html` stays at that exact path (it does
-**not** rewrite to `/trivia-store`), which is what keeps your search rankings.
+Do **not** set a custom domain in Pages yet — that makes github.io redirect to
+the real domain before DNS is ready and breaks staging. Add it in step 3.
 
 ---
 
-## 3. Point the domain (the careful part)
+## 3. Cloudflare + domain cutover (the careful part)
 
-**Your domain is at Squarespace Domains now, not Google Domains.** Google sold
-its domain business to Squarespace and finished migrating everything by mid-2024.
-Log in at squarespace.com with your old Google credentials to reach DNS.
+Registrar is **Squarespace Domains** (Google sold its domain business to
+Squarespace). Keep the registration there; move DNS to Cloudflare, same as your
+other sites. Leave Weebly running the whole time.
 
-Cutover, in order:
+1. In Cloudflare, **Add a site** → `fatcityentertainment.com`. Cloudflare gives
+   you two nameservers — set those at **Squarespace → Domains → DNS →
+   Nameservers**. (Lower TTL first if you can.)
+2. In Cloudflare **DNS**, add both as **Proxied (orange cloud)**:
+   - `CNAME  www  →  tooniebuckerooni.github.io`
+   - `CNAME  @    →  tooniebuckerooni.github.io`  (Cloudflare flattens the apex)
+3. Cloudflare **SSL/TLS → Overview** → set mode to **Full**.
+4. GitHub repo → **Settings → Pages → Custom domain** → enter
+   `www.fatcityentertainment.com`, Save (this writes the `CNAME` file). Wait for
+   GitHub's certificate, then tick **Enforce HTTPS**. If the cert won't issue
+   behind the proxy, flip the two DNS records to **DNS only (grey cloud)** until
+   it does, then re-enable the orange cloud.
+5. Cloudflare **Rules → Redirect Rules** → add the two rules below.
+6. Load the real domain: spot-check ~10 old URLs, confirm a `/store/...` link
+   301s to the store, and run **one real test sale** through the LS overlay.
+   Only then retire Weebly.
 
-1. In Squarespace DNS, **lower the TTL** on your existing records to 300s and
-   wait a day. This makes the switch propagate fast.
-2. In Vercel → Project → **Domains**, add `www.fatcityentertainment.com` and set
-   it as the **primary** domain (your indexed URLs use `www`, so keep `www`
-   canonical — Vercel will 301 the apex to it). Add `fatcityentertainment.com`
-   too so the apex redirects.
-3. Vercel shows you the exact A / CNAME records to add. **In Squarespace, change
-   the records to point at Vercel.** Leave Weebly running — don't cancel yet.
-4. Wait for propagation, then load the site on the real domain and **make one
-   real test purchase** through the LS overlay end to end.
+### Cloudflare Redirect Rules (replace what vercel.json used to do)
 
-**Do not cancel Weebly until the domain resolves to Vercel and a test sale
-works.** And never let the *domain registration* lapse at Squarespace — losing
-the domain is the one thing that actually kills all your traffic. If you'd
-rather not stay on Squarespace, you can transfer the domain to Cloudflare or
-NameSilo, but do that as a separate step after the site is live.
+**A) Old store URLs → store page — keeps the p65 legacy page alive**
+- When incoming requests match (custom filter expression):
+  `(starts_with(http.request.uri.path, "/store/") and not starts_with(http.request.uri.path, "/store/p65/"))`
+- Then: **Static redirect** → `https://www.fatcityentertainment.com/trivia-store.html`, status **301 (permanent)**.
+
+**B) apex → www**
+- When incoming requests match: `(http.host eq "fatcityentertainment.com")`
+- Then: **Dynamic redirect** → expression
+  `concat("https://www.fatcityentertainment.com", http.request.uri.path)`,
+  status **301**, **preserve query string** on.
+
+Never let the domain registration lapse at Squarespace — that's the one thing
+that actually kills all your traffic.
 
 ---
 
@@ -77,7 +96,7 @@ NameSilo, but do that as a separate step after the site is live.
 - **URLs are preserved.** Every page keeps its existing `.html` path, so Google
   doesn't see "new" pages. No redirect needed for the main pages.
 - **Old store URLs** (`/store/p62/...`, `/store/c11/...`) 301 to the store page
-  via `vercel.json`, so any link equity flows through.
+  via **Cloudflare Redirect Rule A** (§3), so any link equity flows through.
 - After cutover: in **Google Search Console**, submit `sitemap.xml` and request
   indexing on the homepage and store. Watch Coverage + traffic for ~2 weeks.
 - StatCounter was on the old site (id `12764046`). Re-add that snippet, or drop
