@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Music Bingo Handbook — How to Start &amp; Run a Packed Music Bingo Night | Fat City Entertainment</title>
+  <meta name="description" content="The Music Bingo Handbook: a step-by-step guide to starting and running a music bingo night that packs the room — gear, playlists, hosting, and getting booked. Instant download.">
+  <link rel="canonical" href="https://www.fatcityentertainment.com/musicbingohandbook.html">
+  <link href="/assets/fonts/Montserrat/font.css" rel="stylesheet" type="text/css">
+  <style>
+    :root {
+      --night: #191512;
+      --night-2: #241f1a;
+      --cream: #faf6ee;
+      --ink: #241f1a;
+      --dim-dark: #b8ac99;
+      --dim-light: #6d6558;
+      --gold: #d4a017;
+      --gold-deep: #99790a;
+      --line: #e6ddcc;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--gold-deep); }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      background:
+        radial-gradient(circle at 15% 0%, rgba(212,160,23,.18), transparent 45%),
+        radial-gradient(circle at 90% 100%, rgba(212,160,23,.1), transparent 40%),
+        var(--night);
+      color: var(--cream);
+      padding: 88px 24px 72px;
+      text-align: center;
+    }
+    .kicker {
+      display: inline-block;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--gold);
+      border: 1px solid rgba(212,160,23,.45);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 26px;
+    }
+    .hero h1 {
+      font-size: clamp(2.1rem, 6vw, 3.6rem);
+      line-height: 1.12;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .hero h1 em { font-style: normal; color: var(--gold); }
+    .hero .tagline {
+      margin: 20px auto 0;
+      max-width: 600px;
+      font-size: 1.18rem;
+      color: var(--dim-dark);
+    }
+    .cta-row { margin-top: 36px; }
+    .btn {
+      display: inline-block;
+      padding: 16px 34px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      background: linear-gradient(120deg, var(--gold), #b8860b);
+      color: #241a05;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .price-note { display: block; margin-top: 14px; color: var(--dim-dark); font-size: .95rem; }
+    .price-note .ls-price { color: var(--cream); font-weight: 700; }
+
+    /* Sections */
+    section { padding: 68px 0; }
+    h2 { text-align: center; font-size: 1.9rem; margin-bottom: 12px; }
+    .sub { text-align: center; color: var(--dim-light); max-width: 640px; margin: 0 auto 44px; }
+
+    .promise .wrap { max-width: 720px; font-size: 1.08rem; }
+    .promise p + p { margin-top: 16px; }
+
+    .inside { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+    .chapter {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+    }
+    .chapter .ico { font-size: 1.5rem; line-height: 1.3; }
+    .chapter h3 { font-size: 1.05rem; margin-bottom: 6px; }
+    .chapter p { color: var(--dim-light); font-size: .93rem; }
+
+    .who ul {
+      max-width: 640px;
+      margin: 0 auto;
+      list-style: none;
+    }
+    .who li {
+      padding: 14px 18px 14px 44px;
+      position: relative;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.02rem;
+    }
+    .who li::before { content: "✔"; position: absolute; left: 12px; color: var(--gold-deep); font-weight: 700; }
+
+    /* Buy box */
+    .buy {
+      background: var(--night-2);
+      color: var(--cream);
+    }
+    .buy-box {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(212,160,23,.35);
+      border-radius: 18px;
+      padding: 44px 32px;
+    }
+    .buy-box h2 { color: var(--cream); }
+    .buy-box .deal { color: var(--dim-dark); margin: 10px 0 26px; }
+    .buy-box .deal .ls-price { color: var(--gold); font-size: 1.5rem; font-weight: 700; }
+    .ls-pending { color: var(--dim-dark); font-size: .95rem; }
+    .ls-pending a { color: var(--gold); }
+    .fine { margin-top: 16px; font-size: .85rem; color: var(--dim-dark); }
+
+    /* FAQ */
+    .faq details {
+      max-width: 680px;
+      margin: 0 auto 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 16px 20px;
+    }
+    .faq summary { font-weight: 700; cursor: pointer; }
+    .faq details p { margin-top: 10px; color: var(--dim-light); }
+
+    .more { text-align: center; }
+    .more p { color: var(--dim-light); max-width: 560px; margin: 0 auto 24px; }
+    .ghost {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gold-deep);
+      color: var(--gold-deep);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .ghost:hover { background: rgba(153,121,10,.08); }
+
+    footer {
+      background: var(--night);
+      color: var(--dim-dark);
+      padding: 32px 24px;
+      text-align: center;
+      font-size: .9rem;
+    }
+    footer a { color: var(--dim-dark); }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="kicker">New · Instant Digital Download</span>
+    <h1>The <em>Music Bingo</em> Handbook</h1>
+    <p class="tagline">Everything we've learned running music bingo nights that pack the room — the gear, the playlists, the hosting craft, and how to get booked — in one step-by-step guide.</p>
+    <div class="cta-row">
+      <a class="btn ls-buy" data-product="handbook" href="/contact.html" style="display:none">Get the Handbook</a>
+      <p class="ls-pending" style="display:none;">Checkout is coming online — <a href="/contact.html">contact us</a> to grab your copy today.</p>
+      <small class="price-note"><span class="ls-price" data-product="handbook"></span> One-time purchase. Yours forever.</small>
+    </div>
+  </div>
+
+  <section class="promise">
+    <div class="wrap">
+      <h2>Trivia night is crowded. Music bingo wins the room.</h2>
+      <p style="margin-top:24px">Everyone can play music bingo. There are no hard questions, no arguing over answers, and no one sitting out — if you can hear a song, you're in the game. That's why venues that try it keep it on the calendar.</p>
+      <p>But there's a difference between playing songs off a phone and running a <strong>show</strong>. The Music Bingo Handbook is the playbook we wish we'd had when we started: the setup that works the first time, the pacing that keeps drinks flowing, and the little host moves that turn a Tuesday crowd into regulars.</p>
+    </div>
+  </section>
+
+  <section class="inside">
+    <div class="wrap">
+      <h2>What's inside</h2>
+      <p class="sub">A practical, do-this-then-that guide — written for real venues and real crowds.</p>
+      <div class="chapters">
+        <div class="chapter"><span class="ico">🎛️</span><div>
+          <h3>The Setup</h3>
+          <p>The sound gear, screens, and printed cards you actually need (and the expensive stuff you don't) — with a first-night checklist.</p>
+        </div></div>
+        <div class="chapter"><span class="ico">🎵</span><div>
+          <h3>Playlists That Pop</h3>
+          <p>How to build and sequence game playlists crowds sing along to, and how to run them smoothly on Spotify, Apple Music, or Amazon Music.</p>
+        </div></div>
+        <div class="chapter"><span class="ico">🎤</span><div>
+          <h3>Hosting the Show</h3>
+          <p>Openers, pacing, calling wins, handling ties and disputes, and the energy tricks that separate a host from a human jukebox.</p>
+        </div></div>
+        <div class="chapter"><span class="ico">🏆</span><div>
+          <h3>Games &amp; Prizes</h3>
+          <p>Formats beyond straight lines — four corners, blackout, themed rounds — plus prize structures that feel generous without eating the budget.</p>
+        </div></div>
+        <div class="chapter"><span class="ico">📈</span><div>
+          <h3>Getting Booked &amp; Paid</h3>
+          <p>How to pitch venues, what to charge, and how to turn one good night into a weekly residency.</p>
+        </div></div>
+        <div class="chapter"><span class="ico">📣</span><div>
+          <h3>Filling the Room</h3>
+          <p>Simple promotion that works for bars and breweries — socials, in-venue signage, and building a crowd that comes back.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who">
+    <div class="wrap">
+      <h2>Who it's for</h2>
+      <p class="sub">If any of these sound like you, the Handbook pays for itself on night one.</p>
+      <ul>
+        <li>Bar, brewery, or restaurant owners who want a weeknight that actually draws</li>
+        <li>Hosts and DJs adding music bingo to their service menu</li>
+        <li>Event planners and office social committees running parties people talk about</li>
+        <li>Anyone who bought bingo cards and thought “okay… now what?”</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="buy">
+    <div class="wrap">
+      <div class="buy-box">
+        <h2>Get the Music Bingo Handbook</h2>
+        <p class="deal"><span class="ls-price" data-product="handbook"></span><br>Instant PDF download · read it tonight, host this month</p>
+        <a class="btn ls-buy" data-product="handbook" href="/contact.html" style="display:none">Buy &amp; Download</a>
+        <p class="ls-pending" style="display:none;">Checkout is coming online — <a href="/contact.html">contact us</a> to grab your copy today.</p>
+        <p class="fine">Secure checkout by Lemon Squeezy. Prices in USD.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="wrap">
+      <h2>Questions, answered</h2>
+      <p class="sub">The ones we hear most.</p>
+      <details>
+        <summary>What format is the Handbook?</summary>
+        <p>A downloadable PDF you can read on any device or print. You get it instantly after checkout, and it's yours forever — including updates to the same edition.</p>
+      </details>
+      <details>
+        <summary>Do I need special equipment or an app?</summary>
+        <p>No app. Music bingo runs on printed cards, a music source, and a way to play sound. The Handbook covers exactly what to use at every budget level, starting with gear you may already own.</p>
+      </details>
+      <details>
+        <summary>Does it come with bingo cards and playlists?</summary>
+        <p>The Handbook is the how-to guide. Ready-to-play card games (each with matching streaming playlists) are available in our <a href="/trivia-store.html">Trivia Store</a> — and the Handbook shows you how to get the most out of them, or make your own.</p>
+      </details>
+      <details>
+        <summary>I run a venue but don't want to host. Can you just do it?</summary>
+        <p>Depending on where you are, yes — <a href="/contact.html">get in touch</a> and we'll either host it or help you train someone who can.</p>
+      </details>
+    </div>
+  </section>
+
+  <section class="more">
+    <div class="wrap">
+      <h2>Round out your show</h2>
+      <p>Pair the Handbook with ready-made games and you can be live by the weekend.</p>
+      <a class="ghost" href="/trivia-store.html">Browse Music Bingo Games</a>
+      <a class="ghost" href="/store/p112/GoldClub.html">Gold Club — Every Game We Make</a>
+      <a class="ghost" href="/triviahostresources.html">Free Host Resources</a>
+    </div>
+  </section>
+
+  <footer>
+    <p><a href="/">Fat City Entertainment</a> · music bingo, trivia &amp; game shows · <a href="/contact.html">Contact</a></p>
+  </footer>
+
+  <script src="/assets/js/ls-links.js"></script>
+  <script src="/assets/js/ls-buy.js"></script>
+</body>
+</html>

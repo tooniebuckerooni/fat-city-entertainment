@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRIV101 — The Countdown Game Show | Fat City Entertainment</title>
+  <meta name="description" content="TRIV101 is a web app game show: survey-style trivia meets a darts countdown. Race from 101 to exactly zero. Play on bar TVs, Zoom, or anywhere with a screen.">
+  <!-- Staged 2.0 page. Remove noindex when this goes live at its final URL. -->
+  <meta name="robots" content="noindex">
+  <link href="/assets/fonts/Montserrat/font.css" rel="stylesheet" type="text/css">
+  <style>
+    :root {
+      --stage: #0b0e1f;
+      --stage-2: #131834;
+      --ink: #f4f2ff;
+      --dim: #9aa0c3;
+      --hot: #ff4d6d;
+      --amber: #ffb703;
+      --ring: rgba(255, 183, 3, .25);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--stage);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: var(--amber); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 96px 24px 80px;
+      background:
+        radial-gradient(circle at 50% 120%, rgba(255,77,109,.28), transparent 55%),
+        radial-gradient(circle at 85% 10%, rgba(255,183,3,.15), transparent 40%),
+        var(--stage);
+    }
+    .rings {
+      position: absolute; top: 50%; left: 50%;
+      width: 1200px; height: 1200px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      border: 2px solid var(--ring);
+      box-shadow: 0 0 0 120px rgba(255,183,3,.04), 0 0 0 260px rgba(255,183,3,.03), 0 0 0 420px rgba(255,183,3,.02);
+      pointer-events: none;
+    }
+    .kicker {
+      display: inline-block;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--amber);
+      border: 1px solid rgba(255,183,3,.4);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 28px;
+      position: relative;
+    }
+    .wordmark {
+      position: relative;
+      font-weight: 700;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      letter-spacing: .04em;
+      line-height: 1;
+    }
+    .wordmark .num {
+      background: linear-gradient(120deg, var(--amber), var(--hot));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tagline {
+      position: relative;
+      margin: 20px auto 0;
+      max-width: 560px;
+      font-size: 1.25rem;
+      color: var(--dim);
+    }
+    .tagline strong { color: var(--ink); }
+
+    /* Notify form */
+    .notify { position: relative; margin: 40px auto 0; max-width: 460px; }
+    .notify form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .notify input[type=email] {
+      flex: 1 1 240px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.07);
+      color: var(--ink);
+    }
+    .notify input[type=email]::placeholder { color: var(--dim); }
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      background: linear-gradient(120deg, var(--amber), var(--hot));
+      color: #1a1030;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .notify small { display: block; margin-top: 12px; color: var(--dim); }
+
+    /* Sections */
+    section { padding: 72px 0; }
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 12px;
+      letter-spacing: .02em;
+    }
+    .sub { text-align: center; color: var(--dim); max-width: 620px; margin: 0 auto 48px; }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .step {
+      background: var(--stage-2);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px;
+      padding: 28px;
+    }
+    .step .n {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      font-weight: 700; font-size: 1.1rem;
+      background: rgba(255,183,3,.12);
+      color: var(--amber);
+      border: 1px solid rgba(255,183,3,.4);
+      margin-bottom: 16px;
+    }
+    .step h3 { margin-bottom: 8px; font-size: 1.15rem; }
+    .step p { color: var(--dim); font-size: .95rem; }
+
+    .screens { background: var(--stage-2); }
+    .chips { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+    .chip {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      color: var(--ink);
+      font-size: .95rem;
+    }
+
+    .meanwhile { text-align: center; }
+    .meanwhile p { color: var(--dim); max-width: 560px; margin: 0 auto 24px; }
+    .ghost {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,183,3,.5);
+      color: var(--amber);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .ghost:hover { background: rgba(255,183,3,.1); }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--dim);
+      font-size: .9rem;
+    }
+    footer a { color: var(--dim); }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <div class="rings" aria-hidden="true"></div>
+    <span class="kicker">A Fat City Entertainment Game Show</span>
+    <h1 class="wordmark">TRIV<span class="num">101</span></h1>
+    <p class="tagline"><strong>Survey-style trivia meets a darts countdown.</strong><br>
+    Race from 101 down to exactly zero — on any screen, anywhere.</p>
+
+    <div class="notify">
+      <!-- Same Formspree setup as the rest of the site: replace YOUR_FORM_ID -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="TRIV101 launch list signup">
+        <input type="email" name="email" placeholder="you@example.com" required>
+        <button class="btn" type="submit">Get Launch Access</button>
+      </form>
+      <small>The all-new TRIV101 web app is coming soon. Be first in line to host a show.</small>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>How the show works</h2>
+      <p class="sub">It plays like darts, thinks like a survey, and feels like a game show. Every team starts at 101.</p>
+      <div class="steps">
+        <div class="step">
+          <span class="n">1</span>
+          <h3>Guess the top answer</h3>
+          <p>We surveyed real people. Your team calls out what they think the most popular answer is — no obscure facts, just crowd smarts.</p>
+        </div>
+        <div class="step">
+          <span class="n">2</span>
+          <h3>Take it or press your luck</h3>
+          <p>Bank your points, or gamble on the second and third most popular answers for a double or triple. Greed is encouraged.</p>
+        </div>
+        <div class="step">
+          <span class="n">3</span>
+          <h3>Land on exactly zero</h3>
+          <p>Points count you down from 101. Overshoot and you bust. First team to hit zero on the nose wins the night.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="screens">
+    <div class="wrap">
+      <h2>One host. Any screen.</h2>
+      <p class="sub">TRIV101 runs in the browser — no installs, no app store, no cables to fight with.</p>
+      <div class="chips">
+        <span class="chip">🍺 Bar &amp; brewery TVs</span>
+        <span class="chip">💻 Zoom &amp; Teams parties</span>
+        <span class="chip">📺 Twitch &amp; YouTube streams</span>
+        <span class="chip">🏢 Office socials</span>
+        <span class="chip">🏠 Living-room game nights</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="meanwhile">
+    <div class="wrap">
+      <h2>Can't wait?</h2>
+      <p>The classic version of Triv101 is playable today, and the Premium question pack works with both.</p>
+      <a class="ghost" href="/triv101.html">Play Triv101 Classic Free</a>
+      <a class="ghost" href="/store/p7/triv101premium.html">Get the 1000-Question Premium Pack</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>TRIV101 is made by <a href="/">Fat City Entertainment</a> — music bingo, trivia, and game shows since way back.</p>
+  </footer>
+
+</body>
+</html>

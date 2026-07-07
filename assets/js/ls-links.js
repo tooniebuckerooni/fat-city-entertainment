@@ -7,9 +7,16 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 1 of 73 wired — 72 to go.  Search "[ ]" to find them.
+// STATUS: 1 of 74 wired — 73 to go.  Search "[ ]" to find them.
+//
+// PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
+// Weebly prices, kept as reference while you re-price each product in USD.
+// After wiring a product, update the on-page price with:
+//   node _tools/set-usd-price.js pNN <usd> [<sale-usd>]
+// (see LEMONSQUEEZY-TODO.md for the full workflow)
 // ==========================================================================
 window.LS_LINKS = {
+  "handbook": "", // [ ] The Music Bingo Handbook — NEW product — /musicbingohandbook.html
   "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — CA$19.99 — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
   "p7": "", // [ ] Triv101 Premium - 1000 Question Add-on — CA$22.00 — /store/p7/triv101premium.html
   "p9": "", // [ ] The Wild West — CA$29.00 — /store/p9/thewildwest.html
@@ -83,4 +90,12 @@ window.LS_LINKS = {
   "p160": "", // [ ] 90s R&B - 250 Music Bingo Cards — CA$12.50 — /store/p160/90sRnB.html
   "p162": "", // [ ] Word Games - 3 Pack — CA$32.00 — /store/p162/Word_Games_-_3_Pack.html
   "p163": "", // [ ] TV Shows 2 - 250 Music Bingo Cards — CA$12.50 — /store/p163/tvthemes2.html
+};
+
+// USD display prices for NEW pages that use <span class="ls-price" data-product="...">
+// (the legacy /store/ pages have their prices baked into the HTML — update those
+// with _tools/set-usd-price.js instead). Format exactly as it should render,
+// e.g. "$14 USD". Leave "" to hide the price until the product is listed.
+window.LS_PRICES = {
+  "handbook": "",
 };
