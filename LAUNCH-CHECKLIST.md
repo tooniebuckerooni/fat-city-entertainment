@@ -91,15 +91,12 @@ section is safe to do (and verify) while Weebly is still live.
 
 ## Decisions to make (flagged, not changed)
 
-- **`8j6e7n5n3y09.html` is in the sitemap and indexable.** That's the paid
-  Triv101 Premium delivery page — anyone who finds it plays the premium game
-  free. The full sitemap was restored deliberately, so this is left alone, but
-  consider `noindex` + removing it from the sitemap before the launch spotlight
-  hits (buyers keep their direct link either way).
+- ~~**`8j6e7n5n3y09.html` is in the sitemap and indexable.**~~ **Done.** Added
+  `noindex` and removed it from `sitemap.xml`. Buyers keep their direct link.
 - **USA-first, Canada-close:** prices are USD sitewide and LemonSqueezy (as
   merchant of record) handles both countries' taxes/exchange automatically.
   `yycevents.html` (Calgary) stays as the Canadian live-events page; a
   US-city equivalent landing page would be the cheap SEO win for fall.
-- Social previews: most legacy pages have no `og:` tags, so shared links show
-  bare text. Worth adding to the money pages (homepage, store, Handbook,
-  placeholders) before holiday promo pushes.
+- ~~Social previews~~: **Done.** `og:` tags added to homepage, Handbook,
+  TRIV101 placeholder, and Trivia Generator placeholder. (Trivia Store and
+  Gold Club already had them from Weebly.)
