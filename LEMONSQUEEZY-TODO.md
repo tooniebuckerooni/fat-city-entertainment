@@ -4,11 +4,33 @@ All 73 product pages were migrated with their original URLs.
 Each page has a hidden **Buy & Download** button that activates as soon as you
 paste that product's LemonSqueezy buy link into [assets/js/ls-links.js](assets/js/ls-links.js).
 
+> **Pricing is now in USD.** The table below shows the old Weebly CAD prices as
+> a reference for setting the new USD price on each product. LemonSqueezy
+> charges whatever the product is listed at there — the site just needs its
+> *displayed* price to match, which step 4 below handles. Pages you haven't
+> re-priced yet still show the old CA$ price and `priceCurrency=CAD` markup;
+> that's intentional (better an accurate old price than a wrong new one).
+
 How to wire up a product:
-1. Create the product in LemonSqueezy (upload the file, set the price).
+1. Create the product in LemonSqueezy (upload the file, set the **USD** price).
 2. Copy its **Buy Link** (Share button), e.g. `https://yourstore.lemonsqueezy.com/buy/xxxx`.
-3. Paste it into `assets/js/ls-links.js` next to the matching product id.
-4. Commit + push. The button opens LemonSqueezy's overlay checkout on the same page.
+3. Paste it into `assets/js/ls-links.js` next to the matching product id and
+   flip its `[ ]` to `[x]`.
+4. Update the displayed price everywhere (product page, store/category listings,
+   schema.org markup, sale ribbons) with one command:
+   ```
+   node _tools/set-usd-price.js p62 9.50          # $9.50 USD, not on sale
+   node _tools/set-usd-price.js p62 12.50 9.00    # $12.50 crossed out, $9.00 sale
+   ```
+5. Commit + push. The button opens LemonSqueezy's overlay checkout on the same page.
+
+New (non-Weebly) products like the [Music Bingo Handbook](musicbingohandbook.html)
+also get a display price via the `LS_PRICES` map at the bottom of `ls-links.js`
+(e.g. `"handbook": "$14 USD"`) — no tool run needed for those pages.
+
+**USA/Canada note:** LemonSqueezy shows USD to everyone and handles taxes per
+country as merchant of record, so US buyers see clean USD prices and Canadian
+buyers pay the exchange rate at checkout — no site changes needed per country.
 
 | ID | Product | Old price (CAD) | Page |
 |----|---------|-----------------|------|

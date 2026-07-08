@@ -2,6 +2,9 @@
 
 Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.com), migrated off Weebly to GitHub Pages in June 2026. **Every public URL from the Weebly site is preserved** — pages, store products, store categories, blog posts, blog archives/categories, and pagination.
 
+**Launching? Work through [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md)** — the
+DNS-cutover runbook with pre/post-flip verification steps.
+
 ## What's here
 
 | Path | What it is |
@@ -13,11 +16,13 @@ Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.
 | `trivia-store.html` | Store landing page |
 | `uploads/`, `files/` | All images, media, theme CSS/JS from Weebly |
 | `assets/` | Self-hosted CSS/fonts/JS that used to come from Weebly's CDN |
+| `musicbingohandbook.html` | Music Bingo Handbook sales funnel (live page, new product) |
+| `pages/*.html` | Staged 2.0 drafts (noindex, not linked) — incl. the new TRIV101 & Trivia Generator placeholders |
 | `_tools/` | The scraper/transformer scripts used for the migration (not served) |
 
 ## Selling products (LemonSqueezy)
 
-See **[LEMONSQUEEZY-TODO.md](LEMONSQUEEZY-TODO.md)**. Short version: as you re-create each product in LemonSqueezy, paste its buy link into [`assets/js/ls-links.js`](assets/js/ls-links.js). The buy button on that product page activates automatically and opens LemonSqueezy's overlay checkout right on the page.
+See **[LEMONSQUEEZY-TODO.md](LEMONSQUEEZY-TODO.md)**. Short version: as you re-create each product in LemonSqueezy (**prices are now USD**), paste its buy link into [`assets/js/ls-links.js`](assets/js/ls-links.js), then update the displayed price everywhere with `node _tools/set-usd-price.js pNN <usd> [<sale>]`. The buy button on that product page activates automatically and opens LemonSqueezy's overlay checkout right on the page.
 
 ## Contact forms
 

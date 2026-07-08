@@ -21,6 +21,12 @@
         if (pending) pending.style.display = "";
       }
     }
+    var prices = document.querySelectorAll(".ls-price[data-product]");
+    for (var j = 0; j < prices.length; j++) {
+      var price = (window.LS_PRICES || {})[prices[j].getAttribute("data-product")] || "";
+      prices[j].textContent = price;
+      prices[j].style.display = price ? "" : "none";
+    }
     if (anyActive && !document.getElementById("lemon-js")) {
       var s = document.createElement("script");
       s.id = "lemon-js";

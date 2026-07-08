@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trivia Generator — A Host-Ready Trivia Night in Seconds | Fat City Entertainment</title>
+  <meta name="description" content="Type a theme, get a complete, host-ready trivia night: rounds, questions, answers, and a score sheet. The Trivia Generator by Fat City Entertainment is coming soon.">
+  <!-- Staged 2.0 page. Remove noindex when this goes live at its final URL. -->
+  <meta name="robots" content="noindex">
+  <link href="/assets/fonts/Montserrat/font.css" rel="stylesheet" type="text/css">
+  <style>
+    :root {
+      --paper: #f7f8f6;
+      --card: #ffffff;
+      --ink: #17211e;
+      --dim: #5c6b66;
+      --teal: #0e8f7e;
+      --teal-dark: #0a6b5f;
+      --lime: #c9f24b;
+      --line: #dfe5e2;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.65;
+    }
+    a { color: var(--teal); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    .hero { padding: 88px 24px 64px; text-align: center; }
+    .kicker {
+      display: inline-block;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--teal);
+      background: rgba(14,143,126,.08);
+      border-radius: 999px;
+      padding: 6px 16px;
+      margin-bottom: 24px;
+    }
+    h1 { font-size: clamp(2.1rem, 6vw, 3.4rem); line-height: 1.15; max-width: 720px; margin: 0 auto; }
+    h1 em { font-style: normal; color: var(--teal); }
+    .tagline { margin: 18px auto 0; max-width: 560px; font-size: 1.15rem; color: var(--dim); }
+
+    /* Mock generator panel */
+    .panel {
+      max-width: 640px;
+      margin: 48px auto 0;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      box-shadow: 0 20px 50px -30px rgba(23,33,30,.35);
+      text-align: left;
+      overflow: hidden;
+    }
+    .panel-bar {
+      display: flex; align-items: center; gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfb;
+      font-size: .8rem; color: var(--dim); font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+    .dot.go { background: var(--lime); }
+    .panel-body { padding: 20px 24px 24px; font-size: .95rem; }
+    .prompt { color: var(--dim); }
+    .prompt b { color: var(--ink); }
+    .out { margin-top: 14px; border-left: 3px solid var(--teal); padding: 4px 0 4px 16px; }
+    .out div { padding: 3px 0; }
+    .out .r { font-weight: 700; color: var(--teal-dark); }
+
+    .notify { margin: 40px auto 0; max-width: 460px; }
+    .notify form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .notify input[type=email] {
+      flex: 1 1 240px;
+      padding: 14px 18px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: var(--card);
+      color: var(--ink);
+    }
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--teal);
+      color: #fff;
+    }
+    .btn:hover { background: var(--teal-dark); }
+    .notify small { display: block; margin-top: 12px; color: var(--dim); text-align: center; }
+
+    section { padding: 64px 0; }
+    section.alt { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    h2 { text-align: center; font-size: 1.9rem; margin-bottom: 12px; }
+    .sub { text-align: center; color: var(--dim); max-width: 620px; margin: 0 auto 44px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 26px;
+    }
+    section.alt .card { background: var(--paper); }
+    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .card p { color: var(--dim); font-size: .95rem; }
+    .card .ico { font-size: 1.6rem; display: block; margin-bottom: 12px; }
+
+    .meanwhile { text-align: center; }
+    .meanwhile p { color: var(--dim); max-width: 560px; margin: 0 auto 24px; }
+    .ghost {
+      display: inline-block;
+      margin: 6px 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
+      border: 1.5px solid var(--teal);
+      color: var(--teal-dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .ghost:hover { background: rgba(14,143,126,.08); }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--dim);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <span class="kicker">Coming Soon · For Hosts, By Hosts</span>
+    <h1>Type a theme.<br>Get a <em>host-ready trivia night.</em></h1>
+    <p class="tagline">The Trivia Generator builds complete rounds — questions, answers, tiebreakers, and a score sheet — so you can spend your prep time on the show, not the spreadsheet.</p>
+
+    <div class="panel" role="img" aria-label="Preview of the Trivia Generator building a themed trivia round">
+      <div class="panel-bar"><span class="dot go"></span><span class="dot"></span><span class="dot"></span> Trivia Generator</div>
+      <div class="panel-body">
+        <p class="prompt">Theme: <b>“90s one-hit wonders”</b> · Rounds: <b>4</b> · Difficulty: <b>pub night</b></p>
+        <div class="out">
+          <div class="r">Round 1 — Name That Wonder (10 questions) ✓</div>
+          <div class="r">Round 2 — Finish the Lyric (10 questions) ✓</div>
+          <div class="r">Round 3 — Picture Round: Album Covers ✓</div>
+          <div class="r">Round 4 — Final Countdown + tiebreaker ✓</div>
+          <div>Host pack: answer key · score sheet · printables ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notify">
+      <!-- Same Formspree setup as the rest of the site: replace YOUR_FORM_ID -->
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="hidden" name="_subject" value="Trivia Generator launch list signup">
+        <input type="email" name="email" placeholder="you@example.com" required>
+        <button class="btn" type="submit">Join the Waitlist</button>
+      </form>
+      <small>Launching soon. Waitlist members get first access and a founding-host deal.</small>
+    </div>
+  </div>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Built for people who actually host</h2>
+      <p class="sub">Two decades of running bar trivia went into what this tool spits out — pacing, difficulty curves, and rounds crowds genuinely enjoy.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="ico">🎯</span>
+          <h3>Any theme, tuned right</h3>
+          <p>Decades, movies, local flavor, office in-jokes — set the difficulty to match your crowd, from casual party to cutthroat league night.</p>
+        </div>
+        <div class="card">
+          <span class="ico">📋</span>
+          <h3>A complete host pack</h3>
+          <p>Questions with verified answers, a printable score sheet, tiebreakers, and host notes — everything you need to walk in and run the show.</p>
+        </div>
+        <div class="card">
+          <span class="ico">⚡</span>
+          <h3>Seconds, not weekends</h3>
+          <p>A full night of material in less time than it takes to pour a pint. Regenerate any round you don't love with one click.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meanwhile">
+    <div class="wrap">
+      <h2>Need questions tonight?</h2>
+      <p>Our ready-made question packs and game show presentations are downloadable right now.</p>
+      <a class="ghost" href="/trivia-store.html">Browse the Trivia Store</a>
+      <a class="ghost" href="/triviahostresources.html">Free Host Resources</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>The Trivia Generator is made by <a href="/">Fat City Entertainment</a> — music bingo, trivia, and game shows for venues and parties.</p>
+  </footer>
+
+</body>
+</html>
