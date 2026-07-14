@@ -34,10 +34,12 @@ section is safe to do (and verify) while Weebly is still live.
   `musicbingonearme.html`, `virtualevents.html`, `vrtriviaparty.html`,
   `yycevents.html`, plus the staged `pages/triv101.html` and
   `pages/trivia-generator.html`).
-- [ ] **LemonSqueezy**: wire at least the money pages before cutover — Gold
-  Club and Bronze (p131, $75.00) are done; still to do: the Handbook
-  (`handbook`), Silver (p130), and the fall/holiday sellers (p33, p97, p42,
-  p103, p155) so they're live before the season. Per product:
+- [ ] **LemonSqueezy**: wire at least the money pages before cutover. Done so
+  far (5 of 74): Gold Club (p112), Bronze (p131, $75), Pro (p65, $59), Decades
+  5-Pack (p147, $43), Christmas Bingo (p103, $10.99). Still to do: the Handbook
+  (`handbook`), Silver (p130 — link pending), and the rest of the sales-ranked
+  batch as checkout links come in (p97 Halloween, p42 Christmas Trivia, etc.).
+  Per product:
   `ls-links.js` link + `node _tools/set-usd-price.js pNN <usd> [<sale>]`
   (full workflow in LEMONSQUEEZY-TODO.md).
 - [ ] **Handbook funnel**: set the LemonSqueezy link (`"handbook"` in
