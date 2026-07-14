@@ -29,7 +29,7 @@ section is safe to do (and verify) while Weebly is still live.
 
 ## Before flipping DNS
 
-- [ ] **Formspree**: create the form and replace `YOUR_FORM_ID` everywhere
+- [x] **Formspree**: create the form and replace `YOUR_FORM_ID` everywhere
   (`grep -rl "YOUR_FORM_ID" --include=*.html .` — currently `contact.html`,
   `musicbingonearme.html`, `virtualevents.html`, `vrtriviaparty.html`,
   `yycevents.html`, plus the staged `pages/triv101.html` and
