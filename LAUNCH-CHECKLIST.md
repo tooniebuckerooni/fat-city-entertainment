@@ -35,9 +35,9 @@ section is safe to do (and verify) while Weebly is still live.
   `yycevents.html`, plus the staged `pages/triv101.html` and
   `pages/trivia-generator.html`).
 - [ ] **LemonSqueezy**: wire at least the money pages before cutover — Gold
-  Club is done; suggested next: the Handbook (`handbook`), Silver/Bronze
-  (p130/p131), and the fall/holiday sellers (p33, p97, p42, p103, p155) so
-  they're live before the season. Per product:
+  Club and Bronze (p131, $75.00) are done; still to do: the Handbook
+  (`handbook`), Silver (p130), and the fall/holiday sellers (p33, p97, p42,
+  p103, p155) so they're live before the season. Per product:
   `ls-links.js` link + `node _tools/set-usd-price.js pNN <usd> [<sale>]`
   (full workflow in LEMONSQUEEZY-TODO.md).
 - [ ] **Handbook funnel**: set the LemonSqueezy link (`"handbook"` in
