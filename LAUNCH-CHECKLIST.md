@@ -29,15 +29,15 @@ section is safe to do (and verify) while Weebly is still live.
 
 ## Before flipping DNS
 
-- [ ] **Formspree**: create the form and replace `YOUR_FORM_ID` everywhere
+- [x] **Formspree**: create the form and replace `YOUR_FORM_ID` everywhere
   (`grep -rl "YOUR_FORM_ID" --include=*.html .` — currently `contact.html`,
   `musicbingonearme.html`, `virtualevents.html`, `vrtriviaparty.html`,
   `yycevents.html`, plus the staged `pages/triv101.html` and
   `pages/trivia-generator.html`).
 - [ ] **LemonSqueezy**: wire at least the money pages before cutover — Gold
-  Club is done; suggested next: the Handbook (`handbook`), Silver/Bronze
-  (p130/p131), and the fall/holiday sellers (p33, p97, p42, p103, p155) so
-  they're live before the season. Per product:
+  Club and Bronze (p131, $75.00) are done; still to do: the Handbook
+  (`handbook`), Silver (p130), and the fall/holiday sellers (p33, p97, p42,
+  p103, p155) so they're live before the season. Per product:
   `ls-links.js` link + `node _tools/set-usd-price.js pNN <usd> [<sale>]`
   (full workflow in LEMONSQUEEZY-TODO.md).
 - [ ] **Handbook funnel**: set the LemonSqueezy link (`"handbook"` in
@@ -91,15 +91,12 @@ section is safe to do (and verify) while Weebly is still live.
 
 ## Decisions to make (flagged, not changed)
 
-- **`8j6e7n5n3y09.html` is in the sitemap and indexable.** That's the paid
-  Triv101 Premium delivery page — anyone who finds it plays the premium game
-  free. The full sitemap was restored deliberately, so this is left alone, but
-  consider `noindex` + removing it from the sitemap before the launch spotlight
-  hits (buyers keep their direct link either way).
+- ~~**`8j6e7n5n3y09.html` is in the sitemap and indexable.**~~ **Done.** Added
+  `noindex` and removed it from `sitemap.xml`. Buyers keep their direct link.
 - **USA-first, Canada-close:** prices are USD sitewide and LemonSqueezy (as
   merchant of record) handles both countries' taxes/exchange automatically.
   `yycevents.html` (Calgary) stays as the Canadian live-events page; a
   US-city equivalent landing page would be the cheap SEO win for fall.
-- Social previews: most legacy pages have no `og:` tags, so shared links show
-  bare text. Worth adding to the money pages (homepage, store, Handbook,
-  placeholders) before holiday promo pushes.
+- ~~Social previews~~: **Done.** `og:` tags added to homepage, Handbook,
+  TRIV101 placeholder, and Trivia Generator placeholder. (Trivia Store and
+  Gold Club already had them from Weebly.)

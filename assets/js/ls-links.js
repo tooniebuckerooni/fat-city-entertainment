@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 1 of 74 wired — 73 to go.  Search "[ ]" to find them.
+// STATUS: 2 of 74 wired — 72 to go.  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
@@ -66,7 +66,7 @@ window.LS_LINKS = {
   "p128": "", // [ ] One Hit Wonders 2-Pack — CA$22.00 — /store/p128/onehitwonders2pack.html
   "p129": "", // [ ] Cover Tunes - 250 Music Bingo Cards — CA$11.00 — /store/p129/covertunes.html
   "p130": "", // [ ] Music Bingo Silver Club — CA$225.00 — /store/p130/SilverClub.html
-  "p131": "", // [ ] Music Bingo Bronze - Top 10 Pack — CA$98.00 — /store/p131/BronzeClub.html
+  "p131": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/028a1234-44ee-434f-b015-3f2bd6c4cbe1", // [x] Music Bingo Bronze - Top 10 Pack — $75.00 USD — /store/p131/BronzeClub.html
   "p132": "", // [ ] Road Trip! - 250 Music Bingo Cards — CA$11.00 — /store/p132/roadtrip.html
   "p133": "", // [ ] Cartoons - 250 Music Bingo Cards — CA$12.50 — /store/p133/cartoons.html
   "p135": "", // [ ] Valentine's Day Trivia 2-Pack — CA$25.00 — /store/p135/valentinestriviapack.html
