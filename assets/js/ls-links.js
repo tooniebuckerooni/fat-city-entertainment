@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 5 of 74 wired — 69 to go.  Search "[ ]" to find them.
+// STATUS: 11 of 74 wired — 63 to go.  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
@@ -32,12 +32,12 @@ window.LS_LINKS = {
   "p49": "", // [ ] Game Show Trivia - 5 Pack — CA$116.00 — /store/p49/FBTgk5pack1.html
   "p51": "", // [ ] FBT 3.1 Valentine's Day Special — CA$29.00 — /store/p51/fatbottomtrivia31.html
   "p53": "", // [ ] St. Patrick's Day Trivia 2-Pack — CA$27.00 — /store/p53/stpatricksday.html
-  "p62": "", // [ ] Golden Oldies - 250 Music Bingo Cards — $10.99 USD — /store/p62/goldenoldies.html
+  "p62": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7bdea84a-857c-48d4-8835-8645ac06ba72", // [x] Golden Oldies - 250 Music Bingo Cards — $10.99 USD — /store/p62/goldenoldies.html
   "p63": "", // [ ] Hair Bands - 250 Music Bingo Cards — $10.99 USD — /store/p63/hairbands.html
   "p65": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9f5766a5-d2c8-490e-b98c-50495012057e", // [x] Bingo Card Generator Pro *Lifetime Access* — $59.00 USD — /store/p65/bingocardgeneratorpro.html
   "p71": "", // [ ] Zoo Rock - 250 Music Bingo Cards — $10.99 USD — /store/p71/zoorock.html
   "p72": "", // [ ] Rocker Moms - (Great For Mother's Day Too!) — $10.99 USD — /store/p72/rockermoms.html
-  "p81": "", // [ ] One Hit Wonders - 250 Music Bingo Cards — $10.99 USD — /store/p81/onehitwonders.html
+  "p81": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/70d9e978-42f1-4fd3-882e-c9eb6818d57a", // [x] One Hit Wonders - 250 Music Bingo Cards — $10.99 USD — /store/p81/onehitwonders.html
   "p92": "", // [ ] Food Fight - 250 Music Bingo Cards — $10.99 USD — /store/p92/foodfight.html
   "p95": "", // [ ] Video Games - 250 Music Bingo Cards — $10.99 USD — /store/p95/videogames.html
   "p97": "", // [ ] Halloween Party - 250 Music Bingo Cards — $10.99 USD — /store/p97/halloweenparty.html
@@ -51,9 +51,9 @@ window.LS_LINKS = {
   "p110": "", // [ ] Out Of This World - 250 Music Bingo Cards — $10.99 USD — /store/p110/outofthisworld.html
   "p111": "", // [ ] Girls Vs Boys — $10.99 USD — /store/p111/girlsvsboys.html
   "p112": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b", // [x] Music Bingo Gold Club — $235.50 USD — /store/p112/GoldClub.html
-  "p113": "", // [ ] The 90s - 250 Music Bingo Cards — $10.99 USD — /store/p113/the90s.html
+  "p113": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f3c90249-36e1-41f5-ac59-a8544858f59b", // [x] The 90s - 250 Music Bingo Cards — $10.99 USD — /store/p113/the90s.html
   "p114": "", // [ ] Antonyms - 250 Music Bingo Cards — CA$11.00 — /store/p114/antonyms.html
-  "p115": "", // [ ] The 70s - 250 Music Bingo Cards — $10.99 USD — /store/p115/the1970s.html
+  "p115": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/337af8d7-2a69-4a93-a9d6-df79cc689b45", // [x] The 70s - 250 Music Bingo Cards — $10.99 USD — /store/p115/the1970s.html
   "p116": "", // [ ] Anagrams - 250 Music Bingo Cards — $10.99 USD — /store/p116/anagrams.html
   "p117": "", // [ ] Nicknames - 250 Music Bingo Cards — $10.99 USD — /store/p117/nicknames.html
   "p121": "", // [ ] Life's A Beach - 250 Music Bingo Cards — $10.99 USD — /store/p121/lifesabeach.html
@@ -76,9 +76,9 @@ window.LS_LINKS = {
   "p140": "", // [ ] Zoom Party - Music Bingo, Trivia, Comedy — CA$375.00 — /store/p140/virtualeventpayment.html
   "p141": "", // [ ] Rowdy Country - 250 Music Bingo Cards — $10.99 USD — /store/p141/rowdycountry.html
   "p143": "", // [ ] Motown - 250 Music Bingo Cards — $10.99 USD — /store/p143/motown.html
-  "p144": "", // [ ] The 80s - 250 Music Bingo Cards — $10.99 USD — /store/p144/the80s.html
+  "p144": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/11dcbdb3-bb30-46ad-a602-20c986a813a7", // [x] The 80s - 250 Music Bingo Cards — $10.99 USD — /store/p144/the80s.html
   "p145": "", // [ ] Colors - 250 Music Bingo Cards — $10.99 USD — /store/p145/colors.html
-  "p146": "", // [ ] The 2000s - 250 Music Bingo Cards — $10.99 USD — /store/p146/the2000s.html
+  "p146": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e61ec31f-5e28-4e10-8614-90fed8556d28", // [x] The 2000s - 250 Music Bingo Cards — $10.99 USD — /store/p146/the2000s.html
   "p147": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/88eccd0a-0fd9-4cca-b941-76a833f3192a", // [x] 'Decades' Music Bingo 5-Pack — $43.00 USD — /store/p147/decades.html
   "p148": "", // [ ] Guitar Gods - 250 Music Bingo Cards — $10.99 USD — /store/p148/guitargods.html
   "p149": "", // [ ] April Fools (Soundalikes) - 250 Music Bingo Cards — CA$11.00 — /store/p149/aprilsfoolsday.html
