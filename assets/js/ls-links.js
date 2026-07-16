@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 53 of 74 wired — 21 to go.  Search "[ ]" to find them.
+// STATUS: 68 of 74 wired — 6 to go.  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
@@ -19,19 +19,19 @@ window.LS_LINKS = {
   "handbook": "", // [ ] The Music Bingo Handbook — NEW product — /musicbingohandbook.html
   "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — $15.00 USD — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
   "p7": "", // [ ] Triv101 Premium - 1000 Question Add-on — CA$22.00 — /store/p7/triv101premium.html
-  "p9": "", // [ ] The Wild West — CA$29.00 — /store/p9/thewildwest.html
-  "p13": "", // [ ] Sports Pub Night - 'The Olympics' — CA$29.00 — /store/p13/spn11.html
+  "p9": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b55753e0-7506-40f3-a71d-7cf310995455", // [x] The Wild West — $23.49 USD — /store/p9/thewildwest.html
+  "p13": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7f0f7864-82ce-4098-aef2-f2884f0d03b8", // [x] Sports Pub Night - 'The Olympics' — $23.49 USD — /store/p13/spn11.html
   "p18": "", // [ ] How To Start A Successful Trivia Night - The Fat Bottom Trivia Host Handbook — CA$8.00 — /store/p18/fbthandbook.html
-  "p24": "", // [ ] 10,000+ Q&A Pack 1 — $24.00 USD — /store/p24/questionsandanswerspack1.html
-  "p25": "", // [ ] 10,000+ Q&A Pack 2 — CA$24.00 — /store/p25/10,000__Q&A_Pack_2.html
-  "p26": "", // [ ] 13,000+ Q&A Pack 4 — CA$19.99 — /store/p26/13,000__Q&A_Pack_4.html
-  "p27": "", // [ ] 10,000+ Q&A Pack 3 — CA$24.00 — /store/p27/10,000__Q&A_Pack_3.html
-  "p28": "", // [ ] Touchdown Trivia (4-Pack) — CA$65.00 — /store/p28/touchdowntriviapack.html
-  "p33": "", // [ ] Halloween Party Trivia 2-Pack — CA$27.00 — /store/p33/fatbottomtrivia15.html
-  "p42": "", // [ ] Christmas Party Trivia 3-Pack — $44.00 USD — /store/p42/Christmaspartypack.html
-  "p49": "", // [ ] Game Show Trivia - 5 Pack — CA$116.00 — /store/p49/FBTgk5pack1.html
+  "p24": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/5b29383e-3b4e-4990-89bf-fd987490dfd6", // [x] 10,000+ Q&A Pack 1 — $15.00 USD — /store/p24/questionsandanswerspack1.html
+  "p25": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/4fd1d1b0-181e-47af-8830-522cf7f9f782", // [x] 10,000+ Q&A Pack 2 — $15.00 USD — /store/p25/10,000__Q&A_Pack_2.html
+  "p26": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c98a7947-0563-4e5c-a55c-f96d4b7c3cf3", // [x] 13,000+ Q&A Pack 4 — $15.00 USD — /store/p26/13,000__Q&A_Pack_4.html
+  "p27": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f55c00b5-7139-41fe-935a-77bf0131bfb9", // [x] 10,000+ Q&A Pack 3 — $15.00 USD — /store/p27/10,000__Q&A_Pack_3.html
+  "p28": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b483369a-a045-4e71-aaf5-f6b8300a87bf", // [x] Touchdown Trivia (4-Pack) — $72.99 USD — /store/p28/touchdowntriviapack.html
+  "p33": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/be117494-8134-4d41-a031-133901ee478b", // [x] Halloween Party Trivia 2-Pack — $32.99 USD — /store/p33/fatbottomtrivia15.html
+  "p42": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a28b7e57-be5d-4b5d-a14f-3ec9a6baa683", // [x] Christmas Party Trivia 3-Pack — $53.99 USD — /store/p42/Christmaspartypack.html
+  "p49": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/10e8a04c-a720-48d6-9ee0-bd7c44755190", // [x] Game Show Trivia - 5 Pack — $87.99 USD — /store/p49/FBTgk5pack1.html
   "p51": "", // [ ] FBT 3.1 Valentine's Day Special — CA$29.00 — /store/p51/fatbottomtrivia31.html
-  "p53": "", // [ ] St. Patrick's Day Trivia 2-Pack — CA$27.00 — /store/p53/stpatricksday.html
+  "p53": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/90825928-76b6-418b-a293-5bdf5af64756", // [x] St. Patrick's Day Trivia 2-Pack — $32.99 USD — /store/p53/stpatricksday.html
   "p62": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7bdea84a-857c-48d4-8835-8645ac06ba72", // [x] Golden Oldies - 250 Music Bingo Cards — $10.99 USD — /store/p62/goldenoldies.html
   "p63": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/507a3fa6-f5fc-4152-a3ea-fadf740d4d9f", // [x] Hair Bands - 250 Music Bingo Cards — $10.99 USD — /store/p63/hairbands.html
   "p65": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9f5766a5-d2c8-490e-b98c-50495012057e", // [x] Bingo Card Generator Pro *Lifetime Access* — $59.00 USD — /store/p65/bingocardgeneratorpro.html
@@ -58,18 +58,18 @@ window.LS_LINKS = {
   "p117": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/061d0519-e1b0-471c-ad2a-371f82f6625d", // [x] Nicknames - 250 Music Bingo Cards — $10.99 USD — /store/p117/nicknames.html
   "p121": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7be9a955-1a63-4b0f-9e49-88df7b1900db", // [x] Life's A Beach - 250 Music Bingo Cards — $10.99 USD — /store/p121/lifesabeach.html
   "p122": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/8b9ba3e3-05f2-423a-8199-1ad8bc04e257", // [x] Cities - 250 Music Bingo Cards — $10.99 USD — /store/p122/cities.html
-  "p123": "", // [ ] 'Music Trivia Party' Game Show - 3 Pack — CA$43.00 — /store/p123/MTPpack1.html
+  "p123": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/291bfdbb-897d-43da-9c2c-0cbc8a1e332c", // [x] 'Music Trivia Party' Game Show - 3 Pack — $46.99 USD — /store/p123/MTPpack1.html
   "p124": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e8094d8b-2de5-4e8d-8ec8-4cb8a1258e63", // [x] Stadium Songs - 250 Music Bingo Cards — $10.99 USD — /store/p124/stadiumsongs.html
   "p125": "", // [ ] 'One Hit Wonders 2' - 250 Music Bingo Cards — CA$11.00 — /store/p125/onehitwonders2.html
-  "p126": "", // [ ] 'Video Games' Trivia - 3 Pack — $45.00 USD — /store/p126/videogametrivia.html
+  "p126": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a30d9c73-ba07-493a-b6da-3b87dca2f7f9", // [x] 'Video Games' Trivia - 3 Pack — $63.99 USD — /store/p126/videogametrivia.html
   "p127": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/274a06f1-c018-4259-944c-f0a4f112bfc5", // [x] Movie Soundtracks - 3 Pack — $23.99 USD — /store/p127/moviesoundtracks3pack.html
   "p128": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/de58d22b-4ddb-4d90-9d0c-a93a6eb69a90", // [x] One Hit Wonders 2-Pack — $18.99 USD — /store/p128/onehitwonders2pack.html
   "p129": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/63c7d3fb-45b4-48ea-b0e9-913aca4dcb56", // [x] Cover Tunes - 250 Music Bingo Cards — $10.99 USD — /store/p129/covertunes.html
-  "p130": "", // [ ] Music Bingo Silver Club — $209.00 USD — /store/p130/SilverClub.html
+  "p130": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b4f4670c-3a7f-4503-8cd8-ad4efd5e2220", // [x] Music Bingo Silver Club — $209.00 USD — /store/p130/SilverClub.html
   "p131": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/028a1234-44ee-434f-b015-3f2bd6c4cbe1", // [x] Music Bingo Bronze - Top 10 Pack — $87.00 USD — /store/p131/BronzeClub.html
   "p132": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/35e35d4f-390a-47be-888a-8bc13914c8a5", // [x] Road Trip! - 250 Music Bingo Cards — $10.99 USD — /store/p132/roadtrip.html
   "p133": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57441f4e-5bba-4394-8e50-dc88c4e3000c", // [x] Cartoons - 250 Music Bingo Cards — $10.99 USD — /store/p133/cartoons.html
-  "p135": "", // [ ] Valentine's Day Trivia 2-Pack — CA$25.00 — /store/p135/valentinestriviapack.html
+  "p135": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9623a506-8943-4cfe-9cad-5c162a720eb6", // [x] Valentine's Day Trivia 2-Pack — $32.99 USD — /store/p135/valentinestriviapack.html
   "p136": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/aad03863-e34e-4f37-897d-1c0ca35c3ccb", // [x] St. Patrick's Day - 250 Music Bingo Cards — $10.99 USD — /store/p136/stpaddysbingo.html
   "p137": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f85a7f7b-b391-44da-8421-7bc344122753", // [x] Consult Hour — $65.00 USD — /store/p137/eventpayment.html
   "p138": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/50150a8f-c9ee-4e92-9ae5-dd606e4940f5", // [x] A Bunch of 'Babies' - 250 Music Bingo Cards — $10.99 USD — /store/p138/abunchofbabies.html
