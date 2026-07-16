@@ -16,12 +16,12 @@
 // (see LEMONSQUEEZY-TODO.md for the full workflow)
 // ==========================================================================
 window.LS_LINKS = {
-  "handbook": "", // [ ] The Music Bingo Handbook — NEW product — /musicbingohandbook.html
+  "handbook": "", // [—] The Music Bingo Handbook — KDP (not LS) — /musicbingohandbook.html
   "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — $15.00 USD — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
   "p7": "", // [ ] Triv101 Premium - 1000 Question Add-on — CA$22.00 — /store/p7/triv101premium.html
   "p9": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b55753e0-7506-40f3-a71d-7cf310995455", // [x] The Wild West — $23.49 USD — /store/p9/thewildwest.html
   "p13": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7f0f7864-82ce-4098-aef2-f2884f0d03b8", // [x] Sports Pub Night - 'The Olympics' — $23.49 USD — /store/p13/spn11.html
-  "p18": "", // [ ] How To Start A Successful Trivia Night - The Fat Bottom Trivia Host Handbook — CA$8.00 — /store/p18/fbthandbook.html
+  "p18": "", // [—] How To Start A Successful Trivia Night - The Fat Bottom Trivia Host Handbook — KDP (not LS) — /store/p18/fbthandbook.html
   "p24": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/5b29383e-3b4e-4990-89bf-fd987490dfd6", // [x] 10,000+ Q&A Pack 1 — $15.00 USD — /store/p24/questionsandanswerspack1.html
   "p25": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/4fd1d1b0-181e-47af-8830-522cf7f9f782", // [x] 10,000+ Q&A Pack 2 — $15.00 USD — /store/p25/10,000__Q&A_Pack_2.html
   "p26": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c98a7947-0563-4e5c-a55c-f96d4b7c3cf3", // [x] 13,000+ Q&A Pack 4 — $15.00 USD — /store/p26/13,000__Q&A_Pack_4.html

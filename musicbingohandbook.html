@@ -182,13 +182,13 @@
 <body>
 
   <div class="hero">
-    <span class="kicker">New · Instant Digital Download</span>
+    <span class="kicker">New · Coming Soon to Amazon</span>
     <h1>The <em>Music Bingo</em> Handbook</h1>
     <p class="tagline">Everything we've learned running music bingo nights that pack the room — the gear, the playlists, the hosting craft, and how to get booked — in one step-by-step guide.</p>
     <div class="cta-row">
-      <a class="btn ls-buy" data-product="handbook" href="/contact.html" style="display:none">Get the Handbook</a>
-      <p class="ls-pending" style="display:none;">Checkout is coming online — <a href="/contact.html">contact us</a> to grab your copy today.</p>
-      <small class="price-note"><span class="ls-price" data-product="handbook"></span> One-time purchase. Yours forever.</small>
+      <a class="btn" id="handbook-buy" href="#" style="display:none">Get the Handbook on Amazon</a>
+      <p class="kdp-pending" style="margin-top:20px; color:var(--dim-dark);">Coming soon to Amazon — <a href="/contact.html" style="color:var(--gold);">contact us</a> to be notified when it's live.</p>
+      <small class="price-note">One-time purchase. Yours forever.</small>
     </div>
   </div>
 
@@ -250,10 +250,10 @@
     <div class="wrap">
       <div class="buy-box">
         <h2>Get the Music Bingo Handbook</h2>
-        <p class="deal"><span class="ls-price" data-product="handbook"></span><br>Instant PDF download · read it tonight, host this month</p>
-        <a class="btn ls-buy" data-product="handbook" href="/contact.html" style="display:none">Buy &amp; Download</a>
-        <p class="ls-pending" style="display:none;">Checkout is coming online — <a href="/contact.html">contact us</a> to grab your copy today.</p>
-        <p class="fine">Secure checkout by Lemon Squeezy. Prices in USD.</p>
+        <p class="deal">Available soon on Amazon<br>Read it tonight, host this month</p>
+        <a class="btn" id="handbook-buy-2" href="#" style="display:none">Buy on Amazon</a>
+        <p class="kdp-pending" style="color:var(--dim-dark);">Coming soon — <a href="/contact.html" style="color:var(--gold);">contact us</a> to be notified when it's live.</p>
+        <p class="fine">Available on Amazon Kindle and paperback.</p>
       </div>
     </div>
   </section>
@@ -295,7 +295,17 @@
     <p><a href="/">Fat City Entertainment</a> · music bingo, trivia &amp; game shows · <a href="/contact.html">Contact</a></p>
   </footer>
 
-  <script src="/assets/js/ls-links.js"></script>
-  <script src="/assets/js/ls-buy.js"></script>
+  <script>
+  // When the KDP link is ready, set it here and both buy buttons activate.
+  var KDP_HANDBOOK = "";
+  if (KDP_HANDBOOK) {
+    document.getElementById("handbook-buy").href = KDP_HANDBOOK;
+    document.getElementById("handbook-buy").style.display = "";
+    document.getElementById("handbook-buy-2").href = KDP_HANDBOOK;
+    document.getElementById("handbook-buy-2").style.display = "";
+    var pending = document.querySelectorAll(".kdp-pending");
+    for (var i = 0; i < pending.length; i++) pending[i].style.display = "none";
+  }
+  </script>
 </body>
 </html>

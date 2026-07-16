@@ -45,10 +45,12 @@ section is safe to do (and verify) while Weebly is still live.
   cutover. Per product:
   `ls-links.js` link + `node _tools/set-usd-price.js pNN <usd> [<sale>]`
   (full workflow in LEMONSQUEEZY-TODO.md).
-- [ ] **Handbook funnel**: set the LemonSqueezy link (`"handbook"` in
-  ls-links.js) and its display price (`LS_PRICES` in the same file), then link
-  the page from the homepage/nav — it's live at `/musicbingohandbook.html` but
-  nothing points to it yet.
+- [x] **Handbook funnel**: both handbooks (Music Bingo Handbook at
+  `/musicbingohandbook.html` and the Trivia Host Handbook at
+  `/store/p18/fbthandbook.html`) are staged for Amazon KDP — not LemonSqueezy —
+  for full royalty payouts. Pages show "Coming soon to Amazon" with a contact
+  link. When KDP is live: set `KDP_HANDBOOK` in the Music Bingo Handbook page's
+  inline script, and update p18's buy button href + unhide it.
 - [ ] **Analytics**: the site currently has none (the dead AdWords tag was
   removed). Add GA4 / Plausible / Cloudflare Analytics now so launch week has
   data from day one.
