@@ -17,7 +17,7 @@
 // ==========================================================================
 window.LS_LINKS = {
   "handbook": "", // [ ] The Music Bingo Handbook — NEW product — /musicbingohandbook.html
-  "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — CA$19.99 — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
+  "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — $15.00 USD — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
   "p7": "", // [ ] Triv101 Premium - 1000 Question Add-on — CA$22.00 — /store/p7/triv101premium.html
   "p9": "", // [ ] The Wild West — CA$29.00 — /store/p9/thewildwest.html
   "p13": "", // [ ] Sports Pub Night - 'The Olympics' — CA$29.00 — /store/p13/spn11.html
