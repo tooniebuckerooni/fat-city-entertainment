@@ -37,12 +37,12 @@ function walk(dir) {
 }
 
 const GTAG_SNIPPET = `<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MJ4VHDS8J8"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LYMVV05F3X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-MJ4VHDS8J8');
+  gtag('config', 'G-LYMVV05F3X');
 </script>`;
 
 const REMOVE_SRC = [
@@ -119,7 +119,7 @@ function transform(html, opts) {
   });
 
   // ensure GA4 tag exists (scraped pages only had the dead UA- tag)
-  if (!/G-MJ4VHDS8J8/.test($.html())) $("head").append(GTAG_SNIPPET + "\n");
+  if (!/G-LYMVV05F3X/.test($.html())) $("head").append(GTAG_SNIPPET + "\n");
 
   // ----- Weebly video embeds → native <video> -----
   $("script").each((_, el) => {

@@ -51,9 +51,9 @@ section is safe to do (and verify) while Weebly is still live.
   for full royalty payouts. Pages show "Coming soon to Amazon" with a contact
   link. When KDP is live: set `KDP_HANDBOOK` in the Music Bingo Handbook page's
   inline script, and update p18's buy button href + unhide it.
-- [ ] **Analytics**: the site currently has none (the dead AdWords tag was
-  removed). Add GA4 / Plausible / Cloudflare Analytics now so launch week has
-  data from day one.
+- [x] **Analytics**: GA4 property `G-LYMVV05F3X` on all 387 pages sitewide.
+  `bingocardgenerator-337083.html` keeps its own separate property
+  (`G-MJ4VHDS8J8`) for isolated BCG Pro tracking.
 - [ ] **Staging spot-check** on `https://tooniebuckerooni.github.io/...`:
   homepage, a product page, a category page, a blog post, the blog landing
   page, `/trivia-store.html`, an `/uploads/...` image, and a bogus URL (404).
