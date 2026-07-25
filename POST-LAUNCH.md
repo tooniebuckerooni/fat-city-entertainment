@@ -72,11 +72,20 @@ that the 11/2025 downloads are retired and members will be emailed a fresh link
 for the new complete Gold Pack. The page now carries
 `<meta name="robots" content="noindex">`, matching `8j6e7n5n3y09.html`.
 
-**Still open — the zip files themselves.** `uploads/4/3/3/6/43362499/music_bingo_gold.zip`
-(5.4 MB) and `music_bingo_gold_callsheets.zip` (1.8 MB) are still on disk and still
-fetchable by direct URL; nothing links them now, but static hosting can't gate
-them. Deleting them is a one-liner — the open question is whether any existing
-member has that direct link bookmarked. See "Needs you" below.
+**The zip files are gone too.** `music_bingo_gold.zip` (5.4 MB) and
+`music_bingo_gold_callsheets.zip` (1.8 MB) were deleted from
+`uploads/4/3/3/6/43362499/` on July 25, 2026, so the direct URLs no longer
+resolve — which is the only way to actually close that off on static hosting.
+They remain recoverable from git history if ever needed.
+
+**On redirecting the page to `/contact.html`:** deliberately not done. A member
+who bookmarked this page and gets bounced to a bare contact form has no idea why
+their downloads vanished or what to write. The page instead explains what
+happened, says a fresh link is coming by email at no charge, and offers a
+prominent "Contact us about your Gold Club access" button — same destination,
+with the context a redirect would throw away. It's `noindex` and orphaned, so
+there's no SEO reason to prefer a redirect. If you'd still rather it bounce,
+it's one line: `<meta http-equiv="refresh" content="0; url=/contact.html">`.
 
 ### 3. ~~`dashboard.html` — internal tool is indexable~~ — **DONE**
 
@@ -225,14 +234,10 @@ which products appear in a category is a merchandising call, not a bug fix.
 - **The Trivia Host Handbook's Amazon URL** → `KDP_LINKS.p18` in
   `assets/js/ls-links.js`. The book is live on Kindle and paperback; the page
   says "coming soon" until that string is filled in.
-- **The Gold Club zip files — delete or keep?** `music_bingo_gold.zip` (5.4 MB)
-  and `music_bingo_gold_callsheets.zip` (1.8 MB) under
-  `uploads/4/3/3/6/43362499/`. Nothing links them now and the page is
-  `noindex`, but the direct URLs still work and static hosting can't gate them.
-  Deleting is the only way to actually close that off; the cost is breaking any
-  member who bookmarked the direct link. Since you're emailing everyone a fresh
-  link for the new pack anyway, deleting looks safe — but it's your call, and
-  they'd stay recoverable from git history either way.
+- **Send the Gold Club members their new download link.** The old zips are
+  deleted, so any member who bookmarked a direct file URL now gets a 404 with no
+  explanation until that email goes out. The page explains it; a bookmarked
+  `.zip` can't.
 - **Spot-check the live domain** — the pre-flip staging spot-check and the
   post-flip URL sweep are both still unticked in LAUNCH-CHECKLIST.md. Confirm:
   apex → www, http → https, a deep blog URL, a product page, an `/uploads/`
@@ -332,7 +337,7 @@ button was exercised in both the link-set and no-link states.
 3. ~~GA4 on `musicbingohandbook.html` + `404.html` (P1 #5)~~ — **done**.
 4. **Paste the Trivia Host Handbook's Amazon URL** into `KDP_LINKS.p18` — it's
    live on Amazon right now and the page still says "coming soon".
-5. Decide on the Gold Club zip files (see "Needs you").
+5. Email Gold Club members their new download link — the old zips are deleted.
 6. Sitemap: add the three orphans (P1 #6).
 7. Point the blog's share buttons at current URLs (P2 #8), so shares stop
    depending on the new redirects.
