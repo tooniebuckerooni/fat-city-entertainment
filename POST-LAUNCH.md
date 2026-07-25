@@ -333,12 +333,15 @@ things need pinning down:
 | 7 | **"Complete Your Night" CTA box** — on `/bingocardgenerator2.html` already; still to add on the legacy generator page and at the end of blog posts | small |
 | ~~8~~ | ~~Gold Club placements~~ — **footer sitewide (386 pages) + homepage section done July 25.** A nav entry is the one remaining slot | mostly done |
 | 9 | **Email-capture gate** — moved to the Generator 2 codebase, which isn't this repo. Still needs an email platform chosen | blocked on you |
-| ~~10~~ | ~~UTM on outbound links~~ — **done July 25**; both real outbound links tagged. The `utm-tagging-standard.md` doc still has its two errors uncorrected | doc only |
+| ~~10~~ | ~~UTM tagging~~ — **done July 25.** Outbound links tagged and `utm-tagging-standard.md` corrected | done |
 | 11 | Structure blog content for AI answer engines — clear headers, direct answers, possibly FAQ/HowTo structured data | small |
 | 12 | Convert `pages/index-draft.html` to UTF-8 (currently UTF-16LE; unlinked and `noindex`, so harmless until it ships) | small |
 | 13 | **Raise the Gold Club price** once LemonSqueezy is updated — `node _tools/set-usd-price.js p112 549.50 307.72` | one command, blocked on you |
 
-### The UTM standard needs two corrections before use
+### The UTM standard — corrected July 25
+
+Both problems are fixed in `_content/drafts/utm-tagging-standard.md`, and every
+FatCity URL in it now resolves (checked). What was wrong:
 
 **The example URLs point at paths that don't exist.** `utm-tagging-standard.md`
 uses:
@@ -362,15 +365,24 @@ treats a tagged link as a new campaign session, so the visitor's original source
 is overwritten mid-visit and your own site shows up as its own traffic source.
 UTMs belong only where traffic *enters* the site.
 
-The cross-property rule is the exception and it's correct as written — links
+The cross-property rule is the exception and was correct as written — links
 between `fatcityentertainment.com` and `bingocardgenerator.online` genuinely are
-external, and tagging them with a shared `utm_campaign` is exactly what stitches
-that journey together. This repo has 4 outbound references to the generator
-domain, so that part is small and worth doing.
+external, and a shared `utm_campaign` is exactly what stitches that journey
+together. All three outbound links to the generator domain now carry it. The
+fourth mention, in `index.html`, is a schema.org `sameAs` identity declaration
+rather than a click target, so it stays untagged.
 
-Note the standard was written to be implemented "at the DNS cutover", which has
-already passed — it's a retrofit now, which is fine, just no longer free of
-mixed-attribution history.
+The standard was written to be implemented "at the DNS cutover", which has already
+passed, so the corrected version says plainly that it's a retrofit and that some
+pre-standard traffic will sit under "Direct" in historical reports.
+
+**Still outstanding on this:** the reciprocal tags on BingoCardGenerator.Online's
+links back to FatCity. That codebase isn't in this repo.
+
+**Optional:** short vanity URLs like `/gold-club` for social bios. They'd be
+redirect stubs using the same mechanism already serving the 180 legacy URLs, and
+`/gold-club` reads considerably better in a TikTok bio than
+`/store/p112/GoldClub.html`. Say the word and it's a few minutes.
 
 ### Product-claim corrections made July 25
 
