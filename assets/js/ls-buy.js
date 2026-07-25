@@ -21,21 +21,45 @@
         if (pending) pending.style.display = "";
       }
     }
-    // Amazon KDP buttons (window.KDP_LINKS) work the same way, minus the
-    // overlay checkout — the link just goes to Amazon.
+    // Amazon KDP buttons (window.KDP_LINKS) work the same way, minus the overlay
+    // checkout — the link just goes to Amazon. An entry is either a plain URL
+    // string (one "Buy on Amazon" button) or {kindle, paperback} for editions
+    // Amazon lists separately, which gives one labelled button per format.
     var kdp = document.querySelectorAll(".kdp-buy[data-product]");
     for (var k = 0; k < kdp.length; k++) {
       var kbtn = kdp[k];
-      var klink = (window.KDP_LINKS || {})[kbtn.getAttribute("data-product")] || "";
+      var entry = (window.KDP_LINKS || {})[kbtn.getAttribute("data-product")] || "";
+      var editions = [];
+      if (typeof entry === "string") {
+        if (entry) editions.push({ href: entry, label: "" });
+      } else if (entry) {
+        if (entry.kindle) editions.push({ href: entry.kindle, label: "Kindle edition" });
+        if (entry.paperback) editions.push({ href: entry.paperback, label: "Paperback" });
+      }
       var kpending = kbtn.parentNode.querySelector(".kdp-pending");
-      if (klink) {
-        kbtn.setAttribute("href", klink);
-        kbtn.style.display = "";
-        if (kpending) kpending.style.display = "none";
-      } else {
+      if (!editions.length) {
         kbtn.style.display = "none";
         if (kpending) kpending.style.display = "";
+        continue;
       }
+      // The first edition reuses the button already in the page; any second one
+      // is cloned from it so it inherits the same styling.
+      for (var e = 0; e < editions.length; e++) {
+        var target = kbtn;
+        if (e > 0) {
+          target = kbtn.cloneNode(true);
+          target.removeAttribute("id");
+          target.style.marginLeft = "8px";
+          kbtn.parentNode.insertBefore(target, kbtn.nextSibling);
+        }
+        target.setAttribute("href", editions[e].href);
+        target.style.display = "";
+        if (editions[e].label) {
+          var inner = target.querySelector(".wsite-button-inner") || target;
+          inner.textContent = editions[e].label;
+        }
+      }
+      if (kpending) kpending.style.display = "none";
     }
 
     var prices = document.querySelectorAll(".ls-price[data-product]");

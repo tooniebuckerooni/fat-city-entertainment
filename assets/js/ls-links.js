@@ -102,15 +102,27 @@ window.LS_PRICES = {
 
 // ==========================================================================
 // Amazon KDP links — the two handbooks sell on Amazon, not Lemon Squeezy, so
-// they get full royalties. Paste the Amazon product URL between the quotes and
-// that page's "Buy on Amazon" button appears; leave it "" and the page shows a
-// "coming soon" note instead. No price goes here — Amazon sets it, and it
-// differs between Kindle and paperback.
+// they get full royalties. Fill in a link and that page's buy button appears;
+// leave everything "" and the page shows its "coming soon" note instead. No
+// price goes here — Amazon sets it, and it differs by format.
 //
 //   handbook  = The Music Bingo Handbook      /musicbingohandbook.html
 //   p18       = The Trivia Host Handbook      /store/p18/fbthandbook.html
+//
+// Two ways to fill each one in:
+//
+//   "p18": "https://www.amazon.com/dp/XXXX"
+//       One button, labelled "Buy on Amazon". Use this when the Kindle and
+//       paperback editions are linked as a single Amazon listing, so the buyer
+//       picks the format there.
+//
+//   "p18": { kindle: "https://www.amazon.com/dp/XXXX",
+//            paperback: "https://www.amazon.com/dp/YYYY" }
+//       Two buttons, "Kindle edition" and "Paperback". Use this when KDP left
+//       the editions as separate listings. Either key on its own is fine — you
+//       get one button with that format's label.
 // ==========================================================================
 window.KDP_LINKS = {
   "handbook": "", // [ ] Music Bingo Handbook — not yet live on Amazon
-  "p18": "", // [ ] Trivia Host Handbook — live on Kindle + paperback, link needed
+  "p18": "", // [ ] Trivia Host Handbook — live on Kindle + paperback, links needed
 };
