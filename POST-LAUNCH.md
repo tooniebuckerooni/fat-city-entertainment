@@ -88,24 +88,26 @@ work, the other 178 do.
 
 ### #1 and #2, explained
 
-**The sitemap orphans — resolved July 25, with one correction.** I'd said to add
-all three. Checking their actual content first changed that:
+**The sitemap orphans — retired July 25.** This went through two rounds. I first
+said to add all three to the sitemap; checking their content changed that
+(`host-resources.html` is literally empty — its content container holds nothing,
+and the ~96 words on it are all nav and footer). Then you called all three dead
+weight, to be rebuilt when those products relaunch.
 
-- **`triv101.html`** — 445 words of real content, and the page the launch
-  checklist flags as carrying the inbound backlinks. **Added.**
-- **`aitrivia.html`** — the legacy Trivia Generator. Thin on prose but it's a
-  working tool, the same kind of page as `bingocardgenerator.html`, which is
-  already indexed. It had **no meta description at all**; one was written. **Added.**
-- **`host-resources.html`** — **empty.** Its content container holds nothing; the
-  ~96 words on it are entirely nav and footer. Putting an empty page in the
-  sitemap invites a thin-content problem rather than fixing one, so it got
-  `noindex` instead. If it's meant to hold something, that's a content task —
-  then it belongs in the sitemap.
+So all three are now **redirect stubs**, using the same pattern as the 180 legacy
+ones, and are out of the sitemap:
 
-Still true for the two added pages: nothing in the nav links to them, so they're
-still orphaned in the internal-linking sense. A footer or nav link would close
-that. And if `pages/triv101.html` eventually replaces `/triv101.html` at the same
-URL, the sitemap entry stays valid as-is.
+| Was | Now redirects to |
+|---|---|
+| `triv101.html` | `/partyentertainment.html` (Our Games) |
+| `aitrivia.html` | `/trivia-store.html` |
+| `host-resources.html` | `/triviahostresources.html` |
+
+One thing to remember when Triv101 relaunches: **25 old blog posts link to
+`/triv101.html`** in their body copy. Those were left pointing where they are —
+the sentences say things like "go to the Triv101 page", so repointing them at a
+generic page would make the posts say something they don't mean. The redirect
+carries them, and they'll be correct again the moment that URL holds a real page.
 
 **`<lastmod>` — done, deliberately partial.** Google ignores the field site-wide
 if it doesn't trust the dates, so [`_tools/sitemap-lastmod.js`](_tools/sitemap-lastmod.js)
