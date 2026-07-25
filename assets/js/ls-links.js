@@ -124,5 +124,9 @@ window.LS_PRICES = {
 // ==========================================================================
 window.KDP_LINKS = {
   "handbook": "", // [ ] Music Bingo Handbook — not yet live on Amazon
-  "p18": "", // [ ] Trivia Host Handbook — live on Kindle + paperback, links needed
+  // [x] Trivia Host Handbook — live on Amazon as two separate listings
+  "p18": {
+    kindle: "https://www.amazon.com/dp/B0HBGJCX4M",
+    paperback: "https://www.amazon.com/dp/B0HB27K5RF",
+  },
 };

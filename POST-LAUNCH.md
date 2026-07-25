@@ -4,8 +4,10 @@ The working list for fatcityentertainment.com now that DNS points at GitHub
 Pages. Companion to [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md), which covered
 everything *up to* the cutover.
 
-**Status:** `CNAME` = `www.fatcityentertainment.com` is committed on `main`, so
-the custom domain is set and DNS is pointed. Last updated July 25, 2026.
+**Status:** `CNAME` = `www.fatcityentertainment.com` is committed on `main`, the
+custom domain is set, DNS is pointed, **HTTPS is enforced**, and a **real
+LemonSqueezy purchase and a real contact-form submission have both been confirmed
+end to end**. Last updated July 25, 2026.
 
 > **One standing caveat:** this agent's sandbox can't reach
 > `fatcityentertainment.com` — the network policy refuses the connection, which
@@ -24,15 +26,11 @@ Roughly in order of impact.
 
 | # | What | Why it's blocking |
 |---|---|---|
-| 1 | **Trivia Host Handbook Amazon URL** → `KDP_LINKS.p18` in [`assets/js/ls-links.js`](assets/js/ls-links.js) | Book is live on Kindle + paperback; the page still says "coming soon". One string. |
-| 2 | **New Gold Club artwork** → overwrite `uploads/4/3/3/6/43362499/s240281505130794070_p112_i8_w600.jpeg` | Current art says "ALL 45 Games and counting". All 11 pages share this one file, so replacing it updates everything. Match **600×400 JPEG** and no HTML changes are needed. |
-| 3 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL now gets a bare 404 until that email lands. |
-| 4 | **Spot-check the live domain** | apex → www, `http://` → `https://`, a deep blog URL, a couple of `/4/post/...` legacy URLs, a product page, an `/uploads/` image, and a bogus URL hitting `404.html`. |
-| 5 | **Enforce HTTPS** — GitHub → Settings → Pages | Only available once the cert has issued. |
-| 6 | **One real LemonSqueezy purchase** end to end, then refund | Proves checkout, delivery and the email. |
-| 7 | **Submit the contact form** | Formspree is wired to `mojgvwzn` on all 7 forms, but only a real submit proves the inbox. |
-| 8 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Do it *after* the legacy redirects are live (they are), so Google recrawls into working URLs. |
-| 9 | **Retire the Weebly subscription** | Last step, once 4–7 pass. |
+| 1 | **New Gold Club artwork** → overwrite `uploads/4/3/3/6/43362499/s240281505130794070_p112_i8_w600.jpeg` | Current art says "ALL 45 Games and counting". All 11 pages share this one file, so replacing it updates everything. Match **600×400 JPEG** and no HTML changes are needed. |
+| 2 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL now gets a bare 404 until that email lands. |
+| 3 | **Spot-check the live domain** | The one thing this agent can't do. Concrete URL list below. |
+| 4 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Now safe: the legacy redirects are live, so Google recrawls into working URLs. |
+| 5 | **Retire the Weebly subscription** | Last step, once #3 passes. |
 
 Optional decisions, no rush:
 
@@ -46,6 +44,29 @@ Optional decisions, no rush:
   `pages/trivia-generator.html` are finished, `noindex`, and unlinked. Serve them
   at `/triv101.html` and `/aitrivia.html` (inheriting the backlinks), or link
   them fresh from nav? Interacts with #2 below.
+
+### What "spot-check the live domain" actually means
+
+The point is to prove the new host answers on the *real* domain for each **kind**
+of URL, since a whole category can be broken while the homepage looks perfect.
+Open these and confirm what's in the right column. Ten minutes, once.
+
+| Paste this | Should happen |
+|---|---|
+| `fatcityentertainment.com` (no www) | lands on `https://www.fatcityentertainment.com` |
+| `http://www.fatcityentertainment.com` | flips to `https://` |
+| `https://www.fatcityentertainment.com/trivia-store.html` | store loads, product tiles in even rows |
+| `https://www.fatcityentertainment.com/store/p112/GoldClub.html` | Gold Club page, `$235.50 USD`, working buy button |
+| `https://www.fatcityentertainment.com/triviahostresources/get-wild-with-zoo-rock-music-bingo-cards/` | a blog post loads |
+| `https://www.fatcityentertainment.com/4/post/2016/08/august-30th-2016.html` | **redirects** to `/triviahostresources/august-30th-2016/` |
+| `https://www.fatcityentertainment.com/4/category/music-bingo` | **redirects** to the blog category |
+| `https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/s240281505130794070_p112_i8_w600.jpeg` | the Gold Club image itself loads |
+| `https://www.fatcityentertainment.com/this-page-does-not-exist` | your styled 404 page, not GitHub's |
+| a Google result for `site:fatcityentertainment.com` | any old deep link goes straight through |
+
+The two `/4/...` rows are the ones worth caring about most — they're the redirects
+added on July 25 that nothing has confirmed against the live host yet. If those
+work, the other 178 do.
 
 ## Ready for me — say the word
 
@@ -140,14 +161,43 @@ the summary copy said 45. Updated on `printmusicbingocards.html`,
 (meta + og), `store/c11/musicdoboff/index.html`, `musicdoboffbingocards.html`.
 The artwork still says 45 — see "Waiting on you" #2.
 
-**Handbooks wired to one switch.** Both now read `window.KDP_LINKS` at the bottom
-of `ls-links.js`; paste an Amazon URL and that page's button appears while the
-"coming soon" note hides. Reuses the existing `ls-buy.js` pattern
-(`.kdp-buy[data-product]` + sibling `.kdp-pending`), tested in both states. p18
-dropped its `CA$8.00` price and CAD schema offer — Amazon owns the price, and it
-differs between Kindle and paperback — so its page and all four listing tiles
-read "On Amazon". The Music Bingo page's meta/OG copy said "Instant download",
-wrong for a KDP title; now "On Amazon Kindle and paperback".
+**Handbooks wired to one switch, and the Trivia Host Handbook is live.** Both
+handbooks read `window.KDP_LINKS` at the bottom of `ls-links.js`. An entry is
+either a plain URL (one "Buy on Amazon" button) or `{kindle, paperback}` for
+editions Amazon lists separately, which renders one labelled button per format —
+the second is cloned from the first so it inherits the page's styling.
+
+- **p18 (Trivia Host Handbook)** is live with both editions:
+  Kindle `B0HBGJCX4M`, paperback `B0HB27K5RF`. Its `CA$8.00` price and CAD
+  schema offer were removed — Amazon owns the price and it differs by format —
+  so the page and all four listing tiles read "On Amazon".
+- **Music Bingo Handbook** stays in coming-soon mode by request. Its meta/OG copy
+  said "Instant download", wrong for a KDP title; now "On Amazon Kindle and
+  paperback".
+
+One styling catch worth remembering: the theme only gives buy buttons their
+white-on-black text through `#wsite-com-product-add-to-cart.wsite-button-highlight`,
+which out-specifies the green `#wsite-com-product-gen a` link colour. The cloned
+button drops the duplicate `id`, so it came out with green text until
+`site-extras.css` got a matching `.kdp-buy` rule.
+
+**Form fields had unreadable names.** Weebly named every input after its internal
+field id (`_u690125131196042535`), and Formspree labels each row of the
+notification email with the input's `name` — so every enquiry arrived as a list of
+18-digit numbers with no way to tell the name from the email from the notes.
+
+Each field now takes its name from its own `<label>`: `name`, `email`, `phone`,
+`guests`, `notes`, `show_name`, `venue_and_address`, `event_date`,
+`interests[...]` and so on. `id`/`for` are untouched so label associations still
+work, and no JS ever referenced the old names. Also: Weebly's empty
+`wsite_subject` became Formspree's `_subject` with a real per-page value, so
+notifications have a useful subject line, and the four inert Weebly hidden inputs
+(`form_version`, `wsite_approved`, `ucfid`, `recaptcha_token`) were removed —
+nothing sets them now, and they'd otherwise be empty rows in every email.
+
+Rerun or preview any time with [`_tools/fix-form-fields.js`](_tools/fix-form-fields.js)
+(no flag = dry run). Verified in Chromium across all 5 forms: readable FormData
+keys, zero orphaned labels, action still the Formspree endpoint.
 
 **Indexing and analytics.** `noindex` on `dashboard.html` (orphaned internal
 Triv101 admin tool). GA4 `G-LYMVV05F3X` added to `musicbingohandbook.html` (a
@@ -161,7 +211,8 @@ how "watch 404s post-flip" actually gets measured. Staged `pages/*.html` and the
 
 ## Verified clean
 
-- **Formspree** — no `YOUR_FORM_ID` placeholders; all 7 forms → `mojgvwzn`.
+- **Formspree** — no `YOUR_FORM_ID` placeholders; all 7 forms → `mojgvwzn`, all
+  submitting readable field names. Live submit confirmed working.
 - **LemonSqueezy** — 69 wired; the 6 blanks are deliberate (`p3` out of stock,
   `p7` hidden, `p18`+`handbook` on KDP, `p51`/`p125` retired and redirecting).
 - **No Weebly leftovers** — zero `weebly.com` references in served HTML.

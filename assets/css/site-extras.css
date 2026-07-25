@@ -60,6 +60,21 @@
   margin-top: 10px;
 }
 
+/* When a KDP product lists Kindle and paperback separately, ls-buy.js clones the
+   buy button for the second edition and drops the duplicate `id`. The theme only
+   gives buy buttons their white-on-black text via
+   `#wsite-com-product-add-to-cart.wsite-button-highlight`, which out-specifies the
+   green `#wsite-com-product-gen a` link colour — so without the id the clone came
+   out with green text. These restore the theme's own pair for any .kdp-buy. */
+#wsite-com-product-gen a.kdp-buy.wsite-button-highlight,
+#wsite-com-product-buy a.kdp-buy.wsite-button-highlight {
+  color: #ffffff !important;
+}
+#wsite-com-product-gen a.kdp-buy.wsite-button-highlight:hover,
+#wsite-com-product-buy a.kdp-buy.wsite-button-highlight:hover {
+  color: #000000 !important;
+}
+
 /* ------------------------------------------------------------------ store grid
    Weebly laid the product/category grids out with `float: left` columns. With
    floats, a tile shorter than its neighbours leaves a notch that the next tile
