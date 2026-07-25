@@ -59,3 +59,34 @@
 #wsite-com-product-buy .ls-buy {
   margin-top: 10px;
 }
+
+/* ------------------------------------------------------------------ store grid
+   Weebly laid the product/category grids out with `float: left` columns. With
+   floats, a tile shorter than its neighbours leaves a notch that the next tile
+   drops into, and then nothing fits beside it — so it ends up alone on a row
+   while the rest of the grid shifts down. Tile heights always vary here because
+   product names wrap to one, two or three lines.
+
+   Flex wrapping makes each row an actual row, so tiles can no longer snag on
+   each other regardless of how long a product name is. The `width: N%` on the
+   columns (set per-page and in the mobile media queries) still decides how many
+   fit per row, so the existing responsive behaviour is unchanged. */
+.wsite-com-category-product-featured-group,
+.wsite-com-category-product-group,
+.wsite-com-category-subcategory-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.wsite-com-category-product-featured-group > .wsite-com-column,
+.wsite-com-category-product-group > .wsite-com-column,
+.wsite-com-category-subcategory-group > .wsite-com-column {
+  box-sizing: border-box;
+}
+
+/* Reserve two lines for the product name so the common one-line/two-line
+   difference doesn't leave tiles in a row at visibly different heights.
+   Longer names still grow; flex wrapping keeps the rows intact. */
+.wsite-com-category-product-name {
+  min-height: 40px; /* 2 x the 20px line-height */
+}
