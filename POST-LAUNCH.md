@@ -9,6 +9,12 @@ custom domain is set, DNS is pointed, **HTTPS is enforced**, and a **real
 LemonSqueezy purchase and a real contact-form submission have both been confirmed
 end to end**. Last updated July 25, 2026.
 
+> **Deployed:** merged to `main` as a clean fast-forward on July 25, 2026
+> (`1181905`); GitHub Pages `pages build and deployment` reported **success**.
+> Before that merge none of this work was live — `main` is what Pages serves,
+> which is why a `/4/post/...` URL still returned the 404 page while the stubs
+> sat unmerged on the branch.
+>
 > **One standing caveat:** this agent's sandbox can't reach
 > `fatcityentertainment.com` — the network policy refuses the connection, which
 > says nothing about whether the site is up. Everything below is verified against
@@ -26,11 +32,10 @@ Roughly in order of impact.
 
 | # | What | Why it's blocking |
 |---|---|---|
-| 1 | **New Gold Club artwork** → overwrite `uploads/4/3/3/6/43362499/s240281505130794070_p112_i8_w600.jpeg` | Current art says "ALL 45 Games and counting". All 11 pages share this one file, so replacing it updates everything. Match **600×400 JPEG** and no HTML changes are needed. |
-| 2 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL now gets a bare 404 until that email lands. |
-| 3 | **Spot-check the live domain** | The one thing this agent can't do. Concrete URL list below. |
-| 4 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Now safe: the legacy redirects are live, so Google recrawls into working URLs. |
-| 5 | **Retire the Weebly subscription** | Last step, once #3 passes. |
+| 1 | **Spot-check the live domain** | Everything below shipped to `main` on July 25 and deployed successfully, but nothing has been confirmed against the real host. Concrete URL list below. |
+| 2 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL gets a bare 404 until that email lands. |
+| 3 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Now safe: the legacy redirects are live, so Google recrawls into working URLs. |
+| 4 | **Retire the Weebly subscription** | Last step, once #1 passes. |
 
 Optional decisions, no rush:
 
@@ -72,12 +77,11 @@ work, the other 178 do.
 
 | # | What | Size |
 |---|---|---|
-| 1 | Remove the retired **p51 tile** from the `c6` category (still priced `CA$19.99`, product is dead and redirects to p135) | small |
-| 2 | Add the three sitemap orphans: `triv101.html` (**has the backlinks**), `aitrivia.html`, `host-resources.html` | small |
-| 3 | Point the blog's **Twitter share buttons** at current URLs so shares stop relying on the legacy redirects | medium, mechanical |
-| 4 | Teach `check-links.js` about **absolute same-domain URLs**, so the legacy-404 class of bug can't recur | small |
-| 5 | Add `<lastmod>` to `sitemap.xml` | small |
-| 6 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
+| 1 | Add the three sitemap orphans: `triv101.html` (**has the backlinks**), `aitrivia.html`, `host-resources.html` | small |
+| 2 | Point the blog's **Twitter share buttons** at current URLs so shares stop relying on the legacy redirects | medium, mechanical |
+| 3 | Teach `check-links.js` about **absolute same-domain URLs**, so the legacy-404 class of bug can't recur | small |
+| 4 | Add `<lastmod>` to `sitemap.xml` | small |
+| 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
 
 ---
 
@@ -198,6 +202,43 @@ nothing sets them now, and they'd otherwise be empty rows in every email.
 Rerun or preview any time with [`_tools/fix-form-fields.js`](_tools/fix-form-fields.js)
 (no flag = dry run). Verified in Chromium across all 5 forms: readable FormData
 keys, zero orphaned labels, action still the Formspree endpoint.
+
+**Nav dropdowns were invisible.** Hovering "Our Games" showed nothing. The hover
+was working the whole time — the dropdown was laid out at full size (265×185) and
+then clipped to nothing, so it was never painted.
+
+The theme sets `.nav ul { overflow: hidden }` to stop a long menu spilling past its
+max-width. Weebly's JS used to lift the flyouts *out* of that container before
+showing them (`_moveFlyout` in `files/theme/custom.js` relocates `#wsite-menus`
+into `.birdseye-header`), so the clip never applied. The migration swapped those JS
+flyouts for pure CSS but left them where they sit in the markup — inside the
+clipped `<ul>`. `.nav ul` matches the submenu `<ul>`s too, so the third-level
+flyouts ("Fat Bottom Trivia →") were clipped by their own parent for the same
+reason. Both levels now get `overflow: visible`, scoped to `.desktop-nav`.
+
+Once visible the panel was unreadable: the migration had given it a `#1d1d1d`
+background while the links kept the theme's black text. The theme *does* style
+these flyouts — white panel, 1px black border, black uppercase Montserrat, faint
+grey hover — but scoped to `#wsite-menus`, which these never matched. That styling
+is now mirrored rather than keeping the invented dark panel.
+
+Verified at 1440px across 11 page types (both header variants, store, product,
+category, blog landing, blog post, contact, about, faqs): painted and
+hit-testable via `elementFromPoint` on every one, third-level flyout painted, no
+horizontal overflow from 1000–1600px, mobile menu unaffected.
+
+**"ALL 50 GAMES" artwork installed.** The uploaded 600×402 PNG was converted to the
+canonical 600×400 JPEG at `s240281505130794070_p112_i8_w600.jpeg` — the single file
+all 11 pages showing the Gold Club tile reference, so the new art appears
+everywhere with no HTML changes (38 KB, versus the 39 KB it replaced).
+
+**Retired p51's tile removed** from the `c6` category, where it still advertised
+`CA$19.99` — the last CAD price on a live selling surface. Worth recording since
+it's easy to mix up: **p51 is "Fat Bottom Trivia 3.1 Love & Lust"**, a Valentine's
+trivia game show, *not* One Hit Wonders 2, and it already redirected to p135
+(Valentine's Day Trivia 2-Pack). One Hit Wonders 2 is **p125**, already redirecting
+to p128 (One Hit Wonders 2-Pack). Both retired singles were already pointing at
+their matching packs; only the stale tile needed removing.
 
 **Indexing and analytics.** `noindex` on `dashboard.html` (orphaned internal
 Triv101 admin tool). GA4 `G-LYMVV05F3X` added to `musicbingohandbook.html` (a
