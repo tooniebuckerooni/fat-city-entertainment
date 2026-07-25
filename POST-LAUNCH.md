@@ -4,10 +4,12 @@ The working list for fatcityentertainment.com now that DNS points at GitHub
 Pages. Companion to [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md), which covered
 everything *up to* the cutover.
 
-**Status:** `CNAME` = `www.fatcityentertainment.com` is committed on `main`, the
-custom domain is set, DNS is pointed, **HTTPS is enforced**, and a **real
-LemonSqueezy purchase and a real contact-form submission have both been confirmed
-end to end**. Last updated July 25, 2026.
+**Status: the migration is verified live.** `CNAME` = `www.fatcityentertainment.com`,
+custom domain set, DNS pointed, **HTTPS enforced**, a **real LemonSqueezy purchase**
+and a **real contact-form submission** both confirmed end to end, and on July 25 a
+**full spot-check of the live domain passed on every URL class** — apex → www,
+http → https, store, product pages, blog posts, the legacy `/4/` redirects, images,
+and the custom 404. Last updated July 25, 2026.
 
 > **Deployed:** merged to `main` as a clean fast-forward on July 25, 2026
 > (`1181905`); GitHub Pages `pages build and deployment` reported **success**.
@@ -17,10 +19,10 @@ end to end**. Last updated July 25, 2026.
 >
 > **One standing caveat:** this agent's sandbox can't reach
 > `fatcityentertainment.com` — the network policy refuses the connection, which
-> says nothing about whether the site is up. Everything below is verified against
-> the repo (and, for layout, a real headless Chromium rendering local files).
-> Anything needing the live domain or a vendor dashboard is under "Waiting on
-> you".
+> says nothing about whether the site is up. Work here is verified against the repo
+> and, for layout, a real headless Chromium rendering local files; confirming it on
+> the live domain is always a human step. That confirmation was done and passed on
+> July 25.
 
 ---
 
@@ -32,10 +34,11 @@ Roughly in order of impact.
 
 | # | What | Why it's blocking |
 |---|---|---|
-| 1 | **Spot-check the live domain** | Everything below shipped to `main` on July 25 and deployed successfully, but nothing has been confirmed against the real host. Concrete URL list below. |
-| 2 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL gets a bare 404 until that email lands. |
-| 3 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Now safe: the legacy redirects are live, so Google recrawls into working URLs. |
-| 4 | **Retire the Weebly subscription** | Last step, once #1 passes. |
+| ~~1~~ | ~~Spot-check the live domain~~ — **passed July 25**, every URL class | done |
+| 2 | **Google Search Console** — verify the domain, submit `sitemap.xml` | Unblocked: the redirects are confirmed working, so Google recrawls into live URLs rather than 404s. Highest-value item left. |
+| 3 | **Email Gold Club members their new download link** | The old zips are deleted, so a member who bookmarked a direct `.zip` URL gets a bare 404 until that email lands. |
+| 4 | **Retire the Weebly subscription** | Unblocked — the spot-check was the gate on this. |
+| 5 | **Gold Club price**, in LemonSqueezy first | Then one command here; see the pricing note below. |
 
 Optional decisions, no rush:
 
@@ -52,11 +55,12 @@ Optional decisions, no rush:
   at `/triv101.html` and `/aitrivia.html` (inheriting the backlinks), or link
   them fresh from nav? Interacts with #2 below.
 
-### What "spot-check the live domain" actually means
+### The live spot-check — passed July 25
 
-The point is to prove the new host answers on the *real* domain for each **kind**
-of URL, since a whole category can be broken while the homepage looks perfect.
-Open these and confirm what's in the right column. Ten minutes, once.
+Kept as the re-check list for any future change that touches URLs or hosting. The
+point is to prove the host answers on the *real* domain for each **kind** of URL,
+since a whole category can be broken while the homepage looks perfect. Use a
+private window so cached CSS doesn't mask a problem.
 
 | Paste this | Should happen |
 |---|---|
