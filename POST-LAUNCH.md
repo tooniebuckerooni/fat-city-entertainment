@@ -183,6 +183,149 @@ host-resources section, for instance).
 
 ---
 
+# FALL CAMPAIGN (Sep–Oct 2026)
+
+Seven more docs arrived July 25 and are saved in `_content/drafts/`: a campaign
+brief, a data-findings memo, a UTM standard, email-capture + welcome-email copy,
+Gold Club CTA copy, Reddit guidelines, and a weekly-host-email template.
+
+The campaign brief puts three things in **Week 1 (Sep 1–7)**, so there's about
+five weeks of runway from today. Everything below was checked against what's
+actually on the site; the blockers are real and listed first.
+
+## Blockers — need a decision from you
+
+### 1. Gold Club isn't a subscription, but the CTA copy sells it as one
+
+`gold-club-cta-and-bundle-upsell-copy.md` repeatedly frames Gold Club as a
+subscription: *"one subscription"*, *"New themes every month, one subscription"*,
+*"Upgrade to Gold Club"*, and an A/B test of *"$X/month"* against *"$X/year"*.
+
+The product on the site is a **one-time $235.50 USD purchase**. Its own
+description says the files are *"yours to keep forever"* and that you *"get newest
+games upon release, without further charge"* — lifetime access with free updates,
+which is a genuinely good offer, just not a recurring one. There is no monthly or
+annual price to put in that copy.
+
+Shipping the copy as written would advertise a subscription customers can't buy,
+which is the kind of mismatch that produces refund requests and chargebacks. Two
+clean ways forward:
+
+- **Keep it one-time and reword** — lean into what's actually true: *"Pay once,
+  every game you'll ever need, including everything we release later."* That's a
+  strong angle and needs no product change.
+- **Actually make it a subscription** in LemonSqueezy — a real pricing change with
+  real consequences for the 2 years of existing lifetime buyers, who were promised
+  free future games.
+
+The monthly-vs-annual A/B test can't run either way until this is settled. Also
+note: static hosting has no A/B testing capability, so that test needs a tool
+(or a manual split) regardless.
+
+### 2. The cart upsell copy has no cart to live on
+
+The same doc specifies cart-page upsells ("when cart contains a single decade
+pack…") and checkout-button copy (*"Complete My Order"*, *"Get My Packs"*).
+
+There is no cart on this site. Checkout is LemonSqueezy's hosted overlay, and
+Weebly's `#wsite-mini-cart` is explicitly hidden in `site-extras.css`. Cart
+contents and checkout button text live in LemonSqueezy's settings, not this repo —
+so those sections are for you to apply there, not something I can implement here.
+
+What *is* implementable from that doc: the site-wide Gold Club CTA variants (nav,
+homepage hero, footer, blog closing) and the **"Complete Your Night"** box for the
+generator results page and blog post ends. Both are listed below.
+
+### 3. Which generator gets the email gate — and which email platform?
+
+`email-capture-gate-and-welcome-email.md` puts a one-field email gate in front of
+the generator's PDF download, citing ~109 anonymous downloads per period. Two
+things need pinning down:
+
+- **Which generator.** This repo's `/bingocardgenerator.html` does build PDFs
+  locally (it uses jsPDF), so the gate is implementable here. But that page also
+  links out to `bingocardgenerator.online`, a **separate property not in this
+  repo**. If the 109 downloads are happening there, the gate belongs in that
+  codebase and I can't reach it from here.
+- **Which email platform.** Formspree relays a form to an inbox; it isn't a list
+  tool and can't send the welcome email or the weekly host email. Those need an
+  actual ESP, which the campaign brief also flags as an open item (its Next Steps
+  #3). The gate can be built before that's chosen, but it can't *do* anything
+  until it has somewhere to post.
+
+## Ready for me — campaign items
+
+| # | What | Notes |
+|---|---|---|
+| 7 | **"Complete Your Night" CTA box** on the generator results page and at the end of blog posts | Directly targets the 1.7% view-to-cart leak the docs call out. Two paths (Shop Packs / Gold Club) as specified. |
+| 8 | **Site-wide Gold Club CTA variants** — nav, homepage hero, footer, blog closing | Wording blocked on #1 above; the placement work isn't. |
+| 9 | **Email-capture gate** on `/bingocardgenerator.html` | Blocked on #3 — which generator, which platform. |
+| 10 | **UTM tagging** on this repo's outbound links, with the standard's URLs corrected | See the correction below. |
+| 11 | Structure blog content for AI answer engines — clear headers, direct answers, and possibly FAQ/HowTo structured data | The memo spotted `aio.online` at +76%; the three new drafts already have clean header structure. |
+| 12 | Convert `pages/index-draft.html` to UTF-8 | It's currently UTF-16LE with CRLF, which is fragile if it ever ships. Unlinked and `noindex` today, so it's harmless until then. |
+
+### The UTM standard needs two corrections before use
+
+**The example URLs point at paths that don't exist.** `utm-tagging-standard.md`
+uses:
+
+```
+https://www.fatcityentertainment.com/blog/how-to-run-a-music-bingo-night
+https://www.fatcityentertainment.com/gold-club
+```
+
+There is no `/blog/` path — the blog is `/triviahostresources/` — and no
+`/gold-club`; it's `/store/p112/GoldClub.html`. Any link built from those examples
+404s. Either fix the examples, or decide you want those short URLs and I'll add
+redirect stubs for them (the same pattern as the 180 legacy ones, and honestly
+`/gold-club` is a nicer link to put in a TikTok bio).
+
+**Don't tag internal links.** The checklist says to build "every outbound
+marketing link (blog CTAs, social bios, email links)" with UTMs. Social bios and
+email links, yes. But a blog CTA pointing at Gold Club is an *internal* link, and
+UTM-tagging those actively breaks the attribution the doc is trying to fix: GA4
+treats a tagged link as a new campaign session, so the visitor's original source
+is overwritten mid-visit and your own site shows up as its own traffic source.
+UTMs belong only where traffic *enters* the site.
+
+The cross-property rule is the exception and it's correct as written — links
+between `fatcityentertainment.com` and `bingocardgenerator.online` genuinely are
+external, and tagging them with a shared `utm_campaign` is exactly what stitches
+that journey together. This repo has 4 outbound references to the generator
+domain, so that part is small and worth doing.
+
+Note the standard was written to be implemented "at the DNS cutover", which has
+already passed — it's a retrofit now, which is fine, just no longer free of
+mixed-attribution history.
+
+## Not site work — recorded for reference
+
+- `reddit-engagement-guidelines.md` — community-participation norms. Pure ops.
+- `weekly-host-email-template.md` — needs an ESP; no site change.
+- The welcome email in `email-capture-gate-and-welcome-email.md` — same.
+- `campaign-plan-sep-oct-acquisition.md` — the calendar driving the dates above.
+- `social-video-concepts.md` — filming plan.
+- `data-findings-memo.md` — analysis. Two notes on it:
+  - Its housekeeping item *"confirm whether checkout charges CAD or USD"* is
+    **already resolved**: prices are USD sitewide, and LemonSqueezy is merchant of
+    record handling per-country tax. The CAD figures in the memo are historical
+    Weebly data. No action needed.
+  - Its catalog recommendation — more sub-niche packs like 90s R&B (e.g. "80s New
+    Wave", "70s Yacht Rock", "2010s Pop") rather than broad-decade packs — is
+    product work, not site work, but each new pack eventually needs a product page
+    plus a LemonSqueezy listing and an `ls-links.js` entry.
+
+**One inconsistency between your own two docs**, worth resolving before Week 6:
+the campaign brief lists *"Decades pack sales flat-to-up month-over-month by
+October"* as a success metric and describes blog02 as reviving it — but the data
+memo concludes that *every* broad decade pack is declining (60s −71%, 70s −44%,
+80s −25%, 90s −26%) and recommends leaning into niche spinoffs instead. If the
+memo is right, that KPI is measuring the wrong thing, and blog02's decades angle
+is arguing for a category the data says is fading. Not a site issue — but it
+affects how you read the Week 6 check-in.
+
+---
+
 # DONE
 
 ## July 25, 2026

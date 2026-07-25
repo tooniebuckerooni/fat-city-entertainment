@@ -17,6 +17,13 @@ data, and anything genuinely private are not.
 | `blog02-games-our-crowds-cant-get-enough-of.md` | SEO blog draft — **overlaps an existing post**, see POST-LAUNCH.md |
 | `blog03-decade-by-decade-playlist-guide.md` | SEO blog draft, target keyword "music bingo playlist ideas" |
 | `social-video-concepts.md` | 12 short-form video concepts; a marketing plan, no site work implied |
+| `campaign-plan-sep-oct-acquisition.md` | Fall acquisition campaign brief; the calendar driving the Sep 1 dates |
+| `data-findings-memo.md` | Weebly sales analysis, Jul 2024 – Jul 2026 |
+| `utm-tagging-standard.md` | UTM convention — **two corrections needed before use**, see POST-LAUNCH.md |
+| `email-capture-gate-and-welcome-email.md` | Gate copy + welcome email; **blocked on platform choice** |
+| `gold-club-cta-and-bundle-upsell-copy.md` | CTA copy — **frames Gold Club as a subscription; it isn't**, see POST-LAUNCH.md |
+| `reddit-engagement-guidelines.md` | Community norms; no site work |
+| `weekly-host-email-template.md` | Recurring email template; needs an ESP |
 
 The three blog drafts carry a title tag, meta description, and target keywords at
 the top, and contain bracketed placeholder links (`[Music Bingo Gold Club]`,
