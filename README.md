@@ -5,6 +5,9 @@ Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.
 **Launching? Work through [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md)** — the
 DNS-cutover runbook with pre/post-flip verification steps.
 
+**Already switched over? See [POST-LAUNCH.md](POST-LAUNCH.md)** — the prioritized
+punch list of what's still outstanding now that the site is on the new host.
+
 ## What's here
 
 | Path | What it is |
