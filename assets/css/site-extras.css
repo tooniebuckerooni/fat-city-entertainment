@@ -6,6 +6,10 @@
 .desktop-nav li.wsite-menu-subitem-wrap {
   position: relative;
 }
+/* Styling mirrors the theme's own flyout rules, which are scoped to `#wsite-menus`
+   — the container Weebly's JS moved flyouts into. These dropdowns stay put in the
+   markup, so they never matched that selector: white panel, 1px black border,
+   black uppercase Montserrat, faint grey hover. */
 .desktop-nav .wsite-menu-wrap {
   display: none !important;
   position: absolute;
@@ -13,13 +17,42 @@
   left: 0;
   z-index: 3000;
   min-width: 230px;
-  background: #1d1d1d;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  background: #ffffff;
+  box-shadow: inset 0 0 0 1px #000000, 0 2px 8px rgba(0, 0, 0, 0.18);
   padding: 4px 0;
+}
+.desktop-nav .wsite-menu-wrap a.wsite-menu-subitem,
+.desktop-nav .wsite-menu-wrap a.wsite-menu-subitem .wsite-menu-title,
+.desktop-nav .wsite-menu-wrap a.wsite-menu-subitem .wsite-menu-arrow {
+  color: #000000;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+}
+.desktop-nav .wsite-menu-wrap a.wsite-menu-subitem:hover {
+  background: rgba(0, 0, 0, 0.05);
 }
 .desktop-nav li:hover > .wsite-menu-wrap,
 .desktop-nav li:focus-within > .wsite-menu-wrap {
   display: block !important;
+}
+/* The theme clips the nav's own <ul> (`.nav ul { overflow: hidden }`, there to
+   stop a long menu spilling past `max-width: calc(100vw - 480px)`). Weebly's JS
+   used to lift the flyouts out of that container before showing them — see
+   `_moveFlyout` in files/theme/custom.js — so the clip never applied to them.
+   These dropdowns are pure CSS and stay where they are in the markup, so without
+   this they were laid out at full size and then clipped away to nothing: the
+   hover worked, but nothing was ever painted.
+
+   `.nav ul` matches the submenu <ul>s too, so the third-level flyouts
+   ("Fat Bottom Trivia" →) need the same treatment or they get clipped by their
+   own parent menu. */
+.desktop-nav ul.wsite-menu-default,
+.desktop-nav ul.wsite-menu {
+  overflow: visible;
 }
 /* nested (third-level) flyouts open to the side */
 .desktop-nav .wsite-menu .wsite-menu-wrap {
