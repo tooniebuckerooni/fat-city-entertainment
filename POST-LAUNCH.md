@@ -79,32 +79,47 @@ work, the other 178 do.
 
 | # | What | Size |
 |---|---|---|
-| 1 | Add the three sitemap orphans: `triv101.html` (**has the backlinks**), `aitrivia.html`, `host-resources.html` | small |
+| ~~1~~ | ~~Sitemap orphans~~ — **done July 25**, but not as originally described; see below | done |
 | 2 | Point the blog's **Twitter share buttons** at current URLs so shares stop relying on the legacy redirects | medium, mechanical |
 | 3 | Teach `check-links.js` about **absolute same-domain URLs**, so the legacy-404 class of bug can't recur | small |
-| 4 | Add `<lastmod>` to `sitemap.xml` | small |
+| ~~4~~ | ~~Add `<lastmod>` to `sitemap.xml`~~ — **done July 25** | done |
 | 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
 | 6 | **Publish the three blog drafts** in `_content/drafts/` — see "Blog drafts" below | larger; one decision needed first |
 
 ### #1 and #2, explained
 
-**The sitemap orphans.** `sitemap.xml` lists 211 URLs and is what Search Console
-crawls first. Three pages are live, indexable, and carry a `rel=canonical`, but
-aren't in it — and nothing in the site's nav links to them either, so a crawler
-has no path to them at all:
+**The sitemap orphans — resolved July 25, with one correction.** I'd said to add
+all three. Checking their actual content first changed that:
 
-- **`triv101.html`** — the legacy TRIV101 page. The launch checklist flags this as
-  the URL that *has the inbound backlinks*, so it being invisible to the sitemap
-  is the costliest of the three.
-- **`aitrivia.html`** — the legacy Trivia Generator page.
-- **`host-resources.html`** — host resources.
+- **`triv101.html`** — 445 words of real content, and the page the launch
+  checklist flags as carrying the inbound backlinks. **Added.**
+- **`aitrivia.html`** — the legacy Trivia Generator. Thin on prose but it's a
+  working tool, the same kind of page as `bingocardgenerator.html`, which is
+  already indexed. It had **no meta description at all**; one was written. **Added.**
+- **`host-resources.html`** — **empty.** Its content container holds nothing; the
+  ~96 words on it are entirely nav and footer. Putting an empty page in the
+  sitemap invites a thin-content problem rather than fixing one, so it got
+  `noindex` instead. If it's meant to hold something, that's a content task —
+  then it belongs in the sitemap.
 
-"Orphan" is the SEO term for a page with no internal links pointing at it. Google
-can still find them via backlinks, but they get crawled less and rank worse than
-they should. Adding three `<url>` entries fixes the sitemap half; linking them
-from somewhere in the nav or footer would fix the other half. Note this interacts
-with the staged 2.0 pages — if `pages/triv101.html` is going to *replace*
-`/triv101.html`, the new file is what belongs in the sitemap.
+Still true for the two added pages: nothing in the nav links to them, so they're
+still orphaned in the internal-linking sense. A footer or nav link would close
+that. And if `pages/triv101.html` eventually replaces `/triv101.html` at the same
+URL, the sitemap entry stays valid as-is.
+
+**`<lastmod>` — done, deliberately partial.** Google ignores the field site-wide
+if it doesn't trust the dates, so [`_tools/sitemap-lastmod.js`](_tools/sitemap-lastmod.js)
+only sets one where a real date exists:
+
+- **107 blog posts** get their own published date, read from the `.date-text` in
+  their markup — the true date, spanning 2016-08-30 to now. Git only knows when
+  the file was imported.
+- **21 pages** edited since the migration import get their git commit date.
+- **86 pages** untouched since import get **no** `lastmod`. Their git date is the
+  import date, and claiming a 2016-era page changed this month is exactly the kind
+  of inaccuracy that gets the whole field discounted.
+
+Re-run the script after content changes; it rewrites every date from scratch.
 
 **The blog share buttons.** Every one of the 107 blog posts has a Twitter share
 button whose URL is hard-coded to the old Weebly permalink scheme:
