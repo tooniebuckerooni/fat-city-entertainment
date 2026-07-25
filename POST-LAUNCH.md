@@ -48,8 +48,6 @@ Optional decisions, no rush:
   now a plain `$295.00 USD` because I wouldn't invent a USD "was" price. To put
   the sale framing back, pick a real regular price and run
   `node _tools/set-usd-price.js p140 <regular> 295`.
-- **The blog02 draft overlaps an existing post** — replace, differentiate, or
-  merge? Blocks publishing that one draft; see "Blog drafts" below.
 - **Ship the staged 2.0 pages.** `pages/triv101.html` and
   `pages/trivia-generator.html` are finished, `noindex`, and unlinked. Serve them
   at `/triv101.html` and `/aitrivia.html` (inheriting the backlinks), or link
@@ -88,7 +86,7 @@ work, the other 178 do.
 | ~~3~~ | ~~`check-links.js` absolute same-domain URLs~~ — **done July 25**; found 4 real breakages immediately | done |
 | ~~4~~ | ~~`<lastmod>` in `sitemap.xml`~~ — **done July 25** | done |
 | 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
-| 6 | **Publish the three blog drafts** in `_content/drafts/` — see "Blog drafts" below | larger; one decision needed first |
+| ~~6~~ | ~~Publish the three blog drafts~~ — **done July 25**; see "Blog cluster" below | done |
 
 ### #1 and #2, explained
 
@@ -149,7 +147,43 @@ already right there in the same markup, so it can be scripted the same way the
 redirect stubs were. The stubs stay regardless — they exist for inbound links
 from the outside world, which is the part we can't edit.
 
-### Blog drafts (#6)
+### Blog cluster — published July 25
+
+All three are live, built by [`_tools/publish-post.js`](_tools/publish-post.js),
+which clones an existing post as a template and swaps title, description,
+canonical, og tags, date, slug and body, converting the markdown as it goes. It
+refuses to publish if any bracketed placeholder can't be resolved.
+
+| Post | URL |
+|---|---|
+| How to Run a Music Bingo Night | `/triviahostresources/how-to-run-a-music-bingo-night` |
+| The Decade-by-Decade Playlist Guide | `/triviahostresources/decade-by-decade-music-bingo-playlist-guide` |
+| Games Our Crowds Can't Get Enough Of | `/triviahostresources/19-music-bingo-games-our-crowds-cant-get-enough-of` |
+
+**blog02 replaced the existing post at its own URL**, as agreed — that keeps the
+page's age and any backlinks instead of splitting them across two competing pages.
+Its date was updated from 4/11/2018 to today: link equity lives with the URL, not
+the date text, and showing a 2018 date on freshly rewritten content helps neither
+readers nor freshness signals. The 871 words that were there are replaced.
+
+All placeholder links resolved — Gold Club, both generators, BCG Pro, and the
+cross-links between blog01 and blog03. Added to the top of the blog landing page
+in date order, and to `sitemap.xml`.
+
+**Also fixed while in here:** all 107 blog posts had `og:url` pointing at their
+old `/4/post/` permalink while `rel=canonical` pointed at the real URL. Social
+platforms read `og:url` as the canonical for a share, so likes and shares were
+accumulating against a dead URL. Every one now matches its canonical.
+
+**Not regenerated:** the 26 pagination pages, the archive months, and the category
+pages. Adding three posts to the top of the landing page doesn't break them —
+`previous/2` onward still start where they did, so nothing is duplicated or
+missing, the first page just shows 10 entries instead of 8. But the new posts
+won't appear under Archives (there's no July 2026 month yet) or in the Music
+Bingo / Trivia Hosting category listings until those are rebuilt. They're
+reachable from the landing page, the sitemap, and each other.
+
+### Original draft notes
 
 Four files arrived in `_content/drafts/` on July 25. Three are publish-ready SEO
 drafts, each with a title tag, meta description, and target keyword:
