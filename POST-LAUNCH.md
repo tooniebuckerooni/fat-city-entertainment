@@ -79,10 +79,10 @@ work, the other 178 do.
 
 | # | What | Size |
 |---|---|---|
-| ~~1~~ | ~~Sitemap orphans~~ — **done July 25**, but not as originally described; see below | done |
-| 2 | Point the blog's **Twitter share buttons** at current URLs so shares stop relying on the legacy redirects | medium, mechanical |
-| 3 | Teach `check-links.js` about **absolute same-domain URLs**, so the legacy-404 class of bug can't recur | small |
-| ~~4~~ | ~~Add `<lastmod>` to `sitemap.xml`~~ — **done July 25** | done |
+| ~~1~~ | ~~Sitemap orphans~~ — **done July 25.** All three turned out to be dead weight and were redirected instead; see below | done |
+| ~~2~~ | ~~Blog share buttons~~ — **done July 25**, all 571 | done |
+| ~~3~~ | ~~`check-links.js` absolute same-domain URLs~~ — **done July 25**; found 4 real breakages immediately | done |
+| ~~4~~ | ~~`<lastmod>` in `sitemap.xml`~~ — **done July 25** | done |
 | 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
 | 6 | **Publish the three blog drafts** in `_content/drafts/` — see "Blog drafts" below | larger; one decision needed first |
 
@@ -290,13 +290,13 @@ things need pinning down:
 
 | # | What | Notes |
 |---|---|---|
-| 7 | **"Complete Your Night" CTA box** on the generator results page and at the end of blog posts | Directly targets the 1.7% view-to-cart leak the docs call out. Two paths (Shop Packs / Gold Club) as specified. |
-| 8 | **Site-wide Gold Club CTA variants** — nav, homepage hero, footer, blog closing | Wording blocked on #1 above; the placement work isn't. |
-| 9 | **Email-capture gate** on `/bingocardgenerator.html` | Blocked on #3 — which generator, which platform. |
-| 10 | **UTM tagging** on this repo's outbound links, with the standard's URLs corrected | See the correction below. |
-| 11 | Structure blog content for AI answer engines — clear headers, direct answers, and possibly FAQ/HowTo structured data | The memo spotted `aio.online` at +76%; the three new drafts already have clean header structure. |
-| 12 | Add the Gold Club CTA variants site-wide (nav, homepage hero, footer) using the lifetime-access wording | medium |
-| 13 | Convert `pages/index-draft.html` to UTF-8 | It's currently UTF-16LE with CRLF, which is fragile if it ever ships. Unlinked and `noindex` today, so it's harmless until then. |
+| 7 | **"Complete Your Night" CTA box** — on `/bingocardgenerator2.html` already; still to add on the legacy generator page and at the end of blog posts | small |
+| ~~8~~ | ~~Gold Club placements~~ — **footer sitewide (386 pages) + homepage section done July 25.** A nav entry is the one remaining slot | mostly done |
+| 9 | **Email-capture gate** — moved to the Generator 2 codebase, which isn't this repo. Still needs an email platform chosen | blocked on you |
+| ~~10~~ | ~~UTM on outbound links~~ — **done July 25**; both real outbound links tagged. The `utm-tagging-standard.md` doc still has its two errors uncorrected | doc only |
+| 11 | Structure blog content for AI answer engines — clear headers, direct answers, possibly FAQ/HowTo structured data | small |
+| 12 | Convert `pages/index-draft.html` to UTF-8 (currently UTF-16LE; unlinked and `noindex`, so harmless until it ships) | small |
+| 13 | **Raise the Gold Club price** once LemonSqueezy is updated — `node _tools/set-usd-price.js p112 549.50 307.72` | one command, blocked on you |
 
 ### The UTM standard needs two corrections before use
 
@@ -358,6 +358,29 @@ A pass over what the store actually promises, prompted by reading the CTA copy:
 **Future, once there's a month of sales to look at:** bundling a few months — or a
 year — of Generator 2 with Gold Club, in place of the Pro bundle that used to be
 there. Nothing on the site claims this today, and nothing should until it's real.
+
+### Gold Club pricing — the numbers to settle first
+
+Regular price is **50 × $10.99 = $549.50**. Against that:
+
+| | |
+|---|---|
+| Current live price, $235.50 | **57% off**, not the 70% remembered |
+| 70% off would have been | $164.85 |
+| 44% off (the intended new discount) | **$307.72** |
+
+Two things to sort before changing it:
+
+1. **`set-usd-price.js` only changes the displayed price.** LemonSqueezy charges
+   whatever it's configured for, so the site must not be changed on its own — that
+   recreates exactly the p140 bug (page showing one number, checkout taking
+   another). Change LemonSqueezy first or at the same moment.
+2. **$549.50 as a struck-through anchor only holds up if Gold Club was genuinely
+   sold at that price.** Worth being sure, since an inflated "was" price is the
+   same category of problem as the "$123 Value" claim already removed.
+
+The Gold Club page currently shows no sale framing at all — one plain $235.50,
+nothing crossed out — so the Summer Clearance isn't being communicated anywhere.
 
 ## Not site work — recorded for reference
 
