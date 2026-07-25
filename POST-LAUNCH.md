@@ -45,6 +45,8 @@ Optional decisions, no rush:
   now a plain `$295.00 USD` because I wouldn't invent a USD "was" price. To put
   the sale framing back, pick a real regular price and run
   `node _tools/set-usd-price.js p140 <regular> 295`.
+- **The blog02 draft overlaps an existing post** — replace, differentiate, or
+  merge? Blocks publishing that one draft; see "Blog drafts" below.
 - **Ship the staged 2.0 pages.** `pages/triv101.html` and
   `pages/trivia-generator.html` are finished, `noindex`, and unlinked. Serve them
   at `/triv101.html` and `/aitrivia.html` (inheriting the backlinks), or link
@@ -82,6 +84,102 @@ work, the other 178 do.
 | 3 | Teach `check-links.js` about **absolute same-domain URLs**, so the legacy-404 class of bug can't recur | small |
 | 4 | Add `<lastmod>` to `sitemap.xml` | small |
 | 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
+| 6 | **Publish the three blog drafts** in `_content/drafts/` — see "Blog drafts" below | larger; one decision needed first |
+
+### #1 and #2, explained
+
+**The sitemap orphans.** `sitemap.xml` lists 211 URLs and is what Search Console
+crawls first. Three pages are live, indexable, and carry a `rel=canonical`, but
+aren't in it — and nothing in the site's nav links to them either, so a crawler
+has no path to them at all:
+
+- **`triv101.html`** — the legacy TRIV101 page. The launch checklist flags this as
+  the URL that *has the inbound backlinks*, so it being invisible to the sitemap
+  is the costliest of the three.
+- **`aitrivia.html`** — the legacy Trivia Generator page.
+- **`host-resources.html`** — host resources.
+
+"Orphan" is the SEO term for a page with no internal links pointing at it. Google
+can still find them via backlinks, but they get crawled less and rank worse than
+they should. Adding three `<url>` entries fixes the sitemap half; linking them
+from somewhere in the nav or footer would fix the other half. Note this interacts
+with the staged 2.0 pages — if `pages/triv101.html` is going to *replace*
+`/triv101.html`, the new file is what belongs in the sitemap.
+
+**The blog share buttons.** Every one of the 107 blog posts has a Twitter share
+button whose URL is hard-coded to the old Weebly permalink scheme:
+
+```
+http://twitter.com/share?url=http://www.fatcityentertainment.com/4/post/2017/09/<slug>.html
+```
+
+Two things are wrong with it, neither fatal:
+
+1. It points at `/4/post/...`, which now works only because of the 180 redirect
+   stubs. Anyone sharing from the blog publishes a URL that takes an extra hop,
+   and the redirect is a meta-refresh rather than a real 301 — fine for browsers,
+   weaker for anything that resolves links server-side (some social previews).
+2. It's `http://` and `twitter.com`, so it takes a second redirect to
+   `https://x.com`.
+
+The fix is mechanical: rewrite each button's URL to the post's current canonical
+`https://www.fatcityentertainment.com/triviahostresources/<slug>/`. The slug is
+already right there in the same markup, so it can be scripted the same way the
+redirect stubs were. The stubs stay regardless — they exist for inbound links
+from the outside world, which is the part we can't edit.
+
+### Blog drafts (#6)
+
+Four files arrived in `_content/drafts/` on July 25. Three are publish-ready SEO
+drafts, each with a title tag, meta description, and target keyword:
+
+| Draft | Target keyword | Status |
+|---|---|---|
+| `blog01-how-to-run-a-music-bingo-night.md` | how to run a music bingo night | ready to publish |
+| `blog03-decade-by-decade-playlist-guide.md` | music bingo playlist ideas | ready to publish |
+| `blog02-games-our-crowds-cant-get-enough-of.md` | music bingo game ideas | **needs a decision** |
+
+**The blog02 conflict — decide before publishing.** There is already a live post
+at `/triviahostresources/19-music-bingo-games-our-crowds-cant-get-enough-of/`
+titled "19 Music Bingo Games Our Crowds Can't Get Enough Of". The new draft is
+"Games Our Crowds Can't Get Enough Of" — same topic, same keyword space. Shipping
+it as a second post would put two of your own pages in competition for the same
+query, which usually means neither ranks as well as one strong page would. Three
+ways to go:
+
+1. **Replace** — publish the new copy at the existing URL, keeping its age and any
+   backlinks. Usually the strongest SEO play.
+2. **Differentiate** — retarget the new draft onto a keyword the old post doesn't
+   own (its real distinct angle is *"why the decades round still wins"*), and give
+   it a matching title and slug.
+3. **Merge** — fold the new material into the existing post.
+
+The other two drafts have no such conflict.
+
+**What publishing actually involves.** The blog is 107 static pages with static
+plumbing, so a new post is more than one file:
+
+- the post itself at `/triviahostresources/<slug>/index.html`, built on the
+  existing post template
+- the blog landing page (`triviahostresources.html`)
+- pagination — 26 `previous/N/` pages, which all shift by one
+- the archive month for the publish date (59 exist) and any relevant category
+  pages (14 exist)
+- a `sitemap.xml` entry
+- resolving the bracketed placeholder links the drafts ship with —
+  `[Music Bingo Gold Club]` → `/store/p112/GoldClub.html`,
+  `[try the free Bingo Card Generator]` → `/bingocardgenerator.html`,
+  `[Bingo Card Generator Pro]` → `/store/p65/bingocardgeneratorpro.html`, plus
+  `[playlist guide]` and `[hosting guide]`, which are cross-links between blog01
+  and blog03
+
+Worth scripting rather than hand-editing, given the pagination shift. The three
+posts cross-link into a tidy cluster once published.
+
+**`social-video-concepts.md` implies no site work.** It's 12 short-form video
+concepts — a marketing plan for filming, not a page. Kept in `_content/drafts/`
+for reference. Say the word if you want any of it turned into a page (a
+host-resources section, for instance).
 
 ---
 
