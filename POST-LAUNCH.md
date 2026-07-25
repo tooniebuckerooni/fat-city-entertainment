@@ -195,7 +195,14 @@ actually on the site; the blockers are real and listed first.
 
 ## Blockers — need a decision from you
 
-### 1. Gold Club isn't a subscription, but the CTA copy sells it as one
+### 1. ~~Gold Club isn't a subscription, but the CTA copy sells it as one~~ — **RESOLVED**
+
+**Decision (July 25): keep it one-time, reword around lifetime access.** The
+product stays a single $235.50 USD purchase. Any CTA copy should lean on what's
+actually true — pay once, keep the files forever, get future releases free — and
+the subscription language (*"one subscription"*, *"$X/month"*, *"Upgrade to"*) and
+the monthly-vs-annual A/B test come out of `gold-club-cta-and-bundle-upsell-copy.md`
+before it's used. Original problem, for the record:
 
 `gold-club-cta-and-bundle-upsell-copy.md` repeatedly frames Gold Club as a
 subscription: *"one subscription"*, *"New themes every month, one subscription"*,
@@ -236,7 +243,18 @@ What *is* implementable from that doc: the site-wide Gold Club CTA variants (nav
 homepage hero, footer, blog closing) and the **"Complete Your Night"** box for the
 generator results page and blog post ends. Both are listed below.
 
-### 3. Which generator gets the email gate — and which email platform?
+### 3. ~~Which generator gets the email gate~~ — **PARTLY RESOLVED**
+
+**Decision (July 25): the legacy generator stays exactly as it is — no gate on
+it.** A new comparison page at `/bingocardgenerator2.html` presents both
+generators evenly, and Generator 2 lives on its own site. If Generator 2 proves
+itself over time, the legacy one comes out of the store but stays up for existing
+users. So the gate question moves to the Generator 2 codebase, which isn't in this
+repo.
+
+**Still open: the email platform.** Formspree relays to an inbox; it can't send
+the welcome email or the weekly host email. That choice is still needed before any
+gate, wherever it lives. Original note:
 
 `email-capture-gate-and-welcome-email.md` puts a one-field email gate in front of
 the generator's PDF download, citing ~109 anonymous downloads per period. Two
@@ -262,7 +280,8 @@ things need pinning down:
 | 9 | **Email-capture gate** on `/bingocardgenerator.html` | Blocked on #3 — which generator, which platform. |
 | 10 | **UTM tagging** on this repo's outbound links, with the standard's URLs corrected | See the correction below. |
 | 11 | Structure blog content for AI answer engines — clear headers, direct answers, and possibly FAQ/HowTo structured data | The memo spotted `aio.online` at +76%; the three new drafts already have clean header structure. |
-| 12 | Convert `pages/index-draft.html` to UTF-8 | It's currently UTF-16LE with CRLF, which is fragile if it ever ships. Unlinked and `noindex` today, so it's harmless until then. |
+| 12 | Add the Gold Club CTA variants site-wide (nav, homepage hero, footer) using the lifetime-access wording | medium |
+| 13 | Convert `pages/index-draft.html` to UTF-8 | It's currently UTF-16LE with CRLF, which is fragile if it ever ships. Unlinked and `noindex` today, so it's harmless until then. |
 
 ### The UTM standard needs two corrections before use
 
@@ -297,6 +316,33 @@ domain, so that part is small and worth doing.
 Note the standard was written to be implemented "at the DNS cutover", which has
 already passed — it's a retrofit now, which is fine, just no longer free of
 mixed-attribution history.
+
+### Product-claim corrections made July 25
+
+A pass over what the store actually promises, prompted by reading the CTA copy:
+
+- **Gold Club no longer includes Bingo Card Generator Pro.** The claim
+  ("*Now Including: Bingo Card Generator Pro*", plus "*Already bought pro? Email
+  us for a credit!*") was removed from the product page and the five blog pages
+  embedding the same description. It had also crept into two pages I wrote earlier
+  the same day; both corrected.
+- **The "$123 Value" attached to that claim was wrong twice over** — BCG Pro sells
+  for **$59.00 USD**, so it inflated the figure to more than double the real price.
+  Moot now the claim is gone, but worth not repeating.
+- **"Log in to FatCityEntertainment.com … to access updates and Bingo Card
+  Generator Pro"** was on Gold Club and five blog embeds; the same instruction
+  ("*under My Account*") was on the BCG Pro page. **There is no login on this
+  site** — Weebly membership went away with the migration, so any customer
+  following it found nothing. Replaced with how delivery actually works: the
+  download link is emailed at checkout, and new Gold Club games go to the
+  purchase email at no charge.
+- **BCG Pro's page claimed "Get Lifetime Access Now – $123"** while the same page
+  charged **$59.00 USD**, and carried a third-party CAD→USD currency widget
+  (`fxwidget-cc`, hard-coded to CA$99, loading `s.fx-w.io`). Both gone.
+
+**Future, once there's a month of sales to look at:** bundling a few months — or a
+year — of Generator 2 with Gold Club, in place of the Pro bundle that used to be
+there. Nothing on the site claims this today, and nothing should until it's real.
 
 ## Not site work — recorded for reference
 

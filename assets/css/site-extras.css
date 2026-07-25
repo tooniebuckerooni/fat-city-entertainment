@@ -93,6 +93,45 @@
   margin-top: 10px;
 }
 
+/* ------------------------------------------------------------------- CTA buttons
+   The theme has no button variant that survives on a light body section:
+   `.wsite-button-highlight.wsite-button-large:not(.wsite-buy-button)` is
+   white-on-white (it was written for buttons sitting on a dark hero image), and
+   a plain `.wsite-button` is transparent with white text. Both vanish on a white
+   background. `.fce-cta` is the theme's own black button, reusable for content
+   CTAs anywhere on the site. */
+a.fce-cta,
+a.fce-cta-secondary {
+  display: inline-block;
+  padding: 12px 26px;
+  margin: 4px 6px 4px 0;
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+a.fce-cta {
+  background-color: #000000;
+  color: #ffffff !important;
+  border: 1px solid #000000;
+}
+a.fce-cta:hover {
+  background-color: transparent;
+  color: #000000 !important;
+}
+a.fce-cta-secondary {
+  background-color: transparent;
+  color: #000000 !important;
+  border: 1px solid #000000;
+}
+a.fce-cta-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+
 /* When a KDP product lists Kindle and paperback separately, ls-buy.js clones the
    buy button for the second edition and drops the duplicate `id`. The theme only
    gives buy buttons their white-on-black text via
