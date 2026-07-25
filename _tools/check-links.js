@@ -39,10 +39,20 @@ for (const f of files) {
       let v = $(el).attr(attr);
       if (!v) continue;
       v = v.trim();
-      if (/^(https?:|mailto:|tel:|javascript:|#|data:|about:)/i.test(v)) continue;
+      if (/^(mailto:|tel:|javascript:|#|data:|about:)/i.test(v)) continue;
+
+      // An absolute URL on our own domain is an internal link and has to be
+      // checked like one. Skipping every http(s): URL is what let 180 dead
+      // /4/post/... links sit in the markup while this reported "broken refs: 0"
+      // — they were written as http://www.fatcityentertainment.com/... rather
+      // than as paths. Genuinely external hosts are still skipped.
+      const sameHost = v.match(/^https?:\/\/(?:www\.)?fatcityentertainment\.com(\/[^\s]*)?$/i);
+      if (/^https?:/i.test(v) && !sameHost) continue;
+
       // relative link in a subdirectory page resolves relative to that dir
       let target;
-      if (v.startsWith("/")) target = v;
+      if (sameHost) target = sameHost[1] || "/";
+      else if (v.startsWith("/")) target = v;
       else target = "/" + path.posix.join(path.posix.dirname(rel), v);
       if (!resolves(target)) {
         const key = (v.startsWith("/") ? v : `${v} (in ${path.posix.dirname(rel)}/)`).split("?")[0];
