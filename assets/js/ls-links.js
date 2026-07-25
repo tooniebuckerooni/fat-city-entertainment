@@ -99,3 +99,18 @@ window.LS_LINKS = {
 window.LS_PRICES = {
   "handbook": "",
 };
+
+// ==========================================================================
+// Amazon KDP links — the two handbooks sell on Amazon, not Lemon Squeezy, so
+// they get full royalties. Paste the Amazon product URL between the quotes and
+// that page's "Buy on Amazon" button appears; leave it "" and the page shows a
+// "coming soon" note instead. No price goes here — Amazon sets it, and it
+// differs between Kindle and paperback.
+//
+//   handbook  = The Music Bingo Handbook      /musicbingohandbook.html
+//   p18       = The Trivia Host Handbook      /store/p18/fbthandbook.html
+// ==========================================================================
+window.KDP_LINKS = {
+  "handbook": "", // [ ] Music Bingo Handbook — not yet live on Amazon
+  "p18": "", // [ ] Trivia Host Handbook — live on Kindle + paperback, link needed
+};

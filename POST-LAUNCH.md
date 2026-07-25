@@ -63,45 +63,72 @@ stays invisible.
 > out to be scraped-only and referenced nowhere in the served site, so no feed
 > stub was needed. The distinct-URL counts (107 / 59 / 14) were right.
 
-### 2. `goldclubgames.html` — paid Gold Club content is indexable
+### 2. ~~`goldclubgames.html` — paid Gold Club content is indexable~~ — **DONE**
 
-The page is fully crawlable (no `noindex`, canonical present) and links
-`music_bingo_gold.zip` + `music_bingo_gold_callsheets.zip` — the deliverables
-for the **$329 Gold Club**. It's orphaned from nav, so nobody's linking it, but
-nothing stops Google from indexing it and surfacing the zips in search.
+**Retired July 25, 2026.** The page was fully crawlable (no `noindex`) and linked
+`music_bingo_gold.zip` + `music_bingo_gold_callsheets.zip` — the deliverables for
+the **$329 Gold Club**. Both download blocks are gone, replaced with a notice
+that the 11/2025 downloads are retired and members will be emailed a fresh link
+for the new complete Gold Pack. The page now carries
+`<meta name="robots" content="noindex">`, matching `8j6e7n5n3y09.html`.
 
-This is exactly the case already handled for `8j6e7n5n3y09.html` (Triv101
-Premium buyers' page), which got `<meta name="robots" content="noindex">` in the
-launch pass. Same treatment belongs here — `goldclubgames.html` was just missed.
+**Still open — the zip files themselves.** `uploads/4/3/3/6/43362499/music_bingo_gold.zip`
+(5.4 MB) and `music_bingo_gold_callsheets.zip` (1.8 MB) are still on disk and still
+fetchable by direct URL; nothing links them now, but static hosting can't gate
+them. Deleting them is a one-liner — the open question is whether any existing
+member has that direct link bookmarked. See "Needs you" below.
 
-Caveat worth being clear-eyed about: static hosting can't actually *gate* those
-zips, so `noindex` only stops discovery via search, not a direct link. That's the
-same tradeoff already accepted for the Triv101 page. If the Gold Club is worth
-hardening properly, that's a real project (signed URLs / a gated host), not a
-line item.
+### 3. ~~`dashboard.html` — internal tool is indexable~~ — **DONE**
 
-### 3. `dashboard.html` — internal tool is indexable
+"Triv101 - Question Approval Dashboard", an orphaned internal admin surface.
+`noindex` added July 25, 2026.
 
-"Triv101 - Question Approval Dashboard". An internal admin surface, orphaned but
-crawlable. Add `noindex`.
+### 4. Zoom Party (p140) was showing a CAD price on a live USD product — **DONE**
+
+Found while re-checking the currency claim below. `store/p140/virtualeventpayment.html`
+had `class="wsite-com-product-show-price-range-on-sale"`, and that CSS
+(`files/main_style.css`) strikes through `#wsite-com-product-price` while
+displaying `#wsite-com-product-price-range` and **hiding** the sale container. The
+page therefore rendered ~~$295.00 USD~~ **CA$375.00** — showing a stale Canadian
+price as the live one on a $295 product, while LemonSqueezy charged $295 USD. Its
+`AggregateOffer` also still emitted `lowPrice 375 / highPrice 500` as USD.
+
+Root cause was a silent failure in `_tools/set-usd-price.js`: its price-container
+regex expected `<span class="wsite-com-product-price-amount">` immediately after
+the container div, but range products carry hidden `lowPrice`/`highPrice` spans
+first, so the replace never matched. It printed a `warn:` line and carried on —
+easy to miss in a bulk wiring run. The area-class regex missed the `-range`
+variant for the same reason.
+
+Fixed the tool (scan within the container instead of anchoring to its opening
+tag; handle the `-range` class; keep `lowPrice`/`highPrice` in sync), then re-ran
+`node _tools/set-usd-price.js p140 295`. p140 now shows a plain `$295.00 USD`.
+
+**Note:** p140 previously advertised a sale (CA$500 → CA$375). I did **not**
+invent a USD "was" price to cross out, so the On Sale framing is gone. If you
+want it back, pick a real regular price and run
+`node _tools/set-usd-price.js p140 <regular> 295`.
+
+p140 was the only product with this markup — every other product page was
+checked.
 
 ---
 
 ## P1 — Worth doing this week
 
-### 4. GA4 missing on two live pages
+### 5. ~~GA4 missing on two live pages~~ — **DONE**
 
-387 pages carry `G-LYMVV05F3X`, but these are live and untagged:
+`G-LYMVV05F3X` added July 25, 2026 to:
 
-- **`musicbingohandbook.html`** — the Music Bingo Handbook sales funnel. This is
-  a money page with no analytics on it, so the KDP funnel launches blind.
-- **`404.html`** — tagging this is how you'd actually execute the
-  "watch 404s post-flip" item on the launch checklist. With GA4 on the 404 page,
-  every missed URL variant (see P0 #1) shows up as a pageview with its path.
+- **`musicbingohandbook.html`** — the Music Bingo Handbook sales funnel, which
+  was about to launch its KDP funnel with no analytics on it.
+- **`404.html`** — this is how the "watch 404s post-flip" item actually gets
+  executed: every missed URL variant now shows up as a pageview with its path.
 
-The staged `pages/*.html` drafts are correctly untagged — leave them.
+The staged `pages/*.html` drafts remain untagged on purpose, as do the 180
+redirect stubs (they bounce in 0s, so a tag wouldn't fire reliably).
 
-### 5. Five indexable pages are missing from `sitemap.xml`
+### 6. Five indexable pages are missing from `sitemap.xml`
 
 `sitemap.xml` has 211 `<loc>` entries and all of them resolve (the four that
 look broken are just percent-encoded — `10%2C000__Q%26A_Pack_2.html` etc. —
@@ -131,16 +158,36 @@ inside the same Twitter share buttons from P0 #1). These work — they just
 No true mixed content anywhere: **zero** `src="http://..."` subresources, so
 nothing gets blocked.
 
-### 7. Handbook funnel is still "Coming soon to Amazon"
+### 7. Handbook funnels — both now wired, waiting only on Amazon URLs
 
-Both handbook pages are staged and waiting on KDP, not on code:
+Reworked July 25, 2026 so both handbooks switch on from **one place**:
+`window.KDP_LINKS` at the bottom of [`assets/js/ls-links.js`](assets/js/ls-links.js).
 
-- `musicbingohandbook.html` — `KDP_HANDBOOK = ""` at line 300. Set the Amazon
-  URL and both buy buttons reveal themselves. Also set
-  `window.LS_PRICES.handbook` in `assets/js/ls-links.js` (currently `""`) to
-  show a price.
-- `store/p18/fbthandbook.html` — "Buy on Amazon" button is `display:none` with a
-  `.kdp-pending` notice. Set the href and unhide.
+```js
+window.KDP_LINKS = {
+  "handbook": "", // Music Bingo Handbook  -> /musicbingohandbook.html
+  "p18": "",      // Trivia Host Handbook  -> /store/p18/fbthandbook.html
+};
+```
+
+Paste a product's Amazon URL between its quotes and that page's "Buy on Amazon"
+button appears and the "coming soon" note hides itself. Leave it `""` and the
+page stays in coming-soon mode. Nothing else to edit, and no price to set —
+Amazon sets that, and it differs between Kindle and paperback.
+
+- **Trivia Host Handbook (p18)** — live on Kindle + paperback; **needs its URL**.
+  Its old `CA$8.00` price and CAD schema.org offer were removed (Amazon owns the
+  price now); the page and all four listings read "On Amazon".
+- **Music Bingo Handbook** — deliberately left in "coming soon" mode. Its page
+  previously advertised "Instant download", which is wrong for a KDP title; the
+  meta/OG copy now says "On Amazon Kindle and paperback".
+
+Mechanically this reuses the existing `ls-buy.js` pattern (`.kdp-buy[data-product]`
++ a sibling `.kdp-pending`), so it behaves like every other buy button. Both
+states were tested against a stubbed DOM.
+
+If Kindle and paperback need *separate* buttons rather than one Amazon link,
+that's a small addition — say the word.
 
 ### 8. Ship the staged 2.0 pages
 
@@ -163,10 +210,29 @@ USD-first and `yycevents.html` (Calgary) remains the only live-events geo page.
 Minor. Adding real dates helps recrawl prioritization, which is worth a little
 more than usual right after a host move.
 
+### 11. Retired p51 still has a priced tile in the `c6` category
+
+`store/c6/triviagameshows/index.html` still lists "FBT 3.1 Valentine's Day
+Special" at `CA$19.99`. p51 is retired and meta-refreshes to p135 (Valentine's
+2-Pack), so the tile leads somewhere valid but advertises a dead product at a
+stale Canadian price. Removing the tile is the clean fix — left alone because
+which products appear in a category is a merchandising call, not a bug fix.
+
 ---
 
 ## Needs you (I can't reach these)
 
+- **The Trivia Host Handbook's Amazon URL** → `KDP_LINKS.p18` in
+  `assets/js/ls-links.js`. The book is live on Kindle and paperback; the page
+  says "coming soon" until that string is filled in.
+- **The Gold Club zip files — delete or keep?** `music_bingo_gold.zip` (5.4 MB)
+  and `music_bingo_gold_callsheets.zip` (1.8 MB) under
+  `uploads/4/3/3/6/43362499/`. Nothing links them now and the page is
+  `noindex`, but the direct URLs still work and static hosting can't gate them.
+  Deleting is the only way to actually close that off; the cost is breaking any
+  member who bookmarked the direct link. Since you're emailing everyone a fresh
+  link for the new pack anyway, deleting looks safe — but it's your call, and
+  they'd stay recoverable from git history either way.
 - **Spot-check the live domain** — the pre-flip staging spot-check and the
   post-flip URL sweep are both still unticked in LAUNCH-CHECKLIST.md. Confirm:
   apex → www, http → https, a deep blog URL, a product page, an `/uploads/`
@@ -187,7 +253,6 @@ more than usual right after a host move.
 Checked this pass, all good:
 
 - **Formspree** — no `YOUR_FORM_ID` placeholders left; all 7 forms → `mojgvwzn`.
-- **Currency** — zero `CA$` and zero `priceCurrency: CAD` left anywhere.
 - **LemonSqueezy** — 69 wired; the 6 blanks are all deliberate (`p3` t-shirt out
   of stock, `p7` hidden, `p18`+`handbook` on KDP, `p51`/`p125` retired and
   redirecting).
@@ -197,6 +262,25 @@ Checked this pass, all good:
 - **Relative internal links** — `node _tools/check-links.js` → 397 pages,
   0 broken. (Absolute same-domain links are *not* covered; see P0 #1.)
 - **robots.txt** — disallows `/_tools/`, points at the sitemap.
+
+### Correction: "currency" was **not** clean
+
+An earlier version of this file listed "zero `CA$` and zero `priceCurrency: CAD`
+left anywhere" as verified. That was wrong — it came from a broken shell check.
+`grep "CA\$"` inside double quotes reaches grep as `CA$`, where `$` is an
+end-of-line anchor, so it matched nothing and looked like a pass. The real state:
+
+- **32 served files contain `CA$`.** Most are historical blog posts and archive
+  pages quoting old prices in editorial copy — those are fine to leave.
+- **The live commerce surfaces have been fixed:** p140 (see P0 #4) and the p18
+  handbook, whose `CA$8.00` appeared on `trivia-store.html` and three category
+  listings and now reads "On Amazon".
+- **Still showing CAD, all on non-selling pages:** `p51` and `p125` (retired,
+  meta-refresh to their packs), `p7` (hidden/noindex), and a stale **p51 tile in
+  the `c6` category listing** still priced `CA$19.99` — that last one is a live
+  category page, so it's worth a look (see P2 #11).
+
+Verify with `grep -rlF 'CA$' --include=*.html .` — note the `-F`.
 
 ---
 
@@ -225,16 +309,32 @@ target is missing).
 Not yet verified against the live domain — this sandbox can't reach it. Worth
 curling two or three `/4/post/...` URLs once you can.
 
+**July 25, 2026 — Gold Club sunset, indexing, analytics, KDP wiring.**
+
+- `goldclubgames.html` download blocks replaced with a members notice; `noindex`
+  added (P0 #2). The zip files themselves are still on disk — decision pending.
+- `dashboard.html` `noindex` (P0 #3).
+- p140 repriced to a plain `$295.00 USD`, and `set-usd-price.js` fixed so the
+  range-layout bug that caused it can't silently recur (P0 #4).
+- GA4 on `musicbingohandbook.html` and `404.html` (P1 #5).
+- Both handbooks now switch on from `KDP_LINKS` in `ls-links.js` (P2 #7).
+
+Verified after all of it: `check-links.js` clean at 577 pages / 0 broken refs,
+`legacy-urls.js` still 180/180 mapped, all four JS files parse, and the KDP
+button was exercised in both the link-set and no-link states.
+
 ---
 
 ## Suggested order
 
-1. ~~Generate the 180 legacy redirect stubs (P0 #1)~~ — **done**, see above.
-2. `noindex` on `goldclubgames.html` + `dashboard.html` (P0 #2, #3) — two lines.
-3. GA4 on `musicbingohandbook.html` + `404.html` (P1 #4) — the 404 tag turns
-   "watch for missed URLs" into something you can actually measure.
-4. Sitemap: add the three orphans (P1 #5).
-5. Point the blog's share buttons at current URLs (P2 #6), so shares stop
+1. ~~Generate the 180 legacy redirect stubs (P0 #1)~~ — **done**.
+2. ~~`noindex` on `goldclubgames.html` + `dashboard.html` (P0 #2, #3)~~ — **done**.
+3. ~~GA4 on `musicbingohandbook.html` + `404.html` (P1 #5)~~ — **done**.
+4. **Paste the Trivia Host Handbook's Amazon URL** into `KDP_LINKS.p18` — it's
+   live on Amazon right now and the page still says "coming soon".
+5. Decide on the Gold Club zip files (see "Needs you").
+6. Sitemap: add the three orphans (P1 #6).
+7. Point the blog's share buttons at current URLs (P2 #8), so shares stop
    depending on the new redirects.
-6. Teach `check-links.js` about absolute same-domain URLs, so #1 can't recur.
-7. Then the live spot-checks and GSC submission, and retire Weebly.
+8. Teach `check-links.js` about absolute same-domain URLs, so P0 #1 can't recur.
+9. Then the live spot-checks and GSC submission, and retire Weebly.

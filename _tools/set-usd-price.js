@@ -44,15 +44,25 @@ html = html.replace(
   /(<meta itemprop="priceCurrency" content=")[A-Z]{3}(")/,
   "$1USD$2"
 );
+// Also normalises the "price range" layout (wsite-com-product-show-price-range*)
+// onto the plain one: a range only makes sense for a product with variants at
+// different prices, and its CSS hides the sale container while striking through
+// the regular price, so leaving it in place displays the wrong number.
 html = html.replace(
-  /(<div id="wsite-com-product-price-area" class=")wsite-com-product-show-price(?:-on-sale)?(")/,
+  /(<div id="wsite-com-product-price-area" class=")wsite-com-product-show-price(?:-range)?(?:-on-sale)?(")/,
   `$1wsite-com-product-show-price${sale !== null ? "-on-sale" : ""}$2`
 );
 
 // the three price containers; itemprop="price" lives on whichever one is shown
 function setAmount(id, text, withItemprop) {
+  // Match the container, then the amount span *inside* it. The span is not
+  // always the first child — range containers carry hidden lowPrice/highPrice
+  // spans ahead of it — so scan within the div rather than anchoring to its
+  // opening tag.
   const re = new RegExp(
-    `(<div id="${id}" class="wsite-com-product-price-container">\\s*<span class="wsite-com-product-price-amount")[^>]*(>)[^<]*(</span>)`
+    `(<div id="${id}" class="wsite-com-product-price-container">` +
+      `(?:(?!</div>)[\\s\\S])*?` +
+      `<span class="wsite-com-product-price-amount")[^>]*(>)[^<]*(</span>)`
   );
   if (!re.test(html)) console.warn(`  warn: #${id} not found in ${path.basename(pfile)}`);
   // NB: replacer functions everywhere a price is inserted — "$249.00" in a
@@ -62,6 +72,15 @@ function setAmount(id, text, withItemprop) {
     : "";
   html = html.replace(re, (m, a, b, c) => a + itemprop + b + text + c);
 }
+
+// AggregateOffer low/highPrice, where present, must track the new USD figures —
+// otherwise the page keeps emitting the old currency's numbers as USD.
+function setRangeBound(prop, value) {
+  const re = new RegExp(`(<span style="display:none" itemprop="${prop}">)[^<]*(</span>)`);
+  if (re.test(html)) html = html.replace(re, (m, a, b) => a + value.toFixed(2) + b);
+}
+setRangeBound("lowPrice", display);
+setRangeBound("highPrice", price);
 setAmount("wsite-com-product-price", fmt(price), sale === null);
 setAmount("wsite-com-product-price-range", fmt(display), false);
 setAmount("wsite-com-product-price-sale", fmt(display), sale !== null);

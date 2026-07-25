@@ -21,6 +21,23 @@
         if (pending) pending.style.display = "";
       }
     }
+    // Amazon KDP buttons (window.KDP_LINKS) work the same way, minus the
+    // overlay checkout — the link just goes to Amazon.
+    var kdp = document.querySelectorAll(".kdp-buy[data-product]");
+    for (var k = 0; k < kdp.length; k++) {
+      var kbtn = kdp[k];
+      var klink = (window.KDP_LINKS || {})[kbtn.getAttribute("data-product")] || "";
+      var kpending = kbtn.parentNode.querySelector(".kdp-pending");
+      if (klink) {
+        kbtn.setAttribute("href", klink);
+        kbtn.style.display = "";
+        if (kpending) kpending.style.display = "none";
+      } else {
+        kbtn.style.display = "none";
+        if (kpending) kpending.style.display = "";
+      }
+    }
+
     var prices = document.querySelectorAll(".ls-price[data-product]");
     for (var j = 0; j < prices.length; j++) {
       var price = (window.LS_PRICES || {})[prices[j].getAttribute("data-product")] || "";

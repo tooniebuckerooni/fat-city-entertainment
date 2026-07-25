@@ -4,14 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Music Bingo Handbook — How to Start &amp; Run a Packed Music Bingo Night | Fat City Entertainment</title>
-  <meta name="description" content="The Music Bingo Handbook: a step-by-step guide to starting and running a music bingo night that packs the room — gear, playlists, hosting, and getting booked. Instant download.">
+  <meta name="description" content="The Music Bingo Handbook: a step-by-step guide to starting and running a music bingo night that packs the room — gear, playlists, hosting, and getting booked. On Amazon Kindle and paperback.">
   <meta property="og:site_name" content="Fat City Entertainment">
   <meta property="og:title" content="The Music Bingo Handbook — Start &amp; Run a Packed Music Bingo Night">
-  <meta property="og:description" content="Step-by-step guide to starting and running a music bingo night that packs the room. Gear, playlists, hosting tips, and getting booked. Instant download.">
+  <meta property="og:description" content="Step-by-step guide to starting and running a music bingo night that packs the room. Gear, playlists, hosting tips, and getting booked. On Amazon Kindle and paperback.">
   <meta property="og:image" content="https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/background-images/815305550.jpg">
   <meta property="og:url" content="https://www.fatcityentertainment.com/musicbingohandbook.html">
   <meta property="og:type" content="product">
   <link rel="canonical" href="https://www.fatcityentertainment.com/musicbingohandbook.html">
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LYMVV05F3X"></script>
+<script type="text/javascript">
+	var gaTrackingId = 'G-LYMVV05F3X';
+	var gaAffiliation = "Fat City Entertainment - Trivia Store";
+
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('set', 'developer_id.dZWZhMj', true)
+
+
+		gtag('config', 'G-LYMVV05F3X');
+</script>
+
   <link href="/assets/fonts/Montserrat/font.css" rel="stylesheet" type="text/css">
   <style>
     :root {
@@ -295,17 +311,24 @@
     <p><a href="/">Fat City Entertainment</a> · music bingo, trivia &amp; game shows · <a href="/contact.html">Contact</a></p>
   </footer>
 
+  <script src="/assets/js/ls-links.js"></script>
   <script>
-  // When the KDP link is ready, set it here and both buy buttons activate.
-  var KDP_HANDBOOK = "";
-  if (KDP_HANDBOOK) {
-    document.getElementById("handbook-buy").href = KDP_HANDBOOK;
-    document.getElementById("handbook-buy").style.display = "";
-    document.getElementById("handbook-buy-2").href = KDP_HANDBOOK;
-    document.getElementById("handbook-buy-2").style.display = "";
+  // The Amazon link lives in one place for both handbooks: KDP_LINKS in
+  // assets/js/ls-links.js. Set KDP_LINKS.handbook there and both buy buttons
+  // on this page activate.
+  (function () {
+    var link = (window.KDP_LINKS || {}).handbook || "";
+    if (!link) return;
+    var buttons = ["handbook-buy", "handbook-buy-2"];
+    for (var i = 0; i < buttons.length; i++) {
+      var btn = document.getElementById(buttons[i]);
+      if (!btn) continue;
+      btn.href = link;
+      btn.style.display = "";
+    }
     var pending = document.querySelectorAll(".kdp-pending");
-    for (var i = 0; i < pending.length; i++) pending[i].style.display = "none";
-  }
+    for (var j = 0; j < pending.length; j++) pending[j].style.display = "none";
+  })();
   </script>
 </body>
 </html>
