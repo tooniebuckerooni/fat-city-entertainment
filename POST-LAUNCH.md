@@ -18,33 +18,35 @@ Everything below assumes the site is live on the real domain.
 
 ## P0 — Real bugs, losing traffic right now
 
-### 1. ~180 legacy Weebly blog URLs 404 (no redirects exist)
+### 1. ~~180 legacy Weebly blog URLs 404 (no redirects exist)~~ — **DONE**
 
-The blog used to live at Weebly's old permalink scheme, and **nothing serves
-those paths on GitHub Pages**. There is no `/4/` directory in the repo, so every
-one of these returns the 404 page:
+**Fixed July 25, 2026.** 180 redirect stubs generated under `/4/`; see
+"What shipped" below.
 
-| Legacy scheme | Distinct URLs | Refs in HTML | Maps to |
+The blog used to live at Weebly's old permalink scheme, and **nothing served
+those paths on GitHub Pages** — there was no `/4/` directory, so every one of
+these returned the 404 page:
+
+| Legacy scheme | Distinct URLs | Refs in served HTML | Maps to |
 |---|---|---|---|
-| `/4/post/YYYY/MM/<slug>.html` | 107 | 1,987 | `/triviahostresources/<slug>/` |
-| `/4/archives/MM-YYYY` | 59 | 126 | `/triviahostresources/archives/MM-YYYY/` |
-| `/4/category/<name>` | 14 | 156 | `/triviahostresources/category/<name>/` |
+| `/4/post/YYYY/MM/<slug>.html` | 107 | 698 | `/triviahostresources/<slug>/` |
+| `/4/archives/MM-YYYY` | 59 | 63 | `/triviahostresources/archives/MM-YYYY/` |
+| `/4/category/<name>` | 14 | 78 | `/triviahostresources/category/<name>/` |
 
 **All 180 map 1:1 onto pages that already exist — verified, zero misses.** The
 slugs, archive months, and category names are all identical; only the prefix
-changed. So this is a fully mechanical fix: generate 180 redirect stubs using
-the same meta-refresh + `rel=canonical` pattern already used for the retired
-singles (`p51`→`p135`, `p125`→`p128`).
+changed, which is what made this fully mechanical.
 
-Why it matters twice over:
+Why it mattered twice over:
 
 - **External:** these were the site's live blog URLs for years (2016–2024).
   Weebly redirected them to the current scheme automatically; GitHub Pages
-  doesn't. Any Google-indexed copy or inbound backlink on the old scheme now
-  dead-ends.
+  doesn't. Any Google-indexed copy or inbound backlink on the old scheme
+  dead-ended.
 - **Internal:** the Twitter share button on **every one of the 107 blog posts**
-  shares a `/4/post/...` URL. Every social share from the blog today points at
-  a 404.
+  emits a `/4/post/...` URL, so every social share from the blog pointed at a
+  404. Those now redirect — but see P2 #6, the buttons should really emit the
+  current URL directly.
 
 **Why the launch check missed it:** `_tools/check-links.js:42` skips any href
 starting with `https?:`, and these are written as absolute
@@ -53,6 +55,13 @@ starting with `https?:`, and these are written as absolute
 at same-domain absolute ones. Worth teaching it to treat
 `fatcityentertainment.com` absolute URLs as internal, or this class of bug
 stays invisible.
+
+> **Counts corrected.** An earlier draft of this file said 1,987 `/4/post/`
+> references. That number came from a grep that also swept `_tools/scraped/`
+> (the unserved migration copies), so it was inflated — the real figure across
+> served pages is 698. It also reported a legacy `/4/feed` RSS URL; that turned
+> out to be scraped-only and referenced nowhere in the served site, so no feed
+> stub was needed. The distinct-URL counts (107 / 59 / 14) were right.
 
 ### 2. `goldclubgames.html` — paid Gold Club content is indexable
 
@@ -191,13 +200,41 @@ Checked this pass, all good:
 
 ---
 
+## What shipped
+
+**July 25, 2026 — legacy blog redirects (P0 #1).** 180 stubs generated under
+`/4/` by [`_tools/legacy-urls.js`](_tools/legacy-urls.js):
+
+- `/4/post/YYYY/MM/<slug>.html` → a file at that exact path (107)
+- `/4/archives/MM-YYYY` and `/4/category/<name>` → `<dir>/index.html`, matching
+  how the real archive and category pages are already laid out (73)
+
+Each stub is `rel=canonical` + a 0-second `<meta http-equiv="refresh">` to its
+target, plus a visible fallback link — the same pattern used for the retired
+singles (`p51`→`p135`, `p125`→`p128`), which is how Google reads a static host's
+soft 301. Post stubs reuse the real post's `<title>` so they aren't content-free
+dead ends. The stubs are deliberately left crawlable — a `robots.txt` disallow
+would stop Google from ever seeing the canonical.
+
+Verified: all 180 stubs exist, every refresh target resolves on disk, every
+canonical matches its refresh target, and `check-links.js` is clean at 577 pages
+/ 0 broken refs. Re-run the report any time with `node _tools/legacy-urls.js`
+(no flag = report only; it exits non-zero if any legacy URL is unmapped or its
+target is missing).
+
+Not yet verified against the live domain — this sandbox can't reach it. Worth
+curling two or three `/4/post/...` URLs once you can.
+
+---
+
 ## Suggested order
 
-1. Generate the 180 legacy redirect stubs (P0 #1) — biggest traffic impact, and
-   it should land before GSC gets pointed at the sitemap.
+1. ~~Generate the 180 legacy redirect stubs (P0 #1)~~ — **done**, see above.
 2. `noindex` on `goldclubgames.html` + `dashboard.html` (P0 #2, #3) — two lines.
 3. GA4 on `musicbingohandbook.html` + `404.html` (P1 #4) — the 404 tag turns
    "watch for missed URLs" into something you can actually measure.
 4. Sitemap: add the three orphans (P1 #5).
-5. Teach `check-links.js` about absolute same-domain URLs, so #1 can't recur.
-6. Then the live spot-checks and GSC submission, and retire Weebly.
+5. Point the blog's share buttons at current URLs (P2 #6), so shares stop
+   depending on the new redirects.
+6. Teach `check-links.js` about absolute same-domain URLs, so #1 can't recur.
+7. Then the live spot-checks and GSC submission, and retire Weebly.
