@@ -2,6 +2,12 @@
 // Reads window.LS_LINKS (assets/js/ls-links.js). If a link exists for the
 // product, the button is shown and opens LemonSqueezy's overlay checkout;
 // otherwise a "contact us" note is shown instead.
+//
+// Note: _tools/bake-buy-links.js writes this same state into the HTML ahead of
+// time, so the button already works before this file runs and still works if it
+// never does. This stays the authority — it re-applies everything idempotently,
+// which keeps a stale baked page correct after ls-links.js changes — and it is
+// still the only thing that loads lemon.js for the overlay checkout.
 (function () {
   function init() {
     var buttons = document.querySelectorAll(".ls-buy[data-product]");
@@ -12,7 +18,10 @@
       var pending = btn.parentNode.querySelector(".ls-pending");
       if (link) {
         btn.setAttribute("href", link);
-        btn.className += " lemonsqueezy-button";
+        // Already baked in? Don't append the class a second time.
+        if (!/(^|\s)lemonsqueezy-button(\s|$)/.test(btn.className)) {
+          btn.className += " lemonsqueezy-button";
+        }
         btn.style.display = "";
         if (pending) pending.style.display = "none";
         anyActive = true;
