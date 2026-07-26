@@ -37,6 +37,7 @@ const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 const SITE = "https://www.fatcityentertainment.com";
 const ORG_ID = `${SITE}/#organization`;
+const PERSON_ID = `${SITE}/#dustin-ramsbottom`;
 
 const START = "<!-- fce:jsonld -->";
 const END = "<!-- /fce:jsonld -->";
@@ -66,12 +67,47 @@ function walk(dir, out = []) {
 
 // ---------------------------------------------------------------- builders
 
+// Who is actually saying all this.
+//
+// Answer engines weight author expertise heavily, and the blog is 109 posts of
+// first-hand hosting experience going back to 2016 — written by someone who has
+// been doing stand-up since 2011 and hosting trivia professionally throughout.
+// None of that was declared anywhere a machine could read it: there was no
+// Person on the site at all, so every post was attributed to the company.
+//
+// Everything asserted here is already public on the site — the founder profile
+// at /triviahostresources/the-secret-life-of-a-trivia-host-dustin-ramsbottom/
+// and aboutus.html. No `sameAs` until real profile URLs exist; a guessed one
+// would link the entity to the wrong person, which is worse than saying nothing.
+function person() {
+  return {
+    "@type": "Person",
+    "@id": PERSON_ID,
+    name: "Dustin Ramsbottom",
+    jobTitle: "Founder and Host",
+    worksFor: { "@id": ORG_ID },
+    url: SITE + "/aboutus.html",
+    description:
+      "Founder of Fat City Entertainment, trivia and music bingo host, and " +
+      "stand-up comedian performing since 2011. Has run live trivia, music " +
+      "bingo and game shows for bars, breweries and private events since 2016.",
+    knowsAbout: [
+      "music bingo",
+      "pub trivia",
+      "game show hosting",
+      "live event entertainment",
+      "stand-up comedy",
+    ],
+  };
+}
+
 function organisation() {
   return {
     "@type": "Organization",
     "@id": ORG_ID,
     name: "Fat City Entertainment",
     url: SITE + "/",
+    founder: { "@id": PERSON_ID },
     description:
       "Downloadable trivia games, music bingo cards, and game-show hosting " +
       "resources for bars, restaurants, and private parties.",
@@ -188,7 +224,10 @@ function blogPosting(html, url) {
     datePublished: published,
     description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
     image: ogImage(html) || undefined,
-    author: { "@id": ORG_ID },
+    // A named human, not the company. This is the expertise signal answer
+    // engines actually weigh, and it was the one thing the round-one schema
+    // had nothing to point at.
+    author: { "@id": PERSON_ID },
     publisher: { "@id": ORG_ID },
   };
 }
@@ -280,7 +319,7 @@ for (const file of walk(REPO).sort()) {
       /\s*<script type="application\/ld\+json">\s*\{[\s\S]*?"@type":\s*"Organization"[\s\S]*?\}\s*<\/script>/i,
       (m) => (html.indexOf(START) !== -1 && html.indexOf(m) > html.indexOf(START) ? m : "")
     );
-    graph.push(organisation(), website());
+    graph.push(organisation(), person(), website());
     bump("homepage");
   } else if (/^store\/p\d+\//.test(rel)) {
     const p = product(html, url);
@@ -302,6 +341,16 @@ for (const file of walk(REPO).sort()) {
       ]));
       bump("category");
     }
+  } else if (rel === "aboutus.html") {
+    // person().url points here, so this is where the full entity belongs.
+    graph.push(person(), {
+      "@type": "AboutPage",
+      url,
+      name: pageTitle(html) || "About Fat City Entertainment",
+      description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
+      mainEntity: { "@id": ORG_ID },
+    });
+    bump("about");
   } else if (rel === "faqs.html") {
     graph.push(faqPage(url));
     bump("faq");
@@ -335,6 +384,13 @@ for (const file of walk(REPO).sort()) {
 
   // Every page carries the org so answer engines can tie the entities together.
   if (!graph.some((n) => n["@id"] === ORG_ID)) graph.push({ "@id": ORG_ID, "@type": "Organization", name: "Fat City Entertainment", url: SITE + "/" });
+
+  // A page that names the author by @id has to define it too — a dangling
+  // reference to an entity declared only on the homepage is a reference most
+  // parsers won't follow.
+  if (JSON.stringify(graph).includes(PERSON_ID) && !graph.some((n) => n["@id"] === PERSON_ID)) {
+    graph.push({ "@id": PERSON_ID, "@type": "Person", name: "Dustin Ramsbottom", url: SITE + "/aboutus.html" });
+  }
 
   html = injectBlock(html, graph);
   if (html !== before) {
