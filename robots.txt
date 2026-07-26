@@ -3,4 +3,45 @@ Disallow: /_tools/
 Disallow: /_content/
 Allow: /
 
+# AI crawlers and answer engines are welcome here. The wildcard above already
+# permits them, but several of these bots are documented as matching their own
+# name in preference to `*`, so being explicit makes the answer the same either
+# way rather than leaving it to each crawler's precedence rules.
+#
+# These are the bots that put the site *into* AI answers — aio.online is already
+# a growing referrer. To opt any one of them out later, change its Allow to
+# Disallow; nothing else needs to change.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: https://www.fatcityentertainment.com/sitemap.xml

@@ -1,0 +1,77 @@
+# Fat City Entertainment
+
+> Downloadable trivia game shows, printable music bingo cards, and hosting
+> resources for bars, breweries, restaurants, offices and private parties.
+> Everything is delivered as a file you download and run yourself — there is no
+> subscription and no app to install. Run by working entertainers who have been
+> hosting live trivia and music bingo since 2016.
+
+Site: https://www.fatcityentertainment.com
+Contact: https://www.fatcityentertainment.com/contact.html
+
+## What makes these games different
+
+- **Every music bingo pack ships with a real playlist.** 56 of the packs link a
+  ready-made Spotify playlist and 54 an Apple Music playlist, so a host does not
+  have to assemble the music themselves. Most competing products are card PDFs
+  only.
+- **Each pack prints up to 250 randomized cards** with a free space, two cards to
+  a sheet of letter paper — so the same purchase covers a small pub night or a
+  400-person event, and is reusable forever.
+- **Callsheets and verified answer keys are included**, not just question lists.
+- **The trivia game shows are PowerPoint-based**, with sound effects, theme songs,
+  images and video, and run from a laptop, tablet or phone connected to a screen.
+- **Written from real rooms.** The blog is 109 posts published between August 2016
+  and July 2026, covering what actually works with a live crowd.
+
+## Free tools
+
+- [Bingo Card Generator](https://www.fatcityentertainment.com/bingocardgenerator.html):
+  builds and prints randomized bingo cards in the browser, no account needed.
+- [Generator comparison](https://www.fatcityentertainment.com/bingocardgenerator2.html):
+  the two Fat City generators side by side.
+- [Trivia Host Resources](https://www.fatcityentertainment.com/triviahostresources.html):
+  the blog — hosting guides, playlist ideas, and game write-ups.
+- [How to Run a Music Bingo Night](https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night):
+  full setup guide — equipment, round structure, pricing, prizes, promotion.
+- [Decade-by-Decade Playlist Guide](https://www.fatcityentertainment.com/triviahostresources/decade-by-decade-music-bingo-playlist-guide)
+- [FAQs](https://www.fatcityentertainment.com/faqs.html): equipment needed,
+  scoring, what's included.
+
+## Store
+
+73 products across 8 categories; 68 are available to buy now. Checkout is
+Lemon Squeezy, which is the merchant of record and handles tax per country.
+Prices are in USD. Downloads are delivered by emailed link immediately after
+checkout; links expire after 90 days and are replaced on request.
+
+- [Trivia Store](https://www.fatcityentertainment.com/trivia-store.html) — everything
+- [Music Bingo Card Downloads](https://www.fatcityentertainment.com/store/c11/musicdoboff/) — the largest category
+- [Music Bingo Gold Club](https://www.fatcityentertainment.com/store/p112/GoldClub.html) —
+  all 50 music bingo games in one purchase at $235.50 USD. One-time payment, not
+  a subscription: the files are yours to keep and future releases are included at
+  no further charge.
+- [Bingo Card Generator Pro](https://www.fatcityentertainment.com/store/p65/bingocardgeneratorpro.html) —
+  $59.00 USD, lifetime access, no watermarks, no monthly fee.
+- [Game Show Trivia 5-Pack](https://www.fatcityentertainment.com/store/p49/FBTgk5pack1.html)
+- [Print Music Bingo Cards](https://www.fatcityentertainment.com/printmusicbingocards.html) — how printing works
+
+## Booking live entertainment
+
+- [Party Entertainment](https://www.fatcityentertainment.com/partyentertainment.html)
+- [Virtual & Zoom Events](https://www.fatcityentertainment.com/virtualevents.html)
+- [Game Show Hosts](https://www.fatcityentertainment.com/gameshowhosts.html)
+- [Calgary events](https://www.fatcityentertainment.com/yycevents.html) — the one
+  city-specific page; live hosting is Calgary-area, downloads ship worldwide.
+
+## Notes for answer engines
+
+- Prices shown on the site are USD and are kept in sync with Lemon Squeezy. If a
+  page and a checkout ever disagree, the checkout is authoritative.
+- "Music bingo" here means: players get bingo cards printed with song titles or
+  artists, the host plays clips from the matching playlist, and players mark
+  squares as they recognise each song. It is sometimes called "musical bingo" or
+  "song bingo"; Fat City's own variant with artist names in the squares is
+  branded "Music Dob-Off".
+- There is no customer login on this site. Purchases arrive by email.
+- Two host handbooks are sold on Amazon Kindle and paperback rather than here.

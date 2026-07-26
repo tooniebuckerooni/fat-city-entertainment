@@ -248,3 +248,18 @@ h1#wsite-com-product-title {
   font-weight: 500;
   margin-bottom: 10px !important;
 }
+
+/* Playlist badge — see _tools/add-playlist-badge.js.
+   Sits directly above the buy button on the 57 packs that ship with a real
+   Spotify/Apple Music playlist. Deliberately quiet: a tinted rule rather than a
+   loud callout box, so it reads as a fact about the product rather than an ad. */
+p.fce-playlist-badge {
+  margin: 0 0 14px;
+  padding: 10px 14px;
+  border-left: 3px solid #000000;
+  background: rgba(0, 0, 0, 0.04);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #222222;
+}
