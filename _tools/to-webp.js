@@ -53,21 +53,31 @@ for (const img of images) {
   byBase.get(b).push(img);
 }
 
+// Only images that an <img src> actually loads. wrap-picture.js can offer a
+// .webp through <picture><source>, and that is the only mechanism in play here —
+// so a file referenced solely from a CSS background, an og:image or a bare link
+// would get a .webp twin that nothing ever requests. An earlier version matched
+// any filename in any file and produced 164 such strays, 6.2 MB of them.
 const referenced = new Set();
+const IMG_SRC = /<img\b[^>]*?\ssrc\s*=\s*["']([^"']+)["']/gi;
 for (const t of texts) {
+  if (!/\.html$/i.test(t)) continue;
   let txt;
   try {
     txt = fs.readFileSync(t, "utf8");
   } catch {
     continue;
   }
-  const hits = txt.match(/[A-Za-z0-9_\-.,%()&'+@]+\.(?:jpe?g|png|gif)/gi) || [];
-  for (let hit of hits) {
+  IMG_SRC.lastIndex = 0;
+  let m;
+  while ((m = IMG_SRC.exec(txt))) {
+    const bare = m[1].replace(/[?#].*$/, "");
+    if (!/\.(jpe?g|png|gif)$/i.test(bare)) continue;
     let name;
     try {
-      name = path.basename(decodeURIComponent(hit.replace(/&amp;/g, "&")));
+      name = path.basename(decodeURIComponent(bare.replace(/&amp;/g, "&")));
     } catch {
-      name = path.basename(hit);
+      name = path.basename(bare);
     }
     for (const f of byBase.get(name) || []) referenced.add(f);
   }
