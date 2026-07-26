@@ -177,3 +177,74 @@ a.fce-cta-secondary:hover {
 .wsite-com-category-product-name {
   min-height: 40px; /* 2 x the 20px line-height */
 }
+
+/* Promoted <h1> headings — see _tools/fix-headings.js.
+   Weebly gave the site no <h1> anywhere. The primary <h2> on each page is now
+   an <h1>, which is the same text in a tag that actually tells a crawler what
+   the page is about.
+
+   The theme styles those headings through a bare `h2` element selector in
+   files/main_style.css:
+
+       h2 { color:#000; font-family:Montserrat,sans-serif; font-size:24px;
+            font-weight:700; line-height:1.25; margin:0 auto 30px; }
+
+   plus a per-page inline rule that forces font-family:Arial !important. Neither
+   follows the class, so a promoted <h1> would fall back to the browser default
+   (Birdseye 32px, no bottom margin). These restate that styling for the <h1>
+   forms so the pages render exactly as they did before the promotion.
+
+   site-extras.css loads after both main_style.css and the inline blocks, so
+   these win on equal specificity; !important on font-family matches the inline
+   rule it has to sit alongside. Banner headlines keep their own size because
+   `.wsite-header-section .wsite-content-title` is class-based and already
+   carries !important. */
+h1.wsite-content-title,
+h1#wsite-com-title,
+h1#wsite-com-product-title,
+h1.blog-title {
+  color: #000;
+  font-family: Arial !important;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 auto 30px;
+}
+
+/* main_style.css: .banner-wrap h2 { color:inherit; font-weight:100; line-height:1.15;
+   margin:15px auto }. These headlines sit on a coloured banner and take their
+   colour by inheritance — without this they render black and bold on the seven
+   pages whose primary heading is a banner headline. Font size still comes from
+   `.wsite-header-section .wsite-content-title` (48px !important, class-based, so
+   it already follows the h1), and font-family from the block above. */
+.banner-wrap h1.wsite-content-title {
+  color: inherit;
+  font-weight: 100;
+  line-height: 1.15;
+  margin: 15px auto;
+}
+
+/* main_style.css: h2#wsite-com-product-title { display:block; clear:both; font-weight:400 }
+   line-height comes from sites.css `#wsite-com-product-title{line-height:normal}`,
+   which the block above would otherwise out-specify. */
+h1#wsite-com-product-title {
+  display: block;
+  clear: both;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* main_style.css: .blog-post .blog-header h2.blog-title { ... } */
+.blog-post .blog-header h1.blog-title {
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  line-height: 1.5 !important;
+}
+
+/* main_style.css: #blogTable .blog-post .blog-header h2.blog-title { ... } */
+#blogTable .blog-post .blog-header h1.blog-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 10px !important;
+}
