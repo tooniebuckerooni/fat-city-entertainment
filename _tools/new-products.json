@@ -1,0 +1,43 @@
+[
+  {
+    "_comment": "Three bundles assembled from packs already in the catalogue, so no new card sets are needed to ship them. Pricing follows the discount the existing bundles use: the Decades 5-Pack is $43.00 against $54.95 of singles (~22% off) and the Entertainers 3-Pack is $27.00 against $32.97 (~18% off). Names and prices are PROPOSALS — change them here and re-run. Each is staged (noindex, unlinked) until publish is set to true.",
+
+    "id": "p164",
+    "slug": "wordnerdpack",
+    "name": "Word Nerd - Music Bingo 5-Pack",
+    "title": "Word Nerd Music Bingo 5-Pack - Anagrams, Antonyms, Acronyms, Nicknames & Numbers",
+    "price": "42.00",
+    "template": "store/p147/decades.html",
+    "image": "/uploads/4/3/3/6/43362499/s240281505130794070_p116_i6_w640.jpeg",
+    "publish": false,
+    "includes": ["p116 Anagrams", "p114 Antonyms", "p158 Acronyms", "p117 Nicknames", "p156 Numbers"],
+    "description": "All five Fat City word-game music bingo packs in one download: Anagrams, Antonyms, Acronyms, Nicknames and Numbers. 250 cards each, with ready-made playlists.",
+    "body": "<div><p>Five of our toughest music bingo games in one download — the ones that make a crowd argue.</p><p><strong>What's included:</strong></p><ul><li><strong>Anagrams</strong> — song titles with the letters scrambled.</li><li><strong>Antonyms</strong> — every square is the opposite of the real title.</li><li><strong>Acronyms</strong> — titles reduced to their initials.</li><li><strong>Nicknames</strong> — artists by what everyone actually calls them.</li><li><strong>Numbers</strong> — every song has a number in it.</li></ul><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p><p>Buying all five separately costs $54.95.</p></div>"
+  },
+  {
+    "id": "p165",
+    "slug": "aroundtheworldpack",
+    "name": "Around The World - Music Bingo 3-Pack",
+    "title": "Around The World Music Bingo 3-Pack - Countries, Cities & Road Trip",
+    "price": "27.00",
+    "template": "store/p147/decades.html",
+    "image": "/uploads/4/3/3/6/43362499/s240281505130794070_p100_i6_w640.jpeg",
+    "publish": false,
+    "includes": ["p100 Countries", "p122 Cities", "p132 Road Trip!"],
+    "description": "Countries, Cities and Road Trip in one download — three travel-themed music bingo games, 250 cards each, with ready-made Spotify and Apple Music playlists.",
+    "body": "<div><p>Three travel-themed music bingo games in one download.</p><p><strong>What's included:</strong></p><ul><li><strong>Countries</strong> — name the country the artist is from.</li><li><strong>Cities</strong> — songs with a city in the title.</li><li><strong>Road Trip!</strong> — everything about getting there.</li></ul><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p><p>Buying all three separately costs $32.97.</p></div>"
+  },
+  {
+    "id": "p166",
+    "slug": "partystarterpack",
+    "name": "Party Starter - Music Bingo 4-Pack",
+    "title": "Party Starter Music Bingo 4-Pack - Life's A Beach, Stadium Songs, Disco & Food Fight",
+    "price": "34.00",
+    "template": "store/p147/decades.html",
+    "image": "/uploads/4/3/3/6/43362499/s240281505130794070_p121_i6_w640.jpeg",
+    "publish": false,
+    "includes": ["p121 Life's A Beach", "p124 Stadium Songs", "p159 Disco", "p92 Food Fight"],
+    "description": "Four crowd-pleasing music bingo games in one download: Life's A Beach, Stadium Songs, Disco and Food Fight. 250 cards each, with ready-made playlists.",
+    "body": "<div><p>Four games for a room that came to have fun, not to be tested.</p><p><strong>What's included:</strong></p><ul><li><strong>Life's A Beach</strong> — summer, sand and sunshine.</li><li><strong>Stadium Songs</strong> — the ones a whole room shouts back.</li><li><strong>Disco</strong> — the floor-fillers.</li><li><strong>Food Fight</strong> — songs about eating and drinking.</li></ul><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p><p>Buying all four separately costs $43.96.</p></div>"
+  }
+]

@@ -90,7 +90,7 @@ window.LS_LINKS = {
   "p160": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f1eac68d-e487-4613-8ed2-40f386bf5375", // [x] 90s R&B - 250 Music Bingo Cards — $10.99 USD — /store/p160/90sRnB.html
   "p162": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57c2c76f-a157-4fd9-977d-370c3a7bd7cd", // [x] Word Games - 3 Pack — $27.00 USD — /store/p162/Word_Games_-_3_Pack.html
   "p163": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b6ff3a61-b96c-4149-9ce6-7e2771736807", // [x] TV Shows 2 - 250 Music Bingo Cards — $10.99 USD — /store/p163/tvthemes2.html
-};
+}
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">
 // (the legacy /store/ pages have their prices baked into the HTML — update those
@@ -98,6 +98,9 @@ window.LS_LINKS = {
 // e.g. "$14 USD". Leave "" to hide the price until the product is listed.
 window.LS_PRICES = {
   "handbook": "",
+  "p164": "", // [ ] Word Nerd - Music Bingo 5-Pack — $42.00 USD — /store/p164/wordnerdpack.html
+  "p165": "", // [ ] Around The World - Music Bingo 3-Pack — $27.00 USD — /store/p165/aroundtheworldpack.html
+  "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html
 };
 
 // ==========================================================================
