@@ -263,3 +263,26 @@ p.fce-playlist-badge {
   line-height: 1.5;
   color: #222222;
 }
+
+/* .fce-cta inside a .paragraph.
+   The theme's per-page inline block styles content links with
+   `.wsite-not-footer .paragraph a { color: #398205 !important }` plus
+   `div.paragraph a { text-decoration: underline }`. Both out-specify
+   `a.fce-cta` (two classes vs one), so a CTA placed inside a paragraph came out
+   as green underlined text on a black button. The existing CTAs on index.html
+   and bingocardgenerator2.html happen to sit outside .paragraph and were never
+   affected — but a button class shouldn't depend on where it's used. */
+.wsite-not-footer .paragraph a.fce-cta,
+.wsite-not-footer .paragraph a.fce-cta-secondary {
+  text-decoration: none;
+}
+.wsite-not-footer .paragraph a.fce-cta {
+  color: #ffffff !important;
+}
+.wsite-not-footer .paragraph a.fce-cta:hover {
+  color: #000000 !important;
+}
+.wsite-not-footer .paragraph a.fce-cta-secondary,
+.wsite-not-footer .paragraph a.fce-cta-secondary:hover {
+  color: #000000 !important;
+}
