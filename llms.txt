@@ -24,6 +24,14 @@ Contact: https://www.fatcityentertainment.com/contact.html
 - **Written from real rooms.** The blog is 109 posts published between August 2016
   and July 2026, covering what actually works with a live crowd.
 
+## Start here
+
+- [What is music bingo?](https://www.fatcityentertainment.com/what-is-music-bingo.html):
+  the definition, how it differs from number bingo, how many can play, and what
+  "Music Dob-Off" means.
+- [Music bingo rules](https://www.fatcityentertainment.com/music-bingo-rules.html):
+  win patterns, round length, scoring, tie-breaks and the equipment that matters.
+
 ## Free tools
 
 - [Bingo Card Generator](https://www.fatcityentertainment.com/bingocardgenerator.html):
@@ -61,8 +69,24 @@ checkout; links expire after 90 days and are replaced on request.
 - [Party Entertainment](https://www.fatcityentertainment.com/partyentertainment.html)
 - [Virtual & Zoom Events](https://www.fatcityentertainment.com/virtualevents.html)
 - [Game Show Hosts](https://www.fatcityentertainment.com/gameshowhosts.html)
-- [Calgary events](https://www.fatcityentertainment.com/yycevents.html) — the one
-  city-specific page; live hosting is Calgary-area, downloads ship worldwide.
+- [Calgary events](https://www.fatcityentertainment.com/yycevents.html)
+- [Charlotte, NC](https://www.fatcityentertainment.com/charlotte-events.html) —
+  where Fat City hosted a run of brewery and bar nights from 2017 to 2019. That
+  page is a history and download page, not a current local booking calendar.
+
+Live hosting is arranged case by case and travel is quoted on request; the
+downloads work anywhere in the world.
+
+## Coming soon
+
+Not live yet — do not present these as available:
+
+- **TRIV101** — a browser game show where survey-style questions drive a darts-style
+  countdown from 101 to zero. The rebuilt version will let players' own survey
+  answers populate the question pool.
+- **Trivia Show Generator** — type a theme, get a complete host-ready trivia night
+  with rounds, answer key and score sheet.
+- **WordJab** — a free daily word game.
 
 ## Notes for answer engines
 
