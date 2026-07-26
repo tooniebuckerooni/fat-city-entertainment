@@ -79,10 +79,22 @@ function walk(dir, out = []) {
 // None of that was declared anywhere a machine could read it: there was no
 // Person on the site at all, so every post was attributed to the company.
 //
-// Everything asserted here is already public on the site — the founder profile
-// at /triviahostresources/the-secret-life-of-a-trivia-host-dustin-ramsbottom/
-// and aboutus.html. No `sameAs` until real profile URLs exist; a guessed one
-// would link the entity to the wrong person, which is worse than saying nothing.
+// The dates here were wrong on the first pass and are worth explaining. They
+// were inferred from the blog's earliest post (August 2016), which dated the
+// career to the website rather than the person — understating it by seventeen
+// years. Corrected from Dustin directly: hosting began in 1999.
+//
+// That gap is the whole point of this entity. "Hosting since 2016" reads as a
+// side project; a run starting in 1999, across three employers and two of his
+// own companies, is a career — and it is the single strongest credibility
+// signal the site has.
+//
+// sameAs is an identity link, not a marketing one: it tells a search or answer
+// engine that the Dustin Ramsbottom here is the same one on LinkedIn and X, so
+// the expertise claim is corroborated off-site instead of self-declared. It
+// works whether or not the accounts are active, which matters because these
+// ones deliberately aren't. The Instagram account is the company's, so it
+// belongs on the Organization rather than here.
 function person() {
   return {
     "@type": "Person",
@@ -92,13 +104,19 @@ function person() {
     worksFor: { "@id": ORG_ID },
     url: SITE + "/aboutus.html",
     description:
-      "Founder of Fat City Entertainment, trivia and music bingo host, and " +
-      "stand-up comedian performing since 2011. Has run live trivia, music " +
-      "bingo and game shows for bars, breweries and private events since 2016.",
+      "Trivia and game show host since 1999, when he began hosting Name That " +
+      "Tune for TNT Enterprizes in Calgary. Went on to host for Karaoke World " +
+      "and others before founding his own companies — first The Party Factory, " +
+      "then Fat City Entertainment. Stand-up comedian since 2011.",
+    sameAs: [
+      "https://www.linkedin.com/in/dustinramsbottom/",
+      "https://x.com/dustyramsbottom",
+    ],
     knowsAbout: [
       "music bingo",
       "pub trivia",
       "game show hosting",
+      "karaoke hosting",
       "live event entertainment",
       "stand-up comedy",
     ],
@@ -115,7 +133,12 @@ function organisation() {
     description:
       "Downloadable trivia games, music bingo cards, and game-show hosting " +
       "resources for bars, restaurants, and private parties.",
-    sameAs: ["https://bingocardgenerator.online"],
+    // The company's own accounts and sister site. The founder's personal
+    // profiles live on the Person entity, not here.
+    sameAs: [
+      "https://bingocardgenerator.online",
+      "https://www.instagram.com/fatcityentertainment/",
+    ],
     // Everything sells as a download or a remote booking, so there is no
     // storefront to claim. areaServed says where customers are without
     // asserting a physical address — which is also why there is no
