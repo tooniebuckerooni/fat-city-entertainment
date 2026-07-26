@@ -6,3 +6,7 @@ _tools/*-log.txt
 # _tools/scraped/ is committed on purpose: it is the raw archival copy of the
 # live Weebly pages, the only source if a transform fix is ever needed after
 # Weebly shuts down.
+
+# Generated image bundles for uploading elsewhere (see _tools/export-ls-images.js).
+# These are copies of art already in the repo; no reason to version them twice.
+_export/
