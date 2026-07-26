@@ -39,6 +39,10 @@ const SITE = "https://www.fatcityentertainment.com";
 const ORG_ID = `${SITE}/#organization`;
 const PERSON_ID = `${SITE}/#dustin-ramsbottom`;
 
+// Pages written in the direct-answer format, whose Q&A schema is read out of
+// their own headings rather than hand-maintained alongside them.
+const ANSWER_PAGES = new Set(["what-is-music-bingo.html", "music-bingo-rules.html"]);
+
 const START = "<!-- fce:jsonld -->";
 const END = "<!-- /fce:jsonld -->";
 
@@ -259,6 +263,38 @@ function faqPage(url) {
   };
 }
 
+// Pages written as question-shaped <h2>s followed by a self-contained answer —
+// what-is-music-bingo.html and music-bingo-rules.html. Reading the Q&A pairs out
+// of the markup means the schema can't drift from the visible copy, which is the
+// failure mode of hand-written FAQ blocks.
+function faqFromHeadings(html, url) {
+  const pairs = [];
+  const re = /<h2[^>]*>([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2[^>]*>|$)/gi;
+  let m;
+  while ((m = re.exec(html))) {
+    const q = clean(m[1]);
+    if (!q.endsWith("?")) continue;
+    // First paragraph after the heading — the answer meant to stand alone.
+    const p = m[2].match(/<div class="paragraph"[^>]*>([\s\S]*?)<\/div>/i);
+    if (!p) continue;
+    const a = clean(p[1]);
+    if (a.length < 40) continue;
+    pairs.push([q, a]);
+  }
+  if (pairs.length < 2) return null;
+  return {
+    "@type": "FAQPage",
+    url,
+    mainEntity: pairs.map(([q, a]) => ({
+      "@type": "Question",
+      name: q,
+      acceptedAnswer: { "@type": "Answer", text: a },
+    })),
+    // Voice assistants read the heading and its answer; both are the useful part.
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", "h2", ".paragraph"] },
+  };
+}
+
 // The one post that is genuinely a step-by-step guide. Its section headings are
 // the steps, so they're read straight off the page.
 function howTo(html, url, name) {
@@ -352,8 +388,21 @@ for (const file of walk(REPO).sort()) {
     });
     bump("about");
   } else if (rel === "faqs.html") {
-    graph.push(faqPage(url));
+    graph.push({
+      ...faqPage(url),
+      speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".paragraph"] },
+    });
     bump("faq");
+  } else if (ANSWER_PAGES.has(rel)) {
+    const faq = faqFromHeadings(html, url);
+    if (faq) {
+      graph.push(faq);
+      bump("answer page");
+      // No HowTo here. These pages are written as questions, and HowToStep is
+      // meant to hold an action — emitting "What counts as a win?" as a step
+      // would be describing the markup rather than the page. FAQPage is the
+      // honest shape for a Q&A page; the hosting guide keeps the HowTo.
+    }
   } else if (rel === "triviahostresources.html") {
     graph.push({
       "@type": "Blog",
