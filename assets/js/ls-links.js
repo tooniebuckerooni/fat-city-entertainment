@@ -34,7 +34,7 @@ window.LS_LINKS = {
   "p53": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/90825928-76b6-418b-a293-5bdf5af64756", // [x] St. Patrick's Day Trivia 2-Pack — $32.99 USD — /store/p53/stpatricksday.html
   "p62": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7bdea84a-857c-48d4-8835-8645ac06ba72", // [x] Golden Oldies - 250 Music Bingo Cards — $10.99 USD — /store/p62/goldenoldies.html
   "p63": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/507a3fa6-f5fc-4152-a3ea-fadf740d4d9f", // [x] Hair Bands - 250 Music Bingo Cards — $10.99 USD — /store/p63/hairbands.html
-  "p65": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9f5766a5-d2c8-490e-b98c-50495012057e", // [x] Bingo Card Generator Pro *Lifetime Access* — $59.00 USD — /store/p65/bingocardgeneratorpro.html
+  "p65": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9f5766a5-d2c8-490e-b98c-50495012057e", // [x] Bingo Card Generator Pro *Lifetime Access* — $74.50 USD — /store/p65/bingocardgeneratorpro.html
   "p71": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/0f76b455-eabb-40c4-8ef2-70a879dbadb7", // [x] Zoo Rock - 250 Music Bingo Cards — $10.99 USD — /store/p71/zoorock.html
   "p72": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/8a401811-28e7-405a-befe-786fb9a59e65", // [x] Rocker Moms - (Great For Mother's Day Too!) — $10.99 USD — /store/p72/rockermoms.html
   "p81": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/70d9e978-42f1-4fd3-882e-c9eb6818d57a", // [x] One Hit Wonders - 250 Music Bingo Cards — $10.99 USD — /store/p81/onehitwonders.html
