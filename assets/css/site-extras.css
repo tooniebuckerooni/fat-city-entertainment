@@ -286,3 +286,15 @@ p.fce-playlist-badge {
 .wsite-not-footer .paragraph a.fce-cta-secondary:hover {
   color: #000000 !important;
 }
+
+/* Storefront sale note — deliberately quiet. A thin rule and normal body text,
+   not a banner: the point is that a returning visitor notices it once, not that
+   it shouts over the products underneath. */
+.fce-store-note {
+  margin: 0 auto 22px;
+  padding: 10px 14px;
+  max-width: 620px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  font-size: 15px;
+}
