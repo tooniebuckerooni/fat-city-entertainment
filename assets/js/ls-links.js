@@ -50,7 +50,7 @@ window.LS_LINKS = {
   "p109": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/6a13d7d1-647f-40cb-9107-a70c47f52f3b", // [x] Body Parts - 250 Music Bingo Cards — $10.99 USD — /store/p109/bodyparts.html
   "p110": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/877e3537-426c-4eac-af48-bf35a0403ca8", // [x] Out Of This World - 250 Music Bingo Cards — $10.99 USD — /store/p110/outofthisworld.html
   "p111": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/ffd8f661-8551-4e58-aaaf-4a77753d709b", // [x] Girls Vs Boys — $10.99 USD — /store/p111/girlsvsboys.html
-  "p112": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b", // [x] Music Bingo Gold Club — $235.50 USD — /store/p112/GoldClub.html
+  "p112": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b", // [x] Music Bingo Gold Club — $274.25 USD — /store/p112/GoldClub.html
   "p113": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f3c90249-36e1-41f5-ac59-a8544858f59b", // [x] The 90s - 250 Music Bingo Cards — $10.99 USD — /store/p113/the90s.html
   "p114": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/18bbeb2f-69bd-4180-b7bd-9d26becb9233", // [x] Antonyms - 250 Music Bingo Cards — $10.99 USD — /store/p114/antonyms.html
   "p115": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/337af8d7-2a69-4a93-a9d6-df79cc689b45", // [x] The 70s - 250 Music Bingo Cards — $10.99 USD — /store/p115/the1970s.html
