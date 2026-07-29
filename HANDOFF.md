@@ -7,28 +7,43 @@ Branch `claude/fatcity-optimization-kag60a` was merged to `main`; both are in sy
 
 ## Needs you — highest first
 
-### 1. The Music Bingo Handbook ASINs are wrong
+### 1. The Music Bingo Handbook is still in Amazon review
 
-You gave `B0HBGJCX4M` (Kindle) and `B0HB27K5RF` (paperback) for the Music Bingo
-Handbook. **Those two are already wired to p18, the *Trivia Host* Handbook.**
+Confirmed July 27: the ASINs supplied earlier were the *Trivia Host* Handbook's
+by mistake, and the Music Bingo Handbook has not cleared review yet.
 
-Two books can't share an ASIN, so one of the two is wrong. I didn't wire them —
-doing so would have pointed Music Bingo Handbook buyers at the other book.
+`musicbingohandbook.html` stays in "coming soon" mode. When it goes live, send
+the two Amazon links and the cover, and I'll fill in the `handbook` entry in
+`KDP_LINKS` (`assets/js/ls-links.js`) — the page already reads from there, so the
+buttons appear on their own once it's filled.
 
-To fix: send the Music Bingo Handbook's own two Amazon links and I'll add them to
-`KDP_LINKS` in `assets/js/ls-links.js`, alongside its cover image.
-`musicbingohandbook.html` stays in "coming soon" mode until then.
+### 2. Punk Rock artwork — I can't save it from chat
 
-### 2. Three things need artwork
+The image was attached to the conversation, which means I can look at it but
+there is no file on disk for me to copy into the repo. That one genuinely needs
+you.
 
-| Product | Status | Currently showing |
-|---|---|---|
-| p167 Punk Rock | **live** | Hair Bands artwork as a placeholder |
-| p168 Things In Songs 5-Pack | staged | Decades 5-Pack artwork |
-| Music Bingo Handbook | coming soon | cover you sent isn't in the repo yet |
+**Drop the file at exactly this path:**
 
-I searched `uploads/` for old Punk Rock art from the Weebly days — there is none.
-Drop the files anywhere in the repo and tell me the names.
+```
+uploads/4/3/3/6/43362499/punk-rock-music-bingo.jpg
+```
+
+**Then run:**
+
+```
+node _tools/to-webp.js --write            # makes the smaller WebP version
+node _tools/wrap-picture.js --write       # serves it through <picture>
+node _tools/add-alt-text.js --write
+node _tools/add-store-tile.js p167 --after p63 --write
+node _tools/add-jsonld.js --write
+```
+
+…after changing p167's `image` in `_tools/new-products.json` to that path and
+re-running `node _tools/new-product.js --write --publish`.
+
+Until then **p167 is live showing Hair Bands artwork**, which is wrong on a real
+product page — worth doing sooner rather than later.
 
 ### 3. Things In Songs 5-Pack has a guessed price
 
@@ -85,6 +100,8 @@ Lemon Squeezy listings.
   and a Person entity for you.
 - **New pages**: `what-is-music-bingo.html`, `music-bingo-rules.html`,
   `charlotte-events.html`, `llms.txt`.
+- **Favicon** added — the site had none at all. "FC" in the header gold on black,
+  declared on all 586 pages. Regenerate with `node _tools/make-favicon.js`.
 - **About page rewritten** — the Safe Driving Initiative, the dead forums link and
   the free-handbook-code promise are gone; your 1999 history is in.
 
@@ -102,6 +119,8 @@ Lemon Squeezy listings.
 | `add-jsonld.js` | Regenerate all structured data |
 | `check-links.js` | 587 pages, 0 broken |
 | `export-ls-images.js` | Rebuild the Lemon Squeezy image bundle |
+| `make-favicon.js` | Regenerate the favicon set from an inline SVG |
+| `add-favicon-links.js` | Declare the favicon on every page |
 
 **Everything takes `--write`.** Without it they only report.
 
