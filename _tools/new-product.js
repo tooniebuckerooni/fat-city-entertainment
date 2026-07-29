@@ -199,13 +199,17 @@ for (const spec of specs) {
     const lsPath = path.join(REPO, "assets/js/ls-links.js");
     let ls = fs.readFileSync(lsPath, "utf8");
     if (!new RegExp(`"${pid}":`).test(ls)) {
-      const line = `  "${pid}": "", // [ ] ${spec.name} — $${spec.price} USD — /store/${pid}/${spec.slug}.html\n`;
-      ls = ls.replace(/(\n};\n\n\/\/ USD display prices)/, `\n${line}}\n\n// USD display prices`);
-      if (!new RegExp(`"${pid}":`).test(ls)) {
-        // Fall back to inserting before the first closing brace of LS_LINKS.
-        const end = ls.indexOf("};", ls.indexOf("window.LS_LINKS"));
-        ls = ls.slice(0, end) + line + ls.slice(end);
-      }
+      const line = `  "${pid}": "", // [ ] ${spec.name} — $${spec.price} USD — /store/${pid}/${spec.slug}.html`;
+      // LS_LINKS closes with a bare "}" on its own line, not "};" — an earlier
+      // version searched for "};" and silently dropped four products' entries
+      // into LS_PRICES instead, so their buy buttons kept the template's link
+      // and pointed at the wrong product's checkout.
+      const rows = ls.split("\n");
+      const from = rows.findIndex((l) => l.includes("window.LS_LINKS"));
+      const close = rows.findIndex((l, i) => i > from && l.trim() === "}");
+      if (from === -1 || close === -1) throw new Error("could not locate the LS_LINKS block in ls-links.js");
+      rows.splice(close, 0, line);
+      ls = rows.join("\n");
       fs.writeFileSync(lsPath, ls);
     }
   }
