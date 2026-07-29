@@ -19,9 +19,10 @@ const WRITE = process.argv.includes("--write");
 
 // Packs and clubs first, biggest basket first. Everything else follows in the
 // order it already had.
-const ORDER = ["112", "131", "155", "147", "49", "123"];
+const ORDER = ["112", "130", "131", "155", "147", "49", "123"];
 
-const PAGES = ["trivia-store.html", "store/c1/triviastore/index.html"];
+const PAGES = ["trivia-store.html", "store/c1/triviastore/index.html",
+               "store/c11/musicdoboff/index.html"];
 
 // The storefront uses the "-featured" tile variant; category pages use the plain
 // one. Match either.
