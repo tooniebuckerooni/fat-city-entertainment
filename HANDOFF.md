@@ -1,7 +1,15 @@
-# Handoff — July 27, 2026
+# Handoff — July 27, 2026 (updated July 29)
 
 Everything below is **live on fatcityentertainment.com** unless it says otherwise.
 Branch `claude/fatcity-optimization-kag60a` was merged to `main`; both are in sync.
+Since then, work has continued on `claude/fatcity-cleanup-tweaks-by2b2y` (not yet
+merged, no PR open as of July 29) — that's what the July 29 updates below refer to.
+
+**July 29 update:** Punk Rock artwork (item 2 below) is done — the file arrived,
+it's wired, and the previous "needs you" item is closed. See "What changed" for
+the rest, including a real bug in the Music Bingo category page that a prior
+session in this branch misdiagnosed and papered over with a revert; it's now
+fixed properly.
 
 ---
 
@@ -17,35 +25,7 @@ the two Amazon links and the cover, and I'll fill in the `handbook` entry in
 `KDP_LINKS` (`assets/js/ls-links.js`) — the page already reads from there, so the
 buttons appear on their own once it's filled.
 
-### 2. Punk Rock artwork — I can't save it from chat
-
-The image was attached to the conversation, which means I can look at it but
-there is no file on disk for me to copy into the repo. That one genuinely needs
-you.
-
-**Drop the file at exactly this path:**
-
-```
-uploads/4/3/3/6/43362499/punk-rock-music-bingo.jpg
-```
-
-**Then run:**
-
-```
-node _tools/to-webp.js --write            # makes the smaller WebP version
-node _tools/wrap-picture.js --write       # serves it through <picture>
-node _tools/add-alt-text.js --write
-node _tools/add-store-tile.js p167 --after p63 --write
-node _tools/add-jsonld.js --write
-```
-
-…after changing p167's `image` in `_tools/new-products.json` to that path and
-re-running `node _tools/new-product.js --write --publish`.
-
-Until then **p167 is live showing Hair Bands artwork**, which is wrong on a real
-product page — worth doing sooner rather than later.
-
-### 3. Things In Songs 5-Pack has a guessed price
+### 2. Things In Songs 5-Pack has a guessed price
 
 No price was supplied. It's set to **$43.00**, mirroring the Decades 5-Pack as the
 closest comparable. **Confirm it matches Lemon Squeezy before publishing** — a page
@@ -60,7 +40,7 @@ node _tools/add-store-tile.js p168 --after p147 --write
 node _tools/add-jsonld.js --write && node _tools/sitemap-lastmod.js --write
 ```
 
-### 4. Two bundles on hold
+### 3. Two bundles on hold
 
 `p165` Around The World 3-Pack and `p166` Party Starter 4-Pack are built, staged
 and unlisted, per your call to hold them. Both are assembled from packs you
@@ -68,6 +48,45 @@ already own, so they need no new card sets — only names you're happy with and
 Lemon Squeezy listings.
 
 ---
+
+## July 29: the Music Bingo category page saga
+
+Three commits on `claude/fatcity-cleanup-tweaks-by2b2y` tell this story in order —
+worth reading if you want the full detail, summarized here so the next session
+doesn't have to dig:
+
+1. A session tried to add Silver Club and reorder the three Clubs to the top of
+   `store/c11/musicdoboff/index.html`. An intermediate hand-edit went wrong —
+   corrupted, overlapping tile markup — and got "fixed" by reverting the file and
+   redoing the change through `add-store-tile.js`/`order-store-tiles.js` instead.
+2. The redo looked clean in the diff but **the corrupted leftover markup was
+   never actually removed** — a duplicate, malformed Gold Club fragment (unclosed
+   divs, stray price/image pieces) was still sitting in the file between the
+   product grid and its closing tag. Rendered in Chromium, this produced a
+   full-bleed image blowout and ~2000px of blank page.
+3. Rather than find the actual cause, the next session **reverted the whole file
+   two commits back** — past the corruption *and* past the legitimate Club
+   reorder and the Silver Club addition, discarding real progress along with the
+   bug, and writing that off as "something subtler in this page's CSS I have not
+   identified."
+
+It wasn't subtle. It was leftover garbage from an abandoned patch that a commit
+message claimed was cleaned up but wasn't — caught by actually reading the file
+around the broken tile, not by re-running the tool or trusting the earlier
+commit's own verification claims. **Fixed for real** (commit
+`d789e45`, this session): Gold → Silver → Bronze Club tiles lead the category,
+matching the markup already verified working on `trivia-store.html` and
+`store/c1/triviastore`, and Punk Rock (p167) — which had *never* actually been
+added to this specific page, contrary to what an earlier commit message implied
+— is now on it too, right after Hair Bands, with its real artwork. Verified in
+Chromium at 375/768/1024/1400px, zero broken images, zero page errors,
+check-links 587/0.
+
+**Lesson for whoever picks this up next:** a commit message saying "verified,
+zero errors" is not proof — re-open the actual file when something looks wrong,
+especially after a hand-patch-then-redo. `order-store-tiles.js` and
+`add-store-tile.js` are otherwise fine; the bug was a leftover fragment from a
+manual edit, not the tools themselves.
 
 ## What changed this session
 
