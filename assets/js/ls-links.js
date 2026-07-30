@@ -93,7 +93,7 @@ window.LS_LINKS = {
   "p165": "", // [ ] Around The World - Music Bingo 3-Pack — $27.00 USD — /store/p165/aroundtheworldpack.html
   "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html
   "p167": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e9d05bc0-7848-4fc5-8749-642e543970ff", // [ ] Punk Rock - 250 Music Bingo Cards — $10.99 USD — /store/p167/punkrock.html
-  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [ ] "Things In Songs" Music Bingo 5-Pack — $43.00 USD — /store/p168/thingsinsongs.html
+  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [x] "Things In Songs" Music Bingo 5-Pack — $43.00 USD — /store/p168/thingsinsongs.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">
