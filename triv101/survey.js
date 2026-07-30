@@ -69,8 +69,13 @@
   };
 
   /* ---- Survey prompts to present to players -------------------------- */
-  // Seeded from the game's own questions so surveys refine the real bank.
+  // The dedicated survey pool (survey-prompts.js). These are NOT yet in the
+  // game; their answers are collected here and (in production) only enter the
+  // game bank once a moderator confirms the top 3. Falls back to the seed
+  // questions' text if the pool file isn't loaded.
   function surveyPrompts() {
+    var pool = window.TRIV101_SURVEY_PROMPTS || [];
+    if (pool.length) return pool;
     var seed = (window.TRIV101_SEED || []).map(function (q) { return q.question; });
     return seed.length ? seed : ["Name something you'd find at a party."];
   }
