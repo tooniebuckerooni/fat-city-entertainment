@@ -165,12 +165,24 @@ footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var
 <footer>Triv 101 is made by <a href="https://www.fatcityentertainment.com/">Fat City Entertainment</a>. Answers and comments are moderated.</footer>
 <script>
 const post=(u,b)=>fetch(u,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(b)}).then(r=>r.json());
+// Re-render the feed in place from server truth (no full reload).
+async function refresh(){try{const h=await fetch('/').then(r=>r.text());const d=new DOMParser().parseFromString(h,'text/html');const s=d.getElementById('stream');if(s)document.getElementById('stream').innerHTML=s.innerHTML;}catch(e){}}
 document.addEventListener('click',async e=>{
   const card=e.target.closest('[data-q]'); if(!card)return; const id=card.dataset.q;
-  if(e.target.matches('[data-vote]')){await post('/api/vote',{answer_id:e.target.dataset.vote});location.reload();}
-  if(e.target.matches('[data-answer]')){await post('/api/answer',{prompt_id:id,text:card.querySelector('.ans').value});location.reload();}
-  if(e.target.matches('[data-comment]')){await post('/api/comment',{prompt_id:id,name:card.querySelector('.cname').value,text:card.querySelector('.ctext').value});location.reload();}
+  if(e.target.matches('[data-vote]')){await post('/api/vote',{answer_id:e.target.dataset.vote});refresh();}
+  else if(e.target.matches('[data-answer]')){await post('/api/answer',{prompt_id:id,text:card.querySelector('.ans').value});refresh();}
+  else if(e.target.matches('[data-comment]')){await post('/api/comment',{prompt_id:id,name:card.querySelector('.cname').value,text:card.querySelector('.ctext').value});refresh();}
 });
+// Live updates via Ably (no-op until ABLY_API_KEY is set on the Worker).
+(async()=>{
+  let cfg; try{cfg=await fetch('/api/ably-token').then(r=>r.json());}catch(e){return;}
+  if(!cfg||cfg.configured===false||!cfg.token)return;
+  await new Promise((res)=>{const s=document.createElement('script');s.src='https://cdn.ably.com/lib/ably.min-1.js';s.onload=res;s.onerror=res;document.head.appendChild(s);});
+  if(typeof Ably==='undefined')return;
+  try{const ably=new Ably.Realtime({authUrl:'/api/ably-token'});
+    const ch=ably.channels.get('triv101:stream');let t;
+    ch.subscribe(()=>{clearTimeout(t);t=setTimeout(refresh,500);});}catch(e){}
+})();
 </script>
 </body></html>`;
 }
@@ -253,7 +265,7 @@ export default {
         ).bind(uid(), b.answer_id, voter, now()).run();
         if (r.meta && r.meta.changes) {
           await env.DB.prepare("UPDATE answers SET votes=votes+1 WHERE id=?").bind(b.answer_id).run();
-          await ablyPublish(env, "triv101:prompt:" + a.prompt_id, "vote", { answer_id: b.answer_id });
+          await ablyPublish(env, "triv101:stream", "vote", { prompt_id: a.prompt_id, answer_id: b.answer_id });
         }
         return json({ ok: true }, { headers: setCookies.length ? { "set-cookie": setCookies[0] } : {} });
       }
@@ -273,7 +285,7 @@ export default {
             "INSERT INTO answers (id,prompt_id,text,norm,votes,status,created_at) VALUES (?,?,?,?,?, 'visible', ?)"
           ).bind(uid(), b.prompt_id, text, n, 1, now()).run();
         }
-        await ablyPublish(env, "triv101:prompt:" + b.prompt_id, "answer", { text });
+        await ablyPublish(env, "triv101:stream", "answer", { prompt_id: b.prompt_id });
         return json({ ok: true });
       }
       if (request.method === "POST" && path === "/api/comment") {
@@ -284,7 +296,7 @@ export default {
         await env.DB.prepare(
           "INSERT INTO comments (id,prompt_id,name,text,status,created_at) VALUES (?,?,?,?, 'visible', ?)"
         ).bind(uid(), b.prompt_id, (b.name || "").trim().slice(0, 40) || "Guest", text, now()).run();
-        await ablyPublish(env, "triv101:prompt:" + b.prompt_id, "comment", {});
+        await ablyPublish(env, "triv101:stream", "comment", { prompt_id: b.prompt_id });
         return json({ ok: true });
       }
       if (request.method === "POST" && path === "/api/suggest") {
