@@ -153,10 +153,10 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  #wsite-com-store .wsite-com-category-subcategory-image-container { border-radius: 14px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.08), 0 14px 28px -16px rgba(0,0,0,.4); background: #171310; }
  #wsite-com-store .wsite-com-category-subcategory-image-wrap img.wsite-com-category-subcategory-image { position: absolute !important; top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important; width: 100% !important; height: 100% !important; max-width: none !important; max-height: none !important; object-fit: cover !important; object-position: center !important; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
  #wsite-com-store .wsite-com-category-subcategory-link:hover .wsite-com-category-subcategory-image { transform: scale(1.06); }
- #wsite-com-store .wsite-com-category-subcategory-image-container::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(10,8,6,0) 38%, rgba(10,8,6,.55) 70%, rgba(10,8,6,.92) 100%); }
+ #wsite-com-store .wsite-com-category-subcategory-image-container::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgba(10,8,6,0) 22%, rgba(10,8,6,.68) 65%, rgba(10,8,6,.96) 100%); }
  #wsite-com-store .wsite-com-category-subcategory-name-bg { display: none; }
  #wsite-com-store .wsite-com-category-subcategory-name { z-index: 2; }
- #wsite-com-store .wsite-com-category-subcategory-name-text { text-align: left; padding: 20px 22px 22px; font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-weight: 700; font-size: 19px; line-height: 1.2; text-shadow: none; }
+ #wsite-com-store .wsite-com-category-subcategory-name-text { text-align: left; padding: 20px 22px 22px; font-family: Georgia, "Iowan Old Style", "Times New Roman", serif; font-weight: 700; font-size: 19px; line-height: 1.2; text-shadow: 0 1px 3px rgba(0,0,0,.85), 0 2px 14px rgba(0,0,0,.55); }
  #wsite-com-store .wsite-com-category-subcategory-name-text::after { content: ""; display: block; width: 28px; height: 2px; margin-top: 12px; background: #c9a227; transition: width .35s ease; }
  #wsite-com-store .wsite-com-category-subcategory-link:hover .wsite-com-category-subcategory-name-text::after { width: 52px; }
  #wsite-com-store .wsite-com-category-subcategory-link { transition: transform .3s ease; }
