@@ -22,6 +22,20 @@
   var STORAGE_KEY = "triv101_surveys_v1";
   var MIN_ANSWERS_TO_PROMOTE = 3; // a prompt needs >=3 distinct answers to enter the game
 
+  // Live backend (Cloudflare Worker + D1). Confirmed questions — ones whose
+  // top 3 a moderator has locked in — are pulled from here at load and folded
+  // into the game bank. Fetch failures fall back to the seed bank silently.
+  var API_BASE = "https://triv101-api.dustinramsbottom.workers.dev";
+  var gameBank = [];
+  function loadGameBank() {
+    try {
+      fetch(API_BASE + "/api/game-bank")
+        .then(function (r) { return r.json(); })
+        .then(function (d) { if (d && d.questions && d.questions.length) gameBank = d.questions; })
+        .catch(function () {});
+    } catch (e) {}
+  }
+
   function escapeHtml(s) {
     return String(s)
       .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
@@ -88,6 +102,10 @@
       var byText = {};
       (window.TRIV101_SEED || []).forEach(function (q) { byText[q.question] = q; });
       Store.aggregate().forEach(function (q) { byText[q.question] = q; });
+      // Confirmed questions from the live backend win over the seed.
+      gameBank.forEach(function (q) {
+        if (q && q.question && q.answers && q.answers.length >= 3) byText[q.question] = q;
+      });
       return Object.keys(byText).map(function (k) { return byText[k]; });
     },
     submitResponse: function (prompt, answer) { return Store.submit(prompt, answer); },
@@ -138,4 +156,6 @@
       if (e.keyCode === 13) advance(true);
     });
   }
+
+  loadGameBank(); // pull confirmed questions from the live backend on load
 })();

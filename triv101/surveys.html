@@ -4,83 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Community Surveys — Triv 101 | Fat City Entertainment</title>
-  <meta name="description" content="Help build Triv 101: vote on answers to community survey questions, add your own, and comment. The most popular answers become the game's answers.">
+  <meta name="description" content="Vote on answers to Triv 101 survey questions, add your own, and comment. The most popular answers become the game's answers.">
+  <!-- The live, shared Community Surveys stream is served by the Cloudflare
+       Worker (D1 + Ably). This page forwards there. Once the surveys subdomain
+       is on Cloudflare we can serve the stream under this path directly and
+       drop the redirect. -->
+  <link rel="canonical" href="https://triv101-api.dustinramsbottom.workers.dev/">
+  <meta http-equiv="refresh" content="0; url=https://triv101-api.dustinramsbottom.workers.dev/">
   <link rel="shortcut icon" href="assets/favicon.ico" />
   <style>
-    :root{
-      --stage:#0b0e1f; --stage-2:#131834; --ink:#f4f2ff; --dim:#9aa0c3;
-      --hot:#ff4d6d; --amber:#ffb703; --gold:#e6b800; --line:rgba(255,255,255,.09);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'PT Serif',Georgia,serif;background:var(--stage);color:var(--ink);line-height:1.5}
-    a{color:var(--amber)}
-    .wrap{max-width:820px;margin:0 auto;padding:0 20px}
-    header.top{padding:40px 20px 20px;text-align:center;
-      background:radial-gradient(circle at 50% 0%,rgba(255,183,3,.12),transparent 60%),var(--stage)}
-    header.top h1{font-size:clamp(1.8rem,5vw,2.6rem)}
-    header.top h1 .n{background:linear-gradient(120deg,var(--amber),var(--hot));-webkit-background-clip:text;background-clip:text;color:transparent}
-    header.top p{color:var(--dim);max-width:620px;margin:10px auto 0}
-    .preview-badge{display:inline-block;margin-top:14px;padding:5px 14px;border:1px solid var(--gold);
-      border-radius:999px;color:var(--gold);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase}
-    .backlinks{text-align:center;margin:16px 0 8px;font-size:.95rem}
-    #stream{padding:24px 0 60px}
-    .card{background:var(--stage-2);border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;margin:0 0 18px}
-    .card.suggest label{display:block;font-size:1.05rem;margin-bottom:10px}
-    .q{font-size:1.25rem;margin-bottom:12px}
-    .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:999px;
-      border:1px solid var(--dim);color:var(--dim);vertical-align:middle}
-    .tag.ok{border-color:#46c93a;color:#46c93a}
-    .quota{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-    .bar{flex:1;height:8px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}
-    .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--amber),var(--hot))}
-    .qn{color:var(--dim);font-size:.85rem;white-space:nowrap}
-    ul.answers{list-style:none;margin:0 0 12px}
-    ul.answers li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
-    ul.answers li.top .atext{font-weight:bold}
-    .up{background:rgba(255,183,3,.12);border:1px solid rgba(255,183,3,.4);color:var(--amber);
-      border-radius:8px;width:34px;height:30px;cursor:pointer;font-size:.9rem;transition:all .15s}
-    .up:hover{background:rgba(255,183,3,.25)}
-    .atext{flex:1}
-    .av{color:var(--dim);min-width:28px;text-align:right}
-    .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-    .row input{flex:1 1 160px;padding:9px 12px;border-radius:8px;border:1px solid var(--line);
-      background:rgba(255,255,255,.06);color:var(--ink);font-family:inherit}
-    .row input::placeholder{color:var(--dim)}
-    .btn{padding:9px 16px;border:none;border-radius:8px;cursor:pointer;font-family:inherit;font-size:.95rem;
-      background:#46c93a;color:#08210a;font-weight:bold}
-    .btn.gold{background:linear-gradient(120deg,var(--amber),var(--hot));color:#1a1030}
-    .fine{color:var(--dim);font-size:.82rem;margin-top:8px}
-    details.comments{margin-top:12px;border-top:1px solid var(--line);padding-top:10px}
-    details.comments summary{cursor:pointer;color:var(--dim);font-size:.9rem}
-    details.comments ul{list-style:none;margin:10px 0}
-    details.comments li{padding:8px 0;border-bottom:1px solid var(--line)}
-    details.comments li b{font-size:.95rem}
-    details.comments li time{color:var(--dim);font-size:.78rem;margin-left:8px}
-    details.comments li p{margin-top:2px}
-    .grad-h{text-align:center;color:var(--dim);font-size:1.1rem;margin:28px 0 14px;font-weight:normal}
-    .feed.grad{opacity:.9}
-    .grad-card .top3{margin:8px 0 12px 20px}
-    footer{border-top:1px solid var(--line);padding:24px;text-align:center;color:var(--dim);font-size:.88rem}
+    body{font-family:'PT Serif',Georgia,serif;background:#0b0e1f;color:#f4f2ff;
+      display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;margin:0}
+    a{color:#ffb703}
   </style>
 </head>
 <body>
-  <header class="top">
-    <div class="wrap">
-      <h1>Triv <span class="n">101</span> — Community Surveys</h1>
-      <p>Vote on the answers, add your own, and jump into the comments. The most popular answers become the answers we all play with.</p>
-      <span class="preview-badge">Preview · sample data</span>
-      <div class="backlinks"><a href="/triv101/">← Back to the game</a> &nbsp;·&nbsp; <a href="/features.html">All features</a></div>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <div id="stream"><!-- rendered by surveys.js --></div>
-  </main>
-
-  <footer>
-    Triv 101 is made by <a href="/">Fat City Entertainment</a>. Survey answers and comments are reviewed before they affect the game.
-  </footer>
-
-  <script src="surveys.js"></script>
+  <p>Taking you to the Community Surveys…<br>
+  If you're not redirected, <a href="https://triv101-api.dustinramsbottom.workers.dev/">open the survey stream</a>.</p>
 </body>
 </html>
