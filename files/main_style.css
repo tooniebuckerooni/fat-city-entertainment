@@ -28,6 +28,7 @@ ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, body, html, p, blockquote, fields
  .main-wrap { width: 100%; background: #ffffff; }
  .main-wrap .container { padding: 60px 40px; }
  body.full-width-body-off .banner-wrap .container, body.full-width-body-off .main-wrap .container, body.full-width-body-off .wsite-footer { max-width: 1200px; margin: 0 auto; }
+ body.wsite-page-triviahostresources.full-width-body-off .main-wrap .container { max-width: 1360px; }
  .footer-wrap { width: 100%; font-size: 14px; }
  .footer-wrap .wsite-footer { padding: 60px 40px; }
  .footer-wrap h2, .footer-wrap div.paragraph, .footer-wrap blockquote { margin: 0 auto 20px; }
