@@ -178,6 +178,19 @@ success messages — which reported no errors in every case.
    summary. Only run it for products that haven't been built yet — for
    anything already live, hand-edit the page or use a narrower tool
    (`bake-buy-links.js`, `add-store-tile.js`, etc).
+5. **`add-store-tile.js`'s `bound()` corrupts the *last* tile on a page that has
+   no `<div class="clear">` marker.** When there's no next tile to anchor on,
+   it falls back to `indexOf("\n\t</div>")` searching forward from the tile's
+   start — but every tile's own image-height div closes with exactly that
+   string a few lines in, so it finds that instead of the tile's real end. The
+   clone gets truncated there, edited (only `data-id`/`href` are inside the
+   truncated part, so those are the only things that actually change), and
+   spliced into that same too-early point — leaving the original tile's tail
+   still attached below it. `--after p27` on `store/c34/...Bundles.html` (Jul
+   30, adding p26) did exactly this to p27, since p27 was the last tile on
+   that page. Caught by re-reading the file, not the tool's "tile added"
+   message. Rule of thumb: don't `--after` the *last* tile on a page — target
+   any tile before it, or hand-build the tile if it has to go at the very end.
 
 ---
 
