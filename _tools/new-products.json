@@ -53,9 +53,8 @@
     "title": "Things In Songs Music Bingo 5-Pack - Five Games, 250 Cards Each",
     "price": "43.00",
     "template": "store/p147/decades.html",
-    "publish": false,
-    "_note": "Price confirmed at $43.00 and Lemon Squeezy link matches what's already staged in ls-links.js. Blocked only on artwork — see image path below.",
-    "image": "/uploads/4/3/3/6/43362499/things-in-songs-5pack.jpg",
+    "publish": true,
+    "image": "/uploads/4/3/3/6/43362499/things-in-songs-5pack.png",
     "includes": [
       "p145 Colors",
       "p109 Body Parts",

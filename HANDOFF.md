@@ -168,6 +168,16 @@ success messages — which reported no errors in every case.
    backreference.
 3. **`to-webp.js` generated 164 files nothing could request** (6 MB), for images
    only referenced from CSS backgrounds where `<picture>` can't reach.
+4. **`new-product.js` is not safe to re-run on an already-built product.** It
+   rebuilds the whole page fresh from its template every time — including
+   re-cloning the *template's own* Lemon Squeezy checkout link, verbatim, into
+   the buy button. Re-running it on p165–p168 to publish Things In Songs (Jul
+   30) silently reverted p167 (Punk Rock, already live) back to Golden Oldies'
+   checkout link, wiped its JSON-LD, and put "Decades" back in three products'
+   alt text. Caught by diffing before committing, not by the tool's own
+   summary. Only run it for products that haven't been built yet — for
+   anything already live, hand-edit the page or use a narrower tool
+   (`bake-buy-links.js`, `add-store-tile.js`, etc).
 
 ---
 
