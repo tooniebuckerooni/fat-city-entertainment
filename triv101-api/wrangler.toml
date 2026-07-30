@@ -1,0 +1,20 @@
+name = "triv101-api"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Public, non-secret config. Secrets (ABLY_API_KEY, ADMIN_PASS) are set with
+# `wrangler secret put NAME` and never live in this file or the repo.
+[vars]
+QUOTA = "100"
+ADMIN_USER = "admin"
+FORMSPREE_ENDPOINT = ""   # optional: your Formspree form URL for suggestion emails
+
+# Created with: wrangler d1 create triv101
+# Paste the printed database_id below.
+[[d1_databases]]
+binding = "DB"
+database_name = "triv101"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[observability]
+enabled = true
