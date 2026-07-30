@@ -1,43 +1,54 @@
-// Add the game-tools trio — Triv 101, Trivia Generator, Bingo Card Generator —
-// to the top-level nav on every live page, right after "Trivia Store". Each
-// page is a standalone Weebly export carrying its own copy of the nav (desktop
-// AND mobile), so the item is inserted after BOTH occurrences of the Trivia
-// Store <li>. Idempotent: a page that already has the Triv 101 item is skipped.
+// Group the interactive tools under a "Features" dropdown in the top-level nav
+// of every live page (desktop AND mobile), immediately after "Trivia Store"
+// (which stays first). The dropdown parent links to /features.html and holds
+// Triv 101, Trivia Generator, and Bingo Card Generator as subitems — matching
+// the site's existing "Our Games" submenu markup.
 //
-//   node _tools/add-app-nav.js            # dry run — lists what would change
+// Handles two starting states, so it's safe to re-run:
+//   * pages that already carry the earlier FLAT trio  -> replace it
+//   * pages with just the Trivia Store anchor          -> insert after it
+// Idempotent: a page that already has the Features dropdown is skipped.
+//
+//   node _tools/add-app-nav.js            # dry run
 //   node _tools/add-app-nav.js --write
 const fs = require("fs");
 const path = require("path");
 
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
-
-// Skip build tooling, scraped source copies, deps, and the game app itself.
 const SKIP_DIRS = new Set(["_tools", ".git", "node_modules", "assets", "files", "uploads", "triv101", "pages", "4"]);
 
-// The anchor we insert after: the "Trivia Store" top-level item. Match it by
-// its link, not its id — Weebly rewrites the <li> id to "active" on whatever
-// page is current (so store pages carry id="active" here). It has no submenu,
-// so it always ends at the first </li>.
+// "Trivia Store" top-level item — matched by link, not id (Weebly rewrites the
+// <li> id to "active" on whatever page is current).
 const ANCHOR_RE = /([ \t]*)<li id="[^"]*" class="wsite-menu-item-wrap">\s*<a href="\/trivia-store\.html" class="wsite-menu-item">[\s\S]*?<\/li>/g;
+// The earlier flat trio, spanning all three <li>s (first through third's </li>).
+const FLAT_RE = /[ \t]*<li id="pg-triv101-app" class="wsite-menu-item-wrap">[\s\S]*?<li id="pg-bingo-generator" class="wsite-menu-item-wrap">[\s\S]*?<\/li>/g;
 
-// Marker used for idempotency + so a re-run can find already-added items.
-const MARKER = 'href="/triv101/" class="wsite-menu-item"';
+const MARKER = 'id="pg-features"';
 
-function itemsFor(indent) {
-  const i = indent;                 // indentation of the <li>
-  const t = indent + "\t";          // one level deeper for inner lines
-  const item = (id, href, label, extra) =>
-    `\n${i}<li id="${id}" class="wsite-menu-item-wrap">` +
-    `\n${t}<a href="${href}" class="wsite-menu-item"${extra || ""}>` +
-    `\n${t}\t${label}` +
+function dropdown(indent) {
+  const i = indent, t = indent + "\t";
+  const sub = (id, href, label, extra) =>
+    `\n${t}<li id="${id}" class="wsite-menu-subitem-wrap ">` +
+    `\n${t}<a href="${href}" class="wsite-menu-subitem"${extra || ""}>` +
+    `\n${t}\t<span class="wsite-menu-title">` +
+    `\n${t}\t\t${label}` +
+    `\n${t}\t</span>` +
     `\n${t}</a>` +
-    `\n${t}` +
-    `\n${i}</li>`;
+    `\n${t}</li>`;
   return (
-    item("pg-triv101-app", "/triv101/", "Triv 101", "") +
-    item("pg-trivia-generator", "/trivia-generator.html", "Trivia Generator", "") +
-    item("pg-bingo-generator", "https://bingocardgenerator.online/", "Bingo Card Generator", ' target="_blank" rel="noopener"')
+    `\n${i}<li id="pg-features" class="wsite-menu-item-wrap">` +
+    `\n${t}<a href="/features.html" class="wsite-menu-item">` +
+    `\n${t}\tFeatures` +
+    `\n${t}</a>` +
+    `\n${t}<div class="wsite-menu-wrap" style="display:none">` +
+    `\n${t}<ul class="wsite-menu">` +
+    sub("wsite-nav-triv101", "/triv101/", "Triv 101", "") +
+    sub("wsite-nav-trivia-generator", "/trivia-generator.html", "Trivia Generator", "") +
+    sub("wsite-nav-bingo-generator", "https://bingocardgenerator.online/", "Bingo Card Generator", ' target="_blank" rel="noopener"') +
+    `\n${t}</ul>` +
+    `\n${t}</div>` +
+    `\n${i}</li>`
   );
 }
 
@@ -58,11 +69,24 @@ let changed = 0, skippedHave = 0, noAnchor = 0;
 
 for (const file of files) {
   let html = fs.readFileSync(file, "utf8");
-  if (!ANCHOR_RE.test(html)) { ANCHOR_RE.lastIndex = 0; noAnchor++; continue; }
-  ANCHOR_RE.lastIndex = 0;
   if (html.includes(MARKER)) { skippedHave++; continue; }
 
-  const next = html.replace(ANCHOR_RE, (m, indent) => m + itemsFor(indent));
+  let next = html;
+  if (FLAT_RE.test(next)) {
+    // Replace the flat trio in place, reusing its indentation.
+    FLAT_RE.lastIndex = 0;
+    next = next.replace(FLAT_RE, (m) => {
+      const indent = (m.match(/^([ \t]*)</) || [, ""])[1];
+      return dropdown(indent);
+    });
+  } else if (ANCHOR_RE.test(next)) {
+    ANCHOR_RE.lastIndex = 0;
+    next = next.replace(ANCHOR_RE, (m, indent) => m + dropdown(indent));
+  } else {
+    noAnchor++;
+    continue;
+  }
+
   if (next !== html) {
     changed++;
     if (WRITE) fs.writeFileSync(file, next);
