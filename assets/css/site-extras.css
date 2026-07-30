@@ -298,3 +298,20 @@ p.fce-playlist-badge {
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
   font-size: 15px;
 }
+
+/* "Featured!" nav item — subtle gold-star treatment (fce-featured) */
+.fce-featured > a::before {
+  content: "\2605"; /* gold star */
+  color: #e6b800;
+  margin-right: 6px;
+}
+.desktop-nav .wsite-menu-default > .fce-featured > a {
+  border: 1.5px solid #e6b800;
+  border-radius: 999px;
+  padding: 3px 14px !important;
+  transition: box-shadow .2s ease, background-color .2s ease;
+}
+.desktop-nav .wsite-menu-default > .fce-featured > a:hover {
+  background-color: rgba(230, 184, 0, .12);
+  box-shadow: 0 0 10px rgba(230, 184, 0, .55);
+}
