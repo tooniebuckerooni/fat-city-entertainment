@@ -1,13 +1,12 @@
 // Generate the site's favicon set.
 //
-// The site had no favicon at all — browsers fell back to a blank page icon in
-// tabs, bookmarks and history. The only reference anywhere pointed at
-// assets/favicon.ico from a single orphaned page, and that file didn't exist.
-//
-// The mark is "FC" in the site's own gold (#99790a, the colour of the
-// "Fat City Entertainment" wordmark in the header) on black. Two letters is
-// about the most that stays legible at 16px, which is the size that actually
-// matters — a detailed logo turns to mush in a tab.
+// The mark is a 16x16 pixel-art city skyline, traced from Dustin's own
+// fat_city_favicon.psd (a flat 16x16 RGB image, #373737 on white — no layers,
+// no gradients, just the pixel grid). Reconstructed as vector rects at the
+// source resolution rather than upscaling the raster, so it stays pixel-sharp
+// at every size instead of blurring past 16px. PIXELS below is that grid, read
+// as one string per row ("#" = ink, "." = white); regenerate it by re-running
+// the trace against a new PSD if the art changes.
 //
 //   node _tools/make-favicon.js
 //
@@ -18,18 +17,52 @@ const path = require("path");
 const sharp = require("sharp");
 
 const REPO = path.resolve(__dirname, "..");
-const GOLD = "#99790a";
-const INK = "#000000";
+const INK = "#373737";
+const GRID = 16;
+const PIXELS = [
+  "######....######",
+  "######....######",
+  "##...........##.",
+  "##...#####...##.",
+  "##...#...#...##.",
+  "##...#.#.#...##.",
+  "###..#.#.#...##.",
+  "###..#.#.#...##.",
+  "##...#...#...##.",
+  "##.###...###.##.",
+  "##.#.......#.##.",
+  "##.#.#.#.#.#.##.",
+  "##.#.#.#.#.#.##.",
+  "##.#.#.#.#.#.##.",
+  "##.#.......#.##.",
+  "##.#.......#.##.",
+];
 
-// Slightly tightened letter-spacing and a heavy weight: at 16px the counters in
-// "FC" close up otherwise and it reads as a smudge.
-const svg = (size) => `
-<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="10" fill="${INK}"/>
-  <text x="32" y="45"
-        font-family="Arial Black, Arial, Helvetica, sans-serif"
-        font-size="38" font-weight="900" letter-spacing="-2"
-        text-anchor="middle" fill="${GOLD}">FC</text>
+// Merge each row's consecutive ink pixels into one <rect> instead of one per
+// pixel — same crisp result, a fraction of the markup.
+function pixelRects() {
+  const rects = [];
+  for (let y = 0; y < GRID; y++) {
+    let x = 0;
+    while (x < GRID) {
+      if (PIXELS[y][x] === "#") {
+        const x0 = x;
+        while (x < GRID && PIXELS[y][x] === "#") x++;
+        rects.push(`  <rect x="${x0}" y="${y}" width="${x - x0}" height="1"/>`);
+      } else {
+        x++;
+      }
+    }
+  }
+  return rects.join("\n");
+}
+
+const svg = () => `
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${GRID} ${GRID}" shape-rendering="crispEdges">
+  <rect width="${GRID}" height="${GRID}" fill="#ffffff"/>
+  <g fill="${INK}">
+${pixelRects()}
+  </g>
 </svg>`;
 
 // PNG-in-ICO. Valid since Vista and understood everywhere that still asks for a
