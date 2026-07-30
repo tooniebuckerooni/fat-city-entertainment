@@ -54,9 +54,16 @@
     "price": "43.00",
     "template": "store/p147/decades.html",
     "publish": false,
-    "_note": "STAGED. Two blanks: no price was supplied (43.00 mirrors the Decades 5-Pack, the closest comparable — confirm against Lemon Squeezy before publishing) and no artwork yet.",
-    "image": "/uploads/4/3/3/6/43362499/s240281505130794070_p147_i5_w600.jpeg",
-    "description": "Five \"Things In Songs\" music bingo games in one download — 250 printable cards each, with callsheets and ready-made playlists.",
-    "body": "<div><p>Five games built on the same idea: the squares are things the songs are about.</p><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p></div>"
+    "_note": "Price confirmed at $43.00 and Lemon Squeezy link matches what's already staged in ls-links.js. Blocked only on artwork — see image path below.",
+    "image": "/uploads/4/3/3/6/43362499/things-in-songs-5pack.jpg",
+    "includes": [
+      "p145 Colors",
+      "p109 Body Parts",
+      "p92 Food Fight",
+      "p71 Zoo Rock",
+      "p156 Numbers"
+    ],
+    "description": "Five music bingo games hiding everyday words in their titles: Colors, Body Parts, Food Fight, Zoo Rock, and Numbers. 250 printable cards each.",
+    "body": "<div><p>What song has a color in the title? An animal? A body part?</p><p>Five games, five categories of songs hiding everyday words in their titles &mdash; Colors, Body Parts, Food Fight, Zoo Rock, and Numbers. Your crowd will swear they know them all until they're stuck on the third row.</p><p><strong>What's included:</strong></p><ul><li><strong>Colors</strong> &mdash; a color in the title.</li><li><strong>Body Parts</strong> &mdash; a body part in the title.</li><li><strong>Food Fight</strong> &mdash; something you eat or drink.</li><li><strong>Zoo Rock</strong> &mdash; an animal in the title.</li><li><strong>Numbers</strong> &mdash; a number in the title.</li></ul><p>Each game prints up to 250 unique cards, no repeats, with a callsheet and a ready-made Spotify and Apple Music playlist. Download, print, play.</p></div>"
   }
 ]
