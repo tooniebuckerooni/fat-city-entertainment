@@ -43,6 +43,30 @@ const PERSON_ID = `${SITE}/#dustin-ramsbottom`;
 // their own headings rather than hand-maintained alongside them.
 const ANSWER_PAGES = new Set(["what-is-music-bingo.html", "music-bingo-rules.html"]);
 
+// Posts that got a genuine content edit during the Jul 2026 SEO pass — title,
+// meta, description, or H1 actually changed, not just sitewide infrastructure
+// churn (nav/link updates that touched every page). dateModified is only
+// meaningful when it reflects a real edit, so this list is hand-maintained
+// rather than derived from git, which can't tell content changes from those.
+const MODIFIED = new Map([
+  ["8-tips-for-hosting-a-most-excellent-trivia-show", "2026-07-31"],
+  ["creating-the-perfect-music-bingo-sheet-a-video-tutorial", "2026-07-31"],
+  ["how-to-create-an-awesome-music-bingo-party-event-in-3-easy-steps", "2026-07-31"],
+  ["music-streaming-options-a-comparison", "2026-07-31"],
+  ["the-easiest-way-to-start-a-music-bingo-trivia-night-in-2020", "2026-07-31"],
+  ["7-reasons-companies-and-party-planners-are-switching-to-virtual-events", "2026-07-31"],
+  ["how-to-host-fat-bottom-trivia-presentations-for-quick-and-easy-event-entertainment-6-steps", "2026-07-31"],
+  ["music-bingo-cards-or-game-show-presentations-to-entertain-guests", "2026-07-31"],
+  ["paper-decomposes-very-quickly-thats-why-music-bingo-is-the-best-choice-for-a-very-low-carbon-footprint-entertainment-option", "2026-07-31"],
+  ["save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games", "2026-07-31"],
+  ["staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment", "2026-07-31"],
+  ["stump-us-with-your-best-sports-trivia-question", "2026-07-31"],
+  ["and-then-there-was-hair-music-bingo", "2026-07-31"],
+  ["youtube-zoom-tvs-and-twitch-you-can-share-and-play-triv101-anywhere", "2026-07-31"],
+  ["experience-nostalgia-with-our-new-90s-rb-music-bingo-game", "2026-07-31"],
+  ["from-one-to-10000-hours-our-freshest-and-best-new-music-bingo-category-is-numbers", "2026-07-31"],
+]);
+
 const START = "<!-- fce:jsonld -->";
 const END = "<!-- /fce:jsonld -->";
 
@@ -228,7 +252,7 @@ function collection(html, url) {
   return node;
 }
 
-function blogPosting(html, url) {
+function blogPosting(html, url, slug) {
   const name = clean(attr(html, /<h1[^>]*class="[^"]*\bblog-title\b[^"]*"[^>]*>([\s\S]*?)<\/h1>/i) || "");
   if (!name) return null;
 
@@ -249,6 +273,7 @@ function blogPosting(html, url) {
     url,
     mainEntityOfPage: url,
     datePublished: published,
+    dateModified: MODIFIED.get(slug) || undefined,
     description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
     image: ogImage(html) || undefined,
     // A named human, not the company. This is the expertise signal answer
@@ -437,7 +462,8 @@ for (const file of walk(REPO).sort()) {
     });
     bump("blog");
   } else if (/^triviahostresources\/[^/]+\/index\.html$/.test(rel)) {
-    const b = blogPosting(html, url);
+    const slug = rel.split("/")[1];
+    const b = blogPosting(html, url, slug);
     if (b) {
       graph.push(b, breadcrumbs([
         { name: "Home", url: SITE + "/" },
