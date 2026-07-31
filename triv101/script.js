@@ -174,8 +174,8 @@ var genButtons = function genButtons() {
 
   for (var i = 0; i < buttons; i++) {
     var theta = 360 / buttons / 180 * i * Math.PI;
-    var x = "calc(".concat(39 * Math.cos(theta), "vh - ").concat(buttonSize / 2, "vh)");
-    var y = "calc(".concat(39 * Math.sin(theta), "vh - ").concat(buttonSize / 2, "vh)");
+    var x = "calc(".concat(39 * Math.cos(theta), "vmin - ").concat(buttonSize / 2, "vmin)");
+    var y = "calc(".concat(39 * Math.sin(theta), "vmin - ").concat(buttonSize / 2, "vmin)");
     center.insertAdjacentHTML("beforeend", "\n      <div class=\"game-button\" id=\"".concat(i, "-btn\" onclick=\"press(").concat(i, ")\" style=\"\n        top: ").concat(x, ";\n        left: ").concat(y, ";\n      \">\n        <p>").concat(numbers[i], "</p>\n      </div>\n    "));
   }
 };

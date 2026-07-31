@@ -15,7 +15,8 @@
     <div class="game-options">
       <div class="game-options-info">
         <h1>Triv 101</h1>
-        <p>Survey-style trivia meets a darts countdown. Every team starts at 101 — guess the most popular survey answers, press your luck for more points, and race down to exactly zero.</p>
+        <p>Survey-style trivia meets a darts countdown. Every team starts at 101 and races down to exactly zero.</p>
+        <p><strong>How to play:</strong> each turn, a team picks a number on the board. Read the question aloud and reveal the answers one at a time — the team can bank the points after any reveal, or push their luck for more. Get one wrong and the turn passes with nothing.</p>
         <p style="margin-bottom:8px"><strong>Help build the game.</strong> Take a quick survey — the answers everyone gives become the questions we all play with.</p>
         <button class="button success-bg" onclick="location.href='/triv101/surveys.html'">🎤 Take a Survey — vote &amp; comment</button>
       </div>
@@ -33,6 +34,7 @@
         
         <h1 class="option-title">Starting score</h1>
         <input id="starting-score" class="input" type="text" value="101" />
+        <p class="setup-hint">Every team starts here and races to exactly zero. 101 is the classic, but any number works.</p>
 
         <h1 class="option-title" style="margin-top: 16px">Mode</h1>
         <div class="mode-select">
@@ -46,8 +48,10 @@
             <p>Exact</p>
           </div> -->
         </div>
-        
+        <p class="setup-hint">Infinite: every number can be replayed all game. Turn it off for a one-and-done board — each number retires once it's been played.</p>
+
         <button class="button success-bg" onclick="goFullScreen()">Go Fullscreen</button>
+        <p class="setup-hint">Hosting from your phone? Tap Fullscreen, then cast or mirror this tab to the TV.</p>
         <button class="button success-bg" style="width: 100%; margin-top: 32px; font-size: 2em" onclick="startGame()">START</button>
       </div>
 
