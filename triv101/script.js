@@ -105,7 +105,8 @@ var goFullScreen = function goFullScreen() {
 
 var center = document.querySelector("#center");
 var wrongAudio = new Audio("assets/audio/wrong.mp3");
-var correctAudio = new Audio("assets/audio/throwdart.mp3");
+var throwAudio = new Audio("assets/audio/throwdart.mp3");
+var coinAudio = new Audio("assets/audio/coin.wav");
 var themeAudio = new Audio("assets/audio/themesong.mp3");
 var winAudio = new Audio("assets/audio/win.wav");
 themeAudio.loop = true;
@@ -248,7 +249,7 @@ var bindAction = function bindAction() {
     wrongAnswer.classList.remove("hidden-option");
   });
   takePoints.addEventListener("click", function (event) {
-    correctAudio.play();
+    coinAudio.play();
 
     var _score = (correctAnswers + 1) * currentNumber;
 
@@ -285,6 +286,8 @@ var press = function press(index) {
   currentNumber = numbers[index];
 
   if (infinite || !answered[index]) {
+    throwAudio.currentTime = 0;
+    throwAudio.play();
     var pool = (window.TRIV101 ? window.TRIV101.getQuestions() : questions);
     var question = pool[Math.floor(Math.random() * pool.length)];
     openModal("\n      <div class=\"default-modal-container\">\n        <p style=\"margin-top: 0; margin-bottom: 8px; font-size: 1.8em\">".concat(question.question, "</p>\n  \n        <div class=\"answer-container\">\n          <p style=\"font-size: 1.3em; margin: 2px\">1. </p>\n          <p class=\"answer hidden-answer\" style=\"margin: 2px; font-size: 1.3em\">").concat(question.answers[0], "</p>\n          <p class=\"points\" style=\"margin: 2px; font-size: 1.3em\">").concat(numbers[index], " points</p>\n        </div>\n        <div class=\"answer-container\">\n          <p style=\"font-size: 1.3em; margin: 2px\">2. </p>\n          <p class=\"answer hidden-answer\" style=\"margin: 2px; font-size: 1.3em\">").concat(question.answers[1], "</p>\n          <p class=\"points\" style=\"margin: 2px; font-size: 1.3em\">").concat(numbers[index] * 2, " points</p>\n        </div>\n        <div class=\"answer-container\" style=\"margin-bottom: 16px\">\n          <p style=\"font-size: 1.3em; margin: 2px\">3. </p>\n          <p class=\"answer hidden-answer\" style=\"margin: 2px; font-size: 1.3em\">").concat(question.answers[2], "</p>\n          <p class=\"points\" style=\"margin: 2px; font-size: 1.3em\">").concat(numbers[index] * 3, " points</p>\n        </div>\n  \n        <div>\n          <button class=\"reveal button success-bg\" style=\"margin: 0\">Reveal first answer</button>\n          <button class=\"reveal button success-bg hidden-option\" style=\"margin: 0\">Reveal second answer</button>\n          <button class=\"reveal button success-bg hidden-option\" style=\"margin: 0\">Reveal third answer</button>\n          <button id=\"take-points\" class=\"button warning-bg hidden-option\" style=\"margin: 0\">Take points</button>\n          <button id=\"wrong-answer\" class=\"button error-bg hidden-option\" style=\"margin: 0\">Wrong answer</button>\n        </div>\n      </div>\n    "), {
