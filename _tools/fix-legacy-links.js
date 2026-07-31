@@ -35,7 +35,8 @@ for (const f of walk(REPO)) {
   );
   // Renamed/retired pages — targets confirmed against the live site's redirects.
   const PAGE_REDIRECTS = {
-    "costumedcharacters.html": "/costumeperformers.html",
+    "costumedcharacters.html": "/partyentertainment.html",
+    "costumeperformers.html": "/partyentertainment.html",
     "musicbingo.html": "/musicdoboffbingocards.html",
     "store.html": "/trivia-store.html",
     "comedynights.html": "/partyentertainment.html",
