@@ -152,6 +152,9 @@ page = page.replace(
   /<a class="twitter-share-button" href="[^"]*"([^>]*)>/,
   `<a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=${encodeURIComponent(canonical)}&amp;text=${encodeURIComponent(titleTag)}"$1>`
 );
+// the same button's legacy data-text attribute is a separate leftover from
+// the template and isn't touched by the href swap above
+page = page.replace(/data-text="[^"]*"/, `data-text="${esc(titleTag)}"`);
 
 const outDir = path.join(BLOG, slug);
 const outFile = path.join(outDir, "index.html");
