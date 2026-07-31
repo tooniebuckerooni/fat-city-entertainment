@@ -13,7 +13,8 @@ These live in `triv101/index.html`, `style.css`, `script.js`.
 - [ ] **Mobile-responsive layout** — the dartboard/game is desktop-first; make
       it play on phones/tablets. (Biggest one.)
 - [ ] Copy pass on the setup screen (rules/how-to; tighten the intro).
-- [ ] Correct-answer **sound effect** (a `wrong.mp3` already exists in assets).
+- [x] Correct-answer **sound effect**, plus win jingle and theme music on game
+      start (reused the unused `files/theme/{throwdart,win,themesong}` assets).
 - [ ] **Game progress indicator** and clearer **turn indicator**.
 - [ ] Clarify how the score is calculated on screen (points = number × answers).
 - [ ] **Pause** and **undo / take-back** for the host.
