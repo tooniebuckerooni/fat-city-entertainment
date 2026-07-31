@@ -10,9 +10,13 @@ This is the "make it shine" list. Nothing here is blocking; pick by impact.
 
 ## Game polish (from the owner's original task list — mostly frontend)
 These live in `triv101/index.html`, `style.css`, `script.js`.
-- [ ] **Mobile-responsive layout** — the dartboard/game is desktop-first; make
-      it play on phones/tablets. (Biggest one.)
-- [ ] Copy pass on the setup screen (rules/how-to; tighten the intro).
+- [x] **Mobile-responsive layout** — setup screen now stacks/fits on phones,
+      and the board (container + JS-generated button positions) uses `vmin`
+      instead of `vh` so it stays circular and on-screen in portrait. Still
+      designed as a big-screen game (TV/projector, optionally cast from a
+      phone) — this is a "don't break on mobile" pass, not a full redesign.
+- [x] Copy pass on the setup screen (how-to-play blurb, explained the
+      Starting score / Infinite fields, added a casting-from-phone hint).
 - [x] Correct-answer **sound effect**, plus win jingle and theme music on game
       start (reused the unused `files/theme/{throwdart,win,themesong}` assets).
 - [ ] **Game progress indicator** and clearer **turn indicator**.
