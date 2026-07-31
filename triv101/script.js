@@ -91,6 +91,8 @@ var startGame = function startGame() {
     });
     genTeams();
     initTurn();
+    themeAudio.currentTime = 0;
+    themeAudio.play();
   }
 }; // startGame();
 
@@ -103,6 +105,10 @@ var goFullScreen = function goFullScreen() {
 
 var center = document.querySelector("#center");
 var wrongAudio = new Audio("assets/audio/wrong.mp3");
+var correctAudio = new Audio("assets/audio/throwdart.mp3");
+var themeAudio = new Audio("assets/audio/themesong.mp3");
+var winAudio = new Audio("assets/audio/win.wav");
+themeAudio.loop = true;
 var currentIndex = 0;
 var currentNumber = 0;
 
@@ -143,6 +149,9 @@ var evaluateWinner = function evaluateWinner() {
   for (var i = 0; i < teams.length; i++) {
     if (teams[i].score === 0) {
       openModal(genWinModal(i));
+      themeAudio.pause();
+      winAudio.currentTime = 0;
+      winAudio.play();
       _won = true;
       break;
     } // if (teams[i].score < 1) {
@@ -202,6 +211,8 @@ var playAgain = function playAgain() {
   });
   teamStats[0].style.color = "#46c93a";
   closeModal();
+  themeAudio.currentTime = 0;
+  themeAudio.play();
 };
 
 var restartGame = function restartGame() {
@@ -237,6 +248,8 @@ var bindAction = function bindAction() {
     wrongAnswer.classList.remove("hidden-option");
   });
   takePoints.addEventListener("click", function (event) {
+    correctAudio.play();
+
     var _score = (correctAnswers + 1) * currentNumber;
 
     var teamScore = document.querySelector("#team-".concat(turn, "-score"));
