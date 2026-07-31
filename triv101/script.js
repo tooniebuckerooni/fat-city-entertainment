@@ -109,7 +109,6 @@ var throwAudio = new Audio("assets/audio/throwdart.mp3");
 var coinAudio = new Audio("assets/audio/coin.wav");
 var themeAudio = new Audio("assets/audio/themesong.mp3");
 var winAudio = new Audio("assets/audio/win.wav");
-themeAudio.loop = true;
 var currentIndex = 0;
 var currentNumber = 0;
 
