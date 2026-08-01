@@ -2,19 +2,20 @@
   {
     "id": "p165",
     "slug": "aroundtheworldpack",
-    "name": "Around The World - Music Bingo 3-Pack",
-    "title": "Around The World Music Bingo 3-Pack - Countries, Cities & Road Trip",
-    "price": "27.00",
+    "name": "Around The World... And Beyond! - Music Bingo 4-Pack",
+    "title": "Around The World... And Beyond! Music Bingo 4-Pack - Road Trip, Cities, Countries & Out of This World",
+    "price": "32.49",
     "template": "store/p147/decades.html",
     "image": "/uploads/4/3/3/6/43362499/s240281505130794070_p100_i6_w640.jpeg",
-    "publish": false,
+    "publish": true,
     "includes": [
-      "p100 Countries",
+      "p132 Road Trip!",
       "p122 Cities",
-      "p132 Road Trip!"
+      "p100 Countries",
+      "p110 Out of This World"
     ],
-    "description": "Countries, Cities and Road Trip in one download — three travel-themed music bingo games, 250 cards each, with ready-made Spotify and Apple Music playlists.",
-    "body": "<div><p>Three travel-themed music bingo games in one download.</p><p><strong>What's included:</strong></p><ul><li><strong>Countries</strong> — name the country the artist is from.</li><li><strong>Cities</strong> — songs with a city in the title.</li><li><strong>Road Trip!</strong> — everything about getting there.</li></ul><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p><p>Buying all three separately costs $32.97.</p></div>"
+    "description": "Road Trip, Cities, Countries and Out of This World in one download — four travel-themed music bingo games, 250 cards each, with ready-made Spotify and Apple Music playlists.",
+    "body": "<div><p>Four travel-themed music bingo games in one download.</p><p><strong>What's included:</strong></p><ul><li><strong>Road Trip!</strong> — everything about getting there.</li><li><strong>Cities</strong> — songs with a city in the title.</li><li><strong>Countries</strong> — name the country the artist is from.</li><li><strong>Out of This World</strong> — space-themed, from \"Spaceman!\" to \"Kryptonite.\"</li></ul><p>Each game prints up to 250 randomized cards and comes with its callsheet and a ready-made Spotify and Apple Music playlist.</p><p>Buying all four separately costs $43.96.</p></div>"
   },
   {
     "id": "p166",

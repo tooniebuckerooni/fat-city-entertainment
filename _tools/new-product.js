@@ -180,6 +180,28 @@ for (const spec of specs) {
     } else {
       html = html.replace(/<meta name="robots"[^>]*>/i, `<meta name="robots" content="noindex">`);
     }
+    // The template is a real, already-wired product, so its buy button clones
+    // in live and pointing at the TEMPLATE's checkout — a staged page would
+    // otherwise sell whatever the template sells. Reset it to the same
+    // hidden/"contact us" state bake-buy-links.js gives any unwired product,
+    // regardless of what ls-links.js says for this pid (it may still carry a
+    // stale link from a template that has since moved on).
+    html = html.replace(
+      /(<a\b[^>]*\bclass="[^"]*\bls-buy\b[^"]*")([^>]*)>/i,
+      (m, head, rest) => {
+        rest = rest.replace(/\s+target="_blank"/i, "")
+                    .replace(/\s+rel="noopener"/i, "")
+                    .replace(/\s+href="[^"]*"/i, ' href="/contact.html"');
+        if (!/style="display:none"/i.test(rest)) rest += ' style="display:none"';
+        return `${head.replace(/\s+lemonsqueezy-button\b/, "")}${rest}>`;
+      }
+    );
+    // Same for the "contact us" fallback note — make sure it's visible so a
+    // staged page still shows a call to action instead of none at all.
+    html = html.replace(
+      /(<p\b[^>]*\bclass="[^"]*\bls-pending\b[^"]*"[^>]*\bstyle=")display:none;\s*/i,
+      "$1"
+    );
   } else {
     html = html.replace(/\s*<meta name="robots" content="noindex">/i, "");
   }

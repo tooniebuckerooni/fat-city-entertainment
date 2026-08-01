@@ -1,9 +1,9 @@
-**Title tag:** 7 New Music Bingo Packs Just Landed in the Trivia Store
-**Meta description:** Seven new niche music bingo packs — Punk Rock, Around The World, TV Themes 2, Word Games, Acronyms, and more — with what each one is and who it's for.
+**Title tag:** 6 New Music Bingo Packs Just Landed in the Trivia Store
+**Meta description:** Six new niche music bingo packs — Punk Rock, Around The World... And Beyond!, TV Themes 2, Word Games, Acronyms, and more — with what each one is and who it's for.
 **Target keyword:** new music bingo games
 **Secondary keywords:** niche music bingo themes, punk rock music bingo, travel music bingo
 
-# 7 New Music Bingo Packs Just Landed in the Trivia Store
+# 6 New Music Bingo Packs Just Landed in the Trivia Store
 
 If your rotation has been leaning on the same handful of decade packs for a while, it's time for an update. We've been quietly building out the catalog with smaller, sharper themes — the kind that give a regular crowd something they haven't heard called out on a bingo card before. Here's what's new.
 
@@ -11,9 +11,9 @@ If your rotation has been leaning on the same handful of decade packs for a whil
 
 Three chords, bad attitudes, and 250 cards' worth of them. [Punk Rock](/store/p167/punkrock.html) is a great palate-cleanser round for a rock-leaning crowd that's already done the classic-rock and 80s rounds to death — sharper, faster, and a genuine change of pace mid-show.
 
-## Around The World 3-Pack
+## Around The World... And Beyond!
 
-Countries, Cities, and Road Trip — three travel-themed games in one download. The [Around The World 3-Pack](/store/p165/aroundtheworldpack.html) is built for crowds who like a bit of geography trivia mixed into the music, and it's an easy fit for a "getaway" or summer-wind-down themed night.
+Road Trip, Cities, Countries, and Out of This World — four travel-themed games in one download, now with a fourth stop past the atmosphere. [Around The World... And Beyond!](/store/p165/aroundtheworldpack.html) is built for crowds who like a bit of geography (and a little sci-fi) mixed into the music, and it's an easy fit for a "getaway" or summer-wind-down themed night.
 
 ## TV Themes 2
 
@@ -26,10 +26,6 @@ Three games built around word jumbles rather than straight recognition, for a cr
 ## Acronyms
 
 Only the artist's initials, nothing else. [Acronyms](/store/p158/acronyms.html) is a short, sharp round that rewards your most obsessive music fans — save it for a competitive crowd that's already cleaned up on the easier rounds.
-
-## Party Starter 4-Pack
-
-Life's A Beach, Stadium Songs, Disco, and Food Fight in one download. The [Party Starter 4-Pack](/store/p166/partystarterpack.html) is built to open a night — four high-energy, no-explanation-needed themes that get a room moving before you get into anything more niche.
 
 ## Things In Songs
 
