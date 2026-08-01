@@ -321,6 +321,40 @@ p.fce-playlist-badge {
   color: #b3261e;
 }
 
+/* Quick-math nurture block on club/bundle pages — turns "N games" into a
+   concrete per-game cost comparison so a browsing reader starts doing the
+   math themselves. Transferable: copy the block, swap the numbers (game
+   count, per-game price, bundle price), and pick a tier color — gold here,
+   add e.g. .fce-value-math--silver / --bronze with their own border/title
+   color the same way if/when Silver and Bronze get one. */
+.fce-value-math {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border-left: 3px solid #99790a;
+  background: rgba(153, 121, 10, 0.06);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222222;
+}
+.fce-value-math-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #99790a;
+}
+.fce-value-math p {
+  margin: 0 0 6px;
+}
+.fce-value-math p:last-child {
+  margin-bottom: 0;
+}
+.fce-value-math strong {
+  color: #000000;
+}
+
 /* "Featured!" nav item — subtle gold-star treatment (fce-featured) */
 .fce-featured > a::before {
   content: "\2605"; /* gold star */
