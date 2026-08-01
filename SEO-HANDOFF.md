@@ -94,14 +94,14 @@ pages, 0 broken refs, holding at 0 through the whole session.
    → `ls-links.js` → `bake-buy-links.js` → `add-store-tile.js` →
    `add-jsonld.js` + sitemap).
 
-2. **Around The World... And Beyond! artwork** — you pasted the cover image
-   in chat, but images pasted into a chat message aren't reachable as files
-   in this environment (no path on disk, no ingestion tool on my end). The
-   product page is still using a placeholder (the old Countries product
-   image) until I have a real file to work from. Easiest path: upload it to
-   your Weebly uploads CDN (or anywhere I can fetch a URL) and send the
-   link — wiring it into the product page, its `og:image`, and the sitemap
-   entry is a couple of minutes once I can reach the file.
+2. ~~**Around The World... And Beyond! artwork**~~ — **done Aug 1.** Uploaded
+   straight to `main` via the GitHub web UI
+   (`uploads/4/3/3/6/43362499/around-the-world-and-beyond.png`), merged into
+   this branch, and wired into the product page (main image + `og:image`),
+   its three store-listing tiles, and the sitemap image entry. Also fixed a
+   leftover template artifact caught in the same pass — the zoom-image alt
+   text still said `"Decades" Music Bingo 5-Pack`. WebP twin generated
+   (525K → 171K).
 
 3. **Back-to-school promo (22% off, ~1 week out, pop-up + code)** — nothing
    built yet, by design; you said nothing needed now. When it's closer:
@@ -113,11 +113,15 @@ pages, 0 broken refs, holding at 0 through the whole session.
        with no built-in pop-up system).
 
 4. **GSC-only manual checks** — I don't have live Search Console access, so
-   these need you to log in and look. Four things, each with where to look
-   and what a bad answer looks like:
+   these need you to log in and look. **Status as of Aug 1:** d is clean
+   (checked twice — no manual action against the property). b not checked
+   yet. a checked but inconclusive — owner's read was "not sure," worth
+   another look soon since a one-time check can miss a trend still in
+   progress. c is the one flagged as most needing follow-up — owner said
+   "definitely need to check back on this."
 
    **a. Post-March traffic decline — is it still happening, and is it
-   sitewide or specific pages?**
+   sitewide or specific pages?** *(checked once, inconclusive — recheck)*
    Search Console → **Performance → Search results**. Set the date range to
    compare "Last 6 months" against the prior period so March shows as a
    clear inflection point on the graph, not just a dip inside a longer
@@ -141,7 +145,7 @@ pages, 0 broken refs, holding at 0 through the whole session.
      recovered), that's the more urgent version — say so specifically.
 
    **b. Links report — anything toxic, or just checking what's building
-   authority.**
+   authority.** *(not checked yet)*
    Search Console → **Links**. Check **Top linking sites** for anything that
    looks spammy (link farms, unrelated foreign-language sites, scraper
    sites) — that's the kind of thing worth a disavow file, though it's
@@ -151,7 +155,8 @@ pages, 0 broken refs, holding at 0 through the whole session.
    to make more of.
 
    **c. Core Web Vitals by device — mobile specifically, since desktop
-   wasn't the problem.**
+   wasn't the problem.** *(owner: "definitely need to check back on this" —
+   highest-priority of the four)*
    Search Console → **Experience → Core Web Vitals**. Open the **Mobile**
    report specifically (this session found 0 "good" mobile URLs reported
    since mid-June — a data blackout, not necessarily 0 actually-good pages,
@@ -163,14 +168,12 @@ pages, 0 broken refs, holding at 0 through the whole session.
    scoped.
 
    **d. Manual Actions — the one that overrides everything else if present.**
+   *(checked, twice — "No issues detected" both times. Clean, no action
+   needed.)*
    Search Console → **Security & Manual Actions → Manual actions**. This
    should say "No issues detected." If it doesn't, that takes priority over
    every other item in this document — a manual action explains a traffic
    drop by itself and nothing else here matters until it's resolved.
-
-   Report back whichever of these you've actually looked at — even "b and d
-   are clean, haven't checked a/c yet" is useful, since it narrows down
-   where to focus next.
 
 5. **Carried over from `POST-LAUNCH.md`** (not touched this session, still
    open, unrelated to the SEO work above): the Gold Club subscription-vs-
