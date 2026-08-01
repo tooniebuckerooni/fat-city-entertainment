@@ -299,6 +299,28 @@ p.fce-playlist-badge {
   font-size: 15px;
 }
 
+/* Quiet single-line product facts (one-time payment, guarantee) placed near a
+   buy button. Same "state it plainly" tone as the playlist badge above. */
+.fce-fact-note {
+  margin: 0 0 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444444;
+}
+
+/* Real, dated sale-end note (only add this when there's an actual end date —
+   see CLAUDE.md on fake urgency). Reused per product; each page sets its own
+   date and, ideally, a matching client-side hide past that date so a missed
+   manual takedown doesn't leave a stale claim live. */
+.fce-sale-scarcity {
+  margin: 6px 0 14px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b3261e;
+}
+
 /* "Featured!" nav item — subtle gold-star treatment (fce-featured) */
 .fce-featured > a::before {
   content: "\2605"; /* gold star */
