@@ -14,10 +14,13 @@ here** — the repo is served publicly by GitHub Pages.
 - No server or database for the marketing site — it's just files.
 
 ## Branch / deploy workflow
-- Feature branch: `claude/fatcity-nav-setup-ajaify`.
+- Feature branches come and go (check `git branch --show-current`) — don't
+  hardcode a name here.
 - Pages only serves `main`, so to preview live we **fast-forward merge the
-  branch into `main`** (`git push origin <branch>:main`). Changes so far are
-  additive/low-risk; the site owner is OK merging to main for preview.
+  branch into `main`** (`git push origin <branch>:main`). The site owner has
+  repeatedly been OK merging low-risk, additive work straight to main for
+  preview — but confirm before merging anything that touches pricing, buy
+  links, or removes/hides something already live.
 
 ## Site-wide edits (nav, favicons, etc.)
 - The nav is **duplicated on ~397 live pages** (a desktop + a mobile copy each).
@@ -57,13 +60,60 @@ here** — the repo is served publicly by GitHub Pages.
   Git (Workers Builds). Setting that up needs the D1 `database_id` in
   `triv101-api/wrangler.toml`.
 
+## Blog posts & store products (the Weebly-clone tooling)
+Every blog post and product page is a full standalone HTML document (nav,
+footer, theme, the lot) — never hand-write one from scratch, clone via the
+`_tools/` scripts, in this order:
+
+- **New blog post:** write a draft in `_content/drafts/` (SEO header fields +
+  markdown — see any `blog0N-*.md` for the format), then
+  `node _tools/publish-post.js <draft.md> <slug> --write`. It clones the Zoo
+  Rock post as a template and refuses to publish if a `[bracket link]`
+  placeholder doesn't resolve. **Manually add** the new post to the top of
+  `triviahostresources.html` and to `sitemap.xml` — nothing does this for you,
+  and pagination/archive/category pages are deliberately **not** regenerated
+  (documented, low-risk gap — the post is still reachable from the landing
+  page, sitemap, and other posts).
+- **New store product:** add an entry to `_tools/new-products.json`, then
+  `node _tools/new-product.js --write` (stages it: noindex, no tile, no
+  sitemap entry). When it's ready to sell, set `"publish": true` in the spec
+  and re-run with `--write --publish`, add the real checkout URL to
+  `assets/js/ls-links.js`, then `node _tools/add-store-tile.js pNN --write`
+  (listing-page tiles) and add a `sitemap.xml` entry by hand.
+- **After either:** `node _tools/add-jsonld.js --write` (structured data),
+  `node _tools/bake-buy-links.js --write` (bakes `ls-links.js` into every buy
+  button — re-run this any time `ls-links.js` changes), `node
+  _tools/sitemap-lastmod.js --write` (dates for URLs already in the sitemap;
+  it does not add new ones). Finish with `node _tools/check-links.js` (needs
+  `npm install --prefix _tools` once) — 0 broken refs is the bar.
+- **Known landmine:** a staged/cloned product's buy button can inherit its
+  *template's* live Lemon Squeezy link (real href, not hidden) if the new
+  product has no `ls-links.js` entry yet — it'll look wired but charge for
+  the wrong thing. `new-product.js` now resets it to the safe hidden/"contact
+  us" state automatically, but always grep the rendered `ls-buy` href on
+  anything just published or unstaged to be sure.
+- `_tools/add-jsonld.js` also carries a **hand-maintained `MODIFIED` map**
+  for blog `dateModified` — add a post's slug there only when its content is
+  genuinely edited (title/meta/body), never in bulk. A modified date that
+  doesn't reflect a real edit is a freshness signal Google discounts.
+
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and
   `*.workers.dev`** (403). So an agent here **cannot deploy to or fetch the
   Worker** — those steps happen in the owner's browser/Cloudflare dashboard.
   Don't try to route around it.
+- **Images the user pastes into chat are not reachable as files.** There's no
+  path on disk to read or copy them from — ask for a URL or an upload
+  (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
 
 ## Planning docs
 - `TRIV101-PLAN.md` — original relaunch thinking.
 - `TRIV101-BACKEND-PLAN.md` — the survey backend design.
-- `TRIV101-POLISH.md` — the current backlog / next-agent handoff.
+- `TRIV101-POLISH.md` — the current backlog / next-agent handoff for the game.
+- `LAUNCH-CHECKLIST.md` — the DNS-cutover runbook (historical; cutover is done).
+- `POST-LAUNCH.md` — the marketing/catalog punch list: Gold Club pricing,
+  the fall acquisition campaign, blog drafts, and open product decisions.
+- `HANDOFF.md` — rolling session-to-session handoff notes (most recent first),
+  mostly catalog/tooling-bug history.
+- `SEO-HANDOFF.md` — the Aug 1 2026 GSC-audit-to-content-pass session: what
+  shipped, what's still open (owner action needed), tooling bugs found.

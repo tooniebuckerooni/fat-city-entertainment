@@ -40,12 +40,19 @@ node _tools/add-store-tile.js p168 --after p147 --write
 node _tools/add-jsonld.js --write && node _tools/sitemap-lastmod.js --write
 ```
 
-### 3. Two bundles on hold
+### 3. One bundle still on hold
 
-`p165` Around The World 3-Pack and `p166` Party Starter 4-Pack are built, staged
-and unlisted, per your call to hold them. Both are assembled from packs you
-already own, so they need no new card sets — only names you're happy with and
-Lemon Squeezy listings.
+**Update, Aug 1:** `p165` shipped — relaunched as "Around The World... And
+Beyond!", now a 4-pack (added Out of This World), $32.49, checkout wired,
+listed on all three storefront pages. See `SEO-HANDOFF.md` for the session
+that did it.
+
+`p166` Party Starter 4-Pack is still built, staged and unlisted — not
+finished yet, per the owner. Assembled from packs already owned, so it needs
+no new card sets, only a name/price/Lemon Squeezy link once it's ready. Its
+buy button was found pointing at the wrong product's checkout (inherited
+from its template, same bug class as #4 below) and has been neutralized —
+see `SEO-HANDOFF.md`.
 
 ---
 
