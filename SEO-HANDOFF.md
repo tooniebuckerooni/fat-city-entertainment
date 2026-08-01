@@ -112,10 +112,65 @@ pages, 0 broken refs, holding at 0 through the whole session.
        work (needs a decision on tooling — this is a static Weebly export
        with no built-in pop-up system).
 
-4. **GSC-only manual checks**, flagged earlier in this thread and still
-   needing your live Search Console access to close out: the post-March
-   traffic decline root-cause, the Links report, Core Web Vitals broken out
-   by device, and a Manual Actions check.
+4. **GSC-only manual checks** — I don't have live Search Console access, so
+   these need you to log in and look. Four things, each with where to look
+   and what a bad answer looks like:
+
+   **a. Post-March traffic decline — is it still happening, and is it
+   sitewide or specific pages?**
+   Search Console → **Performance → Search results**. Set the date range to
+   compare "Last 6 months" against the prior period so March shows as a
+   clear inflection point on the graph, not just a dip inside a longer
+   window. Then:
+   - **Dimensions tab → Pages**, sorted by clicks, same comparison range.
+     If a handful of specific URLs account for most of the drop, that's a
+     targeted problem (a page got outranked, deindexed, or its content went
+     stale) rather than a site-wide one — cross-reference against the
+     titles/pages this session already touched, since several of the worst
+     offenders should already be improving.
+   - **Dimensions tab → Queries**, same comparison. Look for queries that
+     used to rank and now don't, versus queries that still rank but get
+     fewer clicks (a CTR problem — title/meta — vs. a rankings problem — an
+     algorithm update or a competitor).
+   - Cross-check the date against Google's own algorithm update history
+     (search "Google search status dashboard" or "Google algorithm update
+     history [month/year]") — if a core update landed within a week or two
+     of the drop, that's the likely cause and points at content quality
+     broadly rather than one fixable bug.
+   - If it's still declining *now* (not just a March event that already
+     recovered), that's the more urgent version — say so specifically.
+
+   **b. Links report — anything toxic, or just checking what's building
+   authority.**
+   Search Console → **Links**. Check **Top linking sites** for anything that
+   looks spammy (link farms, unrelated foreign-language sites, scraper
+   sites) — that's the kind of thing worth a disavow file, though it's
+   rarely the actual cause of a ranking drop unless the volume is large and
+   sudden. Otherwise this is just useful to know: **Top linked pages** shows
+   what's earning backlinks on its own, which is a signal for what content
+   to make more of.
+
+   **c. Core Web Vitals by device — mobile specifically, since desktop
+   wasn't the problem.**
+   Search Console → **Experience → Core Web Vitals**. Open the **Mobile**
+   report specifically (this session found 0 "good" mobile URLs reported
+   since mid-June — a data blackout, not necessarily 0 actually-good pages,
+   since GSC's CWV data lags real user metrics by ~28 days and can go quiet
+   if the field-data sample size drops too low to report). Check whether it's
+   now reporting real numbers again, and if so whether pages are landing in
+   "Needs improvement"/"Poor" — if so, which metric (LCP, INP, CLS) and
+   which page group (blog vs. store vs. homepage), so any real fix can be
+   scoped.
+
+   **d. Manual Actions — the one that overrides everything else if present.**
+   Search Console → **Security & Manual Actions → Manual actions**. This
+   should say "No issues detected." If it doesn't, that takes priority over
+   every other item in this document — a manual action explains a traffic
+   drop by itself and nothing else here matters until it's resolved.
+
+   Report back whichever of these you've actually looked at — even "b and d
+   are clean, haven't checked a/c yet" is useful, since it narrows down
+   where to focus next.
 
 5. **Carried over from `POST-LAUNCH.md`** (not touched this session, still
    open, unrelated to the SEO work above): the Gold Club subscription-vs-
