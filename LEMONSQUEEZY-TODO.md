@@ -25,8 +25,11 @@ How to wire up a product:
 5. Commit + push. The button opens LemonSqueezy's overlay checkout on the same page.
 
 New (non-Weebly) products like the [Music Bingo Handbook](musicbingohandbook.html)
-also get a display price via the `LS_PRICES` map at the bottom of `ls-links.js`
-(e.g. `"handbook": "$14 USD"`) — no tool run needed for those pages.
+aren't necessarily LemonSqueezy at all — the two handbooks sell on Amazon KDP
+instead (full royalties, no LS/Amazon double cut), wired through `KDP_LINKS`
+at the bottom of `ls-links.js`, not `LS_PRICES`. Amazon sets the price, so no
+display price is set on those pages — see the `KDP_LINKS` comment block for
+how to wire a new one.
 
 **USA/Canada note:** LemonSqueezy shows USD to everyone and handles taxes per
 country as merchant of record, so US buyers see clean USD prices and Canadian

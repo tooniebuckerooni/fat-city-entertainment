@@ -42,8 +42,6 @@ Roughly in order of impact.
 
 Optional decisions, no rush:
 
-- **Music Bingo Handbook Amazon URL** → `KDP_LINKS.handbook`, whenever it goes
-  live. Left in "coming soon" mode deliberately.
 - **Zoom Party (p140) sale price.** It used to advertise CA$500 → CA$375. It's
   now a plain `$295.00 USD` because I wouldn't invent a USD "was" price. To put
   the sale framing back, pick a real regular price and run

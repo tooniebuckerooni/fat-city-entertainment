@@ -13,19 +13,36 @@ fixed properly.
 
 ---
 
+## August 3: Music Bingo Handbook launched
+
+The Amazon links came in (Kindle `B0HC4HFX3W`, paperback `B0HCQZ96CQ`) and the
+book is live. `KDP_LINKS.handbook` in `assets/js/ls-links.js` is filled in.
+
+Along the way, fixed a real bug: `musicbingohandbook.html`'s own inline script
+only ever supported a single URL string, but a two-edition KDP entry is
+`{kindle, paperback}` — same shape p18 already used correctly via the shared
+`ls-buy.js`/`.kdp-buy` mechanism. Swapped the page onto that shared path
+instead of its bespoke script, so both buttons render correctly. Also added
+the JSON-LD block it never had (the tool's `walk()` has no branch for a
+top-level non-`/store/` product page — hand-written, wrapped in the usual
+`fce:jsonld` markers so a future tool run leaves it alone).
+
+New incentive: the Handbook is free with any Music Bingo Club purchase
+($50+) — currently Gold (p112), Silver (p130), Bronze (p131), the only SKUs
+over that line. Fulfillment is manual (email a receipt, get the PDF) because
+there's no cart linking Lemon Squeezy checkout to an Amazon KDP title —
+noted on all four pages consistently. If a future $50+ music bingo product
+ships, it needs this same fact-note added by hand; nothing propagates it
+automatically.
+
+Cross-linked from `trivia-store.html`, `musicdoboffbingocards.html`,
+`printmusicbingocards.html`, and `aboutus.html` (previously zero pages linked
+to it). Published an announcement post,
+`triviahostresources/music-bingo-handbook-launch`.
+
 ## Needs you — highest first
 
-### 1. The Music Bingo Handbook is still in Amazon review
-
-Confirmed July 27: the ASINs supplied earlier were the *Trivia Host* Handbook's
-by mistake, and the Music Bingo Handbook has not cleared review yet.
-
-`musicbingohandbook.html` stays in "coming soon" mode. When it goes live, send
-the two Amazon links and the cover, and I'll fill in the `handbook` entry in
-`KDP_LINKS` (`assets/js/ls-links.js`) — the page already reads from there, so the
-buttons appear on their own once it's filled.
-
-### 2. Things In Songs 5-Pack has a guessed price
+### 1. Things In Songs 5-Pack has a guessed price
 
 No price was supplied. It's set to **$43.00**, mirroring the Decades 5-Pack as the
 closest comparable. **Confirm it matches Lemon Squeezy before publishing** — a page
@@ -40,7 +57,7 @@ node _tools/add-store-tile.js p168 --after p147 --write
 node _tools/add-jsonld.js --write && node _tools/sitemap-lastmod.js --write
 ```
 
-### 3. One bundle still on hold
+### 2. One bundle still on hold
 
 **Update, Aug 1:** `p165` shipped — relaunched as "Around The World... And
 Beyond!", now a 4-pack (added Out of This World), $32.49, checkout wired,

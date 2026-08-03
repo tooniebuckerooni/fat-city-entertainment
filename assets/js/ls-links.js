@@ -16,7 +16,7 @@
 // (see LEMONSQUEEZY-TODO.md for the full workflow)
 // ==========================================================================
 window.LS_LINKS = {
-  "handbook": "", // [—] The Music Bingo Handbook — KDP (not LS) — /musicbingohandbook.html
+  "handbook": "", // [—] The Music Bingo Handbook — KDP (not LS), see KDP_LINKS below — /musicbingohandbook.html
   "p3": "", // [ ] Fat Bottom Trivia Host T-shirt — $15.00 USD — /store/p3/Fat_Bottom_Trivia_Host_T-shirt.html
   "p7": "", // [ ] Triv101 Premium - 1000 Question Add-on — CA$22.00 — /store/p7/triv101premium.html
   "p9": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b55753e0-7506-40f3-a71d-7cf310995455", // [x] The Wild West — $23.49 USD — /store/p9/thewildwest.html
@@ -127,7 +127,11 @@ window.LS_PRICES = {
 //       get one button with that format's label.
 // ==========================================================================
 window.KDP_LINKS = {
-  "handbook": "", // [ ] Music Bingo Handbook — not yet live on Amazon
+  // [x] Music Bingo Handbook — live on Amazon as two separate listings
+  "handbook": {
+    kindle: "https://www.amazon.com/dp/B0HC4HFX3W",
+    paperback: "https://www.amazon.com/dp/B0HCQZ96CQ",
+  },
   // [x] Trivia Host Handbook — live on Amazon as two separate listings
   "p18": {
     kindle: "https://www.amazon.com/dp/B0HBGJCX4M",
