@@ -298,7 +298,18 @@ What *is* implementable from that doc: the site-wide Gold Club CTA variants (nav
 homepage hero, footer, blog closing) and the **"Complete Your Night"** box for the
 generator results page and blog post ends. Both are listed below.
 
-### 3. ~~Which generator gets the email gate~~ — **PARTLY RESOLVED**
+### 3. ~~Which generator gets the email gate~~ — **RESOLVED (reversed Aug 1)**
+
+**Decision (Aug 1): the gate is on the legacy generator after all, not Pro.**
+This reverses the July 25 call below. Built same day — see `SEO-HANDOFF.md`
+"Round 2" for the full writeup. Email platform is **Resend** (owner already
+had an account). Still needs deploying: paste the updated
+`triv101-api/src/index.js` into the Cloudflare dashboard and set
+`RESEND_API_KEY`/`RESEND_AUDIENCE_ID`/`RESEND_FROM_EMAIL` — steps in
+`triv101-api/README.md`.
+
+<details>
+<summary>Original July 25 decision (superseded)</summary>
 
 **Decision (July 25): the legacy generator stays exactly as it is — no gate on
 it.** A new comparison page at `/bingocardgenerator2.html` presents both
@@ -307,13 +318,9 @@ itself over time, the legacy one comes out of the store but stays up for existin
 users. So the gate question moves to the Generator 2 codebase, which isn't in this
 repo.
 
-**Still open: the email platform.** Formspree relays to an inbox; it can't send
-the welcome email or the weekly host email. That choice is still needed before any
-gate, wherever it lives. Original note:
-
 `email-capture-gate-and-welcome-email.md` puts a one-field email gate in front of
 the generator's PDF download, citing ~109 anonymous downloads per period. Two
-things need pinning down:
+things needed pinning down:
 
 - **Which generator.** This repo's `/bingocardgenerator.html` does build PDFs
   locally (it uses jsPDF), so the gate is implementable here. But that page also
@@ -326,13 +333,15 @@ things need pinning down:
   #3). The gate can be built before that's chosen, but it can't *do* anything
   until it has somewhere to post.
 
+</details>
+
 ## Ready for me — campaign items
 
 | # | What | Notes |
 |---|---|---|
 | 7 | **"Complete Your Night" CTA box** — on `/bingocardgenerator2.html` already; still to add on the legacy generator page and at the end of blog posts | small |
 | ~~8~~ | ~~Gold Club placements~~ — **footer sitewide (386 pages) + homepage section done July 25.** A nav entry is the one remaining slot | mostly done |
-| 9 | **Email-capture gate** — moved to the Generator 2 codebase, which isn't this repo. Still needs an email platform chosen | blocked on you |
+| ~~9~~ | ~~Email-capture gate~~ — **built Aug 1** on the legacy generator, Resend-backed. Blocked on deploying the Worker + setting Resend keys | blocked on you |
 | ~~10~~ | ~~UTM tagging~~ — **done July 25.** Outbound links tagged and `utm-tagging-standard.md` corrected | done |
 | 11 | Structure blog content for AI answer engines — clear headers, direct answers, possibly FAQ/HowTo structured data | small |
 | 12 | Convert `pages/index-draft.html` to UTF-8 (currently UTF-16LE; unlinked and `noindex`, so harmless until it ships) | small |

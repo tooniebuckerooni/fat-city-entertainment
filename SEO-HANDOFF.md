@@ -7,6 +7,65 @@ publish/product tooling pipeline this session leaned on.
 
 ---
 
+## Round 2 (same day) — printmusicbingocards.html + email capture
+
+- **Fixed backwards generator routing on `printmusicbingocards.html`.** Its
+  "Choose Free Version or Pro Version" buttons paired "Basic Version" ->
+  Generator 2 (`bingocardgenerator.online`, skipping the legacy generator
+  entirely) with "Pro" -> the legacy Pro product — two different
+  generations of tool presented as one product's tiers. Now matches the
+  pattern already live on `bingocardgenerator.html` / the
+  `bingocardgenerator2.html` comparison page: Free -> legacy generator, Pro
+  -> its upsell, and Generator 2 gets its own separate callout. Also
+  rewrote the generic filler intro copy and removed a stale claim ("Gold
+  Club members get free access to Bingo Card Generator Pro") that a
+  concurrent session on `main` had already removed too — merged cleanly,
+  see the merge commit `96547cb` for how the conflict was resolved (took
+  main's renamed Bronze/Silver -> Starter Pack / 25 Games at Once copy).
+
+- **Around The World... And Beyond! artwork wired in** (see prior round —
+  resolved same day the owner uploaded it via GitHub's web UI).
+
+- **Email-capture gate shipped on `bingocardgenerator.html` (legacy free
+  generator only — not Pro).** One-field gate between "Download PDF" and
+  the actual PDF build, using the already-drafted copy from
+  `_content/drafts/email-capture-gate-and-welcome-email.md`. Backend is a
+  new `POST /api/subscribe` route on the existing `triv101-api` Cloudflare
+  Worker (reused rather than standing up a second Worker) — validates the
+  email, adds it to a Resend Audience, and sends the welcome email
+  transactionally via Resend's API, both best-effort so a Resend hiccup
+  never blocks the download. Verified the gate's open/close/validate/
+  proceed-either-way logic in a real headless-Chromium browser against a
+  local static server; **jsPDF (unpkg.com) and the live Worker endpoint are
+  both unreachable from this sandbox** (same `*.workers.dev` / CDN
+  egress-proxy block already documented for Cloudflare deploys), so the
+  actual PDF output and the Resend calls themselves are unverified pending
+  a real-browser check post-deploy.
+
+  **Needs you to go live:**
+  1. Paste the updated `triv101-api/src/index.js` into the Cloudflare
+     dashboard (same as every other Worker change on this project).
+  2. In Resend: verify a sending domain, create an Audience, create an API
+     key with sending access.
+  3. Set three things on the Worker (dashboard → Settings → Variables and
+     Secrets, or `wrangler secret put` / `wrangler.toml` if deploying via
+     CLI): `RESEND_API_KEY` (secret), `RESEND_AUDIENCE_ID`,
+     `RESEND_FROM_EMAIL`. Full walkthrough in `triv101-api/README.md`
+     under "Getting the keys → Resend."
+  4. Test end to end: submit an email on the live gate, confirm it lands
+     in the Resend Audience and the welcome email arrives.
+
+  Until deployed, the gate still works correctly — it fails open (see
+  above), so cards download normally either way, it just won't be
+  capturing emails yet.
+
+  **Not built:** the weekly host email itself
+  (`_content/drafts/weekly-host-email-template.md`) — that's a manual send
+  from Resend's dashboard to the Audience/its segments once contacts exist,
+  no code needed. Worth revisiting once there's a real list to send to.
+
+---
+
 ## What shipped
 
 ### SEO damage control (from the GSC audit)
