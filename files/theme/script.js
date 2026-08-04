@@ -1,4 +1,63 @@
+// Email-capture gate, shown before the PDF actually builds. The "Download
+// PDF" button now opens this instead of calling generateCards() directly;
+// both submitting an email and skipping lead to the same generateCards()
+// call below, unchanged from before this gate existed. Never blocks the
+// download on the network call succeeding — losing the free-tool goodwill
+// that built this audience isn't worth a few more captured emails.
+var FCE_SUBSCRIBE_ENDPOINT = "https://triv101-api.dustinramsbottom.workers.dev/api/subscribe";
+
 function generate() {
+	document.getElementById("fce-gate-overlay").classList.add("fce-gate-open");
+}
+
+function fceGateClose() {
+	document.getElementById("fce-gate-overlay").classList.remove("fce-gate-open");
+}
+
+function fceGateSkip() {
+	fceGateClose();
+	generateCards();
+}
+
+function fceGateSubmit() {
+	var emailInput = document.getElementById("fce-gate-email");
+	var errorEl = document.getElementById("fce-gate-error");
+	var email = emailInput.value.trim();
+	var isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+	if (!isValid) {
+		errorEl.style.display = "block";
+		return;
+	}
+	errorEl.style.display = "none";
+	var btn = document.getElementById("fce-gate-submit");
+	btn.disabled = true;
+	btn.textContent = "Sending...";
+	fetch(FCE_SUBSCRIBE_ENDPOINT, {
+		method: "POST",
+		headers: { "content-type": "application/json" },
+		body: JSON.stringify({ email: email, source: "bingocardgenerator" })
+	}).catch(function () {
+		// Non-fatal — the download proceeds either way, see note above.
+	}).finally(function () {
+		btn.disabled = false;
+		btn.textContent = "Get My Cards";
+		fceGateClose();
+		generateCards();
+	});
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+	var submitBtn = document.getElementById("fce-gate-submit");
+	var skipBtn = document.getElementById("fce-gate-skip");
+	var emailInput = document.getElementById("fce-gate-email");
+	if (submitBtn) submitBtn.addEventListener("click", fceGateSubmit);
+	if (skipBtn) skipBtn.addEventListener("click", fceGateSkip);
+	if (emailInput) emailInput.addEventListener("keydown", function (e) {
+		if (e.key === "Enter") fceGateSubmit();
+	});
+});
+
+function generateCards() {
 	var doc = new jsPDF({
 	  orientation: 'landscape',
 	  unit: 'mm',

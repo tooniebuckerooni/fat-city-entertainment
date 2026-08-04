@@ -43,7 +43,13 @@ npx wrangler d1 execute triv101 --remote --file=migrations/0002_seed_prompts.sql
 ```bash
 npx wrangler secret put ADMIN_PASS      # password for /admin (user is "admin")
 npx wrangler secret put ABLY_API_KEY    # optional — enables live updates
+npx wrangler secret put RESEND_API_KEY  # optional — powers the email-capture gate
 ```
+Also set `RESEND_AUDIENCE_ID` and `RESEND_FROM_EMAIL` in `wrangler.toml`'s
+`[vars]` (not secrets — see the comments there). If this Worker was deployed
+by pasting `src/index.js` into the Cloudflare dashboard rather than via the
+CLI above, set all of these the same way: **Workers → triv101-api →
+Settings → Variables and Secrets**.
 
 **5. Deploy:**
 ```bash
@@ -75,6 +81,23 @@ Settings → Domains & Routes, add a custom domain (e.g.
    (`https://formspree.io/f/xxxx…`).
 2. Put it in `wrangler.toml` under `FORMSPREE_ENDPOINT`, or reuse the form
    already on the site.
+
+**Resend** (email-capture gate on `bingocardgenerator.html` — optional)
+1. Sign in at https://resend.com/.
+2. **Domains** → add and verify `fatcityentertainment.com` (or a subdomain
+   like `mail.fatcityentertainment.com`) — required before Resend will send
+   from an `@fatcityentertainment.com` address. DNS is on Namecheap; add the
+   TXT/DKIM/MX records Resend gives you there.
+3. **API Keys** → create one with **Sending access** → `wrangler secret put
+   RESEND_API_KEY` and paste it.
+4. **Audiences** → create one (e.g. "Generator signups") → copy its ID into
+   `RESEND_AUDIENCE_ID`. This is what future segmented sends (the weekly
+   host email, seasonal announcements) target — those go out from Resend's
+   own dashboard as **Broadcasts**, no code needed per send.
+5. Set `RESEND_FROM_EMAIL` to the verified address, e.g. `"Fat City
+   Entertainment <cards@fatcityentertainment.com>"`.
+6. Test: submit an email on `/bingocardgenerator.html`'s gate, confirm it
+   lands in the Audience and the welcome email arrives.
 
 ## Moderation
 Visit `/admin` (HTTP basic auth: user `admin`, password = `ADMIN_PASS`).

@@ -8,6 +8,9 @@
  *   POST /api/vote         { answer_id }               one vote per anon voter
  *   POST /api/comment      { prompt_id, name?, text }  visible immediately
  *   POST /api/suggest      { text }                    -> pending prompt
+ *   POST /api/subscribe    { email }                   email-capture gate on
+ *                                                       bingocardgenerator.html
+ *                                                       -> Resend audience + welcome email
  *   GET  /api/game-bank     confirmed prompts' top 3 (the game loads this)
  *   GET  /api/ably-token    short-lived Ably token (if ABLY_API_KEY set)
  *   GET  /admin            moderation queue (basic auth)
@@ -54,6 +57,64 @@ async function readBody(request) {
     const fd = await request.formData();
     return Object.fromEntries(fd.entries());
   } catch (e) { return {}; }
+}
+
+// ---- Resend (email-capture gate on bingocardgenerator.html) ---------------
+// Two calls: add the contact to an Audience (for future segmented
+// broadcasts — the weekly host email, seasonal announcements — sent later
+// from Resend's own dashboard, no code needed for those), then send the
+// welcome email immediately via the transactional API. Both are best-effort:
+// a Resend hiccup should never be the reason someone's cards page errors.
+async function resendSubscribe(env, email) {
+  const result = { audience: false, email: false };
+  if (!env.RESEND_API_KEY) return result;
+  const headers = {
+    "authorization": "Bearer " + env.RESEND_API_KEY,
+    "content-type": "application/json"
+  };
+  if (env.RESEND_AUDIENCE_ID) {
+    try {
+      const r = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
+        method: "POST",
+        headers,
+        body: JSON.stringify({ email, unsubscribed: false })
+      });
+      result.audience = r.ok;
+    } catch (e) { /* non-fatal */ }
+  }
+  if (env.RESEND_FROM_EMAIL) {
+    try {
+      const r = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers,
+        body: JSON.stringify({
+          from: env.RESEND_FROM_EMAIL,
+          to: [email],
+          subject: "Your cards, plus a couple of hosting tips",
+          html: welcomeEmailHtml()
+        })
+      });
+      result.email = r.ok;
+    } catch (e) { /* non-fatal */ }
+  }
+  return result;
+}
+
+function welcomeEmailHtml() {
+  return `<div style="font-family:Arial,sans-serif;max-width:520px;margin:0 auto;color:#222;line-height:1.6">
+<p>Hey there,</p>
+<p>Thanks for grabbing your cards from the Bingo Card Generator!</p>
+<p>A couple of things that'll make tonight easier if this is your first time running music bingo:</p>
+<ul>
+<li><strong>Run 2-3 rounds, 30-45 minutes each.</strong> That pacing keeps a room engaged without dragging.</li>
+<li><strong>Start with a crowd-pleasing mix</strong>, then get more specific (a decade, a genre) once the room's warmed up.</li>
+<li><strong>Test your sound before doors open.</strong> It's the single biggest thing that makes or breaks a night.</li>
+</ul>
+<p>If you want the full breakdown — round structure, pricing, prizes, and the mistakes that quietly kill momentum — here's the complete guide:</p>
+<p><a href="https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night" style="color:#000;font-weight:bold">How to Run a Music Bingo Night &rarr;</a></p>
+<p>We send one email a week at most: a new playlist idea, a hosting tip, or an early look at seasonal packs. If that's not for you, no hard feelings — unsubscribe any time from the link below.</p>
+<p>Good luck tonight,<br>The FatCity Entertainment Team</p>
+</div>`;
 }
 
 // ---- Ably (optional) -------------------------------------------------------
@@ -308,6 +369,13 @@ export default {
           "INSERT INTO prompts (id,text,source,status,created_at) VALUES (?,?, 'suggested','suggested', ?)"
         ).bind(uid(), text, now()).run();
         return json({ ok: true, pending: true });
+      }
+      if (request.method === "POST" && path === "/api/subscribe") {
+        const b = await readBody(request);
+        const email = (b.email || "").trim().toLowerCase();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad("valid email required");
+        const result = await resendSubscribe(env, email);
+        return json({ ok: true, ...result });
       }
 
       // ---- admin

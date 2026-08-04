@@ -617,3 +617,89 @@ p.fce-playlist-badge {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }
+
+/* Email-capture gate on the legacy free generator (bingocardgenerator.html
+   only — Pro is a paid purchase, not a capture point). Sits between "Download
+   PDF" and the actual PDF build; see /files/theme/script.js. */
+.fce-gate-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.fce-gate-overlay.fce-gate-open {
+  display: flex;
+}
+.fce-gate-box {
+  background: #ffffff;
+  border-radius: 4px;
+  max-width: 380px;
+  width: 100%;
+  padding: 28px 26px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+}
+.fce-gate-box h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.fce-gate-box p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+}
+.fce-gate-box input[type="email"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  margin-bottom: 12px;
+}
+.fce-gate-box button.fce-gate-submit {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+}
+.fce-gate-box button.fce-gate-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.fce-gate-trust {
+  margin: 10px 0 0 !important;
+  font-size: 12px !important;
+  color: #888 !important;
+}
+.fce-gate-skip {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: #888;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.fce-gate-error {
+  color: #b00020;
+  font-size: 13px;
+  margin: -6px 0 12px;
+  display: none;
+}

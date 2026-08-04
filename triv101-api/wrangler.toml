@@ -2,12 +2,20 @@ name = "triv101-api"
 main = "src/index.js"
 compatibility_date = "2025-01-01"
 
-# Public, non-secret config. Secrets (ABLY_API_KEY, ADMIN_PASS) are set with
-# `wrangler secret put NAME` and never live in this file or the repo.
+# Public, non-secret config. Secrets (ABLY_API_KEY, ADMIN_PASS, RESEND_API_KEY)
+# are set with `wrangler secret put NAME` and never live in this file or the repo.
 [vars]
 QUOTA = "100"
 ADMIN_USER = "admin"
 FORMSPREE_ENDPOINT = ""   # optional: your Formspree form URL for suggestion emails
+
+# Email-capture gate (bingocardgenerator.html -> /api/subscribe). Both optional
+# and independent: leave RESEND_AUDIENCE_ID blank to skip audience/list-building
+# and just send the welcome email; leave RESEND_FROM_EMAIL blank to skip the
+# email and just build the audience. RESEND_API_KEY (secret) is required for
+# either to do anything.
+RESEND_AUDIENCE_ID = ""   # Resend dashboard -> Audiences -> create one -> its ID
+RESEND_FROM_EMAIL = ""    # e.g. "Fat City Entertainment <cards@fatcityentertainment.com>" — the sending domain must be verified in Resend first
 
 # Created with: wrangler d1 create triv101
 # Paste the printed database_id below.
