@@ -299,6 +299,62 @@ p.fce-playlist-badge {
   font-size: 15px;
 }
 
+/* Quiet single-line product facts (one-time payment, guarantee) placed near a
+   buy button. Same "state it plainly" tone as the playlist badge above. */
+.fce-fact-note {
+  margin: 0 0 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444444;
+}
+
+/* Real, dated sale-end note (only add this when there's an actual end date —
+   see CLAUDE.md on fake urgency). Reused per product; each page sets its own
+   date and, ideally, a matching client-side hide past that date so a missed
+   manual takedown doesn't leave a stale claim live. */
+.fce-sale-scarcity {
+  margin: 6px 0 14px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #b3261e;
+}
+
+/* Quick-math nurture block on club/bundle pages — turns "N games" into a
+   concrete per-game cost comparison so a browsing reader starts doing the
+   math themselves. Transferable: copy the block, swap the numbers (game
+   count, per-game price, bundle price), and pick a tier color — gold here,
+   add e.g. .fce-value-math--silver / --bronze with their own border/title
+   color the same way if/when Silver and Bronze get one. */
+.fce-value-math {
+  margin: 0 0 20px;
+  padding: 14px 16px;
+  border-left: 3px solid #99790a;
+  background: rgba(153, 121, 10, 0.06);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #222222;
+}
+.fce-value-math-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #99790a;
+}
+.fce-value-math p {
+  margin: 0 0 6px;
+}
+.fce-value-math p:last-child {
+  margin-bottom: 0;
+}
+.fce-value-math strong {
+  color: #000000;
+}
+
 /* "Featured!" nav item — subtle gold-star treatment (fce-featured) */
 .fce-featured > a::before {
   content: "\2605"; /* gold star */
@@ -314,4 +370,250 @@ p.fce-playlist-badge {
 .desktop-nav .wsite-menu-default > .fce-featured > a:hover {
   background-color: rgba(230, 184, 0, .12);
   box-shadow: 0 0 10px rgba(230, 184, 0, .55);
+}
+
+/* goldclubplaylists.html — long-format library/landing page. All fce-pl-*.
+   Reuses existing product images/copy (see build script in that session's
+   scratchpad); no new image assets required to ship this. */
+.fce-pl-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  font-family: "Montserrat", Arial, sans-serif;
+  color: #222;
+}
+.fce-pl-hero {
+  text-align: center;
+  /* The fixed .birdseye-header wraps to 2 rows (136px) at some viewport
+     widths where .main-wrap's base 80px padding-top isn't enough; other
+     pages clear it via their own Weebly section padding/spacer, which this
+     hand-built page doesn't have, so it's added explicitly here. */
+  padding: 60px 0 12px;
+}
+.fce-pl-hero h1 {
+  margin: 0 0 12px;
+}
+.fce-pl-hero-sub {
+  max-width: 680px;
+  margin: 0 auto 22px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+.fce-pl-jumpnav {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 0 30px;
+}
+.fce-pl-jumpnav a {
+  padding: 8px 16px;
+  border: 1.5px solid #ddd;
+  border-radius: 999px;
+  text-decoration: none !important;
+  font-weight: 700;
+  font-size: 14px;
+  color: #222 !important;
+}
+.fce-pl-jumpnav a:hover {
+  border-color: #99790a;
+  color: #99790a !important;
+}
+
+.fce-pl-compare {
+  margin: 0 0 46px;
+  overflow-x: auto;
+}
+.fce-pl-compare table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.fce-pl-compare th,
+.fce-pl-compare td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eaeaea;
+  text-align: left;
+  vertical-align: top;
+}
+.fce-pl-compare thead th {
+  border-bottom: 2px solid #222;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+.fce-pl-compare td a {
+  font-weight: 700;
+}
+.fce-pl-compare tr:last-child td {
+  border-bottom: none;
+}
+
+.fce-pl-tier {
+  margin: 20px 0 56px;
+  /* Clears the fixed .birdseye-header, which wraps to 2 rows (136px) at
+     some viewport widths — see the .fce-pl-hero padding-top comment above.
+     Applies to jump-nav targets (.fce-pl-tier) and the compact-card "jump
+     to full description" anchors (.fce-pl-card id) alike. */
+  scroll-margin-top: 150px;
+}
+.fce-pl-tier-head {
+  max-width: 720px;
+  margin: 0 auto 26px;
+  text-align: center;
+}
+.fce-pl-tier-banner {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 18px;
+  border-radius: 8px;
+}
+.fce-pl-tier-head h2 {
+  margin: 0 0 10px;
+}
+.fce-pl-tier-head p {
+  margin: 0 0 8px;
+  line-height: 1.6;
+  color: #333;
+}
+.fce-pl-tier-cta {
+  text-align: center;
+  margin: 26px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid #eee;
+}
+.fce-pl-tier-cta p {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: #333;
+}
+
+.fce-pl-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+.fce-pl-card {
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  /* Clears the fixed .birdseye-header, which wraps to 2 rows (136px) at
+     some viewport widths — see the .fce-pl-hero padding-top comment above.
+     Applies to jump-nav targets (.fce-pl-tier) and the compact-card "jump
+     to full description" anchors (.fce-pl-card id) alike. */
+  scroll-margin-top: 150px;
+}
+.fce-pl-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: #f2f2f2;
+}
+.fce-pl-card-body {
+  padding: 12px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1;
+}
+.fce-pl-card-badge {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  color: #99790a;
+  font-weight: 700;
+}
+.fce-pl-card-name {
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none !important;
+  color: #222 !important;
+}
+.fce-pl-card-name:hover {
+  color: #99790a !important;
+}
+.fce-pl-card-blurb {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #444;
+  margin: 0;
+  flex: 1;
+}
+.fce-pl-card-meta {
+  font-size: 12px;
+  color: #888;
+}
+.fce-pl-card-links {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  margin-top: 2px;
+}
+.fce-pl-card-links a {
+  font-weight: 600;
+}
+.fce-pl-card-links-pending {
+  color: #999;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Compact cards (Starter Pack / 25-at-Once sections): thumbnail + name +
+   mini preview links only, no repeated blurb text — the full write-up
+   lives once, in the Gold 50 grid, and the name links jump there. */
+.fce-pl-card-compact {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding-right: 10px;
+}
+.fce-pl-card-compact img {
+  width: 64px;
+  height: 64px;
+  aspect-ratio: 1 / 1;
+  flex: none;
+}
+.fce-pl-card-compact .fce-pl-card-body {
+  padding: 8px 0;
+  gap: 4px;
+}
+.fce-pl-card-compact .fce-pl-card-name {
+  font-size: 14px;
+}
+.fce-pl-card-compact .fce-pl-card-links {
+  font-size: 12px;
+  gap: 10px;
+}
+
+.fce-pl-faq {
+  max-width: 760px;
+  margin: 0 auto 40px;
+}
+.fce-pl-faq details {
+  border-bottom: 1px solid #eaeaea;
+  padding: 14px 2px;
+}
+.fce-pl-faq summary {
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+}
+.fce-pl-faq p {
+  margin: 10px 0 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+@media (max-width: 480px) {
+  .fce-pl-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
 }

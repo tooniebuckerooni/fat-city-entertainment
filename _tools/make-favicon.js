@@ -17,7 +17,11 @@ const path = require("path");
 const sharp = require("sharp");
 
 const REPO = path.resolve(__dirname, "..");
-const INK = "#373737";
+// Bumped from the source PSD's #373737 to true black — at 16px real-world
+// scaling (non-integer DPI, browser tab chrome) the anti-aliased edges of a
+// mid-dark gray wash out toward the background and read as blurry. Black
+// keeps more contrast through that blend, same silhouette either way.
+const INK = "#000000";
 const GRID = 16;
 const PIXELS = [
   "######....######",

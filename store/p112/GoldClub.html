@@ -425,22 +425,19 @@
 							per item
 						</div>
 					</div>
+					<div id="fce-sale-scarcity" class="fce-sale-scarcity">Sale ends August 8, 2026.</div>
 					<div id="wsite-com-product-short-description" itemprop="description">
-						<div class="paragraph">UNLOCK ALL <u><strong>50</strong></u>&nbsp;GAMES<br>
-CLOSING IN ON A NEW GAME FOR EVERY WEEK OF THE YEAR<br>
+						<div class="paragraph">Unlock all <u><strong>50</strong></u> professionally tested music bingo games in one download.<br>
 <br>
-Perfect for recurring event entertainment. <strong>Popular with DJs, Trivia Hosts, and Bar &amp; Restaurant Managers. </strong><br>
+Perfect for recurring event entertainment. <strong>Popular with DJs, trivia hosts, and bar &amp; restaurant managers.</strong><br>
 <br>
-Check what games are included here:<br>
-<a href="/goldclubplaylists.html">Gold Club Playlists</a><br>
+See what's included: <a href="/goldclubplaylists.html">Gold Club Playlists</a><br>
 <br>
-Each pro game is tested on live audiences, and will print up to 250 randomized music bingo cards each.<br>
-<br>
-The files are reusable and yours to keep forever. Also, get newest games upon release, without further charge.<br>
-<br>
-**All games are downloadable instantly after purchase.<br>
-<br>
-****New games are sent to the email address you purchased with, at no extra charge.</div>
+Every game is tested on live audiences and prints up to 250 randomized music bingo cards. Download instantly after purchase, and keep the files forever — yours to reuse for as many events as you like.</div>
+					</div>
+					<div class="fce-value-math">
+						<p class="fce-value-math-title">Quick math</p>
+						<p>$10.99 a game individually. In the Gold Club, it drops to <strong>$5.49 a game</strong> — save <strong>$275.25</strong> buying all 50 at once.</p>
 					</div>
 					
 				
@@ -450,8 +447,10 @@ The files are reusable and yours to keep forever. Also, get newest games upon re
 	
 				
 <div id="wsite-com-product-buy">
+  <p class="fce-fact-note"><strong>One-time payment</strong> — not a subscription, no recurring charges.</p>
+  <p class="fce-fact-note">Satisfaction guaranteed — exchanges for larger packs always welcome.</p>
   <a id="wsite-com-product-add-to-cart" class="wsite-button wsite-button-large wsite-button-highlight wsite-buy-button ls-buy lemonsqueezy-button" data-product="p112" href="https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b" target="_blank" rel="noopener">
-    <span class="wsite-button-inner">Buy &amp; Download</span>
+    <span class="wsite-button-inner">Get All 50 Games</span>
   </a>
   <p class="ls-pending" style="display:none;color:#777;font-size:14px;">
     This item is moving to our new checkout. <a href="/contact.html">Contact us</a> to order it directly.
@@ -465,7 +464,7 @@ The files are reusable and yours to keep forever. Also, get newest games upon re
 		<div id="wsite-com-product-tab">
 				<div id="wsite-com-product-tab">
 					<div id="wsite-com-product-tab-long">
-						<div class="paragraph"><strong>You'll be able to download your music bingo or trivia presentations immediately after checkout. You will also be emailed a copy of the download links. Check Spam folder, if it's your first time purchasing our game downloads, and you don't see the email right away. Links expire in 90 days.&nbsp;<a href="/contact.html" target="_blank">Contact Us</a>&nbsp;if you require a fresh link. Satisfaction guaranteed. Exchanges for larger packs permitted.&nbsp;</strong></div>
+						<div class="paragraph">You'll get a download link immediately after checkout, plus a copy emailed to you. First time ordering from us? Check your spam folder if the email doesn't show up right away. Misplaced your link? <a href="/contact.html" target="_blank">Contact us</a> anytime and we'll resend it.</div>
 						<div><div id="450957772577818801" align="left" style="width: 100%; overflow-y: hidden;" class="wcustomhtml"><!-- currency converter removed: prices are now in USD --></div>
 
 
@@ -686,4 +685,16 @@ referrerPolicy="no-referrer-when-downgrade" loading="lazy" decoding="async"></a>
 
 <script src="/assets/js/ls-links.js"></script>
 <script src="/assets/js/ls-buy.js"></script>
+<script>
+// Safety net for the sale-end note above: if this page is still live past the
+// deadline (i.e. the manual back-to-school swap hasn't happened yet), hide the
+// stale date claim rather than let it keep advertising an expired sale.
+(function () {
+  var saleEnds = new Date("2026-08-09T00:00:00").getTime();
+  if (Date.now() >= saleEnds) {
+    var note = document.getElementById("fce-sale-scarcity");
+    if (note) note.style.display = "none";
+  }
+})();
+</script>
 </body></html>
