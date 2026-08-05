@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /_tools/
 Disallow: /_content/
+Disallow: /admin/
 Allow: /
 
 # AI crawlers and answer engines are welcome here. The wildcard above already
