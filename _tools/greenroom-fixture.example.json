@@ -1,0 +1,77 @@
+{
+  "comments": [
+    {
+      "id": "pin-green-room",
+      "thread": "green-room",
+      "parent_id": null,
+      "handle": "Fat City",
+      "role_tag": "operator",
+      "market": null,
+      "body": "What do you get paid per game — and what's actually included?\n\nRates for this work are all over the map. So: what's your number, what's the format, and does the venue cover your tab?\n\nWe'll go first. $150 for a 90-minute set, buzzers and PA included, venue covers nothing extra.",
+      "votes": 41,
+      "flags": 0,
+      "status": "pinned",
+      "created_at": 1753142400000,
+      "replies": []
+    },
+    {
+      "id": "c-1001",
+      "thread": "green-room",
+      "parent_id": null,
+      "handle": "TriviaTomKC",
+      "role_tag": "host",
+      "market": "Kansas City",
+      "body": "I run 1hr shows for $120, host-owned PA. Venue covers nothing, I bring my own screen too.",
+      "votes": 12,
+      "flags": 0,
+      "status": "visible",
+      "created_at": 1753228800000,
+      "replies": [
+        {
+          "id": "c-1002",
+          "thread": "green-room",
+          "parent_id": "c-1001",
+          "handle": "BingoBrendaYYC",
+          "role_tag": "host",
+          "market": "Calgary",
+          "body": "That's close to what I charge up north too — good to see it's not just a local thing.",
+          "votes": 4,
+          "flags": 0,
+          "status": "visible",
+          "created_at": 1753232400000,
+          "replies": []
+        },
+        {
+          "id": "c-1003",
+          "thread": "green-room",
+          "parent_id": "c-1001",
+          "handle": "Redacted",
+          "role_tag": "host",
+          "market": null,
+          "body": "Quietly removed for spam — this reply must never render.",
+          "votes": 0,
+          "flags": 6,
+          "status": "hidden",
+          "created_at": 1753236000000,
+          "replies": []
+        }
+      ]
+    },
+    {
+      "id": "c-1004",
+      "thread": "green-room",
+      "parent_id": null,
+      "handle": "<script>alert('h4x')</script>",
+      "role_tag": "host & \"promoter\"",
+      "market": "Salt Lake City",
+      "body": "My rate sheet has a line like <script>document.write('x')</script> in it by accident, plus a raw ampersand (Tom & Jerry night) and a \"quoted\" client name with an apostrophe — it's a real mess, please escape all of it.",
+      "votes": 7,
+      "flags": 0,
+      "status": "visible",
+      "created_at": 1753315200000,
+      "replies": []
+    }
+  ],
+  "total": 3,
+  "cursor": null
+}
