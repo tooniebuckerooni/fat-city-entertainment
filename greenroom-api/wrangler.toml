@@ -1,0 +1,48 @@
+name = "fatcity-greenroom"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+# Public, non-secret config only. The three secrets — IP_SALT, ADMIN_TOKEN,
+# TURNSTILE_SECRET — are set in the Cloudflare dashboard (Settings ->
+# Variables) or with `wrangler secret put NAME`, and never live in this repo.
+# The repo is served publicly by GitHub Pages; treat everything in it as public.
+[vars]
+# Comma-separated CORS allowlist. This is a VAR, not code, on purpose: adding a
+# new site later — the Trivia Generator on its own domain, wordjab.io — is a
+# text edit in the dashboard rather than a re-paste of the whole Worker.
+# "http://localhost:*" is understood by the Worker as "any localhost port";
+# real Origin matching is exact-string and can't do wildcards on its own.
+ALLOWED_ORIGINS = "https://www.fatcityentertainment.com,https://fatcityentertainment.com,https://bingocardgenerator.online,http://localhost:*"
+
+# Turnstile SITE key is public by design — it ships in the widget. The matching
+# SECRET key is a Worker secret, not this.
+TURNSTILE_SITE_KEY = ""
+
+# MUST be unset or "0" in production. "1" skips spam verification entirely and
+# exists so the API can be tested locally, where challenges.cloudflare.com is
+# unreachable.
+DEV_BYPASS_TURNSTILE = "0"
+
+# Created with: wrangler d1 create greenroom
+# Paste the printed database_id below. Filling this in is also what unlocks
+# Workers Builds (deploy on git push) and ends the dashboard re-paste cycle.
+[[d1_databases]]
+binding = "DB"
+database_name = "greenroom"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+
+[observability]
+enabled = true
+
+# ---------------------------------------------------------------------------
+# Custom domain, later (optional — not needed for v1)
+#
+# The Worker lives at fatcity-greenroom.dustinramsbottom.workers.dev. To move it
+# to something like greenroom.fatcityentertainment.com, the domain's DNS has to
+# be on Cloudflare first — and it is currently at NAMECHEAP. That is a one-time
+# nameserver change plus recreating the existing records; GitHub Pages keeps
+# working through it. Only then does Workers -> Custom Domains become available.
+#
+# Cloudflare's "add a custom domain" button does NOT work for us before that
+# move, no matter what it implies.
+# ---------------------------------------------------------------------------

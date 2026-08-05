@@ -1,0 +1,171 @@
+{
+  "_readme": [
+    "Seed content for The Green Room. Edit this file, then run seed.js.",
+    "",
+    "Anything containing [OWNER: ...] is a placeholder. seed.js REFUSES to emit",
+    "SQL while any placeholder survives — same guard _tools/publish-post.js uses",
+    "for unresolved [bracket links]. Two things carry that marker and both are",
+    "load-bearing:",
+    "  1. The Fat City disclosure under a pinned question that asks others to",
+    "     disclose. The room has to see us bet first.",
+    "  2. The unlocks. These are DRAFTS written to show the shape and give you",
+    "     something to react to — they are NOT confirmed Fat City policy. Confirm",
+    "     each one is true and ours to give, or replace it. A weak or untrue",
+    "     unlock reads as bait-and-switch and does more damage than no unlock.",
+    "",
+    "'launch': false threads are configured but not seeded. Flip to true when the",
+    "surface is ready. Adding a thread later is this file plus one embed div."
+  ],
+
+  "threads": [
+    {
+      "key": "green-room",
+      "launch": true,
+      "surface": "/features.html",
+      "title": "The Green Room",
+      "tagline": "Hosts talking shop",
+      "norm": "Share your own numbers. Don't tell anyone else what to charge.",
+      "pinned": {
+        "handle": "Fat City",
+        "role_tag": "operator",
+        "question": "What do you get paid per game — and what's actually included?",
+        "body": "Rates for this work are all over the map and nobody can find out what anything is worth without asking a stranger. So: what's your number, what's the format, how long is the game, and does the venue cover your tab?\n\nWe'll go first.\n\n[OWNER: real Fat City numbers go here. What we pay or charge per show, the format, the length, and what's bundled in. This has to be a real disclosure — the whole thread is built on it.]"
+      },
+      "harvest": {
+        "kind": "number",
+        "unit": "usd_per_show",
+        "prompt": "Optional, one tap: add your number to the index.",
+        "field_label": "Your rate per show (USD)",
+        "meta_label": "Show length",
+        "meta_options": ["45 min", "1 hr", "90 min", "2 hr", "3 hr+"],
+        "index_title": "The Trivia Host Pay Index",
+        "index_blurb": "What hosts report being paid, as reported. Median and range only, never a recommendation."
+      },
+      "unlocks": [
+        "[OWNER: confirm or replace] The one-page sheet we put in front of a GM in the first meeting: covers on the same weeknight before we started, covers after, average check change, and how many of the room were first-timers. Managers don't buy 'trivia is fun' — they buy that last number.",
+        "[OWNER: confirm or replace] Our cancellation terms, word for word, so you can lift them: shows cancelled inside 48 hours bill at 50%, inside 24 hours bill in full. Put it in writing before the first show, not after the first cancellation.",
+        "[OWNER: confirm or replace] How we structure a trial run, including the part most people skip: we say out loud, up front, that week one will be quiet and week two is the one to judge it on. Setting that expectation before they can be disappointed by it is most of why trials convert.",
+        "[OWNER: confirm or replace] The four things we bill separately from the base rate — custom themed rounds, using our PA instead of theirs, any call time more than 30 minutes before doors, and printing. Quoting it this way stopped us giving away the parts that were never in the number."
+      ]
+    },
+
+    {
+      "key": "hosting",
+      "launch": true,
+      "surface": "/gameshowhosts.html",
+      "title": "The Green Room",
+      "tagline": "Getting the gig",
+      "norm": "Share what worked for you. Don't tell anyone else what to charge.",
+      "pinned": {
+        "handle": "Fat City",
+        "role_tag": "operator",
+        "question": "How do you walk into a bar that doesn't have trivia yet?",
+        "body": "Everybody's process is different and most of us worked ours out alone. What do you actually say, who do you say it to, and how many times do you go back before you write the place off?\n\nOur angle on this is sideways. Before this was a trivia company it was fifteen years of managing bars and restaurants — which means we've been the manager getting pitched far more often than the host doing the pitching. So we'll go first with what that side of the bar is actually thinking.\n\n[OWNER: this is the anchor post and it should be the longest thing in the room. Write it from the manager's chair: what a pitch looks like from behind the bar, what makes one get a yes, what gets someone quietly written off, when to walk in, who to ask for, and what managers are actually worried about that hosts never address. Nobody else in this space can write this — it is the single strongest asset Fat City has here.]"
+      },
+      "harvest": {
+        "kind": "category",
+        "prompt": "Optional, one tap: how did you get your first venue?",
+        "field_label": "How you got in",
+        "options": [
+          "Someone referred me",
+          "I was already a regular there",
+          "Cold walk-in",
+          "Cold email or DM",
+          "They approached me",
+          "Through an agency or operator"
+        ],
+        "index_title": "How hosts actually land their first venue",
+        "index_blurb": "Self-reported, from hosts in the room."
+      },
+      "unlocks": [
+        "[OWNER: confirm or replace] The email we send when a walk-in goes nowhere — short, no attachment, one question, sent the next morning rather than the same night. The next-morning part matters more than the wording.",
+        "[OWNER: confirm or replace] The three questions we ask a manager before pitching anything at all. They're all about their week, not our game, and the answers tell you whether the place is worth a second visit.",
+        "[OWNER: confirm or replace] The two nights we won't take any more, and why. Learning which nights can't be saved is worth more than any pitch script.",
+        "[OWNER: confirm or replace] What we hand over at the end of month one so the conversation about continuing is already won before anyone has it."
+      ]
+    },
+
+    {
+      "key": "trivia-generator",
+      "launch": false,
+      "surface": "/trivia-generator.html",
+      "title": "The Green Room",
+      "tagline": "Building your rounds",
+      "norm": "Tell us what you'd actually use.",
+      "pinned": {
+        "handle": "Fat City",
+        "role_tag": "operator",
+        "question": "What theme do you wish you had a ready-made round for?",
+        "body": "The generator builds and prints your rounds. Tell us the theme you keep wanting and can't find, and we'll work through this list from the top."
+      },
+      "harvest": {
+        "kind": "item",
+        "prompt": "Optional, one tap: add the theme to the list.",
+        "field_label": "Theme",
+        "index_title": "The most-requested trivia themes",
+        "index_blurb": "Ranked by how many hosts asked for them. This is the generator's build order, in public."
+      },
+      "unlocks": [
+        "[OWNER: confirm or replace] The round structure we use when a room has both regulars and first-timers in it, so neither group is bored or lost."
+      ]
+    },
+
+    {
+      "key": "bingo",
+      "launch": false,
+      "surface": "https://bingocardgenerator.online/",
+      "title": "The Green Room",
+      "tagline": "What you're printing",
+      "norm": "Tell us what you're making cards for.",
+      "pinned": {
+        "handle": "Fat City",
+        "role_tag": "operator",
+        "question": "What are you making cards for?",
+        "body": "Classroom, baby shower, bar night, staff party — we're curious what people are actually printing, and it decides what we build next."
+      },
+      "harvest": {
+        "kind": "category",
+        "prompt": "Optional, one tap: what's the occasion?",
+        "field_label": "Occasion",
+        "options": [
+          "Bar or pub night",
+          "Classroom",
+          "Baby or bridal shower",
+          "Staff party or team building",
+          "Church or community group",
+          "Family or holiday",
+          "Something else"
+        ],
+        "index_title": "What people actually make bingo cards for",
+        "index_blurb": "Self-reported by people printing cards."
+      },
+      "unlocks": [
+        "[OWNER: confirm or replace] The call-order trick that stops a music bingo round ending four songs too early."
+      ]
+    },
+
+    {
+      "key": "triv101",
+      "launch": false,
+      "surface": "/triv101/",
+      "note": "Deferred: the Triv 101 survey stream already runs this loop end to end (survey answers graduate into the game bank). Kept here so the config is complete, not because it should ship.",
+      "title": "The Green Room",
+      "tagline": "Questions that split a room",
+      "norm": "Share the one that always causes an argument.",
+      "pinned": {
+        "handle": "Fat City",
+        "role_tag": "operator",
+        "question": "What's the question your room always gets wrong?",
+        "body": "The Triv 101 bank grows from real player surveys. Tell us the one that reliably splits a room and we'll build a survey round around it."
+      },
+      "harvest": {
+        "kind": "item",
+        "prompt": "Optional, one tap: add it to the survey queue.",
+        "field_label": "The question",
+        "index_title": "Questions that split a room",
+        "index_blurb": "Submitted by hosts, surveyed by players."
+      },
+      "unlocks": []
+    }
+  ]
+}

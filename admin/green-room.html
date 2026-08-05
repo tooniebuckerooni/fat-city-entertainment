@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Green Room — Admin</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #111111;
+    --muted: #5a5a5a;
+    --accent: #99790a;
+    --line: #eaeaea;
+    --btn-border: rgba(0,0,0,.35);
+    --tint-hidden: #f4f4f0;
+    --tint-pinned: #fdf8e6;
+    --radius: 2px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101010;
+      --fg: #f2f2f2;
+      --muted: #b0b0b0;
+      --accent: #99790a;
+      --line: #2a2a2a;
+      --btn-border: rgba(255,255,255,.4);
+      --tint-hidden: #1c1c19;
+      --tint-pinned: #211c0c;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--fg);
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 0 60px;
+  }
+  h1, h2, h3 { line-height: 1.25; margin: 0; }
+  a { color: var(--accent); }
+  button, input {
+    font: inherit;
+    color: inherit;
+  }
+  button:focus-visible,
+  input:focus-visible,
+  a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .btn {
+    min-height: 44px;
+    padding: 0 14px;
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--btn-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+  }
+  .btn:hover { border-color: var(--fg); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn-primary {
+    background: var(--accent);
+    color: #1a1400;
+    border-color: var(--accent);
+    font-weight: 600;
+  }
+  .btn-primary:hover { opacity: .9; }
+  .visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  /* ---- login screen ---- */
+  #login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  #login-screen form {
+    width: 100%;
+    max-width: 360px;
+  }
+  #login-screen h1 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+  #login-screen p.sub {
+    color: var(--muted);
+    margin: 0 0 20px;
+    font-size: .95rem;
+  }
+  .field { margin-bottom: 14px; }
+  .field label {
+    display: block;
+    font-size: .85rem;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .field input[type="password"],
+  .field input[type="text"] {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--btn-border);
+    border-radius: var(--radius);
+  }
+  #login-error {
+    color: var(--fg);
+    background: var(--tint-hidden);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 10px 12px;
+    font-size: .9rem;
+    margin-bottom: 14px;
+  }
+
+  /* ---- app screen ---- */
+  header.app-header {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    z-index: 10;
+  }
+  header.app-header h1 { font-size: 1.1rem; }
+  .header-actions { display: flex; gap: 8px; flex-shrink: 0; }
+  .header-actions .btn { padding: 0 10px; font-size: .9rem; }
+
+  main { padding: 0 16px; }
+
+  #error-banner {
+    margin: 14px 0;
+    padding: 12px 14px;
+    background: var(--tint-hidden);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: .92rem;
+  }
+  #error-banner[hidden] { display: none; }
+  #error-banner button {
+    background: none;
+    border: none;
+    color: var(--fg);
+    text-decoration: underline;
+    cursor: pointer;
+    min-height: 44px;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+
+  section.panel {
+    margin-top: 26px;
+    padding-top: 6px;
+  }
+  section.panel h2 {
+    font-size: 1rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+  }
+  section.panel h2 .count {
+    color: var(--muted);
+    font-weight: 400;
+    font-size: .85rem;
+  }
+
+  .empty-state {
+    color: var(--muted);
+    padding: 14px 0;
+    font-size: .95rem;
+  }
+
+  ul.row-list { list-style: none; margin: 0; padding: 0; }
+
+  li.row {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  li.row.status-hidden { background: var(--tint-hidden); }
+  li.row.status-pinned { background: var(--tint-pinned); border-left: 4px solid var(--accent); }
+
+  .row-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .row-head .handle { font-weight: 700; }
+  .row-head .tag {
+    font-size: .78rem;
+    color: var(--muted);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1px 6px;
+  }
+  .row-head .status {
+    font-size: .72rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    padding: 1px 6px;
+    border: 1px solid var(--btn-border);
+    border-radius: var(--radius);
+    color: var(--fg);
+  }
+
+  .row-meta {
+    font-size: .82rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .flags {
+    display: inline-block;
+    font-size: .82rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    padding: 1px 6px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .flags-hot {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  .row-body {
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0 0 10px;
+  }
+
+  .row-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .row-actions .btn { font-size: .88rem; padding: 0 12px; }
+
+  /* index filter */
+  #index-filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: flex-end;
+    margin-bottom: 14px;
+  }
+  #index-filter-form .field { margin-bottom: 0; flex: 1 1 200px; }
+  #index-filter-form .btn { flex-shrink: 0; }
+  #index-status {
+    color: var(--muted);
+    font-size: .85rem;
+    margin: -6px 0 12px;
+  }
+
+  footer.app-footer {
+    color: var(--muted);
+    font-size: .8rem;
+    text-align: center;
+    padding: 24px 16px 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="login-screen">
+  <form id="login-form" autocomplete="off">
+    <h1>The Green Room</h1>
+    <p class="sub">Moderator sign-in.</p>
+    <div id="login-error" role="alert" hidden></div>
+    <div class="field">
+      <label for="token-input">Admin token</label>
+      <input type="password" id="token-input" name="token" autocomplete="off" required>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Enter</button>
+  </form>
+</div>
+
+<!-- ============ APP SCREEN ============ -->
+<div id="app-screen" hidden>
+  <header class="app-header">
+    <h1>The Green Room</h1>
+    <div class="header-actions">
+      <button type="button" id="refresh-btn" class="btn">Refresh</button>
+      <button type="button" id="signout-btn" class="btn">Sign out</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="error-banner" role="alert" aria-live="polite" hidden>
+      <span id="error-text"></span>
+      <button type="button" id="error-dismiss">Dismiss</button>
+    </div>
+
+    <!-- Flagged -->
+    <section class="panel" id="panel-flagged" aria-labelledby="h-flagged">
+      <h2 id="h-flagged">Flagged <span class="count" id="count-flagged"></span></h2>
+      <ul class="row-list" id="list-flagged"></ul>
+      <p class="empty-state" id="empty-flagged" hidden>Nothing flagged.</p>
+    </section>
+
+    <!-- Hidden -->
+    <section class="panel" id="panel-hidden" aria-labelledby="h-hidden">
+      <h2 id="h-hidden">Hidden <span class="count" id="count-hidden"></span></h2>
+      <ul class="row-list" id="list-hidden"></ul>
+      <p class="empty-state" id="empty-hidden" hidden>Nothing hidden.</p>
+    </section>
+
+    <!-- Recent 50 -->
+    <section class="panel" id="panel-recent" aria-labelledby="h-recent">
+      <h2 id="h-recent">Recent 50 <span class="count" id="count-recent"></span></h2>
+      <ul class="row-list" id="list-recent"></ul>
+      <p class="empty-state" id="empty-recent" hidden>Nothing yet.</p>
+    </section>
+
+    <!-- The Index (datapoints) -->
+    <section class="panel" id="panel-index" aria-labelledby="h-index">
+      <h2 id="h-index">The Index <span class="count" id="count-index"></span></h2>
+      <form id="index-filter-form">
+        <div class="field">
+          <label for="thread-input">Thread</label>
+          <input type="text" id="thread-input" list="thread-list" placeholder="e.g. green-room" autocomplete="off">
+          <datalist id="thread-list"></datalist>
+        </div>
+        <button type="submit" class="btn btn-primary">Load</button>
+      </form>
+      <p id="index-status">Enter a thread key and tap Load.</p>
+      <ul class="row-list" id="list-index"></ul>
+      <p class="empty-state" id="empty-index" hidden>Nothing indexed for this thread.</p>
+    </section>
+
+    <footer class="app-footer">
+      <p>Fat City Entertainment — internal moderation tool. Not indexed, not linked from the site.</p>
+    </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---- API base — change here only ----
+  const API = "https://fatcity-greenroom.dustinramsbottom.workers.dev";
+
+  const TOKEN_KEY = "gr_admin_token";
+  const AUTH_SENTINEL = "__gr_auth_handled__";
+
+  // ---- state ----
+  const state = {
+    currentIndexThread: "",
+    knownThreads: new Set()
+  };
+
+  // ---- DOM refs ----
+  const loginScreen = document.getElementById("login-screen");
+  const appScreen = document.getElementById("app-screen");
+  const loginForm = document.getElementById("login-form");
+  const tokenInput = document.getElementById("token-input");
+  const loginError = document.getElementById("login-error");
+
+  const errorBanner = document.getElementById("error-banner");
+  const errorText = document.getElementById("error-text");
+  const errorDismiss = document.getElementById("error-dismiss");
+
+  const refreshBtn = document.getElementById("refresh-btn");
+  const signoutBtn = document.getElementById("signout-btn");
+
+  const listFlagged = document.getElementById("list-flagged");
+  const emptyFlagged = document.getElementById("empty-flagged");
+  const countFlagged = document.getElementById("count-flagged");
+
+  const listHidden = document.getElementById("list-hidden");
+  const emptyHidden = document.getElementById("empty-hidden");
+  const countHidden = document.getElementById("count-hidden");
+
+  const listRecent = document.getElementById("list-recent");
+  const emptyRecent = document.getElementById("empty-recent");
+  const countRecent = document.getElementById("count-recent");
+
+  const indexForm = document.getElementById("index-filter-form");
+  const threadInput = document.getElementById("thread-input");
+  const threadDatalist = document.getElementById("thread-list");
+  const indexStatus = document.getElementById("index-status");
+  const listIndex = document.getElementById("list-index");
+  const emptyIndex = document.getElementById("empty-index");
+  const countIndex = document.getElementById("count-index");
+
+  // ---- token helpers ----
+  function getToken() { return sessionStorage.getItem(TOKEN_KEY); }
+  function setToken(t) { sessionStorage.setItem(TOKEN_KEY, t); }
+  function clearToken() { sessionStorage.removeItem(TOKEN_KEY); }
+
+  // ---- screen switching ----
+  function showLogin(message) {
+    appScreen.hidden = true;
+    loginScreen.hidden = false;
+    if (message) {
+      loginError.textContent = message;
+      loginError.hidden = false;
+    } else {
+      loginError.textContent = "";
+      loginError.hidden = true;
+    }
+    tokenInput.value = "";
+    tokenInput.focus();
+  }
+
+  function showApp() {
+    loginScreen.hidden = true;
+    appScreen.hidden = false;
+  }
+
+  // ---- error banner ----
+  function showError(message) {
+    errorText.textContent = message;
+    errorBanner.hidden = false;
+  }
+  function clearError() {
+    errorText.textContent = "";
+    errorBanner.hidden = true;
+  }
+  errorDismiss.addEventListener("click", clearError);
+
+  // ---- relative time ----
+  function relTime(ms) {
+    if (typeof ms !== "number" || !isFinite(ms)) return "";
+    const diffSec = Math.floor((Date.now() - ms) / 1000);
+    if (diffSec < 45) return "just now";
+    const min = Math.floor(diffSec / 60);
+    if (min < 60) return min + "m ago";
+    const hr = Math.floor(min / 60);
+    if (hr < 24) return hr + "h ago";
+    const day = Math.floor(hr / 24);
+    if (day < 30) return day + "d ago";
+    const mo = Math.floor(day / 30);
+    if (mo < 12) return mo + "mo ago";
+    const yr = Math.floor(day / 365);
+    return yr + "y ago";
+  }
+
+  // ---- fetch wrapper ----
+  async function apiFetch(path, opts) {
+    opts = opts || {};
+    const token = getToken();
+    const headers = {};
+    if (opts.headers) Object.assign(headers, opts.headers);
+    headers["Authorization"] = "Bearer " + token;
+    if (opts.body) headers["Content-Type"] = "application/json";
+
+    let res;
+    try {
+      res = await fetch(API + path, {
+        method: opts.method || "GET",
+        headers: headers,
+        body: opts.body
+      });
+    } catch (networkErr) {
+      throw new Error("Couldn't reach the server. Check your connection and try again.");
+    }
+
+    if (res.status === 401) {
+      clearToken();
+      showLogin("That token didn't work. Try again.");
+      const err = new Error(AUTH_SENTINEL);
+      err.isAuth = true;
+      throw err;
+    }
+
+    let data = null;
+    try {
+      data = await res.json();
+    } catch (parseErr) {
+      data = null;
+    }
+
+    if (!res.ok) {
+      const msg = (data && typeof data.message === "string" && data.message)
+        ? data.message
+        : ("Request failed (HTTP " + res.status + ")");
+      throw new Error(msg);
+    }
+
+    return data;
+  }
+
+  // ---- element builders (textContent only — never innerHTML for server data) ----
+  function el(tag, className, text) {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = text;
+    return node;
+  }
+
+  function actionsForCommentStatus(status) {
+    if (status === "hidden") return [["restore", "Restore"], ["delete", "Delete"]];
+    if (status === "pinned") return [["unpin", "Unpin"], ["hide", "Hide"], ["delete", "Delete"]];
+    return [["hide", "Hide"], ["pin", "Pin"], ["delete", "Delete"]];
+  }
+
+  function actionsForDatapointStatus(status) {
+    if (status === "hidden") return [["restore", "Restore"], ["delete", "Delete"]];
+    return [["hide", "Hide"], ["delete", "Delete"]];
+  }
+
+  function buildCommentRow(c) {
+    const li = el("li", "row status-" + (c.status || "visible"));
+    li.dataset.id = c.id;
+
+    const head = el("div", "row-head");
+    head.appendChild(el("span", "handle", c.handle || "(no handle)"));
+    if (c.role_tag) head.appendChild(el("span", "tag", c.role_tag));
+    if (c.market) head.appendChild(el("span", "tag", c.market));
+    head.appendChild(el("span", "status", String(c.status || "").toUpperCase()));
+    li.appendChild(head);
+
+    let metaStr = "#" + (c.thread || "unknown") + " · " + relTime(c.created_at) +
+      " · " + (typeof c.votes === "number" ? c.votes : 0) + " votes";
+    if (c.parent_id) metaStr = "reply · " + metaStr;
+    li.appendChild(el("div", "row-meta", metaStr));
+
+    const flagCount = typeof c.flags === "number" ? c.flags : 0;
+    const flagsEl = el("div", "flags" + (flagCount > 0 ? " flags-hot" : ""),
+      flagCount + (flagCount === 1 ? " flag" : " flags"));
+    li.appendChild(flagsEl);
+
+    li.appendChild(el("p", "row-body", c.body || ""));
+
+    const actions = el("div", "row-actions");
+    actionsForCommentStatus(c.status).forEach(function (pair) {
+      const action = pair[0], label = pair[1];
+      const btn = el("button", "btn", label);
+      btn.type = "button";
+      btn.addEventListener("click", function () {
+        handleCommentAction(c.id, action, btn);
+      });
+      actions.appendChild(btn);
+    });
+    li.appendChild(actions);
+
+    return li;
+  }
+
+  function buildDatapointRow(d) {
+    const li = el("li", "row status-" + (d.status || "visible"));
+    li.dataset.id = d.id;
+
+    const head = el("div", "row-head");
+    head.appendChild(el("span", "handle", d.kind || "datapoint"));
+    if (d.market) head.appendChild(el("span", "tag", d.market));
+    head.appendChild(el("span", "status", String(d.status || "").toUpperCase()));
+    li.appendChild(head);
+
+    const metaStr = "#" + (d.thread || "unknown") + " · " + relTime(d.created_at) +
+      " · comment " + (d.comment_id || "—");
+    li.appendChild(el("div", "row-meta", metaStr));
+
+    let valueStr;
+    if (d.kind === "number") {
+      valueStr = (d.num_value !== undefined && d.num_value !== null ? String(d.num_value) : "—") +
+        (d.unit ? " " + d.unit : "");
+    } else {
+      valueStr = (d.text_value !== undefined && d.text_value !== null && d.text_value !== "")
+        ? d.text_value : "—";
+    }
+    li.appendChild(el("p", "row-body", valueStr));
+
+    if (d.meta !== undefined && d.meta !== null && d.meta !== "") {
+      const metaVal = (typeof d.meta === "string") ? d.meta : JSON.stringify(d.meta);
+      li.appendChild(el("div", "row-meta", "meta: " + metaVal));
+    }
+
+    const actions = el("div", "row-actions");
+    actionsForDatapointStatus(d.status).forEach(function (pair) {
+      const action = pair[0], label = pair[1];
+      const btn = el("button", "btn", label);
+      btn.type = "button";
+      btn.addEventListener("click", function () {
+        handleDatapointAction(d.id, action, btn);
+      });
+      actions.appendChild(btn);
+    });
+    li.appendChild(actions);
+
+    return li;
+  }
+
+  // ---- render sections ----
+  function renderList(listEl, emptyEl, countEl, items, builder) {
+    listEl.textContent = "";
+    const arr = Array.isArray(items) ? items : [];
+    countEl.textContent = arr.length ? "(" + arr.length + ")" : "";
+    if (arr.length === 0) {
+      emptyEl.hidden = false;
+      return;
+    }
+    emptyEl.hidden = true;
+    arr.forEach(function (item) {
+      listEl.appendChild(builder(item));
+    });
+  }
+
+  function updateThreadOptions(queueData) {
+    const sources = [].concat(queueData.flagged || [], queueData.hidden || [], queueData.recent || []);
+    sources.forEach(function (c) {
+      if (c && c.thread) state.knownThreads.add(c.thread);
+    });
+    threadDatalist.textContent = "";
+    Array.from(state.knownThreads).sort().forEach(function (t) {
+      const opt = document.createElement("option");
+      opt.value = t;
+      threadDatalist.appendChild(opt);
+    });
+  }
+
+  // ---- load queue ----
+  let queueLoading = false;
+  async function loadQueue() {
+    if (queueLoading) return;
+    queueLoading = true;
+    refreshBtn.disabled = true;
+    const prevLabel = refreshBtn.textContent;
+    refreshBtn.textContent = "Refreshing…";
+    try {
+      const data = await apiFetch("/api/admin/queue");
+      const flagged = (data.flagged || []).slice().sort(function (a, b) {
+        return (b.flags || 0) - (a.flags || 0);
+      });
+      const hidden = (data.hidden || []).slice().sort(function (a, b) {
+        return (b.created_at || 0) - (a.created_at || 0);
+      });
+      const recent = (data.recent || []).slice().sort(function (a, b) {
+        return (b.created_at || 0) - (a.created_at || 0);
+      });
+
+      renderList(listFlagged, emptyFlagged, countFlagged, flagged, buildCommentRow);
+      renderList(listHidden, emptyHidden, countHidden, hidden, buildCommentRow);
+      renderList(listRecent, emptyRecent, countRecent, recent, buildCommentRow);
+      updateThreadOptions({ flagged: flagged, hidden: hidden, recent: recent });
+      clearError();
+    } catch (err) {
+      if (!err.isAuth) showError(err.message);
+    } finally {
+      queueLoading = false;
+      refreshBtn.disabled = false;
+      refreshBtn.textContent = prevLabel;
+    }
+  }
+
+  // ---- load datapoints ----
+  async function loadDatapoints(thread) {
+    if (!thread) return;
+    state.currentIndexThread = thread;
+    indexStatus.textContent = "Loading…";
+    try {
+      const data = await apiFetch("/api/admin/datapoints?thread=" + encodeURIComponent(thread));
+      const points = (data.datapoints || []).slice().sort(function (a, b) {
+        return (b.created_at || 0) - (a.created_at || 0);
+      });
+      renderList(listIndex, emptyIndex, countIndex, points, buildDatapointRow);
+      indexStatus.textContent = "Thread: " + thread;
+      clearError();
+    } catch (err) {
+      indexStatus.textContent = "Enter a thread key and tap Load.";
+      if (!err.isAuth) showError(err.message);
+    }
+  }
+
+  // ---- row action handlers ----
+  function setRowBusy(btn, busy) {
+    if (!btn) return;
+    const row = btn.closest("li.row");
+    if (!row) return;
+    const buttons = row.querySelectorAll("button");
+    buttons.forEach(function (b) { b.disabled = busy; });
+  }
+
+  async function handleCommentAction(id, action, btn) {
+    if (action === "delete") {
+      const ok = window.confirm("Delete this comment permanently? This cannot be undone.");
+      if (!ok) return;
+    }
+    setRowBusy(btn, true);
+    try {
+      await apiFetch("/api/admin/comments/" + encodeURIComponent(id), {
+        method: "POST",
+        body: JSON.stringify({ action: action })
+      });
+      clearError();
+      await loadQueue();
+      if (state.currentIndexThread) await loadDatapoints(state.currentIndexThread);
+    } catch (err) {
+      setRowBusy(btn, false);
+      if (!err.isAuth) showError(err.message);
+    }
+  }
+
+  async function handleDatapointAction(id, action, btn) {
+    if (action === "delete") {
+      const ok = window.confirm("Delete this datapoint permanently? This cannot be undone.");
+      if (!ok) return;
+    }
+    setRowBusy(btn, true);
+    try {
+      await apiFetch("/api/admin/datapoints/" + encodeURIComponent(id), {
+        method: "POST",
+        body: JSON.stringify({ action: action })
+      });
+      clearError();
+      if (state.currentIndexThread) await loadDatapoints(state.currentIndexThread);
+    } catch (err) {
+      setRowBusy(btn, false);
+      if (!err.isAuth) showError(err.message);
+    }
+  }
+
+  // ---- wiring ----
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const val = tokenInput.value.trim();
+    if (!val) {
+      loginError.textContent = "Enter a token.";
+      loginError.hidden = false;
+      return;
+    }
+    setToken(val);
+    showApp();
+    loadQueue();
+  });
+
+  signoutBtn.addEventListener("click", function () {
+    clearToken();
+    state.currentIndexThread = "";
+    listIndex.textContent = "";
+    countIndex.textContent = "";
+    emptyIndex.hidden = true;
+    indexStatus.textContent = "Enter a thread key and tap Load.";
+    showLogin();
+  });
+
+  refreshBtn.addEventListener("click", function () {
+    loadQueue();
+    if (state.currentIndexThread) loadDatapoints(state.currentIndexThread);
+  });
+
+  indexForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const thread = threadInput.value.trim();
+    if (!thread) {
+      indexStatus.textContent = "Enter a thread key first.";
+      return;
+    }
+    loadDatapoints(thread);
+  });
+
+  // ---- boot ----
+  (function boot() {
+    const existing = getToken();
+    if (existing) {
+      showApp();
+      loadQueue();
+    } else {
+      showLogin();
+    }
+  })();
+})();
+</script>
+</body>
+</html>
