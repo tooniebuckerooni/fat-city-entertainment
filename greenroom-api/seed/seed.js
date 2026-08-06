@@ -22,7 +22,34 @@ const path = require("path");
 const DIR = __dirname;
 const SRC = path.join(DIR, "threads.json");
 const OUT = path.join(DIR, "0002_seed.sql");
+const OUT_CONSOLE = path.join(DIR, "0002_seed.console.sql");
 const write = process.argv.includes("--write");
+
+/**
+ * Strip `--` comments for the Cloudflare dashboard's D1 console, which drops
+ * them and then errors with "Requests without any query are not supported".
+ *
+ * Comment markers inside a quoted string are left alone — the seed carries
+ * Fat City's pinned pricing text, and cutting into that would corrupt it
+ * silently rather than loudly.
+ */
+function stripComments(src) {
+  const out = [];
+  for (const line of src.split("\n")) {
+    let inStr = false;
+    let cut = -1;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === "'") {
+        if (inStr && line[i + 1] === "'") { i++; continue; } // '' escape
+        inStr = !inStr;
+      } else if (!inStr && ch === "-" && line[i + 1] === "-") { cut = i; break; }
+    }
+    const kept = (cut >= 0 ? line.slice(0, cut) : line).replace(/\s+$/, "");
+    if (kept.trim()) out.push(kept);
+  }
+  return out.join("\n") + "\n";
+}
 
 const q = (s) => "'" + String(s).replace(/'/g, "''") + "'";
 const PLACEHOLDER = /\[OWNER:/;
@@ -115,7 +142,15 @@ The two things this is protecting:
 
   fs.writeFileSync(OUT, sql);
   console.log(`\nWrote ${path.relative(process.cwd(), OUT)}`);
-  console.log("Apply it with the D1 console in the Cloudflare dashboard, or:");
+
+  /* The D1 console in the Cloudflare dashboard strips `--` comments and then
+     rejects what's left with "Requests without any query are not supported".
+     wrangler handles the commented file fine; the dashboard does not. So emit
+     a second, comment-free copy for pasting. */
+  fs.writeFileSync(OUT_CONSOLE, stripComments(sql));
+  console.log(`Wrote ${path.relative(process.cwd(), OUT_CONSOLE)}  (paste this one into the dashboard)`);
+
+  console.log("\nApply it with the D1 console in the Cloudflare dashboard, or:");
   console.log("  npx wrangler d1 execute greenroom --remote --file=greenroom-api/seed/0002_seed.sql");
 }
 

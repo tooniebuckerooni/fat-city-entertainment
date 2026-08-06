@@ -41,8 +41,12 @@ Go to **dash.cloudflare.com** and sign in with the account that already runs
 Still on the `greenroom` database page:
 
 1. Click the **Console** tab
-2. Open `greenroom-api/migrations/0001_init.sql` from this repo. Select all of
-   it, copy it.
+2. Open `greenroom-api/migrations/0001_init.console.sql` from this repo. Select
+   all of it, copy it.
+
+   > Use the `.console.sql` file, not `0001_init.sql`. The dashboard console
+   > strips `--` comments and then rejects what's left with *"Requests without
+   > any query are not supported"*. The commented file is for `wrangler`.
 3. Paste into the console box and click **Execute**
 
 You should get a success message. Click the **Tables** tab — you should now see
@@ -128,7 +132,8 @@ Now go back to the Worker → Settings → Variables and Secrets:
 ## Step 7 — Load the questions and unlocks
 
 1. Back to **D1** → `greenroom` → **Console**
-2. Open `greenroom-api/seed/0002_seed.sql` from this repo. Copy all of it.
+2. Open `greenroom-api/seed/0002_seed.console.sql` from this repo. Copy all of
+   it. (Again: the `.console.sql` one — see the note in Step 3.)
 3. Paste, **Execute**
 
 Check it worked: in the console, run
