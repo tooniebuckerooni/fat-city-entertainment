@@ -60,6 +60,45 @@ here** — the repo is served publicly by GitHub Pages.
   Git (Workers Builds). Setting that up needs the D1 `database_id` in
   `triv101-api/wrangler.toml`.
 
+## The Green Room (comment layer)
+- Discussion widget on **`/features.html`** (thread `green-room`, above the
+  tool entrances) and **`/gameshowhosts.html`** (thread `hosting`, at the foot
+  of the content). Embed is `<div data-fc-thread="KEY">` + a script tag; place
+  it with `_tools/add-green-room.js` (idempotent), never by hand.
+- **Separate Worker** from Triv 101: source in `greenroom-api/`, live at
+  **https://fatcity-greenroom.dustinramsbottom.workers.dev**, own D1 database
+  `greenroom`. Kept separate so Green Room changes never mean re-pasting the
+  live Triv 101 Worker. `src/index.js` is **one file on purpose** — deploys are
+  dashboard pastes.
+- Secrets on the Worker: `IP_SALT`, `ADMIN_TOKEN`, `TURNSTILE_SECRET`. Vars:
+  `ALLOWED_ORIGINS` (comma-separated; a **var** so adding a domain later is a
+  dashboard edit, not a re-paste), `TURNSTILE_SITE_KEY`, `DEV_BYPASS_TURNSTILE`
+  (must be `0` in production).
+- **`widget.js` is served from Pages**, not the Worker —
+  `assets/js/greenroom-widget.js`. Keeps the Worker small enough to paste.
+- **Indexability is the whole design.** Comments are client-rendered, which
+  Google indexes unreliably, so `_tools/bake-green-room.js` writes each thread
+  into the page as static HTML between `<!-- fce:greenroom:KEY -->` markers plus
+  `DiscussionForumPosting` JSON-LD; the widget hydrates over it. Runs daily via
+  `.github/workflows/bake-green-room.yml`. **The sandbox can't reach the Worker
+  (403), so the fetch path only runs in the Action** — use
+  `--from-file=_tools/greenroom-fixture.example.json` to test locally.
+- Seed content lives in `greenroom-api/seed/threads.json`; `seed.js` generates
+  SQL and **refuses to run while any `[OWNER: ...]` placeholder survives** (same
+  idiom as `publish-post.js`). It emits a `.console.sql` twin because the
+  Cloudflare D1 console strips `--` comments and then errors with "Requests
+  without any query are not supported".
+- Threads `trivia-generator`, `bingo`, `triv101` are configured but
+  `"launch": false`. **`hosting` is also held back** until the owner replaces
+  the generic bar-manager anchor post with their own experience.
+- Moderation at `/admin/green-room.html` (bearer token, `noindex`, disallowed in
+  `robots.txt`, not in the sitemap, not linked from nav).
+- Identity: votes/flags key off a **per-browser token**, not the IP — two hosts
+  on one venue's wifi must count as two people. The IP hash is rate-limiting
+  only. Never store a raw IP.
+- `GREENROOM-PLAN.md` is the design rationale; `DEPLOY-GREENROOM.md` is the
+  click-by-click dashboard runbook; `README-greenroom.md` is the reference.
+
 ## Blog posts & store products (the Weebly-clone tooling)
 Every blog post and product page is a full standalone HTML document (nav,
 footer, theme, the lot) — never hand-write one from scratch, clone via the

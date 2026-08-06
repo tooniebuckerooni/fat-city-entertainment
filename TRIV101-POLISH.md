@@ -57,9 +57,17 @@ These live in `triv101/index.html`, `style.css`, `script.js`.
       the app.
 
 ## SEO / housekeeping
-- [ ] Add `/triv101/`, `/features.html`, `/trivia-generator.html` (and the
-      survey stream) to `sitemap.xml`; run the repo's `_tools/add-jsonld.js` and
-      sitemap tooling for the new pages.
+- [x] `/features.html` added to `sitemap.xml` (needed for the Green Room's
+      discussion content to be indexed).
+- [ ] Still missing from `sitemap.xml`: `/triv101/`, `/trivia-generator.html`,
+      `/triv101/surveys.html`.
+- [ ] **Live SEO bug:** the Triv 101 survey stream and `/triv101/surveys.html`
+      name each other as canonical (`triv101-api/src/index.js:195` vs
+      `triv101/surveys.html:12`), and `surveys.html` is a content-free redirect
+      that isn't in the sitemap. Circular canonicals get discarded, so the
+      survey discussion is probably not indexing. Fix by making
+      `surveys.html` a real baked page — the Worker's canonical already points
+      at it. See GREENROOM-PLAN.md §3.
 - [ ] Revisit the **Featured!** gold-star styling if the owner wants more/less
       pop (in `assets/css/site-extras.css`, class `.fce-featured`).
 

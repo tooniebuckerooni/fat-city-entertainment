@@ -1,0 +1,57 @@
+name: Bake the Green Room
+
+# Writes the live comment threads into features.html / gameshowhosts.html as
+# static HTML, so search engines (and anyone with JavaScript off) can read the
+# discussion. The widget hydrates over the baked copy for everyone else.
+#
+# This runs here rather than in a coding sandbox for one reason: GitHub Actions
+# can reach *.workers.dev. The agent sandbox cannot (403 through its egress
+# proxy), so the fetch path is only ever exercised from here.
+
+on:
+  schedule:
+    # 04:12 UTC daily. Off the hour on purpose — the top of the hour is when
+    # every cron on GitHub fires at once and jobs get queued.
+    - cron: "12 4 * * *"
+  workflow_dispatch:      # lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bake-green-room
+  cancel-in-progress: false
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Bake the threads
+        run: node _tools/bake-green-room.js --write
+
+      - name: Commit only if something actually changed
+        run: |
+          # The bake script is idempotent and rewrites a page only when the
+          # rendered output differs, so an unchanged day produces no diff and
+          # no commit. Without this guard the repo would collect an empty
+          # commit every single day.
+          if git diff --quiet; then
+            echo "No change in any thread — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Bake Green Room threads into static HTML
+
+          Automated. Updates the indexable copy of the discussion; the live
+          thread is always served by the widget."
+          git push
