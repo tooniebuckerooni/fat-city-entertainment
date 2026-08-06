@@ -167,6 +167,9 @@
     '.fcgr-fold{position:relative;max-height:8.6em;overflow:hidden}',
     '.fcgr-fold::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.1em;background:linear-gradient(rgba(255,255,255,0),#fff 88%)}',
     '.fcgr-open .fcgr-fold{max-height:none}.fcgr-open .fcgr-fold::after{display:none}',
+    // The pinned block sits on cream, not white — it needs its own fade or the
+    // gradient paints a white band across the middle of the disclosure.
+    '.fcgr-pin .fcgr-fold::after{background:linear-gradient(rgba(252,250,241,0),#fcfaf1 88%)}',
     '.fcgr-more,.fcgr-act button{font:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:2px}',
     '.fcgr-more{font-size:12.5px;font-weight:700;color:#99790a;padding:6px 0 0}',
     '.fcgr-act{margin-top:7px;display:flex;gap:14px;font-size:12.5px}',
@@ -327,13 +330,35 @@
     var box = el("div", "fcgr-pin");
     box.appendChild(el("p", "fcgr-pinflag", "Pinned · " + c.handle +
       (c.role_tag ? " · " + c.role_tag : "")));
+
     var parts = c.body.split("\n\n");
     box.appendChild(el("p", "fcgr-pinq", parts[0]));
-    if (parts.length > 1) {
-      var p = el("p", "fcgr-text");
-      renderBody(p, parts.slice(1).join("\n\n"));
+    if (parts.length < 2) return box;
+
+    /* A real disclosure runs long — ours is ~1,400 characters. Unfolded, that
+       alone pushes the tool entrances off a phone screen, and on features.html
+       the whole point of the bounded block is that the tools stay within one
+       scroll. So the pinned body folds like any other long comment; the
+       question above it never does. */
+    var rest = parts.slice(1).join("\n\n");
+    var p = el("p", "fcgr-text");
+    renderBody(p, rest);
+
+    if (rest.length <= FOLD_AT) {
       box.appendChild(p);
+      return box;
     }
+
+    var fold = el("div", "fcgr-fold");
+    fold.appendChild(p);
+    box.appendChild(fold);
+    var more = el("button", "fcgr-more", "Read the rest ↓");
+    more.type = "button";
+    more.addEventListener("click", function () {
+      var open = box.classList.toggle("fcgr-open");
+      more.textContent = open ? "Show less ↑" : "Read the rest ↓";
+    });
+    box.appendChild(more);
     return box;
   };
 
