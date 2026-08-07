@@ -52,6 +52,24 @@ function stripComments(src) {
 }
 
 const q = (s) => "'" + String(s).replace(/'/g, "''") + "'";
+
+/**
+ * SQL literal for text that contains newlines.
+ *
+ * A multi-line single-quoted literal is valid SQL, but the Cloudflare D1
+ * console flattens the paste and the newlines are silently lost — which turns
+ * a nine-paragraph pinned question into one run-on wall of text on the live
+ * page. Emitting the breaks as char(10) concatenation makes the statement a
+ * single line, so nothing can eat them in transit.
+ */
+function qText(s) {
+  const text = String(s).replace(/\r\n?/g, "\n");
+  if (!text.includes("\n")) return q(text);
+  return text
+    .split("\n")
+    .map((part) => q(part))
+    .join(" || char(10) || ");
+}
 const PLACEHOLDER = /\[OWNER:/;
 
 function main() {
@@ -115,7 +133,7 @@ The two things this is protecting:
     lines.push(`-- ${t.key} (${t.surface})`);
     lines.push(
       "INSERT INTO comments (id, thread, parent_id, handle, role_tag, market, body, votes, flags, status, ip_hash, created_at)",
-      `VALUES (${q(pid)}, ${q(t.key)}, NULL, ${q(p.handle)}, ${q(p.role_tag)}, NULL, ${q(body)}, 0, 0, 'pinned', NULL, strftime('%s','now')*1000)`,
+      `VALUES (${q(pid)}, ${q(t.key)}, NULL, ${q(p.handle)}, ${q(p.role_tag)}, NULL, ${qText(body)}, 0, 0, 'pinned', NULL, strftime('%s','now')*1000)`,
       "ON CONFLICT(id) DO UPDATE SET body = excluded.body, handle = excluded.handle,",
       "  role_tag = excluded.role_tag, status = 'pinned';",
       ""
@@ -127,7 +145,7 @@ The two things this is protecting:
         console.error(`\nUnlock too long in "${t.key}" (${u.length} chars, cap is 400):\n  ${u.slice(0, 80)}…`);
         process.exit(3);
       }
-      lines.push(`INSERT INTO unlocks (thread, body) VALUES (${q(t.key)}, ${q(u)});`);
+      lines.push(`INSERT INTO unlocks (thread, body) VALUES (${q(t.key)}, ${qText(u)});`);
     }
     lines.push("");
   }
