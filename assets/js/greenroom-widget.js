@@ -458,8 +458,19 @@
 
       var token = null;
       try {
-        if (window.turnstile && ts.firstChild) token = window.turnstile.getResponse(ts.firstChild);
-      } catch (e) { /* not rendered; server decides */ }
+        if (window.turnstile && ts.__fcgrWidgetId != null) {
+          token = window.turnstile.getResponse(ts.__fcgrWidgetId);
+        }
+      } catch (e) { /* not rendered; the server decides */ }
+
+      // If the check is on the page but hasn't produced a token yet, say so
+      // here rather than posting and bouncing off a 403 that reads like a fault.
+      if (ts.__fcgrWidgetId != null && !token) {
+        send.disabled = false;
+        err.hidden = false;
+        err.textContent = "Wait for the spam check to finish, then post.";
+        return;
+      }
 
       ls("fcgr_handle", handle.value);
       ls("fcgr_role", role.value);
@@ -489,7 +500,14 @@
         send.disabled = false;
         err.hidden = false;
         err.textContent = e.message;
-        try { if (window.turnstile) window.turnstile.reset(ts.firstChild); } catch (x) {}
+        /* A Turnstile token is single-use. Without a working reset here, a
+           retry after any failure re-sends the spent token and fails again
+           for a completely different reason than the first attempt did. */
+        try {
+          if (window.turnstile && ts.__fcgrWidgetId != null) {
+            window.turnstile.reset(ts.__fcgrWidgetId);
+          }
+        } catch (x) {}
       });
     });
 
@@ -610,9 +628,19 @@
 
   Room.prototype.renderTurnstile = function (host) {
     var key = this.turnstileKey;
-    if (!key || host.firstChild) return;
+    if (!key || host.__fcgrWidgetId != null) return; // already rendered here
     function go() {
-      try { window.turnstile.render(host, { sitekey: key, size: "flexible" }); } catch (e) {}
+      try {
+        /* render() returns a widget id, and that id is the ONLY thing
+           getResponse() and reset() accept. Passing the container's child
+           element instead reads back undefined — the challenge passes, the
+           token never reaches us, and the Worker correctly rejects the post
+           with "the spam check didn't pass". Keep the id. */
+        host.__fcgrWidgetId = window.turnstile.render(host, {
+          sitekey: key,
+          size: "flexible"
+        });
+      } catch (e) {}
     }
     if (window.turnstile) { go(); return; }
     if (!document.getElementById("fcgr-ts-script")) {

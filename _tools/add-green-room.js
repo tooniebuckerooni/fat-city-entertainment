@@ -22,7 +22,13 @@ const path = require("path");
 const ROOT = path.join(__dirname, "..");
 const write = process.argv.includes("--write");
 
-const WIDGET = "/assets/js/greenroom-widget.js";
+/* Bump WIDGET_VERSION whenever greenroom-widget.js changes in a way visitors
+   must pick up immediately. Pages and browsers cache the file, so without this
+   a fix can sit invisible behind a stale copy for anyone who has already
+   loaded the page. Re-running this script rewrites the version in place. */
+const WIDGET_PATH = "/assets/js/greenroom-widget.js";
+const WIDGET_VERSION = "2";
+const WIDGET = `${WIDGET_PATH}?v=${WIDGET_VERSION}`;
 
 /* Each surface names the exact markup the embed goes BEFORE. Anchors are
    matched as literal strings, so a Weebly re-export that renames a wrapper
@@ -73,12 +79,25 @@ function main() {
 
     let html = fs.readFileSync(p, "utf8");
 
-    // Already there? Make sure it's the right thread, then leave it alone.
+    // Already there? Check the thread, then bring the widget version current.
     if (html.includes("fce:greenroom-embed")) {
       const has = html.includes('data-fc-thread="' + s.thread + '"');
-      console.log(`  ok       ${s.file} — embed already present` +
-        (has ? "" : `  !! but not for thread "${s.thread}"`));
-      if (!has) failed++;
+      if (!has) {
+        console.log(`  ok       ${s.file} — embed present !! but not for thread "${s.thread}"`);
+        failed++;
+        continue;
+      }
+      if (html.includes(WIDGET)) {
+        console.log(`  ok       ${s.file} — embed present, widget v${WIDGET_VERSION}`);
+        continue;
+      }
+      const bumped = html.replace(
+        new RegExp(WIDGET_PATH.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + '(\\?v=[^"]*)?', "g"),
+        WIDGET
+      );
+      console.log(`  bump     ${s.file} — widget -> v${WIDGET_VERSION} (cache-bust)`);
+      if (write) fs.writeFileSync(p, bumped);
+      changed++;
       continue;
     }
 
