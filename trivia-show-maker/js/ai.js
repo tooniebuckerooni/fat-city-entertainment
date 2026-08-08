@@ -8,8 +8,8 @@
   const KEY_STORE = "tgp_license_v1";
 
   // Fill in after deploying worker.js and creating the LemonSqueezy product.
-  const WORKER_URL = "https://tgp-ai-gateway.YOUR-SUBDOMAIN.workers.dev";
-  const CHECKOUT_URL = "https://REPLACE-WITH-YOUR-LEMONSQUEEZY-CHECKOUT-URL";
+  const WORKER_URL = "https://tgp-ai-gateway.dustinramsbottom.workers.dev";
+  const CHECKOUT_URL = "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f5fe010c-30ed-46f6-b157-4466e165d143";
 
   // License state lives in its own storage key, separate from the game
   // state in app.js — it's account-level, not game-level, so it must
