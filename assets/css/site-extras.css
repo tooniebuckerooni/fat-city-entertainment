@@ -703,3 +703,53 @@ p.fce-playlist-badge {
   margin: -6px 0 12px;
   display: none;
 }
+
+/* Trivia Store "tool" banners — Trivia Show Maker & Bingo Card Generator sit
+   above the (Weebly-native) category row as a 2-up row of their own. Only two
+   items instead of the category row's three, so the tiles run wide/flat
+   ("banner" shaped, ~3:2) rather than the category row's tall ~4:5 tiles —
+   deliberate, not a bug. Plain links, not real Weebly categories: these two
+   tools aren't part of the original store catalog/hierarchy. */
+.fce-tool-banners {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 0 0 26px;
+}
+.fce-tool-banner-card {
+  flex: 1 1 320px;
+  min-width: 260px;
+  text-align: center;
+}
+a.fce-tool-banner-link {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+a.fce-tool-banner-link:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+  transform: translateY(-2px);
+}
+.fce-tool-banner-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.fce-tool-banner-tryfree {
+  margin-top: 8px !important;
+}
+/* #wsite-com-store a{color:#398205!important} otherwise wins on specificity
+   (ID selector) over .fce-cta's white text — re-assert it for this button. */
+#wsite-com-store a.fce-tool-banner-tryfree {
+  color: #ffffff !important;
+}
+#wsite-com-store a.fce-tool-banner-tryfree:hover {
+  color: #000000 !important;
+}
+@media screen and (max-width: 640px) {
+  .fce-tool-banners {
+    flex-direction: column;
+  }
+}
