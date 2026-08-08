@@ -748,6 +748,56 @@ a.fce-tool-banner-link:hover {
 #wsite-com-store a.fce-tool-banner-tryfree:hover {
   color: #000000 !important;
 }
+
+/* 3-up plan/pricing cards (Trivia Show Maker credits & plans page, and
+   anywhere else a "ready now" tier sits next to "coming soon" ones). */
+.fce-plan-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin: 20px 0 24px;
+}
+.fce-plan-card {
+  flex: 1 1 220px;
+  min-width: 220px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  padding: 22px 20px;
+  text-align: center;
+}
+.fce-plan-card-name {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0 0 6px;
+}
+.fce-plan-card-price {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  color: #99790a;
+  margin: 0 0 10px;
+}
+.fce-plan-card-desc {
+  font-size: 14px;
+  color: #444444;
+  margin: 0 0 16px;
+  min-height: 40px;
+}
+.fce-plan-card--soon {
+  opacity: 0.6;
+}
+.fce-plan-card-badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 @media screen and (max-width: 640px) {
   .fce-tool-banners {
     flex-direction: column;
