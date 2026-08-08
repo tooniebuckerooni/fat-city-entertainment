@@ -136,10 +136,12 @@
       sub.textContent = "credits active";
     } else {
       amt.textContent = left + (left === 1 ? " credit" : " credits");
-      sub.textContent = "remaining";
+      sub.textContent = left <= 3 ? "low — tap to top up" : "remaining";
       if (left <= 3) chip.classList.add("is-low");
     }
-    chip.onclick = null;
+    // Active: clicking the balance opens the checkout to buy another pack.
+    chip.title = "Buy more credits";
+    chip.onclick = () => window.open(CHECKOUT_URL, "_blank", "noopener");
   }
 
   // A little dopamine when credits are spent: the gem pops and the cost
