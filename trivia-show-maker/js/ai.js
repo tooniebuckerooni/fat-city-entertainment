@@ -104,7 +104,7 @@
       } else if (lic.active) {
         const left = creditsLeft();
         const usage = (left != null)
-          ? "<b>" + left + "</b> credit" + (left === 1 ? "" : "s") + " left this month"
+          ? "<b>" + left + "</b> credit" + (left === 1 ? "" : "s") + " remaining"
           : "Active";
         box.innerHTML = '<p class="ai-active">✓ AI Studio active — ' + usage + '</p>';
       } else {
@@ -136,7 +136,7 @@
       sub.textContent = "credits active";
     } else {
       amt.textContent = left + (left === 1 ? " credit" : " credits");
-      sub.textContent = "left this month";
+      sub.textContent = "remaining";
       if (left <= 3) chip.classList.add("is-low");
     }
     chip.onclick = null;
