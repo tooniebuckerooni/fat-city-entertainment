@@ -160,18 +160,41 @@ var evaluateWinner = function evaluateWinner() {
   setTimeout(evaluateFail, 1000);
 };
 
-var genButtons = function genButtons() {
-  var buttonSize = 9;
+// Positions are a percentage of the smaller viewport dimension (matches the
+// CSS `vmin` unit used for #dart-board/.game-button sizing) rather than raw
+// vh, so the board stays proportional to the dartboard image instead of
+// overflowing a portrait/mobile viewport that's narrower than it is tall.
+var buttonSize = 9;
+
+var positionButtons = function positionButtons() {
+  var base = Math.min(window.innerWidth, window.innerHeight);
 
   for (var i = 0; i < buttons; i++) {
     var theta = 360 / buttons / 180 * i * Math.PI;
-    var x = "calc(".concat(39 * Math.cos(theta), "vh - ").concat(buttonSize / 2, "vh)");
-    var y = "calc(".concat(39 * Math.sin(theta), "vh - ").concat(buttonSize / 2, "vh)");
-    center.insertAdjacentHTML("beforeend", "\n      <div class=\"game-button\" id=\"".concat(i, "-btn\" onclick=\"press(").concat(i, ")\" style=\"\n        top: ").concat(x, ";\n        left: ").concat(y, ";\n      \">\n        <p>").concat(numbers[i], "</p>\n      </div>\n    "));
+    var btn = document.getElementById(i + "-btn");
+    if (!btn) continue;
+    btn.style.top = (39 * Math.cos(theta) - buttonSize / 2) / 100 * base + "px";
+    btn.style.left = (39 * Math.sin(theta) - buttonSize / 2) / 100 * base + "px";
   }
 };
 
+var genButtons = function genButtons() {
+  for (var i = 0; i < buttons; i++) {
+    center.insertAdjacentHTML("beforeend", "\n      <div class=\"game-button\" id=\"".concat(i, "-btn\" onclick=\"press(").concat(i, ")\">\n        <p>").concat(numbers[i], "</p>\n      </div>\n    "));
+  }
+
+  positionButtons();
+};
+
 genButtons();
+
+// Reposition (not regenerate) on resize/rotation, so a mid-game orientation
+// change doesn't wipe which buttons are already marked .used.
+var repositionTimer;
+window.addEventListener("resize", function () {
+  clearTimeout(repositionTimer);
+  repositionTimer = setTimeout(positionButtons, 150);
+});
 
 var playAgain = function playAgain() {
   answered = Array.from({
