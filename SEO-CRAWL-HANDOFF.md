@@ -333,3 +333,67 @@ curl -sI https://www.fatcityentertainment.com/triviahostresources/get-wild-with-
 is right either way — but if it's 301, then the old slashless canonicals were
 pointing every post at a redirect, which is the more severe reading of what was
 happening.
+
+---
+
+# Round 3 — the redirect question, answered
+
+## GitHub Pages **does** 301 the slashless form. Confirmed, not inferred.
+
+The "Page with redirect" export (8 URLs, 9 Aug) contains three slashless
+directory URLs:
+
+```
+/triviahostresources/creating-the-perfect-music-bingo-sheet-a-video-tutorial
+/triviahostresources/fat-bottom-trivia-season-four-is-making-its-grand-debut
+/triviahostresources/archives/06-2018
+```
+
+All three are directories with an `index.html`, and Google classifies them as
+**redirects**. That is the observation this whole branch was missing.
+
+It settles the open question at the bottom of Round 1, and it settles it the
+severe way: **every one of the 302 slashless `rel=canonical` tags was pointing at
+a URL that 301-redirects.** A canonical that names a redirect is not a weak
+signal, it is an invalid one — Google discards it and picks its own canonical.
+That is the mechanism that removed working posts from the index, and the
+trailing-slash direction was not merely the safer choice, it was the only correct
+one.
+
+The other five URLs in that report are all working as intended: `http://` →
+`https://`, apex → `www`, and two deliberate stubs. "Page with redirect" is an
+informational status, it has hovered between 5 and 17 all year, and it needs no
+action.
+
+## Bug found and fixed: `/triv101.html` pointed at the wrong page
+
+Commit `e89c724` ("Add redirect stubs for 6 dead top-level marketing pages")
+treated `triv101.html` as a dead marketing page and pointed it — canonical and
+meta-refresh both — at `/partyentertainment.html`.
+
+But `triv101.html` was never dead. It **moved to `/triv101/`**, which is live, is
+what the nav links to, and is the actual game. So anyone arriving on the old URL
+from a share, a bookmark or a search result was being dropped on a generic "Our
+Games" page, and every ranking signal the old URL had accumulated was being
+consolidated into `partyentertainment.html` instead of into the game.
+
+Now points at `/triv101/`. Audited the other twelve top-level stubs the same way
+— checking whether a directory of the same name exists as the true successor —
+and `triv101.html` was the only one wrong. The rest are correctly targeted.
+
+## Still outstanding: the actual "Redirect error" report
+
+The Search Console email named **Redirect error**; the export supplied was the
+adjacent **Page with redirect** report. They are different, and only the first
+one is an error class with a Validate Fix button.
+
+Best current theory, now that the 301 behaviour is confirmed: before this branch,
+a legacy URL could chain
+`http://` → *301* → `https://` → *301* → `www` → *meta-refresh* →
+`/foo` → *301* → `/foo/`. Mixing meta-refresh with 301s across four or five hops
+is exactly what trips "Redirect error", and there are 228 meta-refresh stubs on
+the site. Every one of them now points straight at the terminal slash form, so
+the chains are one hop shorter than they were.
+
+That is a theory with a mechanism, not a diagnosis. To confirm it: Search Console
+→ Indexing → Pages → **Redirect error** row → Export.
