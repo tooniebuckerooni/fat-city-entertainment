@@ -140,13 +140,29 @@ URLs. Expect the "Alternate page" count to fall over 2–6 weeks.
 
 ### About "Validate Fix" on these two reports
 
-Set expectations before hunting for the button: **both of these are *excluded* /
-informational statuses, not errors**, and Google generally does not offer
-Validate Fix for them. That button belongs to error classes — "Submitted URL not
-found (404)", "Server error", "Submitted URL marked noindex", redirect errors.
-"Crawled – currently not indexed" and "Alternate page with proper canonical tag"
-are Google telling you what it decided, not flagging a fault it will re-check on
-demand.
+**Correction (Round 3): Search Console does offer Validate Fix on "Alternate
+page with proper canonical tag."** An earlier draft of this doc said it
+generally would not, on the grounds that the status is an informational
+exclusion rather than an error. That was wrong, and the owner started a
+validation on the strength of it. The *timing* advice below was right; the claim
+about the button was not.
+
+One thing that is true and matters more: **that report can never validate to
+zero, and should not.** "Alternate page with proper canonical tag" is the
+*correct* status for a URL that genuinely is a duplicate pointing at its
+original. Two of the 24 will stay in that bucket permanently and rightly:
+
+| URL | canonical | why it stays |
+|---|---|---|
+| `/index.html` | `/` | the homepage has two URLs; this is the right resolution |
+| `/store/c1/triviastore/` | `/trivia-store.html` | store category folds into the store page |
+
+So judge that report by *which* URLs are in it, not by the count. The blog posts
+leaving it is the win. A residual count of two or three is the healthy end state.
+
+Expect **"Page with redirect" to go up** as this lands, and do not be alarmed —
+that is the slashless URLs correctly resolving as redirects to a single
+destination instead of competing as duplicates. It is what success looks like.
 
 So the honest sequence is:
 
@@ -397,3 +413,58 @@ the chains are one hop shorter than they were.
 
 That is a theory with a mechanism, not a diagnosis. To confirm it: Search Console
 → Indexing → Pages → **Redirect error** row → Export.
+
+---
+
+# Round 4 — the "Redirect error" report, explained
+
+Three URLs, all slashless directory forms under `/triviahostresources/`:
+
+```
+/and-then-there-was-hair-music-bingo                                          crawled 2026-08-02
+/how-to-host-fat-bottom-trivia-presentations-...-6-steps                      crawled 2026-07-31
+/music-bingo-cards-or-game-show-presentations-to-entertain-guests             crawled 2026-07-31
+```
+
+All three back healthy posts — real content, no meta-refresh, no noindex, in the
+sitemap. Nothing wrong with the pages.
+
+## The mechanism: a canonical/redirect ping-pong
+
+With the 301 behaviour now confirmed, the pre-fix state for these was a genuine
+loop, not merely a chain:
+
+```
+Googlebot asks for  /foo
+   -> 301 -> /foo/
+   -> /foo/ serves a page whose rel=canonical says "the real URL is /foo"
+   -> /foo -> 301 -> /foo/
+   -> ...
+```
+
+The declared canonical redirected to the page that declared it. Follow that and
+you never terminate. **That is what "Redirect error" means** — not a broken
+server, a redirect Google cannot resolve to a destination.
+
+The counter first appeared on **5 August**, the same window the "Alternate page"
+count jumped from 11 to 24. Same root cause, same reprocessing pass, two
+different symptoms: pages Google could resolve became "alternate", and pages it
+could not became "redirect error".
+
+**Already fixed.** Every post is self-canonical on the slash form now, so the
+loop terminates at `/foo/`. Nothing further to do but wait for a re-crawl — all
+three were last crawled 31 Jul – 2 Aug, a week before the fix went live.
+
+## Why the validation email said "some fixes failed"
+
+Every URL in both reports was last crawled **before** the fix shipped:
+
+| report | oldest crawl | newest crawl | fix live |
+|---|---|---|---|
+| Alternate page (24) | 2026-07-25 | 2026-08-08 | 2026-08-09 ~15:00 UTC |
+| Redirect error (3) | 2026-07-31 | 2026-08-02 | 2026-08-09 ~15:00 UTC |
+
+Validation re-checks the affected URLs against crawl data. With nothing yet
+re-crawled after the change, it had nothing new to look at and was always going
+to fail. That failure carries **no penalty** — it is not a strike against the
+site, and re-running validation later costs nothing but the wait.
