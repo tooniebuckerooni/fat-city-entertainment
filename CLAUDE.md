@@ -29,6 +29,12 @@ here** — the repo is served publicly by GitHub Pages.
   "Trivia Store" item by its link, not its `<li>` id (Weebly rewrites the id to
   `active` on the current page).
 - `assets/css/site-extras.css` is linked on all pages — put global CSS there.
+- **Long-form copy on a Weebly page** goes in `_content/copy/<name>.html` as plain
+  semantic HTML, and `node _tools/add-page-copy.js --write` injects it before the
+  footer inside `<!-- fce:copy -->` markers (styled by `.fce-copy`). Edit the
+  partial and re-run to update. Never type prose into the page itself — those
+  pages are nested multicol `<table>` scaffolding with inline `<font>` tags, and
+  hand-editing them is how a live layout gets broken.
 - New content pages are cloned from a live page's shell (see
   `_tools/new-content-page.js` / `make-*-page.js`) so they inherit nav/footer.
 - Top-level nav: **Trivia Store · ★ Featured! (dropdown) · Our Games · Bingo

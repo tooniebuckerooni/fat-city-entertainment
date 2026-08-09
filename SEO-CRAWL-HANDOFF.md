@@ -136,48 +136,150 @@ to their pre-change baseline (verified against a stash), so nothing here
 disturbed structured data, buy buttons or lastmod dates.
 
 **This will not be instant.** Google has to re-crawl and re-consolidate ~380
-URLs. Expect the "Alternate page" count to fall over 2–6 weeks. Worth doing in
-GSC now: Validate Fix on both reports, and resubmit `sitemap.xml`.
+URLs. Expect the "Alternate page" count to fall over 2–6 weeks.
+
+### About "Validate Fix" on these two reports
+
+Set expectations before hunting for the button: **both of these are *excluded* /
+informational statuses, not errors**, and Google generally does not offer
+Validate Fix for them. That button belongs to error classes — "Submitted URL not
+found (404)", "Server error", "Submitted URL marked noindex", redirect errors.
+"Crawled – currently not indexed" and "Alternate page with proper canonical tag"
+are Google telling you what it decided, not flagging a fault it will re-check on
+demand.
+
+So the honest sequence is:
+
+1. **Resubmit `sitemap.xml`** in GSC. This is the real lever — 116 of its URLs
+   changed form, and it's how you tell Google the canonical set moved.
+2. **URL Inspection → Request Indexing** on your highest-value URLs, one at a
+   time. The daily quota is small (~10), so spend it deliberately:
+   `/trivia-store.html` first, then the marketing pages that were rewritten,
+   then a couple of the blog posts from the "Alternate page" list to seed the
+   pattern. Don't burn it on archive shells.
+3. **If a Validate Fix button *is* offered** on either report in your account —
+   the UI does vary — press it, but only now that everything is live. Starting a
+   validation while fixes are still landing is what makes it fail and reset the
+   clock, which is probably what cost two weeks last time.
+4. **Re-export both reports in ~3 weeks** and hand them back to me. The
+   comparison is what tells us whether consolidation actually happened, and it's
+   far more useful than watching the graph daily.
+
+The thing to watch is not the total. It's whether the *trailing-slash* URLs stop
+appearing under "Alternate page" — that specific movement is the proof the fix
+worked.
+
+---
+
+---
+
+# Round 2 (same day) — the content pass
+
+The 16 pages above were "crawled and declined". Word count was the symptom, not
+always the diagnosis. Three different things were going on.
+
+## Shipped: five pages rewritten
+
+New tool `_tools/add-page-copy.js` + partials in `_content/copy/`. Copy lives as
+plain semantic HTML and gets injected before the footer inside
+`<!-- fce:copy -->` markers, styled by `.fce-copy` in `site-extras.css`. Edit
+the partial, re-run, done — the Weebly table scaffolding is never touched by
+hand.
+
+| page | before | after |
+|---|---|---|
+| `/trivia-store.html` | 381 | **1058** |
+| `/officegames.html` | 237 | **824** |
+| `/holidayparty.html` | 677 | **1241** |
+| `/yycevents.html` | 582 | **1109** |
+| `/vrtriviaparty.html` | 427 | **964** |
+
+That lands them alongside the site's own strongest pages
+(`musicbingonearme.html` 745, `printmusicbingocards.html` 1150) rather than at
+some arbitrary target. Every claim is grounded in something already on the site
+— formats, what's in a download, how a night runs, how to choose. **No invented
+customer counts, testimonials or guarantees, and no hard prices in the prose**,
+so a price change can't silently make a page wrong.
+
+## Shipped: two stale facts, which mattered more than length
+
+- **`/yycevents.html` was advertising "Calgary Christmas Party Entertainment
+  2022!"** — four years out of date, on a page whose whole job is booking this
+  year's party. Now year-agnostic so it can't rot again. That, not the word
+  count, is the likeliest reason Google was refusing it.
+- **`/vrtriviaparty.html` recommended Mixer.com**, which Microsoft shut down in
+  2020, in both the body copy and a form hint. Removed.
+
+Still carrying a Mixer reference: the 2020 post
+`/triviahostresources/8-ways-to-take-your-trivia-event-completely-virtual-with-online-streaming-tools/`.
+Left alone — it's a dated article rather than live advice, but if you want it
+accurate it needs an editorial pass, not a find-and-replace.
+
+## Shipped: `/store/p137/eventpayment.html` de-indexed
+
+"Consult Hour" is a booking-deposit checkout endpoint. Nobody searches for it and
+landing on it from Google is confusing. Now `noindex,follow` **and removed from
+sitemap.xml** — noindex plus a sitemap entry is the same contradiction this whole
+session has been unwinding. One line in the page and one block in the sitemap;
+trivially reversible if you disagree.
+
+`/store/p140/virtualeventpayment.html` was deliberately **left indexed** — "Zoom
+Party — Music Bingo, Trivia, Comedy" is a real product with real search demand,
+not a utility page. Fixed a typo in its `<title>` ("entertainement") while there.
+
+## Not shipped: the 83 product pages — I need something from you
+
+`/store/p3`, `p13`, `p100`, `p106`, `p129`, `p133`, `p135` were on the list. I
+have not padded them, on purpose.
+
+**Every one of the 83 product pages is 184–450 words, and ~90% of that is
+identical boilerplate.** Strip the shared shell and each page has roughly *forty*
+unique words: a theme line, "answers are X", a song count and a runtime. Google
+flagged nine of them because it happened to crawl those nine — hand-writing nine
+and leaving seventy-four identical would be arbitrary, and adding a templated
+block to all 83 would add *duplicate* content and make the problem worse.
+
+The content that would genuinely fix these is the one thing that isn't in the
+repo: **the track list for each pack.** "What songs are in Cover Tunes music
+bingo" is a real query with real intent, and it is unique per product by
+definition. The lists live inside the purchased PDFs, and the Spotify playlists
+are unreachable from the agent sandbox (proxy blocks `open.spotify.com` too).
+
+**What I need:** a partial track list per pack — ten or fifteen of the ~25–39
+songs is plenty, enough to be useful in search without giving away the callsheet
+people are paying for. Any format: a spreadsheet, one text file per game, pasted
+into a message. Once that exists I can generate all 83 pages in one pass and
+keep them consistent from then on. It's also your call whether partial lists are
+something you want public at all — that's a business decision, not an SEO one.
+
+## Not shipped: `/crypto.html` — more words is the wrong fix
+
+897 words, and almost all of them are a generic explainer about what
+cryptocurrency *is* — peer-to-peer networks, decentralised currency, no
+government. That is not content about your business, it is filler that a
+thousand better sites already cover, and lengthening it would make it worse.
+
+The actual business fact on the page is one sentence: you accept crypto, email
+`crypto@fatcityentertainment.com`. To make this page worth indexing it needs to
+answer *your* customer's questions — which coins you take, whether it applies to
+game downloads or event bookings or both, how a refund works, how the price is
+locked. I don't know any of those answers and I'm not going to invent payment
+terms. Tell me and I'll rewrite it; otherwise the honest option is to trim it to
+the useful sentence and stop trying to rank it.
+
+## The two blog posts
+
+`/triviahostresources/one-of-the-funniest-...body-parts.../` (687 words) and
+`/triviahostresources/a-night-at-the-movies-.../` (825 words) were both caught in
+the two-URL split — they are the two trailing-slash URLs that showed up in the
+*crawled-not-indexed* report rather than the alternate-canonical one. They are
+reasonable length already. **Recheck these after consolidation lands before
+rewriting anything** — there's a good chance they come back on their own, and
+rewriting a post that was never the problem is wasted effort.
 
 ---
 
 ## Still open — needs you
-
-### 16 pages Google crawled and declined to index, for content reasons
-
-These are technically perfect: reachable, self-canonical, in the sitemap, not
-blocked. Google looked and passed. No tooling change fixes this one — it is a
-"this page doesn't earn a slot" judgment, and the fix is words on the page.
-
-Ranked by how thin they are:
-
-| words | page | note |
-|---|---|---|
-| 184 | `/store/p3/Fat_Bottom_Trivia_Host_T-shirt.html` | |
-| 200 | `/store/p137/eventpayment.html` | probably shouldn't be indexable at all |
-| 237 | `/officegames.html` | |
-| 258 | `/store/p13/spn11.html` | |
-| 305 | `/store/p135/valentinestriviapack.html` | |
-| 343 | `/store/p133/cartoons.html` | |
-| 344 | `/store/p100/Countries.html` | |
-| 356 | `/store/p106/moviesoundtracks.html` | |
-| 356 | `/store/p129/covertunes.html` | |
-| **381** | **`/trivia-store.html`** | **the money page — fix this one first** |
-| 427 | `/vrtriviaparty.html` | |
-| 582 | `/yycevents.html` | |
-| 677 | `/holidayparty.html` | |
-| 687 | `/triviahostresources/one-of-the-funniest-...body-parts.../` | may resolve on its own |
-| 825 | `/triviahostresources/a-night-at-the-movies-.../` | may resolve on its own |
-| 897 | `/crypto.html` | |
-
-The two blog posts were also caught in the two-URL split, so they may come back
-on their own once consolidation lands — check them again before rewriting.
-
-`/trivia-store.html` is the one that costs money. 381 words for a store landing
-page competing against every trivia-pack retailer is under-armed.
-
-`/store/p137/eventpayment.html` is a payment-handling page. Consider whether it
-should be indexable at all rather than trying to bulk it up.
 
 ### Two pre-existing items, unrelated to this session
 

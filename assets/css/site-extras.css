@@ -792,3 +792,68 @@ a.fce-tool-banner-link:hover {
     flex-direction: column;
   }
 }
+
+/* ------------------------------------------------------- fce:copy sections
+   Long-form copy injected by _tools/add-page-copy.js from the partials in
+   _content/copy/. These pages are Weebly exports whose own body text is styled
+   by inline <font> tags inside multicol tables; this block deliberately does
+   NOT inherit from that, so the prose stays readable no matter what section
+   background it lands under. Light section, dark text, measured line length. */
+.fce-copy {
+  background: #f7f7f5;
+  color: #24242a;
+  padding: 48px 20px 56px;
+}
+.fce-copy-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.fce-copy-inner h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #16161a;
+  margin: 34px 0 14px;
+}
+.fce-copy-inner > h2:first-child {
+  margin-top: 0;
+}
+.fce-copy-inner p,
+.fce-copy-inner li {
+  color: #24242a;
+  margin: 0 0 14px;
+}
+.fce-copy-inner ul {
+  margin: 0 0 18px;
+  padding-left: 22px;
+  list-style: disc;
+}
+.fce-copy-inner li {
+  margin-bottom: 8px;
+}
+.fce-copy-inner strong {
+  font-weight: 700;
+  color: #16161a;
+}
+.fce-copy-inner a {
+  color: #b0122b;
+  text-decoration: underline;
+}
+.fce-copy-inner a:hover {
+  color: #7d0c1e;
+}
+@media screen and (max-width: 640px) {
+  .fce-copy {
+    padding: 32px 16px 36px;
+  }
+  .fce-copy-inner {
+    font-size: 16px;
+  }
+  .fce-copy-inner h2 {
+    font-size: 21px;
+  }
+}
