@@ -36,6 +36,29 @@ here** — the repo is served publicly by GitHub Pages.
   Trivia Generator (coming soon), and Bingo Card Generator (external link to
   https://bingocardgenerator.online/). Hub page: `/features.html`.
 
+## URL shape — the one rule that must not drift
+**Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,
+never `/triviahostresources/<slug>`.** That applies to `rel=canonical`,
+`og:url`, JSON-LD `url`/`mainEntityOfPage`, share links, internal `href`s and
+`sitemap.xml` — all of them, or none of it works.
+
+GitHub Pages serves `foo/index.html` at *both* `/foo` and `/foo/`, so every
+directory page has two live URLs and always will; Pages can't redirect. The only
+thing that keeps them from competing is the site saying the same thing
+everywhere. It stopped doing that and Google spent Jul–Aug 2026 dropping posts
+that had no technical problem at all — see `SEO-CRAWL-HANDOFF.md` for the full
+mechanism. Enforced by `_tools/canonicalize-trailing-slash.js` (idempotent, safe
+to re-run any time; it only adds a slash where `<path>/index.html` really
+exists). Run it after anything that generates or clones pages.
+
+Same idea, different character: `_tools/normalize-url-encoding.js` keeps the
+four store files with `,`/`&` in their names on the percent-encoded form
+(`%2C`/`%26`), because `,` and `%2C` are different URLs to a crawler.
+
+Extensionless `.html` URLs are a *third* live form (`/store/p63/hairbands`
+serves `hairbands.html`) — Pages does that too. Don't link that way; always
+write the `.html`.
+
 ## Triv 101 (the game)
 - Self-contained vanilla-JS game at **`/triv101/`** (host-run, one screen).
 - `questions.js` = 149 **seed** game questions. `survey-prompts.js` = 100
@@ -125,8 +148,18 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   `node _tools/bake-buy-links.js --write` (bakes `ls-links.js` into every buy
   button — re-run this any time `ls-links.js` changes), `node
   _tools/sitemap-lastmod.js --write` (dates for URLs already in the sitemap;
-  it does not add new ones). Finish with `node _tools/check-links.js` (needs
-  `npm install --prefix _tools` once) — 0 broken refs is the bar.
+  it does not add new ones), then `node _tools/canonicalize-trailing-slash.js
+  --write` (see "URL shape" above — cheap insurance, and a no-op if the new
+  page was already written correctly). Finish with `node
+  _tools/check-links.js` (needs `npm install --prefix _tools` once) — 0 broken
+  refs is the bar.
+- **Blog listing shells** (`category/`, `archives/`, `previous/N`, across
+  `triviahostresources/` *and* the legacy `whatsnew|inspiration|blog|4` trees)
+  must carry `noindex,follow` — `node _tools/noindex-blog-taxonomy.js --write`
+  does all 245 of them. Legacy *post* duplicates are different: they get a
+  `rel=canonical` to the live post and **no** noindex. Never both on one page —
+  Google honours the noindex, drops the page, and the canonical never gets to
+  pass its signals on.
 - **Known landmine:** a staged/cloned product's buy button can inherit its
   *template's* live Lemon Squeezy link (real href, not hidden) if the new
   product has no `ls-links.js` entry yet — it'll look wired but charge for
@@ -159,6 +192,9 @@ retired on purpose, not lost.
   the fall acquisition campaign, blog drafts, open product decisions.
 - `SEO-HANDOFF.md` — the Aug 1 2026 GSC-audit-to-content-pass session: what
   shipped, what's still open (owner action needed), tooling bugs found.
+- `SEO-CRAWL-HANDOFF.md` — the Aug 9 2026 crawl/indexation fix: why ~380 pages
+  had two competing URLs, what got normalised, and the 16 pages Google is
+  declining to index for **content** reasons that no amount of tooling fixes.
 - `TRIVIA-SHOW-MAKER-HANDOFF.md` — what's wired into this site for the
   Trivia Show Maker (the app itself lives in the `trivia-generator-pro` repo).
 - `HANDOFF.md` — durable tooling lessons-learned (real bugs found in the
