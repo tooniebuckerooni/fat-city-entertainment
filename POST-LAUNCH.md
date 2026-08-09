@@ -1,8 +1,8 @@
 # Post-DNS-switch punch list
 
 The working list for fatcityentertainment.com now that DNS points at GitHub
-Pages. Companion to [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md), which covered
-everything *up to* the cutover.
+Pages. The DNS-cutover runbook this once followed on from is long done and
+has been retired.
 
 **Status: the migration is verified live.** `CNAME` = `www.fatcityentertainment.com`,
 custom domain set, DNS pointed, **HTTPS enforced**, a **real LemonSqueezy purchase**

@@ -2,11 +2,8 @@
 
 Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.com), migrated off Weebly to GitHub Pages in June 2026. **Every public URL from the Weebly site is preserved** — pages, store products, store categories, blog posts, blog archives/categories, and pagination.
 
-**Launching? Work through [LAUNCH-CHECKLIST.md](LAUNCH-CHECKLIST.md)** — the
-DNS-cutover runbook with pre/post-flip verification steps.
-
-**Already switched over? See [POST-LAUNCH.md](POST-LAUNCH.md)** — the prioritized
-punch list of what's still outstanding now that the site is on the new host.
+The DNS cutover to GitHub Pages is complete. **See [POST-LAUNCH.md](POST-LAUNCH.md)**
+for the prioritized punch list of what's still outstanding.
 
 ## What's here
 

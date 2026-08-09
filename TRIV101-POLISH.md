@@ -10,8 +10,11 @@ This is the "make it shine" list. Nothing here is blocking; pick by impact.
 
 ## Game polish (from the owner's original task list — mostly frontend)
 These live in `triv101/index.html`, `style.css`, `script.js`.
-- [ ] **Mobile-responsive layout** — the dartboard/game is desktop-first; make
-      it play on phones/tablets. (Biggest one.)
+- [x] **Mobile-responsive layout** — was desktop-first (dartboard sized in
+      raw `vh`, so it overflowed any portrait phone). Fixed: board/buttons
+      switched to `vmin`, layout stacks to a column under ~760px or a
+      portrait-ish aspect ratio, button positions recompute on resize so a
+      mid-game rotation doesn't lose progress. Verified at 320/390/768px.
 - [ ] Copy pass on the setup screen (rules/how-to; tighten the intro).
 - [ ] Correct-answer **sound effect** (a `wrong.mp3` already exists in assets).
 - [ ] **Game progress indicator** and clearer **turn indicator**.
@@ -49,28 +52,46 @@ These live in `triv101/index.html`, `style.css`, `script.js`.
       in `triv101/survey.js`, the redirect in `triv101/surveys.html`, and the
       `<link rel="canonical">` in the Worker's SSR page.
 
-## Trivia Generator (currently a "coming soon" page)
-- [ ] Build the actual generator (owner wants it **AI-powered**; it lives in a
-      separate repo). The endpoint is model-agnostic — owner floated **Kimi K2**
-      (Moonshot); Claude is the other strong option for reliable structured
-      output. When ready, repoint `/trivia-generator.html` from the teaser to
-      the app.
+## Trivia Generator — done, now Trivia Show Maker
+Built and live at `/trivia-show-maker/`, AI Studio add-on running on Claude
+Haiku 4.5 via a Cloudflare Worker. `/trivia-generator.html` is now a 301
+redirect stub to it. See `TRIVIA-SHOW-MAKER-HANDOFF.md` for what's still open
+there (nothing major as of this writing).
 
 ## SEO / housekeeping
-- [x] `/features.html` added to `sitemap.xml` (needed for the Green Room's
-      discussion content to be indexed).
-- [ ] Still missing from `sitemap.xml`: `/triv101/`, `/trivia-generator.html`,
-      `/triv101/surveys.html`.
-- [ ] **Live SEO bug:** the Triv 101 survey stream and `/triv101/surveys.html`
-      name each other as canonical (`triv101-api/src/index.js:195` vs
-      `triv101/surveys.html:12`), and `surveys.html` is a content-free redirect
-      that isn't in the sitemap. Circular canonicals get discarded, so the
-      survey discussion is probably not indexing. Fix by making
-      `surveys.html` a real baked page — the Worker's canonical already points
-      at it. See GREENROOM-PLAN.md §3.
+- [x] `/features.html` added to `sitemap.xml`.
+- [x] `/triv101/` and `/triv101/surveys.html` added to `sitemap.xml`.
+      `/trivia-generator.html` is a redirect stub, not a destination — no
+      sitemap entry needed; `/trivia-show-maker/` (its target) is already in.
+- [x] **Circular-canonical bug, partially fixed:** `/triv101/surveys.html` no
+      longer names the Worker as canonical — it's self-canonical now, so the
+      two pages don't contradict each other. **Still open:** the real fix per
+      GREENROOM-PLAN.md §3 is baking actual survey content into the page
+      (it's currently still a content-free meta-refresh redirect, just no
+      longer a circularly-canonical one). See "Keep moving forward" below.
 - [ ] Revisit the **Featured!** gold-star styling if the owner wants more/less
       pop (in `assets/css/site-extras.css`, class `.fce-featured`).
 
 ## Content
 - [ ] Expand/curate the 100 survey prompts in `triv101/survey-prompts.js`
       (owner may want spicier, on-brand "Fat Bottom" style ones).
+
+## Keep moving forward: the survey data itself
+
+Two ideas that were noted in passing in old session handoffs and never given
+a real home — both premised on the survey system actually working, which it
+now does:
+
+- [ ] **Publish aggregate survey results as their own public pages.** Original
+      user-generated data (what people actually voted the most popular answer
+      to a prompt) is exactly what AI answer engines and Google both cite —
+      it's not available anywhere else. Right now it's only visible live,
+      inside the stream. A baked, indexable "here's what people said" page per
+      graduated prompt (or a rolling digest) turns the survey into a content
+      engine that runs on the players themselves, the same indexability
+      pattern the Green Room already proves out (`_tools/bake-green-room.js`
+      is a template for this, not a rewrite).
+- [ ] **Finish the `/triv101/surveys.html` bake** (see the SEO item above) —
+      it's the same underlying idea: real survey content, statically
+      rendered, indexable. Doing both at once is likely less work than doing
+      them separately.

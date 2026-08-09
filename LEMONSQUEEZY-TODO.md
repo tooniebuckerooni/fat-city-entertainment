@@ -1,5 +1,13 @@
 # LemonSqueezy re-listing checklist
 
+**Live status lives in the code now, not here:** `assets/js/ls-links.js` has a
+self-updating header comment ("STATUS: N of 74 wired — M to go") and marks
+each remaining product inline with `[ ]` — search that file for `[ ]` to find
+exactly what's left. This doc is the one-time migration reference: how to
+wire a product, and the original Weebly CAD prices for setting a new USD
+price. It won't go stale because nothing here changes; treat `ls-links.js`
+as the checklist.
+
 All 73 product pages were migrated with their original URLs.
 Each page has a hidden **Buy & Download** button that activates as soon as you
 paste that product's LemonSqueezy buy link into [assets/js/ls-links.js](assets/js/ls-links.js).

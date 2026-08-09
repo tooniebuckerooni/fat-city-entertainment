@@ -1,12 +1,16 @@
 # The Green Room — build plan
 
-Planning doc for the comment/discussion layer described in the build prompt
-(`greenroombuildprompt.md`, owner-supplied). This is the reconciled version:
-the build prompt's intent, corrected against what's actually in this repo and
-against the owner's answers on placement, sequencing, and indexability.
+Planning doc for the comment/discussion layer, kept as the design rationale
+("why it works this way") now that the thing itself is built. The original
+owner-supplied build prompt this reconciled against has been retired — its
+corrections are folded in below and it added nothing this doesn't already say.
 
-**Status: planning. Nothing built yet.** Decisions marked ✅ are settled;
-❓ are still open and named at the bottom.
+**Status: live.** The `green-room` thread is deployed and taking real
+comments on `/features.html` (Worker + D1 + daily bake, all working — see
+`README-greenroom.md` for the technical reference). `hosting`,
+`trivia-generator`, `bingo`, and `triv101` are configured in
+`greenroom-api/seed/threads.json` but not yet launched — see §7/§8 for what's
+actually left. Decisions marked ✅ are settled; ❓ are still open.
 
 ---
 
@@ -262,27 +266,46 @@ an indexability bug rather than polish.
 
 ---
 
-## 7. Open questions
+## 7. Open questions — resolved
 
-- ❓ **Worker/D1 split** — owner said "not sure yet, sounds fine." Proceeding
-  with separate Worker + separate D1 unless overridden.
-- ❓ **Bake cadence** for the GitHub Action. Daily is the default.
-- ❓ **Trivia Generator domain** — own domain or main site.
-- ❓ **The two Turnstile keys** need the Cloudflare dashboard (owner action).
+All settled by what actually shipped: separate Worker + separate D1 (built
+that way), daily bake (running via `.github/workflows/bake-green-room.yml`),
+Trivia Generator on the main site as `/trivia-show-maker/` (not its own
+domain), Turnstile keys set and working (`green-room` takes real comments
+today, which only works if the spam check is passing).
 
-## 8. Owner-written content — launch blockers
+## 8. Owner-written content — status
 
-None of this can be written by an agent, and the prompt is right that weak
-versions do more damage than none:
+- ✅ **Real Fat City pay numbers** for the `green-room` pinned question —
+  written, seeded, live, and already has a real reply from a venue.
+- ✅ **3–4 unlocks** for `green-room` — written and seeded.
+- ❌ **The `hosting` anchor post** — still the one open item here: fifteen
+  years of managing bars and restaurants, written from the side of the desk
+  that got pitched. The draft sitting in `threads.json` is generic and
+  deliberately held back (`"launch": false`) until it's replaced with the
+  real thing — see "Keep moving forward" below.
 
-- Real Fat City pay numbers for the `green-room` pinned question.
-- The `hosting` anchor post: fifteen years of managing bars and restaurants,
-  written from the side of the desk that got pitched. The prompt is correct
-  that this is the single strongest thing Fat City can put in the room and
-  that nobody else in the space can write it.
-- 3–4 unlocks per thread. The strongest candidates are things that are already
-  product-adjacent — a real rate sheet, a pitch email that worked, a venue
-  one-pager — which is also the honest bridge to the store.
+## 8a. Keep moving forward
+
+Two concrete next moves, in order of how much they unlock:
+
+1. **Write the `hosting` anchor post and launch it.** This has been called
+   "the single strongest asset Fat City has in this room" twice now across
+   the planning docs, and it's the only remaining launch blocker. Replace the
+   `[OWNER: ...]` draft in `greenroom-api/seed/threads.json` with real
+   stories — the pitch that worked, the one that didn't, what a GM actually
+   told you about entertainment budgets — flip `"launch": true`, run
+   `node greenroom-api/seed/seed.js`, execute the SQL it prints against D1,
+   then run `_tools/bake-green-room.js --write` (or wait for the next
+   scheduled run).
+2. **Decide on `trivia-generator`, `bingo`, and `triv101` threads.** All
+   three tools are real, live products now (they weren't when this plan was
+   written) — Trivia Show Maker and Bingo Card Generator 2 both ship credits
+   or passes, and Triv 101's survey stream is exactly the kind of "hosts
+   talking shop" content this format is built for. Worth a fresh look at
+   whether each tool's page gets its own thread, or whether they consolidate
+   into `green-room`. Same launch mechanics as above once there's a real
+   pinned question for each.
 
 ---
 

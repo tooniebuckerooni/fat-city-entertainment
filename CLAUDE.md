@@ -61,10 +61,11 @@ here** — the repo is served publicly by GitHub Pages.
   `triv101-api/wrangler.toml`.
 
 ## The Green Room (comment layer)
-- Discussion widget on **`/features.html`** (thread `green-room`, above the
-  tool entrances) and **`/gameshowhosts.html`** (thread `hosting`, at the foot
-  of the content). Embed is `<div data-fc-thread="KEY">` + a script tag; place
-  it with `_tools/add-green-room.js` (idempotent), never by hand.
+- **Live and taking real comments**: `green-room` thread on **`/features.html`**
+  (above the tool entrances). Embed is `<div data-fc-thread="KEY">` + a script
+  tag; place it with `_tools/add-green-room.js` (idempotent), never by hand.
+- `hosting` (foot of `/gameshowhosts.html`) has its embed div in place but the
+  thread itself isn't launched yet — see `GREENROOM-PLAN.md` §8a.
 - **Separate Worker** from Triv 101: source in `greenroom-api/`, live at
   **https://fatcity-greenroom.dustinramsbottom.workers.dev**, own D1 database
   `greenroom`. Kept separate so Green Room changes never mean re-pasting the
@@ -96,8 +97,9 @@ here** — the repo is served publicly by GitHub Pages.
 - Identity: votes/flags key off a **per-browser token**, not the IP — two hosts
   on one venue's wifi must count as two people. The IP hash is rate-limiting
   only. Never store a raw IP.
-- `GREENROOM-PLAN.md` is the design rationale; `DEPLOY-GREENROOM.md` is the
-  click-by-click dashboard runbook; `README-greenroom.md` is the reference.
+- `GREENROOM-PLAN.md` is the design rationale (incl. what's still not
+  launched and why — §8a); `README-greenroom.md` is the technical reference
+  (secrets, vars, embedding a thread, adding a new one, troubleshooting).
 
 ## Blog posts & store products (the Weebly-clone tooling)
 Every blog post and product page is a full standalone HTML document (nav,
@@ -146,13 +148,20 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
 
 ## Planning docs
-- `TRIV101-PLAN.md` — original relaunch thinking.
-- `TRIV101-BACKEND-PLAN.md` — the survey backend design.
-- `TRIV101-POLISH.md` — the current backlog / next-agent handoff for the game.
-- `LAUNCH-CHECKLIST.md` — the DNS-cutover runbook (historical; cutover is done).
-- `POST-LAUNCH.md` — the marketing/catalog punch list: Gold Club pricing,
-  the fall acquisition campaign, blog drafts, and open product decisions.
-- `HANDOFF.md` — rolling session-to-session handoff notes (most recent first),
-  mostly catalog/tooling-bug history.
+Trimmed periodically — retired once a doc's content is either done, or fully
+superseded by what's actually in the repo. If you're looking for a doc this
+file used to mention and it's gone, check `git log -- <filename>`; it was
+retired on purpose, not lost.
+
+- `TRIV101-POLISH.md` — the current backlog for the game, the survey stream,
+  and Green Room next steps. Start here for "what's left."
+- `POST-LAUNCH.md` — the marketing/catalog punch list: pricing decisions,
+  the fall acquisition campaign, blog drafts, open product decisions.
 - `SEO-HANDOFF.md` — the Aug 1 2026 GSC-audit-to-content-pass session: what
   shipped, what's still open (owner action needed), tooling bugs found.
+- `TRIVIA-SHOW-MAKER-HANDOFF.md` — what's wired into this site for the
+  Trivia Show Maker (the app itself lives in the `trivia-generator-pro` repo).
+- `HANDOFF.md` — durable tooling lessons-learned (real bugs found in the
+  `_tools/` scripts, still applicable) and a couple of "known and deliberate"
+  notes. Not a task list.
+- `GREENROOM-PLAN.md` / `README-greenroom.md` — see "The Green Room" above.

@@ -2,11 +2,15 @@
 
 ## What this is
 
-The Green Room is the comment layer on `/features.html` and
-`/gameshowhosts.html` — hosts and venue managers talking about pay rates,
-pitching bars, and what actually works on a Tuesday. It's backed by its own
-Cloudflare Worker and D1 database, separate from the Triv 101 survey backend
-(`triv101-api/`), so changes here never touch that live system.
+The Green Room is the comment layer for hosts and venue managers talking
+about pay rates, pitching bars, and what actually works on a Tuesday. It's
+backed by its own Cloudflare Worker and D1 database, separate from the
+Triv 101 survey backend (`triv101-api/`), so changes here never touch that
+live system.
+
+**Live today:** the `green-room` thread on `/features.html`. The embed div
+for a `hosting` thread already sits on `/gameshowhosts.html` but the thread
+itself isn't launched yet — see `GREENROOM-PLAN.md` §8a for what's next.
 
 ## Architecture in brief
 
@@ -24,6 +28,11 @@ Cloudflare Worker and D1 database, separate from the Triv 101 survey backend
   widget just fails to hydrate over it.
 
 ## First deploy, in order
+
+Already done for the live `fatcity-greenroom` Worker and `greenroom` D1
+database — kept below as the reference for standing up a new environment
+(a fork, a second brand, disaster recovery) or for the "adding a new
+thread later" steps further down, which reuse the same Worker.
 
 1. **Create the D1 database.**
    ```bash
@@ -122,10 +131,11 @@ block, or included from a page on a completely different domain (as long as
 that domain is in `ALLOWED_ORIGINS`) — it's just a script tag and a div.
 
 `data-fc-thread` is the thread's `key` from `greenroom-api/seed/threads.json`.
-At launch there are two live threads: `green-room` (on `/features.html`) and
-`hosting` (on `/gameshowhosts.html`). `trivia-generator`, `bingo`, and
-`triv101` are configured in that same file but not yet launched
-(`"launch": false`).
+`green-room` (on `/features.html`) is live and taking real comments.
+`hosting` (embedded on `/gameshowhosts.html`), `trivia-generator`, `bingo`,
+and `triv101` are configured in that same file but not yet launched
+(`"launch": false`) — see `GREENROOM-PLAN.md` §8a for what's blocking each
+one.
 
 ## Adding a new thread later
 
