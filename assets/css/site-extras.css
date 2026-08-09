@@ -737,17 +737,6 @@ a.fce-tool-banner-link:hover {
   width: 100%;
   height: auto;
 }
-.fce-tool-banner-tryfree {
-  margin-top: 8px !important;
-}
-/* #wsite-com-store a{color:#398205!important} otherwise wins on specificity
-   (ID selector) over .fce-cta's white text — re-assert it for this button. */
-#wsite-com-store a.fce-tool-banner-tryfree {
-  color: #ffffff !important;
-}
-#wsite-com-store a.fce-tool-banner-tryfree:hover {
-  color: #000000 !important;
-}
 
 /* 3-up plan/pricing cards (Trivia Show Maker credits & plans page, and
    anywhere else a "ready now" tier sits next to "coming soon" ones). */
