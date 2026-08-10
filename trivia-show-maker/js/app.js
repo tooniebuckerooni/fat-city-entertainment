@@ -834,6 +834,29 @@
     toast("Sample game loaded — 3 rounds, 30 questions, tiebreaker. Try a PDF!");
   }
 
+  /* ---------- theme ---------- */
+
+  const THEME_KEY = "tsm_theme";
+
+  function syncThemeBtn() {
+    const btn = $("#btn-theme");
+    if (!btn) return;
+    const light = document.documentElement.dataset.theme === "light";
+    btn.textContent = light ? "🌙" : "☀️";
+    const title = light ? "Switch to dark theme" : "Switch to light theme";
+    btn.title = title;
+    btn.setAttribute("aria-label", title);
+  }
+  function bindTheme() {
+    syncThemeBtn();
+    $("#btn-theme").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      syncThemeBtn();
+    });
+  }
+
   function bindToolbar() {
     $("#btn-sample").addEventListener("click", loadSampleGame);
 
@@ -891,6 +914,7 @@
   bindRounds();
   bindDownloads();
   bindToolbar();
+  bindTheme();
   bindTiebreakerAI();
   if (window.TGP_AI) TGP_AI.init();
 })();
