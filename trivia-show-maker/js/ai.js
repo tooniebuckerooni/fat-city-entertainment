@@ -7,9 +7,10 @@
   const $ = s => document.querySelector(s);
   const KEY_STORE = "tgp_license_v1";
 
-  // Fill in after deploying worker.js and creating the LemonSqueezy product.
   const WORKER_URL = "https://tgp-ai-gateway.dustinramsbottom.workers.dev";
-  const CHECKOUT_URL = "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f5fe010c-30ed-46f6-b157-4466e165d143";
+  // Credits & Plans has three packs (Starter/Host/Pro) — send people there to
+  // pick one rather than straight to a single checkout link.
+  const PLANS_URL = "/trivia-show-maker-plans.html";
 
   // License state lives in its own storage key, separate from the game
   // state in app.js — it's account-level, not game-level, so it must
@@ -98,7 +99,7 @@
     if (box) {
       if (!lic.key) {
         box.innerHTML = '<p class="hint">No license yet — the rest of Trivia Generator Pro works fully without one. '
-          + '<a href="' + CHECKOUT_URL + '" target="_blank" rel="noopener">Get AI credits →</a></p>';
+          + '<a href="' + PLANS_URL + '" target="_blank" rel="noopener">Get AI credits →</a></p>';
       } else if (lic.status === "activating") {
         box.innerHTML = '<p class="hint">Activating…</p>';
       } else if (lic.active) {
@@ -126,7 +127,7 @@
       chip.classList.add("is-cta");
       amt.textContent = "Get AI Credits";
       sub.textContent = "power up your night";
-      chip.onclick = () => window.open(CHECKOUT_URL, "_blank", "noopener");
+      chip.onclick = () => window.open(PLANS_URL, "_blank", "noopener");
       return;
     }
     chip.classList.add("is-active");
@@ -139,9 +140,9 @@
       sub.textContent = left <= 3 ? "low — tap to top up" : "remaining";
       if (left <= 3) chip.classList.add("is-low");
     }
-    // Active: clicking the balance opens the checkout to buy another pack.
+    // Active: clicking the balance opens Credits & Plans to buy another pack.
     chip.title = "Buy more credits";
-    chip.onclick = () => window.open(CHECKOUT_URL, "_blank", "noopener");
+    chip.onclick = () => window.open(PLANS_URL, "_blank", "noopener");
   }
 
   // A little dopamine when credits are spent: the gem pops and the cost
