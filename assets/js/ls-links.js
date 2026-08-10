@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 68 of 74 wired — 6 to go.  Search "[ ]" to find them.
+// STATUS: 69 of 74 wired — 5 to go.  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
@@ -92,7 +92,7 @@ window.LS_LINKS = {
   "p163": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b6ff3a61-b96c-4149-9ce6-7e2771736807", // [x] TV Shows 2 - 250 Music Bingo Cards — $10.99 USD — /store/p163/tvthemes2.html
   "p165": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/bfb2d0c4-1778-42e5-ba18-a0f62f8eccb8", // [x] Around The World... And Beyond! - Music Bingo 4-Pack — $32.49 USD — /store/p165/aroundtheworldpack.html
   "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html
-  "p167": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e9d05bc0-7848-4fc5-8749-642e543970ff", // [ ] Punk Rock - 250 Music Bingo Cards — $10.99 USD — /store/p167/punkrock.html
+  "p167": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e9d05bc0-7848-4fc5-8749-642e543970ff", // [x] Punk Rock - 250 Music Bingo Cards — $10.99 USD — /store/p167/punkrock.html
   "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [x] "Things In Songs" Music Bingo 5-Pack — $43.00 USD — /store/p168/thingsinsongs.html
 }
 
