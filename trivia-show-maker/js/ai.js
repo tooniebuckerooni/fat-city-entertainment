@@ -207,18 +207,37 @@
   // Returns a Promise<string[]> of 5 category ideas. seed: drill deeper
   // into a specific idea, or "" for a fresh top-level batch. avoid: round
   // names already in this game, so suggestions stay fresh. age: bias
-  // suggestions to a round's audience.
-  async function suggestCategories(seed, avoid, age) {
+  // suggestions to a round's audience. theme: optional free-text theme
+  // (e.g. "Halloween") to steer every idea toward, even fresh batches.
+  async function suggestCategories(seed, avoid, age, theme) {
     requireActive();
     let data;
     try {
-      data = await call("suggest_categories", { seed: seed || "", avoid: avoid || [], age: age || "" });
+      data = await call("suggest_categories", { seed: seed || "", avoid: avoid || [], age: age || "", theme: theme || "" });
     } catch (e) {
       throw new Error("Couldn't reach the AI generator - check your connection and try again.");
     }
     applyUsage(data);
     if (!data.ok) throw new Error(data.error || "Couldn't get suggestions.");
     return data.categories;
+  }
+
+  // Returns a Promise<{question, answer, category}> for one AI-written
+  // tiebreaker (a "closest answer wins" question with a precise numeric
+  // answer). seed: optional free-text topic to steer it (e.g. "Movies");
+  // category is a short label (e.g. "Movies") for what came back, so the
+  // caller can tell the host what they got.
+  async function generateTiebreaker(seed, age) {
+    requireActive();
+    let data;
+    try {
+      data = await call("generate_tiebreaker", { seed: seed || "", age: age || "" });
+    } catch (e) {
+      throw new Error("Couldn't reach the AI generator - check your connection and try again.");
+    }
+    applyUsage(data);
+    if (!data.ok) throw new Error(data.error || "Couldn't generate a tiebreaker.");
+    return { question: data.question, answer: data.answer, category: data.category };
   }
 
   function init() {
@@ -228,5 +247,5 @@
     if (lic.key) checkStatus();
   }
 
-  window.TGP_AI = { init, generateForRound, suggestCategories };
+  window.TGP_AI = { init, generateForRound, suggestCategories, generateTiebreaker };
 })();

@@ -358,7 +358,9 @@
           '<select class="ai-diff" data-field="difficulty" title="Difficulty (AI only)">' + diffOpts + "</select>" +
           '<button class="btn btn-small btn-ai" data-act="ai-fill" title="Generate 10 AI questions for this round">✨ Generate 10 <span class="ai-cost">· 2</span></button>' +
           '<span class="spacer"></span>' +
-          '<button class="btn btn-small btn-ai" data-act="ai-suggest" title="Dig up 5 surprising AI category ideas">⛏ Dig for Categories <span class="ai-cost">· 1</span></button>' +
+          '<span class="ai-seed-label">Seed</span>' +
+          '<input type="text" class="ai-seed" placeholder="e.g. Halloween" title="Optional seed to steer every dig for this round (e.g. Halloween, 90s, Sports)" maxlength="60">' +
+          '<button class="btn btn-small btn-ai" data-act="ai-suggest" title="Dig up 5 surprising AI category ideas, seeded if you typed one">⛏ Dig for Categories <span class="ai-cost">· 1</span></button>' +
         "</div>" +
         '<div class="ai-suggest-tray" hidden></div>' +
       "</div></div>";
@@ -457,37 +459,62 @@
 
   /* ---------- AI category spinner ---------- */
 
-  function renderSuggestTray(roundEl, spinning, categories) {
+  // Describes what's steering the current batch, so the tray never leaves
+  // it a mystery: the typed seed (persists across digs in this round) and,
+  // once the user has clicked "dig deeper" at least once, the chain of
+  // categories that batch was drilled out of.
+  function digContext(theme, trail) {
+    const parts = [];
+    if (trail && trail.length) parts.push('deeper into “' + trail[trail.length - 1] + '”');
+    if (theme) parts.push('seeded “' + theme + '”');
+    return parts.join(", ");
+  }
+
+  function renderSuggestTray(roundEl, spinning, categories, theme, trail) {
     const tray = roundEl.querySelector(".ai-suggest-tray");
     if (!tray) return;
     tray.hidden = false;
+    const ctx = digContext(theme, trail);
     if (spinning) {
-      tray.innerHTML = '<span class="dig-hint">⛏ Digging for fresh categories…</span>' +
+      tray.innerHTML = '<span class="dig-hint">⛏ Digging' + (ctx ? " " + esc(ctx) : " for fresh categories") + '…</span>' +
         Array.from({ length: 5 }, (_, i) =>
           '<span class="chip chip-spin chip-gem" style="animation-delay:' + (i * 70) + 'ms">◆</span>'
         ).join("");
       return;
     }
-    tray.innerHTML = '<span class="dig-hint">💎 Unearthed — click one to use it, or dig deeper:</span>' +
+    tray.innerHTML = '<span class="dig-hint">💎 Unearthed' + (ctx ? " — " + esc(ctx) : "") +
+        ' — click a name to set it as this round\'s category, or ⛏ to dig deeper from it:</span>' +
       categories.map((cat, i) =>
       '<span class="chip chip-landed" style="animation-delay:' + (i * 70) + 'ms" data-cat="' + esc(cat) + '">' +
-        '<button type="button" class="chip-text" data-act="usecat">' + esc(cat) + '</button>' +
-        '<button type="button" class="chip-spin-btn" data-act="spincat" title="Dig deeper into this one">⛏</button>' +
+        '<button type="button" class="chip-text" data-act="usecat" title="Use as this round\'s category">' + esc(cat) + '</button>' +
+        '<button type="button" class="chip-spin-btn" data-act="spincat" title="Dig deeper — spin off 5 more ideas from this one">⛏</button>' +
       '</span>'
-    ).join("") + '<button type="button" class="chip-reset" data-act="respin">⛏ Dig again</button>';
+    ).join("") + '<button type="button" class="chip-reset" data-act="respin">⛏ Start over</button>';
   }
 
-  function spinCategories(r, roundEl, seed) {
+  function spinCategories(r, roundEl, seed, theme, trail) {
     if (!window.TGP_AI) { toast("AI generator didn't load — try refreshing."); return; }
-    renderSuggestTray(roundEl, true);
+    renderSuggestTray(roundEl, true, null, theme, trail);
     const avoid = state.rounds.map(x => x.name.trim()).filter(Boolean);
-    TGP_AI.suggestCategories(seed || "", avoid, r.ageRange || "family")
-      .then(categories => renderSuggestTray(roundEl, false, categories))
+    TGP_AI.suggestCategories(seed || "", avoid, r.ageRange || "family", theme || "")
+      .then(categories => renderSuggestTray(roundEl, false, categories, theme, trail))
       .catch(err => {
         const tray = roundEl.querySelector(".ai-suggest-tray");
         if (tray) tray.hidden = true;
         toast(err.message || "Couldn't get suggestions.");
       });
+  }
+
+  // Briefly highlights a round's category field so it's obvious a dug-up
+  // name actually landed there. Looks the round up by index rather than
+  // holding a DOM reference, since renderRounds() just rebuilt the tree.
+  function flashRoundName(i) {
+    const el = document.querySelector('.round[data-r="' + i + '"] .r-name');
+    if (!el) return;
+    el.classList.remove("flash-set");
+    void el.offsetWidth; /* restart the animation if it's still running */
+    el.classList.add("flash-set");
+    setTimeout(() => el.classList.remove("flash-set"), 900);
   }
 
   function bindRounds() {
@@ -581,17 +608,35 @@
         return; /* async — aiFillRound does its own renderRounds()/save() */
       }
       else if (act === "ai-suggest" || act === "respin") {
-        spinCategories(r, roundEl, "");
+        const theme = (roundEl.querySelector(".ai-seed") || {}).value || "";
+        roundEl._digTrail = []; /* fresh top-level batch — clears any prior "dig deeper" chain */
+        spinCategories(r, roundEl, "", theme, roundEl._digTrail);
         return; /* async, and the tray is ephemeral UI — not part of saved state */
       }
       else if (act === "spincat") {
         const seed = btn.closest(".chip").dataset.cat;
-        spinCategories(r, roundEl, seed);
+        const theme = (roundEl.querySelector(".ai-seed") || {}).value || "";
+        roundEl._digTrail = (roundEl._digTrail || []).concat(seed); /* the true "dig deeper": spins off the pick just made */
+        spinCategories(r, roundEl, seed, theme, roundEl._digTrail);
         return;
       }
       else if (act === "usecat") {
-        r.name = btn.closest(".chip").dataset.cat;
+        const cat = btn.closest(".chip").dataset.cat;
+        const filled = r.questions.filter(q => q.q.trim() || q.a.trim()).length;
+        let cleared = false;
+        if (filled) {
+          cleared = confirm(
+            'Set Round ' + (i + 1) + '’s category to “' + cat + '”?\n\n' +
+            'It already has ' + filled + ' question' + (filled === 1 ? "" : "s") + ' filled in for the old category.\n\n' +
+            'OK — clear them so you can fill fresh ones for “' + cat + '”.\n' +
+            'Cancel — just rename the round and keep the existing questions.'
+          );
+          if (cleared) r.questions = r.questions.map(blankQ);
+        }
+        r.name = cat;
         renderRounds(); save();
+        flashRoundName(i);
+        toast('Round ' + (i + 1) + ' category set to “' + cat + '”' + (cleared ? " — questions cleared." : filled ? " — questions kept." : "."));
         return;
       }
       else if (act === "tfset") {
@@ -615,6 +660,34 @@
     });
 
     $("#btn-add-round").addEventListener("click", addRound);
+  }
+
+  /* ---------- AI tiebreaker ---------- */
+
+  function bindTiebreakerAI() {
+    const btn = $("#btn-tb-ai");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      if (!window.TGP_AI) { toast("AI generator didn't load — try refreshing."); return; }
+      const seed = ($("#tb-seed") || {}).value || "";
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = "Generating…";
+      TGP_AI.generateTiebreaker(seed, "family")
+        .then(({ question, answer, category }) => {
+          state.tiebreaker = { q: question, a: answer };
+          state.options.tiebreaker = true;
+          $("#tb-q").value = question;
+          $("#tb-a").value = answer;
+          autosize($("#tb-q"));
+          $("#o-tb").checked = true;
+          syncTbVisibility();
+          save();
+          toast(category ? "Generated a “" + category + "” tiebreaker." : "Generated a tiebreaker.");
+        })
+        .catch(err => toast(err.message || "Tiebreaker generation failed."))
+        .finally(() => { btn.disabled = false; btn.innerHTML = original; });
+    });
   }
 
   /* ---------- PDF generation ---------- */
@@ -761,5 +834,6 @@
   bindRounds();
   bindDownloads();
   bindToolbar();
+  bindTiebreakerAI();
   if (window.TGP_AI) TGP_AI.init();
 })();

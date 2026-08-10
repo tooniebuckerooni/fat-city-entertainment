@@ -201,8 +201,10 @@ retired on purpose, not lost.
 - `SEO-CRAWL-HANDOFF.md` — the Aug 9 2026 crawl/indexation fix: why ~380 pages
   had two competing URLs, what got normalised, and the 16 pages Google is
   declining to index for **content** reasons that no amount of tooling fixes.
-- `TRIVIA-SHOW-MAKER-HANDOFF.md` — what's wired into this site for the
-  Trivia Show Maker (the app itself lives in the `trivia-generator-pro` repo).
+- `TRIVIA-SHOW-MAKER-HANDOFF.md` — the Trivia Show Maker: as of 2026-08-10 the
+  app (`trivia-show-maker/`) and its AI backend (`tgp-ai-gateway/`) are
+  sourced in **this** repo — `trivia-generator-pro` is retired, don't edit
+  there.
 - `HANDOFF.md` — durable tooling lessons-learned (real bugs found in the
   `_tools/` scripts, still applicable) and a couple of "known and deliberate"
   notes. Not a task list.

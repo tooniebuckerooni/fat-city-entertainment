@@ -202,6 +202,12 @@
         <label class="check"><input id="o-half" type="checkbox"> Half-page answer sheets <span class="hint">(2 per page — saves paper)</span></label>
         <label class="check"><input id="o-tb" type="checkbox" checked> Include tiebreaker question</label>
         <div id="tb-fields">
+          <div class="tb-ai-row">
+            <span class="ai-label">✨ AI</span>
+            <span class="ai-seed-label">Seed</span>
+            <input type="text" id="tb-seed" placeholder="optional, e.g. Movies" title="Optional topic to steer the AI tiebreaker (e.g. Movies, Space)" maxlength="60">
+            <button type="button" id="btn-tb-ai" class="btn btn-small btn-ai" title="Generate a tiebreaker question with AI">✨ Generate <span class="ai-cost">· 1</span></button>
+          </div>
           <label>Tiebreaker Question <span class="hint">(closest answer wins)</span>
             <textarea id="tb-q" rows="2" placeholder="How many feet tall is the Statue of Liberty, heel to torch?"></textarea>
           </label>

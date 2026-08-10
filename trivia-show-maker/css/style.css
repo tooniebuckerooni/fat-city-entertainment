@@ -318,6 +318,12 @@ textarea { resize: vertical; min-height: 38px; }
   border-color: var(--gold-dark);
 }
 
+@keyframes flash-set {
+  0% { box-shadow: 0 0 0 3px rgba(240,180,41,.85); }
+  100% { box-shadow: 0 0 0 3px rgba(240,180,41,0); }
+}
+.r-name.flash-set { animation: flash-set .9s ease-out; }
+
 .empty-state {
   text-align: center; padding: 50px 20px; color: var(--ink-dim);
   border: 2px dashed var(--card-edge); border-radius: var(--radius);
@@ -366,15 +372,18 @@ textarea { resize: vertical; min-height: 38px; }
 /* ---------- age range in round head ---------- */
 .round-head select.r-age { width: auto; margin: 0; }
 
-/* ---------- elevated AI round row ---------- */
-.round-foot-ai {
+/* ---------- elevated AI round row (and the matching tiebreaker AI row) ---------- */
+.round-foot-ai, .tb-ai-row {
   align-items: center; gap: 8px;
   background: linear-gradient(180deg, rgba(240,180,41,.09), transparent);
   border: 1px solid rgba(240,180,41,.28); border-radius: 9px;
   padding: 9px 11px; margin-top: 10px;
 }
-.round-foot-ai .ai-label { font-size: 12.5px; font-weight: 800; color: var(--gold); letter-spacing: .3px; }
+.tb-ai-row { display: flex; flex-wrap: wrap; margin-bottom: 4px; }
+.round-foot-ai .ai-label, .tb-ai-row .ai-label { font-size: 12.5px; font-weight: 800; color: var(--gold); letter-spacing: .3px; }
 .round-foot-ai select.ai-mode, .round-foot-ai select.ai-diff { width: auto; margin: 0; padding: 6px 8px; font-size: 12.5px; }
+.round-foot-ai .ai-seed-label, .tb-ai-row .ai-seed-label { font-size: 12.5px; font-weight: 700; color: var(--ink-dim); }
+.round-foot-ai input.ai-seed, .tb-ai-row input#tb-seed { width: 140px; margin: 0; padding: 6px 8px; font-size: 12.5px; border-color: rgba(240,180,41,.35); }
 .ai-cost { opacity: .8; font-weight: 800; }
 
 /* ---------- dig tray ---------- */
