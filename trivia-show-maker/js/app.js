@@ -57,7 +57,11 @@
         else if (!hasContent) q.a = "";
       } else if (format === "mc") {
         if (!Array.isArray(q.choices) || q.choices.length !== 4) {
-          q.choices = [q.a || "", "", "", ""];
+          /* Randomize which slot the existing answer lands in — otherwise
+             every question in a round migrated from open format puts the
+             correct choice on A, since nothing nudges the host to move it. */
+          q.choices = ["", "", "", ""];
+          q.choices[Math.floor(Math.random() * 4)] = q.a || "";
         }
       } else {
         q.choices = null;

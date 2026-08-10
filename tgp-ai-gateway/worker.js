@@ -447,8 +447,20 @@ async function generateQuestions(apiKey, { topic, mode, format, count, age, diff
     questions = questions.filter(q =>
       Array.isArray(q.choices) && q.choices.length === 4 && q.choices.includes(q.answer));
     if (!questions.length) throw new Error('AI returned no valid multiple-choice questions - try again.');
+    // The model reliably writes the correct choice first, so left un-shuffled
+    // every generated question would put the answer on option A.
+    questions.forEach(q => shuffleChoices(q));
   }
   return questions;
+}
+
+// In-place Fisher-Yates shuffle of a question's `choices` array.
+function shuffleChoices(q) {
+  const choices = q.choices;
+  for (let i = choices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [choices[i], choices[j]] = [choices[j], choices[i]];
+  }
 }
 
 const AGE_HINT = {
