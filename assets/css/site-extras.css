@@ -776,6 +776,17 @@ a.fce-tool-banner-link:hover {
 .fce-plan-card--soon {
   opacity: 0.6;
 }
+/* The anchor tier. Ringed rather than recoloured so it reads as "most people
+   pick this" without turning the other two cards into rejects. */
+.fce-plan-card--featured {
+  border-color: #99790a;
+  box-shadow: 0 0 0 2px rgba(153, 121, 10, 0.35);
+}
+.fce-plan-card-badge--popular {
+  margin-top: 12px;
+  border-color: #99790a;
+  color: #99790a;
+}
 .fce-plan-card-badge {
   display: inline-block;
   padding: 8px 18px;
