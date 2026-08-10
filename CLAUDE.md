@@ -182,6 +182,11 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   `*.workers.dev`** (403). So an agent here **cannot deploy to or fetch the
   Worker** — those steps happen in the owner's browser/Cloudflare dashboard.
   Don't try to route around it.
+- **Whenever a Worker code change needs to be pasted into the Cloudflare
+  dashboard, always give the owner the GitHub link to the updated file**
+  (e.g. `https://github.com/tooniebuckerooni/fat-city-entertainment/blob/main/tgp-ai-gateway/worker.js`
+  — swap in `triv101-api/` or `greenroom-api/src/index.js` for those Workers)
+  so they can open and copy it directly, in addition to summarizing the diff.
 - **Images the user pastes into chat are not reachable as files.** There's no
   path on disk to read or copy them from — ask for a URL or an upload
   (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
