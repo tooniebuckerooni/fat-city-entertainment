@@ -630,10 +630,8 @@
         let cleared = false;
         if (filled) {
           cleared = confirm(
-            'Set Round ' + (i + 1) + '’s category to “' + cat + '”?\n\n' +
-            'It already has ' + filled + ' question' + (filled === 1 ? "" : "s") + ' filled in for the old category.\n\n' +
-            'OK — clear them so you can fill fresh ones for “' + cat + '”.\n' +
-            'Cancel — just rename the round and keep the existing questions.'
+            'Round ' + (i + 1) + ' already has ' + filled + ' question' + (filled === 1 ? "" : "s") +
+            ' — clear ' + (filled === 1 ? "it" : "them") + ' for “' + cat + '”?'
           );
           if (cleared) r.questions = r.questions.map(blankQ);
         }
@@ -652,8 +650,6 @@
         if (act === "qup" && qi > 0) {
           r.questions.splice(qi - 1, 0, r.questions.splice(qi, 1)[0]);
         } else if (act === "qdel") {
-          const q = r.questions[qi];
-          if ((q.q.trim() || q.a.trim()) && !confirm("Delete question " + (qi + 1) + "?")) return;
           r.questions.splice(qi, 1);
           if (!r.questions.length) r.questions.push(blankQ());
         } else return;
