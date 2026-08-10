@@ -405,3 +405,17 @@ textarea { resize: vertical; min-height: 38px; }
   animation: toast-in .18s ease-out;
 }
 @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 8px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+.confirm-modal {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(6,9,18,.62);
+  display: flex; align-items: center; justify-content: center; padding: 20px;
+}
+.confirm-modal[hidden] { display: none; }
+.confirm-box {
+  background: #131b30; border: 1px solid var(--card-edge); border-radius: var(--radius);
+  box-shadow: 0 12px 40px rgba(0,0,0,.5); max-width: 380px; width: 100%;
+  padding: 20px 22px; animation: toast-in .15s ease-out;
+}
+.confirm-msg { margin: 0 0 16px; font-size: 14.5px; color: var(--ink); line-height: 1.5; }
+.confirm-btns { display: flex; justify-content: flex-end; gap: 10px; }
