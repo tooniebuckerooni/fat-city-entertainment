@@ -50,7 +50,7 @@ window.LS_LINKS = {
   "p109": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/6a13d7d1-647f-40cb-9107-a70c47f52f3b", // [x] Body Parts - 250 Music Bingo Cards — $10.99 USD — /store/p109/bodyparts.html
   "p110": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/877e3537-426c-4eac-af48-bf35a0403ca8", // [x] Out Of This World - 250 Music Bingo Cards — $10.99 USD — /store/p110/outofthisworld.html
   "p111": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/ffd8f661-8551-4e58-aaaf-4a77753d709b", // [x] Girls Vs Boys — $10.99 USD — /store/p111/girlsvsboys.html
-  "p112": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b", // [x] Music Bingo Gold Club — $274.25 USD — /store/p112/GoldClub.html
+  "p112": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/81c3fbf2-d1e9-451d-9e7e-18b74eb37a9b", // [x] Music Bingo Gold Club — $465.50 USD — /store/p112/GoldClub.html
   "p113": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f3c90249-36e1-41f5-ac59-a8544858f59b", // [x] The 90s - 250 Music Bingo Cards — $10.99 USD — /store/p113/the90s.html
   "p114": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/18bbeb2f-69bd-4180-b7bd-9d26becb9233", // [x] Antonyms - 250 Music Bingo Cards — $10.99 USD — /store/p114/antonyms.html
   "p115": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/337af8d7-2a69-4a93-a9d6-df79cc689b45", // [x] The 70s - 250 Music Bingo Cards — $10.99 USD — /store/p115/the1970s.html
@@ -65,8 +65,8 @@ window.LS_LINKS = {
   "p127": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/274a06f1-c018-4259-944c-f0a4f112bfc5", // [x] Movie Soundtracks - 3 Pack — $23.99 USD — /store/p127/moviesoundtracks3pack.html
   "p128": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/de58d22b-4ddb-4d90-9d0c-a93a6eb69a90", // [x] One Hit Wonders 2-Pack — $18.99 USD — /store/p128/onehitwonders2pack.html
   "p129": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/63c7d3fb-45b4-48ea-b0e9-913aca4dcb56", // [x] Cover Tunes - 250 Music Bingo Cards — $10.99 USD — /store/p129/covertunes.html
-  "p130": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b4f4670c-3a7f-4503-8cd8-ad4efd5e2220", // [x] Music Bingo Silver Club — $197.00 USD — /store/p130/SilverClub.html
-  "p131": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/028a1234-44ee-434f-b015-3f2bd6c4cbe1", // [x] Music Bingo Bronze - Top 10 Pack — $87.00 USD — /store/p131/BronzeClub.html
+  "p130": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b4f4670c-3a7f-4503-8cd8-ad4efd5e2220", // [x] Music Bingo Silver Club — $198.75 USD — /store/p130/SilverClub.html
+  "p131": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/028a1234-44ee-434f-b015-3f2bd6c4cbe1", // [x] Music Bingo Bronze - Top 10 Pack — $89.00 USD — /store/p131/BronzeClub.html
   "p132": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/35e35d4f-390a-47be-888a-8bc13914c8a5", // [x] Road Trip! - 250 Music Bingo Cards — $10.99 USD — /store/p132/roadtrip.html
   "p133": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57441f4e-5bba-4394-8e50-dc88c4e3000c", // [x] Cartoons - 250 Music Bingo Cards — $10.99 USD — /store/p133/cartoons.html
   "p135": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9623a506-8943-4cfe-9cad-5c162a720eb6", // [x] Valentine's Day Trivia 2-Pack — $32.99 USD — /store/p135/valentinestriviapack.html

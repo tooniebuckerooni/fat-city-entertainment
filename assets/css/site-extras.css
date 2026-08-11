@@ -709,28 +709,48 @@ p.fce-playlist-badge {
    items instead of the category row's three, so the tiles run wide/flat
    ("banner" shaped, ~3:2) rather than the category row's tall ~4:5 tiles —
    deliberate, not a bug. Plain links, not real Weebly categories: these two
-   tools aren't part of the original store catalog/hierarchy. */
+   tools aren't part of the original store catalog/hierarchy.
+
+   Deliberately kept SMALL/quiet: these two haven't proven themselves yet, and
+   the store's job is still to sell Gold/Silver/Bronze first. Capped width +
+   centered + muted shadow + an "also from Fat City" eyebrow so this reads as
+   a secondary strip, not a second hero row. Revisit sizing once either tool
+   has real traction. */
+.fce-tool-banners-eyebrow {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999999;
+}
 .fce-tool-banners {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 0 0 26px;
+  justify-content: center;
+  gap: 14px;
+  max-width: 560px;
+  margin: 0 auto 22px;
 }
 .fce-tool-banner-card {
-  flex: 1 1 320px;
-  min-width: 260px;
+  flex: 1 1 240px;
+  min-width: 200px;
+  max-width: 260px;
   text-align: center;
 }
 a.fce-tool-banner-link {
   display: block;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  opacity: 0.9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 200ms ease, opacity 200ms ease;
 }
 a.fce-tool-banner-link:hover {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-  transform: translateY(-2px);
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .fce-tool-banner-link img {
   display: block;
@@ -799,8 +819,19 @@ a.fce-tool-banner-link:hover {
   text-transform: uppercase;
 }
 @media screen and (max-width: 640px) {
+  /* flex-direction:column makes flex-basis apply to HEIGHT, not width — a
+     240px flex-basis fighting each image's real (shorter) aspect-ratio
+     height is what produced the uneven gaps between the two cards. Dropping
+     flex-basis entirely and sizing by width instead fixes it. */
   .fce-tool-banners {
     flex-direction: column;
+    align-items: center;
+    max-width: 320px;
+  }
+  .fce-tool-banner-card {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
   }
 }
 
@@ -866,5 +897,54 @@ a.fce-tool-banner-link:hover {
   }
   .fce-copy-inner h2 {
     font-size: 21px;
+  }
+}
+
+/* --------------------------------------------------------- fce-promo-bar
+   Sitewide announcement bar, injected by assets/js/promo-bar.js (placed on
+   every page by _tools/add-promo-bar.js — never hand-add the script tag).
+   Deliberately slim/dismissible rather than a modal: it shouldn't cost a
+   visitor a click to read the page. Sits as the first element in <body>,
+   above the Weebly header, so it reads as site chrome, not an interruption. */
+.fce-promo-bar {
+  position: relative;
+  z-index: 9999;
+  background: linear-gradient(90deg, #99790a, #b3920f);
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 42px 10px 14px;
+  line-height: 1.4;
+}
+.fce-promo-bar code {
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.fce-promo-bar-close {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px;
+  opacity: 0.85;
+}
+.fce-promo-bar-close:hover {
+  opacity: 1;
+}
+@media screen and (max-width: 480px) {
+  .fce-promo-bar {
+    font-size: 12.5px;
+    padding: 9px 36px 9px 10px;
   }
 }
