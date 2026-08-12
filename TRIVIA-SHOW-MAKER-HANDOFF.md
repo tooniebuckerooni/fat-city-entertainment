@@ -61,16 +61,51 @@ generator and themed category digging) has been pasted to the live
 - `trivia-generator.html` should redirect to `/trivia-show-maker/`.
 
 
-## Pack tiers (live 2026-08-09)
+## Pack tiers (repriced 2026-08-11 — retired the old 200/500 packs)
 
 | Pack | Credits | Price | Per credit | Roughly | Role |
 |---|---|---|---|---|---|
-| Starter | 50 | $7.99 | 16.0¢ | 25 rounds · ~1 month | impulse entry |
-| Host | 200 | $24.99 | 12.5¢ (~22% off) | 100 rounds · ~3–4 months | "Most popular" anchor |
-| Pro | 500 | $49.99 | 10.0¢ (~37% off) | 250 rounds · 6+ months | weekly hosts / multi-night venues |
+| Starter | 50, one-time | $13.98 | 28.0¢ | 25 rounds · ~1 month | impulse entry |
+| Pack | 250, one-time | $54.99 | 22.0¢ (~21% off Starter) | 125 rounds · several months | "Most popular" anchor |
+| Subscription | 250/month | $44.99/mo | 18.0¢ (~36% off Starter, ~18% cheaper than the one-time Pack) | 125 rounds/month, refilled automatically | recurring weekly hosts |
 
 Round maths comes from the worker's own economy: `GENERATE_COST = 2`, so a
 full 10-question round costs 2 credits.
+
+**The old Host (200, $24.99) and Pro (500, $49.99) tiers are retired** — the
+site only sells the three above now. Existing buyers of the old tiers keep
+whatever credits they haven't spent; nothing about their license changes,
+since credits never expire.
+
+**The Subscription card is marked "Coming soon" on `trivia-show-maker-plans.html`
+(`fce-plan-card--soon`, no buy link) because the LemonSqueezy product doesn't
+exist yet.** To launch it:
+
+1. In LemonSqueezy, create a **recurring/subscription** product named so its
+   first number is the monthly credit grant, e.g. `Trivia Show Maker — 250 AI
+   Credits/mo`, priced $44.99/mo, **License Keys enabled**.
+2. Copy its variant id (Product page → that variant → the id is in the
+   dashboard URL) into `SUBSCRIPTION_VARIANT_IDS` in `tgp-ai-gateway/worker.js`
+   — this is what makes its credits refill every calendar month instead of
+   persisting forever like a one-time pack (see the comment above `balanceKey()`
+   for how/why). Leaving a subscription product's variant out of that set
+   would make it behave like a one-time 250-credit pack instead — the buyer
+   gets 250 credits ONCE for the life of the subscription and then is stuck
+   at 0 even though they're still being billed monthly. Don't skip this step.
+3. Re-paste the updated `worker.js` into the Cloudflare dashboard (a commit
+   here doesn't go live on its own).
+4. Swap the "Coming soon" badge and add the real `<a class="fce-cta">` buy
+   link on `trivia-show-maker-plans.html`, pointing at the new product's
+   checkout URL.
+
+**Renaming the old "Host" product into the new "Pack" tier assumes it's the
+*same* LemonSqueezy product**, just renamed to `... 250 AI Credits` and
+repriced to $54.99 — that keeps its existing checkout link valid, since the
+credit grant is read from whatever the product is named *at the time of
+purchase*, not baked into the button. If a *new* product was created for the
+250 pack instead, the button on `trivia-show-maker-plans.html` still points
+at the old Host checkout and needs updating to the new one — check this
+before promoting the price.
 
 ## ⚠ The credit grant depends on the LemonSqueezy PRODUCT NAME
 

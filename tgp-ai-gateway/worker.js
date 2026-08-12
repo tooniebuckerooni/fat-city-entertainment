@@ -23,9 +23,19 @@
 //   - suggest_categories: 1 credit for a batch of 5 category ideas.
 //   - generate: 2 credits for a batch of up to 10 Q&A pairs.
 //   - generate_tiebreaker: 1 credit for a single numeric-answer question.
-// Credits come from a one-time pack (size set by TIER_CAPS) and PERSIST until
-// spent — they never reset. Buying another pack issues a new license key with
-// its own fresh balance, so a host tops up by activating the new key.
+// Credits from a ONE-TIME pack (the default) PERSIST until spent — they
+// never reset. Buying another pack issues a new license key with its own
+// fresh balance, so a host tops up by activating the new key.
+//
+// A SUBSCRIPTION pack (variant listed in SUBSCRIPTION_VARIANT_IDS below)
+// works differently: its balance is bucketed by calendar month (UTC), so it
+// automatically refills on the 1st with no LemonSqueezy webhook needed —
+// see balanceKey() below for exactly how and why. Access itself is still
+// gated the normal way: checkLicenseAndReserve()'s LemonSqueezy validate
+// call already fails a cancelled or payment-failed subscription (status
+// != 'active'), so a lapsed subscriber is blocked regardless of any credits
+// left in the current month's bucket. Nothing extra was needed for that
+// part — it was already correct for the one-time-pack case.
 //
 // Design notes (mirrors the licensing pattern proven in the bingo card
 // generator's worker.js, adapted for metered usage instead of export
@@ -56,6 +66,18 @@ const TIER_CAPS = {
   // '123456': 50,
 };
 
+// Variant IDs of SUBSCRIPTION credit packs (recurring, e.g. "250 AI
+// Credits/mo"). Everything not listed here is treated as a one-time pack —
+// today's behavior, unchanged. Fill this in with the real variant_id once
+// the subscription product exists in LemonSqueezy (Store -> Products ->
+// that variant -> the id is in its dashboard URL). Deliberately an explicit
+// allowlist by id rather than sniffing the name for "subscription"/"/mo" —
+// this gates *billing behavior*, not just display text, so it shouldn't
+// depend on nobody ever renaming the product.
+const SUBSCRIPTION_VARIANT_IDS = new Set([
+  // '789012',
+]);
+
 const MODEL = 'claude-haiku-4-5-20251001';
 const MAX_QUESTIONS_PER_CALL = 10;
 const GENERATE_COST = 2;
@@ -67,10 +89,36 @@ function getAllowedOrigin(request) {
   return ALLOWED_ORIGINS.find(o => origin.startsWith(o)) || ALLOWED_ORIGINS[0];
 }
 
-// One persistent balance per license key (per pack). No date component, so
-// credits accumulate for the life of the pack and never reset.
-function balanceKey(licenseKey) {
+// One persistent balance per license key for a one-time pack — no date
+// component, so credits accumulate for the life of the pack and never reset.
+//
+// A subscription pack instead buckets by calendar month (UTC), e.g.
+// "credits:XXXX:2026-08" — a new month is a new (empty) KV key, so the
+// balance is effectively back to 0-of-cap on the 1st with no code running
+// and nothing to trigger. This is pegged to wall-clock time rather than the
+// subscriber's actual billing date, which is a deliberate simplification:
+// getting an exact per-subscriber billing-cycle reset right requires either
+// trusting LemonSqueezy to roll a license key's expires_at forward on every
+// renewal (unverified from here — see TRIVIA-SHOW-MAKER-HANDOFF.md, this
+// agent's sandbox can't reach LemonSqueezy's docs or API to confirm it) or
+// wiring a `subscription_payment_success` webhook to reset the balance on
+// the real renewal event. Calendar-month is simple, needs no webhook, and
+// is self-healing if anything ever goes wrong — the cost is that a signup
+// late in the month gets refilled again within days, and one right after
+// the 1st waits nearly a full month. Acceptable for how small this economy
+// is; revisit with a webhook if billing-date precision ever matters more
+// than that.
+function balanceKey(licenseKey, meta) {
+  if (isSubscriptionPack(meta)) {
+    const period = new Date().toISOString().slice(0, 7); // e.g. "2026-08"
+    return `credits:${licenseKey}:${period}`;
+  }
   return 'credits:' + licenseKey;
+}
+
+function isSubscriptionPack(meta) {
+  const variantId = String(meta?.variant_id ?? '');
+  return SUBSCRIPTION_VARIANT_IDS.has(variantId);
 }
 
 // How many credits a license grants. Prefer an explicit TIER_CAPS entry
@@ -119,7 +167,7 @@ async function checkLicenseAndReserve(env, license_key, instance_id, cost) {
 
   if (!env.USAGE_KV) return { ok: false, error: 'Credit tracking is not configured on the server.' };
 
-  const key = balanceKey(license_key);
+  const key = balanceKey(license_key, lsData.meta);
   const used = parseInt((await env.USAGE_KV.get(key)) || '0', 10);
   if (used + cost > cap) {
     return {
@@ -311,7 +359,7 @@ export default {
       const packCap = isActive ? creditsForLicense(data.meta) : null;
       if (packCap && env.USAGE_KV) {
         cap = packCap;
-        used = parseInt((await env.USAGE_KV.get(balanceKey(license_key))) || '0', 10);
+        used = parseInt((await env.USAGE_KV.get(balanceKey(license_key, data.meta))) || '0', 10);
       }
 
       return new Response(JSON.stringify({
