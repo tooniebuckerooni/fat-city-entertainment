@@ -27,8 +27,9 @@
 // never reset. Buying another pack issues a new license key with its own
 // fresh balance, so a host tops up by activating the new key.
 //
-// A SUBSCRIPTION pack (variant listed in SUBSCRIPTION_VARIANT_IDS below)
-// works differently: its balance is bucketed by calendar month (UTC), so it
+// A SUBSCRIPTION pack (product/variant name matches SUBSCRIPTION_NAME_HINTS
+// below, e.g. "... Per Month") works differently: its balance is bucketed by
+// calendar month (UTC), so it
 // automatically refills on the 1st with no LemonSqueezy webhook needed —
 // see balanceKey() below for exactly how and why. Access itself is still
 // gated the normal way: checkLicenseAndReserve()'s LemonSqueezy validate
@@ -66,17 +67,15 @@ const TIER_CAPS = {
   // '123456': 50,
 };
 
-// Variant IDs of SUBSCRIPTION credit packs (recurring, e.g. "250 AI
-// Credits/mo"). Everything not listed here is treated as a one-time pack —
-// today's behavior, unchanged. Fill this in with the real variant_id once
-// the subscription product exists in LemonSqueezy (Store -> Products ->
-// that variant -> the id is in its dashboard URL). Deliberately an explicit
-// allowlist by id rather than sniffing the name for "subscription"/"/mo" —
-// this gates *billing behavior*, not just display text, so it shouldn't
-// depend on nobody ever renaming the product.
-const SUBSCRIPTION_VARIANT_IDS = new Set([
-  // '789012',
-]);
+// Recognizes SUBSCRIPTION credit packs (recurring, e.g. "... 250 Gen Credits
+// Per Month") by a keyword in the LemonSqueezy product/variant name — same
+// trust model as creditsForLicense() already uses for the credit amount
+// itself (both are read from names the store owner controls at checkout
+// time). This was originally an explicit allowlist by variant_id, which is
+// marginally more robust, but LemonSqueezy's dashboard doesn't surface that
+// id anywhere obvious, so name matching is the practical choice. Case
+// insensitive; matches any of these phrases anywhere in the name.
+const SUBSCRIPTION_NAME_HINTS = ['per month', '/mo', 'monthly', 'subscription'];
 
 const MODEL = 'claude-haiku-4-5-20251001';
 const MAX_QUESTIONS_PER_CALL = 10;
@@ -117,8 +116,8 @@ function balanceKey(licenseKey, meta) {
 }
 
 function isSubscriptionPack(meta) {
-  const variantId = String(meta?.variant_id ?? '');
-  return SUBSCRIPTION_VARIANT_IDS.has(variantId);
+  const name = String(meta?.product_name || meta?.variant_name || '').toLowerCase();
+  return SUBSCRIPTION_NAME_HINTS.some((hint) => name.includes(hint));
 }
 
 // How many credits a license grants. Prefer an explicit TIER_CAPS entry

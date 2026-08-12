@@ -77,35 +77,40 @@ site only sells the three above now. Existing buyers of the old tiers keep
 whatever credits they haven't spent; nothing about their license changes,
 since credits never expire.
 
-**The Subscription card is marked "Coming soon" on `trivia-show-maker-plans.html`
-(`fce-plan-card--soon`, no buy link) because the LemonSqueezy product doesn't
-exist yet.** To launch it:
+**Subscription is live (2026-08-11)** — the owner reused the retired
+500-credit Pro product's LemonSqueezy listing, renamed to `Trivia Show Maker
+Subscription - 250 Gen Credits Per Month`, and re-pasted the updated Worker.
+`trivia-show-maker-plans.html`'s Subscription card now has a real "Subscribe"
+button pointing at that product's existing checkout link
+(`buy/9c1b7e70-...`).
 
-1. In LemonSqueezy, create a **recurring/subscription** product named so its
-   first number is the monthly credit grant, e.g. `Trivia Show Maker — 250 AI
-   Credits/mo`, priced $44.99/mo, **License Keys enabled**.
-2. Copy its variant id (Product page → that variant → the id is in the
-   dashboard URL) into `SUBSCRIPTION_VARIANT_IDS` in `tgp-ai-gateway/worker.js`
-   — this is what makes its credits refill every calendar month instead of
-   persisting forever like a one-time pack (see the comment above `balanceKey()`
-   for how/why). Leaving a subscription product's variant out of that set
-   would make it behave like a one-time 250-credit pack instead — the buyer
-   gets 250 credits ONCE for the life of the subscription and then is stuck
-   at 0 even though they're still being billed monthly. Don't skip this step.
-3. Re-paste the updated `worker.js` into the Cloudflare dashboard (a commit
-   here doesn't go live on its own).
-4. Swap the "Coming soon" badge and add the real `<a class="fce-cta">` buy
-   link on `trivia-show-maker-plans.html`, pointing at the new product's
-   checkout URL.
+How the Worker recognizes it as a subscription: originally this was going to
+be an explicit `SUBSCRIPTION_VARIANT_IDS` allowlist keyed by numeric
+variant id, but LemonSqueezy's dashboard doesn't surface that id anywhere
+findable, so it was switched to `SUBSCRIPTION_NAME_HINTS` — a
+case-insensitive match against the product/variant name (`'per month'`,
+`'/mo'`, `'monthly'`, `'subscription'`). `Trivia Show Maker Subscription -
+250 Gen Credits Per Month` matches on both `subscription` and `per month`,
+and its leading `250` is still what `creditsForLicense()` reads for the
+monthly cap — same mechanism as every other pack. **If this product is ever
+renamed, keep a number-first credit count AND one of those hint phrases in
+the name**, or it silently falls back to one-time-pack behavior (250 credits
+once, then stuck at 0 while still being billed — not a security problem,
+just a wrong-and-confusing one for whoever's stuck at 0 credits).
 
-**Renaming the old "Host" product into the new "Pack" tier assumes it's the
-*same* LemonSqueezy product**, just renamed to `... 250 AI Credits` and
-repriced to $54.99 — that keeps its existing checkout link valid, since the
-credit grant is read from whatever the product is named *at the time of
-purchase*, not baked into the button. If a *new* product was created for the
-250 pack instead, the button on `trivia-show-maker-plans.html` still points
-at the old Host checkout and needs updating to the new one — check this
-before promoting the price.
+**Not verified from this agent's sandbox (lemonsqueezy.com is blocked by the
+egress proxy) — worth the owner double-checking in the LemonSqueezy
+dashboard:** that this product's **billing type is actually set to
+Subscription/recurring**, not left over as a one-time product with a
+renamed label. If it's still one-time, the buyer is charged $44.99 once,
+gets 250 credits for that calendar month via the name-hint logic above, and
+then is never billed again — no auto-renewal, and the "renews monthly,
+cancel anytime" copy on the page would be wrong. Confirm the price shows as
+recurring in LemonSqueezy's product list before calling this fully live.
+
+**Renaming the old "Host" product into the "Pack" tier is confirmed** — same
+LemonSqueezy product, renamed to `... 250 AI Credits` and repriced to
+$54.99, so its existing checkout link stayed valid.
 
 ## ⚠ The credit grant depends on the LemonSqueezy PRODUCT NAME
 
