@@ -199,6 +199,28 @@ a.fce-cta-secondary:hover {
   margin-bottom: 115% !important;
 }
 
+/* Small corner badge for a category tile, e.g. the Bundles tile below —
+   the tile used to lean on its (off-brand) image, a green "SAVE" button, to
+   signal "this is the affordable path." That image is gone; this callout
+   carries the same signal in text instead. Gold to match the site's existing
+   promo-bar accent rather than green, which already means "on sale" via
+   Weebly's own category__image-sale-banner elsewhere on the site. */
+.fce-tile-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background: linear-gradient(90deg, #99790a, #b3920f);
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
 /* Reserve two lines for the product name so the common one-line/two-line
    difference doesn't leave tiles in a row at visibly different heights.
    Longer names still grow; flex wrapping keeps the rows intact. */
