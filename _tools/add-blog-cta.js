@@ -20,6 +20,7 @@ const POSTS = [
   'triviahostresources/how-to-run-a-music-bingo-night/index.html',
   'triviahostresources/19-music-bingo-games-our-crowds-cant-get-enough-of/index.html',
   'triviahostresources/decade-by-decade-music-bingo-playlist-guide/index.html',
+  'triviahostresources/how-to-build-a-custom-trivia-night-with-the-trivia-show-maker/index.html',
 ];
 
 const CTA_HTML = `
