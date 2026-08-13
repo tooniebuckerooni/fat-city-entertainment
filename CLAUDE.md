@@ -37,10 +37,16 @@ here** — the repo is served publicly by GitHub Pages.
   hand-editing them is how a live layout gets broken.
 - New content pages are cloned from a live page's shell (see
   `_tools/new-content-page.js` / `make-*-page.js`) so they inherit nav/footer.
-- Top-level nav: **Trivia Store · ★ Featured! (dropdown) · Our Games · Bingo
-  Card Maker · Blog · Contact**. The **Featured!** dropdown holds Triv 101,
-  Trivia Generator (coming soon), and Bingo Card Generator (external link to
-  https://bingocardgenerator.online/). Hub page: `/features.html`.
+- Top-level nav: **Trivia Store (dropdown) · ★ Featured! (dropdown) · Our
+  Games (dropdown) · Bingo Card Maker · Blog (dropdown, one stale item) ·
+  Contact**. **Trivia Store** dropdown (added Aug 13 2026, via
+  `_tools/add-trivia-store-nav.js`) holds Music Bingo Card Downloads, Eras,
+  Pre-made Trivia Shows, Bundles, Virtual Events. **Featured!** dropdown holds
+  Triv 101, Trivia Generator (coming soon), and Bingo Card Generator (external
+  link to https://bingocardgenerator.online/). Hub page: `/features.html`.
+  **Bingo Card Maker** is still a flat link to `/printmusicbingocards.html`
+  despite that page hosting 4 distinct tools — see
+  `TRIVIA-STORE-NAV-HANDOFF.md` for the proposed dropdown, not yet built.
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,
@@ -182,6 +188,13 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   `*.workers.dev`** (403). So an agent here **cannot deploy to or fetch the
   Worker** — those steps happen in the owner's browser/Cloudflare dashboard.
   Don't try to route around it.
+- The proxy also blocks **`www.fatcityentertainment.com` and
+  `tooniebuckerooni.github.io`** — an agent here cannot fetch the live site
+  either, even to verify a deploy. Verify instead via the GitHub Actions API:
+  the built-in `pages-build-deployment` workflow run for the commit SHA now on
+  `main` — `status: completed` + `conclusion: success` confirms that exact
+  commit deployed. Since Pages serves this repo's files with no build step,
+  local testing of that commit is equivalent to testing what's live.
 - **Whenever a Worker code change needs to be pasted into the Cloudflare
   dashboard, always give the owner the GitHub link to the updated file**
   (e.g. `https://github.com/tooniebuckerooni/fat-city-entertainment/blob/main/tgp-ai-gateway/worker.js`
@@ -213,4 +226,10 @@ retired on purpose, not lost.
 - `HANDOFF.md` — durable tooling lessons-learned (real bugs found in the
   `_tools/` scripts, still applicable) and a couple of "known and deliberate"
   notes. Not a task list.
+- `TRIVIA-STORE-NAV-HANDOFF.md` — the Aug 13 2026 category/nav rework: Eras
+  and Virtual Events promoted into the store front, "Game Show" Trivia
+  renamed to "Pre-made Trivia Shows", Hard Games unlinked as a category, and
+  a new "Trivia Store" nav dropdown. Open items: a stale `c6` page H1, the
+  "Blog" nav dropdown's one leftover item, and a proposed "Bingo Card Maker"
+  dropdown, not yet built.
 - `GREENROOM-PLAN.md` / `README-greenroom.md` — see "The Green Room" above.
