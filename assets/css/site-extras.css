@@ -975,6 +975,14 @@ a.fce-tool-banner-link:hover {
   font-weight: 800;
   letter-spacing: 0.03em;
 }
+.fce-promo-bar-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.fce-promo-bar-link:hover,
+.fce-promo-bar-link:focus {
+  text-decoration: underline;
+}
 .fce-promo-bar-close {
   position: absolute;
   right: 6px;

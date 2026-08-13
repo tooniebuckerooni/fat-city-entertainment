@@ -33,8 +33,9 @@
   bar.setAttribute("role", "region");
   bar.setAttribute("aria-label", COPY + " promotion");
   bar.innerHTML =
+    '<a class="fce-promo-bar-link" href="/trivia-store.html">' +
     COPY + " — <strong>" + PCT + " off everything</strong> with code " +
-    '<code>' + CODE + "</code> — ends Sept 9" +
+    '<code>' + CODE + "</code> — ends Sept 9 — Shop Now &rarr;</a>" +
     '<button type="button" class="fce-promo-bar-close" aria-label="Dismiss">&times;</button>';
 
   if (document.body.firstChild) {
