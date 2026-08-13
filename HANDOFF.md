@@ -76,6 +76,14 @@ before trusting any of these scripts' own "done" output over your eyes.
    section — don't trust the tool's own success message or a prior session's
    "verified" claim, and don't reach for a revert before you've read what's
    actually there.
+7. **`compress-images.js` had no dry-run mode** (fixed 2026-08-11) — unlike
+   every other tool in this repo, and contrary to the "all dry-run by
+   default" claim at the top of this file, it recompressed images in place
+   unconditionally on every invocation, `--write` or not. Calling it "just to
+   preview" silently rewrote 5 files. Now gated behind `--write` like its
+   siblings. If a future tool is added to this family, don't assume it
+   follows the convention — check for a `WRITE` guard before trusting a bare
+   invocation to be safe.
 
 ---
 

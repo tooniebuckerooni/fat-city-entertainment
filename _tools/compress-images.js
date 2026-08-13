@@ -1,10 +1,19 @@
 // Recompress images over 300KB in place (same filename, same format, same
 // pixel dimensions). JPEGs: quality 80 + mozjpeg. PNGs: palette quality 85.
 // The original is kept unless the recompressed file is >=10% smaller.
+//
+//   node _tools/compress-images.js            # dry run — prints what it would do
+//   node _tools/compress-images.js --write    # actually recompress in place
+//
+// Was unconditional (always wrote, no dry-run) until 2026-08-11 — unlike
+// to-webp.js and wrap-picture.js, which both dry-run by default. That's a
+// footgun: running it "just to see" silently recompresses the whole site.
+// Now matches the other two tools' convention.
 const fs = require("fs");
 const path = require("path");
 const sharp = require("sharp");
 const REPO = path.resolve(__dirname, "..");
+const WRITE = process.argv.includes("--write");
 const LIMIT = 300 * 1024;
 
 function walk(dir) {
@@ -31,7 +40,7 @@ function walk(dir) {
         : sharp(input).jpeg({ quality: 80, mozjpeg: true })
       ).toBuffer();
       if (buf.length < orig * 0.9) {
-        fs.writeFileSync(f, buf);
+        if (WRITE) fs.writeFileSync(f, buf);
         savedTotal += orig - buf.length;
         done++;
       } else {
@@ -43,4 +52,5 @@ function walk(dir) {
     }
   }
   console.log(`recompressed: ${done}, left as-is: ${skipped}, saved: ${(savedTotal / 1048576).toFixed(1)} MB`);
+  if (!WRITE) console.log("\nDRY RUN — nothing written. Re-run with --write.");
 })();
