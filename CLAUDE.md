@@ -38,15 +38,17 @@ here** — the repo is served publicly by GitHub Pages.
 - New content pages are cloned from a live page's shell (see
   `_tools/new-content-page.js` / `make-*-page.js`) so they inherit nav/footer.
 - Top-level nav: **Trivia Store (dropdown) · ★ Featured! (dropdown) · Our
-  Games (dropdown) · Bingo Card Maker · Blog (dropdown, one stale item) ·
-  Contact**. **Trivia Store** dropdown (added Aug 13 2026, via
-  `_tools/add-trivia-store-nav.js`) holds Music Bingo Card Downloads, Eras,
-  Pre-made Trivia Shows, Bundles, Virtual Events. **Featured!** dropdown holds
-  Triv 101, Trivia Generator (coming soon), and Bingo Card Generator (external
-  link to https://bingocardgenerator.online/). Hub page: `/features.html`.
-  **Bingo Card Maker** is still a flat link to `/printmusicbingocards.html`
-  despite that page hosting 4 distinct tools — see
-  `TRIVIA-STORE-NAV-HANDOFF.md` for the proposed dropdown, not yet built.
+  Games (dropdown) · Bingo Card Maker (dropdown) · Blog · Contact**. **Trivia
+  Store** dropdown (added Aug 13 2026, via `_tools/add-trivia-store-nav.js`)
+  holds Music Bingo Card Downloads, Eras, Pre-made Trivia Shows, Bundles,
+  Virtual Events. **Featured!** dropdown holds Triv 101, Trivia Generator
+  (coming soon), and Bingo Card Generator (external link to
+  https://bingocardgenerator.online/). Hub page: `/features.html`. **Bingo
+  Card Maker** dropdown (added Aug 13 2026, via
+  `_tools/add-bingocardmaker-nav.js`) holds Free Generator, Generator Pro
+  (Lifetime Access), Generator 2, Music Bingo Rules. **Blog** was reverted to
+  a flat link — its dropdown held one stale 2024 post, dropped via
+  `_tools/drop-blog-nav-dropdown.js`.
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,
@@ -229,7 +231,8 @@ retired on purpose, not lost.
 - `TRIVIA-STORE-NAV-HANDOFF.md` — the Aug 13 2026 category/nav rework: Eras
   and Virtual Events promoted into the store front, "Game Show" Trivia
   renamed to "Pre-made Trivia Shows", Hard Games unlinked as a category, and
-  a new "Trivia Store" nav dropdown. Open items: a stale `c6` page H1, the
-  "Blog" nav dropdown's one leftover item, and a proposed "Bingo Card Maker"
-  dropdown, not yet built.
+  a new "Trivia Store" nav dropdown. All four follow-up items (c6 H1 rewrite,
+  Blog dropdown dropped, Bingo Card Maker dropdown built,
+  `image-seo-audit-products` branch confirmed redundant) were resolved the
+  same morning — see the doc for the full record.
 - `GREENROOM-PLAN.md` / `README-greenroom.md` — see "The Green Room" above.

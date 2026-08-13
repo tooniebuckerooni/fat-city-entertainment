@@ -101,11 +101,26 @@ two. I did not build this — wasn't asked to implement, only to assess — but
 it's a quick, low-risk follow-up using the same script pattern as
 `_tools/add-trivia-store-nav.js` if you want it done.
 
-## Suggested next session
+## Resolution — same morning, all four items closed
 
-1. Eyeball the live site yourself (screenshots from last night are still
-   accurate — nothing's changed since deploy).
-2. Decide items 2 and 3 above (both are content/judgment calls).
-3. Say the word on item 4 (Bingo Card Maker dropdown) and I'll build it the
-   same way as the Trivia Store one — probably a 15-minute change.
-4. Delete `image-seo-audit-products` once you're comfortable (item 1).
+Owner's calls, delivered in three words each: "rewrite it. drop it. build it."
+
+1. `image-seo-audit-products` — confirmed redundant, not deleted (branch
+   deletion left for the owner; nothing technical blocks it).
+2. **c6 H1 rewritten**: `<h1>` now reads "Pre-made Trivia Shows for the Big
+   Screen" (kept the "Big Screen" descriptor — it's a real distinguishing
+   feature, presentation-style vs. bingo cards). Title, `og:title`, meta
+   description left as-is (never mentioned "Game Show"), JSON-LD
+   regenerated via `add-jsonld.js --write` so `CollectionPage.name` and the
+   breadcrumb's own name match.
+3. **Blog dropdown dropped** site-wide (399 pages) via
+   `_tools/drop-blog-nav-dropdown.js` — back to a flat link.
+4. **Bingo Card Maker dropdown built** site-wide (399 pages) via
+   `_tools/add-bingocardmaker-nav.js`: Free Generator, Generator Pro
+   (Lifetime Access), Generator 2, Music Bingo Rules.
+
+`check-links.js`: 0 broken refs. All three tools are idempotent — safe to
+re-run if content under any of these ever changes again.
+
+Still open: delete the `image-seo-audit-products` branch (owner's call,
+no rush — it's inert).
