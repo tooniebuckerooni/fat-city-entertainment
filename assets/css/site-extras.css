@@ -171,6 +171,34 @@ a.fce-cta-secondary:hover {
   box-sizing: border-box;
 }
 
+/* The category-picker tile grids (trivia-store.html and its Weebly-native
+   twin store/c1/triviastore/ both carry the same 5: Music Bingo Card
+   Downloads / Pre-made Trivia Shows / Bundles / Eras / Virtual Events)
+   inherited Weebly's generic product-tile sizing: 33%-wide columns with a
+   125%-tall image crop, meant for grids with many small thumbnails. With
+   exactly 5 tiles that leaves the third row nearly empty on desktop and
+   makes every tile look oversized. Five-across fits them on one row with no
+   gap and no orphan.
+
+   The width fix only applies where a grid has exactly 5 tiles (:has() below)
+   — other pages reuse this same class with as few as 2 subcategories (e.g.
+   store/c11/musicdoboff/), where 20%-wide columns would leave the opposite
+   problem, a big empty gap. Desktop only — below 641px Weebly's own theme
+   rules already lay these out 2-per-row and that reads fine at that width. */
+@media (min-width: 641px) {
+  .wsite-com-category-subcategory-group:has(> .wsite-com-column:nth-child(5)):not(:has(> .wsite-com-column:nth-child(6)))
+    .wsite-com-column {
+    width: 20% !important;
+  }
+}
+/* Shorter image crop so the fixed-size name overlay doesn't dominate a
+   smaller tile. Applied to every subcategory grid, not just 5-tile ones —
+   it's a straightforward improvement over the original 125% regardless of
+   tile count. */
+.wsite-com-category-subcategory-image-height.wsite-imageaspectratio-image-height {
+  margin-bottom: 115% !important;
+}
+
 /* Reserve two lines for the product name so the common one-line/two-line
    difference doesn't leave tiles in a row at visibly different heights.
    Longer names still grow; flex wrapping keeps the rows intact. */
