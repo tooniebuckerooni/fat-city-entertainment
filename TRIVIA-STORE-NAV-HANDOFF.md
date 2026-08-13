@@ -204,3 +204,16 @@ with two images that were flatly wrong for their category. Fixed in
    downloads and were left alone.
 3. Completed the `.webp`/`<picture>` pairing for two images the gallery
    rename batches left as plain `<img>` (`to-webp.js` + `wrap-picture.js`).
+
+**Fourth bug, found after a live-site screenshot review:** `"The Year
+Was..." 5-Pack` had the exact same illegible-at-tile-size problem as
+"The 60s" — its image is a collage of 4 overlapping bingo-card previews,
+crisp full-size, noise once scaled down. It's cross-listed on **both**
+`store/c33/Eras.html` and `store/c34/Music_Bingo_&_Trivia_Bundles.html`, so
+both tiles had it. Same fix: a new tile-specific crop
+(`music-bingo-the-year-was-category-tile.jpeg/.webp`) on just the cascading
+"1992" / "1983" / "2009" title bars. The product's own page (`store/p101`)
+and `goldclubplaylists.html` keep the original full-detail image — full
+detail is right for those contexts, this was only ever a small-tile problem.
+Worth a similar sweep of any other multi-card collage tiles if one turns up
+looking cluttered again.
