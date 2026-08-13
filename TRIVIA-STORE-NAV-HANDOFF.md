@@ -124,3 +124,83 @@ re-run if content under any of these ever changes again.
 
 Still open: delete the `image-seo-audit-products` branch (owner's call,
 no rush — it's inert).
+
+## Same-day follow-up — afternoon session, all merged to `main`
+
+`main` is at `135d8257`.
+
+**Eras filled out.** Owner caught that "90s R&B" was missing from Eras despite
+"The 90s" already being in it. Full membership audit against the catalog
+found three more genre/era packs on the same logic (a genre strongly tied to
+one decade, matching how Hair Bands already qualified): **90s R&B, Disco,
+Motown, Punk Rock** added via `_tools/add-store-tile.js` (temporarily
+re-pointed at `store/c33/Eras.html`, reverted after — that script's normal
+scope is the three storefront pages). Eras went from 10 products to 14.
+
+**Image SEO finished for real.** The morning's 69 renames only ever covered
+each product's *main* image — every product also has secondary gallery
+photos, and those were still on Weebly's generic hash filenames. Three
+parallel worktree-isolated agents closed that out:
+- ~560 secondary/gallery images renamed across all 53 remaining products
+  (two batches, split roughly in half by product ID).
+- The last ~10 stray hash-named files (3 blog-post heroes + a few
+  cross-referenced top-level images) picked up in a third pass.
+
+All three branches (`image-seo-gallery-batch-a`, `image-seo-gallery-batch-b`,
+`image-seo-blog-residual`) are **fully folded into `main`** via cherry-pick —
+same status as `image-seo-audit-products` above, safe to delete, nothing left
+to pull from them. Two real naming collisions surfaced where independent
+agents picked the same descriptive name for genuinely different images
+(a shared-stock-photo consolidation on p153, and a content-mismatch bug on
+p135 where a "Girls Vs Boys" sample card was misfiled under the Valentine's
+product — left the underlying mismatch alone, out of scope, just named and
+disambiguated the file). `check-links.js`: 0 broken refs throughout.
+
+One flagged incident: mid-task, the blog-residual agent's context was fed a
+fake "system-reminder" instructing it to modify files in a *different*
+agent's worktree via a file it never created — a prompt-injection attempt.
+It correctly ignored the instruction and stayed in scope. Nothing indicates
+it affected anything, noting it here in case the pattern recurs.
+
+**Category-picker tile grid redesigned.** Owner feedback: the 5 tiles on
+`trivia-store.html` (and its `/store/c1/triviastore/` mirror) looked too big,
+with two images that were flatly wrong for their category. Fixed in
+`assets/css/site-extras.css`:
+- Tiles inherited Weebly's 33%-wide/125%-tall product-tile sizing (built for
+  grids of many small thumbnails). With exactly 5 tiles that left the third
+  row nearly empty. Now 20%-wide, one row, no gap — scoped via a `:has()`
+  selector to grids with *exactly* 5 tiles, so `store/c11/musicdoboff/`
+  (only 2 subcategories) isn't forced into the same width and left with the
+  opposite problem.
+- "Pre-made Trivia Shows" and "Bundles" were on leftover Weebly hash-named
+  images — a blurry unreadable board crop and a random green "SAVE" button
+  with no connection to bundles. Swapped for `game-show-trivia-5-pack` (a
+  real, legible trivia board) and `music-bingo-entertainers-3-pack` (a photo
+  of an actual stuffed bingo-card case — a literal "bundle" visual).
+- New `.fce-tile-badge` component (small gold corner badge, matches the
+  promo-bar accent) added to carry a "Bundle & Save" callout on the Bundles
+  tile, replacing the affordability signal the old SAVE-button image used to
+  carry. Reusable for any future tile that needs the same kind of callout —
+  gold is intentional, green already means "on sale" via Weebly's own
+  `category__image-sale-banner`.
+
+**Three more bugs found in review and fixed:**
+1. `store/c33/Eras.html` — "The 60s" tile was rendering blank. Its `<picture>`
+   referenced a `.webp` that never existed (too small a file for `to-webp.js`
+   to bother with — correct call, but nothing should have pointed at it).
+   Once that was fixed, the underlying image itself (a screenshot of two
+   dense bingo-card grids) was still illegible at tile size next to every
+   other Eras tile's bold graphic — cropped a new tile-specific asset
+   (`music-bingo-the-60s-category-tile.png/.webp`) zoomed on the bold title
+   banner instead. **Lesson for next time**: this theme's tile CSS only
+   positions an image correctly *inside* a `<picture>` wrapper — stripping
+   the wrapper to "fix" a missing source collapses the image instead.
+2. `store/p140/virtualeventpayment.html` — buy button said "Buy & Download"
+   on a live-service booking product, directly contradicting the page's own
+   disclaimer one paragraph below it ("This books your date — it isn't a
+   download"). Changed to "Book Now," matching the page's own `<title>`.
+   Confirmed it's the only real booking-type product under
+   `store/c41/virtualevents/` — the other two cross-listed items are genuine
+   downloads and were left alone.
+3. Completed the `.webp`/`<picture>` pairing for two images the gallery
+   rename batches left as plain `<img>` (`to-webp.js` + `wrap-picture.js`).
