@@ -948,3 +948,21 @@ a.fce-tool-banner-link:hover {
     padding: 9px 36px 9px 10px;
   }
 }
+
+/* --------------------------------------------------------- fce-promo-image
+   Square promotional graphic (tier name, game count, Gen2 bonus baked
+   right into the image) dropped at the top of a product's own description,
+   in the info column next to the product's existing photo gallery — not a
+   replacement for it. Capped narrower than the info column so it reads as
+   a supporting graphic, not a second hero image competing with the title. */
+.fce-promo-image {
+  max-width: 320px;
+  margin: 0 0 16px;
+}
+.fce-promo-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+}
