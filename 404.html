@@ -36,18 +36,49 @@
       return;
     }
 
+    // The original Weebly blog tree (/4/post/YYYY/..) is date-archive shaped, and
+    // any missing taxonomy shell on the live blog tree -> the blog landing page.
+    if (/^\/4(?:\/|$)/.test(path) ||
+        /^\/triviahostresources\/(?:category|archives|previous)(?:\/|$)/i.test(path)) {
+      location.replace('/triviahostresources.html');
+      return;
+    }
+
     // The Anagrams music-doboff answer sheet was linked (from old download
-    // emails / cached pages) at a path with literal quote marks baked into the
-    // filename -- a copy-paste bug that broke the link. Forward it to the
-    // re-uploaded file under a clean name. (pathname keeps %22 encoded, so match
-    // the underscore filename loosely rather than the exact quoting.)
-    if (/music_doboff_answer_sheet.*anagrams.*\.pdf$/i.test(path)) {
+    // emails / cached pages) with curly “smart” quotes baked into the filename
+    // -- a copy-paste bug that broke the link. Forward it to the re-uploaded
+    // file under a clean name. Match the stable ASCII parts only, so it fires
+    // whether the quotes arrive percent-encoded or literal; the hyphenated
+    // target name can't match this underscored pattern, so there's no loop.
+    if (/music_doboff.*answer_sheet.*anagrams.*\.pdf$/i.test(path)) {
       location.replace('/uploads/4/3/3/6/43362499/music-doboff-answer-sheet-anagrams.pdf');
       return;
     }
 
-    // Dead Weebly member-area / app endpoints (old bookmarks & emails) -> home.
-    if (/^\/(?:apps|ajax)\//i.test(path)) {
+    // Retired Weebly store category slugs. c11 was renamed (musicbingocards ->
+    // musicdoboff); every other dead store URL falls back to the store front.
+    if (/^\/store\/c11(?:\/|$)/i.test(path)) {
+      location.replace('/store/c11/musicdoboff/');
+      return;
+    }
+    if (/^\/store\//i.test(path)) {
+      location.replace('/trivia-store.html');
+      return;
+    }
+
+    // Standalone pages that never migrated from Weebly -> closest live page.
+    if (/^\/christmasparties\.html$/i.test(path)) {
+      location.replace('/holidayparty.html');
+      return;
+    }
+    if (/^\/triviawritersnetwork\.html$/i.test(path)) {
+      location.replace('/triviahostresources.html');
+      return;
+    }
+
+    // Dead Weebly member-area / app endpoints and bare login attempts
+    // (/login, /log in) from old bookmarks & emails -> home.
+    if (/^\/(?:apps|ajax)\//i.test(path) || /^\/log(?:%20|\s)?in\/?$/i.test(path)) {
       location.replace('/');
       return;
     }

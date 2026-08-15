@@ -45,6 +45,11 @@ const TARGETS = [
   "music-bingo-cards-or-game-show-presentations-to-entertain-guests",
   "how-to-host-fat-bottom-trivia-presentations-for-quick-and-easy-event-entertainment-6-steps",
   "how-to-host-trivia-presentations-using-microsoft-powerpoint-or-equivalent",
+  // Second GA pass (full 61-day history) surfaced these three, each with a live
+  // post and, for the membership one, an inbound Pinterest link worth keeping.
+  "how-to-host-an-amazing-trivia-or-music-bingo-event-on-zoom",
+  "host-your-own-show-with-a-music-bingo-membership",
+  "3-fun-games-you-can-download-and-play-at-valentines-day",
 ];
 
 function stub(slug) {
