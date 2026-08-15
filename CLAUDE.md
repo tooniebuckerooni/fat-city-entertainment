@@ -152,6 +152,19 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   and pagination/archive/category pages are deliberately **not** regenerated
   (documented, low-risk gap — the post is still reachable from the landing
   page, sitemap, and other posts).
+- **FAQ + diagram (GEO/direct-answer posts):** every "show-the-work"/GEO post
+  should carry an end-of-post FAQ — it's the highest-leverage add for answer
+  engines. Write `_content/faq/<slug>.json` (`[{ "q":…, "a":… }]`; the `.json`
+  existing is what triggers injection, so a new post is picked up
+  automatically) and, for visual posts, an optional
+  `_content/diagrams/<slug>.html` (a `<figure class="fce-diagram">` with **inline
+  SVG** — no asset upload needed). Then `node _tools/add-post-faq.js --write`
+  injects the FAQ section, the optional diagram, and a self-contained
+  `FAQPage` JSON-LD between `<!-- fce:faq -->` markers (idiom like fce:copy;
+  styled by `.fce-extras`/`.fce-faq`/`.fce-diagram` in `site-extras.css`).
+  Idempotent, and it **skips not-yet-published posts**, so it's safe to run
+  during a drip. It owns the per-post `FAQPage`; `add-jsonld.js` still emits
+  `BlogPosting` + `BreadcrumbList` (both on one page is valid).
 - **New store product:** add an entry to `_tools/new-products.json`, then
   `node _tools/new-product.js --write` (stages it: noindex, no tile, no
   sitemap entry). When it's ready to sell, set `"publish": true` in the spec
