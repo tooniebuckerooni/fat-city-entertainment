@@ -13,10 +13,10 @@
    * page ONLY when the requested file genuinely doesn't exist, so anything this
    * script matches is already a confirmed 404 — it can never fire on a live page.
    *
-   * The old Weebly blog was renamed over the years (/inspiration/ -> /whatsnew/
-   * -> /blog/ -> /triviahostresources.html) and Pages can't 301, so the retired
-   * path prefixes were left dead. Every legacy post kept the SAME slug as its
-   * live counterpart, so a slug maps 1:1 to /triviahostresources/<slug>/.
+   * The old Weebly blog was renamed over the years (inspiration -> whatsnew
+   * -> blog -> the triviahostresources landing page) and Pages can't 301, so
+   * the retired path prefixes were left dead. Every legacy post kept the SAME
+   * slug as its live counterpart, so a slug maps 1:1 to the live post.
    */
   (function () {
     var path = location.pathname;
