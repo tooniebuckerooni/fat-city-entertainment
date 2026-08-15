@@ -36,6 +36,16 @@
       return;
     }
 
+    // The Anagrams music-doboff answer sheet was linked (from old download
+    // emails / cached pages) at a path with literal quote marks baked into the
+    // filename -- a copy-paste bug that broke the link. Forward it to the
+    // re-uploaded file under a clean name. (pathname keeps %22 encoded, so match
+    // the underscore filename loosely rather than the exact quoting.)
+    if (/music_doboff_answer_sheet.*anagrams.*\.pdf$/i.test(path)) {
+      location.replace('/uploads/4/3/3/6/43362499/music-doboff-answer-sheet-anagrams.pdf');
+      return;
+    }
+
     // Dead Weebly member-area / app endpoints (old bookmarks & emails) -> home.
     if (/^\/(?:apps|ajax)\//i.test(path)) {
       location.replace('/');
