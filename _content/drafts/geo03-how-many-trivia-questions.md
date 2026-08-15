@@ -13,10 +13,12 @@ Those numbers assume you're reading questions aloud, giving teams time to confer
 
 Work backward from how long you want the night to run:
 
-- **1 hour (quick / weeknight):** about 20-25 questions — 3 rounds of about 7-8, or 2 rounds of 10 with a short break.
-- **90 minutes (standard bar night):** about 30-40 questions — 4 rounds of 8-10, plus a tiebreaker.
-- **2 hours (full pub quiz):** about 40-50 questions — 4-5 rounds of 8-10, plus a tiebreaker.
-- **2.5+ hours (event / fundraiser):** about 55-70 questions — 6-7 rounds, with a longer mid-event break and often a picture or handout round.
+| Event length | Questions | Structure |
+| --- | --- | --- |
+| 1 hour (quick / weeknight) | 20-25 | 3 rounds of 7-8, or 2 rounds of 10 |
+| 90 minutes (standard bar night) | 30-40 | 4 rounds of 8-10 + tiebreaker |
+| 2 hours (full pub quiz) | 40-50 | 4-5 rounds of 8-10 + tiebreaker |
+| 2.5+ hours (event / fundraiser) | 55-70 | 6-7 rounds + a picture or handout round |
 
 A reliable rule of thumb: **each question eats about 2 minutes of real time** once you include reading it (often twice), teams writing, and the back-and-forth. That's why a 2-hour slot lands near 45 questions, not 90 — half your clock is pacing, scoring, and banter, and that's the part people actually come for.
 

@@ -1097,3 +1097,45 @@ a.fce-tool-banner-link:hover {
     font-size: 16.5px;
   }
 }
+
+/* ----------------------------------------------------------- fce-table
+   Clean data tables inside blog-post bodies, rendered from GFM pipe tables
+   by _tools/publish-post.js as <table class="fce-table">. The post body is
+   Weebly-themed, so this block owns the table's look end-to-end rather than
+   inheriting it. Small (2-4 column) tables, so they fit without scrolling. */
+.fce-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4px 0 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.fce-table th,
+.fce-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #e2e2dd;
+  vertical-align: top;
+  color: #24242a;
+}
+.fce-table thead th {
+  background: #f2f2ef;
+  color: #16161a;
+  font-weight: 700;
+}
+.fce-table tbody tr:nth-child(even) td {
+  background: #fafaf8;
+}
+.fce-table td strong {
+  color: #16161a;
+}
+@media screen and (max-width: 600px) {
+  .fce-table {
+    font-size: 13.5px;
+  }
+  .fce-table th,
+  .fce-table td {
+    padding: 7px 8px;
+  }
+}
