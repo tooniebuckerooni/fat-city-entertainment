@@ -6,6 +6,45 @@
   <title>Page Not Found - Fat City Entertainment</title>
   <meta name="robots" content="noindex" />
 
+<!-- fce:legacy-redirects -->
+<script type="text/javascript">
+  /*
+   * Recover legacy dead-ends without a server. GitHub Pages serves this 404
+   * page ONLY when the requested file genuinely doesn't exist, so anything this
+   * script matches is already a confirmed 404 — it can never fire on a live page.
+   *
+   * The old Weebly blog was renamed over the years (/inspiration/ -> /whatsnew/
+   * -> /blog/ -> /triviahostresources.html) and Pages can't 301, so the retired
+   * path prefixes were left dead. Every legacy post kept the SAME slug as its
+   * live counterpart, so a slug maps 1:1 to /triviahostresources/<slug>/.
+   */
+  (function () {
+    var path = location.pathname;
+
+    // Retired blog path prefixes (a live post at any of these still serves its
+    // own file and never reaches here — only the missing ones do).
+    var legacyBlog = path.match(/^\/(?:inspiration|whatsnew|blog)(?:\/(.*))?$/i);
+    if (legacyBlog) {
+      var rest = (legacyBlog[1] || '').replace(/\/+$/, '');
+      // Bare index or a taxonomy shell (category/archives/previous) -> blog home.
+      if (!rest || /^(?:category|archives|previous)(?:\/|$)/i.test(rest)) {
+        location.replace('/triviahostresources.html');
+        return;
+      }
+      // First segment is the post slug; drop deeper Weebly cruft and query/hash.
+      location.replace('/triviahostresources/' + rest.split('/')[0] + '/');
+      return;
+    }
+
+    // Dead Weebly member-area / app endpoints (old bookmarks & emails) -> home.
+    if (/^\/(?:apps|ajax)\//i.test(path)) {
+      location.replace('/');
+      return;
+    }
+  })();
+</script>
+<!-- /fce:legacy-redirects -->
+
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LYMVV05F3X"></script>
 <script type="text/javascript">
