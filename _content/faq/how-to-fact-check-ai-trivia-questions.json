@@ -1,0 +1,18 @@
+[
+  {
+    "q": "How do I know if AI trivia is accurate?",
+    "a": "Spot-check the risky questions against one trusted source before the show — anything with a specific number, a precise date, a superlative like \"first\" or \"largest,\" a recent event, or a named attribution. Broad, well-known facts almost never need checking; the errors hide in the specifics."
+  },
+  {
+    "q": "Which AI trivia questions are most likely to be wrong?",
+    "a": "Questions with specific statistics, exact years, superlatives (\"first,\" \"only,\" \"largest\"), events from the last year or two, and \"who invented/wrote/directed\" attributions. A plausible-sounding wrong number looks identical to a right one, which is exactly why those need a second look."
+  },
+  {
+    "q": "Does the Trivia Show Maker fact-check questions for me?",
+    "a": "It reduces the error rate — it generates at a low temperature, tells the model to skip anything it isn't confident about, and drops malformed multiple-choice questions — but it doesn't replace a quick human pass. Give your final set a five-minute spot-check of the risky questions before hosting."
+  },
+  {
+    "q": "How long does it take to fact-check a trivia set?",
+    "a": "About five minutes, because you only need to verify the risky questions — the ones with numbers, dates, superlatives, or recent events — not all 40 or 50. Rewrite or cut anything you can't confirm in under a minute."
+  }
+]

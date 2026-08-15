@@ -1,0 +1,29 @@
+<figure class="fce-diagram">
+<svg viewBox="0 0 500 200" role="img" aria-labelledby="d3t d3d" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, Arial, sans-serif">
+  <title id="d3t">Structure of a 2-hour trivia night</title>
+  <desc id="d3d">A two-hour night is about five rounds of eight to ten questions each, plus a tiebreaker — roughly 40 to 50 questions in total across 120 minutes.</desc>
+  <text x="250" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#16161a">A 2-hour night &#8776; 40&#8211;50 questions</text>
+
+  <!-- segmented bar: 5 rounds + tiebreaker. bar x 20..480 (w460), y 50 h56 -->
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <!-- 5 rounds of 84px + TB of 40px = 460 -->
+    <rect x="20"  y="50" width="84" height="56" fill="#b0122b"/><text x="62"  y="83" fill="#fff">R1</text>
+    <rect x="104" y="50" width="84" height="56" fill="#c8324a"/><text x="146" y="83" fill="#fff">R2</text>
+    <rect x="188" y="50" width="84" height="56" fill="#b0122b"/><text x="230" y="83" fill="#fff">R3</text>
+    <rect x="272" y="50" width="84" height="56" fill="#c8324a"/><text x="314" y="83" fill="#fff">R4</text>
+    <rect x="356" y="50" width="84" height="56" fill="#b0122b"/><text x="398" y="83" fill="#fff">R5</text>
+    <rect x="440" y="50" width="40" height="56" fill="#99790a"/><text x="460" y="80" fill="#fff" font-size="10">TIE</text>
+  </g>
+  <!-- per-round sublabel -->
+  <text x="230" y="128" text-anchor="middle" font-size="12" fill="#6b6b70">each round = 8&#8211;10 questions</text>
+
+  <!-- time axis -->
+  <line x1="20" y1="150" x2="480" y2="150" stroke="#d8d8d2" stroke-width="1.5"/>
+  <line x1="20" y1="145" x2="20" y2="155" stroke="#d8d8d2" stroke-width="1.5"/>
+  <line x1="480" y1="145" x2="480" y2="155" stroke="#d8d8d2" stroke-width="1.5"/>
+  <text x="20"  y="172" text-anchor="start" font-size="11.5" fill="#6b6b70">0 min</text>
+  <text x="480" y="172" text-anchor="end" font-size="11.5" fill="#6b6b70">120 min</text>
+  <text x="250" y="172" text-anchor="middle" font-size="11.5" fill="#6b6b70">&#8776; 2 min per question</text>
+</svg>
+<figcaption>Half of a live show&#8217;s clock goes to reading, teams conferring, and scoring &#8212; which is why two hours holds around 45 questions, not 90.</figcaption>
+</figure>

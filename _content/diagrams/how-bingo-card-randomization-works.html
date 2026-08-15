@@ -1,0 +1,46 @@
+<figure class="fce-diagram">
+<svg viewBox="0 0 500 300" role="img" aria-labelledby="d6t d6d" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, Arial, sans-serif">
+  <title id="d6t">The Fisher-Yates shuffle, step by step</title>
+  <desc id="d6d">Starting from the last position, each item is swapped with a randomly chosen item at or before its position; the pointer then moves left. The already-shuffled tail grows with each step until the whole list is evenly randomized.</desc>
+
+  <!-- three rows showing successive steps. 6 cells, w58 g6, start x20, cellH40 -->
+  <g font-size="17" font-weight="600" text-anchor="middle">
+    <!-- STEP 1: pointer at index 6 (x=340), swap with random earlier (index 2, x=84) -->
+    <text x="20" y="44" text-anchor="start" font-size="12" font-weight="700" fill="#6b6b70">Step 1</text>
+    <rect x="20"  y="24" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="49"  y="50" fill="#16161a">3</text>
+    <rect x="84"  y="24" width="58" height="40" rx="5" fill="#f6dbe0" stroke="#b0122b"/><text x="113" y="50" fill="#16161a">1</text>
+    <rect x="148" y="24" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="177" y="50" fill="#16161a">5</text>
+    <rect x="212" y="24" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="241" y="50" fill="#16161a">2</text>
+    <rect x="276" y="24" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="305" y="50" fill="#16161a">6</text>
+    <rect x="340" y="24" width="58" height="40" rx="5" fill="#f6dbe0" stroke="#b0122b" stroke-width="2"/><text x="369" y="50" fill="#16161a">4</text>
+    <text x="440" y="49" text-anchor="start" font-size="12" fill="#6b6b70">swap</text>
+
+    <!-- STEP 2: 4 and 1 swapped; pointer now index 5 (x=276), tail (idx6) shaded done -->
+    <text x="20" y="124" text-anchor="start" font-size="12" font-weight="700" fill="#6b6b70">Step 2</text>
+    <rect x="20"  y="104" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="49"  y="130" fill="#16161a">3</text>
+    <rect x="84"  y="104" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="113" y="130" fill="#16161a">4</text>
+    <rect x="148" y="104" width="58" height="40" rx="5" fill="#f6dbe0" stroke="#b0122b"/><text x="177" y="130" fill="#16161a">5</text>
+    <rect x="212" y="104" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="241" y="130" fill="#16161a">2</text>
+    <rect x="276" y="104" width="58" height="40" rx="5" fill="#f6dbe0" stroke="#b0122b" stroke-width="2"/><text x="305" y="130" fill="#16161a">6</text>
+    <rect x="340" y="104" width="58" height="40" rx="5" fill="#eef1ee" stroke="#c9d6c9"/><text x="369" y="130" fill="#7a8a7a">1</text>
+    <text x="440" y="129" text-anchor="start" font-size="12" fill="#6b6b70">swap</text>
+
+    <!-- STEP 3: pointer moves left again; tail of two shaded done -->
+    <text x="20" y="204" text-anchor="start" font-size="12" font-weight="700" fill="#6b6b70">Step 3</text>
+    <rect x="20"  y="184" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="49"  y="210" fill="#16161a">3</text>
+    <rect x="84"  y="184" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="113" y="210" fill="#16161a">4</text>
+    <rect x="148" y="184" width="58" height="40" rx="5" fill="#fff" stroke="#d8d8d2"/><text x="177" y="210" fill="#16161a">2</text>
+    <rect x="212" y="184" width="58" height="40" rx="5" fill="#f6dbe0" stroke="#b0122b" stroke-width="2"/><text x="241" y="210" fill="#16161a">5</text>
+    <rect x="276" y="184" width="58" height="40" rx="5" fill="#eef1ee" stroke="#c9d6c9"/><text x="305" y="210" fill="#7a8a7a">6</text>
+    <rect x="340" y="184" width="58" height="40" rx="5" fill="#eef1ee" stroke="#c9d6c9"/><text x="369" y="210" fill="#7a8a7a">1</text>
+  </g>
+
+  <!-- legend -->
+  <g font-size="12" fill="#6b6b70">
+    <rect x="20"  y="252" width="16" height="16" rx="3" fill="#f6dbe0" stroke="#b0122b" stroke-width="2"/><text x="44" y="264" text-anchor="start">current position</text>
+    <rect x="180" y="252" width="16" height="16" rx="3" fill="#f6dbe0" stroke="#b0122b"/><text x="204" y="264" text-anchor="start">random earlier pick</text>
+    <rect x="360" y="252" width="16" height="16" rx="3" fill="#eef1ee" stroke="#c9d6c9"/><text x="384" y="264" text-anchor="start">shuffled &amp; locked</text>
+  </g>
+</svg>
+<figcaption>Fisher-Yates walks the list once, swapping each position with a randomly chosen earlier one. One pass, one swap per item &#8212; and every possible ordering ends up equally likely.</figcaption>
+</figure>

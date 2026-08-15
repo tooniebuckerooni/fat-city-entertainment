@@ -1,0 +1,18 @@
+[
+  {
+    "q": "Why does ChatGPT repeat trivia questions?",
+    "a": "A language model generates the most probable next question, and the most probable questions cluster around the most famous subjects. Asked for a long list in one go, it has no running memory of what it already covered, so topics repeat. Generating in smaller rounds with a list of what's already used — and an instruction to avoid it — fixes this."
+  },
+  {
+    "q": "Does AI always put the correct answer in the same spot?",
+    "a": "Yes. When a model writes a multiple-choice question it reliably writes the correct answer first, so without shuffling, the answer is almost always option A — and sharp players notice within a round. The fix is to shuffle each question's choices after they're written, which the <a href=\"/trivia-show-maker/\">Trivia Show Maker</a> does automatically."
+  },
+  {
+    "q": "Can AI trivia questions be wrong?",
+    "a": "Yes — a model can state a wrong date, name, or statistic with complete confidence, because it's predicting plausible text, not looking facts up. Generating at a low temperature and instructing the model to skip anything it isn't sure about reduces it, and validating multiple-choice questions catches malformed ones, but you should still spot-check the risky questions before a live show."
+  },
+  {
+    "q": "Is AI good for making trivia questions?",
+    "a": "Yes for drafting — it writes clean questions fast. The catch is the last part of the job: deduping topics, controlling difficulty, shuffling answers, and checking accuracy. That's the difference between a raw prompt and a tool built for trivia."
+  }
+]

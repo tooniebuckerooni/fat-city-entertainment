@@ -496,6 +496,92 @@
 
 		</div>
 	
+		<!-- fce:faq -->
+<section class="fce-extras">
+<div class="fce-extras-inner">
+<figure class="fce-diagram">
+<svg viewBox="0 0 500 300" role="img" aria-labelledby="d2t d2d" xmlns="http://www.w3.org/2000/svg" font-family="Montserrat, Arial, sans-serif">
+  <title id="d2t">Answer-position bias, and the fix</title>
+  <desc id="d2d">On the left, a raw AI prompt places the correct answer in position A on every question. On the right, shuffling scatters the correct answer across positions A, C, B and D.</desc>
+  <!-- panel titles -->
+  <text x="130" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#16161a">Raw prompt</text>
+  <text x="370" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="#16161a">Shuffled</text>
+  <text x="130" y="42" text-anchor="middle" font-size="11.5" fill="#6b6b70">answer always on A</text>
+  <text x="370" y="42" text-anchor="middle" font-size="11.5" fill="#6b6b70">answer scattered</text>
+
+  <!-- rows: 4 questions, 4 option boxes each. correctL = A,A,A,A ; correctR = A,C,B,D -->
+  <g font-size="13" font-weight="700" text-anchor="middle">
+    <!-- LEFT panel option boxes: x = 20,74,128,182 (w48 g6) ; rows y = 60,110,160,210 (h40) -->
+    <!-- letters A B C D per box -->
+    <!-- Q1 -->
+    <rect x="20"  y="60"  width="48" height="40" rx="5" fill="#1f9d55"/><text x="44"  y="85" fill="#fff">A</text>
+    <rect x="74"  y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="98"  y="85" fill="#9a9aa0">B</text>
+    <rect x="128" y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="152" y="85" fill="#9a9aa0">C</text>
+    <rect x="182" y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="206" y="85" fill="#9a9aa0">D</text>
+    <!-- Q2 -->
+    <rect x="20"  y="110" width="48" height="40" rx="5" fill="#1f9d55"/><text x="44"  y="135" fill="#fff">A</text>
+    <rect x="74"  y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="98"  y="135" fill="#9a9aa0">B</text>
+    <rect x="128" y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="152" y="135" fill="#9a9aa0">C</text>
+    <rect x="182" y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="206" y="135" fill="#9a9aa0">D</text>
+    <!-- Q3 -->
+    <rect x="20"  y="160" width="48" height="40" rx="5" fill="#1f9d55"/><text x="44"  y="185" fill="#fff">A</text>
+    <rect x="74"  y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="98"  y="185" fill="#9a9aa0">B</text>
+    <rect x="128" y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="152" y="185" fill="#9a9aa0">C</text>
+    <rect x="182" y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="206" y="185" fill="#9a9aa0">D</text>
+    <!-- Q4 -->
+    <rect x="20"  y="210" width="48" height="40" rx="5" fill="#1f9d55"/><text x="44"  y="235" fill="#fff">A</text>
+    <rect x="74"  y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="98"  y="235" fill="#9a9aa0">B</text>
+    <rect x="128" y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="152" y="235" fill="#9a9aa0">C</text>
+    <rect x="182" y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="206" y="235" fill="#9a9aa0">D</text>
+
+    <!-- RIGHT panel: x = 260,314,368,422 ; correct = A,C,B,D -->
+    <!-- Q1 correct A -->
+    <rect x="260" y="60"  width="48" height="40" rx="5" fill="#1f9d55"/><text x="284" y="85" fill="#fff">A</text>
+    <rect x="314" y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="338" y="85" fill="#9a9aa0">B</text>
+    <rect x="368" y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="392" y="85" fill="#9a9aa0">C</text>
+    <rect x="422" y="60"  width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="446" y="85" fill="#9a9aa0">D</text>
+    <!-- Q2 correct C -->
+    <rect x="260" y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="284" y="135" fill="#9a9aa0">A</text>
+    <rect x="314" y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="338" y="135" fill="#9a9aa0">B</text>
+    <rect x="368" y="110" width="48" height="40" rx="5" fill="#1f9d55"/><text x="392" y="135" fill="#fff">C</text>
+    <rect x="422" y="110" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="446" y="135" fill="#9a9aa0">D</text>
+    <!-- Q3 correct B -->
+    <rect x="260" y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="284" y="185" fill="#9a9aa0">A</text>
+    <rect x="314" y="160" width="48" height="40" rx="5" fill="#1f9d55"/><text x="338" y="185" fill="#fff">B</text>
+    <rect x="368" y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="392" y="185" fill="#9a9aa0">C</text>
+    <rect x="422" y="160" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="446" y="185" fill="#9a9aa0">D</text>
+    <!-- Q4 correct D -->
+    <rect x="260" y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="284" y="235" fill="#9a9aa0">A</text>
+    <rect x="314" y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="338" y="235" fill="#9a9aa0">B</text>
+    <rect x="368" y="210" width="48" height="40" rx="5" fill="#f0f0ec" stroke="#d8d8d2"/><text x="392" y="235" fill="#9a9aa0">C</text>
+    <rect x="422" y="210" width="48" height="40" rx="5" fill="#1f9d55"/><text x="446" y="235" fill="#fff">D</text>
+  </g>
+</svg>
+<figcaption>A raw prompt writes the correct answer first, so it lands on option A every time (left) &#8212; a pattern players exploit fast. A proper shuffle scatters the correct answer across positions (right).</figcaption>
+</figure>
+<section class="fce-faq" aria-label="Frequently asked questions">
+  <h2>Frequently asked questions</h2>
+  <div class="fce-faq-item">
+    <h3 class="fce-faq-q">Why does ChatGPT repeat trivia questions?</h3>
+    <div class="fce-faq-a"><p>A language model generates the most probable next question, and the most probable questions cluster around the most famous subjects. Asked for a long list in one go, it has no running memory of what it already covered, so topics repeat. Generating in smaller rounds with a list of what's already used — and an instruction to avoid it — fixes this.</p></div>
+  </div>
+  <div class="fce-faq-item">
+    <h3 class="fce-faq-q">Does AI always put the correct answer in the same spot?</h3>
+    <div class="fce-faq-a"><p>Yes. When a model writes a multiple-choice question it reliably writes the correct answer first, so without shuffling, the answer is almost always option A — and sharp players notice within a round. The fix is to shuffle each question's choices after they're written, which the <a href="/trivia-show-maker/">Trivia Show Maker</a> does automatically.</p></div>
+  </div>
+  <div class="fce-faq-item">
+    <h3 class="fce-faq-q">Can AI trivia questions be wrong?</h3>
+    <div class="fce-faq-a"><p>Yes — a model can state a wrong date, name, or statistic with complete confidence, because it's predicting plausible text, not looking facts up. Generating at a low temperature and instructing the model to skip anything it isn't sure about reduces it, and validating multiple-choice questions catches malformed ones, but you should still spot-check the risky questions before a live show.</p></div>
+  </div>
+  <div class="fce-faq-item">
+    <h3 class="fce-faq-q">Is AI good for making trivia questions?</h3>
+    <div class="fce-faq-a"><p>Yes for drafting — it writes clean questions fast. The catch is the last part of the job: deduping topics, controlling difficulty, shuffling answers, and checking accuracy. That's the difference between a raw prompt and a tool built for trivia.</p></div>
+  </div>
+</section>
+</div>
+</section>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why does ChatGPT repeat trivia questions?","acceptedAnswer":{"@type":"Answer","text":"A language model generates the most probable next question, and the most probable questions cluster around the most famous subjects. Asked for a long list in one go, it has no running memory of what it already covered, so topics repeat. Generating in smaller rounds with a list of what's already used — and an instruction to avoid it — fixes this."}},{"@type":"Question","name":"Does AI always put the correct answer in the same spot?","acceptedAnswer":{"@type":"Answer","text":"Yes. When a model writes a multiple-choice question it reliably writes the correct answer first, so without shuffling, the answer is almost always option A — and sharp players notice within a round. The fix is to shuffle each question's choices after they're written, which the Trivia Show Maker does automatically."}},{"@type":"Question","name":"Can AI trivia questions be wrong?","acceptedAnswer":{"@type":"Answer","text":"Yes — a model can state a wrong date, name, or statistic with complete confidence, because it's predicting plausible text, not looking facts up. Generating at a low temperature and instructing the model to skip anything it isn't sure about reduces it, and validating multiple-choice questions catches malformed ones, but you should still spot-check the risky questions before a live show."}},{"@type":"Question","name":"Is AI good for making trivia questions?","acceptedAnswer":{"@type":"Answer","text":"Yes for drafting — it writes clean questions fast. The catch is the last part of the job: deduping topics, controlling difficulty, shuffling answers, and checking accuracy. That's the difference between a raw prompt and a tool built for trivia."}}]}</script>
+<!-- /fce:faq -->
 		<div class="blog-post-separator"></div>
 	</div>
 

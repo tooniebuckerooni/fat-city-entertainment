@@ -1,0 +1,18 @@
+[
+  {
+    "q": "What algorithm do bingo card generators use?",
+    "a": "A well-built generator uses a Fisher-Yates shuffle: it walks the number pool once, swapping each position with a randomly chosen earlier one. It's fast and produces a provably even, unbiased order where every possible layout is equally likely."
+  },
+  {
+    "q": "Is a random bingo generator truly random?",
+    "a": "It uses a pseudo-random number generator (a PRNG) — statistically random, but determined by a starting value. For a game that's ideal: you don't need casino-grade randomness, you need an even distribution with no repeats, which a good PRNG plus a Fisher-Yates shuffle delivers."
+  },
+  {
+    "q": "Why is sorting by RAND() a bad way to shuffle?",
+    "a": "Sorting a column by a random key can be subtly biased, so some orderings come up more often than others; spreadsheets also re-randomize on every recalculation, and a sort has no memory of the other cards, so nothing prevents duplicates. Fisher-Yates avoids all three."
+  },
+  {
+    "q": "Can I generate the exact same bingo cards again?",
+    "a": "Only with a seeded generator — the seed is the starting value that makes a batch reproducible. Most casual generators don't expose a seed, and that's fine; reproducibility is a feature of how the randomness is started, not a flaw in it."
+  }
+]
