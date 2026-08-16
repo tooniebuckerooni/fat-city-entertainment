@@ -10,6 +10,14 @@
        is on Cloudflare we can serve the stream under this path directly and
        drop the redirect. -->
   <link rel="canonical" href="https://www.fatcityentertainment.com/triv101/surveys.html">
+  <!-- noindex until this page carries the survey stream itself rather than
+       forwarding to it. Google reported it under "Page indexed without content"
+       on 2026-08-16 — a 15-word meta-refresh shell is not something it can
+       index, and asking it to (via the sitemap) was a contradiction of the same
+       kind this branch has been removing. Both the sitemap entry and this tag
+       come straight back out once GREENROOM-PLAN.md §3 bakes real content in;
+       until then the page still works normally for visitors. -->
+  <meta name="robots" content="noindex,follow">
   <meta http-equiv="refresh" content="0; url=https://triv101-api.dustinramsbottom.workers.dev/">
   <style>
     body{font-family:'PT Serif',Georgia,serif;background:#0b0e1f;color:#f4f2ff;

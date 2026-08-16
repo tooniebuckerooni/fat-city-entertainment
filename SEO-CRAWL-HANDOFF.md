@@ -468,3 +468,76 @@ Validation re-checks the affected URLs against crawl data. With nothing yet
 re-crawled after the change, it had nothing new to look at and was always going
 to fail. That failure carries **no penalty** — it is not a strike against the
 site, and re-running validation later costs nothing but the wait.
+
+---
+
+# Round 5 — the 16 Aug coverage export
+
+## Read this before reading the numbers: there is no post-fix data in it
+
+`Chart.csv` runs **2026-05-17 → 2026-08-06**. The fix shipped **2026-08-09**.
+Zero post-fix days. Every trend in that export describes the site as it was
+*before* any of this landed, and it cannot say whether the work succeeded. The
+issue counts look marginally fresher than the chart, but the chart is
+unambiguous.
+
+## What it does do: confirm the diagnosis, retroactively
+
+Two step-changes in "Not indexed", and both land exactly on the dates this
+branch already identified:
+
+| date | not indexed | change | what appeared that day |
+|---|---|---|---|
+| 2026-07-24 | 177 → 199 | **+22** | "Alternate page" went 0 → 11 |
+| 2026-08-05 | 199 → 225 | **+26** | "Alternate page" hit 24, "Redirect error" appeared |
+
+Indexed pages fell 163 → 160 across the same window, and impressions dropped
+from a ~365–386/day plateau to ~308/day in 2–8 Aug. The damage was accelerating
+right up to the day it was fixed.
+
+## Expect "Excluded by 'noindex' tag" to climb — that one is intended
+
+It reads 17. There are **245** noindexed listing shells. As Google re-crawls,
+that number climbs toward 245. **That is the fix working, not a regression** —
+those are the archive/category/pagination shells that were clogging "Crawled –
+currently not indexed". Do not act on the email when it arrives.
+
+Same for "Page with redirect": the slashless URLs now resolve there instead of
+competing as duplicates.
+
+## "Duplicate, Google chose different canonical than user" — expected, but verify
+
+This reason is **not in the 16 Aug export** (the export predates it), so it needs
+its own drilldown.
+
+It means Google is declining the canonical the page declares and picking its own.
+During a canonical migration that is the normal transitional state: the site now
+says `/foo/`, Google still holds `/foo` with all the history, and it takes
+re-crawls of enough consistent signals before it moves. The 301 from `/foo` to
+`/foo/` argues in our favour.
+
+Checked for the things that would make it *persist* rather than resolve:
+
+| check | result |
+|---|---|
+| canonical chains (A→B→C — Google rejects these) | **0** |
+| internal links still on the slashless form | **0** |
+| legacy duplicate out-linking its real post | **0 of 14** (legacy have 0 inbound; real have 17–19) |
+| sitemap ⇄ canonical disagreement | **0** |
+
+So the signals are consistent and it should resolve on re-crawl. The drilldown is
+still worth pulling — if the URLs Google prefers are the legacy `/whatsnew/` or
+`/4/post/` duplicates rather than slashless twins, that is a different problem
+and needs a different fix.
+
+## Fixed: "Page indexed without content" (1 page)
+
+Confirmed as `/triv101/surveys.html` — the 15-word meta-refresh shell. Round 1
+left it alone as a hypothetical; it is now a reported issue, so it gets the
+`eventpayment.html` treatment: `noindex,follow` **and** out of the sitemap.
+Asking Google to index a content-free forwarding shell was the same
+contradiction this branch keeps removing. Both come back out when
+GREENROOM-PLAN.md §3 bakes the stream into the page; visitors are unaffected.
+
+Sitemap audit is now **224/224 with all four checks at zero** — nothing missing,
+nothing noindexed, nothing off-canonical, nothing thin.
