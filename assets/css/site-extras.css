@@ -1139,3 +1139,51 @@ a.fce-tool-banner-link:hover {
     padding: 7px 8px;
   }
 }
+
+/* ------------------------------------------------- fce:tracklist sections
+   Sample tracklists on single-game product pages, written by
+   _tools/add-tracklists.js. Two columns on desktop so a 12-song list does not
+   push the buy button off the screen; one column on mobile. */
+.fce-tracklist {
+  background: #f7f7f5;
+  color: #24242a;
+  padding: 38px 20px 44px;
+}
+.fce-tracklist-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.fce-tracklist-inner h2 {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #16161a;
+  margin: 0 0 8px;
+}
+.fce-tracklist-inner > p {
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #3a3a42;
+  margin: 0 0 18px;
+}
+ol.fce-tl {
+  margin: 0;
+  padding-left: 22px;
+  columns: 2;
+  column-gap: 32px;
+}
+ol.fce-tl li {
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 15px;
+  line-height: 1.45;
+  margin: 0 0 8px;
+  break-inside: avoid;
+}
+.fce-tl-song { color: #16161a; font-weight: 700; }
+.fce-tl-artist { color: #5a5a66; }
+.fce-tl-artist::before { content: " — "; }
+@media screen and (max-width: 640px) {
+  ol.fce-tl { columns: 1; }
+  .fce-tracklist { padding: 28px 16px 32px; }
+}

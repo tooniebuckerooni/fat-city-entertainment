@@ -541,3 +541,81 @@ GREENROOM-PLAN.md §3 bakes the stream into the page; visitors are unaffected.
 
 Sitemap audit is now **224/224 with all four checks at zero** — nothing missing,
 nothing noindexed, nothing off-canonical, nothing thin.
+
+---
+
+# Round 6 — Google's chosen canonical, and the product catalog
+
+## Confirmed: the duplicate-canonical issue is the migration, and it is benign
+
+URL Inspection on one of the 12 settles it:
+
+```
+User-declared canonical:   /triviahostresources/disco-music-bingo-.../   (slash)
+Google-selected canonical: /triviahostresources/disco-music-bingo-...    (no slash)
+```
+
+Google is still holding the **slashless** URL it has had for years and has not
+yet moved to the declared one. That is exactly the transitional state predicted
+in Round 5 — not a rejection of the fix, just Google not having re-processed it
+yet. Page fetch successful, indexing allowed, crawled 11 Aug. Nothing to do but
+let the re-crawls land; "Request Indexing" on the affected URLs speeds it up.
+
+## Product catalog: sample tracklists on 42 pages
+
+The blocker in Round 2 was per-pack track data. The owner supplied all 50 full
+callsheets, so `_tools/add-tracklists.js` now publishes a sample on every
+single-game product page.
+
+| | |
+|---|---|
+| callsheets parsed | **50 of 50**, 1,674 tracks, every one matching its own stated song total |
+| column schemas handled | 11 (Artist/Album, Anagram, Country, TV Show, Game, Soundalike Pair, …) |
+| product pages mapped | **42** — name match **and** song-count match, both required |
+| published | 467 tracks, **33%** of the catalog |
+
+Cover Tunes went 356 → 492 words, and — the part that actually matters — those
+added words are *unique to that product*. The catalog's real problem was never
+length, it was that 83 pages were near-identical.
+
+### The rule that must not be broken here
+
+**The full callsheets are not in this repo and must never be.** This repo is
+public — GitHub Pages serves it, and the `robots.txt` Disallow on `/_tools/`
+and `/_content/` stops polite crawlers, not anyone holding a URL. The callsheet
+is the product people pay for.
+
+`_content/tracklists.json` therefore contains **only** what is already printed
+on the page: `song` and `artist`, about a third of each pack. Two hard rules,
+both enforced in the generator and both worth re-reading before anyone edits it:
+
+1. **Never raise the excerpt beyond a sample.** A third is deliberate.
+2. **Never publish the answer column.** Several packs answer on something other
+   than the song title — Anagram, Antonym Clue, Acronym, Country, Nickname, TV
+   Show, Movie, Game, Soundalike Pair. That column *is* the game. It is stripped
+   at generation; the published JSON only ever carries `song` and `artist`.
+
+Bundles and multi-packs are excluded by design — they have no single tracklist,
+and are detected by having no "N Songs" line on the page.
+
+## crypto.html: 897 → 516 words, and all of them about the business now
+
+The old page was 751 words explaining what cryptocurrency *is*. That is filler a
+thousand better sites already own, and lengthening it would have made it worse.
+Replaced with the actual process, from the owner's answers: any top-100 coin,
+covers anything on the site, email `crypto@` and get a quote in your currency
+within 48 hours, manual rather than a processor, no fee from us, refunds in the
+same currency valued at resolution time. It also says plainly that this is slow
+and not the right route if you need a download today — which is true, and the
+kind of thing that stops a refund request later.
+
+## The Christmas early-bird post
+
+Owner's answer: not currently promoting corporate Christmas parties, but the 15%
+early-bird applies if one is accepted. So the offer is real but conditional,
+which is why Round 2 refused to retitle it on its own.
+
+Now: title is year-agnostic ("Book Your Christmas Party Entertainment Early For
+The Bonus Discount"), the dead "September 30, 2017" deadline is gone from the
+body, and the 15% is framed as conditional rather than as a live limited-time
+offer. Safe to put on a request-indexing day now.
