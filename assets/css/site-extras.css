@@ -171,6 +171,56 @@ a.fce-cta-secondary:hover {
   box-sizing: border-box;
 }
 
+/* The category-picker tile grids (trivia-store.html and its Weebly-native
+   twin store/c1/triviastore/ both carry the same 5: Music Bingo Card
+   Downloads / Pre-made Trivia Shows / Bundles / Eras / Virtual Events)
+   inherited Weebly's generic product-tile sizing: 33%-wide columns with a
+   125%-tall image crop, meant for grids with many small thumbnails. With
+   exactly 5 tiles that leaves the third row nearly empty on desktop and
+   makes every tile look oversized. Five-across fits them on one row with no
+   gap and no orphan.
+
+   The width fix only applies where a grid has exactly 5 tiles (:has() below)
+   — other pages reuse this same class with as few as 2 subcategories (e.g.
+   store/c11/musicdoboff/), where 20%-wide columns would leave the opposite
+   problem, a big empty gap. Desktop only — below 641px Weebly's own theme
+   rules already lay these out 2-per-row and that reads fine at that width. */
+@media (min-width: 641px) {
+  .wsite-com-category-subcategory-group:has(> .wsite-com-column:nth-child(5)):not(:has(> .wsite-com-column:nth-child(6)))
+    .wsite-com-column {
+    width: 20% !important;
+  }
+}
+/* Shorter image crop so the fixed-size name overlay doesn't dominate a
+   smaller tile. Applied to every subcategory grid, not just 5-tile ones —
+   it's a straightforward improvement over the original 125% regardless of
+   tile count. */
+.wsite-com-category-subcategory-image-height.wsite-imageaspectratio-image-height {
+  margin-bottom: 115% !important;
+}
+
+/* Small corner badge for a category tile, e.g. the Bundles tile below —
+   the tile used to lean on its (off-brand) image, a green "SAVE" button, to
+   signal "this is the affordable path." That image is gone; this callout
+   carries the same signal in text instead. Gold to match the site's existing
+   promo-bar accent rather than green, which already means "on sale" via
+   Weebly's own category__image-sale-banner elsewhere on the site. */
+.fce-tile-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background: linear-gradient(90deg, #99790a, #b3920f);
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 3px 8px;
+  border-radius: 3px;
+}
+
 /* Reserve two lines for the product name so the common one-line/two-line
    difference doesn't leave tiles in a row at visibly different heights.
    Longer names still grow; flex wrapping keeps the rows intact. */
@@ -709,28 +759,48 @@ p.fce-playlist-badge {
    items instead of the category row's three, so the tiles run wide/flat
    ("banner" shaped, ~3:2) rather than the category row's tall ~4:5 tiles —
    deliberate, not a bug. Plain links, not real Weebly categories: these two
-   tools aren't part of the original store catalog/hierarchy. */
+   tools aren't part of the original store catalog/hierarchy.
+
+   Deliberately kept SMALL/quiet: these two haven't proven themselves yet, and
+   the store's job is still to sell Gold/Silver/Bronze first. Capped width +
+   centered + muted shadow + an "also from Fat City" eyebrow so this reads as
+   a secondary strip, not a second hero row. Revisit sizing once either tool
+   has real traction. */
+.fce-tool-banners-eyebrow {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999999;
+}
 .fce-tool-banners {
   display: flex;
   flex-wrap: wrap;
-  gap: 18px;
-  margin: 0 0 26px;
+  justify-content: center;
+  gap: 14px;
+  max-width: 560px;
+  margin: 0 auto 22px;
 }
 .fce-tool-banner-card {
-  flex: 1 1 320px;
-  min-width: 260px;
+  flex: 1 1 240px;
+  min-width: 200px;
+  max-width: 260px;
   text-align: center;
 }
 a.fce-tool-banner-link {
   display: block;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.18);
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  opacity: 0.9;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: box-shadow 200ms ease, opacity 200ms ease;
 }
 a.fce-tool-banner-link:hover {
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
-  transform: translateY(-2px);
+  opacity: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 .fce-tool-banner-link img {
   display: block;
@@ -799,8 +869,19 @@ a.fce-tool-banner-link:hover {
   text-transform: uppercase;
 }
 @media screen and (max-width: 640px) {
+  /* flex-direction:column makes flex-basis apply to HEIGHT, not width — a
+     240px flex-basis fighting each image's real (shorter) aspect-ratio
+     height is what produced the uneven gaps between the two cards. Dropping
+     flex-basis entirely and sizing by width instead fixes it. */
   .fce-tool-banners {
     flex-direction: column;
+    align-items: center;
+    max-width: 320px;
+  }
+  .fce-tool-banner-card {
+    flex: none;
+    width: 100%;
+    max-width: 320px;
   }
 }
 
@@ -866,5 +947,195 @@ a.fce-tool-banner-link:hover {
   }
   .fce-copy-inner h2 {
     font-size: 21px;
+  }
+}
+
+/* --------------------------------------------------------- fce-promo-bar
+   Sitewide announcement bar, injected by assets/js/promo-bar.js (placed on
+   every page by _tools/add-promo-bar.js — never hand-add the script tag).
+   Deliberately slim/dismissible rather than a modal: it shouldn't cost a
+   visitor a click to read the page. Sits as the first element in <body>,
+   above the Weebly header, so it reads as site chrome, not an interruption. */
+.fce-promo-bar {
+  position: relative;
+  z-index: 9999;
+  background: linear-gradient(90deg, #99790a, #b3920f);
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 42px 10px 14px;
+  line-height: 1.4;
+}
+.fce-promo-bar code {
+  background: rgba(255, 255, 255, 0.22);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+.fce-promo-bar-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.fce-promo-bar-link:hover,
+.fce-promo-bar-link:focus {
+  text-decoration: underline;
+}
+.fce-promo-bar-close {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 10px;
+  opacity: 0.85;
+}
+.fce-promo-bar-close:hover {
+  opacity: 1;
+}
+@media screen and (max-width: 480px) {
+  .fce-promo-bar {
+    font-size: 12.5px;
+    padding: 9px 36px 9px 10px;
+  }
+}
+
+/* ---------------------------------------------------------- fce-extras
+   End-of-post FAQ block and optional inline-SVG diagram, injected into blog
+   posts by _tools/add-post-faq.js between <!-- fce:faq --> markers. Same
+   "own the styling, don't inherit the Weebly shell" stance as .fce-copy: a
+   light band with dark text so it reads cleanly wherever it lands. */
+.fce-extras {
+  background: #f7f7f5;
+  color: #24242a;
+  padding: 44px 20px 52px;
+  margin-top: 8px;
+}
+.fce-extras-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+/* Diagram: a self-contained figure holding one responsive inline SVG. */
+.fce-diagram {
+  margin: 0 0 40px;
+  padding: 0;
+}
+.fce-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.fce-diagram figcaption {
+  max-width: 560px;
+  margin: 14px auto 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #55555c;
+  text-align: center;
+}
+
+/* FAQ list. */
+.fce-faq h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #16161a;
+  margin: 0 0 20px;
+}
+.fce-faq-item {
+  border-top: 1px solid #e2e2dd;
+  padding: 18px 0;
+}
+.fce-faq-item:last-child {
+  border-bottom: 1px solid #e2e2dd;
+}
+.fce-faq-q {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: #16161a;
+  margin: 0 0 8px;
+}
+.fce-faq-a p {
+  margin: 0;
+  color: #24242a;
+}
+.fce-faq-a a {
+  color: #b0122b;
+  text-decoration: underline;
+}
+.fce-faq-a a:hover {
+  color: #7d0c1e;
+}
+@media screen and (max-width: 640px) {
+  .fce-extras {
+    padding: 30px 16px 34px;
+  }
+  .fce-extras-inner {
+    font-size: 16px;
+  }
+  .fce-faq h2 {
+    font-size: 21px;
+  }
+  .fce-faq-q {
+    font-size: 16.5px;
+  }
+}
+
+/* ----------------------------------------------------------- fce-table
+   Clean data tables inside blog-post bodies, rendered from GFM pipe tables
+   by _tools/publish-post.js as <table class="fce-table">. The post body is
+   Weebly-themed, so this block owns the table's look end-to-end rather than
+   inheriting it. Small (2-4 column) tables, so they fit without scrolling. */
+.fce-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4px 0 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+}
+.fce-table th,
+.fce-table td {
+  text-align: left;
+  padding: 10px 12px;
+  border: 1px solid #e2e2dd;
+  vertical-align: top;
+  color: #24242a;
+}
+.fce-table thead th {
+  background: #f2f2ef;
+  color: #16161a;
+  font-weight: 700;
+}
+.fce-table tbody tr:nth-child(even) td {
+  background: #fafaf8;
+}
+.fce-table td strong {
+  color: #16161a;
+}
+@media screen and (max-width: 600px) {
+  .fce-table {
+    font-size: 13.5px;
+  }
+  .fce-table th,
+  .fce-table td {
+    padding: 7px 8px;
   }
 }

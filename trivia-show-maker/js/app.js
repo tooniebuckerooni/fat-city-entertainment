@@ -57,7 +57,11 @@
         else if (!hasContent) q.a = "";
       } else if (format === "mc") {
         if (!Array.isArray(q.choices) || q.choices.length !== 4) {
-          q.choices = [q.a || "", "", "", ""];
+          /* Randomize which slot the existing answer lands in — otherwise
+             every question in a round migrated from open format puts the
+             correct choice on A, since nothing nudges the host to move it. */
+          q.choices = ["", "", "", ""];
+          q.choices[Math.floor(Math.random() * 4)] = q.a || "";
         }
       } else {
         q.choices = null;
@@ -146,6 +150,35 @@
     t.hidden = false;
     clearTimeout(toast._t);
     toast._t = setTimeout(() => { t.hidden = true; }, ms || 2600);
+  }
+
+  // An in-page confirm, not window.confirm(): a few dialogs in a row is
+  // enough for a browser to offer "prevent this page from creating
+  // additional dialogs" — and once a user takes it, confirm() silently
+  // returns false forever after, quietly breaking whatever it was gating.
+  function confirmModal(message, okLabel, cancelLabel) {
+    return new Promise(resolve => {
+      const modal = $("#confirm-modal");
+      modal.querySelector(".confirm-msg").textContent = message;
+      const okBtn = modal.querySelector(".confirm-ok");
+      const cancelBtn = modal.querySelector(".confirm-cancel");
+      okBtn.textContent = okLabel || "OK";
+      cancelBtn.textContent = cancelLabel || "Cancel";
+      modal.hidden = false;
+      const done = result => {
+        modal.hidden = true;
+        okBtn.removeEventListener("click", onOk);
+        cancelBtn.removeEventListener("click", onCancel);
+        modal.removeEventListener("click", onBackdrop);
+        resolve(result);
+      };
+      const onOk = () => done(true);
+      const onCancel = () => done(false);
+      const onBackdrop = e => { if (e.target === modal) done(false); };
+      okBtn.addEventListener("click", onOk);
+      cancelBtn.addEventListener("click", onCancel);
+      modal.addEventListener("click", onBackdrop);
+    });
   }
 
   const shuffled = arr => {
@@ -358,7 +391,9 @@
           '<select class="ai-diff" data-field="difficulty" title="Difficulty (AI only)">' + diffOpts + "</select>" +
           '<button class="btn btn-small btn-ai" data-act="ai-fill" title="Generate 10 AI questions for this round">✨ Generate 10 <span class="ai-cost">· 2</span></button>' +
           '<span class="spacer"></span>' +
-          '<button class="btn btn-small btn-ai" data-act="ai-suggest" title="Dig up 5 surprising AI category ideas">⛏ Dig for Categories <span class="ai-cost">· 1</span></button>' +
+          '<span class="ai-seed-label">Seed</span>' +
+          '<input type="text" class="ai-seed" placeholder="e.g. Halloween" title="Optional seed to steer every dig for this round (e.g. Halloween, 90s, Sports)" maxlength="60">' +
+          '<button class="btn btn-small btn-ai" data-act="ai-suggest" title="Dig up 5 surprising AI category ideas, seeded if you typed one">⛏ Dig for Categories <span class="ai-cost">· 1</span></button>' +
         "</div>" +
         '<div class="ai-suggest-tray" hidden></div>' +
       "</div></div>";
@@ -380,6 +415,15 @@
     } else {
       box.innerHTML = state.rounds.map(roundHtml).join("");
       box.querySelectorAll("textarea").forEach(autosize);
+      /* renderRounds() rebuilds every round's DOM from scratch, which would
+         otherwise wipe an in-progress AI category dig each time any field
+         changes. Restore it so the tray survives unrelated re-renders. */
+      state.rounds.forEach((r, i) => {
+        const entry = digTrays.get(r);
+        if (!entry) return;
+        const roundEl = box.querySelector('.round[data-r="' + i + '"]');
+        if (roundEl) renderSuggestTray(roundEl, entry.spinning, entry.categories, entry.theme, entry.trail);
+      });
     }
     updateStats();
   }
@@ -457,37 +501,73 @@
 
   /* ---------- AI category spinner ---------- */
 
-  function renderSuggestTray(roundEl, spinning, categories) {
+  // Describes what's steering the current batch, so the tray never leaves
+  // it a mystery: the typed seed (persists across digs in this round) and,
+  // once the user has clicked "dig deeper" at least once, the chain of
+  // categories that batch was drilled out of.
+  // r -> { spinning, categories, theme, trail } — kept outside `state` (never
+  // saved to the game file) but keyed by the round object itself so it
+  // survives renderRounds() rebuilding every round's DOM from scratch, and
+  // stays attached to the right round across reordering (up/down).
+  const digTrays = new WeakMap();
+
+  function digContext(theme, trail) {
+    const parts = [];
+    if (trail && trail.length) parts.push('deeper into “' + trail[trail.length - 1] + '”');
+    if (theme) parts.push('seeded “' + theme + '”');
+    return parts.join(", ");
+  }
+
+  function renderSuggestTray(roundEl, spinning, categories, theme, trail) {
     const tray = roundEl.querySelector(".ai-suggest-tray");
     if (!tray) return;
     tray.hidden = false;
+    const ctx = digContext(theme, trail);
     if (spinning) {
-      tray.innerHTML = '<span class="dig-hint">⛏ Digging for fresh categories…</span>' +
+      tray.innerHTML = '<span class="dig-hint">⛏ Digging' + (ctx ? " " + esc(ctx) : " for fresh categories") + '…</span>' +
         Array.from({ length: 5 }, (_, i) =>
           '<span class="chip chip-spin chip-gem" style="animation-delay:' + (i * 70) + 'ms">◆</span>'
         ).join("");
       return;
     }
-    tray.innerHTML = '<span class="dig-hint">💎 Unearthed — click one to use it, or dig deeper:</span>' +
+    tray.innerHTML = '<span class="dig-hint">💎 Unearthed' + (ctx ? " — " + esc(ctx) : "") +
+        ' — click a name to set it as this round\'s category, or ⛏ to dig deeper from it:</span>' +
       categories.map((cat, i) =>
       '<span class="chip chip-landed" style="animation-delay:' + (i * 70) + 'ms" data-cat="' + esc(cat) + '">' +
-        '<button type="button" class="chip-text" data-act="usecat">' + esc(cat) + '</button>' +
-        '<button type="button" class="chip-spin-btn" data-act="spincat" title="Dig deeper into this one">⛏</button>' +
+        '<button type="button" class="chip-text" data-act="usecat" title="Use as this round\'s category">' + esc(cat) + '</button>' +
+        '<button type="button" class="chip-spin-btn" data-act="spincat" title="Dig deeper — spin off 5 more ideas from this one">⛏</button>' +
       '</span>'
-    ).join("") + '<button type="button" class="chip-reset" data-act="respin">⛏ Dig again</button>';
+    ).join("") + '<button type="button" class="chip-reset" data-act="respin">⛏ Start over</button>';
   }
 
-  function spinCategories(r, roundEl, seed) {
+  function spinCategories(r, roundEl, seed, theme, trail) {
     if (!window.TGP_AI) { toast("AI generator didn't load — try refreshing."); return; }
-    renderSuggestTray(roundEl, true);
+    digTrays.set(r, { spinning: true, categories: null, theme, trail });
+    renderSuggestTray(roundEl, true, null, theme, trail);
     const avoid = state.rounds.map(x => x.name.trim()).filter(Boolean);
-    TGP_AI.suggestCategories(seed || "", avoid, r.ageRange || "family")
-      .then(categories => renderSuggestTray(roundEl, false, categories))
+    TGP_AI.suggestCategories(seed || "", avoid, r.ageRange || "family", theme || "")
+      .then(categories => {
+        digTrays.set(r, { spinning: false, categories, theme, trail });
+        renderSuggestTray(roundEl, false, categories, theme, trail);
+      })
       .catch(err => {
+        digTrays.delete(r);
         const tray = roundEl.querySelector(".ai-suggest-tray");
         if (tray) tray.hidden = true;
         toast(err.message || "Couldn't get suggestions.");
       });
+  }
+
+  // Briefly highlights a round's category field so it's obvious a dug-up
+  // name actually landed there. Looks the round up by index rather than
+  // holding a DOM reference, since renderRounds() just rebuilt the tree.
+  function flashRoundName(i) {
+    const el = document.querySelector('.round[data-r="' + i + '"] .r-name');
+    if (!el) return;
+    el.classList.remove("flash-set");
+    void el.offsetWidth; /* restart the animation if it's still running */
+    el.classList.add("flash-set");
+    setTimeout(() => el.classList.remove("flash-set"), 900);
   }
 
   function bindRounds() {
@@ -533,7 +613,7 @@
       }
     });
 
-    box.addEventListener("click", e => {
+    box.addEventListener("click", async e => {
       const btn = e.target.closest("button[data-act]");
       if (!btn) return;
       const roundEl = btn.closest(".round");
@@ -548,7 +628,7 @@
       else if (act === "down" && i < state.rounds.length - 1) { state.rounds.splice(i + 1, 0, state.rounds.splice(i, 1)[0]); }
       else if (act === "del") {
         const filled = r.questions.filter(q => q.q.trim() || q.a.trim()).length;
-        if (filled && !confirm("Delete Round " + (i + 1) + " and its " + filled + " question(s)?")) return;
+        if (filled && !(await confirmModal("Delete Round " + (i + 1) + " and its " + filled + " question(s)?", "Delete round", "Cancel"))) return;
         state.rounds.splice(i, 1);
       }
       else if (act === "dup") {
@@ -581,17 +661,41 @@
         return; /* async — aiFillRound does its own renderRounds()/save() */
       }
       else if (act === "ai-suggest" || act === "respin") {
-        spinCategories(r, roundEl, "");
+        const theme = (roundEl.querySelector(".ai-seed") || {}).value || "";
+        roundEl._digTrail = []; /* fresh top-level batch — clears any prior "dig deeper" chain */
+        spinCategories(r, roundEl, "", theme, roundEl._digTrail);
         return; /* async, and the tray is ephemeral UI — not part of saved state */
       }
       else if (act === "spincat") {
         const seed = btn.closest(".chip").dataset.cat;
-        spinCategories(r, roundEl, seed);
+        const theme = (roundEl.querySelector(".ai-seed") || {}).value || "";
+        roundEl._digTrail = (roundEl._digTrail || []).concat(seed); /* the true "dig deeper": spins off the pick just made */
+        spinCategories(r, roundEl, seed, theme, roundEl._digTrail);
         return;
       }
       else if (act === "usecat") {
-        r.name = btn.closest(".chip").dataset.cat;
+        const cat = btn.closest(".chip").dataset.cat;
+        const filled = r.questions.filter(q => q.q.trim() || q.a.trim()).length;
+        let cleared = false;
+        if (filled) {
+          cleared = await confirmModal(
+            'Round ' + (i + 1) + ' already has ' + filled + ' question' + (filled === 1 ? "" : "s") +
+            ' — clear ' + (filled === 1 ? "it" : "them") + ' for “' + cat + '”?',
+            "Clear " + (filled === 1 ? "it" : "them"), "Keep them"
+          );
+          if (cleared) r.questions = r.questions.map(blankQ);
+        }
+        r.name = cat;
+        /* Only drop the picked chip — the rest of the dig stays put so it
+           can be applied to another round or dug into further, instead of
+           the whole batch vanishing on every pick. */
+        const entry = digTrays.get(r);
+        if (entry && entry.categories) {
+          digTrays.set(r, { ...entry, categories: entry.categories.filter(c => c !== cat) });
+        }
         renderRounds(); save();
+        flashRoundName(i);
+        toast('Round ' + (i + 1) + ' category set to “' + cat + '”' + (cleared ? " — questions cleared." : filled ? " — questions kept." : "."));
         return;
       }
       else if (act === "tfset") {
@@ -603,8 +707,6 @@
         if (act === "qup" && qi > 0) {
           r.questions.splice(qi - 1, 0, r.questions.splice(qi, 1)[0]);
         } else if (act === "qdel") {
-          const q = r.questions[qi];
-          if ((q.q.trim() || q.a.trim()) && !confirm("Delete question " + (qi + 1) + "?")) return;
           r.questions.splice(qi, 1);
           if (!r.questions.length) r.questions.push(blankQ());
         } else return;
@@ -617,6 +719,34 @@
     $("#btn-add-round").addEventListener("click", addRound);
   }
 
+  /* ---------- AI tiebreaker ---------- */
+
+  function bindTiebreakerAI() {
+    const btn = $("#btn-tb-ai");
+    if (!btn) return;
+    btn.addEventListener("click", () => {
+      if (!window.TGP_AI) { toast("AI generator didn't load — try refreshing."); return; }
+      const seed = ($("#tb-seed") || {}).value || "";
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.textContent = "Generating…";
+      TGP_AI.generateTiebreaker(seed, "family")
+        .then(({ question, answer, category }) => {
+          state.tiebreaker = { q: question, a: answer };
+          state.options.tiebreaker = true;
+          $("#tb-q").value = question;
+          $("#tb-a").value = answer;
+          autosize($("#tb-q"));
+          $("#o-tb").checked = true;
+          syncTbVisibility();
+          save();
+          toast(category ? "Generated a “" + category + "” tiebreaker." : "Generated a tiebreaker.");
+        })
+        .catch(err => toast(err.message || "Tiebreaker generation failed."))
+        .finally(() => { btn.disabled = false; btn.innerHTML = original; });
+    });
+  }
+
   /* ---------- PDF generation ---------- */
 
   const DOC_META = {
@@ -626,14 +756,14 @@
     scores:    { fn: s => TGP_PDF.scores(s),    file: "score-sheet" }
   };
 
-  function makeDoc(kind, quiet) {
+  async function makeDoc(kind, quiet) {
     const a = TGP_PDF.audit(state);
     if (!a.rounds) {
       toast("Write (or sample-fill) at least one question first.");
       return null;
     }
     if (!quiet && kind === "host" && a.missingAnswers &&
-        !confirm(a.missingAnswers + " question(s) have no answer yet — they'll show a blank. Generate anyway?")) {
+        !(await confirmModal(a.missingAnswers + " question(s) have no answer yet — they'll show a blank. Generate anyway?", "Generate anyway", "Cancel"))) {
       return null;
     }
     try {
@@ -647,31 +777,31 @@
 
   function bindDownloads() {
     document.querySelectorAll("[data-download]").forEach(btn => {
-      btn.addEventListener("click", () => {
+      btn.addEventListener("click", async () => {
         const kind = btn.dataset.download;
-        const doc = makeDoc(kind);
+        const doc = await makeDoc(kind);
         if (!doc) return;
         doc.save(slug() + "-" + DOC_META[kind].file + ".pdf");
         toast("Downloaded " + DOC_META[kind].file.replace(/-/g, " ") + ".");
       });
     });
     document.querySelectorAll("[data-preview]").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const doc = makeDoc(btn.dataset.preview);
+      btn.addEventListener("click", async () => {
+        const doc = await makeDoc(btn.dataset.preview);
         if (!doc) return;
         const win = window.open(doc.output("bloburl"), "_blank");
         if (!win) toast("Pop-up blocked — allow pop-ups to preview.");
       });
     });
-    $("#btn-all").addEventListener("click", () => {
+    $("#btn-all").addEventListener("click", async () => {
       const a = TGP_PDF.audit(state);
       if (!a.rounds) { toast("Write (or sample-fill) at least one question first."); return; }
       if (a.missingAnswers &&
-          !confirm(a.missingAnswers + " question(s) have no answer yet. Download the kit anyway?")) return;
+          !(await confirmModal(a.missingAnswers + " question(s) have no answer yet. Download the kit anyway?", "Download anyway", "Cancel"))) return;
       const kinds = Object.keys(DOC_META);
       kinds.forEach((kind, i) => {
-        setTimeout(() => {
-          const doc = makeDoc(kind, true);
+        setTimeout(async () => {
+          const doc = await makeDoc(kind, true);
           if (doc) doc.save(slug() + "-" + DOC_META[kind].file + ".pdf");
         }, i * 500);
       });
@@ -685,8 +815,8 @@
     return state.rounds.some(r => r.questions.some(q => q.q.trim() || q.a.trim()));
   }
 
-  function loadSampleGame() {
-    if (hasContent() && !confirm("Replace your current game with the sample game?")) return;
+  async function loadSampleGame() {
+    if (hasContent() && !(await confirmModal("Replace your current game with the sample game?", "Replace it", "Cancel"))) return;
     const picks = ["General Knowledge", "Music", "Movies & TV"];
     state.game.title = "Thursday Night Trivia";
     state.game.subtitle = "Live Pub Trivia";
@@ -702,6 +832,29 @@
     state.tiebreaker = { q: tb[0], a: tb[1] };
     applyControls(); renderRounds(); save();
     toast("Sample game loaded — 3 rounds, 30 questions, tiebreaker. Try a PDF!");
+  }
+
+  /* ---------- theme ---------- */
+
+  const THEME_KEY = "tsm_theme";
+
+  function syncThemeBtn() {
+    const btn = $("#btn-theme");
+    if (!btn) return;
+    const light = document.documentElement.dataset.theme === "light";
+    btn.textContent = light ? "🌙" : "☀️";
+    const title = light ? "Switch to dark theme" : "Switch to light theme";
+    btn.title = title;
+    btn.setAttribute("aria-label", title);
+  }
+  function bindTheme() {
+    syncThemeBtn();
+    $("#btn-theme").addEventListener("click", () => {
+      const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+      document.documentElement.dataset.theme = next;
+      try { localStorage.setItem(THEME_KEY, next); } catch (e) {}
+      syncThemeBtn();
+    });
   }
 
   function bindToolbar() {
@@ -737,8 +890,8 @@
       reader.readAsText(file);
     });
 
-    $("#btn-reset").addEventListener("click", () => {
-      if (!confirm("Reset everything? This clears the whole game (branding too).")) return;
+    $("#btn-reset").addEventListener("click", async () => {
+      if (!(await confirmModal("Reset everything? This clears the whole game (branding too).", "Reset everything", "Cancel"))) return;
       localStorage.removeItem(STORE_KEY);
       state = DEFAULT_STATE();
       applyControls(); renderRounds(); save();
@@ -761,5 +914,7 @@
   bindRounds();
   bindDownloads();
   bindToolbar();
+  bindTheme();
+  bindTiebreakerAI();
   if (window.TGP_AI) TGP_AI.init();
 })();

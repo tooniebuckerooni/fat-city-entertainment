@@ -76,6 +76,43 @@ before trusting any of these scripts' own "done" output over your eyes.
    section — don't trust the tool's own success message or a prior session's
    "verified" claim, and don't reach for a revert before you've read what's
    actually there.
+7. **`compress-images.js` had no dry-run mode** (fixed 2026-08-11) — unlike
+   every other tool in this repo, and contrary to the "all dry-run by
+   default" claim at the top of this file, it recompressed images in place
+   unconditionally on every invocation, `--write` or not. Calling it "just to
+   preview" silently rewrote 5 files. Now gated behind `--write` like its
+   siblings. If a future tool is added to this family, don't assume it
+   follows the convention — check for a `WRITE` guard before trusting a bare
+   invocation to be safe.
+8. **`new-content-page.js` hit the same `$1`-backreference bug as
+   `add-store-tile.js` (bug #2 above), just not caught until 2026-08-12.**
+   Its head-tag replacements passed a plain string to `String.replace()`;
+   a description containing `$13.98` has `$1` immediately followed by a
+   digit, which `replace()` reads as a capture-group backreference. It
+   silently spliced the canonical `<link>` tag into the middle of
+   `trivia-show-maker-plans.html`'s `og:description`, turning `$13.98` into
+   `<link rel="canonical" ...>3.98`. Fixed by switching every head-region
+   `.replace()` in that file to a function replacer — a function's return
+   value is inserted literally, `$1` and all. **Same root cause, second
+   tool.** Any `.replace(pattern, someString)` where `someString` is built
+   from page copy (price, title, description) rather than a fixed literal
+   is suspect — grep for `.replace(` across `_tools/` before trusting a new
+   one, and prefer the function form on principle for anything touching
+   real content.
+9. **Running `new-content-page.js` for one new page silently rebuilds
+   *every* spec in `new-content-pages.json`, including ones nobody meant to
+   touch** (found 2026-08-12, same session as #8). Two long-standing pages
+   (`what-is-music-bingo.html`, `music-bingo-rules.html`, plus
+   `charlotte-events.html`) had drifted from their stored specs — their live
+   "Make free cards" links had been updated to `bingocardgenerator.online`
+   at some point after generation, but the JSON body never got the same
+   edit. Adding one new page regenerated all of them from the stale specs
+   and quietly reverted all three back to the old link. Fixed by syncing
+   the JSON body for all three to their live content, and by the same
+   principle as bug #6: don't trust "5 pages built" as proof nothing
+   changed — diff the *entire* `git status` after running this tool, not
+   just the file you meant to add, and expect any spec you haven't touched
+   in a while to have drifted.
 
 ---
 

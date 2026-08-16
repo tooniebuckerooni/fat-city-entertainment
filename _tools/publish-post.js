@@ -110,8 +110,20 @@ function toHtml(md) {
       out.push(`<div class="paragraph"><ol>${items.join("")}</ol></div>`);
       continue;
     }
+    // GFM pipe table: a "| … |" row followed by a "| --- | --- |" separator.
+    if (/^\|(.+)\|\s*$/.test(line) && i + 1 < lines.length && /^\|[\s:|-]+\|\s*$/.test(lines[i + 1])) {
+      const cells = (row) => row.replace(/^\||\|\s*$/g, "").split("|").map((c) => c.trim());
+      const head = cells(line);
+      i += 2; // consume header + separator
+      const rows = [];
+      while (i < lines.length && /^\|(.+)\|\s*$/.test(lines[i])) { rows.push(cells(lines[i])); i++; }
+      const thead = `<thead><tr>${head.map((h) => `<th>${inline(h)}</th>`).join("")}</tr></thead>`;
+      const tbody = `<tbody>${rows.map((r) => `<tr>${r.map((c) => `<td>${inline(c)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+      out.push(`<div class="paragraph"><table class="fce-table">${thead}${tbody}</table></div>`);
+      continue;
+    }
     const para = [];
-    while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#|[-*]\s|\d+\.\s)/.test(lines[i])) {
+    while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#|[-*]\s|\d+\.\s|\|)/.test(lines[i])) {
       para.push(lines[i]); i++;
     }
     out.push(`<div class="paragraph">${inline(para.join(" "))}<br></div>`);

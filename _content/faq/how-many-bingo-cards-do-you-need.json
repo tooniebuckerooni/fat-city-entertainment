@@ -1,0 +1,18 @@
+[
+  {
+    "q": "How many bingo cards do you need per player?",
+    "a": "One card per player for a casual game, or 1-3 cards each for a prize or adult game — more cards per player means faster wins, which means you'll need more rounds and more prizes to fill the same time."
+  },
+  {
+    "q": "How many bingo cards should I print for 30 players?",
+    "a": "For a prize event at about 2 cards each, print roughly 65-70: that's 60 cards plus 10-20% spares for walk-ins, mistakes, and latecomers. For a casual one-card-each game, about 35 covers it."
+  },
+  {
+    "q": "How many spare bingo cards should I print?",
+    "a": "Add 10-20% on top of your expected total. A few extras is plenty for a relaxed home game; for a public night where you can't predict the crowd, lean toward 20% or more."
+  },
+  {
+    "q": "Do I need fresh bingo cards for each round?",
+    "a": "It's optional. Reusing the same cards every round is simplest and cheapest for casual play; fresh cards each round are more engaging and standard for competitive nights, but they multiply your print count by the number of rounds."
+  }
+]

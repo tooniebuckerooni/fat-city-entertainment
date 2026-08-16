@@ -7,9 +7,10 @@
   const $ = s => document.querySelector(s);
   const KEY_STORE = "tgp_license_v1";
 
-  // Fill in after deploying worker.js and creating the LemonSqueezy product.
   const WORKER_URL = "https://tgp-ai-gateway.dustinramsbottom.workers.dev";
-  const CHECKOUT_URL = "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f5fe010c-30ed-46f6-b157-4466e165d143";
+  // Credits & Plans has three packs (Starter/Host/Pro) — send people there to
+  // pick one rather than straight to a single checkout link.
+  const PLANS_URL = "/trivia-show-maker-plans.html";
 
   // License state lives in its own storage key, separate from the game
   // state in app.js — it's account-level, not game-level, so it must
@@ -98,7 +99,7 @@
     if (box) {
       if (!lic.key) {
         box.innerHTML = '<p class="hint">No license yet — the rest of Trivia Generator Pro works fully without one. '
-          + '<a href="' + CHECKOUT_URL + '" target="_blank" rel="noopener">Get AI credits →</a></p>';
+          + '<a href="' + PLANS_URL + '" target="_blank" rel="noopener">Get AI credits →</a></p>';
       } else if (lic.status === "activating") {
         box.innerHTML = '<p class="hint">Activating…</p>';
       } else if (lic.active) {
@@ -126,7 +127,7 @@
       chip.classList.add("is-cta");
       amt.textContent = "Get AI Credits";
       sub.textContent = "power up your night";
-      chip.onclick = () => window.open(CHECKOUT_URL, "_blank", "noopener");
+      chip.onclick = () => window.open(PLANS_URL, "_blank", "noopener");
       return;
     }
     chip.classList.add("is-active");
@@ -139,9 +140,9 @@
       sub.textContent = left <= 3 ? "low — tap to top up" : "remaining";
       if (left <= 3) chip.classList.add("is-low");
     }
-    // Active: clicking the balance opens the checkout to buy another pack.
+    // Active: clicking the balance opens Credits & Plans to buy another pack.
     chip.title = "Buy more credits";
-    chip.onclick = () => window.open(CHECKOUT_URL, "_blank", "noopener");
+    chip.onclick = () => window.open(PLANS_URL, "_blank", "noopener");
   }
 
   // A little dopamine when credits are spent: the gem pops and the cost
@@ -207,18 +208,37 @@
   // Returns a Promise<string[]> of 5 category ideas. seed: drill deeper
   // into a specific idea, or "" for a fresh top-level batch. avoid: round
   // names already in this game, so suggestions stay fresh. age: bias
-  // suggestions to a round's audience.
-  async function suggestCategories(seed, avoid, age) {
+  // suggestions to a round's audience. theme: optional free-text theme
+  // (e.g. "Halloween") to steer every idea toward, even fresh batches.
+  async function suggestCategories(seed, avoid, age, theme) {
     requireActive();
     let data;
     try {
-      data = await call("suggest_categories", { seed: seed || "", avoid: avoid || [], age: age || "" });
+      data = await call("suggest_categories", { seed: seed || "", avoid: avoid || [], age: age || "", theme: theme || "" });
     } catch (e) {
       throw new Error("Couldn't reach the AI generator - check your connection and try again.");
     }
     applyUsage(data);
     if (!data.ok) throw new Error(data.error || "Couldn't get suggestions.");
     return data.categories;
+  }
+
+  // Returns a Promise<{question, answer, category}> for one AI-written
+  // tiebreaker (a "closest answer wins" question with a precise numeric
+  // answer). seed: optional free-text topic to steer it (e.g. "Movies");
+  // category is a short label (e.g. "Movies") for what came back, so the
+  // caller can tell the host what they got.
+  async function generateTiebreaker(seed, age) {
+    requireActive();
+    let data;
+    try {
+      data = await call("generate_tiebreaker", { seed: seed || "", age: age || "" });
+    } catch (e) {
+      throw new Error("Couldn't reach the AI generator - check your connection and try again.");
+    }
+    applyUsage(data);
+    if (!data.ok) throw new Error(data.error || "Couldn't generate a tiebreaker.");
+    return { question: data.question, answer: data.answer, category: data.category };
   }
 
   function init() {
@@ -228,5 +248,5 @@
     if (lic.key) checkStatus();
   }
 
-  window.TGP_AI = { init, generateForRound, suggestCategories };
+  window.TGP_AI = { init, generateForRound, suggestCategories, generateTiebreaker };
 })();

@@ -1,48 +1,119 @@
-html, body {
-	padding: 0;
-	margin: 0;
-	font-family: "Source Sans Pro";
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
+/* Scoped to .fce-bcg (the widget's own wrapper div) on purpose. This
+   stylesheet loads inline in the page body, after every other site
+   stylesheet, so any unscoped/generic selector here (body, p, h1, .container,
+   td/th) wins the cascade and bleeds into the surrounding Weebly page —
+   `.container` in particular collides with Weebly's own generic
+   section-wrapper class used elsewhere on the same page. Keep every rule
+   prefixed with .fce-bcg. */
 
-h1 {
- 	margin: 0;
-}
-
-p {
-	margin: 0;
-}
-
-.container {
+.fce-bcg {
 	width: 90%;
+	max-width: 640px;
+	box-sizing: border-box;
+	margin: 20px auto 30px;
+	background: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+	padding: 28px 32px 34px;
+	font-family: "Montserrat", "Source Sans Pro", Arial, sans-serif;
+	color: #2a2a2a;
 }
 
-.options {
-	margin-top: 16px;
-	margin-bottom: 16px;
+.fce-bcg .options {
+	margin-top: 0;
+	margin-bottom: 26px;
+	padding-bottom: 26px;
+	border-bottom: 1px solid #e8e8e8;
 }
 
-.option-text {
-	font-size: 18px;
+.fce-bcg .options:last-of-type {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
 }
 
-.generate-button {
-	width: 120px;
-	height: 35px;
-	background-color: "#fff";
-	border-radius: 8px;
-	/*border-width: 1;*/
-	/*border-color: "#eee";*/
-	transition: all 0.3s ease-in;
+.fce-bcg .options h2 {
+	margin: 0 0 14px;
+	font-size: 19px;
+	font-weight: 700;
+	color: #1a1a1a;
 }
 
-.generate-button:hover {
+.fce-bcg .option-text {
+	margin: 14px 0 6px;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	color: #6b6b6b;
+}
+
+.fce-bcg .options .option-text:first-child {
+	margin-top: 0;
+}
+
+.fce-bcg input[type="text"],
+.fce-bcg input[type="number"],
+.fce-bcg select,
+.fce-bcg textarea {
+	width: 100%;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	font-size: 15px;
+	font-family: inherit;
+	color: #1a1a1a;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	background: #ffffff;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.fce-bcg input[type="text"]:focus,
+.fce-bcg input[type="number"]:focus,
+.fce-bcg select:focus,
+.fce-bcg textarea:focus {
+	outline: none;
+	border-color: #99790a;
+	box-shadow: 0 0 0 3px rgba(153, 121, 10, 0.15);
+}
+
+.fce-bcg textarea {
+	resize: vertical;
+	line-height: 1.5;
+}
+
+.fce-bcg select {
+	cursor: pointer;
+}
+
+.fce-bcg .generate-button {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin-top: 6px;
+	padding: 14px;
+	background-color: #000000;
+	color: #ffffff;
+	border: 1px solid #000000;
+	border-radius: 6px;
+	font-family: inherit;
+	font-size: 15px;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all 0.2s ease-in;
+}
+
+.fce-bcg .generate-button:hover {
+	background-color: #ffffff;
+	color: #000000;
 	box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in;
 }
 
-td, th {
-	border: 1px solid black;
+@media screen and (max-width: 480px) {
+	.fce-bcg {
+		padding: 22px 18px 26px;
+		border-radius: 8px;
+	}
 }

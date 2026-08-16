@@ -6,6 +6,86 @@
   <title>Page Not Found - Fat City Entertainment</title>
   <meta name="robots" content="noindex" />
 
+<!-- fce:legacy-redirects -->
+<script type="text/javascript">
+  /*
+   * Recover legacy dead-ends without a server. GitHub Pages serves this 404
+   * page ONLY when the requested file genuinely doesn't exist, so anything this
+   * script matches is already a confirmed 404 — it can never fire on a live page.
+   *
+   * The old Weebly blog was renamed over the years (inspiration -> whatsnew
+   * -> blog -> the triviahostresources landing page) and Pages can't 301, so
+   * the retired path prefixes were left dead. Every legacy post kept the SAME
+   * slug as its live counterpart, so a slug maps 1:1 to the live post.
+   */
+  (function () {
+    var path = location.pathname;
+
+    // Retired blog path prefixes (a live post at any of these still serves its
+    // own file and never reaches here — only the missing ones do).
+    var legacyBlog = path.match(/^\/(?:inspiration|whatsnew|blog)(?:\/(.*))?$/i);
+    if (legacyBlog) {
+      var rest = (legacyBlog[1] || '').replace(/\/+$/, '');
+      // Bare index or a taxonomy shell (category/archives/previous) -> blog home.
+      if (!rest || /^(?:category|archives|previous)(?:\/|$)/i.test(rest)) {
+        location.replace('/triviahostresources.html');
+        return;
+      }
+      // First segment is the post slug; drop deeper Weebly cruft and query/hash.
+      location.replace('/triviahostresources/' + rest.split('/')[0] + '/');
+      return;
+    }
+
+    // The original Weebly blog tree (/4/post/YYYY/..) is date-archive shaped, and
+    // any missing taxonomy shell on the live blog tree -> the blog landing page.
+    if (/^\/4(?:\/|$)/.test(path) ||
+        /^\/triviahostresources\/(?:category|archives|previous)(?:\/|$)/i.test(path)) {
+      location.replace('/triviahostresources.html');
+      return;
+    }
+
+    // The Anagrams music-doboff answer sheet was linked (from old download
+    // emails / cached pages) with curly “smart” quotes baked into the filename
+    // -- a copy-paste bug that broke the link. Forward it to the re-uploaded
+    // file under a clean name. Match the stable ASCII parts only, so it fires
+    // whether the quotes arrive percent-encoded or literal; the hyphenated
+    // target name can't match this underscored pattern, so there's no loop.
+    if (/music_doboff.*answer_sheet.*anagrams.*\.pdf$/i.test(path)) {
+      location.replace('/uploads/4/3/3/6/43362499/music-doboff-answer-sheet-anagrams.pdf');
+      return;
+    }
+
+    // Retired Weebly store category slugs. c11 was renamed (musicbingocards ->
+    // musicdoboff); every other dead store URL falls back to the store front.
+    if (/^\/store\/c11(?:\/|$)/i.test(path)) {
+      location.replace('/store/c11/musicdoboff/');
+      return;
+    }
+    if (/^\/store\//i.test(path)) {
+      location.replace('/trivia-store.html');
+      return;
+    }
+
+    // Standalone pages that never migrated from Weebly -> closest live page.
+    if (/^\/christmasparties\.html$/i.test(path)) {
+      location.replace('/holidayparty.html');
+      return;
+    }
+    if (/^\/triviawritersnetwork\.html$/i.test(path)) {
+      location.replace('/triviahostresources.html');
+      return;
+    }
+
+    // Dead Weebly member-area / app endpoints and bare login attempts
+    // (/login, /log in) from old bookmarks & emails -> home.
+    if (/^\/(?:apps|ajax)\//i.test(path) || /^\/log(?:%20|\s)?in\/?$/i.test(path)) {
+      location.replace('/');
+      return;
+    }
+  })();
+</script>
+<!-- /fce:legacy-redirects -->
+
 <!-- Google tag (gtag.js) -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-LYMVV05F3X"></script>
 <script type="text/javascript">

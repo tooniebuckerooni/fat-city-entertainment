@@ -1,0 +1,18 @@
+[
+  {
+    "q": "Can two bingo cards be exactly the same?",
+    "a": "In practice, no. A standard 75-ball card has about 5.52 x 10^26 possible layouts, so a genuine duplicate is effectively impossible — as long as the generator draws from a large enough pool and checks each new card against the ones already made. Duplicates in homemade batches come from the method, not from bad luck."
+  },
+  {
+    "q": "How many different bingo cards are possible?",
+    "a": "About 5.52 x 10^26 (roughly 552 septillion) for a standard 75-ball card. Even a word or music game built from a pool of just 24 items has 24! ≈ 6.2 x 10^23 possible arrangements, so running out of unique cards is never the real problem."
+  },
+  {
+    "q": "Why do my homemade bingo cards have duplicates?",
+    "a": "Almost always one of three causes: the item pool is too small to fill a full card without repeats, a spreadsheet using =RAND() has no memory of the other cards so it can't dedup, or a plain AI prompt can't reliably guarantee uniqueness across a whole batch. A purpose-built generator shuffles a large pool and rejects any card that matches one already made."
+  },
+  {
+    "q": "How do I make sure my bingo cards are all unique?",
+    "a": "Use a generator that draws each card from a large enough pool and runs a duplicate check, rather than a spreadsheet or a chatbot. <a href=\"/bingocardgenerator.html\">The free Bingo Card Generator</a> does both automatically, so every card in the set is guaranteed different."
+  }
+]

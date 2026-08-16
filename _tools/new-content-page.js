@@ -46,12 +46,21 @@ for (const spec of specs) {
   let html = fs.readFileSync(tplPath, "utf8");
   const url = `${SITE}/${spec.slug}`;
 
-  // --- head ---------------------------------------------------------------
+  // --- head -----------------------------------------------------------
+  // Every replacement below uses a FUNCTION, not a plain string. A plain
+  // string passed to String.replace() has "$1", "$2" etc. read back out as
+  // capture-group backreferences — and a description or title containing a
+  // dollar amount like "$13.98" starts with exactly that pattern. This is
+  // the same bug class as add-store-tile.js rendering $197.00 as $97.00,
+  // documented in HANDOFF.md — it silently corrupted trivia-show-maker-plans.html's
+  // og:description on 2026-08-12 (a "$13.98" ate the canonical <link> tag
+  // into itself) before this fix. Function replacers are immune: their
+  // return value is inserted literally, no matter what it contains.
   html = html.replace(/<title>[\s\S]*?<\/title>/i,
-    `<title>${esc(spec.title)} - Fat City Entertainment</title>`);
+    () => `<title>${esc(spec.title)} - Fat City Entertainment</title>`);
   html = html.replace(/<meta[^>]+name="description"[^>]*>/i,
-    `<meta name="description" content="${esc(spec.description)}">`);
-  html = html.replace(/<link rel="canonical" href="[^"]*"/i, `<link rel="canonical" href="${url}"`);
+    () => `<meta name="description" content="${esc(spec.description)}">`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/i, () => `<link rel="canonical" href="${url}"`);
 
   // og: tags — replace if present, otherwise add after the canonical.
   const og =
@@ -63,7 +72,7 @@ for (const spec of specs) {
   html = html.replace(/<meta property="og:description"[^>]*>\s*/gi, "");
   html = html.replace(/<meta property="og:url"[^>]*>\s*/gi, "");
   html = html.replace(/<meta property="og:type"[^>]*>\s*/gi, "");
-  html = html.replace(/(<link rel="canonical"[^>]*>)/i, `$1\n${og}`);
+  html = html.replace(/(<link rel="canonical"[^>]*>)/i, (m, canonical) => `${canonical}\n${og}`);
 
   // Drop the template's structured data; add-jsonld.js regenerates per page.
   html = html.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
