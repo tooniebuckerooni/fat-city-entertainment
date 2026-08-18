@@ -9,6 +9,21 @@
 // which keeps a stale baked page correct after ls-links.js changes — and it is
 // still the only thing that loads lemon.js for the overlay checkout.
 (function () {
+  // While a sitewide promo is live (window.FCE_PROMO, set by promo-bar.js —
+  // a deferred script, so it runs before our DOMContentLoaded init), append
+  // the discount code to LemonSqueezy checkout URLs so the sale price is
+  // applied without the buyer finding the collapsed code field. LemonSqueezy
+  // reads it via its documented checkout[discount_code] prefill parameter.
+  function withPromoCode(url) {
+    var promo = window.FCE_PROMO;
+    if (!promo || !promo.code) return url;
+    if (promo.end && new Date() >= promo.end) return url;
+    if (url.indexOf("lemonsqueezy.com/checkout/buy/") === -1) return url;
+    if (url.indexOf("checkout[discount_code]") !== -1) return url;
+    return url + (url.indexOf("?") === -1 ? "?" : "&") +
+      "checkout[discount_code]=" + encodeURIComponent(promo.code);
+  }
+
   function init() {
     var buttons = document.querySelectorAll(".ls-buy[data-product]");
     var anyActive = false;
@@ -17,7 +32,7 @@
       var link = (window.LS_LINKS || {})[btn.getAttribute("data-product")] || "";
       var pending = btn.parentNode.querySelector(".ls-pending");
       if (link) {
-        btn.setAttribute("href", link);
+        btn.setAttribute("href", withPromoCode(link));
         // Already baked in? Don't append the class a second time.
         if (!/(^|\s)lemonsqueezy-button(\s|$)/.test(btn.className)) {
           btn.className += " lemonsqueezy-button";

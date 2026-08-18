@@ -1007,6 +1007,24 @@ a.fce-tool-banner-link:hover {
   }
 }
 
+/* -------------------------------------------------------- fce-cross-sell
+   One-line cross-sell under the buy button on store product pages, injected
+   by _tools/add-cross-sell.js between <!-- fce:cross-sell --> markers (edit
+   the script's copy and re-run — it replaces the block in place). Quiet on
+   purpose: it should read as a helpful pointer next to the button it sits
+   under, not a second banner competing with it. */
+.fce-cross-sell {
+  margin: 14px 0 0;
+  padding: 10px 14px;
+  background: #f6f4ec;
+  border-left: 3px solid #99790a;
+  border-radius: 0 4px 4px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #3f3f3f;
+  max-width: 480px;
+}
+
 /* ---------------------------------------------------------- fce-extras
    End-of-post FAQ block and optional inline-SVG diagram, injected into blog
    posts by _tools/add-post-faq.js between <!-- fce:faq --> markers. Same
