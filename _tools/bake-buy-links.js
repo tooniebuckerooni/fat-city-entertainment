@@ -52,7 +52,7 @@ for (const dir of fs.readdirSync(path.join(REPO, "store"))) {
   }
 }
 
-let wired = 0, pending = 0, untouched = 0, skipped = 0;
+let wired = 0, pending = 0, untouched = 0, skipped = 0, alreadyVisible = 0;
 
 for (const file of products.sort()) {
   let html = fs.readFileSync(file, "utf8");
@@ -82,11 +82,18 @@ for (const file of products.sort()) {
     wired++;
   } else {
     // No link yet: keep the button hidden and reveal the fallback note instead.
+    const beforeNote = html;
     html = html.replace(
       /(<p\b[^>]*\bclass="[^"]*\bls-pending\b[^"]*"[^>]*\bstyle=")display:none;\s*/i,
       "$1"
     );
-    pending++;
+    // Count what actually changed, not what we intended. This used to increment
+    // unconditionally, so it reported "fallback revealed: 3" on every run even
+    // though all three notes were already visible and nothing was written —
+    // which reads exactly like three broken product pages and costs someone an
+    // afternoon proving otherwise.
+    if (html !== beforeNote) pending++;
+    else alreadyVisible++;
   }
 
   if (html === before) untouched++;
@@ -96,6 +103,7 @@ for (const file of products.sort()) {
 console.log(`product pages     : ${products.length}`);
 console.log(`buy link baked in : ${wired}`);
 console.log(`fallback revealed : ${pending}`);
+if (alreadyVisible) console.log(`fallback already shown: ${alreadyVisible}   (no ls-links entry, note visible — nothing to do)`);
 console.log(`already correct   : ${untouched}`);
 console.log(`no ls-buy button  : ${skipped}   (redirect stubs and the Amazon/KDP page)`);
 if (!WRITE) console.log("\nDRY RUN — nothing written. Re-run with --write.");
