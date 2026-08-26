@@ -80,9 +80,23 @@ for (const [rel, info] of Object.entries(data)) {
     `<strong>${esc(info.pack)}</strong>. The full callsheet &mdash; every song in ` +
     `play order, with the answers &mdash; comes with your download.`;
 
+  // A call to action at the FOOT of the list matters more than it looks. This
+  // block is below the buy button, and the traffic it attracts — people
+  // searching "what songs are in <pack> music bingo" — lands, scrolls, reads to
+  // the end, and would otherwise be at the bottom of the page with nothing to
+  // click. The anchor jumps back to the page's own buy button rather than
+  // linking a checkout directly, so this stays navigation and never touches
+  // pricing or the LemonSqueezy wiring.
+  const cta =
+    `    <p class="fce-tl-cta">` +
+    `<a class="fce-cta" href="#wsite-com-product-add-to-cart">Get ${esc(info.pack)}</a>` +
+    `<span class="fce-tl-cta-note">250 randomized cards, the full callsheet, ` +
+    `and ready-made Spotify &amp; Apple Music playlists.</span></p>\n`;
+
   const block =
     `${OPEN}\n<section class="fce-tracklist">\n  <div class="fce-tracklist-inner">\n` +
     `    <h2>${heading}</h2>\n    <p>${sub}</p>\n    <ol class="fce-tl">\n${rows}\n    </ol>\n` +
+    cta +
     `  </div>\n</section>\n${CLOSE}\n`;
 
   const html = fs.readFileSync(file, "utf8");

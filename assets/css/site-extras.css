@@ -1187,3 +1187,19 @@ ol.fce-tl li {
   ol.fce-tl { columns: 1; }
   .fce-tracklist { padding: 28px 16px 32px; }
 }
+
+/* CTA at the foot of a sample tracklist. The list is below the buy button, and
+   the searches it wins ("what songs are in X music bingo") land people at the
+   bottom of the page — without this they finish reading with nothing to click. */
+.fce-tl-cta {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.fce-tl-cta-note {
+  display: block;
+  margin-top: 8px;
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 14px;
+  color: #5a5a66;
+}
