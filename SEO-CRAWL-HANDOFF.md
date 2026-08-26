@@ -619,3 +619,108 @@ Now: title is year-agnostic ("Book Your Christmas Party Entertainment Early For
 The Bonus Discount"), the dead "September 30, 2017" deadline is gone from the
 body, and the 15% is framed as conditional rather than as a live limited-time
 offer. Safe to put on a request-indexing day now.
+
+---
+
+# Round 7 — the Search Console Performance data, and why sales are flat
+
+The first real traffic data of this whole effort. Everything before this was
+coverage (what Google indexes); this is performance (what people actually click).
+
+## Correction: the site has ~8x more traffic than Ahrefs claimed
+
+Round 6 reported "47 organic visits/month" from Ahrefs. **Search Console says
+~1,150 clicks a quarter — about 380/month.** Ahrefs' free-plan traffic estimate
+was low by roughly a factor of eight. Search Console is the measurement; Ahrefs
+is a model. Where they disagree, believe Search Console.
+
+That changes the diagnosis for the better: there is real traffic. It just does
+not go anywhere that can take money.
+
+## The 11% problem
+
+All 1,155 clicks over three months, by where they landed:
+
+| destination | clicks | share | impressions | CTR |
+|---|---|---|---|---|
+| other marketing pages | 350 | 30% | 14,228 | 2.46% |
+| homepage | 342 | 30% | 3,362 | 10.17% |
+| free tools (generator, Triv 101) | 176 | 15% | 5,593 | 3.15% |
+| blog posts | 158 | 14% | 20,345 | 0.78% |
+| **store categories** | **59** | **5%** | 2,164 | 2.73% |
+| **product pages** | **59** | **5%** | 3,516 | 1.68% |
+| **trivia-store.html** | **11** | **1%** | 370 | 2.97% |
+
+**129 clicks in three months reached a page with a buy button** — about 43 a
+month. At a healthy 3–5% conversion that is one or two sales. The store does not
+convert badly; it barely gets seen.
+
+Also: **49% of all clicks are brand searches** (253 of 513 in the query export) —
+people already looking for Fat City by name. Non-brand is 87 clicks/month, and
+that is the number every SEO decision has to grow.
+
+## Leak 1: a 2018 post is a quarter of all impressions and earns zero clicks
+
+`/triviahostresources/music-streaming-options-a-comparison` — **5,789
+impressions, 0 clicks**, position ~10. It ranks for *iheartradio vs hulu*,
+*iheartradio vs tidal*, *ps plus vs iheartradio* and a dozen variants:
+**5,187 impressions, zero clicks, 24% of all query impressions.**
+
+This is where "traffic looks decent" came from. Those searchers are comparing
+music subscriptions and will never buy a bingo pack. It also drags the sitewide
+CTR down and inflates every impression chart.
+
+Either rewrite it to serve buyer intent — "which streaming service is best for
+running music bingo" is a real question hosts have, and the rankings are already
+there — or accept it as noise and stop reading impressions as traffic.
+
+## Leak 2: the free answer sheet outranks the product it gives away
+
+| | clicks | impressions | position |
+|---|---|---|---|
+| `/uploads/.../music_doboff_-_answer_sheet_"anagrams".pdf` | **91** | 4,318 | 9.9 |
+| `/store/p116/anagrams.html` (the $10.99 product) | **0** | 56 | 23.1 |
+
+The PDF is position **1** for *anagrams of bands and artists with answers pdf*
+at 38.6% CTR. It out-earns the entire product-page bucket (59 clicks) on its own.
+
+It is linked from exactly one page on the site — `404.html` — so it was never a
+deliberate lead magnet. Google just found it. And a PDF is a dead end: no
+navigation, no branding, no way to buy.
+
+There are ~5,000 impressions a quarter of anagram demand around it (*famous
+singer anagrams*, *"a glad gay" anagram "lady gaga"*, *music anagrams quiz with
+answers*), almost all at positions 5–9 with **0% CTR**, because a PDF gives the
+results page nothing to show.
+
+**The single clearest win in the data:** build a real HTML page for that intent
+— "Music Anagrams Quiz: Bands & Artists (with answers)" — which outranks a PDF
+for this kind of query, earns a snippet, and can carry a buy button for the
+Anagrams pack. The demand exists, the rankings exist, and nothing currently
+captures either.
+
+## Leak 3: desktop ranks eight positions worse than mobile
+
+| device | clicks | impressions | CTR | avg position |
+|---|---|---|---|---|
+| Mobile | 560 | 12,925 | 4.33% | 8.9 |
+| Desktop | 524 | 29,624 | 1.77% | **17.3** |
+| Tablet | 20 | 369 | 5.42% | 9.3 |
+
+Desktop takes 2.3x the impressions and returns fewer clicks. Some of the gap is
+the streaming queries, which skew desktop — but not all of it. Worth
+understanding before spending effort anywhere else.
+
+## Geography
+
+US: 780 clicks / 27,216 impressions / 2.87% / position 13.7.
+Canada: 116 clicks / 2,492 impressions / **4.65%** / position 10.3.
+
+Canada converts impressions to clicks at 1.6x the US rate off 9% of the volume —
+worth remembering, given `yycevents.html` targets Calgary and is now rewritten.
+
+## Note on the numbers
+
+Page and query totals differ slightly (1,155 vs 513 clicks) because Search
+Console caps exported rows at 1,000 and withholds rare queries. Percentages here
+use the page-level export. Both are from the same 28 May – 26 Aug 2026 window.
