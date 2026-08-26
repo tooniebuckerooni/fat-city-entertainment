@@ -37,12 +37,13 @@ const BOOKING =
   'Please&nbsp;<a href="/contact.html" target="_blank">contact us</a>&nbsp;to ' +
   "confirm availability before you book.</strong>";
 
+// Deliberately no spam-folder/fresh-link caveat here: on a tool this copy sits
+// right at the buy button, and pre-warning about delivery failure reads as
+// doubt at the worst possible moment (Aug 2026 conversion audit, item 5).
 const TOOL =
-  "<strong>Your access link is emailed immediately after checkout. Check your " +
-  "Spam folder if it doesn't arrive right away. Bingo Card Generator Pro runs in " +
-  "your browser — there's nothing to install, and lifetime access means no " +
-  'monthly fee, ever.&nbsp;<a href="/contact.html" target="_blank">Contact Us</a>' +
-  "&nbsp;if you need a fresh link.</strong>";
+  "<strong>Instant access — your link lands in your inbox right after " +
+  "checkout. Bingo Card Generator Pro runs in your browser: nothing to " +
+  "install, and lifetime access means no monthly fee, ever.</strong>";
 
 const PHYSICAL =
   "<strong>This one ships to you — free shipping in the USA and Canada. You'll " +
@@ -76,7 +77,7 @@ for (const [pid, file] of products.sort()) {
   let html = fs.readFileSync(file, "utf8");
 
   if (/http-equiv="refresh"/i.test(html) || SKIP.has(pid)) { skipped++; continue; }
-  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|ships to you/i.test(html)) {
+  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|instant access — your link|ships to you/i.test(html)) {
     hadIt++;
     continue;
   }

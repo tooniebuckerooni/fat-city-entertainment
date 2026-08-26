@@ -22,6 +22,12 @@
 
   if (new Date() >= END) return;
 
+  // Expose the live promo for ls-buy.js, which appends the discount code to
+  // every LemonSqueezy checkout URL so buyers get the sale price without
+  // typing the code. Set before the dismissal check on purpose: hiding the
+  // bar shouldn't cost anyone the discount.
+  window.FCE_PROMO = { code: CODE, pct: PCT, end: END };
+
   var dismissedAt = 0;
   try {
     dismissedAt = parseInt(localStorage.getItem(DISMISS_KEY) || "0", 10) || 0;
@@ -35,7 +41,7 @@
   bar.innerHTML =
     '<a class="fce-promo-bar-link" href="/trivia-store.html">' +
     COPY + " — <strong>" + PCT + " off everything</strong> with code " +
-    '<code>' + CODE + "</code> — ends Sept 9 — Shop Now &rarr;</a>" +
+    '<code>' + CODE + "</code> (applied automatically at checkout) — ends Sept 9 — Shop Now &rarr;</a>" +
     '<button type="button" class="fce-promo-bar-close" aria-label="Dismiss">&times;</button>';
 
   if (document.body.firstChild) {

@@ -46,9 +46,25 @@ here** — the repo is served publicly by GitHub Pages.
   https://bingocardgenerator.online/). Hub page: `/features.html`. **Bingo
   Card Maker** dropdown (added Aug 13 2026, via
   `_tools/add-bingocardmaker-nav.js`) holds Free Generator, Generator Pro
-  (Lifetime Access), Generator 2, Music Bingo Rules. **Blog** was reverted to
+  (Lifetime Access), All-Purpose Generator (renamed from "Generator 2" Aug 18
+  2026 via `_tools/rename-generator2-nav.js`; still links to
+  `/bingocardgenerator2.html`), Music Bingo Rules. **Blog** was reverted to
   a flat link — its dropdown held one stale 2024 post, dropped via
   `_tools/drop-blog-nav-dropdown.js`.
+- **Promo discounts auto-apply at checkout**: while a promo is live,
+  `promo-bar.js` exposes `window.FCE_PROMO` and `ls-buy.js` appends
+  LemonSqueezy's `checkout[discount_code]` prefill param to every buy-button
+  href. Self-expires with the promo's `END` date — to run a new sale, edit
+  the constants in `promo-bar.js` only, and make sure the code exists in the
+  LemonSqueezy dashboard (both sites share the one
+  `bingocardgenerator.lemonsqueezy.com` store, so scope codes per-product
+  there if a sale shouldn't hit the Generator subscriptions).
+- **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): one-line
+  block under the buy area between `<!-- fce:cross-sell -->` markers —
+  bundle pages list their components, bundle members point at their bundle,
+  stand-alone packs get a Gold Club line. Edit the copy/maps in the script
+  and re-run (it replaces blocks in place). p166 is excluded until it
+  publishes; styles in `site-extras.css` (`.fce-cross-sell`).
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,
