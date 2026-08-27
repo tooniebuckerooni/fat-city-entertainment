@@ -1008,22 +1008,41 @@ a.fce-tool-banner-link:hover {
 }
 
 /* -------------------------------------------------------- fce-cross-sell
-   One-line cross-sell under the buy button on store product pages, injected
-   by _tools/add-cross-sell.js between <!-- fce:cross-sell --> markers (edit
-   the script's copy and re-run — it replaces the block in place). Quiet on
-   purpose: it should read as a helpful pointer next to the button it sits
-   under, not a second banner competing with it. */
+   Cross-sell under the buy button on store product pages, injected by
+   _tools/add-cross-sell.js between <!-- fce:cross-sell --> markers (edit the
+   script's copy and re-run — it replaces the block in place).
+
+   Deliberately louder than it was (Aug 27 2026). The first version was styled
+   to stay out of the buy button's way, and it did that so well that the
+   arithmetic underneath it went unread. Moving one buyer from a $10.99 single
+   to a $43 five-pack is a 4x order with no new traffic behind it, so this block
+   is the highest-value thing on the page after the button itself. It still
+   doesn't compete with the button: no accent-coloured fill, no second CTA — the
+   weight goes on the numbers, which are what actually persuade. */
 .fce-cross-sell {
-  margin: 14px 0 0;
-  padding: 10px 14px;
+  margin: 16px 0 0;
+  padding: 13px 16px;
   background: #f6f4ec;
-  border-left: 3px solid #99790a;
+  border: 1px solid #e2dcc4;
+  border-left: 4px solid #99790a;
   border-radius: 0 4px 4px 0;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #3f3f3f;
-  max-width: 480px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #33322c;
+  max-width: 520px;
 }
+
+.fce-cross-sell strong { color: #1f1e19; font-weight: 700; }
+
+.fce-cross-sell a {
+  color: #7a5f08;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.fce-cross-sell a:hover,
+.fce-cross-sell a:focus { color: #99790a; }
 
 /* ---------------------------------------------------------- fce-extras
    End-of-post FAQ block and optional inline-SVG diagram, injected into blog
@@ -1260,3 +1279,80 @@ ol.fce-tl li {
 }
 .fce-sl-song { font-weight: 600; }
 .fce-sl-by { color: #5a5a5a; }
+
+/* ---------------------------------------------------------- fce-ladder
+   The price-comparison table on trivia-store.html, injected by
+   _tools/add-price-ladder.js between <!-- fce:price-ladder --> markers. It
+   reuses .fce-copy so it reads as part of the same band as the store copy
+   below it, then overrides the serif for the numeric columns — a price
+   column wants tabular figures, not PT Serif's proportional ones. */
+.fce-ladder .fce-copy-inner { max-width: 900px; }
+
+.fce-ladder-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 18px 0 4px;
+}
+
+.fce-ladder-scroll table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  min-width: 620px;
+}
+
+.fce-ladder-scroll th,
+.fce-ladder-scroll td {
+  padding: 11px 14px 11px 0;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e1e1dd;
+}
+
+.fce-ladder-scroll thead th {
+  font-size: 12px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: #6b6b73;
+  font-weight: 600;
+  border-bottom: 2px solid #c9c9c2;
+  white-space: nowrap;
+}
+
+.fce-ladder-scroll tbody th {
+  font-weight: 600;
+  color: #16161a;
+  white-space: nowrap;
+}
+
+.fce-ladder-scroll tbody tr:last-child th,
+.fce-ladder-scroll tbody tr:last-child td { border-bottom: 0; }
+
+.fce-ladder-price,
+.fce-ladder-each {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.fce-ladder-price { font-weight: 700; color: #16161a; }
+.fce-ladder-each { color: #4a4a52; }
+
+.fce-ladder-sale {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 2px;
+  background: #f0e6c8;
+  color: #6d5406;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.fce-ladder-note {
+  font-size: 14px !important;
+  color: #5a5a62;
+}

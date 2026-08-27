@@ -37,17 +37,46 @@ roughly **30–35 orders a month at a ~$15 average order**.
 **Doubling orders and tripling average order value gets there. Neither alone
 does.** And the price ladder already supports the AOV half:
 
-| tier | price |
-|---|---|
-| single game | $10.99 |
-| 4-pack / 5-pack / 6-pack | $32.49 – $46.99 |
-| Game Show Trivia 5-Pack | $87.99 |
-| Starter Pack — Top 10 (Bronze) | $116.89 |
-| Silver Club | $298.75 |
-| Gold Club | $665.50 |
+*(Corrected 27 Aug. The first version of this table quoted the club tiers'
+compare-at prices as if they were selling prices. These are what the pages
+actually charge, read from `itemprop="price"`.)*
+
+| tier | charged | was | per game |
+|---|---|---|---|
+| single game | $10.99 | — | $10.99 |
+| 3-pack | $23.99 – $27.00 | — | $8.00 – $9.00 |
+| 4-pack | $32.49 | — | $8.12 |
+| 5-pack | $42.99 – $43.00 | — | $8.60 |
+| “Holidays” 6-pack | $46.99 | — | $7.83 |
+| Game Show Trivia 5-Pack | $87.99 | — | $17.60 |
+| Starter Pack — Top 10 (Bronze) | **$89.00** | $116.89 | $8.90 |
+| Silver Club (25 games) | **$198.75** | $298.75 | $7.95 |
+| Gold Club (everything) | **$415.50** | $665.50 | n/a |
 
 Moving a buyer from a $10.99 single to a $43 bundle is a **4x** order. That is
 the fastest lever in this document and it needs no new traffic at all.
+
+### The ladder doesn't actually descend — a pricing decision for the owner
+
+Reading the real numbers side by side for the first time turns up a problem that
+the AOV plan quietly assumed away. **Per-game price does not fall as you climb:**
+
+- the cheapest **3-pack is $8.00 a game** — better than the **5-pack at $8.60**
+- the **Starter Pack (10 games) is $8.90 a game** — the *worst* value of every
+  multi-game tier, and it's the one pitched as the natural step up
+- **Silver at $7.95** is the best per-game price in the catalogue, which makes
+  the two rungs directly below it hard to justify
+
+So "buy more, pay less per night" — the sentence the whole upsell rests on — is
+not true today. The comparison table on `trivia-store.html` therefore claims only
+what *is* true (every multi-pack beats buying singles) and shows the real
+figures rather than hiding the column.
+
+Fixing it is a pricing call, not a copy call. The smallest change that makes the
+ladder read correctly: **bring the Starter Pack to ~$79** ($7.90/game) and the
+5-packs to **~$39.99** ($8.00/game). That's about $10 and $3 off two tiers, and
+it makes every step down the page a better deal than the one above it — which is
+what makes a ladder work at all.
 
 ---
 
@@ -207,22 +236,28 @@ but efficient pocket.
 
 ---
 
-## Engine 3 — Average order value  ⏰ **the fastest lever, do it in September**
+## Engine 3 — Average order value  ⏰ **1 and 2 shipped 27 Aug**
 
 No new traffic required. Every buyer who takes a bundle instead of a single is
 a 4x order.
 
-1. **Bundle-first merchandising.** Product pages currently sell the single they
-   are about. Each single that belongs to a bundle should say so above the fold,
-   with the arithmetic shown ("this game is $10.99; the 5-pack it belongs to is
-   $43 — the other four work out at $8 each"). The `add-cross-sell.js` tool
-   already does a version of this; it needs to be louder and higher on the page.
-2. **Make the ladder legible.** `trivia-store.html` now explains how to choose,
-   but the tier jump from $46.99 to $87.99 to $116.89 to $298.75 to $665.50 is
-   not obvious anywhere. A single comparison table earns its place.
+1. ✅ **Bundle-first merchandising.** Every single that belongs to a bundle now
+   says so under the buy button, with the arithmetic: *"This game is $10.99; the
+   pack is $43.00 — which puts the other 4 at $8.00 each."* `add-cross-sell.js`
+   reads every price off the product page at build time rather than from a map,
+   so the numbers can't drift silently — **but it must be re-run after any
+   repricing**, since they're baked into HTML. Verified bundle membership grew
+   from 4 bundles to 8; 48 product pages carry a block.
+2. ✅ **Made the ladder legible.** `trivia-store.html` now carries a generated
+   comparison table (`add-price-ladder.js`, `<!-- fce:price-ladder -->`) showing
+   every tier, its price, what it works out at per game, and who it's for. Same
+   read-from-the-page discipline, same re-run rule. It's what surfaced the
+   pricing problem above.
 3. **Post-purchase upgrade.** The store already offers a credit toward a bundle
-   containing a game you own — that offer is buried in body copy. It belongs in
-   the purchase confirmation email.
+   containing a game you own — that offer is buried in body copy (it's now also
+   in the ladder's footnote). It belongs in the purchase confirmation email.
+4. **Reprice the middle of the ladder** so it descends — see the pricing section
+   above. This is the owner's call and it gates how well 1 and 2 actually work.
 
 ---
 

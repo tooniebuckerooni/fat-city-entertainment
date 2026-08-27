@@ -62,12 +62,25 @@ here** — the repo is served publicly by GitHub Pages.
   LemonSqueezy dashboard (both sites share the one
   `bingocardgenerator.lemonsqueezy.com` store, so scope codes per-product
   there if a sale shouldn't hit the Generator subscriptions).
-- **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): one-line
-  block under the buy area between `<!-- fce:cross-sell -->` markers —
-  bundle pages list their components, bundle members point at their bundle,
-  stand-alone packs get a Gold Club line. Edit the copy/maps in the script
-  and re-run (it replaces blocks in place). p166 is excluded until it
-  publishes; styles in `site-extras.css` (`.fce-cross-sell`).
+- **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
+  the buy area between `<!-- fce:cross-sell -->` markers — bundle pages list
+  their components, bundle members point at their bundle *with the per-game
+  arithmetic*, stand-alone packs get a Gold Club line. Edit the copy/maps in
+  the script and re-run (it replaces blocks in place). `--preview` prints the
+  rendered copy. p166 and p108 are excluded (staged / ambiguous membership);
+  styles in `site-extras.css` (`.fce-cross-sell`).
+- **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
+  table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
+  *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
+  would overwrite it. Styles are `.fce-ladder*`.
+- **Both of those bake prices into HTML, read from each product page's own
+  `itemprop="price"`. Re-run them after ANY repricing** — same standing rule as
+  `bake-buy-links.js`. Neither ever quotes a sale price in prose it can't
+  refresh; both list which tiers are currently on sale at the end of a run.
+  Known and deliberate: the ladder shows that per-game price *rises* at the
+  5-pack and Starter Pack tiers, so the copy claims only that multi-packs beat
+  singles — never "buy more, pay less per game", which isn't true yet. See
+  `HOLIDAY-PLAN.md` for the repricing recommendation.
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,
