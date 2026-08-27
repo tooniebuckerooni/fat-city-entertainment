@@ -55,6 +55,19 @@
       return;
     }
 
+    // ...and if that PDF is ever taken down, its successor is the Anagrams page
+    // in the song library: same song list, in HTML, with a buy button and no
+    // Anagram column. The rule is here in advance so removing the file is a
+    // one-step decision rather than a decision plus a scramble -- the PDF holds
+    // a position-1 ranking worth ~91 clicks a quarter and that traffic should
+    // land somewhere useful the moment it stops landing on the file. Dormant
+    // while the file exists, because 404.html only runs on a 404. No loop: the
+    // target is an HTML directory page, and it can't match this .pdf pattern.
+    if (/music-doboff-answer-sheet-anagrams\.pdf$/i.test(path)) {
+      location.replace('/music-bingo-song-lists/anagrams/');
+      return;
+    }
+
     // Retired Weebly store category slugs. c11 was renamed (musicbingocards ->
     // musicdoboff); every other dead store URL falls back to the store front.
     if (/^\/store\/c11(?:\/|$)/i.test(path)) {

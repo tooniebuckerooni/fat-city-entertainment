@@ -1221,3 +1221,42 @@ ol.fce-tl li {
   font-size: 14px;
   color: #5a5a66;
 }
+
+/* ------------------------------------------------ Song List Library tables
+   /music-bingo-song-lists/ — full tracklists, up to 55 rows. Two-column on
+   desktop so a long list doesn't push the buy CTA off the screen entirely;
+   single column on mobile. Scrolls inside its own container so the page body
+   never scrolls sideways. */
+.fce-songlist {
+  margin: 22px 0 28px;
+  overflow-x: auto;
+}
+.fce-songlist table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  min-width: 420px;
+}
+.fce-songlist th {
+  text-align: left;
+  padding: 9px 12px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.18);
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.fce-songlist td {
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+.fce-songlist tbody tr:last-child td { border-bottom: 0; }
+.fce-sl-n {
+  width: 44px;
+  text-align: right;
+  color: #8a8a8a;
+  font-variant-numeric: tabular-nums;
+}
+.fce-sl-song { font-weight: 600; }
+.fce-sl-by { color: #5a5a5a; }

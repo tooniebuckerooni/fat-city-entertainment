@@ -9,22 +9,17 @@ you are picking this up cold.
 
 ---
 
-## Decision 0 — settle what "MRR" means before anything else
+## Decision 0 — settled 27 Aug: "MRR" means monthly revenue
 
-This changes the whole strategy and nothing else should start until it's answered.
+Owner's answer: *"I just meant sales, in general."* So this is a volume +
+average-order-value problem, and the plan below stands as written.
 
-**Almost every product in the catalog is a one-time purchase.** The only truly
-recurring product is the Trivia Show Maker **subscription at $44.99/month**.
-
-- If "MRR" means **monthly revenue** (the likely reading), the plan below is
-  right: it's a volume + average-order-value problem.
-- If it means **true recurring revenue**, then $3–5k/month means **67–111
-  active subscribers** on a product launched weeks ago, and essentially the
-  entire effort should go into the Trivia Show Maker instead. That is a
-  different plan and a much harder one.
-
-The rest of this document assumes **monthly revenue**. Say otherwise and it gets
-rewritten.
+Worth keeping in view anyway, because it's the one part of the catalog that
+compounds: subscriptions are already at **~41 active** — 16 from the free legacy
+bingo card maker, ~25 from LemonSqueezy checkouts — and the 2nd-gen Bingo Card
+Maker is the biggest recurring line so far. Every subscriber added in September
+is still paying in December, which no single-game sale is. Not the main engine,
+but the cheapest one to keep feeding.
 
 ---
 
@@ -56,9 +51,35 @@ the fastest lever in this document and it needs no new traffic at all.
 
 ---
 
-## Engine 1 — The Song List Library  ⏰ **must ship by 5 September**
+## Engine 1 — The Song List Library  ✅ **shipped 27 Aug, nine days early**
 
-**The single biggest opportunity, and it is already sitting in a zip file.**
+**Live at `/music-bingo-song-lists/` — hub plus 50 pack pages, 1,674 songs.**
+
+What went out:
+
+| | |
+|---|---|
+| pages | 51 (hub + 50 packs), all trailing-slash |
+| songs published | 1,674, song + artist only |
+| structured data | `MusicPlaylist` + `MusicRecording` per pack, `CollectionPage` + `ItemList` on the hub, breadcrumbs throughout |
+| sitemap | all 51 URLs, in a tool-managed `<!-- fce:song-lists -->` block |
+| entry points | Trivia Store nav dropdown (914 nav copies across 457 pages), `trivia-store.html` body copy, and a "See all N songs" link on all 42 product-page tracklists |
+| buy path | every leaf page has a CTA — 43 to the pack itself, 7 to the bundle that carries it |
+| broken refs | 0 of 720 pages checked |
+
+The clock that mattered — *shipped by 5 Sept → competing in October* — is met
+with nine days to spare. **The remaining work on this engine is Google's**, plus
+request-indexing the hub and the highest-intent leaves (Halloween, Christmas
+Party, the decades).
+
+One thing surfaced during the build and is **left for the owner to decide**: the
+Anagrams answer-sheet PDF doesn't just leak a song list, it publishes the
+*Anagram column* — the puzzle answers for a pack that's on sale. See "The
+Anagrams PDF" below.
+
+### Why this will work
+
+**The single biggest opportunity, and it was already sitting in a zip file.**
 
 The owner has supplied all **50 callsheets — 1,674 tracks, parsed and verified**
 (every pack's count matches its own stated total). Owner has explicitly cleared
@@ -110,22 +131,58 @@ Long-tail, low-competition, high-intent — exactly what a DR-8 site can win:
 
 50 pages × a handful of terms each is many small wins rather than one big fight.
 
-### Build notes
+### Build notes — as built
 
-- New tool `_tools/build-song-library.js`, same shape as `add-tracklists.js`.
-- Source data: re-run the callsheet parser (documented in Round 6) — **the full
-  callsheets must still never be committed**; the library pages are the
-  published artefact, generated at build time from a local zip.
-- Clone page shells the usual way so nav/footer are inherited.
-- Trailing slashes on every URL. Add all 51 pages to `sitemap.xml`.
-- Run `add-jsonld.js`, `canonicalize-trailing-slash.js`, `check-links.js` after.
-- Retire the orphaned Anagrams PDF **into** the library: the library page becomes
-  the destination for that existing position-1 ranking.
+`_tools/build-song-library.js` generates everything from
+`_content/song-lists.json`; the working details are in CLAUDE.md under "The Song
+List Library". The two that bite:
 
-### Timing is the whole game
+- **Run order is `build-song-library.js` then `add-jsonld.js`**, not the reverse.
+  The build regenerates each page from the template shell, which drops the
+  `fce:jsonld` block.
+- **Only `song` and `by` are ever published.** The puzzle columns — Anagram,
+  Antonym Clue, Acronym, Nickname, Soundalike Pair, Country — are stripped at
+  parse time. Full callsheet PDFs still never get committed.
 
-New pages need roughly 2–6 weeks to index and start ranking. **Shipped by
-5 September → competing in October. Shipped in October → it's a 2027 asset.**
+### The Anagrams PDF — needs the owner's decision
+
+The PDF that started all of this
+(`/uploads/4/3/3/6/43362499/music-doboff-answer-sheet-anagrams.pdf`) turns out to
+be worse than "an orphaned song list". It's the complete Anagrams callsheet
+**including the Anagram column** — the puzzle answers, for a $10.99 pack that is
+currently on sale:
+
+> `5 | The Beautiful People | Marilyn Manson | Only man in arms | 03:38`
+
+It's the only such file public; the other 49 packs' answers aren't exposed. It's
+also the single best-ranking asset on the site — position 1, ~91 clicks a
+quarter.
+
+**Not removed**, because taking down something live and ranking is the owner's
+call, not an agent's. The groundwork is in place either way: `404.html` carries a
+dormant rule forwarding that URL to `/music-bingo-song-lists/anagrams/`, so if
+the file is deleted the traffic lands on the HTML page — same songs, no answers,
+buy button — with no further work.
+
+Three options, in order of preference:
+
+1. **Delete the PDF.** The library page inherits the query, the answers stop
+   being free, and the redirect is already written. Some ranking risk in the
+   handover, since a JS redirect from a 404 is weaker than a real 301 — but
+   GitHub Pages can't issue a 301, and this is the strongest form available.
+2. **Replace it in place** with a version that has the Anagram column removed,
+   keeping the URL and its ranking intact. Safest for traffic; needs the owner to
+   regenerate the PDF.
+3. **Leave it.** The ranking is real revenue-adjacent traffic and one pack's
+   answers may be an acceptable price. Worth saying out loud rather than
+   defaulting into.
+
+### Timing — met
+
+New pages need roughly 2–6 weeks to index and start ranking. Shipped **27 Aug**
+against a 5 Sept deadline, so the library is in the window to compete in October
+rather than 2027. Next lever is request-indexing: the hub first, then the
+seasonal leaves (Halloween, Christmas Party), then the decades.
 
 ---
 
@@ -169,26 +226,49 @@ a 4x order.
 
 ---
 
-## Engine 4 — Email  ⏰ **the fastest path to December revenue, needs a decision**
+## Engine 4 — Email  ⏰ **now the biggest single lever. Promote it.**
 
-**SEO cannot realistically 6–10x revenue in four months. Email might.**
+**SEO cannot realistically 6–10x revenue in four months. Email can.**
 
-Mailchimp is already connected through Zapier. The warmest possible audience for
-a $43 bundle is someone who already paid $10.99 for a single game and enjoyed it.
+The blocking question is answered: the list is **~2,000 on Sender** (not
+Mailchimp — correct the tooling notes accordingly), plus a couple of hundred
+identifiable past buyers recoverable from the current and Weebly order exports.
 
-**Blocked on one fact: how big is the list?** That number decides whether this is
-the main engine or a supporting one.
+That changes the weighting of this whole document. Two thousand people who
+opted in to a music bingo list is a **larger, warmer audience than four months of
+new organic search will produce**, and it costs nothing to reach. Run the
+arithmetic against the target:
 
-Sequence, if the list is meaningful:
+| | |
+|---|---|
+| list | ~2,000 |
+| open rate, a warm hobby list | 25–35% |
+| click rate on a good seasonal offer | 3–5% of the list |
+| clicks per send | **60–100** |
+| at 5% conversion, $43 average bundle | **$130–215 per send** |
+| four sends, Sept–Dec | **$500–900** |
+
+That alone is not $3–5k/month, and it shouldn't be sold as if it were. But it's
+**one to two months of current revenue, from four emails, with no new traffic** —
+and the December send lands in the highest-AOV week of the year, where the
+same click is worth a Gold Club rather than a single.
+
+The warmest sub-audience is past buyers: someone who paid $10.99 for one game
+and enjoyed it is the natural buyer of a $43 bundle. Segment them out if Sender's
+data allows; send to them separately with the bundle-credit offer.
+
+Sequence:
 - **Late Sept** — "plan your Halloween night" → Halloween pack + 6-Pack
 - **Mid Oct** — "Christmas party season starts now" → Holidays 6-Pack, booking
 - **Early Nov** — the year's best bundle offer → Starter Pack / Silver / Gold
 - **Early Dec** — last-minute downloads → singles, instant delivery angle
 
-Also worth noting: **the site has no visible email capture** outside the
+**Capture is the gap.** The site still has no visible email capture outside the
 generator gate mentioned in `SEO-HANDOFF.md` (which I could not find in the
-markup — verify). The Song List Library is the natural place to add one: fifty
-pages of people who want music bingo song lists is exactly the list to build.
+markup — verify). The Song List Library is now the obvious place: fifty pages of
+people who arrived wanting music bingo song lists is precisely the list to grow,
+and the offer writes itself — *"the printable version of this list, plus the
+next one we publish."* Worth doing before the October traffic arrives, not after.
 
 ---
 
@@ -210,9 +290,10 @@ Real, sized, but none of them are the growth story.
 
 | window | ship |
 |---|---|
-| **27 Aug – 5 Sept** | Song List Library: 50 pages + hub, sitemap, JSON-LD, internal links. Halloween pages prioritised inside it. |
-| **5 – 15 Sept** | Christmas/holiday library pages. Bundle-first merchandising on product pages. Store comparison table. Streaming post rewrite. |
-| **15 – 30 Sept** | Email capture on library pages. First Mailchimp send. Title fixes driven by CTR data. Request-indexing on the new library. |
+| **27 Aug** | ✅ Song List Library shipped: 51 pages, sitemap, JSON-LD, nav + product-page links. Request-index the hub and the seasonal leaves. |
+| **27 Aug – 5 Sept** | Bundle-first merchandising on product pages. Store comparison table. Anagrams PDF decision. |
+| **5 – 15 Sept** | Email capture on library pages. Streaming post rewrite. Seasonal pages final check. |
+| **15 – 30 Sept** | First Sender send (~2,000). Title fixes driven by CTR data. Watch which library pages start ranking. |
 | **Oct** | Harvest. Watch which library pages rank; double down on the winners. Halloween email. |
 | **Nov – mid Dec** | Christmas push: bundles, Gold Club, gift framing. Highest-AOV window of the year. |
 
@@ -235,17 +316,25 @@ worked cleanly every time so far.
 
 ## What to expect, honestly
 
-The Song List Library is a strong, durable asset and the right thing to build.
-But **published in September, it contributes in November and December, not
-October** — that is simply how indexing works.
+The Song List Library is a strong, durable asset and the right thing to have
+built. But **published in August, it contributes in November and December, not
+October** — that is simply how indexing works. Shipping it nine days early buys a
+better chance at October, not a guarantee of one.
 
 $3–5k/month by Christmas is reachable, but not from search alone in four months.
-The realistic mix:
+The realistic mix, now that the list size is known:
 
-- **AOV work** — fastest, no new traffic needed, available in September
-- **Email to existing buyers** — fastest revenue, entirely dependent on list size
-- **Song List Library** — the compounding asset, pays from November onward
+- **Email (~2,000 on Sender)** — the biggest single lever, and the only one that
+  can produce revenue in weeks rather than months. Blocked on nothing but sends.
+- **AOV work** — fastest structural change, no new traffic needed, do it in
+  September so the email sends land on bundle-first pages
+- **Song List Library** — ✅ built; the compounding asset, pays from November on
 - **Seasonality** — a genuine tailwind, but only for pages already indexed
+- **Subscriptions (~41 today)** — small now, but the only revenue that persists
+  past December. Worth a line in every send.
+
+The honest summary: search work is done and now waits on Google; **the next
+month's revenue is an email and merchandising problem, not an SEO one.**
 
 If the email list turns out to be small, say so early: the target then depends
 almost entirely on AOV and the December seasonal peak, and the plan should be

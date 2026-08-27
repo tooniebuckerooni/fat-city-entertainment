@@ -40,7 +40,10 @@ here** — the repo is served publicly by GitHub Pages.
 - Top-level nav: **Trivia Store (dropdown) · ★ Featured! (dropdown) · Our
   Games (dropdown) · Bingo Card Maker (dropdown) · Blog · Contact**. **Trivia
   Store** dropdown (added Aug 13 2026, via `_tools/add-trivia-store-nav.js`)
-  holds Music Bingo Card Downloads, Eras, Pre-made Trivia Shows, Bundles,
+  holds Music Bingo Card Downloads, **Free Song Lists** (added Aug 27 2026 via
+  `_tools/add-song-lists-nav.js` — a separate insert-into-existing-dropdown
+  script, because `add-trivia-store-nav.js` only builds the dropdown whole and
+  skips any page that already has one), Eras, Pre-made Trivia Shows, Bundles,
   Virtual Events. **Featured!** dropdown holds Triv 101, Trivia Generator
   (coming soon), and Bingo Card Generator (external link to
   https://bingocardgenerator.online/). Hub page: `/features.html`. **Bingo
@@ -200,6 +203,44 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   for blog `dateModified` — add a post's slug there only when its content is
   genuinely edited (title/meta/body), never in bulk. A modified date that
   doesn't reflect a real edit is a freshness signal Google discounts.
+
+## The Song List Library (`/music-bingo-song-lists/`)
+Shipped Aug 27 2026 — a hub plus one page per game pack, **50 packs / 1,674
+songs**, every song list published in full and free. Built by
+`_tools/build-song-library.js` from `_content/song-lists.json`; re-running
+rebuilds every page from the JSON, so **edit the data, never the generated
+HTML**.
+
+- **What may be published: `song` and `by` only.** The puzzle-answer columns —
+  Anagram, Antonym Clue, Acronym, Nickname, Soundalike Pair, Country — are
+  stripped when the JSON is generated and must never reach a page. Those columns
+  *are* the game. The song list satisfies the search; the clue stays with the
+  product. Same rule as `add-tracklists.js`, and for the same reason.
+- **The full callsheet PDFs still must never be committed.** This repo is
+  public. `_content/song-lists.json` is the published excerpt, nothing more.
+- Packs with no Artist column (TV Themes, Video Games) use their identifying
+  column instead, and their JSON-LD omits `byArtist` rather than calling a show
+  title an artist.
+- **Sitemap entries are managed, unlike everywhere else on the site**: the tool
+  owns a `<!-- fce:song-lists -->` block in `sitemap.xml` and replaces it
+  wholesale. Fifty pages rebuilt from JSON is the case where the hand-add rule
+  stops making sense. `sitemap-lastmod.js` is unaffected — it only refreshes
+  dates on URLs already present.
+- Order matters: **`build-song-library.js --write` first, then
+  `add-jsonld.js --write`** — the build regenerates each page from the template
+  shell, which drops any `fce:jsonld` block.
+- Entry points, so the library can't end up orphaned the way the PDF did: the
+  Trivia Store nav dropdown, `trivia-store.html` body copy, and a "See all N
+  songs" link in every product page's sample tracklist (`add-tracklists.js`
+  matches product→library on URL, falling back to an exact pack-name match;
+  **never fuzzy-match** — an early attempt paired Countries with Halloween
+  Party, which would have sent buyers to the wrong list).
+- **Still live and still a problem:** `uploads/.../music-doboff-answer-sheet-
+  anagrams.pdf` publishes the Anagrams pack's *Anagram column* — the answers —
+  and ranks at position 1 for ~91 clicks a quarter. It's the reason the library
+  exists and it's also giving away one pack's game. Not removed, because that's
+  the owner's call; `404.html` already carries a dormant rule forwarding it to
+  `/music-bingo-song-lists/anagrams/` so taking it down is one step.
 
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and

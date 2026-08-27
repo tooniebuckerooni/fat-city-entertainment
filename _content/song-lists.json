@@ -1,0 +1,7398 @@
+{
+ "Golden Oldies": {
+  "slug": "golden-oldies",
+  "pack": "Golden Oldies",
+  "total": 33,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Why Do Fools Fall in Love",
+    "by": "Frankie Lymon & The Teenagers"
+   },
+   {
+    "song": "California Girls (Stereo)",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Que Sera, Sera (Whatever Will Be, Will Be)",
+    "by": "Doris Day"
+   },
+   {
+    "song": "(Sittin' On) The Dock Of The Bay",
+    "by": "Otis Redding"
+   },
+   {
+    "song": "Mony Mony",
+    "by": "Tommy James And The Shondells"
+   },
+   {
+    "song": "La Bamba",
+    "by": "Ritchie Valens"
+   },
+   {
+    "song": "Johnny B. Goode (Single Version)",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "(We're Gonna) Rock Around The Clock",
+    "by": "Bill Haley & His Comets"
+   },
+   {
+    "song": "Jailhouse Rock",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "Great Balls Of Fire",
+    "by": "Jerry Lee Lewis"
+   },
+   {
+    "song": "A Teenager In Love",
+    "by": "Dion & The Belmonts"
+   },
+   {
+    "song": "Under the Boardwalk",
+    "by": "The Drifters"
+   },
+   {
+    "song": "I Can't Help Myself (Sugar Pie, Honey Bunch)",
+    "by": "The Four Tops"
+   },
+   {
+    "song": "Summertime Blues",
+    "by": "Eddie Cochran"
+   },
+   {
+    "song": "Limbo Rock",
+    "by": "Chubby Checker"
+   },
+   {
+    "song": "Crazy",
+    "by": "Patsy Cline"
+   },
+   {
+    "song": "The Lion Sleeps Tonight (Wimoweh) Big Girls Don't Cry (2007",
+    "by": "The Tokens Frankie Valli & The"
+   },
+   {
+    "song": "Remaster)",
+    "by": "Four Seasons"
+   },
+   {
+    "song": "Stand By Me",
+    "by": "Ben E. King"
+   },
+   {
+    "song": "Oh, Pretty Woman (Remastered)",
+    "by": "Roy Orbison"
+   },
+   {
+    "song": "Land of 1000 Dances",
+    "by": "Wilson Pickett"
+   },
+   {
+    "song": "Peggy Sue",
+    "by": "Buddy Holly"
+   },
+   {
+    "song": "Yakety Yak",
+    "by": "The Coasters"
+   },
+   {
+    "song": "These Boots Are Made for Walkin'",
+    "by": "Nancy Sinatra"
+   },
+   {
+    "song": "My Girl",
+    "by": "The Temptations"
+   },
+   {
+    "song": "Surfin' Bird",
+    "by": "The Trashmen"
+   },
+   {
+    "song": "Runaway (Rerecorded)",
+    "by": "Del Shannon"
+   },
+   {
+    "song": "Splish Splash",
+    "by": "Bobby Darin"
+   },
+   {
+    "song": "Earth Angel",
+    "by": "The Penguins"
+   },
+   {
+    "song": "Wake up Little Susie (Remastered)",
+    "by": "The Everly Brothers"
+   },
+   {
+    "song": "Lollipop",
+    "by": "The Chordettes"
+   },
+   {
+    "song": "Ring Of Fire",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "The Great Pretender",
+    "by": "The Platters"
+   }
+  ],
+  "url": "/store/p62/goldenoldies.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2706dBDwenPUgqGXZYodWu",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-golden-oldies/pl.u-aZb0NJ5t1NkB2rZ",
+  "product_title": "Golden Oldies (2 versions) - Download And Print Randomized Music Bingo Cards"
+ },
+ "Hair Bands": {
+  "slug": "hair-bands",
+  "pack": "Hair Bands",
+  "total": 31,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Take on Me",
+    "by": "a-ha"
+   },
+   {
+    "song": "I Ran (So Far Away) - Single Edit",
+    "by": "A Flock Of Seagulls"
+   },
+   {
+    "song": "Jump (2015 Remaster)",
+    "by": "Van Halen"
+   },
+   {
+    "song": "Wake Me Up Before You Go-Go",
+    "by": "Wham!"
+   },
+   {
+    "song": "Pour Some Sugar On Me",
+    "by": "Def Leppard"
+   },
+   {
+    "song": "Love Is A Battlefield (Remastered)",
+    "by": "Pat Benatar"
+   },
+   {
+    "song": "We're Not Gonna Take It",
+    "by": "Twisted Sister"
+   },
+   {
+    "song": "More Than Words",
+    "by": "Extreme"
+   },
+   {
+    "song": "Cherry Pie",
+    "by": "Warrant"
+   },
+   {
+    "song": "Footloose (From Footloose Soundtrack)",
+    "by": "Kenny Loggins"
+   },
+   {
+    "song": "To Be With You",
+    "by": "Mr. Big"
+   },
+   {
+    "song": "Feel Like Makin' Love (2015 Remaster)",
+    "by": "Bad Company"
+   },
+   {
+    "song": "Rock And Roll All Nite",
+    "by": "Kiss"
+   },
+   {
+    "song": "Cum on Feel the Noize",
+    "by": "Quiet Riot"
+   },
+   {
+    "song": "Billie Jean",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Unskinny Bop (Remastered 1996)",
+    "by": "Poison"
+   },
+   {
+    "song": "When Doves Cry",
+    "by": "Prince"
+   },
+   {
+    "song": "Don't You (Forget About Me)",
+    "by": "Simple Minds"
+   },
+   {
+    "song": "Never Tear Us Apart",
+    "by": "INXS"
+   },
+   {
+    "song": "Vogue",
+    "by": "Madonna"
+   },
+   {
+    "song": "Holding Out for a Hero (From Footloose Soundtrack)",
+    "by": "Bonnie Tyler"
+   },
+   {
+    "song": "Sunglasses At Night",
+    "by": "Corey Hart"
+   },
+   {
+    "song": "Conga",
+    "by": "Gloria Estefan"
+   },
+   {
+    "song": "The Final Countdown                   E",
+    "by": "urope                      Pu"
+   },
+   {
+    "song": "Wind Of Change                        S",
+    "by": "corpions                   Cr"
+   },
+   {
+    "song": "Sweet Child O' Mine                   G",
+    "by": "uns N' Roses               Di"
+   },
+   {
+    "song": "I Wanna Dance With                    W Somebody (Who Loves Me)",
+    "by": "hitney Houston             Wh"
+   },
+   {
+    "song": "Never Gonna Give You Up               R",
+    "by": "ick Astley                 Wh So"
+   },
+   {
+    "song": "Dr. Feelgood                          M",
+    "by": "otley Crue                 Dr"
+   },
+   {
+    "song": "Livin' On A Prayer                    B",
+    "by": "on Jovi                    Sl"
+   },
+   {
+    "song": "Here I Go Again (1987                 W Version)",
+    "by": "hitesnake                  Wh Su"
+   }
+  ],
+  "url": "/store/p63/hairbands.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3RtVN7kUqxFoh009d61dR5",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-hair-bands/pl.u-9N9L2yyT1jV9LWR",
+  "product_title": "\"Hair Bands\" (2 Versions) - Download And Print Music Bingo Cards"
+ },
+ "The 70s": {
+  "slug": "the-70s",
+  "pack": "The 70s",
+  "total": 36,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Jolene",
+    "by": "Dolly Parton"
+   },
+   {
+    "song": "Lola (2014 Remastered Version)",
+    "by": "The Kinks"
+   },
+   {
+    "song": "Iron Man (2012 - Remaster)",
+    "by": "Black Sabbath"
+   },
+   {
+    "song": "Big Yellow Taxi",
+    "by": "Joni Mitchell"
+   },
+   {
+    "song": "Cecilia",
+    "by": "Simon & Garfunkel"
+   },
+   {
+    "song": "Do It Again",
+    "by": "Steely Dan"
+   },
+   {
+    "song": "Twilight Zone",
+    "by": "Golden Earring"
+   },
+   {
+    "song": "Fire And Rain",
+    "by": "James Taylor"
+   },
+   {
+    "song": "All Right Now",
+    "by": "Free"
+   },
+   {
+    "song": "Black Magic Woman",
+    "by": "Santana"
+   },
+   {
+    "song": "Gypsys, Tramps & Thieves",
+    "by": "Cher"
+   },
+   {
+    "song": "Lookin' Out My Back Door",
+    "by": "Creedence Clearwater Revival"
+   },
+   {
+    "song": "Wild World",
+    "by": "Cat Stevens"
+   },
+   {
+    "song": "Imagine (Remastered 2010)",
+    "by": "John Lennon"
+   },
+   {
+    "song": "Joy To The World",
+    "by": "Three Dog Night"
+   },
+   {
+    "song": "Kung Fu Fighting",
+    "by": "Carl Douglas"
+   },
+   {
+    "song": "Theme From Shaft (Remastered)",
+    "by": "Isaac Hayes"
+   },
+   {
+    "song": "China Grove",
+    "by": "The Doobie Brothers"
+   },
+   {
+    "song": "Killer Queen (Remastered 2011)",
+    "by": "Queen"
+   },
+   {
+    "song": "T.N.T.",
+    "by": "AC/DC"
+   },
+   {
+    "song": "Tiny Dancer",
+    "by": "Elton John"
+   },
+   {
+    "song": "Sweet Home Alabama",
+    "by": "Lynyrd Skynyrd"
+   },
+   {
+    "song": "Y.M.C.A.",
+    "by": "Village People"
+   },
+   {
+    "song": "Stuck In The Middle With You",
+    "by": "Stealers Wheel"
+   },
+   {
+    "song": "I Will Survive (Single Version)",
+    "by": "Gloria Gaynor"
+   },
+   {
+    "song": "Live And Let Die",
+    "by": "Wings"
+   },
+   {
+    "song": "Sir Duke",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "Dancing Queen",
+    "by": "ABBA"
+   },
+   {
+    "song": "Bad, Bad Leroy Brown",
+    "by": "Jim Croce"
+   },
+   {
+    "song": "Rhinestone Cowboy",
+    "by": "Glen Campbell"
+   },
+   {
+    "song": "Carry on Wayward Son",
+    "by": "Kansas"
+   },
+   {
+    "song": "Come Sail Away",
+    "by": "Styx"
+   },
+   {
+    "song": "Stayin' Alive (From Saturday Night Fever Soundtrack)",
+    "by": "Bee Gees"
+   },
+   {
+    "song": "You Sexy Thing",
+    "by": "Hot Chocolate"
+   },
+   {
+    "song": "ABC",
+    "by": "Jackson 5"
+   },
+   {
+    "song": "Ladies Night (Single Version)",
+    "by": "Kool and The Gang"
+   }
+  ],
+  "url": "/store/p115/the1970s.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1M6PakwYXFESs9yJ4bFdDr",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-70s/pl.u-d2b0kMWtLl30eXN",
+  "product_title": "The 1970s - Download And Print Music Bingo Cards"
+ },
+ "The 80s": {
+  "slug": "the-80s",
+  "pack": "The 80s",
+  "total": 35,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Fight For Your Right",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "You Make My Dreams (Come True)",
+    "by": "Daryl Hall & John Oates"
+   },
+   {
+    "song": "Centerfold",
+    "by": "The J. Geils Band"
+   },
+   {
+    "song": "The Way You Make Me Feel",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "I'm Your Man",
+    "by": "Wham!"
+   },
+   {
+    "song": "Crazy Little Thing Called Love",
+    "by": "Queen"
+   },
+   {
+    "song": "You Can't Hurry Love (2016 Remaster)",
+    "by": "Phil Collins"
+   },
+   {
+    "song": "Good Thing",
+    "by": "Fine Young Cannibals"
+   },
+   {
+    "song": "Mystify",
+    "by": "INXS"
+   },
+   {
+    "song": "Get Outta My Dreams, Get into My Car",
+    "by": "Billy Ocean"
+   },
+   {
+    "song": "Sharp Dressed Man (2008 Remaster)",
+    "by": "ZZ Top"
+   },
+   {
+    "song": "Wild Thing",
+    "by": "Tone-Loc"
+   },
+   {
+    "song": "Walk Of Life",
+    "by": "Dire Straits"
+   },
+   {
+    "song": "Living in America (From Rocky IV Soundtrack)",
+    "by": "James Brown"
+   },
+   {
+    "song": "Glory Days",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "You Can Call Me Al",
+    "by": "Paul Simon"
+   },
+   {
+    "song": "I Won't Back Down",
+    "by": "Tom Petty"
+   },
+   {
+    "song": "The Best (Edit)",
+    "by": "Tina Turner"
+   },
+   {
+    "song": "Blame It on the Rain",
+    "by": "Milli Vanilli"
+   },
+   {
+    "song": "You Got It (The Right Stuff)",
+    "by": "New Kids On The Block"
+   },
+   {
+    "song": "You Got It",
+    "by": "Roy Orbison"
+   },
+   {
+    "song": "Toy Soldiers",
+    "by": "Martika"
+   },
+   {
+    "song": "Why Can't This Be Love",
+    "by": "Van Halen"
+   },
+   {
+    "song": "Rock Me Amadeus (The American Edit)",
+    "by": "Falco                        R A"
+   },
+   {
+    "song": "It's The End Of The World As We Know It (And I Feel Fine)",
+    "by": "R.E.M.                       D"
+   },
+   {
+    "song": "Paper In Fire",
+    "by": "John Mellencamp              T -"
+   },
+   {
+    "song": "Say You, Say Me",
+    "by": "Lionel Richie                T"
+   },
+   {
+    "song": "Invisible Touch (2007 Remaster)",
+    "by": "Genesis                      I"
+   },
+   {
+    "song": "Hot In The City",
+    "by": "Billy Idol                   B"
+   },
+   {
+    "song": "Sister Christian",
+    "by": "Night Ranger                 G"
+   },
+   {
+    "song": "Take Me Home Tonight",
+    "by": "Eddie Money                  T"
+   },
+   {
+    "song": "You're the Voice",
+    "by": "John Farnham                 G"
+   },
+   {
+    "song": "Run To You",
+    "by": "Bryan Adams                  R"
+   },
+   {
+    "song": "Stuck With You",
+    "by": "Huey Lewis And The           F News"
+   },
+   {
+    "song": "Big Time (2012 Remaster)",
+    "by": "Peter Gabriel                S"
+   }
+  ],
+  "url": "/store/p144/the80s.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1yWFWxtdzRxtZvXnVj5mqk",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-the-80s/pl.u-DdANrYdT0jMJzXp",
+  "product_title": "\"The 80s\" - Download And Print Music Bingo Cards"
+ },
+ "The 90s": {
+  "slug": "the-90s",
+  "pack": "The 90s",
+  "total": 30,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Black",
+    "by": "Pearl Jam"
+   },
+   {
+    "song": "Glycerine",
+    "by": "Bush"
+   },
+   {
+    "song": "Man In The Box",
+    "by": "Alice In Chains"
+   },
+   {
+    "song": "Black Hole Sun",
+    "by": "Soundgarden"
+   },
+   {
+    "song": "No Rain (Remastered 2002)",
+    "by": "Blind Melon"
+   },
+   {
+    "song": "Heart-Shaped Box",
+    "by": "Nirvana"
+   },
+   {
+    "song": "Man On The Moon",
+    "by": "R.E.M."
+   },
+   {
+    "song": "Mr. Jones",
+    "by": "Counting Crows"
+   },
+   {
+    "song": "Like A Stone",
+    "by": "Audioslave"
+   },
+   {
+    "song": "Under the Bridge",
+    "by": "Red Hot Chili Peppers"
+   },
+   {
+    "song": "Just A Girl",
+    "by": "No Doubt"
+   },
+   {
+    "song": "Closer",
+    "by": "Nine Inch Nails"
+   },
+   {
+    "song": "What I Got",
+    "by": "Sublime"
+   },
+   {
+    "song": "Tonight, Tonight (Remastered 2012)",
+    "by": "The Smashing Pumpkins"
+   },
+   {
+    "song": "One Headlight",
+    "by": "The Wallflowers"
+   },
+   {
+    "song": "Loser",
+    "by": "Beck"
+   },
+   {
+    "song": "One Week",
+    "by": "Barenaked Ladies"
+   },
+   {
+    "song": "The Freshmen",
+    "by": "The Verve Pipe"
+   },
+   {
+    "song": "Volcano Girls",
+    "by": "Veruca Salt"
+   },
+   {
+    "song": "Only Happy When It Rains",
+    "by": "Garbage"
+   },
+   {
+    "song": "Two Princes",
+    "by": "Spin Doctors"
+   },
+   {
+    "song": "Breakfast At Tiffany's",
+    "by": "Deep Blue Something"
+   },
+   {
+    "song": "I'm Gonna Be (500 Miles)",
+    "by": "The Proclaimers"
+   },
+   {
+    "song": "Zombie",
+    "by": "The Cranberries"
+   },
+   {
+    "song": "Pepper                                B",
+    "by": "utthole Surfers             E"
+   },
+   {
+    "song": "Butterfly                             C",
+    "by": "razy Town                   T"
+   },
+   {
+    "song": "Good                                  B",
+    "by": "etter Than Ezra             D"
+   },
+   {
+    "song": "Counting Blue Cars (Tell Me           D Your Thoughts On God)",
+    "by": "ishwalla                    C"
+   },
+   {
+    "song": "Hey Jealousy                          G",
+    "by": "in Blossoms                 N"
+   },
+   {
+    "song": "Short Skirt/Long Jacket               C",
+    "by": "AKE                         C"
+   }
+  ],
+  "url": "/store/p113/the90s.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-90s/pl.u-e98lkMpca2oxBEj",
+  "product_title": "The 90s - Download And Print Music Bingo Cards"
+ },
+ "Body Parts": {
+  "slug": "body-parts",
+  "pack": "Body Parts",
+  "total": 35,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Bette Davis Eyes",
+    "by": "Kim Carnes"
+   },
+   {
+    "song": "Can't Take My Eyes off You",
+    "by": "Frankie Valli"
+   },
+   {
+    "song": "Head Over Boots",
+    "by": "Jon Pardi"
+   },
+   {
+    "song": "Can't Feel My Face",
+    "by": "The Weeknd"
+   },
+   {
+    "song": "Behind Blue Eyes",
+    "by": "The Who"
+   },
+   {
+    "song": "My Ding-A-Ling - Live",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "Open Arms",
+    "by": "Journey"
+   },
+   {
+    "song": "On Bended Knee",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "Bubble Toes",
+    "by": "Jack Johnson"
+   },
+   {
+    "song": "Cold Shoulder",
+    "by": "Adele"
+   },
+   {
+    "song": "Cheek To Cheek - 2006 Digital Remaster/24 Bit Mastering",
+    "by": "Frank Sinatra"
+   },
+   {
+    "song": "Devil on My Shoulder",
+    "by": "Billy Talent"
+   },
+   {
+    "song": "Whip My Hair",
+    "by": "WILLOW"
+   },
+   {
+    "song": "Fat Lip",
+    "by": "Sum 41"
+   },
+   {
+    "song": "Footloose - From \"Footloose\" Soundtrack",
+    "by": "Kenny Loggins"
+   },
+   {
+    "song": "HandClap",
+    "by": "Fitz and The Tantrums"
+   },
+   {
+    "song": "Heart Of Glass - Special Mix",
+    "by": "Blondie"
+   },
+   {
+    "song": "Hand in My Pocket - 2015 Remaster",
+    "by": "Alanis Morissette"
+   },
+   {
+    "song": "Hands To Myself",
+    "by": "Selena Gomez"
+   },
+   {
+    "song": "Out Of My Head",
+    "by": "Fastball"
+   },
+   {
+    "song": "Head Over Heels - Dave Bascombe 7\" N.Mix",
+    "by": "Tears For Fears, Dave Bascombe"
+   },
+   {
+    "song": "Elastic Heart",
+    "by": "Sia"
+   },
+   {
+    "song": "Heart of Gold - 2017 Remaster",
+    "by": "Neil Young"
+   },
+   {
+    "song": "Iris",
+    "by": "The Goo Goo Dolls"
+   },
+   {
+    "song": "Legs - 2008 Remaster",
+    "by": "ZZ Top"
+   },
+   {
+    "song": "jar of hearts",
+    "by": "Christina Perri"
+   },
+   {
+    "song": "Hips Don't Lie (feat. Wyclef Jean)",
+    "by": "Shakira, Wyclef Jean"
+   },
+   {
+    "song": "Hold My Hand",
+    "by": "Hootie & The Blowfish"
+   },
+   {
+    "song": "Hungry Eyes - From \"Dirty Dancing\" Soundtrack",
+    "by": "Eric Carmen"
+   },
+   {
+    "song": "Your Body Is a Wonderland",
+    "by": "John Mayer"
+   },
+   {
+    "song": "Rock Your Body",
+    "by": "Justin Timberlake"
+   },
+   {
+    "song": "Let Me Clear My Throat - Old School Reunion Remix '96",
+    "by": "DJ Kool"
+   },
+   {
+    "song": "Keep Your Hands to Yourself",
+    "by": "The Georgia Satellites"
+   },
+   {
+    "song": "Tush - 2006 Remaster",
+    "by": "ZZ Top"
+   },
+   {
+    "song": "Sunshine On My Shoulders",
+    "by": "John Denver"
+   }
+  ],
+  "url": "/store/p109/bodyparts.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0L4dflCdSROy2rTX6ktHnl",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-body-parts/pl.u-V9D7vD9F3Rmz4No",
+  "product_title": "Body Parts - Download And Print Music Bingo Cards"
+ },
+ "Food Fight": {
+  "slug": "food-fight",
+  "pack": "Food Fight",
+  "total": 28,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Blueberry Hill - Remastered 2002",
+    "by": "Fats Domino"
+   },
+   {
+    "song": "Brown Sugar - Remastered 2009",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "American Pie",
+    "by": "Don McLean"
+   },
+   {
+    "song": "Lollipop",
+    "by": "The Chordettes"
+   },
+   {
+    "song": "Incense And Peppermints",
+    "by": "Strawberry Alarm Clock"
+   },
+   {
+    "song": "Cherry Bomb",
+    "by": "John Mellencamp"
+   },
+   {
+    "song": "Banana Boat (Day-O)",
+    "by": "Harry Belafonte"
+   },
+   {
+    "song": "Chop Suey!",
+    "by": "System Of A Down"
+   },
+   {
+    "song": "Banana Pancakes",
+    "by": "Jack Johnson"
+   },
+   {
+    "song": "Cherry Pie",
+    "by": "Warrant The Presidents Of The"
+   },
+   {
+    "song": "Peaches",
+    "by": "United States Of America"
+   },
+   {
+    "song": "Raspberry Beret",
+    "by": "Prince"
+   },
+   {
+    "song": "Red Red Wine",
+    "by": "UB40"
+   },
+   {
+    "song": "The Candy Man",
+    "by": "Sammy Davis Jr."
+   },
+   {
+    "song": "Pepper",
+    "by": "Butthole Surfers"
+   },
+   {
+    "song": "Chicken Fried",
+    "by": "Zac Brown Band"
+   },
+   {
+    "song": "Lady Marmalade",
+    "by": "Christina Aguilera, Lil' Kim, Mya, Pink"
+   },
+   {
+    "song": "Peaches N Cream (feat. Charlie Wilson)",
+    "by": "Snoop Dogg, Charlie Wilson"
+   },
+   {
+    "song": "Sugar, Sugar",
+    "by": "The Archies"
+   },
+   {
+    "song": "Pour Some Sugar On Me - Remastered 2017",
+    "by": "Def Leppard"
+   },
+   {
+    "song": "Sugar Pie Honey Bunch",
+    "by": "Kid Rock"
+   },
+   {
+    "song": "The Ketchup Song (Asereje) - Spanglish Version",
+    "by": "Las Ketchup"
+   },
+   {
+    "song": "Tutti Frutti",
+    "by": "Little Richard               T"
+   },
+   {
+    "song": "Feed My Frankenstein",
+    "by": "Alice Cooper                 H"
+   },
+   {
+    "song": "Orange Crush - Remastered 2013 Eggs And Sausage (In A",
+    "by": "R.E.M.                       G N"
+   },
+   {
+    "song": "Cadillac With Susan Michelson)",
+    "by": "Tom Waits                    ("
+   },
+   {
+    "song": "Kiwi",
+    "by": "Maroon 5                     I"
+   },
+   {
+    "song": "Put the Lime in the Coconut - Acoustic",
+    "by": "Red Tracy                    U"
+   }
+  ],
+  "url": "/store/p92/foodfight.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1rJTAR6k7fFYNyuRJtf0SB",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-food-fight/pl.u-mJy8gd8FNbpXW08",
+  "product_title": "Food Fight - Download And Print Music Bingo Cards"
+ },
+ "Zoo Rock": {
+  "slug": "zoo-rock",
+  "pack": "Zoo Rock",
+  "total": 34,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Rockin' Robin",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "What Does the Fox Say?",
+    "by": "Ylvis"
+   },
+   {
+    "song": "When Doves Cry",
+    "by": "Prince"
+   },
+   {
+    "song": "Monkey Wrench",
+    "by": "Foo Fighters"
+   },
+   {
+    "song": "Eye of the Tiger",
+    "by": "Survivor"
+   },
+   {
+    "song": "Hungry Like the Wolf - 2009 Remaster Karma Chameleon -",
+    "by": "Duran Duran"
+   },
+   {
+    "song": "Remastered 2002",
+    "by": "Culture Club"
+   },
+   {
+    "song": "What's New Pussycat?",
+    "by": "Tom Jones"
+   },
+   {
+    "song": "A Horse with No Name",
+    "by": "America, George Martin"
+   },
+   {
+    "song": "Pony",
+    "by": "Ginuwine"
+   },
+   {
+    "song": "Crocodile Rock - Remastered",
+    "by": "Elton John"
+   },
+   {
+    "song": "Gorilla",
+    "by": "Bruno Mars"
+   },
+   {
+    "song": "The Lion Sleeps Tonight (Wimoweh)",
+    "by": "The Tokens"
+   },
+   {
+    "song": "Hound Dog",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "I'm Like A Bird",
+    "by": "Nelly Furtado"
+   },
+   {
+    "song": "Brass Monkey",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "Who Let The Dogs Out",
+    "by": "Baha Men"
+   },
+   {
+    "song": "Free Bird",
+    "by": "Lynyrd Skynyrd"
+   },
+   {
+    "song": "Butterfly",
+    "by": "Crazy Town"
+   },
+   {
+    "song": "Dark Horse",
+    "by": "Katy Perry, Juicy J"
+   },
+   {
+    "song": "Buffalo Soldier",
+    "by": "Bob Marley & The Wailers"
+   },
+   {
+    "song": "The Hamster Dance Song",
+    "by": "Hampster Dance Masters"
+   },
+   {
+    "song": "I Am The Walrus - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Rock Lobster",
+    "by": "The B-52's"
+   },
+   {
+    "song": "Bat Out of Hell Cat People (Putting Out Fire) -",
+    "by": "Meat Loaf"
+   },
+   {
+    "song": "Single Version, 2002 Remaster",
+    "by": "David Bowie"
+   },
+   {
+    "song": "The Sidewinder Sleeps Tonite",
+    "by": "R.E.M."
+   },
+   {
+    "song": "Fishin' in the Dark",
+    "by": "Nitty Gritty Dirt Band"
+   },
+   {
+    "song": "Wild Horses - 2009 Mix",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "War Pigs",
+    "by": "Black Sabbath"
+   },
+   {
+    "song": "Fly Like An Eagle",
+    "by": "Steve Miller Band"
+   },
+   {
+    "song": "Fox On The Run",
+    "by": "Sweet"
+   },
+   {
+    "song": "Cats In The Cradle",
+    "by": "Ugly Kid Joe"
+   },
+   {
+    "song": "Dog Eat Dog",
+    "by": "AC/DC"
+   }
+  ],
+  "url": "/store/p71/zoorock.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2AaRgLQzOyhRqJtkTGPGtk",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-zoo-rock/pl.u-V9D7vdac3Rmz4No",
+  "product_title": "ZOO ROCK - Download And Print Music Bingo Cards"
+ },
+ "TV Themes 1": {
+  "slug": "tv-themes-1",
+  "pack": "TV Themes 1",
+  "total": 40,
+  "second_col": "TV Show",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Game of Thrones (Main Opening Theme)",
+    "by": "Game of Thrones"
+   },
+   {
+    "song": "Theme from \"Seinfeld\"",
+    "by": "Seinfeld"
+   },
+   {
+    "song": "Scooby Doo",
+    "by": "Scooby-Doo, Where Are You!"
+   },
+   {
+    "song": "The Fresh Prince of Bel-Air",
+    "by": "The Fresh Prince of Bel-Air"
+   },
+   {
+    "song": "Theme from Knight Rider",
+    "by": "Knight Rider"
+   },
+   {
+    "song": "The Benny Hill Show (Tv Series Theme)",
+    "by": "The Benny Hill Show"
+   },
+   {
+    "song": "Inspector Gadget",
+    "by": "Inspector Gadget"
+   },
+   {
+    "song": "Doctor Who",
+    "by": "Doctor Who"
+   },
+   {
+    "song": "Sons Of Anarchy - Main Title Theme",
+    "by": "Sons of Anarchy"
+   },
+   {
+    "song": "Theme From \"The Munsters\"",
+    "by": "The Munsters"
+   },
+   {
+    "song": "It's Such a Good Night (From \"Breaking Bad\")",
+    "by": "Breaking Bad"
+   },
+   {
+    "song": "The Addams Family - TV Theme Song",
+    "by": "The Addams Family"
+   },
+   {
+    "song": "House of Cards (Main Theme from the TV Series)",
+    "by": "House of Cards"
+   },
+   {
+    "song": "Sherlock Theme",
+    "by": "Sherlock"
+   },
+   {
+    "song": "The Twilight Zone Theme",
+    "by": "The Twilight Zone"
+   },
+   {
+    "song": "Thunderbirds",
+    "by": "Thunderbirds"
+   },
+   {
+    "song": "The X-Files (Main Theme from the Television Series)",
+    "by": "The X-Files"
+   },
+   {
+    "song": "Twin Peaks",
+    "by": "Twin Peaks"
+   },
+   {
+    "song": "Quantum Leap",
+    "by": "Quantum Leap"
+   },
+   {
+    "song": "Hawaii 5 O",
+    "by": "Hawaii Five-O"
+   },
+   {
+    "song": "Friends",
+    "by": "Friends"
+   },
+   {
+    "song": "The Six Million Dollar Man",
+    "by": "The Six Million Dollar Man"
+   },
+   {
+    "song": "Lois and Clark - The New Adventures Of Superman",
+    "by": "Lois & Clark: The New Adventures of Superman"
+   },
+   {
+    "song": "The Walking Dead",
+    "by": "The Walking Dead"
+   },
+   {
+    "song": "Spider Man",
+    "by": "Spider-Man"
+   },
+   {
+    "song": "Batman",
+    "by": "Batman"
+   },
+   {
+    "song": "Monty Python's Flying Circus                           M",
+    "by": "onty Python's Flying Circus                        00"
+   },
+   {
+    "song": "Theme from Yogi Bear                                   T",
+    "by": "he Yogi Bear Show                                  00"
+   },
+   {
+    "song": "The Simpsons                                           T",
+    "by": "he Simpsons                                        01"
+   },
+   {
+    "song": "Where Everybody Knows Your Name                        C",
+    "by": "heers                                              03"
+   },
+   {
+    "song": "The Avengers                                           T",
+    "by": "he Avengers                                        01"
+   },
+   {
+    "song": "Theme from the Flintstones                             T",
+    "by": "he Flintstones                                     00"
+   },
+   {
+    "song": "Teletubbies                                            T",
+    "by": "eletubbies                                         01"
+   },
+   {
+    "song": "Sabrina The Teenage Witch                              S",
+    "by": "abrina the Teenage Witch                           01"
+   },
+   {
+    "song": "Theme from the Muppet Show                             T",
+    "by": "he Muppet Show                                     00"
+   },
+   {
+    "song": "Pokemon                                                P",
+    "by": "okemon                                             01"
+   },
+   {
+    "song": "The Office Opening Theme: The Office US                T",
+    "by": "he Office (US)                                     00"
+   },
+   {
+    "song": "Theme from the Jetsons                                 T",
+    "by": "he Jetsons                                         00"
+   },
+   {
+    "song": "Theme from Sesame Street                               S",
+    "by": "esame Street                                       01"
+   },
+   {
+    "song": "Theme from Woody Woodpecker                            T",
+    "by": "he Woody Woodpecker Show                           02"
+   }
+  ],
+  "url": "/store/p102/tvshows.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/4sshLzF7RzkKRRytZJj2kA",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-tv-shows/pl.u-aZb0N64t1NkB2rZ",
+  "product_title": "Tv Themes 1 - Download And Print Music Bingo Cards"
+ },
+ "Movie Soundtracks 1": {
+  "slug": "movie-soundtracks-1",
+  "pack": "Movie Soundtracks 1",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Ghostbusters",
+    "by": "Ray Parker Jr."
+   },
+   {
+    "song": "I Believe I Can Fly",
+    "by": "R. Kelly"
+   },
+   {
+    "song": "Exhale (Shoop Shoop)",
+    "by": "Whitney Houston"
+   },
+   {
+    "song": "Men In Black (From Men In Black Soundtrack)",
+    "by": "Will Smith"
+   },
+   {
+    "song": "Independent Women, Pt. 1",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "Stay (I Missed You)",
+    "by": "Lisa Loeb & Nine Stories"
+   },
+   {
+    "song": "Lady Marmalade (From Moulin Rouge Soundtrack)",
+    "by": "Christina Aguilera, Lil' Kim, Mya, Pink"
+   },
+   {
+    "song": "A Real Hero",
+    "by": "College, Electric Youth"
+   },
+   {
+    "song": "Lose Yourself",
+    "by": "Eminem"
+   },
+   {
+    "song": "Unchained Melody",
+    "by": "The Righteous Brothers"
+   },
+   {
+    "song": "Skyfall",
+    "by": "Adele"
+   },
+   {
+    "song": "Glory (From the Motion Picture Selma)",
+    "by": "Common, John Legend"
+   },
+   {
+    "song": "Streets Of Philadelphia (Single Edit)",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "Born Slippy (Nuxx)",
+    "by": "Underworld"
+   },
+   {
+    "song": "Happy",
+    "by": "Pharrell Williams"
+   },
+   {
+    "song": "Kiss Me",
+    "by": "Sixpence None The Richer"
+   },
+   {
+    "song": "Falling Slowly",
+    "by": "Glen Hansard, Marketa Irglova"
+   },
+   {
+    "song": "Little Green Bag (I've Had) The Time of My Life",
+    "by": "The George Baker Selection Bill Medley, Jennifer"
+   },
+   {
+    "song": "(From Dirty Dancing Soundtrack) I Don't Want to Miss a Thing",
+    "by": "Warnes"
+   },
+   {
+    "song": "(From Armageddon Soundtrack)",
+    "by": "Aerosmith"
+   },
+   {
+    "song": "Gangsta's Paradise",
+    "by": "Coolio, L.V."
+   },
+   {
+    "song": "(Everything I Do) I Do It For You",
+    "by": "Bryan Adams"
+   },
+   {
+    "song": "My Heart Will Go On",
+    "by": "Celine Dion"
+   },
+   {
+    "song": "Danger Zone (From Top Gun Soundtrack)",
+    "by": "Kenny Loggins"
+   },
+   {
+    "song": "Back To The Future Trilogy",
+    "by": "Alan Silvestri"
+   },
+   {
+    "song": "Rawhide (with Jimmy Carroll & His Orchestra)",
+    "by": "Frankie Laine, Jimmy Carroll & His Orchestra"
+   },
+   {
+    "song": "Kiss From a Rose",
+    "by": "Seal"
+   },
+   {
+    "song": "Low Rider",
+    "by": "War"
+   },
+   {
+    "song": "Sugarhigh",
+    "by": "Coyote Shivers"
+   }
+  ],
+  "url": "/store/p106/moviesoundtracks.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2FPV7JZslfAiNHF0dx20oH",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-movie-soundtracks/pl.u-mJy8gWPFNbpXW08",
+  "product_title": "Movie Soundtracks 1 - Download And Print Music Bingo Cards"
+ },
+ "A Bunch of Babies": {
+  "slug": "a-bunch-of-babies",
+  "pack": "A Bunch of Babies",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Baby (feat. Ludacris)",
+    "by": "Justin Bieber, Ludacris"
+   },
+   {
+    "song": "Be My Baby",
+    "by": "The Ronettes"
+   },
+   {
+    "song": "Baby, I Love Your Way",
+    "by": "Big Mountain"
+   },
+   {
+    "song": "...Baby One More Time",
+    "by": "Britney Spears"
+   },
+   {
+    "song": "Baby Love",
+    "by": "The Supremes"
+   },
+   {
+    "song": "Baby Now That I've Found You (Mono)",
+    "by": "The Foundations"
+   },
+   {
+    "song": "Hey Baby",
+    "by": "No Doubt, Bounty Killer"
+   },
+   {
+    "song": "Can't Get Enough Of You Baby Too Busy Thinking About My",
+    "by": "Smash Mouth"
+   },
+   {
+    "song": "Baby",
+    "by": "Marvin Gaye"
+   },
+   {
+    "song": "Cry Baby",
+    "by": "Janis Joplin"
+   },
+   {
+    "song": "I Got You Babe",
+    "by": "Sonny & Cher"
+   },
+   {
+    "song": "Always Be My Baby",
+    "by": "Mariah Carey"
+   },
+   {
+    "song": "Come on over Baby (All I Want Is You) - Radio Version",
+    "by": "Christina Aguilera"
+   },
+   {
+    "song": "Ice Ice Baby",
+    "by": "Vanilla Ice"
+   },
+   {
+    "song": "Baby, Please Don't Go",
+    "by": "Them, Van Morrison"
+   },
+   {
+    "song": "Baby, Baby",
+    "by": "Amy Grant"
+   },
+   {
+    "song": "Baby, I Love You",
+    "by": "Aretha Franklin"
+   },
+   {
+    "song": "Somebody's Baby",
+    "by": "Jackson Browne"
+   },
+   {
+    "song": "Baby Got Back",
+    "by": "Sir Mix-A-Lot"
+   },
+   {
+    "song": "Baby Be Mine",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Don't Worry Baby - Remastered 2001",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Rock Wit U (Awww Baby)",
+    "by": "Ashanti"
+   },
+   {
+    "song": "Baby Boy (feat. Beyonce)",
+    "by": "Sean Paul, Beyonce"
+   },
+   {
+    "song": "Baby, You Make Me Crazy",
+    "by": "Sam Smith"
+   },
+   {
+    "song": "Baby Come Back",
+    "by": "Player"
+   },
+   {
+    "song": "Be My Baby Tonight",
+    "by": "John Michael Montgomery"
+   },
+   {
+    "song": "Bossa Nova Baby - Remastered",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "Baby We've Got A Date (Rock It Baby) - Jamaican Version",
+    "by": "Bob Marley & The Wailers"
+   },
+   {
+    "song": "Tell Me Baby",
+    "by": "Red Hot Chili Peppers"
+   }
+  ],
+  "url": "/store/p138/abunchofbabies.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/4gzDfPMo0AeykJtHcrz2BK",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-a-bunch-of-babies/pl.u-e98lkNlTa2oxBEj",
+  "product_title": "\"A Bunch Of Babies\" - Download And Print Music Bingo Cards"
+ },
+ "Anagrams": {
+  "slug": "anagrams",
+  "pack": "Anagrams",
+  "total": 32,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "All I Wanna Do",
+    "by": "Sheryl Crow"
+   },
+   {
+    "song": "We Can't Stop",
+    "by": "Miley Cyrus"
+   },
+   {
+    "song": "Like a Rolling Stone",
+    "by": "Bob Dylan"
+   },
+   {
+    "song": "Conga",
+    "by": "Miami Sound Machine, Gloria Estefan"
+   },
+   {
+    "song": "The Beautiful People",
+    "by": "Marilyn Manson"
+   },
+   {
+    "song": "I Can't Drive 55",
+    "by": "Sammy Hagar"
+   },
+   {
+    "song": "Got My Mind Set on You",
+    "by": "George Harrison"
+   },
+   {
+    "song": "Band On The Run - 2010 Remaster",
+    "by": "Paul McCartney, Wings"
+   },
+   {
+    "song": "I Wanna Dance with Somebody (Who Loves Me)",
+    "by": "Whitney Houston"
+   },
+   {
+    "song": "Black or White - Single Version",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "The Cure",
+    "by": "Lady Gaga"
+   },
+   {
+    "song": "Girls Just Want to Have Fun",
+    "by": "Cyndi Lauper"
+   },
+   {
+    "song": "Careless Whisper",
+    "by": "George Michael"
+   },
+   {
+    "song": "Tutti Frutti",
+    "by": "Little Richard"
+   },
+   {
+    "song": "Just a Gigolo / I Ain't Got Nobody - 45 Version",
+    "by": "David Lee Roth"
+   },
+   {
+    "song": "Old Time Rock & Roll",
+    "by": "Bob Seger"
+   },
+   {
+    "song": "Dancing in the Dark CAN'T STOP THE FEELING!",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "(from DreamWorks Animation's \"TROLLS\")",
+    "by": "Justin Timberlake"
+   },
+   {
+    "song": "What's Love Got to Do with It",
+    "by": "Tina Turner"
+   },
+   {
+    "song": "Superstition - Single Version",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "Everybody (Backstreet's Back) - Extended Version",
+    "by": "Backstreet Boys"
+   },
+   {
+    "song": "Fight For Your Right",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "Everlong",
+    "by": "Foo Fighters"
+   },
+   {
+    "song": "Paradise City                         G",
+    "by": "uns N' Roses                S"
+   },
+   {
+    "song": "Paradise By the Dashboard             M Light",
+    "by": "eat Loaf                    A"
+   },
+   {
+    "song": "Nothing Else Matters                  M",
+    "by": "etallica                    C"
+   },
+   {
+    "song": "Jeremy                                P",
+    "by": "earl Jam                    M"
+   },
+   {
+    "song": "I Gotta Feeling                       B",
+    "by": "lack Eyed Peas              A"
+   },
+   {
+    "song": "Walk This Way                         A",
+    "by": "erosmith                    A"
+   },
+   {
+    "song": "...Baby One More Time                 B",
+    "by": "ritney Spears               P"
+   },
+   {
+    "song": "Pour Some Sugar On Me -               D Remastered 2017",
+    "by": "ef Leppard                  R"
+   },
+   {
+    "song": "Here I Go Again - Radio Mix           W",
+    "by": "hitesnake                   W"
+   }
+  ],
+  "url": "/store/p116/anagrams.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-anagrams/pl.u-e98lkVlTa2oxBEj",
+  "product_title": "Anagrams - Download And Print Music Bingo Cards"
+ },
+ "Antonyms": {
+  "slug": "antonyms",
+  "pack": "Antonyms",
+  "total": 27,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Seven Nation Army",
+    "by": "The White Stripes"
+   },
+   {
+    "song": "We Got The Beat",
+    "by": "The Go-Go's"
+   },
+   {
+    "song": "Psycho Killer - 2006 Remaster",
+    "by": "Talking Heads"
+   },
+   {
+    "song": "The Safety Dance",
+    "by": "Men Without Hats"
+   },
+   {
+    "song": "I Alone",
+    "by": "Live"
+   },
+   {
+    "song": "When I Come Around",
+    "by": "Green Day"
+   },
+   {
+    "song": "Another One Bites The Dust - Remastered 2011",
+    "by": "Queen"
+   },
+   {
+    "song": "Break on Through (To the Other Side)",
+    "by": "The Doors"
+   },
+   {
+    "song": "Tom Sawyer",
+    "by": "Rush"
+   },
+   {
+    "song": "Roxanne - Remastered 2003",
+    "by": "The Police"
+   },
+   {
+    "song": "Eye of the Tiger",
+    "by": "Survivor"
+   },
+   {
+    "song": "We're Not Gonna Take It (Remastered Album Version)",
+    "by": "Twisted Sister"
+   },
+   {
+    "song": "Talk Dirty To Me",
+    "by": "Poison"
+   },
+   {
+    "song": "Juke Box Hero",
+    "by": "Foreigner"
+   },
+   {
+    "song": "Some Kind Of Wonderful - Remastered 1999",
+    "by": "Grand Funk Railroad"
+   },
+   {
+    "song": "My Name Is",
+    "by": "Eminem"
+   },
+   {
+    "song": "Mr. Brightside",
+    "by": "The Killers"
+   },
+   {
+    "song": "Hey There Delilah",
+    "by": "Plain White T's"
+   },
+   {
+    "song": "Start Me Up - Remastered 2009",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "Breakfast At Tiffany's",
+    "by": "Deep Blue Something"
+   },
+   {
+    "song": "House Of The Rising Sun",
+    "by": "The Animals"
+   },
+   {
+    "song": "Mr. Blue Sky",
+    "by": "Electric Light Orchestra"
+   },
+   {
+    "song": "Friend of the Devil",
+    "by": "Grateful Dead"
+   },
+   {
+    "song": "I Will Follow You into the Dark",
+    "by": "Death Cab for Cutie"
+   },
+   {
+    "song": "If I Had $1,000,000",
+    "by": "Barenaked Ladies"
+   },
+   {
+    "song": "Hotel California - 2013              E Remaster",
+    "by": "agles                      Do"
+   },
+   {
+    "song": "La Grange - 2005 Remaster            Z",
+    "by": "Z Top                      AA"
+   }
+  ],
+  "url": "/store/p114/antonyms.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-antonyms/pl.u-JPAZE73CLmaY387",
+  "product_title": "Antonyms - Download And Print Music Bingo Cards"
+ },
+ "Cartoons": {
+  "slug": "cartoons",
+  "pack": "Cartoons",
+  "total": 37,
+  "second_col": "Movie/Show",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Theme from the Flintstones",
+    "by": "The Flintstones"
+   },
+   {
+    "song": "Hakuna Matata",
+    "by": "The Lion King"
+   },
+   {
+    "song": "SpongeBob SquarePants Theme Song",
+    "by": "SpongeBob SquarePants"
+   },
+   {
+    "song": "Bibbidi-Bobbidi-Boo (The Magic Song)",
+    "by": "Cinderella"
+   },
+   {
+    "song": "Gaston",
+    "by": "Beauty and the Beast"
+   },
+   {
+    "song": "Family Guy Main Title",
+    "by": "Family Guy"
+   },
+   {
+    "song": "A Whole New World",
+    "by": "Aladdin"
+   },
+   {
+    "song": "How Far I'll Go",
+    "by": "Moana"
+   },
+   {
+    "song": "Let It Go - From \"Frozen\"/Soundtrack Version",
+    "by": "Frozen"
+   },
+   {
+    "song": "Colors of the Wind",
+    "by": "Pocahontas"
+   },
+   {
+    "song": "Under the Sea",
+    "by": "The Little Mermaid"
+   },
+   {
+    "song": "You've Got a Friend in Me",
+    "by": "Toy Story"
+   },
+   {
+    "song": "Zero To Hero",
+    "by": "Hercules"
+   },
+   {
+    "song": "Try Everything",
+    "by": "Zootopia"
+   },
+   {
+    "song": "Kim Possible Theme (Call me, beep me)",
+    "by": "Kim Possible"
+   },
+   {
+    "song": "Dragon Ball Z (Rock the Dragon)",
+    "by": "Dragon Ball Z"
+   },
+   {
+    "song": "The Bare Necessities",
+    "by": "The Jungle Book"
+   },
+   {
+    "song": "You'll Be In My Heart",
+    "by": "Tarzan"
+   },
+   {
+    "song": "Touch The Sky",
+    "by": "Brave"
+   },
+   {
+    "song": "Hawaiian Roller Coaster Ride",
+    "by": "Lilo & Stitch"
+   },
+   {
+    "song": "The Bob's Burgers Theme Song",
+    "by": "Bob's Burgers"
+   },
+   {
+    "song": "El Dorado - From \"The Road To El Dorado\" Soundtrack",
+    "by": "The Road to El Dorado"
+   },
+   {
+    "song": "Remember Me (Ernesto de la Cruz)",
+    "by": "Coco"
+   },
+   {
+    "song": "Once Upon A Dream - From \"Sleeping Beauty\" / Soundtrack Version",
+    "by": "Sleeping Beauty"
+   },
+   {
+    "song": "The Simpsons Theme",
+    "by": "The Simpsons"
+   },
+   {
+    "song": "Overture - Merrie Melodies Main Title Music",
+    "by": "Looney Tunes / Merrie Melodies"
+   },
+   {
+    "song": "Bojack Horseman Main Theme - Cover Version",
+    "by": "BoJack Horseman"
+   },
+   {
+    "song": "Johnny Bravo                                            J",
+    "by": "ohnny Bravo"
+   },
+   {
+    "song": "King of the Hill Theme                                  K",
+    "by": "ing of the Hill"
+   },
+   {
+    "song": "Rugrats Theme (From \"Rugrats\") -                        R Instrumental",
+    "by": "ugrats"
+   },
+   {
+    "song": "Darkwing Duck Theme - From \"Darkwing                    D Duck\"",
+    "by": "arkwing Duck"
+   },
+   {
+    "song": "Duck Tales Theme - From \"Duck Tales\"                    D",
+    "by": "uckTales"
+   },
+   {
+    "song": "Winnie The Pooh                                         W",
+    "by": "innie the Pooh"
+   },
+   {
+    "song": "Theme from the Jetsons                                  T",
+    "by": "he Jetsons"
+   },
+   {
+    "song": "Theme from Yogi Bear                                    T",
+    "by": "he Yogi Bear Show"
+   },
+   {
+    "song": "Beavis & Butt Head                                      B",
+    "by": "eavis and Butt-Head"
+   },
+   {
+    "song": "Theme (From \"Inspector Gadget\")                         I",
+    "by": "nspector Gadget"
+   }
+  ],
+  "url": "/store/p133/cartoons.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/5CidbPa4sQevOlKMDNU6QP",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-cartoons/pl.u-d2b0k4BTLl30eXN",
+  "product_title": "Cartoons - Download And Print Music Bingo Cards"
+ },
+ "Cover Tunes": {
+  "slug": "cover-tunes",
+  "pack": "Cover Tunes",
+  "total": 39,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Sweet Dreams (Are Made Of This)",
+    "by": "Marilyn Manson"
+   },
+   {
+    "song": "Bad Romance",
+    "by": "Halestorm"
+   },
+   {
+    "song": "All Along the Watchtower",
+    "by": "Jimi Hendrix"
+   },
+   {
+    "song": "Beat It (feat. John Mayer)",
+    "by": "Fall Out Boy"
+   },
+   {
+    "song": "Careless Whisper",
+    "by": "Seether"
+   },
+   {
+    "song": "Smooth Criminal",
+    "by": "Alien Ant Farm"
+   },
+   {
+    "song": "Come Together",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Landslide",
+    "by": "The Chicks"
+   },
+   {
+    "song": "Baby Got Back",
+    "by": "Jonathan Coulton"
+   },
+   {
+    "song": "The Sound of Silence",
+    "by": "Disturbed"
+   },
+   {
+    "song": "I Will Survive",
+    "by": "CAKE"
+   },
+   {
+    "song": "Wicked Game",
+    "by": "HIM"
+   },
+   {
+    "song": "Hard To Handle",
+    "by": "The Black Crowes"
+   },
+   {
+    "song": "Hallelujah The Shoop Shoop Song (It's",
+    "by": "Rufus Wainwright"
+   },
+   {
+    "song": "In His Kiss)",
+    "by": "Cher"
+   },
+   {
+    "song": "Cats In The Cradle",
+    "by": "Ugly Kid Joe"
+   },
+   {
+    "song": "Your Song",
+    "by": "Lady Gaga"
+   },
+   {
+    "song": "Hurt",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "Personal Jesus",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "Whiskey In The Jar",
+    "by": "Metallica"
+   },
+   {
+    "song": "I Will Always Love You",
+    "by": "Whitney Houston"
+   },
+   {
+    "song": "Twist And Shout (Remastered 2009)",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Mr. Tambourine Man",
+    "by": "The Byrds"
+   },
+   {
+    "song": "Radioactive",
+    "by": "Pentatonix"
+   },
+   {
+    "song": "(I'm Gonna Be) 500 Miles",
+    "by": "MxPx"
+   },
+   {
+    "song": "Last Kiss",
+    "by": "Pearl Jam"
+   },
+   {
+    "song": "Walk This Way",
+    "by": "Run-DMC"
+   },
+   {
+    "song": "Big Yellow Taxi (feat. Vanessa Carlton)",
+    "by": "Counting Crows"
+   },
+   {
+    "song": "Mad World",
+    "by": "Michael Andrews"
+   },
+   {
+    "song": "Boyz-n-the Hood",
+    "by": "Dynamite Hack"
+   },
+   {
+    "song": "Unbreak My Heart",
+    "by": "Weezer"
+   },
+   {
+    "song": "Baby One More Time",
+    "by": "Roots of Nature"
+   },
+   {
+    "song": "I'm A Believer (From \"Shrek\" Motion Picture Soundtrack)",
+    "by": "Smash Mouth"
+   },
+   {
+    "song": "American Woman",
+    "by": "Lenny Kravitz"
+   },
+   {
+    "song": "Behind Blue Eyes",
+    "by": "Limp Bizkit"
+   },
+   {
+    "song": "Tiny Dancer",
+    "by": "Tim McGraw"
+   },
+   {
+    "song": "Sex And Candy",
+    "by": "Maroon 5"
+   },
+   {
+    "song": "Shake It Off",
+    "by": "William Singe"
+   },
+   {
+    "song": "Fast Car",
+    "by": "Boyce Avenue"
+   }
+  ],
+  "url": "/store/p129/covertunes.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/14HY6KRIQiMeZRBNMxx0NE",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-cover-tunes/pl.u-e98lkqjia2oxBEj",
+  "product_title": "Cover Tunes - Download And Print Music Bingo Cards"
+ },
+ "Girls Vs Boys": {
+  "slug": "girls-vs-boys",
+  "pack": "Girls Vs Boys",
+  "total": 37,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Girls Just Want To Have Fun",
+    "by": "Cyndi Lauper"
+   },
+   {
+    "song": "Girls",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "Fat Bottomed Girls (Remastered 2011)",
+    "by": "Queen"
+   },
+   {
+    "song": "Beautiful Girls",
+    "by": "Sean Kingston"
+   },
+   {
+    "song": "Run the World (Girls)",
+    "by": "Beyonce"
+   },
+   {
+    "song": "Girls, Girls, Girls",
+    "by": "Motley Crue"
+   },
+   {
+    "song": "California Girls",
+    "by": "David Lee Roth"
+   },
+   {
+    "song": "The Boys Are Back In Town",
+    "by": "Thin Lizzy"
+   },
+   {
+    "song": "The Boys Of Summer",
+    "by": "Don Henley"
+   },
+   {
+    "song": "Boys",
+    "by": "Britney Spears"
+   },
+   {
+    "song": "Boyz n Tha Hood (G-Mix)",
+    "by": "Eazy-E"
+   },
+   {
+    "song": "Boyfriend",
+    "by": "Justin Bieber"
+   },
+   {
+    "song": "Crank That (Soulja Boy)",
+    "by": "Soulja Boy Tell'em"
+   },
+   {
+    "song": "My Girl",
+    "by": "The Temptations"
+   },
+   {
+    "song": "My Guy (Single Version)",
+    "by": "Mary Wells"
+   },
+   {
+    "song": "Man! I Feel Like A Woman!",
+    "by": "Shania Twain"
+   },
+   {
+    "song": "Maneater",
+    "by": "Daryl Hall & John Oates"
+   },
+   {
+    "song": "Man in the Mirror",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Simple Man",
+    "by": "Lynyrd Skynyrd"
+   },
+   {
+    "song": "Uptown Girl",
+    "by": "Billy Joel"
+   },
+   {
+    "song": "Girl On TV",
+    "by": "LFO"
+   },
+   {
+    "song": "Girl on Fire",
+    "by": "Alicia Keys"
+   },
+   {
+    "song": "Galway Girl",
+    "by": "Ed Sheeran"
+   },
+   {
+    "song": "Brown Eyed Girl",
+    "by": "Van Morrison"
+   },
+   {
+    "song": "Hollaback Girl",
+    "by": "Gwen Stefani"
+   },
+   {
+    "song": "Country Girl (Shake It For Me)        L",
+    "by": "uke Bryan                   Ta"
+   },
+   {
+    "song": "Jessie's Girl                         R",
+    "by": "ick Springfield             Th"
+   },
+   {
+    "song": "Are You Gonna Be My Girl              J",
+    "by": "et                          Ge"
+   },
+   {
+    "song": "I Kissed A Girl                       K",
+    "by": "aty Perry                   On"
+   },
+   {
+    "song": "American Woman (2004                  T Remaster)",
+    "by": "he Guess Who                Am"
+   },
+   {
+    "song": "Oh, Pretty Woman                      R (Remastered)",
+    "by": "oy Orbison                  Oh (R"
+   },
+   {
+    "song": "Witchy Woman (2013                    E Remaster)",
+    "by": "agles                       Ea"
+   },
+   {
+    "song": "Lady Madonna (Remastered              T 2015)",
+    "by": "he Beatles                  1"
+   },
+   {
+    "song": "Lady                                  S",
+    "by": "tyx                         St"
+   },
+   {
+    "song": "The Lady In Red                       C",
+    "by": "hris de Burgh               In"
+   },
+   {
+    "song": "She's A Lady                          T",
+    "by": "om Jones                    To"
+   },
+   {
+    "song": "Foxey Lady                            T E",
+    "by": "he Jimi Hendrix             Ar xperience"
+   }
+  ],
+  "url": "/store/p111/girlsvsboys.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3rwud0CXkSRIDP1wFR97go",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-girls-vs-boys/pl.u-V9D7v6GH3Rmz4No",
+  "product_title": "Girls Vs Boys - Download And Print Music Bingo Cards"
+ },
+ "Guitar Gods": {
+  "slug": "guitar-gods",
+  "pack": "Guitar Gods",
+  "total": 36,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Sweet Home Alabama",
+    "by": "Lynyrd Skynyrd"
+   },
+   {
+    "song": "Pride and Joy",
+    "by": "Stevie Ray Vaughan"
+   },
+   {
+    "song": "Ain't No Rest for the Wicked",
+    "by": "Cage The Elephant"
+   },
+   {
+    "song": "Rockin' With The Rhythm Of The Rain",
+    "by": "The Judds"
+   },
+   {
+    "song": "Sunshine Of Your Love",
+    "by": "Cream"
+   },
+   {
+    "song": "You Really Got Me - 2014 Remastered Version",
+    "by": "The Kinks"
+   },
+   {
+    "song": "Whole Lotta Love - 1990 Remaster",
+    "by": "Led Zeppelin"
+   },
+   {
+    "song": "Start Me Up - Remastered 2009",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "Day Tripper - Remastered 2015",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Talk Dirty to Me",
+    "by": "Poison"
+   },
+   {
+    "song": "Thunderstruck",
+    "by": "AC/DC"
+   },
+   {
+    "song": "Smells Like Teen Spirit",
+    "by": "Nirvana"
+   },
+   {
+    "song": "Sweet Child O' Mine",
+    "by": "Guns N' Roses"
+   },
+   {
+    "song": "La Grange - 2005 Remaster",
+    "by": "ZZ Top"
+   },
+   {
+    "song": "Up Around The Bend",
+    "by": "Creedence Clearwater Revival"
+   },
+   {
+    "song": "All Right Now",
+    "by": "Free"
+   },
+   {
+    "song": "No One Knows",
+    "by": "Queens Of The Stone Age"
+   },
+   {
+    "song": "Dust On The Bottle",
+    "by": "David Lee Murphy"
+   },
+   {
+    "song": "Life in the Fast Lane - 2013 Remaster",
+    "by": "Eagles"
+   },
+   {
+    "song": "Cult Of Personality",
+    "by": "Living Colour"
+   },
+   {
+    "song": "Rocky Mountain Way",
+    "by": "Joe Walsh"
+   },
+   {
+    "song": "American Woman - 2024 Remaster",
+    "by": "The Guess Who"
+   },
+   {
+    "song": "Fun, Fun, Fun",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Somebody Like You",
+    "by": "Keith Urban"
+   },
+   {
+    "song": "La Bamba - Single Version",
+    "by": "Ritchie Valens"
+   },
+   {
+    "song": "Loser",
+    "by": "Beck"
+   },
+   {
+    "song": "Voodoo Child (Slight Return)",
+    "by": "Jimi Hendrix"
+   },
+   {
+    "song": "Wake up Little Susie",
+    "by": "The Everly Brothers"
+   },
+   {
+    "song": "Tempted",
+    "by": "Marty Stuart"
+   },
+   {
+    "song": "Rebel Yell",
+    "by": "Billy Idol"
+   },
+   {
+    "song": "Stay with Me",
+    "by": "Faces"
+   },
+   {
+    "song": "Just Came Back",
+    "by": "Colin James"
+   },
+   {
+    "song": "Smoke on the Water",
+    "by": "Deep Purple"
+   },
+   {
+    "song": "Under the Bridge",
+    "by": "Red Hot Chili Peppers"
+   },
+   {
+    "song": "House Of The Rising Sun",
+    "by": "The Animals"
+   },
+   {
+    "song": "Secret Agent Man - From \"Secret Agent\" CBS TV Show",
+    "by": "Johnny Rivers"
+   }
+  ],
+  "url": "/store/p148/guitargods.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/5XV3QobXzW1iwUp12EdH6C",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-guitar-gods/pl.u-mJy81XBINbpXW08",
+  "product_title": "\"Guitar Gods\" - Download And Print Music Bingo Cards"
+ },
+ "Life's A Beach": {
+  "slug": "life-s-a-beach",
+  "pack": "Life's A Beach",
+  "total": 30,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Kokomo",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Somewhere On A Beach",
+    "by": "Dierks Bentley"
+   },
+   {
+    "song": "Surfin' U.S.A. (Remastered 2001)",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Islands In the Stream",
+    "by": "Dolly Parton"
+   },
+   {
+    "song": "Island In The Sun",
+    "by": "Weezer"
+   },
+   {
+    "song": "Island Song",
+    "by": "Zac Brown Band"
+   },
+   {
+    "song": "Margaritaville",
+    "by": "Jimmy Buffett"
+   },
+   {
+    "song": "All Summer Long",
+    "by": "Kid Rock"
+   },
+   {
+    "song": "California Dreamin' (Single Version)",
+    "by": "The Mamas & The Papas"
+   },
+   {
+    "song": "California Girls California Love (Original",
+    "by": "David Lee Roth"
+   },
+   {
+    "song": "Version) (feat. Roger Troutman & Dr. Dre)",
+    "by": "2Pac"
+   },
+   {
+    "song": "Don't Worry Be Happy",
+    "by": "Bobby McFerrin"
+   },
+   {
+    "song": "Summer Of '69",
+    "by": "Bryan Adams"
+   },
+   {
+    "song": "Summer Nights (From Grease)",
+    "by": "John Travolta"
+   },
+   {
+    "song": "The Boys Of Summer",
+    "by": "Don Henley"
+   },
+   {
+    "song": "Summer",
+    "by": "Calvin Harris"
+   },
+   {
+    "song": "Islands",
+    "by": "Shakira"
+   },
+   {
+    "song": "Itsy Bitsy Teenie Weenie Yellow Polka-Dot Bikini",
+    "by": "Brian Hyland"
+   },
+   {
+    "song": "Surfin' Bird",
+    "by": "The Trashmen"
+   },
+   {
+    "song": "Wipe Out",
+    "by": "The Surfaris"
+   },
+   {
+    "song": "Enter Sandman",
+    "by": "Metallica"
+   },
+   {
+    "song": "Buy Me a Boat",
+    "by": "Chris Janson"
+   },
+   {
+    "song": "Day-O (The Banana Boat Song)",
+    "by": "Harry Belafonte"
+   },
+   {
+    "song": "Tequila",
+    "by": "The Champs"
+   },
+   {
+    "song": "Sea Of Love",
+    "by": "Phil Phillips & The Twilights"
+   },
+   {
+    "song": "Splish Splash",
+    "by": "Bobby Darin"
+   },
+   {
+    "song": "California Gurls (feat. Snoop Dogg)",
+    "by": "Katy Perry"
+   },
+   {
+    "song": "Hard Sun",
+    "by": "Eddie Vedder"
+   },
+   {
+    "song": "Blister In The Sun",
+    "by": "Violent Femmes"
+   },
+   {
+    "song": "Lime in the Coconut",
+    "by": "Lazlo Bane"
+   }
+  ],
+  "url": "/store/p121/lifesabeach.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-lifes-a-beach/pl.u-76oNkmNTvkB5EYa",
+  "product_title": "Life's A Beach - Download And Print Music Bingo Cards"
+ },
+ "Movie Soundtracks 2": {
+  "slug": "movie-soundtracks-2",
+  "pack": "Movie Soundtracks 2",
+  "total": 27,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Freddie's Dead",
+    "by": "Curtis Mayfield"
+   },
+   {
+    "song": "I Will Always Love You",
+    "by": "Whitney Houston"
+   },
+   {
+    "song": "Oh Sweet Nuthin' - 2015 Remaster",
+    "by": "The Velvet Underground"
+   },
+   {
+    "song": "When Doves Cry",
+    "by": "Prince"
+   },
+   {
+    "song": "The Way We Were",
+    "by": "Barbra Streisand"
+   },
+   {
+    "song": "You Never Can Tell",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "End Of The Road It Must Have Been Love -",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "From the Film \"Pretty Woman\"",
+    "by": "Roxette"
+   },
+   {
+    "song": "(I Can't Help) Falling in Love With You",
+    "by": "UB40"
+   },
+   {
+    "song": "2001: A Space Odyssey (Main Theme)",
+    "by": "The Intermezzo Orchestra"
+   },
+   {
+    "song": "Call Me",
+    "by": "Blondie"
+   },
+   {
+    "song": "Friday",
+    "by": "Ice Cube"
+   },
+   {
+    "song": "Because You Loved Me",
+    "by": "Celine Dion"
+   },
+   {
+    "song": "Blaze Of Glory - From \"Young Guns II\" Soundtrack",
+    "by": "Jon Bon Jovi"
+   },
+   {
+    "song": "Just Like Honey",
+    "by": "The Jesus and Mary Chain"
+   },
+   {
+    "song": "Stayin' Alive",
+    "by": "Bee Gees"
+   },
+   {
+    "song": "Raindrops Keep Fallin' On My Head",
+    "by": "B.J. Thomas"
+   },
+   {
+    "song": "City Of Stars - From \"La La Land\" Soundtrack",
+    "by": "Ryan Gosling, Emma Stone"
+   },
+   {
+    "song": "I Just Called To Say I Love You",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "Eye of the Tiger",
+    "by": "Survivor"
+   },
+   {
+    "song": "Say You, Say Me",
+    "by": "Lionel Richie"
+   },
+   {
+    "song": "Almost Grown",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "Yesterday - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Redbone",
+    "by": "Childish Gambino"
+   },
+   {
+    "song": "Endless Love - From \"The Endless Love\" Soundtrack",
+    "by": "Lionel Richie, Diana Ross"
+   },
+   {
+    "song": "Axel F",
+    "by": "Harold Faltermeyer"
+   },
+   {
+    "song": "Magic",
+    "by": "Olivia Newton-John"
+   }
+  ],
+  "url": "/store/p127/moviesoundtracks3pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2FPV7JZslfAiNHF0dx20oH",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-movie-soundtracks/pl.u-mJy8gWPFNbpXW08",
+  "product_title": "Movie Soundtracks 3-Pack - Download And Print Music Bingo Cards"
+ },
+ "Colors": {
+  "slug": "colors",
+  "pack": "Colors",
+  "total": 34,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "The Pink Panther Theme",
+    "by": "Henry Mancini"
+   },
+   {
+    "song": "Brown Eyed Girl",
+    "by": "Van Morrison"
+   },
+   {
+    "song": "Blue Suede Shoes (Remastered)",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "Pretty Fly (For A White Guy)",
+    "by": "The Offspring"
+   },
+   {
+    "song": "Red Red Wine",
+    "by": "UB40"
+   },
+   {
+    "song": "Mr. Blue Sky",
+    "by": "Electric Light Orchestra"
+   },
+   {
+    "song": "Gold on the Ceiling",
+    "by": "The Black Keys"
+   },
+   {
+    "song": "Purple Haze White & Nerdy (Parody of",
+    "by": "Jimi Hendrix"
+   },
+   {
+    "song": "\"Ridin'\" by Chamillionaire feat. Krayzie Bone)",
+    "by": "\"Weird Al\" Yankovic"
+   },
+   {
+    "song": "Yellow Submarine",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Pink",
+    "by": "Aerosmith"
+   },
+   {
+    "song": "The Purple People Eater",
+    "by": "Sheb Wooley"
+   },
+   {
+    "song": "Cream",
+    "by": "Prince"
+   },
+   {
+    "song": "White Wedding",
+    "by": "Billy Idol"
+   },
+   {
+    "song": "Green Onions",
+    "by": "Booker T. and The MG's"
+   },
+   {
+    "song": "Blue (Da Ba Dee) - Gabry Ponte Ice Pop Radio",
+    "by": "Eiffel 65"
+   },
+   {
+    "song": "Yellow",
+    "by": "Coldplay"
+   },
+   {
+    "song": "Black or White (Single Version)",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Black Dog (Remaster)",
+    "by": "Led Zeppelin"
+   },
+   {
+    "song": "Crimson and Clover",
+    "by": "Joan Jett & the Blackhearts"
+   },
+   {
+    "song": "Brown Girl in the Ring",
+    "by": "Boney M."
+   },
+   {
+    "song": "Red Solo Cup",
+    "by": "Toby Keith"
+   },
+   {
+    "song": "Forever In Blue Jeans",
+    "by": "Neil Diamond"
+   },
+   {
+    "song": "Black and Yellow                      W",
+    "by": "iz Khalifa                  Ro"
+   },
+   {
+    "song": "Blue Monday                           N",
+    "by": "ew Order                    Su"
+   },
+   {
+    "song": "Black Horse And The Cherry            K Tree",
+    "by": "T Tunstall                  Ey"
+   },
+   {
+    "song": "Amber                                 3",
+    "by": "11                          Gr"
+   },
+   {
+    "song": "Back In Black                         A",
+    "by": "C/DC                        Ba"
+   },
+   {
+    "song": "Paint It, Black                       T",
+    "by": "he Rolling Stones           Af"
+   },
+   {
+    "song": "Redneck Woman                         G",
+    "by": "retchen Wilson              He"
+   },
+   {
+    "song": "Red Dirt Road                         B",
+    "by": "rooks & Dunn                Re"
+   },
+   {
+    "song": "Orange Crush (Remastered)             R",
+    "by": ".E.M.                       Gr"
+   },
+   {
+    "song": "Gold Digger (feat. Jamie              K Foxx)",
+    "by": "anye West                   La"
+   },
+   {
+    "song": "Roadhouse Blues                       T",
+    "by": "he Doors                    Mo"
+   }
+  ],
+  "url": "/store/p145/colors.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1CXfU0EgK5T7jU0A8UvM1b",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-colors/pl.u-DdANrMeC0jMJzXp",
+  "product_title": "\"Colors\" - Download And Print Music Bingo Cards"
+ },
+ "One Hit Wonders 1": {
+  "slug": "one-hit-wonders-1",
+  "pack": "One Hit Wonders 1",
+  "total": 36,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Party All the Time",
+    "by": "Eddie Murphy"
+   },
+   {
+    "song": "Come On Eileen (Single Edit)",
+    "by": "Dexys Midnight Runners"
+   },
+   {
+    "song": "I Ran (So Far Away)",
+    "by": "A Flock Of Seagulls"
+   },
+   {
+    "song": "Tainted Love",
+    "by": "Soft Cell"
+   },
+   {
+    "song": "Somebody's Watching Me (Single Version)",
+    "by": "Rockwell"
+   },
+   {
+    "song": "I Melt With You (Rerecorded)",
+    "by": "Modern English"
+   },
+   {
+    "song": "Relax",
+    "by": "Frankie Goes To Hollywood"
+   },
+   {
+    "song": "Ice Ice Baby",
+    "by": "Vanilla Ice"
+   },
+   {
+    "song": "You Spin Me Round (Like a Record)",
+    "by": "Dead Or Alive"
+   },
+   {
+    "song": "Break My Stride",
+    "by": "Matthew Wilder"
+   },
+   {
+    "song": "Mexican Radio",
+    "by": "Wall Of Voodoo"
+   },
+   {
+    "song": "Oh Yeah (Remastered 2005)",
+    "by": "Yello"
+   },
+   {
+    "song": "Puttin' On The Ritz (Re-Recorded / Remastered)",
+    "by": "Taco"
+   },
+   {
+    "song": "Black Velvet",
+    "by": "Alannah Myles"
+   },
+   {
+    "song": "What Is Love (7\" Mix)",
+    "by": "Haddaway"
+   },
+   {
+    "song": "Walking in Memphis",
+    "by": "Marc Cohn"
+   },
+   {
+    "song": "How Bizarre",
+    "by": "OMC"
+   },
+   {
+    "song": "Macarena (Bayside Boys Remix)",
+    "by": "Los Del Rio"
+   },
+   {
+    "song": "Stuck In The Middle With You",
+    "by": "Stealers Wheel"
+   },
+   {
+    "song": "Funkytown",
+    "by": "Lipps Inc."
+   },
+   {
+    "song": "Play That Funky Music",
+    "by": "Wild Cherry"
+   },
+   {
+    "song": "I Believe in a Thing Called Love",
+    "by": "The Darkness"
+   },
+   {
+    "song": "Raindrops Keep Fallin' On My Head (Rerecorded)",
+    "by": "B.J. Thomas"
+   },
+   {
+    "song": "Lovefool (Radio Edit)",
+    "by": "The Cardigans"
+   },
+   {
+    "song": "Save Tonight (2018 Rendition)",
+    "by": "Eagle-Eye Cherry"
+   },
+   {
+    "song": "The Middle",
+    "by": "Jimmy Eat World"
+   },
+   {
+    "song": "Walking On Sunshine (Band's Original Version)",
+    "by": "Katrina & The Waves"
+   },
+   {
+    "song": "Tarzan Boy (Single Version) (2010 Digital Remaster)",
+    "by": "Baltimora"
+   },
+   {
+    "song": "Jump",
+    "by": "Kris Kross"
+   },
+   {
+    "song": "She Drives Me Crazy",
+    "by": "Fine Young Cannibals"
+   },
+   {
+    "song": "Run-Around",
+    "by": "Blues Traveler"
+   },
+   {
+    "song": "(I Just) Died In Your Arms",
+    "by": "Cutting Crew"
+   },
+   {
+    "song": "I'm Too Sexy",
+    "by": "Right Said Fred"
+   },
+   {
+    "song": "Tequila",
+    "by": "The Champs"
+   },
+   {
+    "song": "Black Betty",
+    "by": "Ram Jam"
+   },
+   {
+    "song": "Your Woman",
+    "by": "White Town"
+   }
+  ],
+  "url": "/store/p81/onehitwonders.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/65QfJVcEstMOsp2HPyO8TK",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-one-hit-wonders/pl.u-76oNkLeFvkB5EYa",
+  "product_title": "One Hit Wonders - Download And Print Music Bingo Cards"
+ },
+ "Out Of This World": {
+  "slug": "out-of-this-world",
+  "pack": "Out Of This World",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Main Titles (From \"Star Wars: Episode IV - A New Hope\")",
+    "by": "The City of Prague Philharmonic Orchestra"
+   },
+   {
+    "song": "Starman - 2012 Remaster",
+    "by": "David Bowie"
+   },
+   {
+    "song": "Star Trek: The Next Generation Main Title",
+    "by": "Jerry Goldsmith, Ron Jones"
+   },
+   {
+    "song": "Walkin' On The Sun",
+    "by": "Smash Mouth"
+   },
+   {
+    "song": "Counting Stars",
+    "by": "OneRepublic"
+   },
+   {
+    "song": "We Built This City",
+    "by": "Starship"
+   },
+   {
+    "song": "A Sky Full of Stars",
+    "by": "Coldplay"
+   },
+   {
+    "song": "City Of Stars - From \"La La Land\" Soundtrack",
+    "by": "Ryan Gosling, Emma Stone"
+   },
+   {
+    "song": "War - Single Version",
+    "by": "Edwin Starr"
+   },
+   {
+    "song": "Spaceman",
+    "by": "The Killers"
+   },
+   {
+    "song": "Rocket Man (I Think It's Going To Be A Long, Long Time)",
+    "by": "Elton John"
+   },
+   {
+    "song": "Drops of Jupiter (Tell Me)",
+    "by": "Train"
+   },
+   {
+    "song": "Sunrise",
+    "by": "Simply Red"
+   },
+   {
+    "song": "Venus",
+    "by": "Bananarama"
+   },
+   {
+    "song": "The Kill (Bury Me)",
+    "by": "Thirty Seconds To Mars"
+   },
+   {
+    "song": "Champagne Supernova - Remastered",
+    "by": "Oasis"
+   },
+   {
+    "song": "Supermassive Black Hole",
+    "by": "Muse"
+   },
+   {
+    "song": "Man On The Moon - Remastered 2009",
+    "by": "R.E.M."
+   },
+   {
+    "song": "Across The Universe - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "We Are All Made of Stars",
+    "by": "Moby"
+   },
+   {
+    "song": "Intergalactic - Remastered 2009",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "24K Magic                             B",
+    "by": "runo Mars                   2"
+   },
+   {
+    "song": "Starboy                               T P",
+    "by": "he Weeknd, Daft             S unk"
+   },
+   {
+    "song": "Smooth Criminal                       A",
+    "by": "lien Ant Farm               A"
+   },
+   {
+    "song": "Moondance - 2013 Remaster             V",
+    "by": "an Morrison                 M"
+   },
+   {
+    "song": "Mercury Blues                         A",
+    "by": "lan Jackson                 1"
+   },
+   {
+    "song": "Major Tom (Coming Home)               P",
+    "by": "eter Schilling              T L"
+   },
+   {
+    "song": "The Final Countdown                   E",
+    "by": "urope                       T ("
+   },
+   {
+    "song": "Space Cowboy                          S",
+    "by": "teve Miller Band            B"
+   }
+  ],
+  "url": "/store/p110/outofthisworld.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/19xrpbwYJzXO5Ce8mYkkMD",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-out-of-this-world/pl.u-9N9L2ads1jV9LWR",
+  "product_title": "Out of This World - Download And Print Music Bingo Cards"
+ },
+ "Road Trip!": {
+  "slug": "road-trip",
+  "pack": "Road Trip!",
+  "total": 34,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Hit the Road Jack",
+    "by": "Ray Charles"
+   },
+   {
+    "song": "Roadhouse Blues",
+    "by": "The Doors"
+   },
+   {
+    "song": "Take Me Home, Country Roads (Rerecorded)",
+    "by": "John Denver"
+   },
+   {
+    "song": "Copperhead Road",
+    "by": "Steve Earle"
+   },
+   {
+    "song": "Get Outta My Dreams, Get Into My Car",
+    "by": "Billy Ocean"
+   },
+   {
+    "song": "Road Trippin'",
+    "by": "Dan + Shay"
+   },
+   {
+    "song": "Low Rider",
+    "by": "War"
+   },
+   {
+    "song": "Car Wash",
+    "by": "Rose Royce"
+   },
+   {
+    "song": "Little Red Corvette (Single Version)",
+    "by": "Prince"
+   },
+   {
+    "song": "All Over The Road",
+    "by": "Easton Corbin"
+   },
+   {
+    "song": "Life is a Highway (From \"Cars\")",
+    "by": "Rascal Flatts"
+   },
+   {
+    "song": "Fast Car",
+    "by": "Boyce Avenue, Kina Grannis"
+   },
+   {
+    "song": "Cadillac Ranch",
+    "by": "Nitty Gritty Dirt Band"
+   },
+   {
+    "song": "Drive My Car (Remastered 2009)",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Goodbye Yellow Brick Road (Remastered 2014)",
+    "by": "Elton John"
+   },
+   {
+    "song": "On The Road Again",
+    "by": "Willie Nelson"
+   },
+   {
+    "song": "Mercedes Benz",
+    "by": "Janis Joplin"
+   },
+   {
+    "song": "Shut Up And Drive",
+    "by": "Rihanna"
+   },
+   {
+    "song": "I Can't Drive 55",
+    "by": "Sammy Hagar"
+   },
+   {
+    "song": "Free Ride",
+    "by": "The Edgar Winter Group"
+   },
+   {
+    "song": "Little Deuce Coupe (Remastered 2001)",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Drive",
+    "by": "Incubus"
+   },
+   {
+    "song": "Mustang Sally (feat. Andrew Strong)",
+    "by": "The Commitments"
+   },
+   {
+    "song": "Pink Cadillac (Single B-Side - 1984)",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "Paradise By the Dashboard Light",
+    "by": "Meat Loaf"
+   },
+   {
+    "song": "Counting Blue Cars (Tell Me Your Thoughts On God)",
+    "by": "Dishwalla"
+   },
+   {
+    "song": "Joyride (Single Version)",
+    "by": "Roxette"
+   },
+   {
+    "song": "One Headlight",
+    "by": "The Wallflowers"
+   },
+   {
+    "song": "Born To Be Wild (Single Version)",
+    "by": "Steppenwolf"
+   },
+   {
+    "song": "Mercury Blues",
+    "by": "Alan Jackson"
+   },
+   {
+    "song": "Slow Ride",
+    "by": "Foghat"
+   },
+   {
+    "song": "Rollin' (Air Raid Vehicle)",
+    "by": "Limp Bizkit"
+   },
+   {
+    "song": "Cars",
+    "by": "Gary Numan"
+   },
+   {
+    "song": "Mud On the Tires",
+    "by": "Brad Paisley"
+   }
+  ],
+  "url": "/store/p132/roadtrip.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/6ACVrzTLyz9R46POiodecS",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-road-trip/pl.u-d2b0kB2FLl30eXN",
+  "product_title": "Road Trip - Download And Print Music Bingo Cards"
+ },
+ "Rowdy Country": {
+  "slug": "rowdy-country",
+  "pack": "Rowdy Country",
+  "total": 36,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "All My Rowdy Friends Are Coming Over Tonight",
+    "by": "Hank Williams, Jr."
+   },
+   {
+    "song": "Boot Scootin' Boogie",
+    "by": "Brooks & Dunn"
+   },
+   {
+    "song": "Redneck Woman",
+    "by": "Gretchen Wilson"
+   },
+   {
+    "song": "T-R-O-U-B-L-E (2006 Remaster)",
+    "by": "Travis Tritt"
+   },
+   {
+    "song": "Save a Horse (Ride a Cowboy)",
+    "by": "Big & Rich"
+   },
+   {
+    "song": "Sold (The Grundy County Auction Incident)",
+    "by": "John Michael Montgomery"
+   },
+   {
+    "song": "Lonely Drum",
+    "by": "Aaron Goodvin"
+   },
+   {
+    "song": "Whose Bed Have Your Boots Been Under?",
+    "by": "Shania Twain"
+   },
+   {
+    "song": "I'm in a Hurry (And Don't Know Why)",
+    "by": "Alabama"
+   },
+   {
+    "song": "Somebody Like You",
+    "by": "Keith Urban"
+   },
+   {
+    "song": "Somethin' Bad (Duet with Carrie Underwood)",
+    "by": "Miranda Lambert"
+   },
+   {
+    "song": "Goodbye Earl",
+    "by": "The Chicks"
+   },
+   {
+    "song": "Am I The Only One",
+    "by": "Dierks Bentley"
+   },
+   {
+    "song": "Baby Likes To Rock It",
+    "by": "The Tractors"
+   },
+   {
+    "song": "Cadillac Ranch",
+    "by": "Nitty Gritty Dirt Band"
+   },
+   {
+    "song": "Indian Outlaw",
+    "by": "Tim McGraw"
+   },
+   {
+    "song": "Country Girl (Shake It For Me)",
+    "by": "Luke Bryan"
+   },
+   {
+    "song": "Dust On The Bottle",
+    "by": "David Lee Murphy"
+   },
+   {
+    "song": "Sun Daze",
+    "by": "Florida Georgia Line"
+   },
+   {
+    "song": "Heads Carolina, Tails California",
+    "by": "Jo Dee Messina"
+   },
+   {
+    "song": "Chattahoochee",
+    "by": "Alan Jackson"
+   },
+   {
+    "song": "Ladies In The '90s",
+    "by": "Lauren Alaina"
+   },
+   {
+    "song": "Better Things To Do                   T",
+    "by": "erri Clark                  G"
+   },
+   {
+    "song": "Unbelievable                          D",
+    "by": "iamond Rio                  G"
+   },
+   {
+    "song": "She Thinks My Tractor's Sexy          K",
+    "by": "enny Chesney                G"
+   },
+   {
+    "song": "Tequila Makes Her Clothes             J Fall Off",
+    "by": "oe Nichols                  I"
+   },
+   {
+    "song": "Beer Never Broke My Heart             L",
+    "by": "uke Combs                   W"
+   },
+   {
+    "song": "Red Solo Cup                          T",
+    "by": "oby Keith                   C"
+   },
+   {
+    "song": "Drink In My Hand                      E",
+    "by": "ric Church                  C"
+   },
+   {
+    "song": "Pour Me                               T",
+    "by": "rick Pony                   T"
+   },
+   {
+    "song": "You Look Good                         L",
+    "by": "ady A                       H"
+   },
+   {
+    "song": "Chicken Fried                         Z",
+    "by": "ac Brown Band               B"
+   },
+   {
+    "song": "Wagon Wheel                           D",
+    "by": "arius Rucker                T"
+   },
+   {
+    "song": "House Party                           S",
+    "by": "am Hunt                     M"
+   },
+   {
+    "song": "All I Want To Do                      S",
+    "by": "ugarland                    L"
+   },
+   {
+    "song": "Follow Your Arrow                     K",
+    "by": "acey Musgraves              S"
+   }
+  ],
+  "url": "/store/p141/rowdycountry.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1HEsnxT1EpdBd8Jd7bTyKX",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-rowdy-country/pl.u-38oWXL5FYvVkKBR",
+  "product_title": "\"Rowdy Country\" - Download And Print Music Bingo Cards"
+ },
+ "The 2000s": {
+  "slug": "the-2000s",
+  "pack": "The 2000s",
+  "total": 34,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "There You Go",
+    "by": "P!nk"
+   },
+   {
+    "song": "Misery",
+    "by": "Maroon 5"
+   },
+   {
+    "song": "Take Your Mama",
+    "by": "Scissor Sisters"
+   },
+   {
+    "song": "Baby (feat. Ludacris)",
+    "by": "Justin Bieber"
+   },
+   {
+    "song": "Dynamite",
+    "by": "Taio Cruz"
+   },
+   {
+    "song": "Forget You",
+    "by": "CeeLo Green"
+   },
+   {
+    "song": "This Ain't A Scene, It's An Arms Race",
+    "by": "Fall Out Boy"
+   },
+   {
+    "song": "Lifestyles of the Rich & Famous",
+    "by": "Good Charlotte"
+   },
+   {
+    "song": "Maneater",
+    "by": "Nelly Furtado"
+   },
+   {
+    "song": "Take Me Out",
+    "by": "Franz Ferdinand"
+   },
+   {
+    "song": "Are You Gonna Be My Girl",
+    "by": "Jet"
+   },
+   {
+    "song": "Crabbuckit",
+    "by": "K-OS"
+   },
+   {
+    "song": "Black Horse And The Cherry Tree",
+    "by": "KT Tunstall"
+   },
+   {
+    "song": "Bad Romance",
+    "by": "Lady Gaga"
+   },
+   {
+    "song": "Hot In Herre",
+    "by": "Nelly"
+   },
+   {
+    "song": "Gimme the Light",
+    "by": "Sean Paul"
+   },
+   {
+    "song": "Work It",
+    "by": "Missy Elliott"
+   },
+   {
+    "song": "Seven Nation Army",
+    "by": "The White Stripes"
+   },
+   {
+    "song": "Right Thurr",
+    "by": "Chingy"
+   },
+   {
+    "song": "TiK ToK",
+    "by": "Kesha"
+   },
+   {
+    "song": "Switch",
+    "by": "Will Smith"
+   },
+   {
+    "song": "SexyBack",
+    "by": "Justin Timberlake"
+   },
+   {
+    "song": "Dirty Little Secret",
+    "by": "The All-American Rejects"
+   },
+   {
+    "song": "Last Nite",
+    "by": "The Strokes"
+   },
+   {
+    "song": "Sk8er Boi",
+    "by": "Avril Lavigne"
+   },
+   {
+    "song": "Teenagers                             M",
+    "by": "y Chemical Romance          T"
+   },
+   {
+    "song": "Roar                                  K",
+    "by": "aty Perry                   P"
+   },
+   {
+    "song": "Like A G6                             F",
+    "by": "ar East Movement            L"
+   },
+   {
+    "song": "When I Grow Up                        T",
+    "by": "he Pussycat Dolls           D C"
+   },
+   {
+    "song": "The Way You Move                      O",
+    "by": "utkast                      S"
+   },
+   {
+    "song": "Shut Up And Drive                     R",
+    "by": "ihanna                      G"
+   },
+   {
+    "song": "Crank That (Soulja Boy)               S",
+    "by": "oulja Boy Tell'em           s"
+   },
+   {
+    "song": "That's Not My Name                    T",
+    "by": "he Ting Tings               W"
+   },
+   {
+    "song": "I Just Wanna Love U (Give It 2        J Me)",
+    "by": "ay-Z                        T 2"
+   }
+  ],
+  "url": "/store/p146/the2000s.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/7y3St1IgnYa324yC3WGETw",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-the-2000s/pl.u-9N9LX5pI1jV9LWR",
+  "product_title": "\"The 2000s\" - Download And Print Music Bingo Cards"
+ },
+ "Acronyms": {
+  "slug": "acronyms",
+  "pack": "Acronyms",
+  "total": 42,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Mr. Blue Sky",
+    "by": "Electric Light Orchestra"
+   },
+   {
+    "song": "Can't Stop",
+    "by": "Red Hot Chili Peppers"
+   },
+   {
+    "song": "Toxicity",
+    "by": "System Of A Down"
+   },
+   {
+    "song": "Teenagers",
+    "by": "My Chemical Romance"
+   },
+   {
+    "song": "Sweet Child O' Mine",
+    "by": "Guns N' Roses"
+   },
+   {
+    "song": "Sit Next to Me",
+    "by": "Foster The People"
+   },
+   {
+    "song": "Stressed Out",
+    "by": "Twenty One Pilots"
+   },
+   {
+    "song": "Down On The Corner",
+    "by": "Creedence Clearwater Revival"
+   },
+   {
+    "song": "Shoop",
+    "by": "Salt-N-Pepa"
+   },
+   {
+    "song": "Abracadabra",
+    "by": "Steve Miller Band"
+   },
+   {
+    "song": "Head Like a Hole",
+    "by": "Nine Inch Nails"
+   },
+   {
+    "song": "Centuries",
+    "by": "Fall Out Boy"
+   },
+   {
+    "song": "Bulls On Parade",
+    "by": "Rage Against The Machine"
+   },
+   {
+    "song": "You Ain't Seen Nothing Yet",
+    "by": "Bachman-Turner Overdrive"
+   },
+   {
+    "song": "Ain't No Rest for the Wicked",
+    "by": "Cage The Elephant"
+   },
+   {
+    "song": "Semi-Charmed Life",
+    "by": "Third Eye Blind"
+   },
+   {
+    "song": "Pump It",
+    "by": "Black Eyed Peas"
+   },
+   {
+    "song": "What Makes You Beautiful",
+    "by": "One Direction"
+   },
+   {
+    "song": "Sympathy For The Devil - 50th Anniversary Edition",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "Space Age Love Song",
+    "by": "A Flock of Seagulls"
+   },
+   {
+    "song": "ABC",
+    "by": "The Jackson 5"
+   },
+   {
+    "song": "(Don't Fear) The Reaper",
+    "by": "Blue Oyster Cult"
+   },
+   {
+    "song": "Epic",
+    "by": "Faith No More"
+   },
+   {
+    "song": "Paper Planes",
+    "by": "M.I.A."
+   },
+   {
+    "song": "Dynamite",
+    "by": "BTS"
+   },
+   {
+    "song": "High Hopes                          P",
+    "by": "anic! At The Disco         P"
+   },
+   {
+    "song": "Sexy And I Know It                  L",
+    "by": "MFAO                       L"
+   },
+   {
+    "song": "X Gon' Give It To Ya                D",
+    "by": "MX                         D"
+   },
+   {
+    "song": "How Bizarre                         O",
+    "by": "MC                         O"
+   },
+   {
+    "song": "Waterfalls                          T",
+    "by": "LC                         T"
+   },
+   {
+    "song": "Girl On TV                          L",
+    "by": "FO                         L"
+   },
+   {
+    "song": "Electric Feel                       M",
+    "by": "GMT                        M"
+   },
+   {
+    "song": "Sex on Fire                         K",
+    "by": "ings of Leon               K"
+   },
+   {
+    "song": "Man On The Moon                     R",
+    "by": ".E.M.                      R"
+   },
+   {
+    "song": "Heads Will Roll                     Y",
+    "by": "eah Yeah Yeahs             Y"
+   },
+   {
+    "song": "I Will Follow You into the Dark     D",
+    "by": "eath Cab for Cutie         D"
+   },
+   {
+    "song": "Float On                            M",
+    "by": "odest Mouse                M"
+   },
+   {
+    "song": "Plush - 2017 Remaster               S",
+    "by": "tone Temple Pilots         S"
+   },
+   {
+    "song": "S.O.B.                              N T",
+    "by": "athaniel Rateliff &        N he Night Sweats"
+   },
+   {
+    "song": "Dog Days Are Over                   F M",
+    "by": "lorence + The              F achine"
+   },
+   {
+    "song": "Eye In The Sky                      T P",
+    "by": "he Alan Parsons            T roject"
+   },
+   {
+    "song": "Our House                           C Y",
+    "by": "rosby, Stills, Nash &      C oung"
+   }
+  ],
+  "url": "/store/p158/acronyms.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1yABzyBeHDUCQPz9qPFyTn",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-acronyms/pl.u-76oNlv3svkB5EYa",
+  "product_title": "Acronyms - Download And Print Music Bingo Cards"
+ },
+ "Cities": {
+  "slug": "cities",
+  "pack": "Cities",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "New York Groove",
+    "by": "Ace Frehley"
+   },
+   {
+    "song": "Chattanooga Choo Choo",
+    "by": "Glenn Miller"
+   },
+   {
+    "song": "Viva Las Vegas - Remastered",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "Waterloo",
+    "by": "ABBA"
+   },
+   {
+    "song": "Walking in Memphis San Francisco (Be Sure to",
+    "by": "Marc Cohn"
+   },
+   {
+    "song": "Wear Flowers in Your Hair) - Single Version",
+    "by": "Scott McKenzie"
+   },
+   {
+    "song": "Detroit Rock City",
+    "by": "KISS"
+   },
+   {
+    "song": "The Night Chicago Died",
+    "by": "Paper Lace"
+   },
+   {
+    "song": "No Sleep Till Brooklyn",
+    "by": "Beastie Boys"
+   },
+   {
+    "song": "Streets of Philadelphia - Single Edit",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "Angel Of Harlem",
+    "by": "U2 The Presidents Of The"
+   },
+   {
+    "song": "Cleveland Rocks",
+    "by": "United States Of America"
+   },
+   {
+    "song": "Folsom Prison Blues",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "Paris",
+    "by": "The Chainsmokers"
+   },
+   {
+    "song": "Santa Monica",
+    "by": "Everclear"
+   },
+   {
+    "song": "Hollywood Nights",
+    "by": "Bob Seger"
+   },
+   {
+    "song": "I'm Shipping Up To Boston",
+    "by": "Dropkick Murphys"
+   },
+   {
+    "song": "Miami",
+    "by": "Will Smith"
+   },
+   {
+    "song": "Drinking in L.A.",
+    "by": "Bran Van 3000"
+   },
+   {
+    "song": "Tupelo Honey",
+    "by": "Van Morrison"
+   },
+   {
+    "song": "Callin' Baton Rouge",
+    "by": "Garth Brooks"
+   },
+   {
+    "song": "Jackson (with June Carter Cash)",
+    "by": "Johnny Cash, June Carter Cash"
+   },
+   {
+    "song": "London Calling - Remastered",
+    "by": "The Clash"
+   },
+   {
+    "song": "Beverly Hills",
+    "by": "Weezer"
+   },
+   {
+    "song": "Istanbul (Not Constantinople)         T",
+    "by": "hey Might Be Giants"
+   },
+   {
+    "song": "Galway Girl                           E",
+    "by": "d Sheeran"
+   },
+   {
+    "song": "King of New Orleans                   B",
+    "by": "etter Than Ezra"
+   },
+   {
+    "song": "Okie From Muskogee                    M",
+    "by": "erle Haggard"
+   },
+   {
+    "song": "Pompeii                               B",
+    "by": "astille"
+   }
+  ],
+  "url": "/store/p122/cities.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://music.apple.com/us/playlist/music-bingo-cities/pl.u-11zBX8oUNAzDv1p",
+  "product_title": "Cities - Download And Print Music Bingo Cards"
+ },
+ "Countries": {
+  "slug": "countries",
+  "pack": "Countries",
+  "total": 25,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Thunderstruck",
+    "by": "AC/DC"
+   },
+   {
+    "song": "Dancing Queen",
+    "by": "ABBA"
+   },
+   {
+    "song": "Hips Don't Lie (feat. Wyclef Jean)",
+    "by": "Shakira, Wyclef Jean"
+   },
+   {
+    "song": "Gangnam Style (\u25a0\u25a0\u25a0\u25a0\u25a0)",
+    "by": "PSY"
+   },
+   {
+    "song": "Somebody That I Used To Know",
+    "by": "Gotye, Kimbra"
+   },
+   {
+    "song": "Jamming",
+    "by": "Bob Marley & The Wailers"
+   },
+   {
+    "song": "If I Had $1,000,000",
+    "by": "Barenaked Ladies"
+   },
+   {
+    "song": "Wide Open Spaces",
+    "by": "The Chicks"
+   },
+   {
+    "song": "Maria Maria (feat. The Product G&B;)",
+    "by": "Santana, The Product G&B;"
+   },
+   {
+    "song": "Together - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Get Lucky (feat. Pharrell Williams and Nile Rodgers)",
+    "by": "Daft Punk, Pharrell Williams, Nile Rodgers"
+   },
+   {
+    "song": "Rock Me Amadeus",
+    "by": "Falco"
+   },
+   {
+    "song": "Du hast",
+    "by": "Rammstein"
+   },
+   {
+    "song": "Army of Me",
+    "by": "Bjork"
+   },
+   {
+    "song": "Zombie",
+    "by": "The Cranberries"
+   },
+   {
+    "song": "Perfect Gentleman (feat. Hope)",
+    "by": "Wyclef Jean, Hope"
+   },
+   {
+    "song": "Love On The Brain",
+    "by": "Rihanna"
+   },
+   {
+    "song": "Take on Me",
+    "by": "a-ha"
+   },
+   {
+    "song": "Hero",
+    "by": "Enrique Iglesias"
+   },
+   {
+    "song": "Barbie Girl",
+    "by": "Aqua"
+   },
+   {
+    "song": "Somebody Like You",
+    "by": "Keith Urban"
+   },
+   {
+    "song": "It's Not Unusual",
+    "by": "Tom Jones"
+   },
+   {
+    "song": "Emerald Sword",
+    "by": "Rhapsody"
+   },
+   {
+    "song": "Nagada Sang Dhol",
+    "by": "Shreya Ghoshal, Osman Mir"
+   },
+   {
+    "song": "enzenzense - movie ver.            RA",
+    "by": "DWIMPS                  Japa"
+   }
+  ],
+  "url": "/store/p100/Countries.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/72vyGnb0qbSTMqQ00My4q0",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-countries/pl.u-DdAN85oC0jMJzXp",
+  "product_title": "Countries - Download And Print Music Bingo Cards"
+ },
+ "Disco": {
+  "slug": "disco",
+  "pack": "Disco",
+  "total": 35,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Stayin Alive",
+    "by": "Bee Gees"
+   },
+   {
+    "song": "Dancing Queen",
+    "by": "ABBA"
+   },
+   {
+    "song": "Le Freak",
+    "by": "Chic"
+   },
+   {
+    "song": "Super Freak",
+    "by": "Rick James"
+   },
+   {
+    "song": "Celebration",
+    "by": "Kool and The Gang"
+   },
+   {
+    "song": "Boogie Wonderland (with The Emotions)",
+    "by": "Earth Wind & Fire"
+   },
+   {
+    "song": "Don't Stop 'Til You Get Enough",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Shake Your Groove Thing",
+    "by": "Peaches & Herb"
+   },
+   {
+    "song": "I Love The Nightlife (Disco 'Round)",
+    "by": "Alicia Bridges"
+   },
+   {
+    "song": "Ring My Bell",
+    "by": "Anita Ward"
+   },
+   {
+    "song": "Shake Your Body (Down to the Ground)",
+    "by": "The Jacksons"
+   },
+   {
+    "song": "Hot Stuff",
+    "by": "Donna Summer"
+   },
+   {
+    "song": "Boogie Oogie Oogie (Remastered 2004)",
+    "by": "A Taste Of Honey"
+   },
+   {
+    "song": "Dazz (Single Version)",
+    "by": "Brick"
+   },
+   {
+    "song": "The Hustle (Original Mix)",
+    "by": "Van McCoy"
+   },
+   {
+    "song": "Boogie Nights",
+    "by": "Heatwave"
+   },
+   {
+    "song": "I'm Coming Out",
+    "by": "Diana Ross"
+   },
+   {
+    "song": "Heart Of Glass (Single Version / Remastered)",
+    "by": "Blondie"
+   },
+   {
+    "song": "We Are Family",
+    "by": "Sister Sledge"
+   },
+   {
+    "song": "Rock Your Baby",
+    "by": "George McCrae"
+   },
+   {
+    "song": "Rock the Boat",
+    "by": "The Hues Corporation"
+   },
+   {
+    "song": "Got to Be Real (Single Version)",
+    "by": "Cheryl Lynn"
+   },
+   {
+    "song": "Love Train",
+    "by": "The O'Jays"
+   },
+   {
+    "song": "Knock On Wood",
+    "by": "Amii Stewart"
+   },
+   {
+    "song": "You Make Me Feel (Mighty Real)",
+    "by": "Sylvester"
+   },
+   {
+    "song": "Da Ya Think I'm Sexy?",
+    "by": "Rod Stewart"
+   },
+   {
+    "song": "Heaven Must Be Missing An Angel (Pt. 1)",
+    "by": "Tavares"
+   },
+   {
+    "song": "Funkytown",
+    "by": "Lipps Inc."
+   },
+   {
+    "song": "Macho Man",
+    "by": "Village People"
+   },
+   {
+    "song": "I Will Survive (Single Version)",
+    "by": "Gloria Gaynor"
+   },
+   {
+    "song": "Disco Inferno",
+    "by": "The Trammps"
+   },
+   {
+    "song": "If I Can't Have You",
+    "by": "Yvonne Elliman"
+   },
+   {
+    "song": "Don't Leave Me This Way",
+    "by": "Thelma Houston"
+   },
+   {
+    "song": "Young Hearts Run Free",
+    "by": "Candi Staton"
+   },
+   {
+    "song": "It's Raining Men",
+    "by": "The Weather Girls"
+   }
+  ],
+  "url": "/store/p159/Disco.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2vB2LEDTzeKMvZ37F19vDm",
+  "apple": "https://music.apple.com/ca/playlist/music-bingo-disco/pl.u-aZb0k26u1NkB2rZ",
+  "product_title": "Disco - Download And Print Music Bingo Cards"
+ },
+ "Nicknames": {
+  "slug": "nicknames",
+  "pack": "Nicknames",
+  "total": 25,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Piano Man",
+    "by": "Billy Joel"
+   },
+   {
+    "song": "I Walk the Line",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "Papa's Got A Brand New Bag - Pt. 1",
+    "by": "James Brown"
+   },
+   {
+    "song": "Twist And Shout - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Cat Scratch Fever",
+    "by": "Ted Nugent"
+   },
+   {
+    "song": "What A Wonderful World",
+    "by": "Louis Armstrong"
+   },
+   {
+    "song": "Billie Jean",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Crazy Train",
+    "by": "Ozzy Osbourne"
+   },
+   {
+    "song": "Cocaine",
+    "by": "Eric Clapton"
+   },
+   {
+    "song": "Great Balls of Fire - Remastered 2011",
+    "by": "Jerry Lee Lewis"
+   },
+   {
+    "song": "Under Pressure - Remastered 2011",
+    "by": "Queen, David Bowie"
+   },
+   {
+    "song": "Edge of Seventeen - 2016 Remaster",
+    "by": "Stevie Nicks"
+   },
+   {
+    "song": "When Doves Cry",
+    "by": "Prince"
+   },
+   {
+    "song": "Can't Get Enough Of Your Love, Babe",
+    "by": "Barry White"
+   },
+   {
+    "song": "Hot Stuff - 12\" Version",
+    "by": "Donna Summer"
+   },
+   {
+    "song": "A Country Boy Can Survive",
+    "by": "Hank Williams, Jr."
+   },
+   {
+    "song": "I've Got You Under My Skin",
+    "by": "Frank Sinatra"
+   },
+   {
+    "song": "Hungry Heart",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "Danke Schoen - Remastered",
+    "by": "Wayne Newton"
+   },
+   {
+    "song": "Son of a Preacher Man",
+    "by": "Aretha Franklin"
+   },
+   {
+    "song": "Genie in a Bottle Mammas Don't Let Your",
+    "by": "Christina Aguilera Waylon Jennings,"
+   },
+   {
+    "song": "Babies Grow Up to be Cowboys",
+    "by": "Willie Nelson"
+   },
+   {
+    "song": "Ghost Song",
+    "by": "Jim Morrison, The Doors"
+   },
+   {
+    "song": "Sing, Sing, Sing                     B",
+    "by": "enny Goodman                T"
+   },
+   {
+    "song": "Suspicious Minds                     E",
+    "by": "lvis Presley                T"
+   }
+  ],
+  "url": "/store/p117/nicknames.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3DEnWNdDBKm3T8kstugeLc",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-nicknames/pl.u-11zBXP3INAzDv1p",
+  "product_title": "Nicknames - Download And Print Music Bingo Cards"
+ },
+ "Numbers": {
+  "slug": "numbers",
+  "pack": "Numbers",
+  "total": 42,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "One (Remastered)",
+    "by": "Metallica"
+   },
+   {
+    "song": "Song 2",
+    "by": "Blur"
+   },
+   {
+    "song": "3",
+    "by": "Britney Spears"
+   },
+   {
+    "song": "FourFiveSeconds",
+    "by": "Rihanna, Kanye West, Paul McCartney"
+   },
+   {
+    "song": "Like A G6",
+    "by": "Far East Movement, The Cataracs, DEV"
+   },
+   {
+    "song": "Seven Nation Army",
+    "by": "The White Stripes"
+   },
+   {
+    "song": "8 Mile",
+    "by": "Eminem"
+   },
+   {
+    "song": "Nine in the Afternoon",
+    "by": "Panic! At The Disco"
+   },
+   {
+    "song": "10,000 Hours (with Justin Bieber)",
+    "by": "Dan + Shay, Justin Bieber"
+   },
+   {
+    "song": "22",
+    "by": "Taylor Swift"
+   },
+   {
+    "song": "24K Magic",
+    "by": "Bruno Mars"
+   },
+   {
+    "song": "You're Sixteen (You're Beautiful And You're Mine)",
+    "by": "Ringo Starr"
+   },
+   {
+    "song": "Edge of Seventeen",
+    "by": "Stevie Nicks"
+   },
+   {
+    "song": "18 and Life",
+    "by": "Skid Row"
+   },
+   {
+    "song": "23",
+    "by": "Sam Hunt"
+   },
+   {
+    "song": "100% Pure Love",
+    "by": "Crystal Waters"
+   },
+   {
+    "song": "Mambo No. 5 (a Little Bit of...)",
+    "by": "Lou Bega"
+   },
+   {
+    "song": "Year 3000",
+    "by": "Jonas Brothers"
+   },
+   {
+    "song": "Ain't 2 Proud 2 Beg",
+    "by": "TLC"
+   },
+   {
+    "song": "When I'm Sixty Four - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "It Takes Two",
+    "by": "Rob Base & DJ EZ Rock"
+   },
+   {
+    "song": "December, 1963 (Oh What a Night)",
+    "by": "The Four Seasons"
+   },
+   {
+    "song": "1985",
+    "by": "Bowling For Soup             A"
+   },
+   {
+    "song": "1979 - Remastered 2012",
+    "by": "The Smashing                 M Pumpkins                     S"
+   },
+   {
+    "song": "1999",
+    "by": "Prince                       1"
+   },
+   {
+    "song": "3005",
+    "by": "Childish Gambino             B"
+   },
+   {
+    "song": "I'm Gonna Be (500 Miles)",
+    "by": "The Proclaimers              S"
+   },
+   {
+    "song": "Three Times A Lady",
+    "by": "Commodores                   A"
+   },
+   {
+    "song": "Five to One",
+    "by": "The Doors                    W"
+   },
+   {
+    "song": "Two Princes",
+    "by": "Spin Doctors                 P"
+   },
+   {
+    "song": "7 Years",
+    "by": "Lukas Graham                 L"
+   },
+   {
+    "song": "9 to 5",
+    "by": "Dolly Parton                 9"
+   },
+   {
+    "song": "99 Red Balloons",
+    "by": "Nena                         9"
+   },
+   {
+    "song": "867-5309/Jenny",
+    "by": "Tommy Tutone                 T"
+   },
+   {
+    "song": "Land of 1000 Dances",
+    "by": "Wilson Pickett               T"
+   },
+   {
+    "song": "Two Tickets to Paradise - 2022 Remaster",
+    "by": "Eddie Money                  E"
+   },
+   {
+    "song": "3AM",
+    "by": "Matchbox Twenty              Y"
+   },
+   {
+    "song": "50 Ways to Leave Your Lover",
+    "by": "Paul Simon                   S"
+   },
+   {
+    "song": "Summer Of '69",
+    "by": "Bryan Adams                  R D"
+   },
+   {
+    "song": "911",
+    "by": "Lady Gaga                    C"
+   },
+   {
+    "song": "99 Problems",
+    "by": "JAY-Z                        T"
+   },
+   {
+    "song": "100 Years",
+    "by": "Five For Fighting            T"
+   }
+  ],
+  "url": "/store/p156/numbers.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/6dgnvVvfe5R8jVPx0yoXhm",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-numbers/pl.u-76oNl1BsvkB5EYa",
+  "product_title": "Numbers - Download And Print Music Bingo Cards"
+ },
+ "Motown": {
+  "slug": "motown",
+  "pack": "Motown",
+  "total": 32,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Papa Was A Rollin' Stone (Single Version)",
+    "by": "The Temptations"
+   },
+   {
+    "song": "Superstition (Single Version)",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "You Keep Me Hangin' On",
+    "by": "The Supremes"
+   },
+   {
+    "song": "I Want You Back",
+    "by": "The Jackson 5"
+   },
+   {
+    "song": "I Heard It Through The Grapevine",
+    "by": "Marvin Gaye"
+   },
+   {
+    "song": "Please Mr. Postman",
+    "by": "The Marvelettes"
+   },
+   {
+    "song": "I Can't Help Myself (Sugar Pie, Honey Bunch)",
+    "by": "The Four Tops"
+   },
+   {
+    "song": "War",
+    "by": "Edwin Starr"
+   },
+   {
+    "song": "Super Freak",
+    "by": "Rick James"
+   },
+   {
+    "song": "Upside Down",
+    "by": "Diana Ross"
+   },
+   {
+    "song": "Cruisin'",
+    "by": "Smokey Robinson"
+   },
+   {
+    "song": "Nightshift What Becomes Of The",
+    "by": "The Commodores"
+   },
+   {
+    "song": "Brokenhearted (Single Version)",
+    "by": "Jimmy Ruffin"
+   },
+   {
+    "song": "This Old Heart Of Mine (Is Weak For You)",
+    "by": "The Isley Brothers"
+   },
+   {
+    "song": "Two Lovers",
+    "by": "Mary Wells"
+   },
+   {
+    "song": "Time Will Reveal",
+    "by": "DeBarge"
+   },
+   {
+    "song": "Do You Love Me (Mono Single)",
+    "by": "The Contours"
+   },
+   {
+    "song": "If I Were Your Woman",
+    "by": "Gladys Knight & The Pips"
+   },
+   {
+    "song": "Baby, I'm For Real",
+    "by": "The Originals"
+   },
+   {
+    "song": "I Just Want To Celebrate",
+    "by": "Rare Earth"
+   },
+   {
+    "song": "End Of The Road",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "Smiling Faces Sometimes",
+    "by": "The Undisputed Truth"
+   },
+   {
+    "song": "Every Little Bit Hurts",
+    "by": "Brenda Holloway"
+   },
+   {
+    "song": "Square Biz",
+    "by": "Teena Marie"
+   },
+   {
+    "song": "All Night Long",
+    "by": "Mary Jane Girls"
+   },
+   {
+    "song": "It's A Shame",
+    "by": "Spinners"
+   },
+   {
+    "song": "Shotgun",
+    "by": "Jr. Walker And The All Stars"
+   },
+   {
+    "song": "Money (That's What I Want) (Single Version / Mono)",
+    "by": "Barrett Strong"
+   },
+   {
+    "song": "Got To Be There",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Rescue Me",
+    "by": "Fontella Bass"
+   },
+   {
+    "song": "I Choose You (The Mack/Soundtrack Version)",
+    "by": "Willie Hutch"
+   },
+   {
+    "song": "Keep On Truckin'",
+    "by": "Eddie Kendricks"
+   }
+  ],
+  "url": "/store/p143/motown.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0kbNn8EArybyB0YAaoKYMG",
+  "apple": "https://music.apple.com/ca/playlist/music-bingo-motown/pl.u-V9D77kJI3Rmz4No",
+  "product_title": "\"Motown\" - Download And Print Music Bingo Cards"
+ },
+ "Punk Rock": {
+  "slug": "punk-rock",
+  "pack": "Punk Rock",
+  "total": 38,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Heart Tattoo",
+    "by": "Joyce Manor"
+   },
+   {
+    "song": "Misery Business",
+    "by": "Paramore"
+   },
+   {
+    "song": "Sonic Reducer",
+    "by": "Dead Boys"
+   },
+   {
+    "song": "Straight Edge",
+    "by": "Minor Threat"
+   },
+   {
+    "song": "Linoleum",
+    "by": "NOFX"
+   },
+   {
+    "song": "Punk Rawk Show",
+    "by": "MxPx"
+   },
+   {
+    "song": "Thnks fr th Mmrs",
+    "by": "Fall Out Boy"
+   },
+   {
+    "song": "Waiting Room",
+    "by": "Fugazi"
+   },
+   {
+    "song": "Blitzkrieg Bop - 2016 Remaster",
+    "by": "Ramones"
+   },
+   {
+    "song": "New Rose",
+    "by": "The Damned"
+   },
+   {
+    "song": "Teenage Kicks",
+    "by": "The Undertones"
+   },
+   {
+    "song": "In Too Deep",
+    "by": "Sum 41"
+   },
+   {
+    "song": "High School Never Ends - Main Version - Explicit",
+    "by": "Bowling For Soup"
+   },
+   {
+    "song": "Suspect Device",
+    "by": "Stiff Little Fingers"
+   },
+   {
+    "song": "Blister In The Sun",
+    "by": "Violent Femmes"
+   },
+   {
+    "song": "Anarchy in the U.K.",
+    "by": "Sex Pistols"
+   },
+   {
+    "song": "Rock the Casbah - Remastered",
+    "by": "The Clash"
+   },
+   {
+    "song": "I Was a Teenage Anarchist",
+    "by": "Against Me!"
+   },
+   {
+    "song": "Bad Reputation",
+    "by": "Joan Jett & the Blackhearts"
+   },
+   {
+    "song": "Holiday in Cambodia",
+    "by": "Dead Kennedys"
+   },
+   {
+    "song": "Welcome to My Life",
+    "by": "Simple Plan"
+   },
+   {
+    "song": "Double Dare Ya",
+    "by": "Bikini Kill"
+   },
+   {
+    "song": "Bro Hymn - 2005 Remaster",
+    "by": "Pennywise"
+   },
+   {
+    "song": "What's My Age Again?",
+    "by": "blink-182"
+   },
+   {
+    "song": "Lust For Life",
+    "by": "Iggy Pop"
+   },
+   {
+    "song": "Time Bomb",
+    "by": "Rancid"
+   },
+   {
+    "song": "Suburban Home",
+    "by": "Descendents"
+   },
+   {
+    "song": "The Kids Aren't Alright",
+    "by": "The Offspring"
+   },
+   {
+    "song": "Orgasm Addict - 2001 Remastered Version",
+    "by": "Buzzcocks"
+   },
+   {
+    "song": "Story of My Life",
+    "by": "Social Distortion"
+   },
+   {
+    "song": "American Jesus",
+    "by": "Bad Religion"
+   },
+   {
+    "song": "Six Pack",
+    "by": "Black Flag"
+   },
+   {
+    "song": "American Idiot",
+    "by": "Green Day"
+   },
+   {
+    "song": "Last Caress",
+    "by": "Misfits"
+   },
+   {
+    "song": "Los Angeles",
+    "by": "X"
+   },
+   {
+    "song": "I Wanna Be Your Dog",
+    "by": "The Stooges"
+   },
+   {
+    "song": "Banned in D.C.",
+    "by": "Bad Brains"
+   },
+   {
+    "song": "Welcome to the Black Parade",
+    "by": "My Chemical Romance"
+   }
+  ],
+  "url": "/store/p167/punkrock.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/15cE6XVadnlh6iwblxIScl",
+  "apple": "https://music.apple.com/us/library/playlist/p.O1kzzD6I8dzQqpE",
+  "product_title": "Punk Rock Music Bingo - Download And Print 250 Cards"
+ },
+ "90s R&B": {
+  "slug": "90s-r-b",
+  "pack": "90s R&B",
+  "total": 43,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "No Scrubs",
+    "by": "TLC"
+   },
+   {
+    "song": "No Diggity (feat. Dr. Dre & Queen Pen)",
+    "by": "Blackstreet"
+   },
+   {
+    "song": "This Is How We Do It",
+    "by": "Montell Jordan"
+   },
+   {
+    "song": "Fantasy",
+    "by": "Mariah Carey"
+   },
+   {
+    "song": "Motownphilly",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "Don't Let Go (Love)",
+    "by": "En Vogue"
+   },
+   {
+    "song": "Doo Wop (That Thing)",
+    "by": "Lauryn Hill"
+   },
+   {
+    "song": "Too Close",
+    "by": "Next"
+   },
+   {
+    "song": "I Wanna Sex You Up (Single Mix)",
+    "by": "Color Me Badd"
+   },
+   {
+    "song": "Feels Good",
+    "by": "Tony! Toni! Tone!"
+   },
+   {
+    "song": "Return of the Mack",
+    "by": "Mark Morrison"
+   },
+   {
+    "song": "Pony",
+    "by": "Ginuwine"
+   },
+   {
+    "song": "Poison",
+    "by": "Bell Biv DeVoe"
+   },
+   {
+    "song": "Touch It",
+    "by": "Monifah"
+   },
+   {
+    "song": "You Make Me Wanna...",
+    "by": "Usher"
+   },
+   {
+    "song": "Hey Mr. D.J.",
+    "by": "Zhane"
+   },
+   {
+    "song": "You're Makin' Me High",
+    "by": "Toni Braxton"
+   },
+   {
+    "song": "Real Love",
+    "by": "Mary J. Blige"
+   },
+   {
+    "song": "Say My Name",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "Love Like This",
+    "by": "Faith Evans"
+   },
+   {
+    "song": "Freak Like Me",
+    "by": "Adina Howard"
+   },
+   {
+    "song": "Every Little Thing I Do",
+    "by": "Soul For Real"
+   },
+   {
+    "song": "Remember the Time",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Where My Girls At",
+    "by": "702"
+   },
+   {
+    "song": "Angel of Mine",
+    "by": "Monica"
+   },
+   {
+    "song": "Rock The Boat",
+    "by": "Aaliyah"
+   },
+   {
+    "song": "All My Life",
+    "by": "K-Ci & JoJo"
+   },
+   {
+    "song": "You Gotta Be",
+    "by": "Des'ree"
+   },
+   {
+    "song": "Whatta Man (feat. En Vogue)",
+    "by": "Salt-n-Pepa"
+   },
+   {
+    "song": "Baby",
+    "by": "Brandy"
+   },
+   {
+    "song": "Rock Wit U (Awww Baby)",
+    "by": "Ashanti"
+   },
+   {
+    "song": "If You Had My Love",
+    "by": "Jennifer Lopez"
+   },
+   {
+    "song": "Killing Me Softly With His Song",
+    "by": "Fugees"
+   },
+   {
+    "song": "Don't Walk Away",
+    "by": "Jade"
+   },
+   {
+    "song": "I Can Love You Like That",
+    "by": "All-4-One"
+   },
+   {
+    "song": "Can't You See",
+    "by": "Total"
+   },
+   {
+    "song": "Big Poppa (2005 Remaster)",
+    "by": "The Notorious B.I.G."
+   },
+   {
+    "song": "Who Am I (What's My Name?)",
+    "by": "Snoop Dogg"
+   },
+   {
+    "song": "How Deep Is Your Love",
+    "by": "Dru Hill"
+   },
+   {
+    "song": "Always On Time (feat. Ashanti)",
+    "by": "Ja Rule"
+   },
+   {
+    "song": "Tha Crossroads",
+    "by": "Bone Thugs-N-Harmony"
+   },
+   {
+    "song": "I Wanna Know",
+    "by": "Joe"
+   },
+   {
+    "song": "So Into You",
+    "by": "Tamia"
+   }
+  ],
+  "url": "/store/p160/90sRnB.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3GS3A7phzhJbR60q4XA2gp",
+  "apple": "https://music.apple.com/ca/playlist/music-bingo-90s-r-b/pl.u-JPAZZNJtLmaY387",
+  "product_title": "90s R&B - Download And Print Music Bingo Cards"
+ },
+ "The 60s": {
+  "slug": "the-60s",
+  "pack": "The 60s",
+  "total": 38,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Da Doo Ron Ron (When He Walked Me Home)",
+    "by": "The Crystals"
+   },
+   {
+    "song": "Good Vibrations (Remastered 2001)",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Time of the Season (Mono Version)",
+    "by": "The Zombies"
+   },
+   {
+    "song": "Sinnerman",
+    "by": "Nina Simone"
+   },
+   {
+    "song": "Louie Louie",
+    "by": "The Kingsmen"
+   },
+   {
+    "song": "Summer In The City",
+    "by": "The Lovin' Spoonful"
+   },
+   {
+    "song": "Ain't That A Kick In The Head (1997 Remaster)",
+    "by": "Dean Martin"
+   },
+   {
+    "song": "All Day and All of the Night",
+    "by": "The Kinks"
+   },
+   {
+    "song": "Green River",
+    "by": "Creedence Clearwater Revival"
+   },
+   {
+    "song": "Black Is Black",
+    "by": "Los Bravos"
+   },
+   {
+    "song": "Return to Sender",
+    "by": "Elvis Presley"
+   },
+   {
+    "song": "We Gotta Get Out Of This Place (US Version)",
+    "by": "The Animals"
+   },
+   {
+    "song": "Jumpin' Jack Flash (Mono Version)",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "Spinning Wheel (Single Version)",
+    "by": "Blood Sweat & Tears"
+   },
+   {
+    "song": "Venus",
+    "by": "Shocking Blue"
+   },
+   {
+    "song": "Touch Me",
+    "by": "The Doors"
+   },
+   {
+    "song": "Laughing",
+    "by": "The Guess Who"
+   },
+   {
+    "song": "Delilah",
+    "by": "Tom Jones"
+   },
+   {
+    "song": "A Little Bit Me, A Little Bit You (Single Version)",
+    "by": "The Monkees"
+   },
+   {
+    "song": "Hanky Panky",
+    "by": "Tommy James"
+   },
+   {
+    "song": "Can't You Hear My Heartbeat",
+    "by": "Herman's Hermits"
+   },
+   {
+    "song": "This Diamond Ring",
+    "by": "Gary Lewis & The Playboys"
+   },
+   {
+    "song": "The Game Of Love",
+    "by": "Wayne Fontana & The Mindbenders"
+   },
+   {
+    "song": "Back In My Arms Again",
+    "by": "The Supremes"
+   },
+   {
+    "song": "I'm Telling You Now",
+    "by": "Freddie & The Dreamers"
+   },
+   {
+    "song": "It's The Same Old Song",
+    "by": "The Four Tops"
+   },
+   {
+    "song": "You've Got Your Troubles",
+    "by": "The Fortunes"
+   },
+   {
+    "song": "How Sweet It Is (To Be Loved By You)",
+    "by": "Marvin Gaye"
+   },
+   {
+    "song": "Hello, Dolly!",
+    "by": "Louis Armstrong"
+   },
+   {
+    "song": "Rag Doll",
+    "by": "The Four Seasons"
+   },
+   {
+    "song": "Deadman's Curve Wishin' And Hopin' (Stereo",
+    "by": "Jan & Dean"
+   },
+   {
+    "song": "Version)",
+    "by": "Dusty Springfield"
+   },
+   {
+    "song": "My Boy Lollipop",
+    "by": "Millie"
+   },
+   {
+    "song": "Remember (Walkin' In The Sand) (The Oh No Song)",
+    "by": "The Shangri-Las"
+   },
+   {
+    "song": "Walk Don't Run",
+    "by": "The Ventures"
+   },
+   {
+    "song": "My Boyfriend's Back",
+    "by": "The Angels"
+   },
+   {
+    "song": "Nobody But Me",
+    "by": "The Human Beinz"
+   },
+   {
+    "song": "For Your Love",
+    "by": "The Yardbirds"
+   }
+  ],
+  "url": "/store/p153/the60s.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3tEzjSsyrJ89WUKygnDcni",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-the-60s/pl.u-V9D7mPkS3Rmz4No",
+  "product_title": "\"The 1960s\" - Download And Print Music Bingo Cards"
+ },
+ "One Hit Wonders 2": {
+  "slug": "one-hit-wonders-2",
+  "pack": "One Hit Wonders 2",
+  "total": 34,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Mambo No. 5 (a Little Bit of...)",
+    "by": "Lou Bega"
+   },
+   {
+    "song": "Unbelievable",
+    "by": "EMF"
+   },
+   {
+    "song": "Informer",
+    "by": "Snow"
+   },
+   {
+    "song": "Bitch",
+    "by": "Meredith Brooks"
+   },
+   {
+    "song": "Two Princes",
+    "by": "Spin Doctors"
+   },
+   {
+    "song": "One Of Us",
+    "by": "Joan Osborne"
+   },
+   {
+    "song": "Runaway Train (2022 Remaster)",
+    "by": "Soul Asylum"
+   },
+   {
+    "song": "War",
+    "by": "Edwin Starr"
+   },
+   {
+    "song": "Stacy's Mom",
+    "by": "Fountains Of Wayne"
+   },
+   {
+    "song": "Breakfast At Tiffany's",
+    "by": "Deep Blue Something"
+   },
+   {
+    "song": "Brick House",
+    "by": "Commodores"
+   },
+   {
+    "song": "Turn up the Radio",
+    "by": "Autograph"
+   },
+   {
+    "song": "Bust A Move",
+    "by": "Young MC"
+   },
+   {
+    "song": "Just a Friend",
+    "by": "Biz Markie"
+   },
+   {
+    "song": "Little Black Backpack",
+    "by": "Stroke 9"
+   },
+   {
+    "song": "Chantilly Lace",
+    "by": "The Big Bopper"
+   },
+   {
+    "song": "These Boots Are Made For Walkin'",
+    "by": "Nancy Sinatra"
+   },
+   {
+    "song": "Sex & Candy",
+    "by": "Marcy Playground"
+   },
+   {
+    "song": "Kiss Me",
+    "by": "Sixpence None The Richer"
+   },
+   {
+    "song": "She's so High",
+    "by": "Tal Bachman"
+   },
+   {
+    "song": "One Headlight",
+    "by": "The Wallflowers"
+   },
+   {
+    "song": "The Way",
+    "by": "Fastball"
+   },
+   {
+    "song": "Inside Out",
+    "by": "Eve 6"
+   },
+   {
+    "song": "Roll To Me",
+    "by": "Del Amitri"
+   },
+   {
+    "song": "Chapel Of Love",
+    "by": "The Dixie Cups"
+   },
+   {
+    "song": "Love Will Keep Us Together",
+    "by": "Captain & Tennille"
+   },
+   {
+    "song": "Good",
+    "by": "Better Than Ezra"
+   },
+   {
+    "song": "Absolutely (Story of a Girl) - Radio Mix",
+    "by": "Nine Days"
+   },
+   {
+    "song": "Jumper - 1998 Edit",
+    "by": "Third Eye Blind"
+   },
+   {
+    "song": "Steal My Sunshine",
+    "by": "LEN"
+   },
+   {
+    "song": "Cry to Me",
+    "by": "Solomon Burke"
+   },
+   {
+    "song": "Istanbul (Not Constantinople)",
+    "by": "They Might Be Giants"
+   },
+   {
+    "song": "Do You Love Me",
+    "by": "The Contours"
+   },
+   {
+    "song": "Stay - Digitally Remastered",
+    "by": "Maurice Williams & The Zodiacs"
+   }
+  ],
+  "url": "/store/p128/onehitwonders2pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/1hrqmrG70wprL3RtIi4Eml",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-one-hit-wonders-2/pl.u-38oWXdbCYvVkKBR",
+  "product_title": "One Hit Wonders 2 - Download And Print Music Bingo Cards"
+ },
+ "The Year Was 1983": {
+  "slug": "the-year-was-1983",
+  "pack": "The Year Was 1983",
+  "total": 30,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Separate Ways (Worlds Apart)",
+    "by": "Journey"
+   },
+   {
+    "song": "Every Breath You Take - Remastered 2003",
+    "by": "The Police"
+   },
+   {
+    "song": "Billie Jean",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Total Eclipse of the Heart",
+    "by": "Bonnie Tyler"
+   },
+   {
+    "song": "Down Under",
+    "by": "Men At Work"
+   },
+   {
+    "song": "Maneater",
+    "by": "Daryl Hall & John Oates"
+   },
+   {
+    "song": "Maniac",
+    "by": "Michael Sembello"
+   },
+   {
+    "song": "Beat It",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Let's Dance - 1999 Remaster",
+    "by": "David Bowie"
+   },
+   {
+    "song": "Tell Her About It",
+    "by": "Billy Joel"
+   },
+   {
+    "song": "She Works Hard For The Money",
+    "by": "Donna Summer"
+   },
+   {
+    "song": "China Girl - 2002 Remaster",
+    "by": "David Bowie"
+   },
+   {
+    "song": "I'm Still Standing",
+    "by": "Elton John"
+   },
+   {
+    "song": "Mr. Roboto",
+    "by": "Styx"
+   },
+   {
+    "song": "Straight From The Heart",
+    "by": "Bryan Adams"
+   },
+   {
+    "song": "All Night Long (All Night) - Single Version",
+    "by": "Lionel Richie"
+   },
+   {
+    "song": "Making Love Out of Nothing at All",
+    "by": "Air Supply"
+   },
+   {
+    "song": "Sweet Dreams (Are Made of This) - 2005 Remaster",
+    "by": "Eurythmics, Annie Lennox, Dave Stewart"
+   },
+   {
+    "song": "Stand Back",
+    "by": "Stevie Nicks"
+   },
+   {
+    "song": "Come On Eileen",
+    "by": "Dexys Midnight Runners"
+   },
+   {
+    "song": "Hungry Like the Wolf - 2009 Remaster",
+    "by": "Duran Duran"
+   },
+   {
+    "song": "Love Is A Battlefield                 P",
+    "by": "at Benatar"
+   },
+   {
+    "song": "Africa                                T",
+    "by": "OTO"
+   },
+   {
+    "song": "Blue Monday - 2016 Remaster           N",
+    "by": "ew Order"
+   },
+   {
+    "song": "Uptown Girl                           B",
+    "by": "illy Joel"
+   },
+   {
+    "song": "Sexual Healing                        M",
+    "by": "arvin Gaye"
+   },
+   {
+    "song": "Burning Down the House                T",
+    "by": "alking Heads"
+   },
+   {
+    "song": "1999                                  P",
+    "by": "rince"
+   },
+   {
+    "song": "The Safety Dance                      M",
+    "by": "en Without Hats"
+   },
+   {
+    "song": "Hey Mickey                            T",
+    "by": "oni Basil"
+   }
+  ],
+  "url": "/store/p101/theyearwas4pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0AdDrKVmA5HkhYz0PC7rOd",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-year-was-1983/pl.u-JPAZEj2tLmaY387",
+  "product_title": "\"The Year Was...\" 5 Pack of Games - Download And Print Music Bingo Cards"
+ },
+ "The Year Was 1992": {
+  "slug": "the-year-was-1992",
+  "pack": "The Year Was 1992",
+  "total": 32,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Jump",
+    "by": "Kris Kross"
+   },
+   {
+    "song": "Move This (Shake That Body) Tears in Heaven - Acoustic;",
+    "by": "Technotronic"
+   },
+   {
+    "song": "Live at MTV Unplugged, Bray Film Studios, Windsor, England, 1992",
+    "by": "Eric Clapton"
+   },
+   {
+    "song": "Under the Bridge",
+    "by": "Red Hot Chili Peppers"
+   },
+   {
+    "song": "Achy Breaky Heart",
+    "by": "Billy Ray Cyrus"
+   },
+   {
+    "song": "My Lovin' (You're Never Gonna Get It)",
+    "by": "En Vogue"
+   },
+   {
+    "song": "I Will Always Love You",
+    "by": "Whitney Houston"
+   },
+   {
+    "song": "Friday I'm in Love",
+    "by": "The Cure"
+   },
+   {
+    "song": "Jump Around",
+    "by": "House Of Pain"
+   },
+   {
+    "song": "I'll Be There",
+    "by": "Mariah Carey"
+   },
+   {
+    "song": "Rump Shaker",
+    "by": "Wreckx-N-Effect"
+   },
+   {
+    "song": "Life Is A Highway",
+    "by": "Tom Cochrane"
+   },
+   {
+    "song": "All I Want",
+    "by": "Toad The Wet Sprocket"
+   },
+   {
+    "song": "I'm Too Sexy",
+    "by": "Right Said Fred"
+   },
+   {
+    "song": "Just Another Day",
+    "by": "Jon Secada"
+   },
+   {
+    "song": "2 Legit 2 Quit (feat. Saja)",
+    "by": "MC Hammer, Saja"
+   },
+   {
+    "song": "Baby Got Back",
+    "by": "Sir Mix-A-Lot"
+   },
+   {
+    "song": "Black or White - Single Version",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "This Used to Be My Playground",
+    "by": "Madonna"
+   },
+   {
+    "song": "Walking on Broken Glass",
+    "by": "Annie Lennox"
+   },
+   {
+    "song": "I Can't Dance - 2007 Remaster",
+    "by": "Genesis"
+   },
+   {
+    "song": "Save The Best For Last",
+    "by": "Vanessa Williams"
+   },
+   {
+    "song": "All 4 Love",
+    "by": "Color Me Badd"
+   },
+   {
+    "song": "To Be With You - 2010 Remastered Version",
+    "by": "Mr. Big"
+   },
+   {
+    "song": "November Rain",
+    "by": "Guns N' Roses"
+   },
+   {
+    "song": "End Of The Road",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "Remember the Time",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Smells Like Teen Spirit",
+    "by": "Nirvana"
+   },
+   {
+    "song": "Ain't 2 Proud 2 Beg",
+    "by": "TLC"
+   },
+   {
+    "song": "Bohemian Rhapsody - Remastered 2011",
+    "by": "Queen"
+   },
+   {
+    "song": "When a Man Loves a Woman",
+    "by": "Michael Bolton"
+   },
+   {
+    "song": "Wildside",
+    "by": "Marky Mark And The Funky Bunch"
+   }
+  ],
+  "url": "/store/p101/theyearwas4pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0AdDrKVmA5HkhYz0PC7rOd",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-year-was-1983/pl.u-JPAZEj2tLmaY387",
+  "product_title": "\"The Year Was...\" 5 Pack of Games - Download And Print Music Bingo Cards"
+ },
+ "The Year Was 2001": {
+  "slug": "the-year-was-2001",
+  "pack": "The Year Was 2001",
+  "total": 37,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Hanging By a Moment",
+    "by": "Lifehouse"
+   },
+   {
+    "song": "Fallin'",
+    "by": "Alicia Keys"
+   },
+   {
+    "song": "All For You",
+    "by": "Janet Jackson"
+   },
+   {
+    "song": "Drops of Jupiter (Tell Me)",
+    "by": "Train"
+   },
+   {
+    "song": "If You're Gone",
+    "by": "Matchbox Twenty"
+   },
+   {
+    "song": "Hit 'Em Up Style (Oops!) - Radio Mix",
+    "by": "Blu Cantrell"
+   },
+   {
+    "song": "Again",
+    "by": "Lenny Kravitz"
+   },
+   {
+    "song": "Thank You",
+    "by": "Dido"
+   },
+   {
+    "song": "It Wasn't Me",
+    "by": "Shaggy, Rik Rok"
+   },
+   {
+    "song": "Independent Women, Pt. 1",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "Drive",
+    "by": "Incubus"
+   },
+   {
+    "song": "Lady Marmalade",
+    "by": "Christina Aguilera, Lil' Kim, Mya, Pink"
+   },
+   {
+    "song": "The Way You Love Me",
+    "by": "Faith Hill"
+   },
+   {
+    "song": "Angel",
+    "by": "Shaggy, Rayvon"
+   },
+   {
+    "song": "Family Affair",
+    "by": "Mary J. Blige"
+   },
+   {
+    "song": "Butterfly",
+    "by": "Crazy Town"
+   },
+   {
+    "song": "Kryptonite",
+    "by": "3 Doors Down"
+   },
+   {
+    "song": "I Hope You Dance",
+    "by": "Lee Ann Womack"
+   },
+   {
+    "song": "With Arms Wide Open",
+    "by": "Creed"
+   },
+   {
+    "song": "All or Nothing",
+    "by": "O-Town"
+   },
+   {
+    "song": "Bootylicious",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "Jaded",
+    "by": "Aerosmith"
+   },
+   {
+    "song": "The Space Between",
+    "by": "Dave Matthews Band"
+   },
+   {
+    "song": "Turn Off The Light",
+    "by": "Nelly Furtado"
+   },
+   {
+    "song": "Beautiful Day",
+    "by": "U2"
+   },
+   {
+    "song": "Hero",
+    "by": "Enrique Iglesias"
+   },
+   {
+    "song": "Irresistible",
+    "by": "Jessica Simpson"
+   },
+   {
+    "song": "Nobody Wants to Be Lonely (with Christina Aguilera)",
+    "by": "Ricky Martin, Christina Aguilera"
+   },
+   {
+    "song": "Fill Me In",
+    "by": "Craig David"
+   },
+   {
+    "song": "Crazy",
+    "by": "K-Ci & JoJo"
+   },
+   {
+    "song": "Don't Tell Me",
+    "by": "Madonna"
+   },
+   {
+    "song": "Love Don't Cost a Thing",
+    "by": "Jennifer Lopez"
+   },
+   {
+    "song": "Where the Party At (feat. Nelly)",
+    "by": "Jagged Edge, Nelly"
+   },
+   {
+    "song": "Let Me Blow Ya Mind (feat. Gwen Stefani)",
+    "by": "Eve, Gwen Stefani"
+   },
+   {
+    "song": "Ride Wit Me (feat. City Spud)",
+    "by": "Nelly, City Spud"
+   },
+   {
+    "song": "What Would You Do?",
+    "by": "City High"
+   },
+   {
+    "song": "Get Ur Freak On",
+    "by": "Missy Elliott"
+   }
+  ],
+  "url": "/store/p101/theyearwas4pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0AdDrKVmA5HkhYz0PC7rOd",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-year-was-1983/pl.u-JPAZEj2tLmaY387",
+  "product_title": "\"The Year Was...\" 5 Pack of Games - Download And Print Music Bingo Cards"
+ },
+ "The Year Was 2009": {
+  "slug": "the-year-was-2009",
+  "pack": "The Year Was 2009",
+  "total": 32,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Boom Boom Pow",
+    "by": "Black Eyed Peas"
+   },
+   {
+    "song": "Poker Face",
+    "by": "Lady Gaga"
+   },
+   {
+    "song": "Love Story",
+    "by": "Taylor Swift"
+   },
+   {
+    "song": "Right Round (feat. Ke$ha)",
+    "by": "Flo Rida, Ke$ha"
+   },
+   {
+    "song": "I'm Yours",
+    "by": "Jason Mraz"
+   },
+   {
+    "song": "Single Ladies (Put a Ring on It)",
+    "by": "Beyonce"
+   },
+   {
+    "song": "Gives You Hell",
+    "by": "The All-American Rejects"
+   },
+   {
+    "song": "Heartless",
+    "by": "Kanye West"
+   },
+   {
+    "song": "You Found Me",
+    "by": "The Fray"
+   },
+   {
+    "song": "Use Somebody",
+    "by": "Kings Of Leon"
+   },
+   {
+    "song": "Blame It",
+    "by": "Jamie Foxx, T-Pain"
+   },
+   {
+    "song": "Down (feat. Lil Wayne)",
+    "by": "Jay Sean, Lil Wayne"
+   },
+   {
+    "song": "The Climb",
+    "by": "Miley Cyrus"
+   },
+   {
+    "song": "My Life Would Suck Without You",
+    "by": "Kelly Clarkson"
+   },
+   {
+    "song": "Hot N Cold",
+    "by": "Katy Perry"
+   },
+   {
+    "song": "Second Chance",
+    "by": "Shinedown"
+   },
+   {
+    "song": "Circus",
+    "by": "Britney Spears"
+   },
+   {
+    "song": "Day 'n' Nite",
+    "by": "Kid Cudi"
+   },
+   {
+    "song": "Fire Burning",
+    "by": "Sean Kingston"
+   },
+   {
+    "song": "Whatcha Say",
+    "by": "Jason Derulo"
+   },
+   {
+    "song": "Sober",
+    "by": "P!nk"
+   },
+   {
+    "song": "Crack A Bottle",
+    "by": "Eminem, Dr. Dre, 50 Cent"
+   },
+   {
+    "song": "Obsessed",
+    "by": "Mariah Carey"
+   },
+   {
+    "song": "Viva La Vida",
+    "by": "Coldplay"
+   },
+   {
+    "song": "Womanizer",
+    "by": "Britney Spears"
+   },
+   {
+    "song": "Love Drunk",
+    "by": "Boys Like Girls"
+   },
+   {
+    "song": "Whatever It Is",
+    "by": "Zac Brown Band"
+   },
+   {
+    "song": "Then",
+    "by": "Brad Paisley"
+   },
+   {
+    "song": "Disturbia",
+    "by": "Rihanna"
+   },
+   {
+    "song": "Chicken Fried",
+    "by": "Zac Brown Band"
+   },
+   {
+    "song": "She Wolf",
+    "by": "Shakira"
+   },
+   {
+    "song": "New Divide",
+    "by": "Linkin Park"
+   }
+  ],
+  "url": "/store/p101/theyearwas4pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0AdDrKVmA5HkhYz0PC7rOd",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-year-was-1983/pl.u-JPAZEj2tLmaY387",
+  "product_title": "\"The Year Was...\" 5 Pack of Games - Download And Print Music Bingo Cards"
+ },
+ "The Year Was 2022": {
+  "slug": "the-year-was-2022",
+  "pack": "The Year Was 2022",
+  "total": 33,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "As It Was",
+    "by": "Harry Styles"
+   },
+   {
+    "song": "abc (nicer)",
+    "by": "GAYLE"
+   },
+   {
+    "song": "About Damn Time",
+    "by": "Lizzo"
+   },
+   {
+    "song": "Made You Look",
+    "by": "Meghan Trainor"
+   },
+   {
+    "song": "Victoria's Secret",
+    "by": "Jax"
+   },
+   {
+    "song": "I Ain't Worried",
+    "by": "OneRepublic"
+   },
+   {
+    "song": "Bad Habit",
+    "by": "Steve Lacy"
+   },
+   {
+    "song": "Boyfriend",
+    "by": "Dove Cameron"
+   },
+   {
+    "song": "Jiggle Jiggle (with Duke & Jones)",
+    "by": "Louis Theroux, Duke & Jones"
+   },
+   {
+    "song": "Sunroof",
+    "by": "Nicky Youre, dazy"
+   },
+   {
+    "song": "Dandelions",
+    "by": "Ruth B."
+   },
+   {
+    "song": "Anti-Hero",
+    "by": "Taylor Swift"
+   },
+   {
+    "song": "Down Under (feat. Colin Hay)",
+    "by": "Luude, Colin Hay"
+   },
+   {
+    "song": "SPACE MAN",
+    "by": "Sam Ryder"
+   },
+   {
+    "song": "Die For You",
+    "by": "The Weeknd"
+   },
+   {
+    "song": "BREAK MY SOUL",
+    "by": "Beyonce"
+   },
+   {
+    "song": "Until I Found You",
+    "by": "Stephen Sanchez"
+   },
+   {
+    "song": "Ferrari",
+    "by": "James Hype, Miggy Dela Rosa Ryan Reynolds, Will"
+   },
+   {
+    "song": "Good Afternoon",
+    "by": "Ferrell, The Spirited Ensemble"
+   },
+   {
+    "song": "Angeleyes",
+    "by": "ABBA"
+   },
+   {
+    "song": "Lost",
+    "by": "Frank Ocean"
+   },
+   {
+    "song": "Betty (Get Money)",
+    "by": "Yung Gravy"
+   },
+   {
+    "song": "Genesis",
+    "by": "Grimes"
+   },
+   {
+    "song": "SUPERMODEL",
+    "by": "Maneskin"
+   },
+   {
+    "song": "Mr Worldwide",
+    "by": "Pete & Bas"
+   },
+   {
+    "song": "Sweater Weather",
+    "by": "The Neighbourhood"
+   },
+   {
+    "song": "This Is Why",
+    "by": "Paramore"
+   },
+   {
+    "song": "Back To The Radio",
+    "by": "Porridge Radio"
+   },
+   {
+    "song": "N95",
+    "by": "Kendrick Lamar"
+   },
+   {
+    "song": "Body Paint",
+    "by": "Arctic Monkeys"
+   },
+   {
+    "song": "Sticky",
+    "by": "Drake"
+   },
+   {
+    "song": "Western Wind",
+    "by": "Carly Rae Jepsen"
+   },
+   {
+    "song": "I Ran Down Every Dream",
+    "by": "Tommy McLain, Elvis Costello"
+   }
+  ],
+  "url": "/store/p101/theyearwas4pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/0AdDrKVmA5HkhYz0PC7rOd",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-the-year-was-1983/pl.u-JPAZEj2tLmaY387",
+  "product_title": "\"The Year Was...\" 5 Pack of Games - Download And Print Music Bingo Cards"
+ },
+ "Movie Soundtracks 3": {
+  "slug": "movie-soundtracks-3",
+  "pack": "Movie Soundtracks 3",
+  "total": 27,
+  "second_col": "Artist",
+  "via": "bundle",
+  "tracks": [
+   {
+    "song": "Hakuna Matata",
+    "by": "Rogen, JayDon, Donald Glover"
+   },
+   {
+    "song": "Lovely Day",
+    "by": "Bill Withers"
+   },
+   {
+    "song": "Footloose - From \"Footloose\" Soundtrack",
+    "by": "Kenny Loggins"
+   },
+   {
+    "song": "The Bird and the Worm Supercalifragilisticexpialidoci",
+    "by": "The Used Julie Andrews, Dick"
+   },
+   {
+    "song": "ous",
+    "by": "Van Dyke, The Pearlie Chorus"
+   },
+   {
+    "song": "I Can Help",
+    "by": "Billy Swan"
+   },
+   {
+    "song": "Fame",
+    "by": "Irene Cara"
+   },
+   {
+    "song": "Creep",
+    "by": "Scala & Kolacny Brothers"
+   },
+   {
+    "song": "Over The Rainbow",
+    "by": "Judy Garland"
+   },
+   {
+    "song": "Immigrant Song - Karen O with Trent Reznor",
+    "by": "Trent Reznor, Atticus Ross"
+   },
+   {
+    "song": "Star Spangled Man",
+    "by": "The Star Spangled Singers"
+   },
+   {
+    "song": "Wind Beneath My Wings",
+    "by": "Bette Midler"
+   },
+   {
+    "song": "Mrs. Robinson - Version 2 CAN'T STOP THE FEELING!",
+    "by": "Simon & Garfunkel"
+   },
+   {
+    "song": "(from DreamWorks Animation's \"TROLLS\")",
+    "by": "Justin Timberlake"
+   },
+   {
+    "song": "My Hero",
+    "by": "Foo Fighters"
+   },
+   {
+    "song": "Singin' In The Rain",
+    "by": "Gene Kelly Mickey Rooney, Feist,"
+   },
+   {
+    "song": "Life's A Happy Song",
+    "by": "Amy Adams, Jason Segel"
+   },
+   {
+    "song": "Take My Breath Away - Love Theme from \"Top Gun\"",
+    "by": "Berlin"
+   },
+   {
+    "song": "Moon River (From \"Breakfast at Tiffany's\")",
+    "by": "Andy Williams"
+   },
+   {
+    "song": "Non, je ne regrette rien",
+    "by": "Edith Piaf"
+   },
+   {
+    "song": "Flashdance... What A Feeling",
+    "by": "Irene Cara"
+   },
+   {
+    "song": "When You Wish Upon a Star Oh Yeah (Made Famous by",
+    "by": "Cliff Edwards, Disney Studio Chorus"
+   },
+   {
+    "song": "Yello) (as heard in Ferris Bueller's Day Off)",
+    "by": "Ferris Bueller"
+   },
+   {
+    "song": "Disco Inferno - Edit",
+    "by": "The Trammps"
+   },
+   {
+    "song": "Threshold",
+    "by": "Sex Bob-Omb"
+   },
+   {
+    "song": "This Town Ain't Big Enough for Both of Us",
+    "by": "Sparks"
+   },
+   {
+    "song": "Don't You (Forget About Me)",
+    "by": "Simple Minds"
+   }
+  ],
+  "url": "/store/p127/moviesoundtracks3pack.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/2FPV7JZslfAiNHF0dx20oH",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-movie-soundtracks/pl.u-mJy8gWPFNbpXW08",
+  "product_title": "Movie Soundtracks 3-Pack - Download And Print Music Bingo Cards"
+ },
+ "Stadium Songs": {
+  "slug": "stadium-songs",
+  "pack": "Stadium Songs",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "We Will Rock You - Remastered 2011",
+    "by": "Queen"
+   },
+   {
+    "song": "Jump Around",
+    "by": "House Of Pain"
+   },
+   {
+    "song": "Pump Up The Jam - Edit",
+    "by": "Technotronic, Felly"
+   },
+   {
+    "song": "Gonna Fly Now - Theme From \"Rocky\" Gonna Make You Sweat",
+    "by": "Bill Conti C+C Music Factory,"
+   },
+   {
+    "song": "(Everybody Dance Now) (feat. Freedom Williams)",
+    "by": "Freedom Williams"
+   },
+   {
+    "song": "Hit Me With Your Best Shot - Remastered Take Me Out to the Ball Game",
+    "by": "Pat Benatar Ball Park Stadium"
+   },
+   {
+    "song": "- Boston Red Sox Ballpark Version",
+    "by": "Organist"
+   },
+   {
+    "song": "Hurricane",
+    "by": "Bob Dylan"
+   },
+   {
+    "song": "Welcome To The Jungle",
+    "by": "Guns N' Roses"
+   },
+   {
+    "song": "Turn Down for What All I Do Is Win (feat. T-Pain,",
+    "by": "DJ Snake, Lil Jon"
+   },
+   {
+    "song": "Ludacris, Snoop Dogg & Rick Ross)",
+    "by": "DJ Khaled"
+   },
+   {
+    "song": "Monday Night Football",
+    "by": "John Parr"
+   },
+   {
+    "song": "Jump",
+    "by": "Van Halen"
+   },
+   {
+    "song": "Black and Yellow",
+    "by": "Wiz Khalifa"
+   },
+   {
+    "song": "Rock 'n' Roll (Part 2)",
+    "by": "Gary Glitter"
+   },
+   {
+    "song": "Eye of the Tiger",
+    "by": "Survivor"
+   },
+   {
+    "song": "Seven Nation Army",
+    "by": "The White Stripes"
+   },
+   {
+    "song": "Blitzkrieg Bop - 2016 Remaster",
+    "by": "Ramones"
+   },
+   {
+    "song": "Ymca",
+    "by": "Village People"
+   },
+   {
+    "song": "Chariots Of Fire",
+    "by": "Vangelis"
+   },
+   {
+    "song": "Who Let The Dogs Out",
+    "by": "Baha Men"
+   },
+   {
+    "song": "Enter Sandman                         M",
+    "by": "etallica                    M"
+   },
+   {
+    "song": "Camptown Races                        T",
+    "by": "he Goanna Gang              S"
+   },
+   {
+    "song": "Bicycle Race                          Q",
+    "by": "ueen                        J"
+   },
+   {
+    "song": "Rock You Like a Hurricane -           S 2011",
+    "by": "corpions                    C"
+   },
+   {
+    "song": "Free Bird                             L",
+    "by": "ynyrd Skynyrd               P '"
+   },
+   {
+    "song": "We Are The Champions -                Q Remastered 2011 La Copa de la Vida (La",
+    "by": "ueen                        N E"
+   },
+   {
+    "song": "Cancion Oficial de la Copa            R Mundial, Francia '98) - Spanglish Radio Edit",
+    "by": "icky Martin                 R"
+   },
+   {
+    "song": "Sweet Caroline                        N",
+    "by": "eil Diamond                 S"
+   }
+  ],
+  "url": "/store/p124/stadiumsongs.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/543vHn8MNSHfRd1SocZR0n",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-stadium-songs/pl.u-aZb0kGxu1NkB2rZ",
+  "product_title": "Stadium Songs - Download And Print Music Bingo Cards"
+ },
+ "TV Themes 2": {
+  "slug": "tv-themes-2",
+  "pack": "TV Themes 2",
+  "total": 55,
+  "second_col": "TV Show",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Mr. Rogers' Neighborhood (Soundalike Version)",
+    "by": "Mr. Rogers' Neighborhood"
+   },
+   {
+    "song": "The Jeffersons Theme (Movin' On Up)",
+    "by": "The Jeffersons"
+   },
+   {
+    "song": "The Sopranos Theme - Woke Up This Morning - Exacto Mix",
+    "by": "The Sopranos"
+   },
+   {
+    "song": "Those Were The Days (All In The Family Theme)",
+    "by": "All In The Family"
+   },
+   {
+    "song": "Family Guy Main Title - From \"Family Guy\"",
+    "by": "Family Guy"
+   },
+   {
+    "song": "The Beverly Hillbillies - Main Theme",
+    "by": "The Beverly Hillbillies"
+   },
+   {
+    "song": "Gilligan's Island",
+    "by": "Gilligan's Island"
+   },
+   {
+    "song": "Theme From The Brady Bunch",
+    "by": "The Brady Bunch"
+   },
+   {
+    "song": "Looney Tunes Theme",
+    "by": "Looney Tunes"
+   },
+   {
+    "song": "MASH - The TV Theme",
+    "by": "M*A*S*H"
+   },
+   {
+    "song": "Threes Company Theme",
+    "by": "Three's Company"
+   },
+   {
+    "song": "The Golden Girls - The Main Title Theme",
+    "by": "The Golden Girls"
+   },
+   {
+    "song": "Who's the Boss",
+    "by": "Who's the Boss?"
+   },
+   {
+    "song": "Doogie Howser, M.D.",
+    "by": "Doogie Howser, M.D."
+   },
+   {
+    "song": "Frasier - Tossed Salad and Scrambled Eggs - Cover Version",
+    "by": "Frasier"
+   },
+   {
+    "song": "South Park",
+    "by": "South Park"
+   },
+   {
+    "song": "King of the Hill Theme",
+    "by": "King of the Hill"
+   },
+   {
+    "song": "Rugrats Official Theme Song",
+    "by": "Rugrats"
+   },
+   {
+    "song": "Theme From Beverly Hills 90210",
+    "by": "Beverly Hills, 90210"
+   },
+   {
+    "song": "Animaniacs - Opening Title",
+    "by": "Animaniacs"
+   },
+   {
+    "song": "30 Rock (Main Theme)",
+    "by": "30 Rock"
+   },
+   {
+    "song": "Mad Men Theme",
+    "by": "Mad Men"
+   },
+   {
+    "song": "Big Bang Theory Theme",
+    "by": "The Big Bang Theory"
+   },
+   {
+    "song": "Teenage Mutant Ninja Turtles Cartoon Opening Theme (1987)",
+    "by": "Teenage Mutant Ninja Turtles"
+   },
+   {
+    "song": "Duck Tales Theme - From \"Duck Tales\"",
+    "by": "DuckTales"
+   },
+   {
+    "song": "SpongeBob SquarePants Theme Song",
+    "by": "SpongeBob SquarePants"
+   },
+   {
+    "song": "Peanuts Theme",
+    "by": "Peanuts"
+   },
+   {
+    "song": "Coronation Street",
+    "by": "Coronation Street"
+   },
+   {
+    "song": "Full House",
+    "by": "Full House"
+   },
+   {
+    "song": "Saved By The Bell - The TV Theme",
+    "by": "Saved By The Bell"
+   },
+   {
+    "song": "Theme from \"Parks and Recreation\" (Main Theme)",
+    "by": "Parks and Recreation"
+   },
+   {
+    "song": "Malcolm In The Middle (Theme)",
+    "by": "Malcolm In The Middle"
+   },
+   {
+    "song": "(Theme From) The Monkees",
+    "by": "The Monkees"
+   },
+   {
+    "song": "Superhero (Main Theme from \"Entourage\")",
+    "by": "Entourage"
+   },
+   {
+    "song": "Rick and Morty Theme",
+    "by": "Rick and Morty"
+   },
+   {
+    "song": "Stranger Things",
+    "by": "Stranger Things"
+   },
+   {
+    "song": "BoJack's Theme (Full Length)",
+    "by": "BoJack Horseman"
+   },
+   {
+    "song": "Theme From Wheel Of Fortune",
+    "by": "Wheel Of Fortune"
+   },
+   {
+    "song": "The Family Feud Theme Song",
+    "by": "Family Feud"
+   },
+   {
+    "song": "The Dukes Of Hazzard Main Theme (From \"The Dukes of Hazzard\")",
+    "by": "The Dukes of Hazzard"
+   },
+   {
+    "song": "Mission Impossible",
+    "by": "Mission: Impossible"
+   },
+   {
+    "song": "That 70's Show (In the Street)",
+    "by": "That '70s Show"
+   },
+   {
+    "song": "Theme From Star Trek",
+    "by": "Star Trek"
+   },
+   {
+    "song": "The Lone Ranger Theme",
+    "by": "The Lone Ranger"
+   },
+   {
+    "song": "Mad About You",
+    "by": "Mad About You"
+   },
+   {
+    "song": "Home Improvement",
+    "by": "Home Improvement"
+   },
+   {
+    "song": "Roseanne",
+    "by": "Roseanne"
+   },
+   {
+    "song": "Kids in the Hall",
+    "by": "Kids in the Hall"
+   },
+   {
+    "song": "The Mandalorian Theme - Chapter 1 (From \"The Mandalorian\")",
+    "by": "The Mandalorian"
+   },
+   {
+    "song": "Bad Boys (Theme from COPS)",
+    "by": "COPS"
+   },
+   {
+    "song": "Sex and the City Theme - From \"Sex and the City\"",
+    "by": "Sex and the City"
+   },
+   {
+    "song": "I Dream of Genie",
+    "by": "I Dream of Jeannie"
+   },
+   {
+    "song": "Will & Grace - Opening Theme",
+    "by": "Will & Grace"
+   },
+   {
+    "song": "Get Smart",
+    "by": "Get Smart"
+   },
+   {
+    "song": "Beavis & Butt Head",
+    "by": "Beavis and Butt-Head"
+   }
+  ],
+  "url": "/store/p163/tvthemes2.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/7sJpk4tebMm6aaMAzBwINc",
+  "apple": "https://music.apple.com/ca/playlist/music-bingo-tv-themes-2/pl.u-aZb009ru1NkB2rZ",
+  "product_title": "Tv Themes 2 - Download And Print Music Bingo Cards"
+ },
+ "Video Games": {
+  "slug": "video-games",
+  "pack": "Video Games",
+  "total": 30,
+  "second_col": "Game",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Pac-Man Theme",
+    "by": "Pac-Man"
+   },
+   {
+    "song": "Tetris - Dubstep Remake",
+    "by": "Tetris"
+   },
+   {
+    "song": "Frogger Theme (Inu No Omawarisan)",
+    "by": "Frogger"
+   },
+   {
+    "song": "Mega Man 2: Dr. Wiley Stage 1",
+    "by": "Mega Man 2"
+   },
+   {
+    "song": "Contra Theme (From \"Contra\")",
+    "by": "Contra"
+   },
+   {
+    "song": "Title Theme (Inu No Omawarisan)",
+    "by": "Sonic the Hedgehog"
+   },
+   {
+    "song": "Donkey Kong Country Theme",
+    "by": "Donkey Kong Country"
+   },
+   {
+    "song": "Dig Dug Theme (From \"Dig Dug\")",
+    "by": "Dig Dug"
+   },
+   {
+    "song": "Koopa Beach (Super Mario Kart)",
+    "by": "Super Mario Kart"
+   },
+   {
+    "song": "Kirby's Dream Land (Green Greens Theme) [From \"Kirby's Dreamland\"]",
+    "by": "Kirby's Dream Land"
+   },
+   {
+    "song": "Final Fantasy X Theme (To Zanarkand) [From \"Final Fantasy X\"]",
+    "by": "Final Fantasy X"
+   },
+   {
+    "song": "Crash Bandicoot Theme (From \"Crash Bandicoot\")",
+    "by": "Crash Bandicoot"
+   },
+   {
+    "song": "Theme From Gears Of War",
+    "by": "Gears of War"
+   },
+   {
+    "song": "Theme From Tomb Raider: Elevation",
+    "by": "Tomb Raider"
+   },
+   {
+    "song": "Theme From Pokemon",
+    "by": "Pokemon"
+   },
+   {
+    "song": "Skyrim (Main Theme)",
+    "by": "Skyrim"
+   },
+   {
+    "song": "World of Warcraft",
+    "by": "World of Warcraft"
+   },
+   {
+    "song": "Theme From StreetFighter",
+    "by": "Street Fighter"
+   },
+   {
+    "song": "Theme from Doom",
+    "by": "Doom"
+   },
+   {
+    "song": "Theme from StarFox",
+    "by": "Star Fox"
+   },
+   {
+    "song": "The Legend of Zelda",
+    "by": "The Legend of Zelda"
+   },
+   {
+    "song": "Assassin's Creed - Revelations: Main Theme",
+    "by": "Assassin's Creed: Revelations"
+   },
+   {
+    "song": "Chrono Trigger: Main Theme",
+    "by": "Chrono Trigger"
+   },
+   {
+    "song": "Earthworm Jim (Live)",
+    "by": "Earthworm Jim"
+   },
+   {
+    "song": "Batman Arkham City: Main Theme",
+    "by": "Batman: Arkham City"
+   },
+   {
+    "song": "Super Mario Bros: Theme",
+    "by": "Super Mario Bros."
+   },
+   {
+    "song": "Duke Nukem",
+    "by": "Duke Nukem"
+   },
+   {
+    "song": "Put Em Up (Punch-Out!!)",
+    "by": "Punch-Out!!"
+   },
+   {
+    "song": "It Begins \"Super Metroid Theme\"",
+    "by": "Super Metroid"
+   },
+   {
+    "song": "Fortnite (Battle Royale Theme)",
+    "by": "Fortnite"
+   }
+  ],
+  "url": "/store/p95/videogames.html",
+  "price": null,
+  "spotify": null,
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-video-games/pl.u-JPAZb29FLmaY387",
+  "product_title": "Video Games - Download And Print Music Bingo Cards"
+ },
+ "Rocker Moms": {
+  "slug": "rocker-moms",
+  "pack": "Rocker Moms",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Mama",
+    "by": "Spice Girls"
+   },
+   {
+    "song": "Mamma Mia",
+    "by": "ABBA"
+   },
+   {
+    "song": "Mom (feat. Kelli Trainor)",
+    "by": "Meghan Trainor, Kelli Trainor"
+   },
+   {
+    "song": "Stacy's Mom",
+    "by": "Fountains Of Wayne"
+   },
+   {
+    "song": "Mr. Mom",
+    "by": "Lonestar"
+   },
+   {
+    "song": "Sylvia's Mother",
+    "by": "Dr. Hook"
+   },
+   {
+    "song": "Mama Said",
+    "by": "Lukas Graham"
+   },
+   {
+    "song": "A Song For Mama",
+    "by": "Boyz II Men"
+   },
+   {
+    "song": "California Dreamin' - Single Version How I met your mother (TV",
+    "by": "The Mamas & The Papas"
+   },
+   {
+    "song": "Series) - Opening Theme Quadruple Length",
+    "by": "Good Feelas"
+   },
+   {
+    "song": "Mother",
+    "by": "Pink Floyd"
+   },
+   {
+    "song": "Mother Mother",
+    "by": "Tracy Bonham"
+   },
+   {
+    "song": "Mother Can You Carry Me",
+    "by": "Rick Springfield"
+   },
+   {
+    "song": "One More Astronaut",
+    "by": "I Mother Earth"
+   },
+   {
+    "song": "Mama Said Knock You Out",
+    "by": "LL COOL J"
+   },
+   {
+    "song": "M.O.M",
+    "by": "Water Will"
+   },
+   {
+    "song": "Does Your Mother Know",
+    "by": "ABBA"
+   },
+   {
+    "song": "Mother and Child Reunion",
+    "by": "Paul Simon"
+   },
+   {
+    "song": "Tie Your Mother Down - Remastered 2011",
+    "by": "Queen"
+   },
+   {
+    "song": "Mother Dawn",
+    "by": "Billy Idol"
+   },
+   {
+    "song": "Your Mother Should Know - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Nobody Loves Me But My Mother",
+    "by": "B.B. King"
+   },
+   {
+    "song": "Hey Mama",
+    "by": "Kanye West"
+   },
+   {
+    "song": "Mother Goose",
+    "by": "Jethro Tull"
+   },
+   {
+    "song": "Mother Of Mercy",
+    "by": "Iron Maiden"
+   },
+   {
+    "song": "Holy Mother - 1999 Remaster",
+    "by": "Eric Clapton"
+   },
+   {
+    "song": "Mother Father",
+    "by": "Dave Matthews Band"
+   },
+   {
+    "song": "Oh Mother",
+    "by": "Christina Aguilera"
+   },
+   {
+    "song": "Mama, I'm Coming Home",
+    "by": "Ozzy Osbourne"
+   }
+  ],
+  "url": "/store/p72/rockermoms.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/07JjGglZllPgP0qKXlYA1W",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-rocker-moms/pl.u-mJy8gPRuNbpXW08",
+  "product_title": "Rocker Moms - Download And Print Music Bingo Cards"
+ },
+ "St. Patrick's Day": {
+  "slug": "st-patrick-s-day",
+  "pack": "St. Patrick's Day",
+  "total": 29,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Irish Rover",
+    "by": "The Pogues, The Dubliners"
+   },
+   {
+    "song": "Drunken Sailor",
+    "by": "Great Big Sea"
+   },
+   {
+    "song": "The Boys Are Back In Town",
+    "by": "Thin Lizzy"
+   },
+   {
+    "song": "The Unicorn Song",
+    "by": "St Patrick All-Stars"
+   },
+   {
+    "song": "An Irish Pub Song",
+    "by": "The Rumjacks"
+   },
+   {
+    "song": "Whiskey In The Jar",
+    "by": "Thin Lizzy"
+   },
+   {
+    "song": "The Real Old Mountain Dew",
+    "by": "The Clancy Brothers & Tommy Makem"
+   },
+   {
+    "song": "Kiss Me I'm #!@'faced",
+    "by": "Dropkick Murphys"
+   },
+   {
+    "song": "The Night Pat Murphy Died",
+    "by": "Great Big Sea"
+   },
+   {
+    "song": "Drunken Lullabies",
+    "by": "Flogging Molly"
+   },
+   {
+    "song": "Galway Girl",
+    "by": "Ed Sheeran"
+   },
+   {
+    "song": "I'm Shipping Up To Boston",
+    "by": "Dropkick Murphys"
+   },
+   {
+    "song": "The Wild Rover",
+    "by": "The Dubliners"
+   },
+   {
+    "song": "Sunday Bloody Sunday - Remastered 2008",
+    "by": "U2"
+   },
+   {
+    "song": "C'est La Vie",
+    "by": "B*Witched"
+   },
+   {
+    "song": "Salty Dog",
+    "by": "Flogging Molly"
+   },
+   {
+    "song": "Danny Boy",
+    "by": "Johnny Cash"
+   },
+   {
+    "song": "Seven Drunken Nights",
+    "by": "The Dubliners"
+   },
+   {
+    "song": "Dirty Old Town",
+    "by": "The Pogues"
+   },
+   {
+    "song": "Zombie",
+    "by": "The Cranberries"
+   },
+   {
+    "song": "Sad Leprechaun",
+    "by": "The Crazy Rogues"
+   },
+   {
+    "song": "The Jolly Roving Tar",
+    "by": "The Irish Rovers"
+   },
+   {
+    "song": "Take Me To Church",
+    "by": "Hozier"
+   },
+   {
+    "song": "Molly Malone",
+    "by": "The Dubliners Macklemore & Ryan"
+   },
+   {
+    "song": "Irish Celebration",
+    "by": "Lewis, Macklemore, Ryan Lewis"
+   },
+   {
+    "song": "I Don't Like Mondays",
+    "by": "The Boomtown Rats"
+   },
+   {
+    "song": "What You Know",
+    "by": "Two Door Cinema Club"
+   },
+   {
+    "song": "18 and Life",
+    "by": "Skid Row"
+   },
+   {
+    "song": "Riverdance",
+    "by": "Bill Whelan"
+   }
+  ],
+  "url": "/store/p136/stpaddysbingo.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/3ZBCpbliKeGqXUQLvlTfHv",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-st-patricks-day/pl.u-mJy8gE0INbpXW08",
+  "product_title": "St Patrick's Day - Download And Print Music Bingo Cards"
+ },
+ "April Fools (Soundalikes)": {
+  "slug": "april-fools-soundalikes",
+  "pack": "April Fools (Soundalikes)",
+  "total": 38,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Hot Cross Buns",
+    "by": "Piano Harmony"
+   },
+   {
+    "song": "3 Blind Mice",
+    "by": "Vicky Airlidge"
+   },
+   {
+    "song": "You Give Love A Bad Name",
+    "by": "Bon Jovi"
+   },
+   {
+    "song": "Kings & Queens",
+    "by": "Ava Max"
+   },
+   {
+    "song": "I'm Coming Out Mo Money Mo Problems (feat.",
+    "by": "Diana Ross The Notorious B.I.G.,"
+   },
+   {
+    "song": "Puff Daddy & Mase) - 2014 Remaster",
+    "by": "Mase, Diddy"
+   },
+   {
+    "song": "You Can't Hurry Love",
+    "by": "The Supremes"
+   },
+   {
+    "song": "Lust For Life",
+    "by": "Iggy Pop"
+   },
+   {
+    "song": "Are You Gonna Be My Girl",
+    "by": "Jet"
+   },
+   {
+    "song": "That's Not My Name",
+    "by": "The Ting Tings"
+   },
+   {
+    "song": "Under Pressure",
+    "by": "Queen, David Bowie"
+   },
+   {
+    "song": "Ice Ice Baby",
+    "by": "Vanilla Ice"
+   },
+   {
+    "song": "Blurred Lines",
+    "by": "Robin Thicke, T.I., Pharrell Williams"
+   },
+   {
+    "song": "Got To Give It Up - Pt. 1",
+    "by": "Marvin Gaye"
+   },
+   {
+    "song": "Straight to Hell - Remastered",
+    "by": "The Clash"
+   },
+   {
+    "song": "Paper Planes",
+    "by": "M.I.A."
+   },
+   {
+    "song": "Hey Mickey",
+    "by": "Toni Basil"
+   },
+   {
+    "song": "Can I Kick It?",
+    "by": "A Tribe Called Quest"
+   },
+   {
+    "song": "Walk On the Wild Side",
+    "by": "Lou Reed"
+   },
+   {
+    "song": "Bootylicious",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "Edge of Seventeen",
+    "by": "Stevie Nicks"
+   },
+   {
+    "song": "Werewolves of London",
+    "by": "Warren Zevon"
+   },
+   {
+    "song": "All Summer Long",
+    "by": "Kid Rock"
+   },
+   {
+    "song": "Angel",
+    "by": "Shaggy, Rayvon"
+   },
+   {
+    "song": "The Joker",
+    "by": "Steve Miller Band"
+   },
+   {
+    "song": "Angel Of The Morning",
+    "by": "Juice Newton"
+   },
+   {
+    "song": "Wild Thoughts (feat. Rihanna, Bryson Tiller)",
+    "by": "DJ Khaled, Rihanna, Bryson Tiller"
+   },
+   {
+    "song": "Maria Maria (feat. The Product G&B;)",
+    "by": "Santana, The Product G&B;"
+   },
+   {
+    "song": "Johnny B. Goode",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "Fun, Fun, Fun",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "Ghostbusters",
+    "by": "Ray Parker Jr."
+   },
+   {
+    "song": "I Want A New Drug",
+    "by": "Huey Lewis & The News"
+   },
+   {
+    "song": "Why Don't You Get A Job",
+    "by": "The Offspring"
+   },
+   {
+    "song": "Ob-La-Di, Ob-La-Da - Remastered 2009",
+    "by": "The Beatles"
+   },
+   {
+    "song": "Mary Jane's Last Dance",
+    "by": "Tom Petty and the Heartbreakers"
+   },
+   {
+    "song": "Dani California",
+    "by": "Red Hot Chili Peppers"
+   },
+   {
+    "song": "Rock And Roll Part II",
+    "by": "Gary Glitter"
+   },
+   {
+    "song": "Feeling Good",
+    "by": "The Sheepdogs"
+   }
+  ],
+  "url": "/store/p149/aprilsfoolsday.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/4BxYvgYmEggnS2de8H0Pjf",
+  "apple": "https://music.apple.com/us/playlist/music-bingo-april-fools-day/pl.u-mJy81qJTNbpXW08",
+  "product_title": "Soundalikes Music Bingo - Perfect For April Fool's Day"
+ },
+ "Halloween Party": {
+  "slug": "halloween-party",
+  "pack": "Halloween Party",
+  "total": 30,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Thriller (Single Version)",
+    "by": "Michael Jackson"
+   },
+   {
+    "song": "Ghostbusters",
+    "by": "Ray Parker Jr."
+   },
+   {
+    "song": "Monster Mash (Re-Recording)",
+    "by": "Bobby \"Boris\" Pickett"
+   },
+   {
+    "song": "Heathens",
+    "by": "twenty one pilots"
+   },
+   {
+    "song": "Witchcraft (Remastered 2000)",
+    "by": "Frank Sinatra"
+   },
+   {
+    "song": "Nightmare on Elm Street",
+    "by": "The Misfits"
+   },
+   {
+    "song": "Witchy Woman (2013 Remaster)",
+    "by": "Eagles"
+   },
+   {
+    "song": "Somebody's Watching Me (Single Version)",
+    "by": "Rockwell"
+   },
+   {
+    "song": "Werewolves of London (2007 Remaster)",
+    "by": "Warren Zevon"
+   },
+   {
+    "song": "I Put a Spell On You",
+    "by": "Screamin' Jay Hawkins"
+   },
+   {
+    "song": "(Don't Fear) The Reaper",
+    "by": "Blue Oyster Cult"
+   },
+   {
+    "song": "Superstition (Single Version)",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "Zombie",
+    "by": "The Cranberries"
+   },
+   {
+    "song": "Dragula",
+    "by": "Rob Zombie"
+   },
+   {
+    "song": "The Addams Family",
+    "by": "The City Of Prague Philharmonic Orchestra"
+   },
+   {
+    "song": "Abracadabra",
+    "by": "The Steve Miller Band"
+   },
+   {
+    "song": "Creep",
+    "by": "Radiohead"
+   },
+   {
+    "song": "I Want Candy",
+    "by": "Bow Wow Wow"
+   },
+   {
+    "song": "A Nightmare on My Street",
+    "by": "DJ Jazzy Jeff & The Fresh Prince"
+   },
+   {
+    "song": "Runnin' With The Devil (2015 Remaster)",
+    "by": "Van Halen"
+   },
+   {
+    "song": "Hungry Like the Wolf (2009 Remaster)",
+    "by": "Duran Duran"
+   },
+   {
+    "song": "Hells Bells",
+    "by": "AC/DC"
+   },
+   {
+    "song": "People Are Strange",
+    "by": "The Doors"
+   },
+   {
+    "song": "Voodoo Child (Slight Return)",
+    "by": "Jimi Hendrix"
+   },
+   {
+    "song": "Sympathy For The Devil",
+    "by": "The Rolling Stones"
+   },
+   {
+    "song": "Bark at the Moon",
+    "by": "Ozzy Osbourne"
+   },
+   {
+    "song": "The Monster (feat. Rihanna)",
+    "by": "Eminem"
+   },
+   {
+    "song": "Feed My Frankenstein",
+    "by": "Alice Cooper"
+   },
+   {
+    "song": "Creeping Death (Remastered)",
+    "by": "Metallica"
+   },
+   {
+    "song": "Psycho Killer (2005 Remaster)",
+    "by": "Talking Heads"
+   }
+  ],
+  "url": "/store/p97/halloweenparty.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/6g9S4D2NhvMgsBWzho1B3M",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-halloween-party/pl.u-V9D7vKEF3Rmz4No",
+  "product_title": "Halloween Party - Download And Print Music Bingo Cards"
+ },
+ "Christmas Party": {
+  "slug": "christmas-party",
+  "pack": "Christmas Party",
+  "total": 32,
+  "second_col": "Artist",
+  "via": null,
+  "tracks": [
+   {
+    "song": "Rockin' Around the Christmas Tree",
+    "by": "Brenda Lee"
+   },
+   {
+    "song": "Santa Baby",
+    "by": "Kylie Minogue"
+   },
+   {
+    "song": "Blue Christmas",
+    "by": "Elvis Presley, Martina McBride John Lennon, The"
+   },
+   {
+    "song": "Happy Xmas (War Is Over) - Remastered 2010",
+    "by": "Harlem Community Choir, The Plastic Ono Band, Yoko Ono"
+   },
+   {
+    "song": "8 Days of Christmas",
+    "by": "Destiny's Child"
+   },
+   {
+    "song": "All I Want for Christmas Is You",
+    "by": "Mariah Carey"
+   },
+   {
+    "song": "Mistletoe",
+    "by": "Justin Bieber"
+   },
+   {
+    "song": "Holly Jolly Christmas",
+    "by": "Michael Buble"
+   },
+   {
+    "song": "Last Christmas",
+    "by": "Wham!"
+   },
+   {
+    "song": "Run Rudolph Run",
+    "by": "Chuck Berry"
+   },
+   {
+    "song": "Mele Kalikimaka (Single Version)",
+    "by": "Bing Crosby, The Andrews Sisters"
+   },
+   {
+    "song": "Do They Know It's Christmas?",
+    "by": "Band Aid"
+   },
+   {
+    "song": "All I Want For Christmas (Is My Two Front Teeth)",
+    "by": "Nat King Cole Trio"
+   },
+   {
+    "song": "O Christmas Tree (feat. Count Basie Big Band)",
+    "by": "Tony Bennett, Count Basie Big Band"
+   },
+   {
+    "song": "Christmas Time",
+    "by": "The Platters"
+   },
+   {
+    "song": "Merry Christmas Darling",
+    "by": "Carpenters"
+   },
+   {
+    "song": "Baby, It's Cold Outside",
+    "by": "Dean Martin"
+   },
+   {
+    "song": "Little Saint Nick (1991 Remix)",
+    "by": "The Beach Boys"
+   },
+   {
+    "song": "We Wish You A Merry Christmas",
+    "by": "John Denver"
+   },
+   {
+    "song": "Driving Home For Christmas",
+    "by": "Chris Rea"
+   },
+   {
+    "song": "It's Beginning to Look a Lot Like Christmas",
+    "by": "Michael Buble"
+   },
+   {
+    "song": "Santa Tell Me",
+    "by": "Ariana Grande"
+   },
+   {
+    "song": "Have Yourself A Merry Little Christmas Wonderful Christmastime",
+    "by": "Frank Sinatra"
+   },
+   {
+    "song": "(Edited Version) - Remastered 2011",
+    "by": "Paul McCartney"
+   },
+   {
+    "song": "Underneath the Tree",
+    "by": "Kelly Clarkson"
+   },
+   {
+    "song": "Shake up Christmas",
+    "by": "Train"
+   },
+   {
+    "song": "Christmas Lights",
+    "by": "Coldplay"
+   },
+   {
+    "song": "What Christmas Means To Me Santa Claus Is Comin' to",
+    "by": "Stevie Wonder"
+   },
+   {
+    "song": "Town (Live at C.W. Post College, Greenville, NY 1975)",
+    "by": "Bruce Springsteen"
+   },
+   {
+    "song": "I Saw Mommy Kissing Santa Claus The Chipmunk Song",
+    "by": "The Jackson 5"
+   },
+   {
+    "song": "(Christmas Don't Be Late) - Remastered 1999",
+    "by": "Alvin & The Chipmunks"
+   },
+   {
+    "song": "Please Come Home for Christmas - 2013 Remaster",
+    "by": "Eagles"
+   }
+  ],
+  "url": "/store/p103/christmasparty.html",
+  "price": null,
+  "spotify": "https://open.spotify.com/playlist/77H0Jwrxg5TVjmucJYKWi5",
+  "apple": "https://itunes.apple.com/us/playlist/music-bingo-christmas-party/pl.u-38oWZyeIYvVkKBR",
+  "product_title": "Christmas Party Bingo \u2013 Download & Print Music Bingo Cards"
+ }
+}

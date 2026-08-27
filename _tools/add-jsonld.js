@@ -18,6 +18,7 @@
 //   blog landing        Blog
 //   faqs.html           FAQPage
 //   index.html          Organization + WebSite
+//   song lists (51)     MusicPlaylist + BreadcrumbList  (hub: CollectionPage)
 //
 // Everything is derived from what the page already says — name, price, image,
 // canonical, publish date. Nothing is invented, and no rating or review markup
@@ -66,6 +67,16 @@ const MODIFIED = new Map([
   ["experience-nostalgia-with-our-new-90s-rb-music-bingo-game", "2026-07-31"],
   ["from-one-to-10000-hours-our-freshest-and-best-new-music-bingo-category-is-numbers", "2026-07-31"],
 ]);
+
+// The song library's structured data is read from the same JSON the pages are
+// built from, not parsed back out of the generated tables — one source of truth,
+// and it means a schema fix here never depends on the HTML still matching.
+const SONG_LIB_ROOT = "music-bingo-song-lists";
+const SONG_LISTS_FILE = path.join(REPO, "_content/song-lists.json");
+const SONG_LISTS = fs.existsSync(SONG_LISTS_FILE)
+  ? JSON.parse(fs.readFileSync(SONG_LISTS_FILE, "utf8"))
+  : {};
+const SONG_LIB_BY_SLUG = new Map(Object.values(SONG_LISTS).map((p) => [p.slug, p]));
 
 const START = "<!-- fce:jsonld -->";
 const END = "<!-- /fce:jsonld -->";
@@ -250,6 +261,54 @@ function collection(html, url) {
   if (metaDesc(html)) node.description = clean(metaDesc(html));
   if (items.length) node.mainEntity = { "@type": "ItemList", numberOfItems: items.length, itemListElement: items };
   return node;
+}
+
+// MusicPlaylist is the honest type for "here is a game's running order". It has
+// no rich-result eligibility, so there is nothing here to abuse — the point is
+// that an answer engine quoting one of these lists can tell what it is a list
+// of, which is the entire reason the library exists.
+//
+// byArtist is emitted only for packs whose second column really is the artist.
+// TV Themes and Video Games identify a track by show or game title, and calling
+// that an artist would be stating something false in machine-readable form.
+function songPlaylist(p, url) {
+  const hasArtist = p.second_col === "Artist";
+  return {
+    "@type": "MusicPlaylist",
+    "@id": `${url}#playlist`,
+    url,
+    name: `${p.pack} Music Bingo Song List`,
+    numTracks: p.total,
+    isPartOf: { "@id": `${SITE}/${SONG_LIB_ROOT}/#library` },
+    publisher: { "@id": ORG_ID },
+    track: p.tracks.map((t, i) => {
+      const node = { "@type": "MusicRecording", position: i + 1, name: t.song };
+      if (hasArtist && t.by) node.byArtist = { "@type": "MusicGroup", name: t.by };
+      return node;
+    }),
+  };
+}
+
+function songLibraryHub(html, url) {
+  const packs = Object.values(SONG_LISTS).sort((a, b) => a.pack.localeCompare(b.pack));
+  return {
+    "@type": "CollectionPage",
+    "@id": `${SITE}/${SONG_LIB_ROOT}/#library`,
+    url,
+    name: "Music Bingo Song Lists",
+    description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
+    publisher: { "@id": ORG_ID },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: packs.length,
+      itemListElement: packs.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: `${p.pack} Music Bingo Song List`,
+        item: `${SITE}/${SONG_LIB_ROOT}/${p.slug}/`,
+      })),
+    },
+  };
 }
 
 function blogPosting(html, url, slug) {
@@ -450,6 +509,22 @@ for (const file of walk(REPO).sort()) {
       // meant to hold an action — emitting "What counts as a win?" as a step
       // would be describing the markup rather than the page. FAQPage is the
       // honest shape for a Q&A page; the hosting guide keeps the HowTo.
+    }
+  } else if (rel === `${SONG_LIB_ROOT}/index.html`) {
+    graph.push(songLibraryHub(html, url), breadcrumbs([
+      { name: "Home", url: SITE + "/" },
+      { name: "Music Bingo Song Lists", url },
+    ]));
+    bump("song hub");
+  } else if (new RegExp(`^${SONG_LIB_ROOT}/([^/]+)/index\\.html$`).test(rel)) {
+    const p = SONG_LIB_BY_SLUG.get(rel.split("/")[1]);
+    if (p) {
+      graph.push(songPlaylist(p, url), breadcrumbs([
+        { name: "Home", url: SITE + "/" },
+        { name: "Music Bingo Song Lists", url: `${SITE}/${SONG_LIB_ROOT}/` },
+        { name: `${p.pack} Song List`, url },
+      ]));
+      bump("song list");
     }
   } else if (rel === "triviahostresources.html") {
     graph.push({

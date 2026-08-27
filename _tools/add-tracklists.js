@@ -57,7 +57,27 @@ if (!fs.existsSync(DATA)) {
 }
 const data = JSON.parse(fs.readFileSync(DATA, "utf8"));
 
-let changed = 0, same = 0, missing = 0, tracks = 0;
+// The sample here and the full list in /music-bingo-song-lists/ are two views of
+// the same callsheet, so the sample should say where the rest of it is. Without
+// that link the library depends entirely on the sitemap and its own hub for
+// discovery — the same orphaning that left the Anagrams answer-sheet PDF ranking
+// at position 1 with nowhere to click.
+//
+// Matched on the product URL, falling back to an exact pack-name match: p125 is
+// a redirect stub whose canonical product lives at p128, so its URL will never
+// line up. Never fuzzy-match here — an earlier attempt at that paired Countries
+// with Halloween Party, which would have sent buyers to the wrong song list.
+const LIB_ROOT = "/music-bingo-song-lists";
+const LIB_FILE = path.join(REPO, "_content", "song-lists.json");
+const library = fs.existsSync(LIB_FILE)
+  ? Object.values(JSON.parse(fs.readFileSync(LIB_FILE, "utf8")))
+  : [];
+const libByUrl = new Map(library.map((p) => [p.url.replace(/^\//, ""), p]));
+const libByPack = new Map(library.map((p) => [p.pack.toLowerCase(), p]));
+const libraryFor = (rel, pack) =>
+  libByUrl.get(rel) || libByPack.get(String(pack).toLowerCase()) || null;
+
+let changed = 0, same = 0, missing = 0, tracks = 0, linked = 0, unlinked = [];
 
 for (const [rel, info] of Object.entries(data)) {
   const file = path.join(REPO, rel);
@@ -74,11 +94,19 @@ for (const [rel, info] of Object.entries(data)) {
     })
     .join("\n");
 
+  const lib = libraryFor(rel, info.pack);
+  if (lib) linked++; else unlinked.push(rel);
+
   const heading = `A sample of what&rsquo;s in this pack`;
   const sub =
     `${info.shown} of the ${info.total} songs in ` +
-    `<strong>${esc(info.pack)}</strong>. The full callsheet &mdash; every song in ` +
-    `play order, with the answers &mdash; comes with your download.`;
+    `<strong>${esc(info.pack)}</strong>. ` +
+    (lib
+      ? `<a href="${LIB_ROOT}/${lib.slug}/">See all ${lib.total} songs</a>, or get the ` +
+        `full callsheet &mdash; every song in play order, with the answers &mdash; ` +
+        `with your download.`
+      : `The full callsheet &mdash; every song in ` +
+        `play order, with the answers &mdash; comes with your download.`);
 
   // A call to action at the FOOT of the list matters more than it looks. This
   // block is below the buy button, and the traffic it attracts — people
@@ -128,4 +156,6 @@ console.log(
   `${WRITE ? "wrote" : "would write"} ${changed} product page(s), ${tracks} sample tracks` +
   `   already current: ${same}   missing: ${missing}`
 );
+console.log(`song-library links: ${linked} of ${Object.keys(data).length}`);
+for (const rel of unlinked) console.log(`  NO LIBRARY PAGE: ${rel}`);
 if (!WRITE) console.log("(dry run -- pass --write to apply)");
