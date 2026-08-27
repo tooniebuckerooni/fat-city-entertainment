@@ -28,17 +28,25 @@
 //
 // WHAT THE TABLE REVEALS — read before "fixing" the copy
 // -----------------------------------------------------
-// Per-game price does NOT fall monotonically as you climb. As of Aug 27 2026:
+// Building this table is what showed that per-game price did not fall as you
+// climbed: the 5-pack was $8.60/game against a 3-pack's $8.00, and the ten-game
+// Starter Pack was $8.90, the worst of every multi-game tier. The owner repriced
+// on 27 Aug 2026 — Starter to $79.00, all three 5-packs to $39.99 — which fixed
+// the two worst rungs.
 //
-//   3-pack $23.99 -> $8.00/game        5-pack  $43.00 -> $8.60/game
-//   6-pack $46.99 -> $7.83/game        Bronze  $89.00 -> $8.90/game
+// It still does not descend cleanly, and the run prints a LADDER INVERSION
+// warning for every rung that costs more per game than the rung above it:
 //
-// The five-pack and the ten-game Starter Pack are both worse per game than the
-// cheapest three-pack. That is a pricing decision for the owner, not something
-// to paper over here: the intro copy therefore claims only what is true — every
-// multi-pack beats buying singles — and never "the more you buy the cheaper it
-// gets", which the numbers do not support. If the ladder is ever repriced to
-// actually descend, this comment and that sentence can both get stronger.
+//   3-pack  from $23.99 -> $8.00/game     5-pack  $39.99 -> $8.00/game
+//   6-pack  $46.99      -> $7.83/game     Bronze  $79.00 -> $7.90/game
+//   Silver  $198.75     -> $7.95/game
+//
+// The Holidays 6-pack is now the best per-game price in the catalogue, ahead of
+// both club tiers above it. Closing that would mean roughly Bronze $77 and
+// Silver $192 — but it is a pricing decision for the owner, not something to
+// paper over here. So the intro copy claims only what is true — every multi-pack
+// beats buying singles — and never "the more you buy the cheaper it gets", which
+// the numbers still do not support.
 //
 // The block is injected BEFORE the <!-- fce:copy --> marker, not inside it:
 // add-page-copy.js owns everything between those markers and would overwrite
@@ -57,34 +65,41 @@ const OPEN = "<!-- fce:price-ladder -->";
 const CLOSE = "<!-- /fce:price-ladder -->";
 const COPY_MARKER = "<!-- fce:copy -->";
 
-// One representative product per rung, with the plain-language "who is this
-// for" that the store page never says out loud. Games-per-pack is stated here
-// rather than derived, because a bundle page's component list is prose and
-// guessing at it is how Countries once got paired with Halloween Party.
+// Each rung lists every product at that tier, so a tier whose members are not
+// all the same price renders as a range rather than as whichever one happened
+// to get picked. Showing only the cheapest 3-pack made the 5-pack above it look
+// like no improvement at all; showing only the dearest would have been the same
+// trick in the flattering direction. The range is just what is true.
+//
+// Games-per-pack is stated here rather than derived: a bundle page's component
+// list is prose, and guessing at it is how Countries once got paired with
+// Halloween Party.
 const RUNGS = [
-  { file: "store/p103/christmasparty.html", games: 1,
+  { files: ["store/p103/christmasparty.html"], games: 1,
     tier: "A single game",
     who: "Trying music bingo for the first time, or filling one themed night." },
-  { file: "store/p127/moviesoundtracks3pack.html", games: 3,
+  { files: ["store/p127/moviesoundtracks3pack.html", "store/p108/entertainerspack.html",
+            "store/p162/Word_Games_-_3_Pack.html"], games: 3,
     tier: "A 3-pack",
     who: "One theme you want more of — three nights out of a single checkout." },
-  { file: "store/p147/decades.html", games: 5,
+  { files: ["store/p147/decades.html", "store/p168/thingsinsongs.html",
+            "store/p101/theyearwas4pack.html"], games: 5,
     tier: "A 5-pack",
     who: "The most popular step. Enough variety for a month of weekly nights." },
-  { file: "store/p155/holidays.html", games: 6,
+  { files: ["store/p155/holidays.html"], games: 6,
     tier: "The Holidays 6-pack",
     who: "A year of seasonal nights, bought once — Valentine's through Christmas." },
-  { file: "store/p131/BronzeClub.html", games: 10,
+  { files: ["store/p131/BronzeClub.html"], games: 10,
     tier: "Starter Pack (Bronze)",
     who: "The ten best-selling games. Where most regular hosts should start." },
   // Silver states its own count on the page — "the first 25 games in our full
   // collection" — so it gets the per-game figure. Gold says "all", which is a
   // number that changes with every release; asserting one here would be a
   // guess that goes stale, so its cell stays blank and the note explains why.
-  { file: "store/p130/SilverClub.html", games: 25,
+  { files: ["store/p130/SilverClub.html"], games: 25,
     tier: "Silver Club",
     who: "The first 25 games in the collection, plus a free month of the Bingo Card Generator." },
-  { file: "store/p112/GoldClub.html", games: null,
+  { files: ["store/p112/GoldClub.html"], games: null,
     tier: "Gold Club",
     who: "Every music bingo game we make, every new release, and a free year of the Bingo Card Generator." },
 ];
@@ -109,21 +124,37 @@ function readProduct(rel) {
   };
 }
 
+// A rung collapses to a single figure when its members all cost the same, and
+// renders as a low–high range when they don't. The link goes to the cheapest,
+// which is the one a "from $X" price is promising.
 const rows = [];
 const problems = [];
 for (const rung of RUNGS) {
-  const p = readProduct(rung.file);
-  if (!p) { problems.push(rung.file); continue; }
-  rows.push({ ...rung, ...p });
+  const found = rung.files.map(readProduct).filter(Boolean);
+  const missingHere = rung.files.filter((f) => !readProduct(f));
+  problems.push(...missingHere);
+  if (!found.length) continue;
+  found.sort((a, b) => a.amount - b.amount);
+  rows.push({
+    ...rung,
+    low: found[0].amount,
+    high: found[found.length - 1].amount,
+    href: found[0].href,
+    onSale: found.some((p) => p.onSale),
+  });
 }
 
 function render() {
   const body = rows.map((r) => {
-    const each = r.games ? `${money(r.amount / r.games)} a game` : "&mdash;";
+    const span = (fn) => (r.low === r.high ? fn(r.low)
+      : `${fn(r.low)} &ndash; ${fn(r.high)}`);
+    const each = r.games
+      ? span((n) => money(n / r.games)) + " a game"
+      : "&mdash;";
     const sale = r.onSale ? ' <span class="fce-ladder-sale">on sale</span>' : "";
     return `      <tr>\n` +
       `        <th scope="row"><a href="${r.href}">${esc(r.tier)}</a></th>\n` +
-      `        <td class="fce-ladder-price">${money(r.amount)}${sale}</td>\n` +
+      `        <td class="fce-ladder-price">${span(money)}${sale}</td>\n` +
       `        <td class="fce-ladder-each">${each}</td>\n` +
       `        <td>${esc(r.who)}</td>\n` +
       `      </tr>`;
@@ -164,8 +195,9 @@ const block = render();
 
 if (PREVIEW) {
   for (const r of rows) {
-    const each = r.games ? money(r.amount / r.games) + "/game" : "—";
-    console.log(`  ${r.tier.padEnd(24)} ${money(r.amount).padStart(9)} ${r.onSale ? "(sale)" : "      "} ${each.padStart(12)}`);
+    const rng = (fn) => (r.low === r.high ? fn(r.low) : `${fn(r.low)}–${fn(r.high)}`);
+    const each = r.games ? rng((n) => money(n / r.games)) + "/game" : "—";
+    console.log(`  ${r.tier.padEnd(24)} ${rng(money).padStart(17)} ${r.onSale ? "(sale)" : "      "} ${each.padStart(18)}`);
   }
   console.log();
 }
@@ -191,6 +223,21 @@ for (const p of problems) console.log(`  NO PRICE FOUND: ${p}`);
 const sale = rows.filter((r) => r.onSale);
 if (sale.length) {
   console.log(`  ${sale.length} tier(s) on sale — re-run this tool after any repricing:`);
-  for (const r of sale) console.log(`    ${r.tier} — charging ${money(r.amount)}`);
+  for (const r of sale) {
+    const rng = r.low === r.high ? money(r.low) : `${money(r.low)}–${money(r.high)}`;
+    console.log(`    ${r.tier} — charging ${rng}`);
+  }
+}
+
+// The ladder only works if every rung beats the one above it. Say so when it
+// doesn't, rather than leaving it to be noticed by a customer with a calculator.
+// Compared at cent precision: a rung is only inverted if a customer could see
+// it on the page, and $7.9966 vs $8.0000 both print as $8.00.
+const cents = (n) => Math.round(n * 100);
+const perGame = rows.filter((r) => r.games).map((r) => ({ tier: r.tier, each: r.low / r.games }));
+const inversions = perGame.filter((r, i) => i > 0 && cents(r.each) > cents(perGame[i - 1].each));
+if (inversions.length) {
+  console.log(`\n  LADDER INVERSION — ${inversions.length} rung(s) cost more per game than the rung above:`);
+  for (const r of inversions) console.log(`    ${r.tier} at ${money(r.each)}/game`);
 }
 if (!WRITE) console.log("\n(dry run -- pass --write to apply)");

@@ -73,14 +73,26 @@ here** — the repo is served publicly by GitHub Pages.
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
   would overwrite it. Styles are `.fce-ladder*`.
-- **Both of those bake prices into HTML, read from each product page's own
-  `itemprop="price"`. Re-run them after ANY repricing** — same standing rule as
-  `bake-buy-links.js`. Neither ever quotes a sale price in prose it can't
-  refresh; both list which tiers are currently on sale at the end of a run.
-  Known and deliberate: the ladder shows that per-game price *rises* at the
-  5-pack and Starter Pack tiers, so the copy claims only that multi-packs beat
-  singles — never "buy more, pay less per game", which isn't true yet. See
-  `HOLIDAY-PLAN.md` for the repricing recommendation.
+- **Repricing a product is a four-step job, in this order:**
+  1. change it in **LemonSqueezy first** — the site only *displays* prices, LS
+     charges them, and a page promising less than the checkout takes is the
+     one failure mode worth avoiding;
+  2. `node _tools/set-usd-price.js pNN <price> [<sale>]` — updates the product
+     page, every listing block, and the `ls-links.js` reference comment;
+  3. fix any **hand-written price in body copy** — the club pages carry a value
+     stack ("*$116.89 of value. In this pack, it's $79.00 — save $37.89*") that
+     no tool owns. `set-usd-price.js` now warns with a line number when the old
+     amount survives in the copy, which is how a stale `$89.00` was caught;
+  4. re-run `add-cross-sell.js --write`, `add-price-ladder.js --write`,
+     `add-jsonld.js --write`, `bake-buy-links.js --write`.
+- Both cross-sell and ladder **bake prices into HTML**, read from each product
+  page's own `itemprop="price"`. Neither ever quotes a sale price in prose it
+  can't refresh; both report which tiers are on sale at the end of a run, and
+  the ladder prints a **LADDER INVERSION** warning naming any rung that costs
+  more per game than the rung above it. Two are currently expected (Bronze
+  $7.90 and Silver $7.95 both sit above the Holidays 6-pack's $7.83) — see
+  `HOLIDAY-PLAN.md`. The copy therefore claims only that multi-packs beat
+  singles, never "buy more, pay less per game".
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,

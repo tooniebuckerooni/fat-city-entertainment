@@ -46,37 +46,48 @@ actually charge, read from `itemprop="price"`.)*
 | single game | $10.99 | — | $10.99 |
 | 3-pack | $23.99 – $27.00 | — | $8.00 – $9.00 |
 | 4-pack | $32.49 | — | $8.12 |
-| 5-pack | $42.99 – $43.00 | — | $8.60 |
-| “Holidays” 6-pack | $46.99 | — | $7.83 |
+| 5-pack | **$39.99** | $43.00 | **$8.00** |
+| “Holidays” 6-pack | $46.99 | — | **$7.83** |
 | Game Show Trivia 5-Pack | $87.99 | — | $17.60 |
-| Starter Pack — Top 10 (Bronze) | **$89.00** | $116.89 | $8.90 |
-| Silver Club (25 games) | **$198.75** | $298.75 | $7.95 |
-| Gold Club (everything) | **$415.50** | $665.50 | n/a |
+| Starter Pack — Top 10 (Bronze) | **$79.00** | $116.89 | $7.90 |
+| Silver Club (25 games) | $198.75 | $298.75 | $7.95 |
+| Gold Club (everything) | $415.50 | $665.50 | n/a |
 
-Moving a buyer from a $10.99 single to a $43 bundle is a **4x** order. That is
-the fastest lever in this document and it needs no new traffic at all.
+Moving a buyer from a $10.99 single to a $39.99 five-pack is a **3.6x** order.
+That is the fastest lever in this document and it needs no new traffic at all.
 
-### The ladder doesn't actually descend — a pricing decision for the owner
+### The ladder — repriced 27 Aug, two rungs still inverted
 
-Reading the real numbers side by side for the first time turns up a problem that
-the AOV plan quietly assumed away. **Per-game price does not fall as you climb:**
+Building the comparison table surfaced a problem the AOV plan had quietly
+assumed away: **per-game price was going up as you climbed.** The 5-pack was
+$8.60 a game against a 3-pack's $8.00, and the ten-game Starter Pack was $8.90 —
+the worst value of every multi-game tier, and the one pitched as the natural
+step up.
 
-- the cheapest **3-pack is $8.00 a game** — better than the **5-pack at $8.60**
-- the **Starter Pack (10 games) is $8.90 a game** — the *worst* value of every
-  multi-game tier, and it's the one pitched as the natural step up
-- **Silver at $7.95** is the best per-game price in the catalogue, which makes
-  the two rungs directly below it hard to justify
+**Repriced on the owner's call:** Starter Pack $89.00 → **$79.00**, all three
+5-packs → **$39.99**. That fixed the two worst rungs.
 
-So "buy more, pay less per night" — the sentence the whole upsell rests on — is
-not true today. The comparison table on `trivia-store.html` therefore claims only
-what *is* true (every multi-pack beats buying singles) and shows the real
-figures rather than hiding the column.
+Two inversions remain, and they're smaller:
 
-Fixing it is a pricing call, not a copy call. The smallest change that makes the
-ladder read correctly: **bring the Starter Pack to ~$79** ($7.90/game) and the
-5-packs to **~$39.99** ($8.00/game). That's about $10 and $3 off two tiers, and
-it makes every step down the page a better deal than the one above it — which is
-what makes a ladder work at all.
+| rung | per game |
+|---|---|
+| Holidays 6-pack | **$7.83** ← best in the catalogue |
+| Starter Pack (Bronze) | $7.90 |
+| Silver Club | $7.95 |
+
+A $46.99 six-pack currently beats both club tiers on per-game price. Closing it
+means roughly **Bronze $77 and Silver $192** — about $2 and $7. Worth doing
+before the November bundle push, but not urgent, and it's a pricing call rather
+than a copy one.
+
+`add-price-ladder.js` prints a **LADDER INVERSION** warning naming any rung that
+costs more per game than the rung above, so this can't drift back unnoticed. The
+store copy claims only what is true — every multi-pack beats buying singles —
+and never "buy more, pay less per game", which is still not quite right.
+
+**One thing to check in LemonSqueezy:** the site displays prices, LS charges
+them. The four repriced products need matching prices in the LS dashboard, or
+the pages promise less than the checkout takes.
 
 ---
 

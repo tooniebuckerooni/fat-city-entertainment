@@ -39,6 +39,15 @@ const pfile = fs
   .map((f) => path.join(pdir, f))[0];
 let html = fs.readFileSync(pfile, "utf8");
 
+// Snapshot what the page charged BEFORE anything is rewritten, so the stale-copy
+// check below has something to look for. Only amounts that are changing count:
+// a value stack quoting $10.99 a game is still correct after a bundle reprice.
+const previousAmounts = [...new Set(
+  (html.match(/itemprop="price"\s+content="([0-9.]+)"/g) || [])
+    .map((m) => m.match(/content="([0-9.]+)"/)[1])
+)].map((n) => Number(n).toFixed(2))
+  .filter((n) => n !== price.toFixed(2) && (sale === null || n !== sale.toFixed(2)));
+
 // currency + show-price / show-price-on-sale class on the offer area
 html = html.replace(
   /(<meta itemprop="priceCurrency" content=")[A-Z]{3}(")/,
@@ -96,8 +105,33 @@ html = html
   .replace(/(&quot;price&quot;:)[0-9.]+/, `$1${price}`)
   .replace(/(&quot;sale_price&quot;:)(?:[0-9.]+|null)/, `$1${sale !== null ? sale : "null"}`);
 
+// Hand-written prices in the body copy are NOT updated by any of the rules
+// above, and they are the ones that quietly go wrong. The Bronze page carried a
+// value stack reading "In this pack, it's $89.00 — save $27.89" that survived a
+// repricing to $79.00 untouched, which is a page advertising a number the
+// checkout will not honour. So: after writing, look for the old amount still
+// sitting in the page and say where.
+const stale = [];
+{
+  const lines = html.split("\n");
+  const prev = new Set(previousAmounts.map((n) => `$${n}`));
+  lines.forEach((line, i) => {
+    if (/wsite-com-product-price|&quot;price&quot;|itemprop="price"/.test(line)) return;
+    for (const p of prev) {
+      if (p && line.includes(p)) stale.push({ line: i + 1, amount: p });
+    }
+  });
+}
+
 fs.writeFileSync(pfile, html);
 console.log(`product page: ${path.relative(REPO, pfile)}`);
+for (const s of stale) {
+  console.warn(`  WARN: ${s.amount} still written into the copy at ${path.relative(REPO, pfile)}:${s.line}`);
+}
+if (stale.length) {
+  console.warn(`  ^ hand-written prices are not updated automatically. Fix them by hand,`);
+  console.warn(`    then re-run add-cross-sell.js and add-price-ladder.js.`);
+}
 
 // ------------------------------------------------------------- listing blocks
 const num = pid.slice(1);
