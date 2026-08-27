@@ -260,12 +260,14 @@ HTML**.
   matches product→library on URL, falling back to an exact pack-name match;
   **never fuzzy-match** — an early attempt paired Countries with Halloween
   Party, which would have sent buyers to the wrong list).
-- **Still live and still a problem:** `uploads/.../music-doboff-answer-sheet-
-  anagrams.pdf` publishes the Anagrams pack's *Anagram column* — the answers —
-  and ranks at position 1 for ~91 clicks a quarter. It's the reason the library
-  exists and it's also giving away one pack's game. Not removed, because that's
-  the owner's call; `404.html` already carries a dormant rule forwarding it to
-  `/music-bingo-song-lists/anagrams/` so taking it down is one step.
+- **`uploads/.../music-doboff-answer-sheet-anagrams.pdf` stays live — owner's
+  decision, 27 Aug 2026. Don't delete it, and don't re-open the question.** The
+  file publishes the Anagrams pack's *Anagram column* (the answers) and ranks at
+  position 1 for ~91 clicks a quarter; it's the reason the library exists and
+  also the one pack whose game is given away. The owner weighed that and chose
+  to keep the ranking. `404.html` carries a dormant rule forwarding the URL to
+  `/music-bingo-song-lists/anagrams/`, so removal stays a one-step option if
+  they ever change their mind — but that is theirs to raise, not an agent's.
 
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and

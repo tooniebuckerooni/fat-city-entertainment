@@ -184,7 +184,27 @@ List Library". The two that bite:
   Antonym Clue, Acronym, Nickname, Soundalike Pair, Country — are stripped at
   parse time. Full callsheet PDFs still never get committed.
 
-### The Anagrams PDF — needs the owner's decision
+### The Anagrams PDF — decided 27 Aug: leave it live
+
+**Owner's call: don't delete it.** Option 3 below. Do not revisit this without
+asking — the file stays where it is.
+
+What that means in practice:
+
+- The Anagram column stays public for that one pack. Accepted cost; the ranking
+  is real traffic and the other 49 packs are unaffected.
+- `/music-bingo-song-lists/anagrams/` competes for the same queries on its own
+  merits — an HTML page with a title, a snippet, internal links and a buy button
+  against a PDF that has none of those. If it wins, the demand moves to a page
+  that sells without anything being taken down.
+- The dormant `404.html` rule stays in place. It costs nothing while the file
+  exists and makes a future removal a one-step decision.
+- **If the owner ever wants this closed without losing the ranking, option 2 is
+  the move**: re-upload the same filename with the Anagram column stripped. Same
+  URL, same ranking, no redirect risk. That needs a regenerated PDF, so it's the
+  owner's to do.
+
+The reasoning that produced those options, kept for whoever picks this up:
 
 The PDF that started all of this
 (`/uploads/4/3/3/6/43362499/music-doboff-answer-sheet-anagrams.pdf`) turns out to
@@ -198,13 +218,12 @@ It's the only such file public; the other 49 packs' answers aren't exposed. It's
 also the single best-ranking asset on the site — position 1, ~91 clicks a
 quarter.
 
-**Not removed**, because taking down something live and ranking is the owner's
-call, not an agent's. The groundwork is in place either way: `404.html` carries a
-dormant rule forwarding that URL to `/music-bingo-song-lists/anagrams/`, so if
-the file is deleted the traffic lands on the HTML page — same songs, no answers,
-buy button — with no further work.
+The groundwork is in place either way: `404.html` carries a dormant rule
+forwarding that URL to `/music-bingo-song-lists/anagrams/`, so if the file is
+ever deleted the traffic lands on the HTML page — same songs, no answers, buy
+button — with no further work.
 
-Three options, in order of preference:
+The three options as they were put:
 
 1. **Delete the PDF.** The library page inherits the query, the answers stop
    being free, and the redirect is already written. Some ranking risk in the
@@ -213,9 +232,8 @@ Three options, in order of preference:
 2. **Replace it in place** with a version that has the Anagram column removed,
    keeping the URL and its ranking intact. Safest for traffic; needs the owner to
    regenerate the PDF.
-3. **Leave it.** The ranking is real revenue-adjacent traffic and one pack's
-   answers may be an acceptable price. Worth saying out loud rather than
-   defaulting into.
+3. ✅ **Leave it.** The ranking is real revenue-adjacent traffic and one pack's
+   answers are an acceptable price. **Chosen.**
 
 ### Timing — met
 
