@@ -234,6 +234,9 @@ retired on purpose, not lost.
   the fall acquisition campaign, blog drafts, open product decisions.
 - `SEO-HANDOFF.md` — the Aug 1 2026 GSC-audit-to-content-pass session: what
   shipped, what's still open (owner action needed), tooling bugs found.
+- `HOLIDAY-PLAN.md` — the Aug 26 2026 revenue plan aimed at Christmas: the
+  Song List Library funnel (50 callsheets → 50 pages), the AOV ladder, seasonal
+  timing, and the email lever. **Start here for "what are we building next."**
 - `SEO-CRAWL-HANDOFF.md` — the Aug 9 2026 crawl/indexation fix: why ~380 pages
   had two competing URLs, what got normalised, and the 16 pages Google is
   declining to index for **content** reasons that no amount of tooling fixes.
