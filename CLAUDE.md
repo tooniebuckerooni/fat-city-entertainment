@@ -332,6 +332,10 @@ retired on purpose, not lost.
 - `HOLIDAY-PLAN.md` — the Aug 26 2026 revenue plan aimed at Christmas: the
   Song List Library funnel (50 callsheets → 50 pages), the AOV ladder, seasonal
   timing, and the email lever. **Start here for "what are we building next."**
+- `EMAIL-CAMPAIGNS.md` — the `/go/<campaign>/` landing pages for the Sender
+  sends, and the plan for narrowing a visual direction across four campaigns.
+  Includes why that is explicitly *not* an A/B test at this traffic, and the
+  results table to fill in as each send goes out.
 - `SEO-CRAWL-HANDOFF.md` — the Aug 9 2026 crawl/indexation fix: why ~380 pages
   had two competing URLs, what got normalised, and the 16 pages Google is
   declining to index for **content** reasons that no amount of tooling fixes.
