@@ -84,7 +84,8 @@ here** — the repo is served publicly by GitHub Pages.
      no tool owns. `set-usd-price.js` now warns with a line number when the old
      amount survives in the copy, which is how a stale `$89.00` was caught;
   4. re-run `add-cross-sell.js --write`, `add-price-ladder.js --write`,
-     `add-jsonld.js --write`, `bake-buy-links.js --write`.
+     `build-song-library.js --write`, `add-jsonld.js --write`,
+     `bake-buy-links.js --write`.
 - Both cross-sell and ladder **bake prices into HTML**, read from each product
   page's own `itemprop="price"`. Neither ever quotes a sale price in prose it
   can't refresh; both report which tiers are on sale at the end of a run, and
@@ -93,6 +94,32 @@ here** — the repo is served publicly by GitHub Pages.
   $7.90 and Silver $7.95 both sit above the Holidays 6-pack's $7.83) — see
   `HOLIDAY-PLAN.md`. The copy therefore claims only that multi-packs beat
   singles, never "buy more, pay less per game".
+
+## Analytics & conversion tracking
+- **One tag on the live site: GA4 `G-LYMVV05F3X`**, on 459 pages, plus a
+  StatCounter pixel (project `12764046`) on 457. The `AW-`/`UA-`/second-`G-` IDs
+  you'll find by grepping are only in `_tools/scraped/` — the archived original
+  Weebly scrape, not served. **Grep with filenames** (`grep -rn`, not `-rh`)
+  when auditing this, or the `_tools/scraped` filter silently does nothing and
+  the archive's tags look live.
+- Until 28 Aug 2026 that tag fired `gtag('config')` and **nothing else** — no
+  events, no ecommerce, nine months of pageviews and zero data about money.
+- `assets/js/track.js` (injected everywhere by `_tools/add-tracking.js`, marker
+  `<!-- fce:tracking -->`) now sends GA4 ecommerce events: `view_item` on
+  product pages, **`begin_checkout` on every buy-button click**, `select_item`
+  on internal links into a product, and `view_song_list` on library pages. Each
+  carries an `origin` (`cross-sell`, `price-ladder`, `song-list-page`,
+  `product-tracklist`, `nav`, …) so you can tell which block produced a click.
+- **`begin_checkout` is a proxy, not a sale.** LemonSqueezy checkout is on
+  `lemonsqueezy.com`, so a tag on this domain physically cannot see a purchase.
+  Real revenue data needs LemonSqueezy's own Google Analytics integration
+  pointed at the same `G-` ID — an owner dashboard step, not a repo change.
+- Tracking must never break a buy button: every send is wrapped and no-ops if
+  `gtag` is missing, blocked, or not yet loaded. Keep it that way.
+- The GA4 property is "Fat City 2" under a **Wordjab** Google account the
+  owner's login can't see. Either get Viewer on it, or create a property the
+  owner controls and add a second `gtag('config', …)`. Nothing in the repo
+  depends on which.
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,

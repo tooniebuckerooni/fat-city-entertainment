@@ -53,6 +53,22 @@ const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
 const data = JSON.parse(fs.readFileSync(path.join(REPO, "_content/song-lists.json"), "utf8"));
 const packs = Object.values(data).sort((a, b) => a.pack.localeCompare(b.pack));
 
+// Read a product page's charged price for the buy CTA. Cached: 50 leaf pages
+// point at ~50 products and several share a bundle.
+const priceCache = new Map();
+function priceOf(url) {
+  if (!url) return null;
+  if (priceCache.has(url)) return priceCache.get(url);
+  let out = null;
+  const file = path.join(REPO, url.replace(/^\//, ""));
+  if (fs.existsSync(file)) {
+    const m = fs.readFileSync(file, "utf8").match(/itemprop="price"\s+content="([0-9.]+)"/);
+    if (m) out = "$" + Number(m[1]).toFixed(2);
+  }
+  priceCache.set(url, out);
+  return out;
+}
+
 const CONTENT_OPEN = '<div id="wsite-content"';
 const FOOTER_OPEN = '<div class="footer-wrap"';
 const shell = fs.readFileSync(path.join(REPO, TEMPLATE), "utf8");
@@ -112,9 +128,20 @@ function leafBody(p, related) {
   if (p.spotify) playlists.push(`<a href="${esc(p.spotify)}" target="_blank" rel="noopener">Spotify playlist</a>`);
   if (p.apple) playlists.push(`<a href="${esc(p.apple)}" target="_blank" rel="noopener">Apple Music playlist</a>`);
 
+  // The price comes off the destination product page, the same source
+  // add-cross-sell.js and add-price-ladder.js read. The JSON's own `price` field
+  // is null for all 50 packs, which is how every one of these CTAs shipped
+  // reading "Get The 80s — view price": a button that asks you to go and find
+  // out. Re-run this tool after a repricing, like the other two.
+  const priced = priceOf(p.url);
+  // Product titles carry the store's SEO tail ("... - Download And Print Music
+  // Bingo Cards"), which is right on a product page and far too long inside a
+  // button. Keep the part that names the pack.
+  const bundleName = String(p.product_title || "bundle")
+    .split(/\s+[-–—]\s+Download\b/i)[0].trim() || "bundle";
   const buyLabel = p.via === "bundle"
-    ? `Get it in the ${esc(p.product_title || "bundle")}`
-    : `Get ${esc(p.pack)} — ${esc(p.price || "view price")}`;
+    ? `Get it in the ${esc(bundleName)}${priced ? ` — ${priced}` : ""}`
+    : `Get ${esc(p.pack)}${priced ? ` — ${priced}` : ""}`;
   const buyNote = p.via === "bundle"
     ? `<div class="paragraph">${esc(p.pack)} is sold as part of a multi-game pack rather than on its own.</div>`
     : "";
