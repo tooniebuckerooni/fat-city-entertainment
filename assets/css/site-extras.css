@@ -950,60 +950,93 @@ a.fce-tool-banner-link:hover {
   }
 }
 
-/* --------------------------------------------------------- fce-promo-bar
-   Sitewide announcement bar, injected by assets/js/promo-bar.js (placed on
-   every page by _tools/add-promo-bar.js — never hand-add the script tag).
-   Deliberately slim/dismissible rather than a modal: it shouldn't cost a
-   visitor a click to read the page. Sits as the first element in <body>,
-   above the Weebly header, so it reads as site chrome, not an interruption. */
-.fce-promo-bar {
-  position: relative;
+/* --------------------------------------------------------- fce-promo-modal
+   Sitewide promo popup, injected by assets/js/promo-bar.js (placed on every
+   page by _tools/add-promo-bar.js — never hand-add the script tag). Shows
+   once per browser on entry, not a persistent bar — it shouldn't sit over
+   the page (and the mobile nav toggle) on every single pageview. */
+.fce-promo-modal-overlay {
+  position: fixed;
+  inset: 0;
   z-index: 9999;
-  background: linear-gradient(90deg, #99790a, #b3920f);
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.fce-promo-modal {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  background: linear-gradient(160deg, #99790a, #6f5807);
   color: #ffffff;
   font-family: "Montserrat", Arial, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
   text-align: center;
-  padding: 10px 42px 10px 14px;
-  line-height: 1.4;
+  border-radius: 8px;
+  padding: 36px 28px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
-.fce-promo-bar code {
+.fce-promo-modal-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 8px;
+  opacity: 0.8;
+}
+.fce-promo-modal-close:hover {
+  opacity: 1;
+}
+.fce-promo-modal-kicker {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.fce-promo-modal-pct {
+  margin: 0 0 14px;
+  font-size: 30px;
+  font-weight: 800;
+}
+.fce-promo-modal-code {
+  margin: 0 0 22px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.fce-promo-modal-code code {
   background: rgba(255, 255, 255, 0.22);
   padding: 2px 7px;
   border-radius: 3px;
   font-weight: 800;
   letter-spacing: 0.03em;
 }
-.fce-promo-bar-link {
+.fce-promo-modal-cta {
+  display: inline-block;
+  background: #000000;
   color: #ffffff;
   text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 12px 26px;
+  border-radius: 4px;
 }
-.fce-promo-bar-link:hover,
-.fce-promo-bar-link:focus {
-  text-decoration: underline;
-}
-.fce-promo-bar-close {
-  position: absolute;
-  right: 6px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  color: #ffffff;
-  font-size: 20px;
-  line-height: 1;
-  cursor: pointer;
-  padding: 6px 10px;
-  opacity: 0.85;
-}
-.fce-promo-bar-close:hover {
-  opacity: 1;
+.fce-promo-modal-cta:hover {
+  background: #222222;
 }
 @media screen and (max-width: 480px) {
-  .fce-promo-bar {
-    font-size: 12.5px;
-    padding: 9px 36px 9px 10px;
+  .fce-promo-modal {
+    padding: 30px 20px 22px;
+  }
+  .fce-promo-modal-pct {
+    font-size: 26px;
   }
 }
 
@@ -1389,3 +1422,29 @@ ol.fce-tl li {
   max-width: 58ch;
 }
 .fce-capture .sender-form-field { margin: 0; }
+
+/* --------------------------------------------------------- wsite-soldout
+   Weebly's own theme already adds .wsite-soldout to a sold-out tile's
+   container and a plain, unstyled "Sold out" <p class="category__out-of-
+   stock-badge"> under its price — but neither ever had a CSS rule behind
+   it, so a sold-out tile looked identical to every buyable one apart from
+   small black text easy to miss. Dim the art and give the label a real
+   badge so it reads as unavailable at a glance instead of at a click. */
+.wsite-soldout .wsite-com-category-product-featured-image,
+.wsite-soldout .wsite-com-category-product-image {
+  opacity: 0.45;
+  filter: grayscale(60%);
+}
+.category__out-of-stock-badge {
+  /* color/weight/style are already forced red italic by the base theme's
+     own #wsite-com-product-group .category__out-of-stock-badge !important
+     rule in assets/css/sites.css — not fighting that, just giving it a
+     pill so it reads as a label instead of stray red text. */
+  display: inline-block;
+  margin: 2px 0 0 !important;
+  padding: 2px 9px;
+  background: #f7e6e6;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  border-radius: 3px;
+}

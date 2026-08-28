@@ -1,5 +1,8 @@
-// Drop the sitewide "Back 2 School" promo bar script tag onto every real page.
-// Idempotent — safe to re-run any time; only writes where something changes.
+// Drop the sitewide promo popup's script tag onto every real page. The file
+// is still named for the original persistent banner it replaced — the popup
+// it now injects (assets/js/promo-bar.js) shows once per browser on entry
+// instead. Idempotent — safe to re-run any time; only writes where something
+// changes.
 //
 //   node _tools/add-promo-bar.js            # dry run
 //   node _tools/add-promo-bar.js --write
@@ -11,13 +14,15 @@
 // "Real page" = links assets/css/site-extras.css. That one signal already
 // separates the ~398 actual site pages from everything this must NOT touch:
 // the 180 legacy /4/, /whatsnew/, /inspiration/ meta-refresh redirect stubs
-// (flash-then-redirect, not worth a promo bar), admin/green-room.html (noindex
-// moderation panel), and the standalone apps (triv101/, trivia-show-maker/,
-// pages/*.html) that don't carry the marketing chrome at all.
+// (flash-then-redirect, not worth a promo popup), admin/green-room.html
+// (noindex moderation panel), and the standalone apps (triv101/,
+// trivia-show-maker/, pages/*.html) that don't carry the marketing chrome
+// at all.
 //
-// The bar itself lives in assets/js/promo-bar.js (copy, code, dates, dismiss
-// logic) and assets/css/site-extras.css (.fce-promo-bar). Edit those to
-// change the promo; this script only places/removes the <script> tag.
+// The popup itself lives in assets/js/promo-bar.js (copy, code, dates, the
+// once-per-browser gate) and assets/css/site-extras.css (.fce-promo-modal*).
+// Edit those to change the promo; this script only places/removes the
+// <script> tag.
 
 const fs = require("fs");
 const path = require("path");

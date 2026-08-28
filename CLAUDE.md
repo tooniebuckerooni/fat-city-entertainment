@@ -62,6 +62,17 @@ here** — the repo is served publicly by GitHub Pages.
   LemonSqueezy dashboard (both sites share the one
   `bingocardgenerator.lemonsqueezy.com` store, so scope codes per-product
   there if a sale shouldn't hit the Generator subscriptions).
+  **Presentation (changed Aug 28 2026): a one-time popup, not a persistent
+  bar.** It shows once per browser on whichever page a visitor lands on
+  first (`localStorage`-gated, `.fce-promo-modal*` in `site-extras.css`),
+  not on every pageview — the old sitewide bar was `position: relative` but
+  the mobile header nav is `position: fixed; top: 0` in the theme CSS, so the
+  bar silently sat on top of and completely covered the mobile hamburger
+  menu (verified: `elementFromPoint` at the hamburger's coordinates resolved
+  to the bar's own close button) for as long as any promo was live — which
+  is close to always, since they roll one into the next. `window.FCE_PROMO`
+  is still set unconditionally regardless of whether the popup is ever shown
+  or dismissed, so the checkout discount doesn't depend on it.
 - **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
   the buy area between `<!-- fce:cross-sell -->` markers — bundle pages list
   their components, bundle members point at their bundle *with the per-game

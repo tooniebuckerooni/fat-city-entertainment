@@ -21,12 +21,20 @@ const WRITE = process.argv.includes("--write");
 // order it already had.
 const ORDER = ["112", "130", "131", "155", "147", "49", "123"];
 
+// Sold-out items sink to the very end, after everything else including
+// unlisted tiles — a dead-end click doesn't belong in prime real estate.
+const LAST = ["3"]; // Fat Bottom Trivia Host T-shirt
+
 const PAGES = ["trivia-store.html", "store/c1/triviastore/index.html",
                "store/c11/musicdoboff/index.html"];
 
 // The storefront uses the "-featured" tile variant; category pages use the plain
 // one. Match either.
-const TILE = /<div class="wsite-com-category-product(?:-featured)? wsite-com-column ?"\s*data-id="(\d+)">/g;
+// [^"]* (not just an optional space) so a tile carrying an extra class —
+// e.g. the sold-out shirt's "... wsite-com-column wsite-soldout" — still
+// matches. Without it, that tile was invisible to this whole script and
+// never got reordered.
+const TILE = /<div class="wsite-com-category-product(?:-featured)? wsite-com-column[^"]*"\s*data-id="(\d+)">/g;
 
 for (const rel of PAGES) {
   const file = path.join(REPO, rel);
@@ -57,6 +65,7 @@ for (const rel of PAGES) {
   }));
 
   const rank = (id) => {
+    if (LAST.includes(id)) return Infinity;
     const i = ORDER.indexOf(id);
     return i === -1 ? ORDER.length + tiles.findIndex((t) => t.id === id) : i;
   };

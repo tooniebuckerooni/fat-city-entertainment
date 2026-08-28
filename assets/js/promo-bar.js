@@ -1,14 +1,22 @@
-// Sitewide "Back 2 School" promo bar. Slim, dismissible, self-expiring.
-// Injected on every page via _tools/add-promo-bar.js — don't hand-edit pages,
-// edit this file (and re-run the tool if the insertion point ever changes).
+// Sitewide "Back 2 School" promo — a one-time entry popup, not a persistent
+// banner. Injected on every page via _tools/add-promo-bar.js (still named
+// for the original banner; only what it inserts changed) — don't hand-edit
+// pages, edit this file (and re-run the tool if the insertion point ever
+// changes).
+//
+// Shows once per browser while the promo is live, on whichever page a
+// visitor lands on first, then never again this promo — closing it (X,
+// backdrop click, Escape, or the buy link) all count as "seen," and so does
+// simply having it appear, so it can't reopen mid-visit if someone navigates
+// away before touching it.
 //
 // To retire this promo: delete the <script> tag site-wide by re-running
-// _tools/add-promo-bar.js with REMOVE=true, or just let END pass — the bar
-// stops rendering itself automatically and costs nothing left in place.
+// _tools/add-promo-bar.js with REMOVE=true, or just let END pass — it stops
+// rendering itself automatically and costs nothing left in place.
 //
 // To launch a NEW promo later, change CODE/PCT/END/COPY below in place;
-// changing DISMISS_KEY (it's derived from CODE) means anyone who dismissed
-// the old one will see the new one once.
+// changing SEEN_KEY (it's derived from CODE) means anyone who saw the old
+// one will see the new one once.
 (function () {
   "use strict";
   var CODE = "BCK2SKL";
@@ -17,43 +25,69 @@
   // Local-time midnight starting Sept 10, 2026 -- i.e. visible through all of
   // Sept 9 wherever the visitor is.
   var END = new Date(2026, 8, 10);
-  var DISMISS_KEY = "fce_promo_dismiss_" + CODE;
-  var DISMISS_HOURS = 24;
+  var SEEN_KEY = "fce_promo_seen_" + CODE;
 
   if (new Date() >= END) return;
 
   // Expose the live promo for ls-buy.js, which appends the discount code to
   // every LemonSqueezy checkout URL so buyers get the sale price without
-  // typing the code. Set before the dismissal check on purpose: hiding the
-  // bar shouldn't cost anyone the discount.
+  // typing the code. Set unconditionally, before the "seen" check, on
+  // purpose: the discount shouldn't depend on whether anyone ever saw or
+  // dismissed the popup.
   window.FCE_PROMO = { code: CODE, pct: PCT, end: END };
 
-  var dismissedAt = 0;
+  var seen = false;
   try {
-    dismissedAt = parseInt(localStorage.getItem(DISMISS_KEY) || "0", 10) || 0;
+    seen = localStorage.getItem(SEEN_KEY) === "1";
   } catch (e) {}
-  if (dismissedAt && Date.now() - dismissedAt < DISMISS_HOURS * 60 * 60 * 1000) return;
+  if (seen) return;
 
-  var bar = document.createElement("div");
-  bar.className = "fce-promo-bar";
-  bar.setAttribute("role", "region");
-  bar.setAttribute("aria-label", COPY + " promotion");
-  bar.innerHTML =
-    '<a class="fce-promo-bar-link" href="/trivia-store.html">' +
-    COPY + " — <strong>" + PCT + " off everything</strong> with code " +
-    '<code>' + CODE + "</code> (applied automatically at checkout) — ends Sept 9 — Shop Now &rarr;</a>" +
-    '<button type="button" class="fce-promo-bar-close" aria-label="Dismiss">&times;</button>';
-
-  if (document.body.firstChild) {
-    document.body.insertBefore(bar, document.body.firstChild);
-  } else {
-    document.body.appendChild(bar);
+  function markSeen() {
+    try {
+      localStorage.setItem(SEEN_KEY, "1");
+    } catch (e) {}
   }
 
-  bar.querySelector(".fce-promo-bar-close").addEventListener("click", function () {
-    bar.parentNode.removeChild(bar);
-    try {
-      localStorage.setItem(DISMISS_KEY, String(Date.now()));
-    } catch (e) {}
-  });
+  function show() {
+    markSeen();
+
+    var overlay = document.createElement("div");
+    overlay.className = "fce-promo-modal-overlay";
+
+    var modal = document.createElement("div");
+    modal.className = "fce-promo-modal";
+    modal.setAttribute("role", "dialog");
+    modal.setAttribute("aria-modal", "true");
+    modal.setAttribute("aria-label", COPY + " promotion");
+    modal.innerHTML =
+      '<button type="button" class="fce-promo-modal-close" aria-label="Close">&times;</button>' +
+      '<p class="fce-promo-modal-kicker">' + COPY + "</p>" +
+      '<p class="fce-promo-modal-pct">' + PCT + " off everything</p>" +
+      '<p class="fce-promo-modal-code">Code <code>' + CODE +
+      "</code> — applied automatically at checkout, no need to enter it</p>" +
+      '<a class="fce-promo-modal-cta" href="/trivia-store.html">Shop the Sale &rarr;</a>';
+
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+
+    function close() {
+      if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      document.removeEventListener("keydown", onKey);
+    }
+    function onKey(e) {
+      if (e.key === "Escape") close();
+    }
+
+    overlay.addEventListener("click", function (e) {
+      if (e.target === overlay) close();
+    });
+    modal.querySelector(".fce-promo-modal-close").addEventListener("click", close);
+    modal.querySelector(".fce-promo-modal-cta").addEventListener("click", close);
+    document.addEventListener("keydown", onKey);
+  }
+
+  // The script tag is `defer`, so the DOM is already parsed by the time this
+  // runs; a short delay just keeps the popup from slamming in before the
+  // page has visually settled.
+  setTimeout(show, 500);
 })();
