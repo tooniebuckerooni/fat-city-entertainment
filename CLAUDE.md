@@ -95,6 +95,23 @@ here** — the repo is served publicly by GitHub Pages.
   `HOLIDAY-PLAN.md`. The copy therefore claims only that multi-packs beat
   singles, never "buy more, pay less per game".
 
+## Email campaign pages (`/go/<campaign>/`)
+Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
+from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
+
+- **`noindex,follow` and deliberately absent from `sitemap.xml`.** They restate
+  product copy; keeping them out of the index is what stops them competing with
+  the store. Don't "fix" either.
+- Standalone pages — own CSS, no Weebly shell. 9KB against a product page's
+  39KB. Swapping visual direction means swapping a `THEMES` entry, which is the
+  whole mechanism `EMAIL-CAMPAIGNS.md` uses to narrow a look across four sends.
+- Prices and checkout links are read from the product pages and `ls-links.js` at
+  build time. **On the re-run-after-repricing list** with the other three tools.
+- Buy buttons keep `class="ls-buy" data-product="pNN"` plus `data-fce-name` /
+  `data-fce-price`, so the promo prefill, `bake-buy-links.js` and the tracking
+  all work. `<body data-fce-campaign="slug">` is what makes `track.js` report
+  `view_item_list` and `origin: campaign-<slug>` instead of guessing.
+
 ## Analytics & conversion tracking
 - **One tag on the live site: GA4 `G-LYMVV05F3X`**, on 459 pages, plus a
   StatCounter pixel (project `12764046`) on 457. The `AW-`/`UA-`/second-`G-` IDs

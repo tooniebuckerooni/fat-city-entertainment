@@ -49,21 +49,48 @@
     }
   }
 
+  // `(el && el.textContent || "")` is the version that shipped first and it is
+  // wrong: when el is null the expression evaluates to null, not "", and .replace
+  // throws. It never fired on a product page because the title element is always
+  // there — it took a page with a buy button and no product title to surface it,
+  // and on that page it killed init() before a single event was sent.
   function text(el) {
-    return (el && (el.textContent || "")).replace(/\s+/g, " ").trim();
+    if (!el || !el.textContent) return "";
+    return el.textContent.replace(/\s+/g, " ").trim();
+  }
+
+  // A campaign landing page is not a product page: it lists several products and
+  // is entered from one known email. Both facts change what should be reported.
+  function campaignSlug() {
+    return document.body && document.body.getAttribute("data-fce-campaign");
   }
 
   // ---- what product is this page about? -----------------------------------
+  // Only meaningful where the page is ABOUT one product. A campaign page has
+  // buy buttons but no subject, so it returns null and the caller sends an
+  // item-list event instead of pretending the first button is the page.
   function currentProduct() {
-    var price = document.querySelector('[itemprop="price"]');
     var title = document.getElementById("wsite-com-product-title");
+    if (!title || campaignSlug()) return null;
+    var price = document.querySelector('[itemprop="price"]');
     var buy = document.querySelector(".ls-buy[data-product]");
-    if (!title && !buy) return null;
     return {
       item_id: buy ? buy.getAttribute("data-product") : null,
-      item_name: text(title) || document.title,
+      item_name: text(title),
       price: price ? Number(price.getAttribute("content") || price.content) : undefined,
       currency: "USD",
+    };
+  }
+
+  // Buttons on generated pages carry their own name and price, because the
+  // surrounding markup is not a Weebly product shell and there is nothing
+  // reliable to scrape. Falls back to the link text.
+  function itemFromButton(a) {
+    var price = a.getAttribute("data-fce-price");
+    return {
+      item_id: a.getAttribute("data-product"),
+      item_name: a.getAttribute("data-fce-name") || text(a) || a.getAttribute("data-product"),
+      price: price ? Number(price) : undefined,
     };
   }
 
@@ -89,6 +116,10 @@
     // container rules above miss it and it lands in "page" — which is exactly
     // the click the library exists to produce. Fall back to the URL.
     if (songListSlug()) return "song-list-page";
+    // On a campaign page every click belongs to that campaign; naming it is the
+    // whole point, since the send is the denominator the numbers are read
+    // against.
+    if (campaignSlug()) return "campaign-" + campaignSlug();
     return "page";
   }
 
@@ -108,6 +139,31 @@
         value: product.price,
         items: [product],
       });
+    }
+
+    // A campaign page shows a ladder, so report the ladder. view_item_list is
+    // GA4's event for exactly this and it keeps the Monetisation reports honest
+    // — firing view_item for whichever product happened to be first would
+    // attribute every campaign visit to the cheapest thing on the page.
+    var campaign = campaignSlug();
+    if (campaign) {
+      var buttons = [].slice.call(document.querySelectorAll(".ls-buy[data-product]"));
+      var seen = {};
+      var listed = [];
+      for (var i = 0; i < buttons.length; i++) {
+        var it = itemFromButton(buttons[i]);
+        if (!it.item_id || seen[it.item_id]) continue;
+        seen[it.item_id] = 1;
+        it.index = listed.length + 1;
+        listed.push(it);
+      }
+      if (listed.length) {
+        send("view_item_list", {
+          item_list_id: "campaign-" + campaign,
+          item_list_name: "Campaign: " + campaign,
+          items: listed,
+        });
+      }
     }
 
     var slug = songListSlug();
@@ -138,15 +194,15 @@
       // LemonSqueezy's overlay checkout never leaves the page.
       if (a.classList.contains("ls-buy") || a.classList.contains("kdp-buy")) {
         var pid = a.getAttribute("data-product");
-        var p = product && product.item_id === pid ? product : null;
+        // Three sources, best first: the page's own product (a real product
+        // page), the button's data attributes (a generated page), then the link
+        // text. Without this a campaign click reported item_name "Get it now",
+        // which is the button, not the thing being bought.
+        var p = product && product.item_id === pid ? product : itemFromButton(a);
         send("begin_checkout", {
           currency: "USD",
-          value: p ? p.price : undefined,
-          items: [{
-            item_id: pid,
-            item_name: p ? p.item_name : text(a) || pid,
-            price: p ? p.price : undefined,
-          }],
+          value: p.price,
+          items: [{ item_id: pid, item_name: p.item_name, price: p.price }],
           origin: originOf(a),
           vendor: a.classList.contains("kdp-buy") ? "amazon" : "lemonsqueezy",
         });
@@ -168,9 +224,22 @@
     }, true);
   }
 
+  // Belt and braces. send() is already wrapped, but everything around it —
+  // reading the DOM, parsing a price — can throw on a page shaped differently
+  // from the ones this was written against, and a throw here means no events at
+  // all. Analytics failing quietly is the correct failure; analytics failing
+  // loudly on a page with a buy button on it is not.
+  function safeInit() {
+    try {
+      init();
+    } catch (e) {
+      /* no tracking on this page, and nothing the visitor can see */
+    }
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", safeInit);
   } else {
-    init();
+    safeInit();
   }
 })();

@@ -1,0 +1,27 @@
+{
+  "halloween": {
+    "direction": "a",
+    "send": "late September 2026",
+    "title": "Your Halloween night, sorted",
+    "meta": "Everything you need to run a Halloween music bingo or trivia night — printable cards, callsheets and ready-made playlists. Instant download.",
+    "hero": "Your Halloween night, sorted.",
+    "sub": "Print it this afternoon, run it in October. No subscription, no app, no learning curve — download the PDF and you're hosting.",
+    "products": ["p97", "p33", "p155"],
+    "picks": {
+      "p97": {
+        "label": "The obvious one",
+        "blurb": "30 songs everybody already knows, 250 randomized cards. One night, sorted."
+      },
+      "p33": {
+        "label": "If you'd rather run trivia",
+        "blurb": "Two full Halloween trivia shows in presentation format — run it off a screen instead of handing out cards."
+      },
+      "p155": {
+        "label": "Best value",
+        "blurb": "Halloween plus five more seasonal nights — Valentine's, St. Patrick's, April Fools, Mother's Day and Christmas. Buy once, host all year."
+      }
+    },
+    "song_list": "halloween-party",
+    "song_list_label": "See all 30 Halloween songs, free"
+  }
+}

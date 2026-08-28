@@ -154,13 +154,30 @@ send.
 
 ## Build order
 
-1. **Before anything:** GA4 access resolved, LemonSqueezy → GA4 integration on,
-   Clarity installed. Without these the sends produce no comparable data and the
-   whole exercise is decoration.
-2. `_content/campaigns.json` + `_tools/build-campaign-pages.js` — one direction
-   implemented (A), one page (`/go/halloween/`).
-3. `add-tracking.js` campaign origin rule; UTM links handed over for the send.
-4. Send, wait, record the row above.
-5. Repeat for B and C, changing only the direction and the offer.
+1. ✅ **Measurement** — GA4 events live, LemonSqueezy → GA4 connected,
+   cross-domain configured, Clarity (`y99er61yhf`) on 458 pages. Done 28 Aug.
+2. ✅ **`/go/halloween/` in direction A**, built by
+   `_tools/build-campaign-pages.js` from `_content/campaigns.json`. Done 28 Aug,
+   two weeks ahead of the mid-September deadline.
+3. ✅ **Campaign tracking** — `track.js` reports `view_item_list` on load with
+   the whole ladder, and every buy click carries `origin: "campaign-<slug>"`.
+4. **Owner: add UTMs to the email links** (below) and send.
+5. Record the row in the table above, then repeat for B and C.
 
-Ship step 2 by **mid September** so the Halloween send has a page to point at.
+### What `/go/halloween/` actually is
+
+9KB against a 39KB product page. One occasion, three rungs
+($10.99 → $32.99 → $46.99), the full song list as free proof, no nav dropdowns,
+no blog links, no footer maze. Buy buttons keep `ls-buy` + `data-product` so the
+promo-code prefill, `bake-buy-links.js` and the tracking all work unchanged.
+
+Adding the next campaign is an entry in `_content/campaigns.json` and a re-run.
+
+### The links to put in the Sender send
+
+```
+https://www.fatcityentertainment.com/go/halloween/?utm_source=sender&utm_medium=email&utm_campaign=halloween-2026
+```
+
+Use that on every link in the email — the header image, the body link and the
+button. Same URL, same UTMs; GA4 counts the session once.
