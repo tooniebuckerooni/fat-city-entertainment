@@ -1356,3 +1356,36 @@ ol.fce-tl li {
   font-size: 14px !important;
   color: #5a5a62;
 }
+
+/* --------------------------------------------------------- fce-capture
+   Email capture on the song library pages, written by
+   _tools/build-song-library.js. Sits below the buy CTA on purpose — someone
+   who scrolled past the button without buying is who this is for, and a form
+   above the button would trade sales for addresses.
+
+   Quiet by design. It is the second-best outcome on the page, and it should
+   look like it. */
+.fce-capture {
+  margin: 8px 0 0;
+  padding: 22px 24px;
+  background: #f2f4ef;
+  border: 1px solid #dfe3d9;
+  border-radius: 5px;
+  max-width: 640px;
+}
+.fce-capture h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 19px !important;
+  font-weight: 700;
+  color: #16161a;
+  margin: 0 0 8px !important;
+  line-height: 1.3;
+}
+.fce-capture p {
+  font-size: 15px !important;
+  line-height: 1.55;
+  color: #4a4a52;
+  margin: 0 0 14px !important;
+  max-width: 58ch;
+}
+.fce-capture .sender-form-field { margin: 0; }

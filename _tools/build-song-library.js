@@ -172,11 +172,48 @@ ${buyNote}
 <div style="height: 12px; overflow: hidden;"></div>
 <div class="paragraph"><a class="fce-cta" href="${esc(p.url)}">${buyLabel}</a> <a class="fce-cta-secondary" href="/${ROOT}/">Browse all song lists</a></div>
 
+${capture()}
 <div style="height: 24px; overflow: hidden;"></div>
 <h2 class="wsite-content-title">More song lists</h2>
 <div class="paragraph"><ul>
 ${related.map(r => `<li><a href="/${ROOT}/${r.slug}/">${esc(r.pack)}</a> — ${r.total} songs</li>`).join("\n")}
 </ul></div>`;
+}
+
+// ---- email capture ------------------------------------------------------
+// The site has no email capture anywhere — audited 28 Aug 2026, zero forms on
+// 458 pages. The Sender list of ~2,000 is therefore not growing, and
+// HOLIDAY-PLAN.md calls that list the single biggest lever between now and
+// Christmas. Fifty pages of people who arrived wanting music bingo song lists
+// is precisely the audience to be adding to it.
+//
+// Placed AFTER the buy CTA on purpose: someone who scrolled past the button
+// without buying is exactly who is worth capturing, and putting a form above
+// the button would cost sales to gain addresses.
+//
+// Refuses to render until the form ID is real, the same idiom publish-post.js
+// and greenroom seed.js use for owner placeholders. A broken embed on 51 pages
+// is worse than no embed, so a placeholder simply omits the block and the run
+// prints a reminder.
+const SENDER_FORM_ID = "[OWNER: Sender > Forms > (form) > Embed — paste the form ID here]";
+const captureReady = () => /^[A-Za-z0-9_-]{4,}$/.test(SENDER_FORM_ID);
+
+function capture() {
+  if (!captureReady()) return "";
+  return `
+<div style="height: 28px; overflow: hidden;"></div>
+<div class="fce-capture">
+  <h2>Want the printable version?</h2>
+  <p>We'll email you this list as a clean one-page PDF you can take to the host
+  table — plus the new song lists as we publish them. No more than a couple of
+  emails a month, and one click to stop.</p>
+  <div class="sender-form-field" data-sender-form-id="${SENDER_FORM_ID}"></div>
+</div>
+<script>(function (s, e, n, d, er) { s['Sender'] = er;
+  s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments) };
+  var f = e.createElement(n), z = e.getElementsByTagName(n)[0];
+  f.async = 1; f.src = d; z.parentNode.insertBefore(f, z);
+})(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');</script>`;
 }
 
 // ---- hub ----------------------------------------------------------------
@@ -221,9 +258,23 @@ packs.forEach((p, i) => {
   });
 });
 
+// Counted as CHANGED, not as "would write". This tool regenerates every page
+// unconditionally, so a plain count always reads as 51 pending writes — which
+// makes it useless to the weekly health check in .github/workflows, where the
+// whole signal is "did anything drift". Compare against what is on disk.
+let changed = 0;
 for (const o of outputs) {
   const dir = path.join(REPO, o.dir);
   const file = path.join(dir, "index.html");
+  // Compare on this tool's own terms. add-jsonld.js runs AFTER this one by
+  // design (the build regenerates from the template shell, which drops the
+  // block), so the file on disk always carries a fce:jsonld block that the
+  // freshly generated HTML does not. Strip it from both sides or every run
+  // reports 51 changes forever and the health check learns nothing.
+  const stripJsonLd = (h) =>
+    h === null ? null : h.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
+  const current = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : null;
+  if (stripJsonLd(current) !== stripJsonLd(o.html)) changed++;
   if (WRITE) {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, o.html);
@@ -260,8 +311,14 @@ if (s !== -1) {
 }
 if (WRITE && smAction !== "unchanged") fs.writeFileSync(smFile, sitemap);
 
-console.log(`${WRITE ? "wrote" : "would write"} ${written} page(s) under /${ROOT}/`);
+console.log(`${WRITE ? "wrote" : "checked"} ${written} page(s) under /${ROOT}/  (${changed} would change)`);
 console.log(`  hub + ${packs.length} game pages, ${packs.reduce((n,p)=>n+p.total,0)} songs published`);
 console.log(`  sitemap block ${smAction} (${outputs.length} <url> entries)`);
+if (!captureReady()) {
+  console.log("  EMAIL CAPTURE OFF — SENDER_FORM_ID is still the owner placeholder.");
+  console.log("    The block is written and styled; paste the real form ID at the top of");
+  console.log("    this file and re-run to put it on all 51 pages. Until then it is omitted");
+  console.log("    rather than shipped broken.");
+}
 if (!WRITE) console.log("\n(dry run -- pass --write to apply)");
 else console.log("\nNow run: add-jsonld.js --write, canonicalize-trailing-slash.js --write, check-links.js");

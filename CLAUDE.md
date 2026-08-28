@@ -330,6 +330,28 @@ HTML**.
   `/music-bingo-song-lists/anagrams/`, so removal stays a one-step option if
   they ever change their mind — but that is theirs to raise, not an agent's.
 
+## Weekly health check (`.github/workflows/site-health.yml`)
+Runs every tool in dry-run each Monday and **opens a GitHub issue if anything
+drifted** — which reaches the owner by email and on a phone, with no laptop and
+no sandbox. It closes the issue automatically when things are clean again.
+
+- The signal it exists for: almost every tool bakes derived data into HTML, so a
+  price changed in LemonSqueezy without re-running them leaves the site quoting a
+  number the checkout won't honour. A drifted tool is that, caught in a week
+  instead of by a customer.
+- **If you add a tool to the loop, simulate a real drift and confirm it fires.**
+  The first version of the matcher understood two output formats and silently
+  missed a simulated price change in two of the three tools that should have
+  caught it. A health check with blind spots is worse than none — it reads as an
+  all-clear.
+- `build-song-library.js` and `build-campaign-pages.js` regenerate
+  unconditionally, so they report `(N would change)` against what's on disk
+  rather than a write count. The library comparison strips the `fce:jsonld`
+  block, because `add-jsonld.js` runs after it by design.
+- **LADDER INVERSION is deliberately not a failure.** Two rungs are knowingly
+  inverted; firing weekly would train everyone to ignore the issue. It's printed
+  in the report body instead.
+
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and
   `*.workers.dev`** (403). So an agent here **cannot deploy to or fetch the

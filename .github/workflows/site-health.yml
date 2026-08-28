@@ -1,0 +1,165 @@
+name: Site health check
+
+# Runs every tool in dry-run and shouts if anything has drifted.
+#
+# WHY THIS EXISTS
+# ---------------
+# Almost every tool in _tools/ bakes derived data into HTML: prices into the
+# cross-sells, the price ladder, the song-library buy buttons and the campaign
+# pages; the tracking snippet into every page; trailing slashes into every
+# internal link. All of them are idempotent, so a clean run reports zero
+# changes. A run that reports changes means something was edited without the
+# matching tool being re-run — and the usual way that happens is a price change
+# in LemonSqueezy, which leaves the site advertising a number the checkout will
+# not honour.
+#
+# Nothing here writes to the repo. It reads, compares, and opens a GitHub issue
+# if the site has drifted — which reaches the owner by email and on a phone,
+# without needing a laptop or a coding sandbox open. That is the whole point:
+# it has to survive weeks of nobody looking.
+
+on:
+  schedule:
+    # 06:23 UTC every Monday. Off the hour so it isn't queued behind the
+    # thundering herd of crons that all fire at :00.
+    - cron: "23 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: site-health
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install the link checker's deps
+        run: npm install --prefix _tools --no-audit --no-fund
+
+      - name: Run every check
+        id: checks
+        run: |
+          set +e
+          FAIL=0
+          {
+            echo "## Site health — $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo
+
+            echo "### Broken links"
+            echo '```'
+            node _tools/check-links.js 2>&1 | tail -4
+            echo '```'
+            if ! node _tools/check-links.js 2>&1 | grep -q "broken refs: 0"; then
+              echo "**Broken references found.**"
+              FAIL=1
+            fi
+            echo
+
+            echo "### Tools reporting pending changes"
+            echo
+            echo "Each of these should be a no-op. Anything listed here means the"
+            echo "page content and the source data have gone out of sync."
+            echo '```'
+            # A tool is "drifted" if its dry run says it would write something.
+            #
+            # The tools do not share an output format — they report "updated : 6",
+            # "pages written : 4", "price ladder updated", "Would rewrite 12
+            # reference(s)" and so on. An earlier version of this matcher only
+            # understood two of those shapes and silently missed a simulated
+            # price drift in two of the three tools that should have caught it.
+            # If you add a tool here, simulate a real drift and confirm it fires;
+            # a health check with blind spots is worse than none, because it
+            # reads as an all-clear.
+            DRIFT='would (write|add|update|rewrite) [1-9]|Would rewrite [1-9]'
+            DRIFT="$DRIFT"'|^(added|updated|refreshed|pending) *: *[1-9]'
+            DRIFT="$DRIFT"'|pages (written|updated) *: *[1-9]'
+            DRIFT="$DRIFT"'|(ladder|sitemap block) (updated|added)'
+            DRIFT="$DRIFT"'|\([1-9][0-9]* would change\)'
+            DRIFT="$DRIFT"'|NO LIBRARY PAGE|PROBLEM:|MISSING page|no page found'
+            # NOT in the list: LADDER INVERSION. Two rungs are knowingly
+            # inverted (HOLIDAY-PLAN.md), so it would fire every week and train
+            # everyone to ignore this issue. It is printed in the report body
+            # under "Price ladder" instead, where a CHANGE to it is visible.
+            for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
+                     add-tracklists canonicalize-trailing-slash normalize-url-encoding \
+                     bake-buy-links add-page-copy build-song-library build-campaign-pages; do
+              OUT="$(node _tools/$t.js 2>&1)"
+              if echo "$OUT" | grep -Eq "$DRIFT"; then
+                echo "DRIFTED: $t"
+                echo "$OUT" | head -6
+                echo "---"
+                FAIL=1
+              fi
+            done
+            echo '```'
+            echo
+
+            echo "### Price ladder"
+            echo '```'
+            node _tools/add-price-ladder.js --preview 2>&1 | tail -14
+            echo '```'
+            echo
+
+            echo "### Campaign pages"
+            echo '```'
+            node _tools/build-campaign-pages.js 2>&1 | head -8
+            echo '```'
+          } > report.md
+
+          echo "fail=$FAIL" >> "$GITHUB_OUTPUT"
+          cat report.md
+
+      - name: Open an issue if something drifted
+        if: steps.checks.outputs.fail == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('report.md', 'utf8');
+            const title = 'Site health: something has drifted';
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'site-health',
+            });
+            if (open.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['site-health'],
+              });
+            }
+
+      - name: Close the issue when everything is clean again
+        if: steps.checks.outputs.fail == '0'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'site-health',
+            });
+            for (const issue of open) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number,
+                body: 'All checks clean again — closing.',
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, state: 'closed',
+              });
+            }

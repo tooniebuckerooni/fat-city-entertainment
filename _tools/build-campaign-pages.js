@@ -326,14 +326,20 @@ ${songList}
 }
 
 // ---- write --------------------------------------------------------------
-let written = 0;
+let written = 0, changed = 0;
 const onSale = [];
 for (const [slug, c] of Object.entries(campaigns)) {
   const html = page(slug, c);
   const dir = path.join(REPO, ROOT, slug);
+  const file = path.join(dir, "index.html");
+  // Diff-aware for the same reason as build-song-library.js: this regenerates
+  // unconditionally, and the weekly health check needs "did anything drift",
+  // not "how many pages exist".
+  const current = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : null;
+  if (current !== html) changed++;
   if (WRITE) {
     fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(path.join(dir, "index.html"), html);
+    fs.writeFileSync(file, html);
   }
   written++;
   const theme = THEMES[c.direction].name;
@@ -343,7 +349,7 @@ for (const [slug, c] of Object.entries(campaigns)) {
   for (const p of c.products) if (product(p).onSale) onSale.push(`${slug}: ${p}`);
 }
 
-console.log(`\n${WRITE ? "wrote" : "would write"} ${written} campaign page(s) under /${ROOT}/`);
+console.log(`\n${WRITE ? "wrote" : "checked"} ${written} campaign page(s) under /${ROOT}/  (${changed} would change)`);
 if (onSale.length) {
   console.log(`  on sale, so re-run after any repricing: ${onSale.join(", ")}`);
 }
