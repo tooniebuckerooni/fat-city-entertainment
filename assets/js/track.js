@@ -117,6 +117,19 @@
       send("view_song_list", { song_list: slug });
     }
 
+    // A general escape hatch: put data-fce-event="name" on any element and a
+    // click on it is reported under that name. Used for things that aren't
+    // links and so have no href to reason about — the Triv 101 START button,
+    // and whatever the campaign pages need later.
+    document.addEventListener("click", function (ev) {
+      var tagged = ev.target && ev.target.closest && ev.target.closest("[data-fce-event]");
+      if (tagged) {
+        send(tagged.getAttribute("data-fce-event"), {
+          label: tagged.getAttribute("data-fce-label") || text(tagged) || undefined,
+        });
+      }
+    }, true);
+
     document.addEventListener("click", function (ev) {
       var a = ev.target && ev.target.closest && ev.target.closest("a");
       if (!a) return;

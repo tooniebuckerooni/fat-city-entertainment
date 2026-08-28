@@ -24,6 +24,17 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <!-- /fce:favicon -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LYMVV05F3X"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-LYMVV05F3X');
+</script>
+<!-- fce:tracking -->
+<script defer src="/assets/js/track.js"></script>
+<!-- /fce:tracking -->
 </head>
 <body>
 
@@ -64,7 +75,7 @@
         </div>
         
         <button class="button success-bg" onclick="goFullScreen()">Go Fullscreen</button>
-        <button class="button success-bg" style="width: 100%; margin-top: 32px; font-size: 2em" onclick="startGame()">START</button>
+        <button class="button success-bg" style="width: 100%; margin-top: 32px; font-size: 2em" onclick="startGame()" data-fce-event="triv101_start">START</button>
       </div>
 
     </div>
