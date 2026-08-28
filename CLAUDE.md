@@ -116,6 +116,17 @@ here** — the repo is served publicly by GitHub Pages.
   pointed at the same `G-` ID — an owner dashboard step, not a repo change.
 - Tracking must never break a buy button: every send is wrapped and no-ops if
   `gtag` is missing, blocked, or not yet loaded. Keep it that way.
+- **GA4's "Tag quality: Needs Attention → Some of your pages are not tagged" is
+  expected here, and must not be chased to zero.** As of 28 Aug 2026 it lists 14
+  URLs, and every one is either a `http-equiv="refresh"` stub (`/gameshows.html`,
+  `/store/c34/Starter_Packs.html`, `/triv101/surveys.html`, the legacy `/4/`,
+  `/inspiration/` and blog-taxonomy shells) or a URL that no longer exists and is
+  caught by `404.html` (the retired `/whatsnew/` tree, and four dead Weebly
+  `/store/status/<hash>/confirmation` order pages). Google's checker crawls URLs
+  and can't tell a stub from a page a human reads. Tagging them would log
+  pageviews nobody made — inflating sessions, deflating conversion rate, and
+  inventing entry pages. `add-tracking.js` skips redirect stubs on purpose.
+  The one real gap the report found was `/triv101/`, fixed 28 Aug.
 - The GA4 property is "Fat City 2" under a **Wordjab** Google account the
   owner's login can't see. Either get Viewer on it, or create a property the
   owner controls and add a second `gtag('config', …)`. Nothing in the repo
