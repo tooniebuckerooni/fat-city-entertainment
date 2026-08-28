@@ -104,6 +104,12 @@ here** — the repo is served publicly by GitHub Pages.
   the archive's tags look live.
 - Until 28 Aug 2026 that tag fired `gtag('config')` and **nothing else** — no
   events, no ecommerce, nine months of pageviews and zero data about money.
+- **Microsoft Clarity** (project `y99er61yhf`) rides in the same
+  `<!-- fce:tracking -->` block, on 458 pages. Session recordings and heatmaps.
+  It's inline rather than folded into `track.js` because `track.js` is deferred
+  and anything before it loads isn't recorded. It is the *right* instrument at
+  ~380 visits/month: an A/B test needs thousands of sessions per arm, watching
+  forty recordings needs forty sessions.
 - `assets/js/track.js` (injected everywhere by `_tools/add-tracking.js`, marker
   `<!-- fce:tracking -->`) now sends GA4 ecommerce events: `view_item` on
   product pages, **`begin_checkout` on every buy-button click**, `select_item`

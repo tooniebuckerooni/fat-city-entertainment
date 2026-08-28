@@ -23,9 +23,29 @@ const SKIP = new Set(["_tools", "node_modules", ".git", ".claude", "_export", "_
 
 const START = "<!-- fce:tracking -->";
 const END = "<!-- /fce:tracking -->";
-const BLOCK = `${START}\n<script defer src="/assets/js/track.js"></script>\n${END}`;
 
 const GA_ID = "G-LYMVV05F3X";
+const CLARITY_ID = "y99er61yhf";
+
+// Clarity is inline rather than folded into track.js on purpose. track.js is
+// deferred, so it runs after the parser finishes — fine for click events, but
+// Clarity is recording the session and everything before it loads is simply not
+// captured. Inline in <head> is what Microsoft ships and what the GA4 tag on
+// this site already does.
+//
+// Why Clarity at all, at 380 visits a month: it is the only instrument that
+// works at this traffic. An A/B test needs thousands of sessions per arm to say
+// anything; watching forty recordings needs forty sessions. See EMAIL-CAMPAIGNS.md.
+const BLOCK = `${START}
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "${CLARITY_ID}");
+</script>
+<script defer src="/assets/js/track.js"></script>
+${END}`;
 
 function walk(dir, out = []) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
