@@ -198,6 +198,49 @@
     }
     footer a { color: var(--dim-dark); }
   </style>
+<!-- fce:jsonld -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Product",
+   "name": "The Music Bingo Handbook",
+   "url": "https://www.fatcityentertainment.com/musicbingohandbook.html",
+   "description": "The Music Bingo Handbook: a step-by-step guide to starting and running a music bingo night that packs the room — gear, playlists, hosting, and getting booked. On Amazon Kindle and paperback.",
+   "image": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/background-images/815305550.jpg",
+   "brand": {
+    "@type": "Brand",
+    "name": "Fat City Entertainment"
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Home",
+     "item": "https://www.fatcityentertainment.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "The Music Bingo Handbook",
+     "item": "https://www.fatcityentertainment.com/musicbingohandbook.html"
+    }
+   ]
+  },
+  {
+   "@id": "https://www.fatcityentertainment.com/#organization",
+   "@type": "Organization",
+   "name": "Fat City Entertainment",
+   "url": "https://www.fatcityentertainment.com/"
+  }
+ ]
+}
+</script>
+<!-- /fce:jsonld -->
 <!-- fce:favicon -->
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -218,12 +261,12 @@
 <body>
 
   <div class="hero">
-    <span class="kicker">New · Coming Soon to Amazon</span>
+    <span class="kicker">New · Now on Amazon</span>
     <h1>The <em>Music Bingo</em> Handbook</h1>
     <p class="tagline">Everything we've learned running music bingo nights that pack the room — the gear, the playlists, the hosting craft, and how to get booked — in one step-by-step guide.</p>
     <div class="cta-row">
-      <a class="btn" id="handbook-buy" href="#" style="display:none">Get the Handbook on Amazon</a>
-      <p class="kdp-pending" style="margin-top:20px; color:var(--dim-dark);">Coming soon to Amazon — <a href="/contact.html" style="color:var(--gold);">contact us</a> to be notified when it's live.</p>
+      <a class="btn kdp-buy" id="handbook-buy" data-product="handbook" href="#" style="display:none">Get the Handbook on Amazon</a>
+      <p class="kdp-pending" style="margin-top:20px; color:var(--dim-dark);">Available on Amazon Kindle and paperback — <a href="/contact.html" style="color:var(--gold);">contact us</a> if the button above doesn't load.</p>
       <small class="price-note">One-time purchase. Yours forever.</small>
     </div>
   </div>
@@ -286,9 +329,9 @@
     <div class="wrap">
       <div class="buy-box">
         <h2>Get the Music Bingo Handbook</h2>
-        <p class="deal">Available soon on Amazon<br>Read it tonight, host this month</p>
-        <a class="btn" id="handbook-buy-2" href="#" style="display:none">Buy on Amazon</a>
-        <p class="kdp-pending" style="color:var(--dim-dark);">Coming soon — <a href="/contact.html" style="color:var(--gold);">contact us</a> to be notified when it's live.</p>
+        <p class="deal">Available now on Amazon<br>Read it tonight, host this month</p>
+        <a class="btn kdp-buy" id="handbook-buy-2" data-product="handbook" href="#" style="display:none">Buy on Amazon</a>
+        <p class="kdp-pending" style="color:var(--dim-dark);">Available on Amazon Kindle and paperback — <a href="/contact.html" style="color:var(--gold);">contact us</a> if the button above doesn't load.</p>
         <p class="fine">Available on Amazon Kindle and paperback.</p>
       </div>
     </div>
@@ -332,23 +375,6 @@
   </footer>
 
   <script src="/assets/js/ls-links.js"></script>
-  <script>
-  // The Amazon link lives in one place for both handbooks: KDP_LINKS in
-  // assets/js/ls-links.js. Set KDP_LINKS.handbook there and both buy buttons
-  // on this page activate.
-  (function () {
-    var link = (window.KDP_LINKS || {}).handbook || "";
-    if (!link) return;
-    var buttons = ["handbook-buy", "handbook-buy-2"];
-    for (var i = 0; i < buttons.length; i++) {
-      var btn = document.getElementById(buttons[i]);
-      if (!btn) continue;
-      btn.href = link;
-      btn.style.display = "";
-    }
-    var pending = document.querySelectorAll(".kdp-pending");
-    for (var j = 0; j < pending.length; j++) pending[j].style.display = "none";
-  })();
-  </script>
+  <script src="/assets/js/ls-buy.js"></script>
 </body>
 </html>

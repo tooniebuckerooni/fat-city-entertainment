@@ -127,7 +127,11 @@ window.LS_PRICES = {
 //       get one button with that format's label.
 // ==========================================================================
 window.KDP_LINKS = {
-  "handbook": "", // [ ] Music Bingo Handbook — not yet live on Amazon
+  // [x] Music Bingo Handbook — live on Amazon as two separate listings
+  "handbook": {
+    kindle: "https://www.amazon.com/dp/B0HC4HFX3W",
+    paperback: "https://www.amazon.com/dp/B0HCQZ96CQ",
+  },
   // [x] Trivia Host Handbook — live on Amazon as two separate listings
   "p18": {
     kindle: "https://www.amazon.com/dp/B0HBGJCX4M",

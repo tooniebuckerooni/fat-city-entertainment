@@ -42,8 +42,20 @@ Roughly in order of impact.
 
 Optional decisions, no rush:
 
-- **Music Bingo Handbook Amazon URL** → `KDP_LINKS.handbook`, whenever it goes
-  live. Left in "coming soon" mode deliberately.
+- ~~**Music Bingo Handbook Amazon URL**~~ — **live Aug 29 2026.** The real
+  links (Kindle `B0HC4HFX3W`, paperback `B0HCQZ96CQ`) had actually been wired
+  once already, on an orphaned branch (`claude/music-bingo-ebook-publish-
+  m4ni3z`, Aug 3) that never made it into `main` — this repo's own docs kept
+  saying "coming soon" the whole time because nothing here knew that branch
+  existed. Re-applied onto the current `musicbingohandbook.html`/`ls-links.js`
+  (the bespoke single-URL inline script that page had is gone; it now uses
+  the same shared `.kdp-buy`/`ls-buy.js` path `store/p18` uses, plus a
+  `fce:jsonld` block the page never had). Cross-linked from
+  `trivia-store.html` and `aboutus.html` so it's not orphaned a second time.
+  Not carried over from that branch: its $50+-club free-copy incentive and
+  four-page cross-link/launch-post campaign — real ideas, but a pricing/
+  promo decision for the owner, not something to silently reinstate from a
+  month-old branch.
 - **Zoom Party (p140) sale price.** It used to advertise CA$500 → CA$375. It's
   now a plain `$295.00 USD` because I wouldn't invent a USD "was" price. To put
   the sale framing back, pick a real regular price and run
