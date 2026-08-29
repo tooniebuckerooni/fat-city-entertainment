@@ -104,10 +104,25 @@ work, the other 178 do.
 ### #7: the Handbook follow-ups held back
 
 The Aug 29 launch (see "Music Bingo Handbook Amazon URL" above) wired the real
-links and made the page work, but deliberately left out three things a
-previous session had already built on the orphaned
-`claude/music-bingo-ebook-publish-m4ni3z` branch (commit `cc528402`) — pricing/
-promo calls, not "make the page work" fixes:
+links and made the page work, but left it with no store-grid tile and no nav
+entry — only two body-copy text links (Trivia Store's "New to hosting music
+bingo?" section, and About). The owner caught this the same day ("I still
+don't see the bingo ebook live") — confirmed via GitHub's build log that the
+deploy was fine, it just isn't visually discoverable. **Fix, not optional —
+just deferred to land with the rest of this batch:**
+
+0. **Store-grid tile**, matching the Trivia Host Handbook's (`p18`) tile on
+   `trivia-store.html` / `store/c1/triviastore/index.html`. Not a
+   straightforward `_tools/add-store-tile.js pNN --write` run: that tool (and
+   `order-store-tiles.js`'s `TILE` regex) assumes a real `/store/pNN/...`
+   product with a numeric `data-id`, and the Handbook is a root-level page
+   (`/musicbingohandbook.html`) with no such ID — needs either a small tool
+   extension or a hand-placed tile cloned from p18's markup, image, "On
+   Amazon" price treatment, and href.
+
+Also deliberately left out three things a previous session had already built
+on the orphaned `claude/music-bingo-ebook-publish-m4ni3z` branch (commit
+`cc528402`) — pricing/promo calls, not "make the page work" fixes:
 
 1. **Free-with-Club incentive** — one `fce-fact-note` line each on Gold
    (`store/p112/GoldClub.html`), Silver (`store/p130/SilverClub.html`), and
