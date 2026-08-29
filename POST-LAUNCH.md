@@ -99,6 +99,32 @@ work, the other 178 do.
 | ~~4~~ | ~~`<lastmod>` in `sitemap.xml`~~ — **done July 25** | done |
 | 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
 | ~~6~~ | ~~Publish the three blog drafts~~ — **done July 25**; see "Blog cluster" below | done |
+| 7 | **Music Bingo Handbook follow-ups** — held back on purpose Aug 29 when the Handbook itself went live; see below | medium |
+
+### #7: the Handbook follow-ups held back
+
+The Aug 29 launch (see "Music Bingo Handbook Amazon URL" above) wired the real
+links and made the page work, but deliberately left out three things a
+previous session had already built on the orphaned
+`claude/music-bingo-ebook-publish-m4ni3z` branch (commit `cc528402`) — pricing/
+promo calls, not "make the page work" fixes:
+
+1. **Free-with-Club incentive** — one `fce-fact-note` line each on Gold
+   (`store/p112/GoldClub.html`), Silver (`store/p130/SilverClub.html`), and
+   Bronze (`store/p131/BronzeClub.html`): buy a $50+ Club, get the Handbook PDF
+   free, forward-your-receipt-to-`dustin@` fulfillment (no cart links
+   LemonSqueezy to a separate Amazon title, so it's manual).
+2. **Three more cross-links** — a line at the end of
+   `musicdoboffbingocards.html`'s and `printmusicbingocards.html`'s copy, plus
+   a `fce-store-note` banner line on `trivia-store.html` itself (separate from
+   the "New to hosting music bingo?" section already added).
+3. **A launch blog post** — full draft already written
+   (`_content/drafts/blog06-music-bingo-handbook-launch.md` on that branch),
+   same six-chapter structure as the page, ends with the free-with-Club pitch.
+   Never published.
+
+Say the word for any of them — the copy already exists, this is just deciding
+whether to run with it.
 
 ### #1 and #2, explained
 
