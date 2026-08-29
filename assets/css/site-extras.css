@@ -1051,10 +1051,22 @@ a.fce-tool-banner-link:hover {
    to a $43 five-pack is a 4x order with no new traffic behind it, so this block
    is the highest-value thing on the page after the button itself. It still
    doesn't compete with the button: no accent-coloured fill, no second CTA — the
-   weight goes on the numbers, which are what actually persuade. */
+   weight goes on the numbers, which are what actually persuade.
+
+   The block always lands inside #wsite-com-product-short-description, and the
+   theme's own sites.css carries "#wsite-com-product-short-description
+   .paragraph{padding:0;margin:0}" — an ID-scoped rule, so it beats this
+   class-only one on specificity regardless of load order. That zeroed the
+   margin and padding on every product page this ships on (confirmed: not
+   just Hair Bands/Golden Oldies, the box was flush left and touching the
+   button everywhere — those two were just where it was noticed), leaving
+   only the background/border, which don't collide with anything. !important
+   on the two contested properties, rather than chasing specificity, since
+   the box is meant to look the same regardless of which container structure
+   a given product template nests it in. */
 .fce-cross-sell {
-  margin: 16px 0 0;
-  padding: 13px 16px;
+  margin: 16px 0 0 !important;
+  padding: 13px 16px !important;
   background: #f6f4ec;
   border: 1px solid #e2dcc4;
   border-left: 4px solid #99790a;
