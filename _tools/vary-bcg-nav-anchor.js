@@ -1,5 +1,5 @@
 // One-off: retitle the sitewide nav item pointing at bingocardgenerator.online
-// from "Bingo Card Generator" to "Free Bingo Card Maker".
+// from "Bingo Card Generator" to the branded "BingoCardGenerator.Online".
 //
 // Why: the item appears twice on every page (desktop + mobile nav), so 458 pages
 // carry 916 links to that domain with identical exact-match commercial anchor
@@ -9,9 +9,13 @@
 // (over-optimization risk). 2-4 well-placed editorial links total is the
 // target." The editorial half of that was done; the sitewide half shipped anyway.
 //
-// The href does not change and nothing is hidden — only the visible label, which
-// still describes the destination honestly and matches a real query cluster
-// ("bingo card maker", 131 impressions). Anchored on the href +
+// A brand name is the fix rather than a different keyword: 914 identical
+// *keyword* anchors is the signal, so swapping one commercial phrase for another
+// only changes which phrase is over-used. It also avoids colliding with the
+// site's own "Bingo Card Maker" nav item, which sits one row up.
+//
+// The href does not change and nothing is hidden — only the visible label.
+// Anchored on the href +
 // wsite-menu-title pair so page prose mentioning the phrase is untouched.
 // Idempotent: after the swap the pattern no longer matches.
 //   node _tools/vary-bcg-nav-anchor.js         # dry run
@@ -32,8 +36,12 @@ function walk(dir) {
   return out;
 }
 
-const MENU_ITEM =
-  /(<a href="https:\/\/bingocardgenerator\.online\/"[^>]*class="wsite-menu-subitem"[^>]*>\s*<span class="wsite-menu-title">\s*)Bingo Card Generator(\s*<\/span>)/g;
+// Matches whichever label is currently in place, so the tool can be re-run from
+// any prior state and still land on LABEL.
+const LABEL = "BingoCardGenerator.Online";
+const MENU_ITEM = new RegExp(
+  `(<a href="https://bingocardgenerator\\.online/"[^>]*class="wsite-menu-subitem"[^>]*>\\s*<span class="wsite-menu-title">\\s*)(?:Bingo Card Generator|Free Bingo Card Maker)(\\s*</span>)`,
+  "g");
 
 let files = 0, hits = 0;
 for (const f of walk(REPO)) {
@@ -41,7 +49,7 @@ for (const f of walk(REPO)) {
   const n = (s.match(MENU_ITEM) || []).length;
   if (!n) continue;
   files++; hits += n;
-  if (WRITE) fs.writeFileSync(f, s.replace(MENU_ITEM, "$1Free Bingo Card Maker$2"));
+  if (WRITE) fs.writeFileSync(f, s.replace(MENU_ITEM, "$1" + LABEL + "$2"));
 }
 console.log(`${WRITE ? "updated" : "would update"}: ${files} pages, ${hits} nav anchors`);
 if (!WRITE && files) console.log("(dry run — pass --write to apply)");
