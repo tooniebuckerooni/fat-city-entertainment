@@ -29,7 +29,13 @@ const OUT = path.join(REPO, "_export/lemonsqueezy");
 const MAX_EDGE = 1600;
 const QUALITY = 88;
 // Below this, a listing image looks visibly soft — worth flagging.
-const GOOD_ENOUGH = 1000;
+// 600, not 1000: LemonSqueezy renders listing art small, so most of this
+// catalogue's 600-999px sources are fine in practice. At 1000 the manifest
+// flagged 71 of 75 products, which is the same failure as a health check that
+// cries wolf — everyone learns to ignore it. At 600 it flags the 20 that are
+// actually borderline, and the 10 sources under 400px that genuinely need
+// new art are the ones to fix first.
+const GOOD_ENOUGH = 600;
 
 // --- what's for sale, and at what price -----------------------------------
 const lsSrc = fs.readFileSync(path.join(REPO, "assets/js/ls-links.js"), "utf8");
@@ -54,7 +60,16 @@ for (const dir of fs.readdirSync(path.join(REPO, "store"))) {
     if (/http-equiv="refresh"/i.test(html)) continue; // retired, redirects elsewhere
     const name = clean((html.match(/<h1[^>]*id="wsite-com-product-title"[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || "");
     const price = (html.match(/itemprop="price"[^>]*content="([^"]*)"/i) || [])[1] || "";
-    if (name) meta[dir] = { name, price, page: `store/${dir}/${f}` };
+    // The image the product page itself shows. This is the authoritative pick —
+    // it is what a customer already associates with the product — and it beats
+    // guessing from filenames. Take the <img src>, never the <picture><source>:
+    // that one is WebP, which LemonSqueezy will not accept on upload.
+    // Attribute order varies across the export, so match the tag then the src,
+    // and drop any ?width= query so the full-size file is used.
+    const tag = (html.match(/<img[^>]*wsite-com-product-images-main-image[^>]*>/i) || [])[0]
+      || (html.match(/<img[^>]*itemprop="image"[^>]*>/i) || [])[0] || "";
+    const srcM = tag.match(/src="([^"?]*)(?:\?[^"]*)?"/);
+    if (name) meta[dir] = { name, price, page: `store/${dir}/${f}`, pageImage: srcM ? srcM[1] : null };
   }
 }
 
@@ -79,13 +94,22 @@ for (const f of fs.readdirSync(OUT)) fs.unlinkSync(path.join(OUT, f));
   const rows = [];
   for (const pid of Object.keys(meta).sort((a, b) => +a.slice(1) - +b.slice(1))) {
     const info = meta[pid];
+    // Prefer the product page's own image; fall back to the best Weebly-pattern
+    // render. That fallback used to be the ONLY source, which quietly stopped
+    // working once the uploads were renamed to human-readable filenames —
+    // s240281505130794070_p143_i2_w640.jpg became music-bingo-motown.png, and
+    // the export silently dropped from the whole catalogue to 6 products.
+    const pageFile = info.pageImage
+      ? path.join(REPO, info.pageImage.replace(/^\//, ""))
+      : null;
     const r = renders[pid];
-    if (!r) {
+    const src = pageFile && fs.existsSync(pageFile)
+      ? pageFile
+      : (r ? path.join(UPLOADS, r.file) : null);
+    if (!src) {
       rows.push({ pid, ...info, out: "", w: 0, h: 0, kb: 0, flag: "NO IMAGE FOUND" });
       continue;
     }
-
-    const src = path.join(UPLOADS, r.file);
     const outName = `${pid}-${slug(info.name)}.jpg`;
     const img = sharp(src);
     const md = await img.metadata();
