@@ -1,6 +1,9 @@
 # migration tooling artifacts
 _tools/node_modules/
 _tools/*-log.txt
+# Generated working page (~550KB of inlined thumbnails). Regenerate with
+# build-ls-callsheet.js; GitHub Pages would otherwise serve it publicly.
+_tools/ls-callsheet.html
 .claude/
 
 # _tools/scraped/ is committed on purpose: it is the raw archival copy of the
