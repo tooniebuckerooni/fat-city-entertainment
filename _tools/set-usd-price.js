@@ -175,13 +175,30 @@ for (const lf of listings) {
       /(<div class="wsite-com-sale-price\s+wsite-com-category-product[^"]*">\s*)[^<\s][^<]*?(\s*<\/div>)/,
       (m, a, b) => a + fmt(display) + b
     );
-    if (sale === null) {
+    // The red "On Sale" flash on a listing tile. Weebly's own JS added
+    // `sale-active` to the wrapper at runtime from live product data; the
+    // static export kept the markup and lost the JS, so the wrapper sat at
+    // `display:none` forever and NO tile ever showed a banner — not even the
+    // club tiers that genuinely are on sale. The CSS that reveals it is
+    //   #wsite-com-category-product-group .…-wrapper.sale-active { display:block }
+    // and its ID beats the `.placeholder{visibility:hidden}` rule, so the
+    // wrapper class is what actually matters; the <p> is kept in sync anyway.
+    //
+    // Toggle classes rather than deleting the element: ending a sale stays
+    // reversible and the whole thing stays re-runnable. (The previous version
+    // tried to delete a `visible` banner, which never matched — 201 of the 292
+    // tiles in the repo carry `placeholder`.)
+    if (!/category__image-sale-banner-wrapper/.test(block)) {
+      console.warn(`  warn: ${path.relative(REPO, lf)} block for ${pid} has no sale-banner wrapper`);
+    } else {
       block = block.replace(
-        /<p class="category__image-sale-banner visible">\s*On Sale\s*<\/p>\s*/,
-        ""
+        /(<div class="category__image-sale-banner-wrapper)(?:\s+sale-active)?(")/,
+        (m, a, c) => a + (sale !== null ? " sale-active" : "") + c
       );
-    } else if (!/category__image-sale-banner visible/.test(block)) {
-      console.warn(`  warn: ${path.relative(REPO, lf)} block for ${pid} has no "On Sale" banner to show`);
+      block = block.replace(
+        /(<p class="category__image-sale-banner\s+)(?:visible|placeholder)(")/,
+        (m, a, c) => a + (sale !== null ? "visible" : "placeholder") + c
+      );
     }
 
     if (block !== s.slice(i, end)) changed = true;
