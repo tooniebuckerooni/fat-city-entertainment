@@ -274,7 +274,10 @@ for (const o of outputs) {
   const stripJsonLd = (h) =>
     h === null ? null : h.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
   const current = fs.existsSync(file) ? fs.readFileSync(file, "utf8") : null;
-  if (stripJsonLd(current) !== stripJsonLd(o.html)) changed++;
+  // Remember it per-page, not just as a total: the sitemap block below needs to
+  // know WHICH pages moved so it can leave the others' lastmod alone.
+  o.changed = stripJsonLd(current) !== stripJsonLd(o.html);
+  if (o.changed) changed++;
   if (WRITE) {
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(file, o.html);
@@ -294,8 +297,24 @@ const smFile = path.join(REPO, "sitemap.xml");
 const today = new Date().toISOString().slice(0, 10);
 let sitemap = fs.readFileSync(smFile, "utf8");
 
+// Carry forward the lastmod already in the sitemap for any page whose content
+// did NOT change on this run. Stamping `today` on all 51 unconditionally meant
+// a re-run that altered one page told Google fifty others were freshly edited —
+// the same false-freshness signal CLAUDE.md warns about for blog dateModified,
+// and a costly one to send while the library is still being indexed. A page
+// that genuinely changed still gets today's date.
+const priorLastmod = new Map(
+  [...fs.readFileSync(smFile, "utf8").matchAll(
+    /<loc>([^<]*)<\/loc>\s*<lastmod>([0-9]{4}-[0-9]{2}-[0-9]{2})<\/lastmod>/g
+  )].map((m) => [m[1], m[2]])
+);
+
 const smBlock = [SM_START]
-  .concat(outputs.map((o) => `  <url><loc>${SITE}/${o.dir}/</loc><lastmod>${today}</lastmod></url>`))
+  .concat(outputs.map((o) => {
+    const loc = `${SITE}/${o.dir}/`;
+    const when = o.changed ? today : (priorLastmod.get(loc) || today);
+    return `  <url><loc>${loc}</loc><lastmod>${when}</lastmod></url>`;
+  }))
   .concat([SM_END]).join("\n");
 
 const s = sitemap.indexOf(SM_START);
