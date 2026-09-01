@@ -4,7 +4,9 @@ _tools/*-log.txt
 # Generated working page (~550KB of inlined thumbnails). Regenerate with
 # build-ls-callsheet.js; GitHub Pages would otherwise serve it publicly.
 _tools/ls-callsheet.html
-.claude/
+# .claude/ is committed on purpose: the pricing-strategy skill is a durable
+# project asset, not a local scratch file. Note the repo is public, so keep
+# secrets out of it -- the same rule CLAUDE.md states.
 
 # _tools/scraped/ is committed on purpose: it is the raw archival copy of the
 # live Weebly pages, the only source if a transform fix is ever needed after
