@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Halloween Trivia Night",
+    "subtitle": "Fright Night",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year was Bram Stoker's novel “Dracula” first published?",
+    "a": "1897"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Halloween falls on the last day of which month?",
+          "a": "October",
+          "choices": null
+        },
+        {
+          "q": "What is a pumpkin with a face cut into it called?",
+          "a": "A jack-o'-lantern",
+          "choices": null
+        },
+        {
+          "q": "What two words do children say at the door on Halloween night?",
+          "a": "“Trick or treat”",
+          "choices": null
+        },
+        {
+          "q": "Which two colours are most associated with Halloween?",
+          "a": "Orange and black",
+          "choices": null
+        },
+        {
+          "q": "Which flying mammal is a Halloween staple?",
+          "a": "The bat",
+          "choices": null
+        },
+        {
+          "q": "Which eight-legged creature spins the webs used as Halloween decoration?",
+          "a": "The spider",
+          "choices": null
+        },
+        {
+          "q": "In the Peanuts Halloween special, what does Linus sit in a pumpkin patch waiting for?",
+          "a": "The Great Pumpkin",
+          "choices": null
+        },
+        {
+          "q": "What is the collective name for a group of witches?",
+          "a": "A coven",
+          "choices": null
+        },
+        {
+          "q": "Which bandage-wrapped figure from ancient Egypt is a Halloween costume staple?",
+          "a": "A mummy",
+          "choices": null
+        },
+        {
+          "q": "Halloween is celebrated the night before which Christian feast day?",
+          "a": "All Saints' Day (All Hallows' Day)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Monsters and Legends",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Who wrote the 1818 novel “Frankenstein”?",
+          "a": "Mary Shelley",
+          "choices": null
+        },
+        {
+          "q": "In Bram Stoker's novel, Count Dracula's castle stands in which region of Romania?",
+          "a": "Transylvania",
+          "choices": null
+        },
+        {
+          "q": "In “Frankenstein”, what is the first name of the scientist who creates the creature?",
+          "a": "Victor (Victor Frankenstein)",
+          "choices": null
+        },
+        {
+          "q": "What is the name for a person said to transform into a wolf at the full moon?",
+          "a": "A werewolf",
+          "choices": null
+        },
+        {
+          "q": "In Irish folklore, which wailing female spirit's cry is said to foretell a death?",
+          "a": "A banshee",
+          "choices": null
+        },
+        {
+          "q": "Which Washington Irving story features the Headless Horseman?",
+          "a": "“The Legend of Sleepy Hollow”",
+          "choices": null
+        },
+        {
+          "q": "Which metal is traditionally said to be deadly to a werewolf?",
+          "a": "Silver",
+          "choices": null
+        },
+        {
+          "q": "In Jewish folklore, what is the name of the figure moulded from clay and brought to life?",
+          "a": "A golem",
+          "choices": null
+        },
+        {
+          "q": "Actors traditionally refuse to say the name of which Shakespeare play inside a theatre, calling it “the Scottish play” instead?",
+          "a": "Macbeth",
+          "choices": null
+        },
+        {
+          "q": "Which Mexican holiday, held on the first two days of November, honours friends and family who have died?",
+          "a": "Día de los Muertos (the Day of the Dead)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Horror at the Movies",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In which 1975 film does a great white shark terrorise the beaches of Amity Island?",
+          "a": "Jaws",
+          "choices": [
+            "The Abyss",
+            "Jaws",
+            "Piranha",
+            "Open Water"
+          ]
+        },
+        {
+          "q": "Which 1978 John Carpenter film introduced the masked killer Michael Myers?",
+          "a": "Halloween",
+          "choices": [
+            "Halloween",
+            "Friday the 13th",
+            "Black Christmas",
+            "The Fog"
+          ]
+        },
+        {
+          "q": "In “The Shining”, Jack types the same sentence over and over. It begins “All work and no play makes Jack a” what?",
+          "a": "Dull boy",
+          "choices": [
+            "Sad boy",
+            "Dull boy",
+            "Bad boy",
+            "Lost boy"
+          ]
+        },
+        {
+          "q": "Which 1984 comedy follows a team who set up shop catching ghosts in New York City?",
+          "a": "Ghostbusters",
+          "choices": [
+            "Beetlejuice",
+            "Gremlins",
+            "Ghostbusters",
+            "The Frighteners"
+          ]
+        },
+        {
+          "q": "Which stop-motion film features a character named Jack Skellington?",
+          "a": "The Nightmare Before Christmas",
+          "choices": [
+            "Coraline",
+            "Corpse Bride",
+            "ParaNorman",
+            "The Nightmare Before Christmas"
+          ]
+        },
+        {
+          "q": "In “The Wizard of Oz”, what destroys the Wicked Witch of the West?",
+          "a": "Water",
+          "choices": [
+            "Fire",
+            "Water",
+            "A house",
+            "Sunlight"
+          ]
+        },
+        {
+          "q": "Which 1960 Alfred Hitchcock film is set at the Bates Motel?",
+          "a": "Psycho",
+          "choices": [
+            "The Birds",
+            "Vertigo",
+            "Psycho",
+            "Rebecca"
+          ]
+        },
+        {
+          "q": "In Stephen King's “It”, what name does the shapeshifting creature use in its clown form?",
+          "a": "Pennywise",
+          "choices": [
+            "Pennywise",
+            "Bozo",
+            "Twisty",
+            "Art"
+          ]
+        },
+        {
+          "q": "Which 1999 film was presented as recovered footage shot by student filmmakers lost in a Maryland forest?",
+          "a": "The Blair Witch Project",
+          "choices": [
+            "Paranormal Activity",
+            "Cloverfield",
+            "The Blair Witch Project",
+            "REC"
+          ]
+        },
+        {
+          "q": "In “Beetlejuice”, how many times must you say the title character's name to summon him?",
+          "a": "Three",
+          "choices": [
+            "Twice",
+            "Three",
+            "Five",
+            "Seven"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Traditions and Superstitions",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Before pumpkins were used, jack-o'-lanterns were traditionally carved from which vegetable?",
+          "a": "Turnips",
+          "choices": null
+        },
+        {
+          "q": "Halloween is widely thought to have grown out of which ancient Celtic festival?",
+          "a": "Samhain",
+          "choices": null
+        },
+        {
+          "q": "Breaking a mirror is said to bring how many years of bad luck?",
+          "a": "Seven (7)",
+          "choices": null
+        },
+        {
+          "q": "Which plant, hung in doorways or worn around the neck, is traditionally said to ward off vampires?",
+          "a": "Garlic",
+          "choices": null
+        },
+        {
+          "q": "Which animal crossing your path is traditionally taken as a bad omen?",
+          "a": "A black cat",
+          "choices": null
+        },
+        {
+          "q": "In the classic Halloween party game, players try to catch which fruit floating in a tub of water using only their teeth?",
+          "a": "Apples (bobbing for apples)",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the fear of the number thirteen?",
+          "a": "Triskaidekaphobia",
+          "choices": null
+        },
+        {
+          "q": "In Britain and Ireland, what is the older name for going door to door in costume, performing for food or coins?",
+          "a": "Guising (also accept mumming or souling)",
+          "choices": null
+        },
+        {
+          "q": "What is the formal name for the practice of telling fortunes by reading tea leaves?",
+          "a": "Tasseography (tasseomancy)",
+          "choices": null
+        },
+        {
+          "q": "Large-scale nineteenth-century emigration from which country is credited with carrying Halloween traditions to North America?",
+          "a": "Ireland",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Botanically speaking, a pumpkin is a fruit.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Bats are birds.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Candy corn was originally sold under the name “Chicken Feed”.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "There is a full moon on Halloween every year.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Spiders are insects.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Vampire bats are real animals that feed on blood.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "In some countries, a black cat is considered good luck rather than bad.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Ravens and crows are two names for exactly the same bird.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The word “witch” comes into English from Old English.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Halloween is a public holiday in the United States, with banks and government offices closed.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

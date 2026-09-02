@@ -125,5 +125,17 @@
     "publish": false,
     "description": "A ready-to-run general knowledge trivia show: five rounds, 50 questions, a tiebreaker, and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
     "body": "<div><p>The Decider — the hardest of the five, meant for a room that has played the other four and wants a real fight.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is on paper: print it, read it out, mark the sheets.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>The Animal Kingdom</strong></li><li><strong>Numbers and Dates</strong></li><li><strong>Art and Literature</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>One round is worth double, so a team that starts slow can still win it — which keeps the room in it to the end.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p174",
+    "slug": "triviashowhalloween",
+    "name": "Halloween Trivia Night — Print and Play Trivia Show",
+    "title": "Halloween Trivia Night - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-halloween.png",
+    "publish": false,
+    "description": "A ready-to-run Halloween trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>Fright Night — a full Halloween trivia show you can print the afternoon of, for the one night of the year a room turns up in costume already wanting to play.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Spooky rather than gruesome: it plays in a pub, and it plays at a community hall or a staff party without anyone wincing.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Monsters and Legends</strong></li><li><strong>Horror at the Movies</strong></li><li><strong>Traditions and Superstitions</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Traditions and Superstitions is worth double, so a table that starts slow can still take it — which keeps the room in it until the last answer.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
   }
 ]

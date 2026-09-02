@@ -1,7 +1,7 @@
 # Pre-made trivia shows
 
-Source content for the **General Knowledge** print-and-play trivia shows
-(`p169`–`p173`). One `.tgp.json` per game. These are the master copies — edit
+Source content for the print-and-play trivia shows (`p169`–`p174`) — five
+**General Knowledge** nights plus a seasonal **Halloween** edition. One `.tgp.json` per game. These are the master copies — edit
 here, never in an exported PDF.
 
 ## What each file is
@@ -18,6 +18,7 @@ name doesn't error — it just quietly becomes a default. Run the checker.
 | `gk-night-three.tgp.json` | p171 | The Mixer | food / television / language |
 | `gk-night-four.tgp.json` | p172 | The Curveball | inventions / faces / landmarks |
 | `gk-night-five.tgp.json` | p173 | The Decider | animals / numbers / art |
+| `halloween-fright-night.tgp.json` | p174 | Fright Night | seasonal — monsters / horror film / superstitions |
 
 Every game is 5 rounds × 10 questions, plus a tiebreaker. Round 4 is always
 `type: "double"` — a table that starts badly can still win, which keeps the
