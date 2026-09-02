@@ -316,8 +316,8 @@
           "choices": null
         },
         {
-          "q": "Which talent show's judges press a button to send a contestant straight through to the finals?",
-          "a": "The Golden Buzzer, on “America's Got Talent” (accept “Britain's Got Talent”)",
+          "q": "On “America’s Got Talent”, what is the name of the button a judge presses to send an act straight through to the finals?",
+          "a": "The Golden Buzzer",
           "choices": null
         }
       ]
