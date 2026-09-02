@@ -83,11 +83,16 @@ for (const rel of PAGES) {
   tile = tile.replace(/data-id="\d+"/, `data-id="${NUM}"`);
   tile = tile.replace(/href="\/store\/p\d+\/[^"]*"/g, `href="${href}"`);
   tile = tile.replace(/(<div class="wsite-com-category-product-name[^"]*"[^>]*>)[\s\S]*?(<\/div>)/i,
-    `$1\n\t\t\t\t\t\t${name}\n\t\t\t\t\t$2`);
+    // NB: replacer FUNCTION, not a replacement string. A string replacement
+    // re-reads "$1", "$&" etc. inside the text being inserted, so any
+    // description or title containing a dollar amount is silently mangled --
+    // "$13.98" became "</title>3.98" in a live twitter:description tag.
+    (m, a, b) => `${a}\n\t\t\t\t\t\t${name}\n\t\t\t\t\t${b}`);
   if (img) {
     tile = tile.replace(/srcset="[^"]*"/g, `srcset="${img.replace(/\.(jpe?g|png|gif)/i, ".webp")}"`);
-    tile = tile.replace(/(<img[^>]*?)src="[^"]*"/g, `$1src="${img}"`);
-    tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g, `$1alt="${name.replace(/"/g, "&quot;")}"`);
+    tile = tile.replace(/(<img[^>]*?)src="[^"]*"/g, (m, a) => `${a}src="${img}"`);
+    tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g,
+    (m, a) => `${a}alt="${name.replace(/"/g, "&quot;")}"`);
   }
   // Prices: regular container, then the sale container.
   const shown = onSale && salePrice ? salePrice : price;

@@ -156,7 +156,11 @@ page = page.replace(/<title>[^<]*<\/title>/, `<title>${esc(titleTag)}</title>`);
 page = page.replace(/<meta property="og:title" content="[^"]*">/, `<meta property="og:title" content="${esc(titleTag)}">`);
 page = page.replace(/<meta property="og:description" content="[^"]*">/, `<meta property="og:description" content="${esc(metaDesc)}">`);
 page = page.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${esc(metaDesc)}">`);
-page = page.replace(/(<a class="blog-title-link blog-link" href="[^"]*">)[^<]*(<\/a>)/, `$1${esc(h1)}$2`);
+// NB: replacer FUNCTION, not a replacement string. A string replacement
+// re-reads "$1", "$&" etc. inside the text being inserted, so any
+// description or title containing a dollar amount is silently mangled --
+// "$13.98" became "</title>3.98" in a live twitter:description tag.
+page = page.replace(/(<a class="blog-title-link blog-link" href="[^"]*">)[^<]*(<\/a>)/, (m, a, b) => `${a}${esc(h1)}${b}`);
 page = page.replace(/(<span class="date-text">)[\s\S]*?(<\/span>)/, `$1\n\t\t${date}\n\t$2`);
 // share button carries this post's own URL and title
 const canonical = `https://www.fatcityentertainment.com/triviahostresources/${slug}/`;

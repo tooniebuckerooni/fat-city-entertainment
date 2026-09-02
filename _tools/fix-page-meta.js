@@ -83,7 +83,11 @@ function setDesc(html, d) {
   if (/<meta[^>]+name="description"[^>]*>/i.test(html)) {
     return html.replace(/<meta[^>]+name="description"[^>]*>/i, tag);
   }
-  return html.replace(/(<\/title>)/i, `$1\n${tag}`);
+  // NB: replacer FUNCTION, not a replacement string. A string replacement
+  // re-reads "$1", "$&" etc. inside the text being inserted, so any
+  // description or title containing a dollar amount is silently mangled --
+  // "$13.98" became "</title>3.98" in a live twitter:description tag.
+  return html.replace(/(<\/title>)/i, (m, t) => `${t}\n${tag}`);
 }
 
 // Build a product's description out of its own name and short description.
@@ -179,9 +183,9 @@ for (const file of walk(REPO).sort()) {
         `<meta property="og:title" content="${esc(t)}">\n` +
         (d ? `<meta property="og:description" content="${esc(d)}">\n` : "") +
         `<meta property="og:type" content="website">`;
-      html = html.replace(/(<link rel="canonical"[^>]*>)/i, `$1\n${tags}`);
+      html = html.replace(/(<link rel="canonical"[^>]*>)/i, (m, c) => `${c}\n${tags}`);
       if (html === before || !/property="og:title"/i.test(html)) {
-        html = html.replace(/(<\/title>)/i, `$1\n${tags}`);
+        html = html.replace(/(<\/title>)/i, (m, t) => `${t}\n${tags}`);
       }
       ogAdded++;
     }

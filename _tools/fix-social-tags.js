@@ -111,7 +111,11 @@ for (const file of walk(REPO)) {
   }
 
   if (need.length) {
-    html = html.replace(/(<\/title>)/i, `$1\n${need.join("\n")}`);
+    // NB: replacer FUNCTION, not a replacement string. A string replacement
+    // re-reads "$1", "$&" etc. inside the text being inserted, so any
+    // description or title containing a dollar amount is silently mangled --
+    // "$13.98" became "</title>3.98" in a live twitter:description tag.
+    html = html.replace(/(<\/title>)/i, (m, t) => `${t}\n${need.join("\n")}`);
   }
 
   if (html === before) continue;

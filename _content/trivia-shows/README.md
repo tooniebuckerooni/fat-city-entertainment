@@ -115,9 +115,22 @@ are written to different rules:
   residential schools were all deliberately kept out: they belong in a lesson,
   not in a round scored for points.
 
-### Still undecided before these go on sale
-**Classroom licensing.** A teacher will photocopy for 30 students, and their
-school will ask whether it can be shared department-wide. Nothing in the
-product copy makes any claim about this yet, deliberately — it is the owner's
-call, and inventing a term would be worse than leaving it open. Settle it
-before publishing p177–p182.
+### Licensing — settled
+Two tiers, chosen at checkout:
+
+| | one classroom | school-wide |
+|---|---|---|
+| single subject | **$8.99** | **$22.00** |
+| all five (p182) | **$34.99** | **$84.99** |
+
+The pack must stay meaningfully below five singles in *both* tiers. At $8.99 a
+subject, five bought singly is $44.95 — the pack's original $44.99 would have
+cost four cents **more** than the parts, which is the worst inversion there is.
+$34.99 and $84.99 both land at about 22% off.
+
+**These are set up in LemonSqueezy as two variants per product**, so the site
+shows the single-classroom price and the body copy names the school-wide one.
+That $22.00/$84.99 in the copy is hand-written and lives in
+`_tools/new-products.json` — no tool reads it back from LemonSqueezy, so if the
+licence price changes there, edit the spec and re-run
+`node _tools/new-product.js --write --force --only p177,…`.

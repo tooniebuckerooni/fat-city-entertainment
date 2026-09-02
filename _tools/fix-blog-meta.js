@@ -187,7 +187,12 @@ function setDescription(html, desc) {
     return html.replace(/<meta[^>]+name="description"[^>]*>/i, tag);
   }
   // Sit it right after the title, where the rest of the site keeps it.
-  return html.replace(/(<\/title>)/i, `$1\n<meta name="description" content="${esc(desc)}">`);
+  // NB: replacer FUNCTION, not a replacement string. A string replacement
+  // re-reads "$1", "$&" etc. inside the text being inserted, so any
+  // description or title containing a dollar amount is silently mangled --
+  // "$13.98" became "</title>3.98" in a live twitter:description tag.
+  return html.replace(/(<\/title>)/i,
+    (m, t) => `${t}\n<meta name="description" content="${esc(desc)}">`);
 }
 
 // List pages have no heading of their own; put one above the list of posts.

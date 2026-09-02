@@ -54,6 +54,12 @@ if (!fs.existsSync(SPEC)) {
 }
 const specs = JSON.parse(fs.readFileSync(SPEC, "utf8"));
 
+// Every html.replace() below passes a FUNCTION, never a replacement string.
+// A string replacement re-reads "$1", "$&" and friends inside the inserted
+// text, so any spec field containing a dollar amount is silently corrupted:
+// a licence line reading "$22.00" became "</div></div>2.00" because $2 was
+// capture group 2. This is the same failure set-usd-price.js documents, and
+// the same one that left "50 credits for </title>3.98" in a live meta tag.
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -119,25 +125,25 @@ for (const spec of specs) {
   if (tplName) {
     html = html.replace(
       /(<h1[^>]*id="wsite-com-product-title"[^>]*>)[\s\S]*?(<\/h1>)/i,
-      `$1\n\t\t\t\t\t\t${esc(spec.name)}\n\t\t\t\t\t$2`
+      (m, a, b) => `${a}\n\t\t\t\t\t\t${esc(spec.name)}\n\t\t\t\t\t${b}`
     );
   }
 
   // --- head metadata -----------------------------------------------------
   html = html.replace(/<title>[\s\S]*?<\/title>/i,
-    `<title>${esc(spec.title || spec.name)} - Fat City Entertainment</title>`);
+    () => `<title>${esc(spec.title || spec.name)} - Fat City Entertainment</title>`);
   html = html.replace(/<meta[^>]+name="description"[^>]*>/i,
-    `<meta name="description" content="${esc(spec.description)}">`);
-  html = html.replace(/<link rel="canonical" href="[^"]*"/i, `<link rel="canonical" href="${url}"`);
-  html = html.replace(/<meta property="og:url" content="[^"]*"/i, `<meta property="og:url" content="${url}"`);
+    () => `<meta name="description" content="${esc(spec.description)}">`);
+  html = html.replace(/<link rel="canonical" href="[^"]*"/i, () => `<link rel="canonical" href="${url}"`);
+  html = html.replace(/<meta property="og:url" content="[^"]*"/i, () => `<meta property="og:url" content="${url}"`);
   html = html.replace(/<meta property="og:title" content="[^"]*"/i,
-    `<meta property="og:title" content="${esc(spec.title || spec.name)}"`);
+    () => `<meta property="og:title" content="${esc(spec.title || spec.name)}"`);
   html = html.replace(/<meta property="og:description" content="[^"]*"/i,
-    `<meta property="og:description" content="${esc(spec.description)}"`);
+    () => `<meta property="og:description" content="${esc(spec.description)}"`);
 
   // --- price -------------------------------------------------------------
   // Both the visible amounts and the microdata, so they can't drift apart.
-  html = html.replace(/(itemprop="price"[^>]*content=")[^"]*(")/i, `$1${spec.price}$2`);
+  html = html.replace(/(itemprop="price"[^>]*content=")[^"]*(")/i, (m, a, b) => `${a}${spec.price}${b}`);
   html = html.replace(/<span class="wsite-com-product-price-amount"([^>]*)>[^<]*<\/span>/gi,
     (m, attrs) => `<span class="wsite-com-product-price-amount"${attrs}>$${spec.price} USD</span>`);
 
@@ -145,7 +151,7 @@ for (const spec of specs) {
   if (spec.body) {
     html = html.replace(
       /(<div id="wsite-com-product-short-description"[^>]*>)[\s\S]*?(<\/div>\s*<\/div>)/i,
-      `$1\n${spec.body}\n$2`
+      (m, a, b) => `${a}\n${spec.body}\n${b}`
     );
   }
 
@@ -175,14 +181,14 @@ for (const spec of specs) {
       `<span class="wsite-com-link-text">${esc(spec.name)}</span>\n\t\t</li>`;
     html = html.replace(
       /<ul id="wsite-com-breadcrumbs"[^>]*>[\s\S]*?<\/ul>/i,
-      `<ul id="wsite-com-breadcrumbs" class="wsite-com-product-breadcrumbs">${links}${self}\n\t</ul>`
+      () => `<ul id="wsite-com-breadcrumbs" class="wsite-com-product-breadcrumbs">${links}${self}\n\t</ul>`
     );
   }
 
   // Weebly left an embedded product JSON blob in a data- attribute. Nothing
   // reads it now, but leaving the template's price in it is a trap for anyone
   // who greps the repo for what a product costs.
-  html = html.replace(/(&quot;price&quot;:)\d+(?:\.\d+)?/g, `$1${parseFloat(spec.price)}`);
+  html = html.replace(/(&quot;price&quot;:)\d+(?:\.\d+)?/g, (m, a) => `${a}${parseFloat(spec.price)}`);
 
   // --- image -------------------------------------------------------------
   if (spec.image) {
@@ -231,7 +237,7 @@ for (const spec of specs) {
     // Alt text otherwise still names the template's product.
     html = html.replace(
       /(<img[^>]*wsite-com-product-images-main-image[^>]*\balt=")[^"]*(")/i,
-      `$1${esc(spec.name)}$2`
+      (m, a, b) => `${a}${esc(spec.name)}${b}`
     );
   }
 

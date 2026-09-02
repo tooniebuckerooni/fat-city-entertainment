@@ -49,7 +49,11 @@ html = html.replace(/<meta property="og:title"[^>]*>\s*/gi, "");
 html = html.replace(/<meta property="og:description"[^>]*>\s*/gi, "");
 html = html.replace(/<meta property="og:url"[^>]*>\s*/gi, "");
 html = html.replace(/<meta property="og:type"[^>]*>\s*/gi, "");
-html = html.replace(/(<link rel="canonical"[^>]*>)/i, `$1\n${og}`);
+// NB: replacer FUNCTION, not a replacement string. A string replacement
+// re-reads "$1", "$&" etc. inside the text being inserted, so any
+// description or title containing a dollar amount is silently mangled --
+// "$13.98" became "</title>3.98" in a live twitter:description tag.
+html = html.replace(/(<link rel="canonical"[^>]*>)/i, (m, c) => `${c}\n${og}`);
 html = html.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
 
 const start = html.indexOf(CONTENT_OPEN);

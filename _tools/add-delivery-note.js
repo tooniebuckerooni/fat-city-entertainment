@@ -89,7 +89,11 @@ for (const [pid, file] of products.sort()) {
   if (/<div id="wsite-com-product-tab-long">/.test(html)) {
     html = html.replace(
       /(<div id="wsite-com-product-tab-long">)/,
-      `$1\n\t\t\t\t\t\t${note}`
+      // NB: replacer FUNCTION, not a replacement string. A string replacement
+      // re-reads "$1", "$&" etc. inside the text being inserted, so any
+      // description or title containing a dollar amount is silently mangled --
+      // "$13.98" became "</title>3.98" in a live twitter:description tag.
+      (m, a) => `${a}\n\t\t\t\t\t\t${note}`
     );
   } else if (/<div id="wsite-com-product-tab">\s*<\/div>/.test(html)) {
     // Empty tab container — build the same nesting the other pages use.
