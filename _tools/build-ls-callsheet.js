@@ -24,7 +24,8 @@ const OUT = outIdx !== -1 ? process.argv[outIdx + 1]
 
 const read = (f) => JSON.parse(fs.readFileSync(path.join(__dirname, f), "utf8"));
 const sheet = read("ls-product-sheet.json");
-const copy = [...read("ls-copy-bingo.json"), ...read("ls-copy-bundles.json")];
+const copy = [...read("ls-copy-bingo.json"), ...read("ls-copy-bundles.json"),
+              ...read("ls-copy-shows.json")];
 const copyBy = new Map(copy.map((c) => [c.pid, c]));
 
 // ---------------------------------------------------------------- pricing plan
@@ -39,7 +40,9 @@ const PROPOSED = {
   p155: "48.99",               // Holidays 6-pack
   p130: "193.75",              // Silver — the one cut, to make the ladder descend
 };
+const isNew = (p) => Number(p.pid.slice(1)) >= 169;
 const proposedFor = (p) => {
+  if (isNew(p)) return null;
   if (PROPOSED[p.pid]) return PROPOSED[p.pid];
   if (p.price === "10.99") return PROPOSED.__singles;
   return null;
@@ -49,6 +52,7 @@ const proposedFor = (p) => {
 // Ordered by how the owner will actually work the dashboard: the big repricing
 // batch first, then the rungs that move, then everything untouched.
 function group(p) {
+  if (isNew(p)) return "newshows";
   if (p.price === "10.99") return "singles";
   if (PROPOSED[p.pid]) return "rungs";
   if (["p112", "p130", "p131"].includes(p.pid)) return "clubs";
@@ -56,6 +60,7 @@ function group(p) {
   return "other";
 }
 const GROUPS = [
+  ["newshows", "New — pre-made trivia shows", "Create these from scratch. Staged on the site already: noindex, no tile, no checkout. Price shown is the launch price."],
   ["singles", "Music bingo singles", "All 42 reprice together — the one batch that depends on no open decision."],
   ["rungs",   "Ladder rungs that move", "Repriced upward so per-game cost finally descends as pack size grows."],
   ["clubs",   "Club tiers", "Bronze and Gold hold. Their compare-at value stacks are rebuilt from the new single price."],
@@ -91,11 +96,14 @@ async function thumb(rel) {
   }
 
   const nChanging = rows.filter((r) => r.proposed).length;
+  const nNew = rows.filter((r) => isNew(r)).length;
   const nUnwired = rows.filter((r) => !r.wired).length;
 
   const card = (r) => {
     const priceCell = r.proposed
       ? `<span class="was">$${esc(r.price)}</span><span class="arrow">→</span><span class="now">$${esc(r.proposed)}</span>`
+      : isNew(r)
+      ? `<span class="now">$${esc(r.price)}</span><span class="holdlab">new</span>`
       : `<span class="hold">$${esc(r.price)}</span><span class="holdlab">holds</span>`;
     const flags = [
       r.onSale ? `<span class="flag sale">on sale</span>` : "",
@@ -291,6 +299,7 @@ h1{
     <div class="stat"><b>${nChanging}</b><span>Prices moving</span></div>
     <div class="stat"><b>${rows.length - nChanging}</b><span>Holding</span></div>
     <div class="stat"><b>${rows.filter((r) => r.thumb).length}</b><span>Images ready</span></div>
+    <div class="stat"><b>${nNew}</b><span>New to create</span></div>
     <div class="stat"><b>${nUnwired}</b><span>No checkout</span></div>
   </div>
 

@@ -390,6 +390,11 @@ superseded by what's actually in the repo. If you're looking for a doc this
 file used to mention and it's gone, check `git log -- <filename>`; it was
 retired on purpose, not lost.
 
+- `IMPLEMENTATION-BRIEF.md` — **start here for the fall 2026 pricing work and
+  the 20 new pre-made trivia shows.** What is staged, what needs doing in
+  LemonSqueezy and in what order, and the four decisions still open. The
+  question content lives in `_content/trivia-shows/` (see its own README);
+  `_tools/build-ls-callsheet.js` builds the per-product worksheet.
 - `TRIV101-POLISH.md` — the current backlog for the game, the survey stream,
   and Green Room next steps. Start here for "what's left."
 - `POST-LAUNCH.md` — the marketing/catalog punch list: pricing decisions,
