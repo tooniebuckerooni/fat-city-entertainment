@@ -126,7 +126,9 @@ room in it to the last round.
 3.  Paste each new checkout URL into assets/js/ls-links.js
 4.  node _tools/set-usd-price.js pNN <price>        # once per repriced product
 5.  STOP — fix every "WARN: $X still in the copy" it prints, by hand
-6.  Hand-edit the three club value stacks (section 2B above)
+6.  node _tools/check-value-stacks.js --write    # rebuilds the three
+    #   club value stacks from the new single price, then prints the exact
+    #   set-usd-price commands to align each compare-at. Run those too.
 7.  Set "publish": true in _tools/new-products.json for the 20
 8.  node _tools/new-product.js --write --publish --only p169,...,p188
 9.  node _tools/add-cross-sell.js --write
