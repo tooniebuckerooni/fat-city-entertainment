@@ -1,7 +1,8 @@
 # Pre-made trivia shows
 
-Source content for the print-and-play trivia shows (`p169`–`p174`) — five
-**General Knowledge** nights plus a seasonal **Halloween** edition. One `.tgp.json` per game. These are the master copies — edit
+Source content for the print-and-play trivia shows (`p169`–`p182`) — five
+**General Knowledge** nights, two **seasonal** editions, and five **classroom**
+subject shows for grades 5–8. One `.tgp.json` per game. These are the master copies — edit
 here, never in an exported PDF.
 
 ## What each file is
@@ -19,6 +20,18 @@ name doesn't error — it just quietly becomes a default. Run the checker.
 | `gk-night-four.tgp.json` | p172 | The Curveball | inventions / faces / landmarks |
 | `gk-night-five.tgp.json` | p173 | The Decider | animals / numbers / art |
 | `halloween-fright-night.tgp.json` | p174 | Fright Night | seasonal — monsters / horror film / superstitions |
+| `christmas-long-night.tgp.json` | p175 | The Long Night | seasonal — world traditions / carols / films |
+| `classroom-math.tgp.json` | p177 | Grades 5–8 | classroom — numbers to percents |
+| `classroom-science.tgp.json` | p178 | Grades 5–8 | classroom — life, Earth, body, matter |
+| `classroom-english.tgp.json` | p179 | Grades 5–8 | classroom — words to figures of speech |
+| `classroom-history.tgp.json` | p180 | Grades 5–8 | classroom — ancient world to modern |
+| `classroom-geography.tgp.json` | p181 | Grades 5–8 | classroom — continents to maps |
+
+Bundles carry no game file of their own: **p176** is the five General
+Knowledge nights, **p182** the five classroom subjects.
+
+The classroom shows follow different rules to the pub ones — see
+"Classroom shows" at the foot of this file.
 
 Every game is 5 rounds × 10 questions, plus a tiebreaker. Round 4 is always
 `type: "double"` — a table that starts badly can still win, which keeps the
@@ -76,3 +89,35 @@ Worth keeping if you add a sixth game:
 - **Difficulty ramps within each round** — Q1–3 get everyone on the board, Q8–10
   separate the strong teams. A question nobody can answer is a dead round, not
   a hard one.
+
+## Classroom shows
+
+`classroom-*.tgp.json` are a different product for a different buyer, and they
+are written to different rules:
+
+- **A teacher runs it in a period, for marks that don't count.** Engagement
+  beats difficulty — a question nobody can answer is worse than an easy one.
+  They skew easier than a pub night throughout.
+- **Rounds 1–2 are `ageRange: "kids"`, 3–5 `"teens"`**, so each packet ramps
+  across a class rather than sitting at one level.
+- **Nothing needs a screen, a device or a textbook.** Read aloud, answered on
+  paper. That rules out spelling questions and anything needing a diagram or a
+  written equation — which is why the English show asks for the *term* given an
+  example, rather than asking anyone to punctuate a sentence.
+- **No question turns on which curriculum a class follows.** Measurement
+  questions name their unit system every time.
+- **Where the classroom answer and the strictly-correct answer differ, scope
+  the question rather than fudge it.** "The three states of matter usually
+  taught in class" sidesteps plasma without teaching anything false.
+- **School-safe, not merely family-safe.** Nothing on violence, religion as a
+  truth-claim, or the politics of the last 30 years. No "who discovered"
+  framing for places that were already inhabited. The Holocaust, apartheid and
+  residential schools were all deliberately kept out: they belong in a lesson,
+  not in a round scored for points.
+
+### Still undecided before these go on sale
+**Classroom licensing.** A teacher will photocopy for 30 students, and their
+school will ask whether it can be shared department-wide. Nothing in the
+product copy makes any claim about this yet, deliberately — it is the owner's
+call, and inventing a term would be worse than leaving it open. Settle it
+before publishing p177–p182.

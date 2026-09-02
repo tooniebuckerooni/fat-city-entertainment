@@ -102,6 +102,12 @@ window.LS_LINKS = {
   "p174": "", // [ ] Halloween Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p174/triviashowhalloween.html
   "p175": "", // [ ] Christmas Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p175/triviashowchristmas.html
   "p176": "", // [ ] General Knowledge Trivia Shows — 5-Pack — $44.99 USD — /store/p176/triviashowgk5pack.html
+  "p177": "", // [ ] Classroom Trivia: Math — Print and Play, Grades 5–8 — $12.49 USD — /store/p177/triviashowclassroommath.html
+  "p178": "", // [ ] Classroom Trivia: Science — Print and Play, Grades 5–8 — $12.49 USD — /store/p178/triviashowclassroomscience.html
+  "p179": "", // [ ] Classroom Trivia: English &amp; Language Arts — Print and Play, Grades 5–8 — $12.49 USD — /store/p179/triviashowclassroomenglish.html
+  "p180": "", // [ ] Classroom Trivia: History &amp; Social Studies — Print and Play, Grades 5–8 — $12.49 USD — /store/p180/triviashowclassroomhistory.html
+  "p181": "", // [ ] Classroom Trivia: Geography — Print and Play, Grades 5–8 — $12.49 USD — /store/p181/triviashowclassroomgeography.html
+  "p182": "", // [ ] Classroom Trivia 5-Pack — Every Subject, Grades 5–8 — $44.99 USD — /store/p182/triviashowclassroom5pack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">
