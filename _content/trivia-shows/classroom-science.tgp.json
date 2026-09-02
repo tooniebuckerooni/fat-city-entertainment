@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Classroom Trivia — Science",
+    "subtitle": "Grades 5–8",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "On average, how far is the Moon from the Earth?",
+    "a": "About 384,400 km (238,900 miles)"
+  },
+  "rounds": [
+    {
+      "name": "Life Science",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What do we call an animal that eats only plants?",
+          "a": "A herbivore",
+          "choices": null
+        },
+        {
+          "q": "What is the smallest basic unit of life, the building block every living thing is made of?",
+          "a": "The cell",
+          "choices": null
+        },
+        {
+          "q": "Which part of a plant takes in water and nutrients from the soil?",
+          "a": "The roots",
+          "choices": null
+        },
+        {
+          "q": "Fish take oxygen out of the water using which organs?",
+          "a": "Gills",
+          "choices": null
+        },
+        {
+          "q": "What do we call an animal that eats both plants and meat?",
+          "a": "An omnivore",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the green pigment that lets plants capture sunlight?",
+          "a": "Chlorophyll",
+          "choices": null
+        },
+        {
+          "q": "What is the word for an animal that has a backbone?",
+          "a": "A vertebrate",
+          "choices": null
+        },
+        {
+          "q": "In a flower, which part produces the pollen?",
+          "a": "The anther (accept \"the stamen\")",
+          "choices": null
+        },
+        {
+          "q": "Mushrooms, moulds and yeasts all belong to which kingdom of living things?",
+          "a": "Fungi",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the structures inside a cell that release energy from food, often called the cell's powerhouse?",
+          "a": "Mitochondria (accept \"a mitochondrion\")",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Earth and Space",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What is the name of the star at the centre of our solar system?",
+          "a": "The Sun",
+          "choices": null
+        },
+        {
+          "q": "Which planet orbits closest to the Sun?",
+          "a": "Mercury",
+          "choices": null
+        },
+        {
+          "q": "What do we call the natural satellite that orbits the Earth?",
+          "a": "The Moon",
+          "choices": null
+        },
+        {
+          "q": "Which planet is the largest in our solar system?",
+          "a": "Jupiter",
+          "choices": null
+        },
+        {
+          "q": "Roughly how long does the Earth take to make one full orbit of the Sun?",
+          "a": "One year (about 365 days)",
+          "choices": null
+        },
+        {
+          "q": "What do we call melted rock while it is still below the Earth's surface?",
+          "a": "Magma",
+          "choices": null
+        },
+        {
+          "q": "Igneous and sedimentary are two of the three main types of rock. What is the third?",
+          "a": "Metamorphic",
+          "choices": null
+        },
+        {
+          "q": "What is the name for the continuous journey water makes between the oceans, the air and the land?",
+          "a": "The water cycle",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the galaxy our solar system belongs to?",
+          "a": "The Milky Way",
+          "choices": null
+        },
+        {
+          "q": "Which layer of the Earth's atmosphere contains the ozone layer?",
+          "a": "The stratosphere",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "The Human Body",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which organ pumps blood around the body?",
+          "a": "The heart",
+          "choices": [
+            "The lungs",
+            "The stomach",
+            "The heart",
+            "The liver"
+          ]
+        },
+        {
+          "q": "Which bones protect the brain?",
+          "a": "The skull",
+          "choices": [
+            "The skull",
+            "The sternum",
+            "The pelvis",
+            "The ribcage"
+          ]
+        },
+        {
+          "q": "Which sense organ contains the eardrum?",
+          "a": "The ear",
+          "choices": [
+            "The eye",
+            "The ear",
+            "The nose",
+            "The tongue"
+          ]
+        },
+        {
+          "q": "How many chambers does the human heart have?",
+          "a": "Four",
+          "choices": [
+            "Two",
+            "Three",
+            "Four",
+            "Six"
+          ]
+        },
+        {
+          "q": "Which blood cells carry oxygen around the body?",
+          "a": "Red blood cells",
+          "choices": [
+            "White blood cells",
+            "Platelets",
+            "Plasma",
+            "Red blood cells"
+          ]
+        },
+        {
+          "q": "Which body system includes the trachea, the bronchi and the lungs?",
+          "a": "The respiratory system",
+          "choices": [
+            "The circulatory system",
+            "The digestive system",
+            "The nervous system",
+            "The respiratory system"
+          ]
+        },
+        {
+          "q": "Which organs filter waste out of the blood to make urine?",
+          "a": "The kidneys",
+          "choices": [
+            "The liver",
+            "The kidneys",
+            "The pancreas",
+            "The spleen"
+          ]
+        },
+        {
+          "q": "Which coloured part of the eye controls how much light gets in?",
+          "a": "The iris",
+          "choices": [
+            "The cornea",
+            "The iris",
+            "The retina",
+            "The lens"
+          ]
+        },
+        {
+          "q": "What is the name of the large muscle below the lungs that pulls air in when you breathe?",
+          "a": "The diaphragm",
+          "choices": [
+            "The diaphragm",
+            "The larynx",
+            "The trachea",
+            "The pancreas"
+          ]
+        },
+        {
+          "q": "Which part of the brain, sitting at the back of the head, coordinates balance and movement?",
+          "a": "The cerebellum",
+          "choices": [
+            "The cerebrum",
+            "The brain stem",
+            "The cerebellum",
+            "The spinal cord"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Matter and Energy",
+      "type": "double",
+      "format": "open",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What do we call a push or a pull that can change the way an object moves?",
+          "a": "A force",
+          "choices": null
+        },
+        {
+          "q": "Solid and liquid are two of the three states of matter usually taught in class. What is the third?",
+          "a": "Gas",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the force that slows a sliding object down and can produce heat?",
+          "a": "Friction",
+          "choices": null
+        },
+        {
+          "q": "What do we call the change of a liquid into a gas?",
+          "a": "Evaporation (accept \"vaporisation\" or \"boiling\")",
+          "choices": null
+        },
+        {
+          "q": "What is the centre of an atom called?",
+          "a": "The nucleus",
+          "choices": null
+        },
+        {
+          "q": "What is the word for a pure substance made of only one kind of atom?",
+          "a": "An element",
+          "choices": null
+        },
+        {
+          "q": "What kind of energy does a moving object have?",
+          "a": "Kinetic energy",
+          "choices": null
+        },
+        {
+          "q": "What kind of energy is stored in a stretched rubber band, or in an object held high above the ground?",
+          "a": "Potential energy (accept \"elastic\" or \"gravitational potential energy\")",
+          "choices": null
+        },
+        {
+          "q": "What is the chemical symbol for sodium?",
+          "a": "Na",
+          "choices": null
+        },
+        {
+          "q": "When a solid turns straight into a gas without first becoming a liquid, what is that change called?",
+          "a": "Sublimation",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Light travels faster than sound.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Water is made of hydrogen and oxygen.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Moon makes its own light.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Plants give off oxygen during photosynthesis.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "All metals are attracted to a magnet.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The blood inside your veins is blue until it meets the air.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Ice floats because it is less dense than liquid water.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Heat naturally moves from a colder object to a warmer one.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Diamond and the graphite in a pencil are both forms of the same element, carbon.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Earth has seasons because it moves closer to and farther from the Sun during the year.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

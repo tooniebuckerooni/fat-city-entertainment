@@ -42,6 +42,19 @@ const SHOWS = [
   { slug: "trivia-show-gk-5pack", n: "5", title: "General Knowledge", sub: "The Full Set",
     eyebrow: "FIVE-SHOW BUNDLE", titleSize: 84,
     line1: "5 shows · 250 questions · 5 tiebreakers" },
+  { slug: "trivia-show-classroom-math", n: "M", title: "Math", sub: "Numbers to percents",
+    eyebrow: "CLASSROOM TRIVIA · GRADES 5–8", accent: "#2f6f8f" },
+  { slug: "trivia-show-classroom-science", n: "S", title: "Science", sub: "Life, Earth and matter",
+    eyebrow: "CLASSROOM TRIVIA · GRADES 5–8", accent: "#2f6f8f" },
+  { slug: "trivia-show-classroom-english", n: "E", title: "English", sub: "Words to figures of speech",
+    eyebrow: "CLASSROOM TRIVIA · GRADES 5–8", accent: "#2f6f8f" },
+  { slug: "trivia-show-classroom-history", n: "H", title: "History", sub: "Ancient world to modern",
+    eyebrow: "CLASSROOM TRIVIA · GRADES 5–8", accent: "#2f6f8f" },
+  { slug: "trivia-show-classroom-geography", n: "G", title: "Geography", sub: "Continents to maps",
+    eyebrow: "CLASSROOM TRIVIA · GRADES 5–8", accent: "#2f6f8f" },
+  { slug: "trivia-show-classroom-5pack", n: "5", title: "Classroom Trivia", sub: "All five subjects",
+    eyebrow: "FIVE-SUBJECT BUNDLE", accent: "#2f6f8f", titleSize: 84,
+    line1: "5 subjects · 250 questions · grades 5–8" },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

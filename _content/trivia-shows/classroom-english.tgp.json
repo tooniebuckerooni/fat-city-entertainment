@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Classroom Trivia — English & Language Arts",
+    "subtitle": "Grades 5–8",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "How many sonnets did William Shakespeare write?",
+    "a": "154"
+  },
+  "rounds": [
+    {
+      "name": "Words and Meanings",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What do we call the letters A, E, I, O and U?",
+          "a": "The vowels",
+          "choices": null
+        },
+        {
+          "q": "What do we call a word that means the same, or nearly the same, as another word — such as “big” and “large”?",
+          "a": "A synonym",
+          "choices": null
+        },
+        {
+          "q": "What does the prefix “re-” mean, as in “rewrite” or “replay”?",
+          "a": "Again (accept “back”)",
+          "choices": null
+        },
+        {
+          "q": "What do we call a word formed from the first letters of several other words, such as NASA or SCUBA?",
+          "a": "An acronym",
+          "choices": null
+        },
+        {
+          "q": "“Notebook” and “sunflower” are each made by joining two smaller words together. What is the term for a word built that way?",
+          "a": "A compound word",
+          "choices": null
+        },
+        {
+          "q": "What do we call two words that sound exactly alike but have different meanings — like the animal “bear” and “bare” meaning uncovered?",
+          "a": "Homophones (accept “homonyms”)",
+          "choices": null
+        },
+        {
+          "q": "A letter or group of letters added to the front of a word to change its meaning — such as “un-” or “pre-” — is called what?",
+          "a": "A prefix",
+          "choices": null
+        },
+        {
+          "q": "The ending “-ology” means “the study of.” What is the study of the Earth, its rocks and its structure called?",
+          "a": "Geology",
+          "choices": null
+        },
+        {
+          "q": "The word “aquarium” comes from a Latin root. What does that Latin root mean?",
+          "a": "Water",
+          "choices": null
+        },
+        {
+          "q": "What do we call the study of where words come from and how their meanings have changed over time?",
+          "a": "Etymology",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Grammar and Punctuation",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which punctuation mark goes at the end of a question?",
+          "a": "A question mark",
+          "choices": null
+        },
+        {
+          "q": "What part of speech is a word that names a person, place or thing?",
+          "a": "A noun",
+          "choices": null
+        },
+        {
+          "q": "What part of speech is a word that shows an action, such as “run,” “jump” or “think”?",
+          "a": "A verb",
+          "choices": null
+        },
+        {
+          "q": "Which punctuation mark goes at the end of a sentence that shows strong feeling or excitement?",
+          "a": "An exclamation mark (accept “exclamation point”)",
+          "choices": null
+        },
+        {
+          "q": "What is the plural of the word “mouse,” when you mean the animal?",
+          "a": "Mice",
+          "choices": null
+        },
+        {
+          "q": "What do we call a word that takes the place of a noun — words such as “he,” “she,” “it” and “they”?",
+          "a": "A pronoun",
+          "choices": null
+        },
+        {
+          "q": "In a story, which punctuation marks are placed around a speaker's exact words?",
+          "a": "Quotation marks (accept “speech marks”)",
+          "choices": null
+        },
+        {
+          "q": "In the sentence “The hungry dog chased the ball,” which word is the adjective describing the dog?",
+          "a": "Hungry",
+          "choices": null
+        },
+        {
+          "q": "What part of speech describes a verb, usually telling how, when or where something happens — words such as “quickly” and “yesterday”?",
+          "a": "An adverb",
+          "choices": null
+        },
+        {
+          "q": "Every complete sentence has two main parts. One is the subject — what is the other one called?",
+          "a": "The predicate (accept “the verb”)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Stories and Authors",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In E.B. White's novel “Charlotte's Web,” what kind of animal is Charlotte?",
+          "a": "A spider",
+          "choices": [
+            "A goose",
+            "A spider",
+            "A rat",
+            "A lamb"
+          ]
+        },
+        {
+          "q": "Which author wrote “Charlie and the Chocolate Factory,” “Matilda” and “The BFG”?",
+          "a": "Roald Dahl",
+          "choices": [
+            "Roald Dahl",
+            "C.S. Lewis",
+            "Beverly Cleary",
+            "Judy Blume"
+          ]
+        },
+        {
+          "q": "Which author wrote “The Hobbit” and “The Lord of the Rings”?",
+          "a": "J.R.R. Tolkien",
+          "choices": [
+            "Ursula K. Le Guin",
+            "C.S. Lewis",
+            "J.R.R. Tolkien",
+            "Lloyd Alexander"
+          ]
+        },
+        {
+          "q": "Lucy Maud Montgomery's novel “Anne of Green Gables” is set on which Canadian island?",
+          "a": "Prince Edward Island",
+          "choices": [
+            "Vancouver Island",
+            "Cape Breton Island",
+            "Manitoulin Island",
+            "Prince Edward Island"
+          ]
+        },
+        {
+          "q": "Which Louis Sachar novel follows a boy named Stanley Yelnats, sent to a desert camp where the boys must dig a hole every day?",
+          "a": "Holes",
+          "choices": [
+            "Holes",
+            "Hatchet",
+            "Wonder",
+            "Maniac Magee"
+          ]
+        },
+        {
+          "q": "In Gary Paulsen's novel “Hatchet,” Brian is left alone in the northern wilderness after what kind of accident?",
+          "a": "A plane crash",
+          "choices": [
+            "A shipwreck",
+            "A plane crash",
+            "A train derailment",
+            "A hot-air balloon accident"
+          ]
+        },
+        {
+          "q": "Which American author wrote “The Adventures of Tom Sawyer”?",
+          "a": "Mark Twain",
+          "choices": [
+            "Jack London",
+            "Robert Louis Stevenson",
+            "Mark Twain",
+            "Washington Irving"
+          ]
+        },
+        {
+          "q": "Which English author wrote “Oliver Twist” and “Great Expectations”?",
+          "a": "Charles Dickens",
+          "choices": [
+            "Rudyard Kipling",
+            "H.G. Wells",
+            "Thomas Hardy",
+            "Charles Dickens"
+          ]
+        },
+        {
+          "q": "Which American writer wrote the 1845 poem “The Raven”?",
+          "a": "Edgar Allan Poe",
+          "choices": [
+            "Robert Frost",
+            "Edgar Allan Poe",
+            "Emily Dickinson",
+            "Walt Whitman"
+          ]
+        },
+        {
+          "q": "Which ancient Greek epic poem tells the story of Odysseus and his ten-year journey home from the Trojan War?",
+          "a": "The Odyssey",
+          "choices": [
+            "The Iliad",
+            "Beowulf",
+            "The Odyssey",
+            "The Aeneid"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Figures of Speech",
+      "type": "double",
+      "format": "open",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "“The snow lay over the field like a white blanket.” A comparison that uses the word “like” or “as” is called what?",
+          "a": "A simile",
+          "choices": null
+        },
+        {
+          "q": "“By the end of lunch, the classroom was a zoo.” A comparison that says one thing simply is another, without using “like” or “as,” is called what?",
+          "a": "A metaphor",
+          "choices": null
+        },
+        {
+          "q": "“Peter Piper picked a peck of pickled peppers.” What is the term for repeating the same beginning sound in a row of words?",
+          "a": "Alliteration",
+          "choices": null
+        },
+        {
+          "q": "“Buzz,” “splash” and “crunch” are all words that imitate the sound they describe. What is the term for a word like that?",
+          "a": "Onomatopoeia",
+          "choices": null
+        },
+        {
+          "q": "“The wind whispered through the trees and the old house groaned.” What is the term for giving human qualities to something that is not human?",
+          "a": "Personification",
+          "choices": null
+        },
+        {
+          "q": "“This backpack weighs a ton and I have waited here forever.” What is the term for deliberate exaggeration that is not meant to be taken literally?",
+          "a": "Hyperbole",
+          "choices": null
+        },
+        {
+          "q": "“It's raining cats and dogs.” What do we call an expression whose meaning cannot be worked out from the individual words in it?",
+          "a": "An idiom",
+          "choices": null
+        },
+        {
+          "q": "“Bittersweet” and “act naturally” each put two opposite ideas side by side. What is that figure of speech called?",
+          "a": "An oxymoron",
+          "choices": null
+        },
+        {
+          "q": "“I used to be a baker, but I couldn't make enough dough.” What do we call a joke built on a word having more than one meaning?",
+          "a": "A pun",
+          "choices": null
+        },
+        {
+          "q": "“The rain in Spain falls mainly on the plain” repeats the same vowel sound in nearby words. What is the term for that?",
+          "a": "Assonance",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "A haiku is a poem of three lines.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The plural of “goose” is “gooses.”",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "A thesaurus is a book of synonyms.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "An autobiography is a person's life story written by that person.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Fiction means a written account of real events, exactly as they happened.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Every word in English contains at least one of the letters A, E, I, O or U.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "William Shakespeare wrote poems as well as plays.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The word “alphabet” comes from the names of the first two letters of the Greek alphabet.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "In English, an adjective such as “red” changes its ending when the noun it describes is plural.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "A limerick is a poem of exactly four lines.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

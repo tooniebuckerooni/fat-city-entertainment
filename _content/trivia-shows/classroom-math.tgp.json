@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Classroom Trivia — Math",
+    "subtitle": "Grades 5–8",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "How many seconds are there in one 365-day year?",
+    "a": "31,536,000 seconds"
+  },
+  "rounds": [
+    {
+      "name": "Numbers and Operations",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What is 7 times 8?",
+          "a": "56",
+          "choices": null
+        },
+        {
+          "q": "What is 100 minus 37?",
+          "a": "63",
+          "choices": null
+        },
+        {
+          "q": "What do we call the answer you get when you multiply two numbers together?",
+          "a": "The product",
+          "choices": null
+        },
+        {
+          "q": "What is 12 times 12?",
+          "a": "144",
+          "choices": null
+        },
+        {
+          "q": "What is half of 250?",
+          "a": "125",
+          "choices": null
+        },
+        {
+          "q": "What is 3,847 rounded to the nearest hundred?",
+          "a": "3,800",
+          "choices": null
+        },
+        {
+          "q": "Using the standard order of operations, what is two plus three times four?",
+          "a": "14",
+          "choices": null
+        },
+        {
+          "q": "What is two to the fifth power?",
+          "a": "32",
+          "choices": null
+        },
+        {
+          "q": "What is the greatest common factor of 24 and 36?",
+          "a": "Twelve (12)",
+          "choices": null
+        },
+        {
+          "q": "What is the least common multiple of 6 and 8?",
+          "a": "Twenty-four (24)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Shapes and Geometry",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many sides does a hexagon have?",
+          "a": "Six (6)",
+          "choices": null
+        },
+        {
+          "q": "What is the name for a shape with eight straight sides?",
+          "a": "An octagon",
+          "choices": null
+        },
+        {
+          "q": "How many degrees are in a right angle?",
+          "a": "Ninety (90)",
+          "choices": null
+        },
+        {
+          "q": "What is the name for an angle that measures less than 90 degrees?",
+          "a": "An acute angle",
+          "choices": null
+        },
+        {
+          "q": "What do we call a triangle whose three sides are all the same length?",
+          "a": "An equilateral triangle",
+          "choices": null
+        },
+        {
+          "q": "What is the name for the total distance all the way around the outside of a flat shape?",
+          "a": "The perimeter",
+          "choices": null
+        },
+        {
+          "q": "What is the name for a straight line drawn from the centre of a circle to any point on its edge?",
+          "a": "The radius",
+          "choices": null
+        },
+        {
+          "q": "How many corners, or vertices, does a cube have?",
+          "a": "Eight (8)",
+          "choices": null
+        },
+        {
+          "q": "How many faces does a triangular prism have?",
+          "a": "Five (5)",
+          "choices": null
+        },
+        {
+          "q": "A parallelogram with four equal sides but no right angles is called what?",
+          "a": "A rhombus",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Measurement and Time",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many inches are in one foot?",
+          "a": "12",
+          "choices": [
+            "10",
+            "12",
+            "16",
+            "24"
+          ]
+        },
+        {
+          "q": "How many centimetres are in one metre?",
+          "a": "100",
+          "choices": [
+            "10",
+            "50",
+            "100",
+            "1,000"
+          ]
+        },
+        {
+          "q": "How many feet are in one yard?",
+          "a": "3",
+          "choices": [
+            "3",
+            "6",
+            "10",
+            "12"
+          ]
+        },
+        {
+          "q": "How many millilitres are in one litre?",
+          "a": "1,000",
+          "choices": [
+            "10",
+            "100",
+            "500",
+            "1,000"
+          ]
+        },
+        {
+          "q": "At what temperature does pure water freeze at sea level, measured in degrees Celsius?",
+          "a": "0 degrees",
+          "choices": [
+            "-10 degrees",
+            "0 degrees",
+            "32 degrees",
+            "100 degrees"
+          ]
+        },
+        {
+          "q": "How many minutes are in one full day?",
+          "a": "1,440",
+          "choices": [
+            "240",
+            "720",
+            "1,440",
+            "2,880"
+          ]
+        },
+        {
+          "q": "How many seconds are in one hour?",
+          "a": "3,600",
+          "choices": [
+            "60",
+            "360",
+            "600",
+            "3,600"
+          ]
+        },
+        {
+          "q": "One kilogram is equal to about how many pounds?",
+          "a": "2.2 pounds",
+          "choices": [
+            "1.5 pounds",
+            "2.2 pounds",
+            "3.3 pounds",
+            "4.4 pounds"
+          ]
+        },
+        {
+          "q": "How many hours are there in one full week?",
+          "a": "168",
+          "choices": [
+            "148",
+            "156",
+            "168",
+            "172"
+          ]
+        },
+        {
+          "q": "How many square feet make up one square yard?",
+          "a": "9",
+          "choices": [
+            "3",
+            "6",
+            "9",
+            "12"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Fractions, Decimals and Percents",
+      "type": "double",
+      "format": "open",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What is one half written as a decimal?",
+          "a": "0.5 (zero point five)",
+          "choices": null
+        },
+        {
+          "q": "What is 50 percent of 60?",
+          "a": "30",
+          "choices": null
+        },
+        {
+          "q": "What is three quarters of 80?",
+          "a": "60",
+          "choices": null
+        },
+        {
+          "q": "What is 10 percent of 250?",
+          "a": "25",
+          "choices": null
+        },
+        {
+          "q": "What is one fifth written as a percentage?",
+          "a": "20% (twenty percent)",
+          "choices": null
+        },
+        {
+          "q": "Written as a fraction in its simplest form, what is the decimal zero point two five?",
+          "a": "One quarter (1/4)",
+          "choices": null
+        },
+        {
+          "q": "What is one half plus one quarter?",
+          "a": "Three quarters (3/4)",
+          "choices": null
+        },
+        {
+          "q": "What is 20 percent of 35?",
+          "a": "Seven (7)",
+          "choices": null
+        },
+        {
+          "q": "Which is the larger number: zero point seven, or zero point six five?",
+          "a": "Zero point seven (0.7)",
+          "choices": null
+        },
+        {
+          "q": "A jacket costs 60 dollars and is marked 25 percent off. What is the sale price?",
+          "a": "$45 (forty-five dollars)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Zero is an even number.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "All squares are rectangles.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "One is a prime number.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Multiplying any number by zero always gives zero.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A triangle can have two right angles.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "When you multiply two negative numbers together, the answer is positive.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Pi is exactly equal to 22 divided by 7.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "In a set of numbers, the mode is the value that appears most often.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The number 91 is a prime number.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The median of a set of numbers is always one of the numbers in that set.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

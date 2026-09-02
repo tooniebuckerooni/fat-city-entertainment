@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Classroom Trivia — History & Social Studies",
+    "subtitle": "Grades 5–8",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year was the Magna Carta sealed by King John of England?",
+    "a": "1215"
+  },
+  "rounds": [
+    {
+      "name": "The Ancient World",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The Great Pyramids at Giza were built in which country?",
+          "a": "Egypt",
+          "choices": null
+        },
+        {
+          "q": "The ruins of the Colosseum stand in which ancient city, the capital of a vast empire?",
+          "a": "Rome",
+          "choices": null
+        },
+        {
+          "q": "The ancient Olympic Games were first held in which country?",
+          "a": "Greece",
+          "choices": null
+        },
+        {
+          "q": "Which river's yearly flooding made farming possible in ancient Egypt?",
+          "a": "The Nile",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the ancient stone circle that stands on Salisbury Plain in southern England?",
+          "a": "Stonehenge",
+          "choices": null
+        },
+        {
+          "q": "The Great Wall was built and rebuilt over many centuries to guard the northern border of which country?",
+          "a": "China",
+          "choices": null
+        },
+        {
+          "q": "What name is given to the fertile land between the Tigris and Euphrates rivers, often called the cradle of civilization?",
+          "a": "Mesopotamia",
+          "choices": null
+        },
+        {
+          "q": "Which Greek city-state was known above all for the strict military training of its citizens?",
+          "a": "Sparta",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the wedge-shaped writing that the Sumerians pressed into clay tablets?",
+          "a": "Cuneiform",
+          "choices": null
+        },
+        {
+          "q": "Which people built the city of Tenochtitlán, on the site of present-day Mexico City?",
+          "a": "The Aztecs (accept “the Mexica”)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Explorers and Empires",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In 1492, which Italian navigator sailed west from Spain and reached islands in the Caribbean?",
+          "a": "Christopher Columbus",
+          "choices": null
+        },
+        {
+          "q": "Which Italian merchant wrote a famous account of his travels to China in the 1200s?",
+          "a": "Marco Polo",
+          "choices": null
+        },
+        {
+          "q": "Which French navigator sailed up the St. Lawrence River in the 1530s and claimed the land for France?",
+          "a": "Jacques Cartier",
+          "choices": null
+        },
+        {
+          "q": "Which European country's empire once included colonies across Mexico, Peru and much of Central and South America?",
+          "a": "Spain",
+          "choices": null
+        },
+        {
+          "q": "Which empire, centred in the mountains of Peru, built the city of Machu Picchu?",
+          "a": "The Inca Empire (accept “the Inca”)",
+          "choices": null
+        },
+        {
+          "q": "Which Portuguese navigator led the expedition that became the first to sail all the way around the world?",
+          "a": "Ferdinand Magellan (accept Juan Sebastián Elcano, who completed the voyage)",
+          "choices": null
+        },
+        {
+          "q": "What name was given to the sea route through the Arctic, north of Canada, that European explorers searched for over centuries as a shortcut to Asia?",
+          "a": "The Northwest Passage",
+          "choices": null
+        },
+        {
+          "q": "Which overland trading route, named for a fabric, carried goods between China and the Mediterranean for centuries?",
+          "a": "The Silk Road",
+          "choices": null
+        },
+        {
+          "q": "Which Portuguese explorer sailed around the southern tip of Africa and reached India by sea in 1498?",
+          "a": "Vasco da Gama",
+          "choices": null
+        },
+        {
+          "q": "Which Norse explorer is believed to have reached North America around the year 1000, landing in a place he called Vinland?",
+          "a": "Leif Erikson (Leif Eriksson)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Canada and the United States",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many states are there in the United States?",
+          "a": "50",
+          "choices": [
+            "48",
+            "50",
+            "52",
+            "13"
+          ]
+        },
+        {
+          "q": "How many provinces does Canada have?",
+          "a": "Ten",
+          "choices": [
+            "Eight",
+            "Nine",
+            "Ten",
+            "Twelve"
+          ]
+        },
+        {
+          "q": "Which document, adopted in 1787, sets out the framework of the United States government?",
+          "a": "The Constitution",
+          "choices": [
+            "The Declaration of Independence",
+            "The Bill of Rights",
+            "The Articles of Confederation",
+            "The Constitution"
+          ]
+        },
+        {
+          "q": "What is the capital city of the Canadian province of British Columbia?",
+          "a": "Victoria",
+          "choices": [
+            "Victoria",
+            "Vancouver",
+            "Kelowna",
+            "Prince George"
+          ]
+        },
+        {
+          "q": "The United States Congress is made up of the Senate and which other house?",
+          "a": "The House of Representatives",
+          "choices": [
+            "The House of Commons",
+            "The House of Representatives",
+            "The House of Lords",
+            "The National Assembly"
+          ]
+        },
+        {
+          "q": "Which animal appears on the Canadian five-cent coin, the nickel?",
+          "a": "The beaver",
+          "choices": [
+            "The moose",
+            "The loon",
+            "The beaver",
+            "The caribou"
+          ]
+        },
+        {
+          "q": "Which two U.S. states share no land border with any other state?",
+          "a": "Alaska and Hawaii",
+          "choices": [
+            "Alaska and Hawaii",
+            "Maine and Florida",
+            "Hawaii and Rhode Island",
+            "Alaska and Washington"
+          ]
+        },
+        {
+          "q": "Canada has three territories: Yukon, Nunavut and which other?",
+          "a": "The Northwest Territories",
+          "choices": [
+            "Labrador",
+            "Alberta",
+            "The Klondike",
+            "The Northwest Territories"
+          ]
+        },
+        {
+          "q": "Which river forms much of the border between the state of Texas and Mexico?",
+          "a": "The Rio Grande",
+          "choices": [
+            "The Colorado River",
+            "The Rio Grande",
+            "The Missouri River",
+            "The Pecos River"
+          ]
+        },
+        {
+          "q": "Which is the only Canadian province that is officially bilingual, with both English and French as official languages?",
+          "a": "New Brunswick",
+          "choices": [
+            "Quebec",
+            "Manitoba",
+            "New Brunswick",
+            "Nova Scotia"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "The Modern World",
+      "type": "double",
+      "format": "open",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In what year did the First World War begin?",
+          "a": "1914",
+          "choices": null
+        },
+        {
+          "q": "In what year did the Second World War end?",
+          "a": "1945",
+          "choices": null
+        },
+        {
+          "q": "From 1961 until 1989, a wall divided which European city in two?",
+          "a": "Berlin",
+          "choices": null
+        },
+        {
+          "q": "What name is given to the long rivalry between the United States and the Soviet Union that followed the Second World War?",
+          "a": "The Cold War",
+          "choices": null
+        },
+        {
+          "q": "Which waterway, opened in 1914, links the Atlantic and Pacific Oceans across Central America?",
+          "a": "The Panama Canal",
+          "choices": null
+        },
+        {
+          "q": "Which international organization was founded in 1945 to promote peace and cooperation, with its headquarters in New York City?",
+          "a": "The United Nations (the UN)",
+          "choices": null
+        },
+        {
+          "q": "In 1953, Edmund Hillary and which Nepali Sherpa mountaineer became the first climbers confirmed to reach the summit of Mount Everest?",
+          "a": "Tenzing Norgay",
+          "choices": null
+        },
+        {
+          "q": "Which country did the United States buy Alaska from in 1867?",
+          "a": "Russia",
+          "choices": null
+        },
+        {
+          "q": "Which Canadian province was the last to join Confederation, in 1949?",
+          "a": "Newfoundland (accept “Newfoundland and Labrador”)",
+          "choices": null
+        },
+        {
+          "q": "In which year did the Soviet Union break apart into separate independent countries?",
+          "a": "1991",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The Great Wall of China can be seen with the naked eye from the Moon.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The city once called Constantinople is known today as Istanbul.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Statue of Liberty stands in Boston Harbor.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Canada's flag has carried a single red maple leaf ever since Confederation in 1867.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The first modern Olympic Games were held in Athens, Greece.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Hundred Years' War lasted exactly one hundred years.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The Olympic Games were cancelled during both the First and the Second World Wars.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Canada and the United States celebrate Thanksgiving on the same day each year.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The Wright brothers' first powered flight in 1903 lasted less than one minute.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Vikings came mainly from the part of Europe we now call Scandinavia.",
+          "a": "True",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}
