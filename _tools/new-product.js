@@ -16,6 +16,7 @@
 //
 //   node _tools/new-product.js            # dry run, reports what it would build
 //   node _tools/new-product.js --write
+//   node _tools/new-product.js --write --force   # also rebuild existing pages
 //
 // New products are created STAGED: noindex, not in the sitemap, no category
 // tile. Nothing is public until you pass --publish for that id, which is
@@ -34,6 +35,9 @@ const path = require("path");
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 const PUBLISH = process.argv.includes("--publish");
+// Regenerate a product whose page already exists. Off by default so a run
+// that stages one new product cannot rewrite the rest of the catalogue.
+const FORCE = process.argv.includes("--force");
 const SPEC = path.join(__dirname, "new-products.json");
 
 if (!fs.existsSync(SPEC)) {
@@ -74,6 +78,17 @@ for (const spec of specs) {
   const templatePath = path.join(REPO, spec.template);
   if (!fs.existsSync(templatePath)) {
     console.error(`  SKIP ${spec.slug} — template not found: ${spec.template}`);
+    skipped++;
+    continue;
+  }
+
+  // Never silently rewrite a product that already exists. The spec file is
+  // append-only in practice, so every run used to regenerate EVERY product in
+  // it — meaning "stage one new product" quietly rewrote live pages from their
+  // templates. That is how p167's artwork was overwritten during an unrelated
+  // change. Regenerating is still available, but you have to ask for it.
+  if (fs.existsSync(path.join(REPO, "store", pid)) && !FORCE) {
+    console.log(`  keep ${pid}  ${spec.name} — already exists (--force to regenerate)`);
     skipped++;
     continue;
   }
@@ -162,9 +177,52 @@ for (const spec of specs) {
 
   // --- image -------------------------------------------------------------
   if (spec.image) {
+    // Old Weebly renders, still used by some templates.
     html = html.replace(
       new RegExp(`/uploads/4/3/3/6/43362499/s240281505130794070_${tplId}_i\\d+_w\\d+\\.(?:jpe?g|png|webp)`, "g"),
       spec.image
+    );
+
+    // Templates whose art has since been renamed to something human-readable
+    // (the-wild-west-trivia-game-show.png) matched nothing above, so the clone
+    // silently kept the TEMPLATE's artwork — a staged product showing another
+    // product's picture. Swap by filename stem instead, which also catches the
+    // .webp twin: product images sit in a <picture> whose <source> is WebP, so
+    // replacing only the .png leaves every modern browser still rendering the
+    // template's image.
+    const tplTag =
+      (html.match(/<img[^>]*wsite-com-product-images-main-image[^>]*>/i) || [])[0] || "";
+    const tplSrc = (tplTag.match(/src="([^"?]*)(?:\?[^"]*)?"/) || [])[1];
+    if (tplSrc) {
+      const tplStem = tplSrc.replace(/\.[a-z0-9]+$/i, "");
+      const newStem = spec.image.replace(/\.[a-z0-9]+$/i, "");
+      const newExt = (spec.image.match(/\.([a-z0-9]+)$/i) || [, "png"])[1];
+      const onDisk = (p) => fs.existsSync(path.join(REPO, p.replace(/^\//, "")));
+
+      if (tplStem && tplStem !== newStem) {
+        // Templates carry -full and -thumb zoom variants beside the main image.
+        // A blind stem swap invents filenames for variants the new product does
+        // not have, so resolve each reference against the disk and fall back to
+        // the main image. The extension comes from the spec, not the template —
+        // swapping golden-oldies.jpeg to punk-rock-music-bingo.jpeg when the
+        // real file is a .png is how a product ends up with no artwork at all.
+        const re = new RegExp(
+          tplStem.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "([a-z0-9-]*)\\.(jpe?g|png|webp)",
+          "gi"
+        );
+        html = html.replace(re, (m, suffix, ext) => {
+          const want = ext.toLowerCase() === "webp" ? "webp" : newExt;
+          const variant = `${newStem}${suffix}.${want}`;
+          if (onDisk(variant)) return variant;
+          const main = `${newStem}.${want}`;
+          return onDisk(main) ? main : variant;
+        });
+      }
+    }
+    // Alt text otherwise still names the template's product.
+    html = html.replace(
+      /(<img[^>]*wsite-com-product-images-main-image[^>]*\balt=")[^"]*(")/i,
+      `$1${esc(spec.name)}$2`
     );
   }
 

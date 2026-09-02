@@ -1,0 +1,122 @@
+{
+  "game": { "title": "General Knowledge Night One", "subtitle": "The Opener", "date": "", "host": "" },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f", "font": "helvetica",
+    "logo": null, "logoW": 0, "logoH": 0, "credit": false
+  },
+  "options": { "pageSize": "letter", "showPoints": true, "halfSheets": false, "teams": 12, "tiebreaker": true },
+  "tiebreaker": {
+    "q": "How many miles is it around the Earth at the equator?",
+    "a": "24,901 miles (40,075 km)"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "What color do you get when you mix red and white paint?", "a": "Pink", "choices": null },
+        { "q": "How many letters are in the English alphabet?", "a": "26", "choices": null },
+        { "q": "How many months of the year have exactly 31 days?", "a": "Seven (7)", "choices": null },
+        { "q": "In Roman numerals, what number is written as the letter “L”?", "a": "Fifty (50)", "choices": null },
+        { "q": "In a standard deck of playing cards, how many cards are in each suit?", "a": "13", "choices": null },
+        { "q": "What is the name for a five-sided shape?", "a": "A pentagon", "choices": null },
+        { "q": "How many zeros are in the number one million?", "a": "Six (6)", "choices": null },
+        { "q": "What is the only even prime number?", "a": "Two (2)", "choices": null },
+        { "q": "The three angles inside any triangle add up to how many degrees?", "a": "180", "choices": null },
+        { "q": "In the NATO phonetic alphabet used by pilots and radio operators, which word stands for the letter “K”?", "a": "Kilo", "choices": null }
+      ]
+    },
+    {
+      "name": "Around the World",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "What is the capital city of Canada?", "a": "Ottawa", "choices": null },
+        { "q": "What is the capital city of Japan?", "a": "Tokyo", "choices": null },
+        { "q": "Which desert covers much of northern Africa?", "a": "The Sahara", "choices": null },
+        { "q": "Which U.S. state is the largest by area?", "a": "Alaska", "choices": null },
+        { "q": "The Amazon River empties into which ocean?", "a": "The Atlantic Ocean", "choices": null },
+        { "q": "Which two countries share the longest international border in the world?", "a": "Canada and the United States", "choices": null },
+        { "q": "Mount Everest sits on the border of Nepal and which other country?", "a": "China (Tibet)", "choices": null },
+        { "q": "The Panama Canal links the Atlantic Ocean with which other ocean?", "a": "The Pacific Ocean", "choices": null },
+        { "q": "The city of Istanbul sits on two continents. Which two?", "a": "Europe and Asia", "choices": null },
+        { "q": "What is the capital city of New Zealand?", "a": "Wellington", "choices": null }
+      ]
+    },
+    {
+      "name": "At the Movies",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Which animated film features the song “Let It Go”?", "a": "Frozen", "choices": ["Moana", "Frozen", "Tangled", "Encanto"] },
+        { "q": "Which 1993 blockbuster is set in a theme park stocked with cloned dinosaurs?", "a": "Jurassic Park", "choices": ["King Kong", "Godzilla", "Jurassic Park", "Land of the Lost"] },
+        { "q": "In “The Wizard of Oz,” what is the name of Dorothy's dog?", "a": "Toto", "choices": ["Toto", "Bruno", "Rex", "Sandy"] },
+        { "q": "Which director made both “Jaws” and “E.T. the Extra-Terrestrial”?", "a": "Steven Spielberg", "choices": ["George Lucas", "Ridley Scott", "Martin Scorsese", "Steven Spielberg"] },
+        { "q": "In Disney's “The Lion King,” what is the name of Simba's uncle?", "a": "Scar", "choices": ["Rafiki", "Scar", "Zazu", "Mufasa"] },
+        { "q": "Which 1994 film gave us the line about life being “like a box of chocolates”?", "a": "Forrest Gump", "choices": ["Forrest Gump", "Rain Man", "The Green Mile", "Big Fish"] },
+        { "q": "Which studio made “Toy Story,” the first feature film animated entirely on computers?", "a": "Pixar", "choices": ["DreamWorks Animation", "Blue Sky Studios", "Studio Ghibli", "Pixar"] },
+        { "q": "The character Vito Corleone appears in which 1972 film?", "a": "The Godfather", "choices": ["Goodfellas", "Scarface", "The Godfather", "Casino"] },
+        { "q": "Which film won the very first Academy Award for Best Animated Feature?", "a": "Shrek", "choices": ["Shrek", "Monsters, Inc.", "Jimmy Neutron: Boy Genius", "Ice Age"] },
+        { "q": "In the 1942 film “Casablanca,” which actor played club owner Rick Blaine?", "a": "Humphrey Bogart", "choices": ["Cary Grant", "James Stewart", "Clark Gable", "Humphrey Bogart"] }
+      ]
+    },
+    {
+      "name": "Moments in History",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Who was the first President of the United States?", "a": "George Washington", "choices": null },
+        { "q": "Which ship carried the Pilgrims from England to America in 1620?", "a": "The Mayflower", "choices": null },
+        { "q": "Who was the British Prime Minister for most of the Second World War?", "a": "Winston Churchill", "choices": null },
+        { "q": "Who delivered the “I Have a Dream” speech in Washington in 1963?", "a": "Martin Luther King Jr.", "choices": null },
+        { "q": "The Rosetta Stone was the key to deciphering which ancient writing system?", "a": "Egyptian hieroglyphs", "choices": null },
+        { "q": "In what year was the American Declaration of Independence adopted?", "a": "1776", "choices": null },
+        { "q": "In which country did the Renaissance begin?", "a": "Italy", "choices": null },
+        { "q": "Which 1919 treaty formally ended the First World War?", "a": "The Treaty of Versailles", "choices": null },
+        { "q": "Which Soviet cosmonaut became the first human to travel into space?", "a": "Yuri Gagarin", "choices": null },
+        { "q": "Who was the last Tsar of Russia, forced from the throne in 1917?", "a": "Nicholas II", "choices": null }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Camels store water in their humps.", "a": "False", "choices": null },
+        { "q": "Venus is the hottest planet in our solar system.", "a": "True", "choices": null },
+        { "q": "Coca-Cola was originally green in color.", "a": "False", "choices": null },
+        { "q": "The Great Wall of China can be seen from the Moon with the naked eye.", "a": "False", "choices": null },
+        { "q": "Iceland has no native mosquito population.", "a": "True", "choices": null },
+        { "q": "Bulls charge at a matador's cape because the color red makes them angry.", "a": "False", "choices": null },
+        { "q": "The shortest war in recorded history lasted less than an hour.", "a": "True", "choices": null },
+        { "q": "Napoleon Bonaparte was unusually short compared with other Frenchmen of his day.", "a": "False", "choices": null },
+        { "q": "Reno, Nevada sits farther west than Los Angeles, California.", "a": "True", "choices": null },
+        { "q": "Cleopatra lived closer in time to the opening of the first Pizza Hut than to the building of the Great Pyramid of Giza.", "a": "True", "choices": null }
+      ]
+    }
+  ]
+}

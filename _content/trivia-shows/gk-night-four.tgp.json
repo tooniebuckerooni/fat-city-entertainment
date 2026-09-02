@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "General Knowledge Night Four",
+    "subtitle": "The Curveball",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "The main span of the Golden Gate Bridge — the distance between its two towers — is how many metres long?",
+    "a": "1,280 metres (4,200 feet)"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many legs does an insect have?",
+          "a": "Six (6)",
+          "choices": null
+        },
+        {
+          "q": "Which two colours appear on the flag of Canada?",
+          "a": "Red and white",
+          "choices": null
+        },
+        {
+          "q": "What is the imaginary line at zero degrees latitude that circles the Earth called?",
+          "a": "The Equator",
+          "choices": null
+        },
+        {
+          "q": "How many players from one team take the field in baseball?",
+          "a": "Nine (9)",
+          "choices": null
+        },
+        {
+          "q": "What do you call a shape with five sides?",
+          "a": "A pentagon",
+          "choices": null
+        },
+        {
+          "q": "Which board game features properties called Boardwalk and Park Place?",
+          "a": "Monopoly",
+          "choices": null
+        },
+        {
+          "q": "What is the longest bone in the human body?",
+          "a": "The femur (thigh bone)",
+          "choices": null
+        },
+        {
+          "q": "What is the Japanese art of folding paper into shapes called?",
+          "a": "Origami",
+          "choices": null
+        },
+        {
+          "q": "The name of which large African mammal comes from the Greek words for “river horse”?",
+          "a": "The hippopotamus",
+          "choices": null
+        },
+        {
+          "q": "Which metal alloy is made by combining copper and tin?",
+          "a": "Bronze",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Firsts and Inventions",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Orville and Wilbur, the brothers who made the first powered aeroplane flights at Kitty Hawk in 1903, shared which surname?",
+          "a": "Wright",
+          "choices": null
+        },
+        {
+          "q": "Who was the first woman to win a Nobel Prize?",
+          "a": "Marie Curie",
+          "choices": null
+        },
+        {
+          "q": "Which Scottish scientist discovered penicillin in 1928?",
+          "a": "Alexander Fleming",
+          "choices": null
+        },
+        {
+          "q": "Who received the first United States patent for the telephone, in 1876?",
+          "a": "Alexander Graham Bell",
+          "choices": null
+        },
+        {
+          "q": "Dolly, born in 1996, was the first mammal cloned from an adult cell. What kind of animal was Dolly?",
+          "a": "A sheep",
+          "choices": null
+        },
+        {
+          "q": "Which Canadian-born physical education instructor invented the game of basketball in 1891?",
+          "a": "James Naismith",
+          "choices": null
+        },
+        {
+          "q": "What was the name of the first artificial satellite to orbit the Earth, launched in 1957?",
+          "a": "Sputnik 1",
+          "choices": null
+        },
+        {
+          "q": "Which Hungarian professor invented the twisting puzzle cube that carries his name?",
+          "a": "Ernő Rubik",
+          "choices": null
+        },
+        {
+          "q": "Which American medical researcher developed the polio vaccine announced in 1955?",
+          "a": "Jonas Salk",
+          "choices": null
+        },
+        {
+          "q": "Frederick Banting and Charles Best first isolated which hormone at the University of Toronto in 1921?",
+          "a": "Insulin",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Famous Faces",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which American civil rights leader delivered the “I Have a Dream” speech in Washington in 1963?",
+          "a": "Martin Luther King Jr.",
+          "choices": [
+            "Malcolm X",
+            "Martin Luther King Jr.",
+            "Thurgood Marshall",
+            "John Lewis"
+          ]
+        },
+        {
+          "q": "Which Italian artist painted the ceiling of the Sistine Chapel?",
+          "a": "Michelangelo",
+          "choices": [
+            "Raphael",
+            "Leonardo da Vinci",
+            "Sandro Botticelli",
+            "Michelangelo"
+          ]
+        },
+        {
+          "q": "Which physicist published the general theory of relativity in 1915?",
+          "a": "Albert Einstein",
+          "choices": [
+            "Albert Einstein",
+            "Niels Bohr",
+            "Max Planck",
+            "Erwin Schrödinger"
+          ]
+        },
+        {
+          "q": "Which Indian leader led a nonviolent independence movement and was known as “Mahatma”?",
+          "a": "Mohandas Gandhi",
+          "choices": [
+            "Jawaharlal Nehru",
+            "Subhas Chandra Bose",
+            "Mohandas Gandhi",
+            "B. R. Ambedkar"
+          ]
+        },
+        {
+          "q": "Which composer wrote his Ninth Symphony after going almost completely deaf?",
+          "a": "Ludwig van Beethoven",
+          "choices": [
+            "Wolfgang Amadeus Mozart",
+            "Johannes Brahms",
+            "Franz Schubert",
+            "Ludwig van Beethoven"
+          ]
+        },
+        {
+          "q": "Which nurse became known as “the Lady with the Lamp” for her work in the Crimean War?",
+          "a": "Florence Nightingale",
+          "choices": [
+            "Florence Nightingale",
+            "Clara Barton",
+            "Mary Seacole",
+            "Edith Cavell"
+          ]
+        },
+        {
+          "q": "Which Canadian ran the Marathon of Hope in 1980 to raise money for cancer research?",
+          "a": "Terry Fox",
+          "choices": [
+            "Rick Hansen",
+            "Terry Fox",
+            "Steve Fonyo",
+            "Silken Laumann"
+          ]
+        },
+        {
+          "q": "Which Mexican painter is best known for her self-portraits, including “The Two Fridas”?",
+          "a": "Frida Kahlo",
+          "choices": [
+            "Remedios Varo",
+            "Tamara de Lempicka",
+            "Frida Kahlo",
+            "Georgia O’Keeffe"
+          ]
+        },
+        {
+          "q": "Which aviator became the first woman to fly solo across the Atlantic Ocean, in 1932?",
+          "a": "Amelia Earhart",
+          "choices": [
+            "Amelia Earhart",
+            "Bessie Coleman",
+            "Harriet Quimby",
+            "Jacqueline Cochran"
+          ]
+        },
+        {
+          "q": "Which astronomer’s 1543 book argued that the Earth travels around the Sun?",
+          "a": "Nicolaus Copernicus",
+          "choices": [
+            "Galileo Galilei",
+            "Nicolaus Copernicus",
+            "Johannes Kepler",
+            "Tycho Brahe"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Landmarks and Places",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The ruined Inca city of Machu Picchu is in which South American country?",
+          "a": "Peru",
+          "choices": null
+        },
+        {
+          "q": "Which river flows through the middle of London, England?",
+          "a": "The Thames",
+          "choices": null
+        },
+        {
+          "q": "Niagara Falls sits on the border between the Canadian province of Ontario and which U.S. state?",
+          "a": "New York",
+          "choices": null
+        },
+        {
+          "q": "Which Australian sandstone formation, sacred to the Anangu people, was once officially called Ayers Rock?",
+          "a": "Uluru",
+          "choices": null
+        },
+        {
+          "q": "The Taj Mahal stands in which Indian city?",
+          "a": "Agra",
+          "choices": null
+        },
+        {
+          "q": "The temple complex of Angkor Wat is in which country?",
+          "a": "Cambodia",
+          "choices": null
+        },
+        {
+          "q": "The Hagia Sophia and the Blue Mosque are landmarks of which city?",
+          "a": "Istanbul",
+          "choices": null
+        },
+        {
+          "q": "The Château Frontenac hotel overlooks the St. Lawrence River in which Canadian city?",
+          "a": "Quebec City",
+          "choices": null
+        },
+        {
+          "q": "The Serengeti plains lie mainly within which African country?",
+          "a": "Tanzania",
+          "choices": null
+        },
+        {
+          "q": "Which mountain range is traditionally taken as the boundary between Europe and Asia inside Russia?",
+          "a": "The Ural Mountains",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Sharks are mammals.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Camels store water in their humps.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Antarctica is classified as a desert.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Butterflies can taste with their feet.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A bull charges at a matador’s cape because bulls are enraged by the colour red.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Scotland’s national animal is the unicorn.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "An owl can turn its head a full 360 degrees.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Sea otters have been seen holding hands while they sleep so they do not drift apart.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Canary Islands were named after the canary birds that live there.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The shortest war in recorded history lasted less than an hour.",
+          "a": "True",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

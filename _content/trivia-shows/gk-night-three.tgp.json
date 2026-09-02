@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "General Knowledge Night Three",
+    "subtitle": "The Mixer",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year were the first modern Olympic Games held in Athens?",
+    "a": "1896"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many hours are in two full days?",
+          "a": "Forty-eight (48)",
+          "choices": null
+        },
+        {
+          "q": "Which fairy-tale character leaves a glass slipper behind at the ball?",
+          "a": "Cinderella",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Germany?",
+          "a": "Berlin",
+          "choices": null
+        },
+        {
+          "q": "Which vitamin is most associated with oranges, lemons and limes?",
+          "a": "Vitamin C",
+          "choices": null
+        },
+        {
+          "q": "In chess, which piece moves only along the diagonals?",
+          "a": "The bishop",
+          "choices": null
+        },
+        {
+          "q": "What is Canada’s one-dollar coin commonly nicknamed?",
+          "a": "The loonie",
+          "choices": null
+        },
+        {
+          "q": "Which metal is a liquid at ordinary room temperature?",
+          "a": "Mercury",
+          "choices": null
+        },
+        {
+          "q": "How many players are on a curling team?",
+          "a": "Four (4)",
+          "choices": null
+        },
+        {
+          "q": "Which salt lake, famous for letting swimmers float, borders Israel, Jordan and the West Bank?",
+          "a": "The Dead Sea",
+          "choices": null
+        },
+        {
+          "q": "Which planet in our solar system takes the longest to orbit the Sun?",
+          "a": "Neptune",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Food and Drink",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Granny Smith and Honeycrisp are varieties of which fruit?",
+          "a": "The apple",
+          "choices": null
+        },
+        {
+          "q": "What is the main ingredient in the classic red Spanish cold soup gazpacho?",
+          "a": "Tomatoes",
+          "choices": null
+        },
+        {
+          "q": "Which grain is used to make the Italian dish risotto?",
+          "a": "Rice (arborio rice)",
+          "choices": null
+        },
+        {
+          "q": "The rice dish paella comes from which country?",
+          "a": "Spain",
+          "choices": null
+        },
+        {
+          "q": "Soy sauce is made by fermenting wheat together with which other main ingredient?",
+          "a": "Soybeans",
+          "choices": null
+        },
+        {
+          "q": "The Middle Eastern dip baba ganoush is made mainly from which vegetable?",
+          "a": "Eggplant (aubergine)",
+          "choices": null
+        },
+        {
+          "q": "The spice saffron is harvested from the dried threads of which flower?",
+          "a": "The crocus",
+          "choices": null
+        },
+        {
+          "q": "Traditional Greek feta is made mostly from the milk of which animal?",
+          "a": "Sheep",
+          "choices": null
+        },
+        {
+          "q": "A Reuben sandwich is built with corned beef, Swiss cheese, Russian dressing and which fermented vegetable?",
+          "a": "Sauerkraut (fermented cabbage)",
+          "choices": null
+        },
+        {
+          "q": "The name of which Italian veal dish translates roughly as “jumps in the mouth”?",
+          "a": "Saltimbocca",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Television",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In “The Simpsons,” what is the name of the family’s dog?",
+          "a": "Santa’s Little Helper",
+          "choices": [
+            "Rex",
+            "Snowball",
+            "Santa’s Little Helper",
+            "Duke"
+          ]
+        },
+        {
+          "q": "Which sitcom was set in a Boston bar “where everybody knows your name”?",
+          "a": "Cheers",
+          "choices": [
+            "Cheers",
+            "Taxi",
+            "Night Court",
+            "Barney Miller"
+          ]
+        },
+        {
+          "q": "Which long-running BBC series features a time traveller whose ship is disguised as a police box?",
+          "a": "Doctor Who",
+          "choices": [
+            "Red Dwarf",
+            "Doctor Who",
+            "Blake’s 7",
+            "The Prisoner"
+          ]
+        },
+        {
+          "q": "In “Friends,” what was the name of Ross’s pet monkey?",
+          "a": "Marcel",
+          "choices": [
+            "Milo",
+            "Coco",
+            "Bingo",
+            "Marcel"
+          ]
+        },
+        {
+          "q": "In which “Star Trek” series does Captain Jean-Luc Picard command the Enterprise?",
+          "a": "Star Trek: The Next Generation",
+          "choices": [
+            "Star Trek: Voyager",
+            "Star Trek: The Next Generation",
+            "Star Trek: Deep Space Nine",
+            "Star Trek: Enterprise"
+          ]
+        },
+        {
+          "q": "Which British period drama follows the Crawley family and their servants at an English country estate?",
+          "a": "Downton Abbey",
+          "choices": [
+            "Upstairs, Downstairs",
+            "Brideshead Revisited",
+            "Downton Abbey",
+            "Poldark"
+          ]
+        },
+        {
+          "q": "Which Canadian sitcom is set in the fictional Saskatchewan town of Dog River?",
+          "a": "Corner Gas",
+          "choices": [
+            "Corner Gas",
+            "Letterkenny",
+            "Kim’s Convenience",
+            "Little Mosque on the Prairie"
+          ]
+        },
+        {
+          "q": "In “Seinfeld,” what is Kramer’s first name?",
+          "a": "Cosmo",
+          "choices": [
+            "Morty",
+            "Bertram",
+            "Newman",
+            "Cosmo"
+          ]
+        },
+        {
+          "q": "In “Parks and Recreation,” what is the name of the fictional Indiana town where the show is set?",
+          "a": "Pawnee",
+          "choices": [
+            "Eagleton",
+            "Muncie",
+            "Pawnee",
+            "Springfield"
+          ]
+        },
+        {
+          "q": "Which anthology crime series set its first season in Minnesota, based on a Coen brothers film?",
+          "a": "Fargo",
+          "choices": [
+            "Fargo",
+            "True Detective",
+            "Ozark",
+            "Broadchurch"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Words and Language",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What do we call a word that means the opposite of another, such as “hot” and “cold”?",
+          "a": "An antonym",
+          "choices": null
+        },
+        {
+          "q": "The word “motel” is a blend of which two words?",
+          "a": "Motor and hotel",
+          "choices": null
+        },
+        {
+          "q": "The abbreviation “e.g.” stands for a Latin phrase. What does it mean in plain English?",
+          "a": "“For example” (exempli gratia)",
+          "choices": null
+        },
+        {
+          "q": "Phrases like “jumbo shrimp” and “deafening silence” are examples of which figure of speech?",
+          "a": "An oxymoron",
+          "choices": null
+        },
+        {
+          "q": "Deliberate exaggeration, as in “I’ve told you a million times,” is called what?",
+          "a": "Hyperbole",
+          "choices": null
+        },
+        {
+          "q": "What do we call an expression such as “kick the bucket,” whose meaning cannot be worked out from the individual words?",
+          "a": "An idiom",
+          "choices": null
+        },
+        {
+          "q": "What is the collective noun for a group of owls?",
+          "a": "A parliament",
+          "choices": null
+        },
+        {
+          "q": "The adjective “quixotic” comes from the hero of which Spanish novel?",
+          "a": "Don Quixote",
+          "choices": null
+        },
+        {
+          "q": "“Sandwich,” “cardigan” and “boycott” are all words taken from people’s names. What is the term for a word like that?",
+          "a": "An eponym",
+          "choices": null
+        },
+        {
+          "q": "The word “robot” came into English from a Czech word. What does that Czech word mean?",
+          "a": "Forced labour (drudgery)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The Great Wall of China can be seen with the naked eye from the Moon.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "A group of flamingos is called a flamboyance.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Lightning never strikes the same place twice.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Ostriches bury their heads in the sand when they are frightened.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Venus is hotter than Mercury, even though Mercury orbits closer to the Sun.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Eating carrots gives a person better-than-normal night vision.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The Hundred Years’ War lasted longer than a hundred years.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Chameleons change colour mainly to blend in with their surroundings.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Newfoundland’s standard time zone is half an hour off from the zone next to it, rather than a full hour.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Cleopatra lived closer in time to the first Moon landing than to the building of the Great Pyramid of Giza.",
+          "a": "True",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "game": { "title": "General Knowledge Night Two", "subtitle": "The Regular", "date": "", "host": "" },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f", "font": "helvetica",
+    "logo": null, "logoW": 0, "logoH": 0, "credit": false
+  },
+  "options": { "pageSize": "letter", "showPoints": true, "halfSheets": false, "teams": 12, "tiebreaker": true },
+  "tiebreaker": {
+    "q": "In what year did the Ford Model T first go on sale?",
+    "a": "1908"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "How many sides does a stop sign have?", "a": "Eight (8)", "choices": null },
+        { "q": "In which direction does the sun rise?", "a": "The east", "choices": null },
+        { "q": "What color are the two vertical bands on the Canadian flag?", "a": "Red", "choices": null },
+        { "q": "Which U.S. state is nicknamed the Sunshine State?", "a": "Florida", "choices": null },
+        { "q": "How many degrees are in a full circle?", "a": "360", "choices": null },
+        { "q": "What is the currency of the United Kingdom?", "a": "The pound (pound sterling)", "choices": null },
+        { "q": "Which of the Great Lakes is the largest by surface area?", "a": "Lake Superior", "choices": null },
+        { "q": "The abbreviation “RSVP” comes from which language?", "a": "French", "choices": null },
+        { "q": "What are the names of the first and last letters of the Greek alphabet?", "a": "Alpha and Omega", "choices": null },
+        { "q": "Spelled out in English, which number has all of its letters in alphabetical order?", "a": "Forty (40)", "choices": null }
+      ]
+    },
+    {
+      "name": "Science and Nature",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Which planet is known as the Red Planet?", "a": "Mars", "choices": null },
+        { "q": "What is the largest animal on Earth?", "a": "The blue whale", "choices": null },
+        { "q": "Which gas do plants take in from the air to make their food?", "a": "Carbon dioxide", "choices": null },
+        { "q": "What is the chemical symbol for gold?", "a": "Au", "choices": null },
+        { "q": "What force pulls objects toward the center of the Earth?", "a": "Gravity", "choices": null },
+        { "q": "What is the hardest known natural substance on Earth?", "a": "Diamond", "choices": null },
+        { "q": "What is the name of the process plants use to turn sunlight into energy?", "a": "Photosynthesis", "choices": null },
+        { "q": "Which gas makes up the largest share of the Earth's atmosphere?", "a": "Nitrogen", "choices": null },
+        { "q": "What is the largest organ of the human body?", "a": "The skin", "choices": null },
+        { "q": "What is the chemical symbol for potassium?", "a": "K", "choices": null }
+      ]
+    },
+    {
+      "name": "Music",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Freddie Mercury was the lead singer of which band?", "a": "Queen", "choices": ["The Who", "Queen", "Led Zeppelin", "The Kinks"] },
+        { "q": "Which band recorded the 1969 album “Abbey Road”?", "a": "The Beatles", "choices": ["The Rolling Stones", "The Beach Boys", "The Beatles", "The Doors"] },
+        { "q": "Which singer was known as the “King of Rock and Roll” and lived at Graceland?", "a": "Elvis Presley", "choices": ["Elvis Presley", "Buddy Holly", "Johnny Cash", "Roy Orbison"] },
+        { "q": "Which country singer wrote and recorded both “Jolene” and “9 to 5”?", "a": "Dolly Parton", "choices": ["Loretta Lynn", "Patsy Cline", "Tammy Wynette", "Dolly Parton"] },
+        { "q": "Yo-Yo Ma is famous for playing which instrument?", "a": "The cello", "choices": ["The violin", "The double bass", "The cello", "The viola"] },
+        { "q": "Which Swedish group won the 1974 Eurovision Song Contest with “Waterloo”?", "a": "ABBA", "choices": ["ABBA", "Roxette", "Ace of Base", "A-ha"] },
+        { "q": "“Rolling in the Deep” was the lead single from which British singer's album “21”?", "a": "Adele", "choices": ["Amy Winehouse", "Duffy", "Lily Allen", "Adele"] },
+        { "q": "Which orchestral instrument has 47 strings and seven pedals?", "a": "The harp", "choices": ["The double bass", "The harp", "The zither", "The hammered dulcimer"] },
+        { "q": "Which composer wrote the “Ode to Joy” theme in his Ninth Symphony?", "a": "Ludwig van Beethoven", "choices": ["Ludwig van Beethoven", "Johannes Brahms", "Franz Schubert", "Wolfgang Amadeus Mozart"] },
+        { "q": "Which Canadian singer-songwriter wrote “Both Sides Now” and “Big Yellow Taxi”?", "a": "Joni Mitchell", "choices": ["Anne Murray", "Gordon Lightfoot", "Buffy Sainte-Marie", "Joni Mitchell"] }
+      ]
+    },
+    {
+      "name": "Sport",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "How many players from one team are on a basketball court at a time?", "a": "Five (5)", "choices": null },
+        { "q": "In which sport is a shuttlecock used?", "a": "Badminton", "choices": null },
+        { "q": "How many holes are played in a full round of golf?", "a": "18", "choices": null },
+        { "q": "In soccer, which player is allowed to handle the ball during open play?", "a": "The goalkeeper", "choices": null },
+        { "q": "In tennis, which word is used for a score of zero?", "a": "Love", "choices": null },
+        { "q": "In ice hockey, what is it called when one player scores three goals in a single game?", "a": "A hat trick", "choices": null },
+        { "q": "What is a perfect score in ten-pin bowling?", "a": "300", "choices": null },
+        { "q": "How many yards must a team gain to earn a first down in American football?", "a": "Ten (10)", "choices": null },
+        { "q": "Which city hosted the first modern Olympic Games, in 1896?", "a": "Athens", "choices": null },
+        { "q": "Canadian football is played with how many players per team on the field?", "a": "Twelve (12)", "choices": null }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Lightning never strikes the same place twice.", "a": "False", "choices": null },
+        { "q": "Canada has the longest coastline of any country in the world.", "a": "True", "choices": null },
+        { "q": "Ostriches bury their heads in the sand when they are frightened.", "a": "False", "choices": null },
+        { "q": "Mount Kilimanjaro is located in Kenya.", "a": "False", "choices": null },
+        { "q": "The Hundred Years' War lasted longer than one hundred years.", "a": "True", "choices": null },
+        { "q": "Wombats produce cube-shaped droppings.", "a": "True", "choices": null },
+        { "q": "The capital city of Brazil is Rio de Janeiro.", "a": "False", "choices": null },
+        { "q": "Sharks have existed on Earth for longer than trees have.", "a": "True", "choices": null },
+        { "q": "The Canary Islands were named after the canary bird.", "a": "False", "choices": null },
+        { "q": "Oxford University was already teaching students before the Aztec Empire was founded.", "a": "True", "choices": null }
+      ]
+    }
+  ]
+}

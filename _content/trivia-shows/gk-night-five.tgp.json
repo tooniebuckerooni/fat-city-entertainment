@@ -1,0 +1,122 @@
+{
+  "game": { "title": "General Knowledge Night Five", "subtitle": "The Decider", "date": "", "host": "" },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f", "font": "helvetica",
+    "logo": null, "logoW": 0, "logoH": 0, "credit": false
+  },
+  "options": { "pageSize": "letter", "showPoints": true, "halfSheets": false, "teams": 12, "tiebreaker": true },
+  "tiebreaker": {
+    "q": "How tall is the CN Tower in Toronto, from the ground to the tip of its antenna, in metres?",
+    "a": "553.3 metres (1,815 feet)"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "How many days are in a leap year?", "a": "366", "choices": null },
+        { "q": "Which planet in our solar system is famous for its bright system of rings?", "a": "Saturn", "choices": null },
+        { "q": "What is the capital city of Italy?", "a": "Rome", "choices": null },
+        { "q": "How many squares are on a standard chessboard?", "a": "64", "choices": null },
+        { "q": "The Statue of Liberty was a gift to the United States from which country?", "a": "France", "choices": null },
+        { "q": "In ice hockey, how many players per team are on the ice at even strength, including the goalie?", "a": "Six (6)", "choices": null },
+        { "q": "What does the abbreviation “www” stand for in a web address?", "a": "World Wide Web", "choices": null },
+        { "q": "Nunavut is Canada's largest territory by area. Which is Canada's largest province by area?", "a": "Quebec", "choices": null },
+        { "q": "Which is the only U.S. state that borders exactly one other state?", "a": "Maine", "choices": null },
+        { "q": "Which letter of the alphabet does not appear in the name of any U.S. state?", "a": "Q", "choices": null }
+      ]
+    },
+    {
+      "name": "The Animal Kingdom",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "What is a group of wolves called?", "a": "A pack", "choices": null },
+        { "q": "What is a baby kangaroo called?", "a": "A joey", "choices": null },
+        { "q": "Frogs, toads and salamanders all belong to which class of animals?", "a": "Amphibians", "choices": null },
+        { "q": "An adult insect's body has three main sections: the head, the abdomen, and which other?", "a": "The thorax", "choices": null },
+        { "q": "What is the hard outer covering of an insect or a crab called?", "a": "An exoskeleton", "choices": null },
+        { "q": "What is the name for the change a caterpillar goes through to become a butterfly?", "a": "Metamorphosis", "choices": null },
+        { "q": "What is a group of geese on the ground called?", "a": "A gaggle", "choices": null },
+        { "q": "What is the collective name for the group of marine mammals that includes whales, dolphins and porpoises?", "a": "Cetaceans (Cetacea)", "choices": null },
+        { "q": "Only two kinds of mammal lay eggs. One is the platypus — what is the other, a spiny egg-layer of Australia and New Guinea?", "a": "The echidna (spiny anteater)", "choices": null },
+        { "q": "Which word describes an animal that is most active at dawn and dusk?", "a": "Crepuscular", "choices": null }
+      ]
+    },
+    {
+      "name": "Numbers and Dates",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "In what year did the Titanic sink on its maiden voyage?", "a": "1912", "choices": ["1898", "1905", "1912", "1921"] },
+        { "q": "In what year did humans first land on the Moon?", "a": "1969", "choices": ["1969", "1976", "1983", "1990"] },
+        { "q": "In what year did the first iPhone go on sale?", "a": "2007", "choices": ["2001", "2003", "2005", "2007"] },
+        { "q": "How many stripes are on the flag of the United States?", "a": "13", "choices": ["13", "15", "17", "20"] },
+        { "q": "How many keys are on a standard full-size piano?", "a": "88", "choices": ["66", "76", "88", "96"] },
+        { "q": "In what year did the Berlin Wall come down?", "a": "1989", "choices": ["1982", "1989", "1996", "2003"] },
+        { "q": "In Lincoln's Gettysburg Address, he begins “Four score and seven years ago.” How many years is one score?", "a": "20", "choices": ["10", "12", "15", "20"] },
+        { "q": "How many bones are in the adult human body?", "a": "206", "choices": ["186", "206", "226", "246"] },
+        { "q": "In what year did Canadian Confederation take place?", "a": "1867", "choices": ["1776", "1812", "1867", "1901"] },
+        { "q": "In what year was the Eiffel Tower completed?", "a": "1889", "choices": ["1841", "1856", "1872", "1889"] }
+      ]
+    },
+    {
+      "name": "Art and Literature",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "Who wrote the play “Romeo and Juliet”?", "a": "William Shakespeare", "choices": null },
+        { "q": "Which artist painted “The Starry Night”?", "a": "Vincent van Gogh", "choices": null },
+        { "q": "Who wrote the Harry Potter novels?", "a": "J.K. Rowling", "choices": null },
+        { "q": "“Pride and Prejudice” and “Emma” were written by which English novelist?", "a": "Jane Austen", "choices": null },
+        { "q": "In which Paris museum is the Mona Lisa displayed?", "a": "The Louvre", "choices": null },
+        { "q": "“Nineteen Eighty-Four” and “Animal Farm” were written by which author?", "a": "George Orwell", "choices": null },
+        { "q": "Which Canadian novelist wrote “The Handmaid's Tale”?", "a": "Margaret Atwood", "choices": null },
+        { "q": "Which Spanish painter's works include “Guernica” and “Les Demoiselles d'Avignon”?", "a": "Pablo Picasso", "choices": null },
+        { "q": "Which novel begins with the words “Call me Ishmael”?", "a": "Moby-Dick (Moby Dick), by Herman Melville", "choices": null },
+        { "q": "Which French sculptor created “The Thinker”?", "a": "Auguste Rodin", "choices": null }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        { "q": "The capital city of Australia is Sydney.", "a": "False", "choices": null },
+        { "q": "Sound travels faster through water than through air.", "a": "True", "choices": null },
+        { "q": "Peanuts are not true nuts — botanically they are legumes.", "a": "True", "choices": null },
+        { "q": "Bats are completely blind.", "a": "False", "choices": null },
+        { "q": "A goldfish has a memory of only about three seconds.", "a": "False", "choices": null },
+        { "q": "A giraffe has the same number of bones in its neck as a human does.", "a": "True", "choices": null },
+        { "q": "Viking warriors wore horned helmets into battle.", "a": "False", "choices": null },
+        { "q": "Botanically speaking, a banana counts as a berry.", "a": "True", "choices": null },
+        { "q": "Water drains out of a sink the opposite way round in the Southern Hemisphere because of the Earth's rotation.", "a": "False", "choices": null },
+        { "q": "An octopus has blue blood.", "a": "True", "choices": null }
+      ]
+    }
+  ]
+}
