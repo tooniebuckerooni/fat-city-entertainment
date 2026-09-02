@@ -27,7 +27,7 @@
         { "q": "How many months of the year have exactly 31 days?", "a": "Seven (7)", "choices": null },
         { "q": "In Roman numerals, what number is written as the letter “L”?", "a": "Fifty (50)", "choices": null },
         { "q": "In a standard deck of playing cards, how many cards are in each suit?", "a": "13", "choices": null },
-        { "q": "What is the name for a five-sided shape?", "a": "A pentagon", "choices": null },
+        { "q": "What is the name for a ten-sided shape?", "a": "A decagon", "choices": null },
         { "q": "How many zeros are in the number one million?", "a": "Six (6)", "choices": null },
         { "q": "What is the only even prime number?", "a": "Two (2)", "choices": null },
         { "q": "The three angles inside any triangle add up to how many degrees?", "a": "180", "choices": null },
@@ -50,8 +50,8 @@
         { "q": "The Amazon River empties into which ocean?", "a": "The Atlantic Ocean", "choices": null },
         { "q": "Which two countries share the longest international border in the world?", "a": "Canada and the United States", "choices": null },
         { "q": "Mount Everest sits on the border of Nepal and which other country?", "a": "China (Tibet)", "choices": null },
-        { "q": "The Panama Canal links the Atlantic Ocean with which other ocean?", "a": "The Pacific Ocean", "choices": null },
-        { "q": "The city of Istanbul sits on two continents. Which two?", "a": "Europe and Asia", "choices": null },
+        { "q": "Which is the largest island in the Caribbean Sea?", "a": "Cuba", "choices": null },
+        { "q": "Which mountain range forms the border between France and Spain?", "a": "The Pyrenees", "choices": null },
         { "q": "What is the capital city of New Zealand?", "a": "Wellington", "choices": null }
       ]
     },
@@ -88,7 +88,7 @@
         { "q": "Who was the first President of the United States?", "a": "George Washington", "choices": null },
         { "q": "Which ship carried the Pilgrims from England to America in 1620?", "a": "The Mayflower", "choices": null },
         { "q": "Who was the British Prime Minister for most of the Second World War?", "a": "Winston Churchill", "choices": null },
-        { "q": "Who delivered the “I Have a Dream” speech in Washington in 1963?", "a": "Martin Luther King Jr.", "choices": null },
+        { "q": "The Boston Tea Party of 1773 was a protest against taxes imposed by which country?", "a": "Britain (Great Britain)", "choices": null },
         { "q": "The Rosetta Stone was the key to deciphering which ancient writing system?", "a": "Egyptian hieroglyphs", "choices": null },
         { "q": "In what year was the American Declaration of Independence adopted?", "a": "1776", "choices": null },
         { "q": "In which country did the Renaissance begin?", "a": "Italy", "choices": null },
@@ -106,16 +106,16 @@
       "points": 10,
       "open": true,
       "questions": [
-        { "q": "Camels store water in their humps.", "a": "False", "choices": null },
-        { "q": "Venus is the hottest planet in our solar system.", "a": "True", "choices": null },
+        { "q": "Pineapples grow on trees.", "a": "False", "choices": null },
         { "q": "Coca-Cola was originally green in color.", "a": "False", "choices": null },
-        { "q": "The Great Wall of China can be seen from the Moon with the naked eye.", "a": "False", "choices": null },
+        { "q": "A crocodile cannot stick its tongue out.", "a": "True", "choices": null },
+        { "q": "The Nile is the only major river in the world that flows north.", "a": "False", "choices": null },
         { "q": "Iceland has no native mosquito population.", "a": "True", "choices": null },
-        { "q": "Bulls charge at a matador's cape because the color red makes them angry.", "a": "False", "choices": null },
-        { "q": "The shortest war in recorded history lasted less than an hour.", "a": "True", "choices": null },
+        { "q": "The flight recorder known as an airplane's “black box” is actually bright orange.", "a": "True", "choices": null },
+        { "q": "Greenland is larger in area than Australia.", "a": "False", "choices": null },
+        { "q": "Bubble wrap was originally invented to be used as wallpaper.", "a": "True", "choices": null },
         { "q": "Napoleon Bonaparte was unusually short compared with other Frenchmen of his day.", "a": "False", "choices": null },
-        { "q": "Reno, Nevada sits farther west than Los Angeles, California.", "a": "True", "choices": null },
-        { "q": "Cleopatra lived closer in time to the opening of the first Pizza Hut than to the building of the Great Pyramid of Giza.", "a": "True", "choices": null }
+        { "q": "Reno, Nevada sits farther west than Los Angeles, California.", "a": "True", "choices": null }
       ]
     }
   ]

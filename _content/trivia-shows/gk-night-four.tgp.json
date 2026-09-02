@@ -43,8 +43,8 @@
           "choices": null
         },
         {
-          "q": "Which two colours appear on the flag of Canada?",
-          "a": "Red and white",
+          "q": "What do bees make out of nectar?",
+          "a": "Honey",
           "choices": null
         },
         {
@@ -58,8 +58,8 @@
           "choices": null
         },
         {
-          "q": "What do you call a shape with five sides?",
-          "a": "A pentagon",
+          "q": "Which land animal can run the fastest over a short distance?",
+          "a": "The cheetah",
           "choices": null
         },
         {
@@ -160,13 +160,13 @@
       "open": true,
       "questions": [
         {
-          "q": "Which American civil rights leader delivered the “I Have a Dream” speech in Washington in 1963?",
-          "a": "Martin Luther King Jr.",
+          "q": "Which English naturalist wrote the 1859 book “On the Origin of Species”?",
+          "a": "Charles Darwin",
           "choices": [
-            "Malcolm X",
-            "Martin Luther King Jr.",
-            "Thurgood Marshall",
-            "John Lewis"
+            "Gregor Mendel",
+            "Charles Darwin",
+            "Alfred Russel Wallace",
+            "Carl Linnaeus"
           ]
         },
         {
@@ -200,13 +200,13 @@
           ]
         },
         {
-          "q": "Which composer wrote his Ninth Symphony after going almost completely deaf?",
-          "a": "Ludwig van Beethoven",
+          "q": "Which Austrian neurologist founded psychoanalysis?",
+          "a": "Sigmund Freud",
           "choices": [
-            "Wolfgang Amadeus Mozart",
-            "Johannes Brahms",
-            "Franz Schubert",
-            "Ludwig van Beethoven"
+            "Carl Jung",
+            "Ivan Pavlov",
+            "Alfred Adler",
+            "Sigmund Freud"
           ]
         },
         {
@@ -301,8 +301,8 @@
           "choices": null
         },
         {
-          "q": "The Hagia Sophia and the Blue Mosque are landmarks of which city?",
-          "a": "Istanbul",
+          "q": "Which country is home to the ancient city of Petra, carved into rose-coloured rock?",
+          "a": "Jordan",
           "choices": null
         },
         {
@@ -332,12 +332,7 @@
       "open": true,
       "questions": [
         {
-          "q": "Sharks are mammals.",
-          "a": "False",
-          "choices": null
-        },
-        {
-          "q": "Camels store water in their humps.",
+          "q": "Touching a toad or a frog gives you warts.",
           "a": "False",
           "choices": null
         },
@@ -347,12 +342,22 @@
           "choices": null
         },
         {
+          "q": "An owl can turn its head a full 360 degrees.",
+          "a": "False",
+          "choices": null
+        },
+        {
           "q": "Butterflies can taste with their feet.",
           "a": "True",
           "choices": null
         },
         {
-          "q": "A bull charges at a matador’s cape because bulls are enraged by the colour red.",
+          "q": "Most of the body heat a person loses escapes through the head.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Mice will pick cheese over any other food.",
           "a": "False",
           "choices": null
         },
@@ -362,7 +367,7 @@
           "choices": null
         },
         {
-          "q": "An owl can turn its head a full 360 degrees.",
+          "q": "A duck’s quack does not echo.",
           "a": "False",
           "choices": null
         },
@@ -372,12 +377,7 @@
           "choices": null
         },
         {
-          "q": "The Canary Islands were named after the canary birds that live there.",
-          "a": "False",
-          "choices": null
-        },
-        {
-          "q": "The shortest war in recorded history lasted less than an hour.",
+          "q": "A king penguin living at Edinburgh Zoo has been knighted by Norway’s King’s Guard.",
           "a": "True",
           "choices": null
         }

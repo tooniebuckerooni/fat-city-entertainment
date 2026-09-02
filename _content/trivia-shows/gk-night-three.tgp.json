@@ -24,8 +24,8 @@
     "tiebreaker": true
   },
   "tiebreaker": {
-    "q": "In what year were the first modern Olympic Games held in Athens?",
-    "a": "1896"
+    "q": "In what year was the Hudson’s Bay Company founded by royal charter?",
+    "a": "1670"
   },
   "rounds": [
     {
@@ -73,7 +73,7 @@
           "choices": null
         },
         {
-          "q": "How many players are on a curling team?",
+          "q": "Not counting mixed doubles, how many players make up a curling team?",
           "a": "Four (4)",
           "choices": null
         },
@@ -135,7 +135,7 @@
         },
         {
           "q": "Traditional Greek feta is made mostly from the milk of which animal?",
-          "a": "Sheep",
+          "a": "Sheep (accept \"sheep and goat\" — PDO feta is at least 70% sheep’s milk, up to 30% goat)",
           "choices": null
         },
         {
@@ -332,7 +332,12 @@
       "open": true,
       "questions": [
         {
-          "q": "The Great Wall of China can be seen with the naked eye from the Moon.",
+          "q": "Humans use only about ten percent of their brains.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Swallowed chewing gum stays in your stomach for seven years.",
           "a": "False",
           "choices": null
         },
@@ -342,27 +347,17 @@
           "choices": null
         },
         {
-          "q": "Lightning never strikes the same place twice.",
-          "a": "False",
-          "choices": null
-        },
-        {
-          "q": "Ostriches bury their heads in the sand when they are frightened.",
-          "a": "False",
-          "choices": null
-        },
-        {
-          "q": "Venus is hotter than Mercury, even though Mercury orbits closer to the Sun.",
-          "a": "True",
-          "choices": null
-        },
-        {
           "q": "Eating carrots gives a person better-than-normal night vision.",
           "a": "False",
           "choices": null
         },
         {
-          "q": "The Hundred Years’ War lasted longer than a hundred years.",
+          "q": "The dot over a lowercase letter “i” is called a tittle.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Eiffel Tower is taller in summer than in winter.",
           "a": "True",
           "choices": null
         },
@@ -372,12 +367,17 @@
           "choices": null
         },
         {
-          "q": "Newfoundland’s standard time zone is half an hour off from the zone next to it, rather than a full hour.",
+          "q": "Newfoundland’s standard time zone is half an hour off from the zone beside it, rather than a full hour.",
           "a": "True",
           "choices": null
         },
         {
-          "q": "Cleopatra lived closer in time to the first Moon landing than to the building of the Great Pyramid of Giza.",
+          "q": "Different parts of the tongue are responsible for different tastes: sweet at the tip, bitter at the back.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "New York City was once the capital of the United States.",
           "a": "True",
           "choices": null
         }

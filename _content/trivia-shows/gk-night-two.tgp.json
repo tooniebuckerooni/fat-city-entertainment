@@ -24,7 +24,7 @@
       "questions": [
         { "q": "How many sides does a stop sign have?", "a": "Eight (8)", "choices": null },
         { "q": "In which direction does the sun rise?", "a": "The east", "choices": null },
-        { "q": "What color are the two vertical bands on the Canadian flag?", "a": "Red", "choices": null },
+        { "q": "Which color appears along the top, outer edge of a rainbow?", "a": "Red", "choices": null },
         { "q": "Which U.S. state is nicknamed the Sunshine State?", "a": "Florida", "choices": null },
         { "q": "How many degrees are in a full circle?", "a": "360", "choices": null },
         { "q": "What is the currency of the United Kingdom?", "a": "The pound (pound sterling)", "choices": null },
@@ -72,7 +72,7 @@
         { "q": "Which Swedish group won the 1974 Eurovision Song Contest with “Waterloo”?", "a": "ABBA", "choices": ["ABBA", "Roxette", "Ace of Base", "A-ha"] },
         { "q": "“Rolling in the Deep” was the lead single from which British singer's album “21”?", "a": "Adele", "choices": ["Amy Winehouse", "Duffy", "Lily Allen", "Adele"] },
         { "q": "Which orchestral instrument has 47 strings and seven pedals?", "a": "The harp", "choices": ["The double bass", "The harp", "The zither", "The hammered dulcimer"] },
-        { "q": "Which composer wrote the “Ode to Joy” theme in his Ninth Symphony?", "a": "Ludwig van Beethoven", "choices": ["Ludwig van Beethoven", "Johannes Brahms", "Franz Schubert", "Wolfgang Amadeus Mozart"] },
+        { "q": "Which Austrian composer wrote “The Marriage of Figaro” and “Eine kleine Nachtmusik”?", "a": "Wolfgang Amadeus Mozart", "choices": ["Wolfgang Amadeus Mozart", "Franz Joseph Haydn", "Antonio Vivaldi", "George Frideric Handel"] },
         { "q": "Which Canadian singer-songwriter wrote “Both Sides Now” and “Big Yellow Taxi”?", "a": "Joni Mitchell", "choices": ["Anne Murray", "Gordon Lightfoot", "Buffy Sainte-Marie", "Joni Mitchell"] }
       ]
     },
@@ -93,7 +93,7 @@
         { "q": "In ice hockey, what is it called when one player scores three goals in a single game?", "a": "A hat trick", "choices": null },
         { "q": "What is a perfect score in ten-pin bowling?", "a": "300", "choices": null },
         { "q": "How many yards must a team gain to earn a first down in American football?", "a": "Ten (10)", "choices": null },
-        { "q": "Which city hosted the first modern Olympic Games, in 1896?", "a": "Athens", "choices": null },
+        { "q": "In which track and field event would an athlete use the technique known as the Fosbury Flop?", "a": "The high jump", "choices": null },
         { "q": "Canadian football is played with how many players per team on the field?", "a": "Twelve (12)", "choices": null }
       ]
     },
@@ -106,15 +106,15 @@
       "points": 10,
       "open": true,
       "questions": [
-        { "q": "Lightning never strikes the same place twice.", "a": "False", "choices": null },
+        { "q": "A common, non-leap year contains exactly 52 weeks.", "a": "False", "choices": null },
+        { "q": "A rhinoceros's horn is made of bone.", "a": "False", "choices": null },
         { "q": "Canada has the longest coastline of any country in the world.", "a": "True", "choices": null },
-        { "q": "Ostriches bury their heads in the sand when they are frightened.", "a": "False", "choices": null },
         { "q": "Mount Kilimanjaro is located in Kenya.", "a": "False", "choices": null },
-        { "q": "The Hundred Years' War lasted longer than one hundred years.", "a": "True", "choices": null },
+        { "q": "Christopher Columbus was the first European to set foot in North America.", "a": "False", "choices": null },
         { "q": "Wombats produce cube-shaped droppings.", "a": "True", "choices": null },
-        { "q": "The capital city of Brazil is Rio de Janeiro.", "a": "False", "choices": null },
         { "q": "Sharks have existed on Earth for longer than trees have.", "a": "True", "choices": null },
-        { "q": "The Canary Islands were named after the canary bird.", "a": "False", "choices": null },
+        { "q": "At their closest point, Russia and the United States are less than three miles apart.", "a": "True", "choices": null },
+        { "q": "The capital city of Brazil is Rio de Janeiro.", "a": "False", "choices": null },
         { "q": "Oxford University was already teaching students before the Aztec Empire was founded.", "a": "True", "choices": null }
       ]
     }
