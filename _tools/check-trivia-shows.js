@@ -132,6 +132,31 @@ for (const file of files) {
     `tiebreaker ${g.tiebreaker && g.tiebreaker.a ? "yes" : "MISSING"}`);
 }
 
+// --- product pages advertise the round list, and nothing regenerates it ------
+// A round renamed in the JSON leaves the store page selling a line-up the
+// customer will not get. Same class as every other baked-derived-data problem
+// in this repo, so check it here rather than discover it in a refund email.
+const PRODUCTS = {
+  "gk-night-one": "p169", "gk-night-two": "p170", "gk-night-three": "p171",
+  "gk-night-four": "p172", "gk-night-five": "p173",
+};
+for (const [stem, pid] of Object.entries(PRODUCTS)) {
+  const showFile = path.join(DIR, `${stem}.tgp.json`);
+  const dir = path.join(REPO, "store", pid);
+  if (!fs.existsSync(showFile) || !fs.existsSync(dir)) continue;
+  const page = fs.readdirSync(dir).find((f) => f.endsWith(".html"));
+  if (!page) continue;
+  const html = fs.readFileSync(path.join(dir, page), "utf8");
+  const g = JSON.parse(fs.readFileSync(showFile, "utf8"));
+  for (const r of g.rounds) {
+    if (r.name && !html.includes(r.name))
+      problems.push(`${pid} page does not list round "${r.name}" from ${stem}`);
+  }
+  const qs = g.rounds.reduce((s, r) => s + (r.questions || []).length, 0);
+  if (!html.includes(`${qs} questions`))
+    warnings.push(`${pid} page does not state "${qs} questions"`);
+}
+
 console.log(`\n${files.length} show(s), ${seen.size} unique questions across the set`);
 if (warnings.length) {
   console.log(`\n${warnings.length} warning(s):`);
