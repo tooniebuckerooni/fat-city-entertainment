@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "The 80s and 90s Trivia Night",
+    "subtitle": "Rewind",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "When the original Sony PlayStation went on sale in North America in September 1995, what was its retail price in US dollars?",
+    "a": "$299 US"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In the arcade game released in 1980, a yellow character eats dots while being chased by four ghosts. What is the game called?",
+          "a": "Pac-Man",
+          "choices": null
+        },
+        {
+          "q": "Through the 1980s and 1990s, movies were rented and recorded at home on video cassettes. What three letters name that cassette format?",
+          "a": "VHS",
+          "choices": null
+        },
+        {
+          "q": "In Nintendo's games, what is the first name of the moustachioed plumber whose taller, younger brother is called Luigi?",
+          "a": "Mario",
+          "choices": null
+        },
+        {
+          "q": "Which Sony portable cassette player, sold with headphones, made music something you carried around with you in the 1980s?",
+          "a": "The Walkman",
+          "choices": null
+        },
+        {
+          "q": "The cable channel MTV launched in the United States in 1981. What do the letters M, T and V stand for?",
+          "a": "Music Television",
+          "choices": null
+        },
+        {
+          "q": "Which video rental chain opened its first store in Dallas in 1985 and grew into the giant of North American movie rental?",
+          "a": "Blockbuster (Blockbuster Video)",
+          "choices": null
+        },
+        {
+          "q": "Which Nintendo handheld console went on sale in North America in 1989 with the puzzle game Tetris packed in the box?",
+          "a": "The Game Boy",
+          "choices": null
+        },
+        {
+          "q": "Which soft-bodied dolls, each sold with its own adoption papers, set off shopping frenzies across North America at Christmas 1983?",
+          "a": "Cabbage Patch Kids",
+          "choices": null
+        },
+        {
+          "q": "In 1985 the Coca-Cola Company changed its formula and put a reworked drink on North American shelves. By what two-word name is that product remembered?",
+          "a": "New Coke",
+          "choices": null
+        },
+        {
+          "q": "Which egg-shaped Japanese digital pet toy, launched in Japan in 1996 and in North America in 1997, had to be fed and cared for on a tiny screen?",
+          "a": "The Tamagotchi",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "The 1980s",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which toy line and cartoon, launched in North America in 1984, featured robots that turned into vehicles and carried the tagline “more than meets the eye”?",
+          "a": "The Transformers",
+          "choices": null
+        },
+        {
+          "q": "Nintendo's home console, launched in North America in 1985, is usually known by three letters: N, E, S. What do those letters stand for?",
+          "a": "Nintendo Entertainment System",
+          "choices": null
+        },
+        {
+          "q": "Which fast-food chain's 1984 American television commercials featured an elderly woman demanding, “Where's the beef?”",
+          "a": "Wendy's",
+          "choices": null
+        },
+        {
+          "q": "Which royal wedding, held at St Paul's Cathedral in London in July 1981, was watched by an estimated 750 million people around the world?",
+          "a": "Prince Charles and Lady Diana Spencer (accept “Charles and Diana”)",
+          "choices": null
+        },
+        {
+          "q": "Which home computer, released by Commodore in 1982, took its name from the 64 kilobytes of memory it carried?",
+          "a": "The Commodore 64",
+          "choices": null
+        },
+        {
+          "q": "Which board game, invented in Montreal by two Canadian journalists and a runaway hit across North America in the mid-1980s, has players fill a wheel with six coloured wedges?",
+          "a": "Trivial Pursuit",
+          "choices": null
+        },
+        {
+          "q": "Which volcano in Washington State erupted in May 1980, in the deadliest volcanic eruption in United States history?",
+          "a": "Mount St. Helens",
+          "choices": null
+        },
+        {
+          "q": "Whose 1982 exercise videotape, titled simply “Workout”, launched the home aerobics boom?",
+          "a": "Jane Fonda",
+          "choices": null
+        },
+        {
+          "q": "Which company's 1984 Super Bowl commercial, directed by Ridley Scott, showed a runner hurling a hammer through a giant screen?",
+          "a": "Apple (Apple Computer)",
+          "choices": null
+        },
+        {
+          "q": "In 1983 the first handheld mobile phone went on sale in the United States — a two-pound unit nicknamed “the brick”. Which American company made it?",
+          "a": "Motorola (the DynaTAC 8000X)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "The 1990s",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which Japanese video game and cartoon franchise, launched in Japan in 1996 and reaching North America in 1998, features a yellow creature called Pikachu?",
+          "a": "Pokémon",
+          "choices": [
+            "Digimon",
+            "Pokémon",
+            "Yu-Gi-Oh!",
+            "Beyblade"
+          ]
+        },
+        {
+          "q": "Which Microsoft operating system, launched worldwide in August 1995, introduced the Start button and the taskbar?",
+          "a": "Windows 95",
+          "choices": [
+            "Windows 95",
+            "Windows 3.1",
+            "Windows NT",
+            "Windows 98"
+          ]
+        },
+        {
+          "q": "Which small bean-filled plush animals, each carrying a heart-shaped tag, became a huge collecting craze in North America in the 1990s?",
+          "a": "Beanie Babies",
+          "choices": [
+            "Care Bears",
+            "Trolls",
+            "Polly Pocket",
+            "Beanie Babies"
+          ]
+        },
+        {
+          "q": "Which owl-like talking electronic toy was the must-have Christmas gift across North America in 1998?",
+          "a": "Furby",
+          "choices": [
+            "Teddy Ruxpin",
+            "Tickle Me Elmo",
+            "Furby",
+            "Talkboy"
+          ]
+        },
+        {
+          "q": "Which internet search engine was founded in 1998 by two graduate students at Stanford University?",
+          "a": "Google",
+          "choices": [
+            "Yahoo!",
+            "AltaVista",
+            "Ask Jeeves",
+            "Google"
+          ]
+        },
+        {
+          "q": "Which South African leader was released from prison in 1990 and elected president of his country in 1994?",
+          "a": "Nelson Mandela",
+          "choices": [
+            "Kofi Annan",
+            "Desmond Tutu",
+            "Nelson Mandela",
+            "Thabo Mbeki"
+          ]
+        },
+        {
+          "q": "Which country hosted the FIFA World Cup for the first time in 1994?",
+          "a": "The United States",
+          "choices": [
+            "The United States",
+            "Mexico",
+            "Italy",
+            "France"
+          ]
+        },
+        {
+          "q": "Snake, the game built into mobile phones in the late 1990s, came preloaded on handsets from which Finnish company?",
+          "a": "Nokia",
+          "choices": [
+            "Ericsson",
+            "Nokia",
+            "Philips",
+            "Siemens"
+          ]
+        },
+        {
+          "q": "Which world chess champion lost a six-game match to IBM's computer Deep Blue in 1997?",
+          "a": "Garry Kasparov",
+          "choices": [
+            "Anatoly Karpov",
+            "Bobby Fischer",
+            "Garry Kasparov",
+            "Vladimir Kramnik"
+          ]
+        },
+        {
+          "q": "Which console, released in Japan in 1998 and in North America in 1999, was Sega's last home games machine?",
+          "a": "The Dreamcast",
+          "choices": [
+            "The Saturn",
+            "The Game Gear",
+            "The 32X",
+            "The Dreamcast"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Screens and Speakers",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which 1985 film sends teenager Marty McFly back to 1955 in a time machine built out of a DeLorean car?",
+          "a": "Back to the Future",
+          "choices": null
+        },
+        {
+          "q": "In which 1984 film is a bullied teenager taught karate by a handyman named Mr. Miyagi?",
+          "a": "The Karate Kid",
+          "choices": null
+        },
+        {
+          "q": "In 1980, a prime-time American drama about a wealthy Texas oil family had the world asking “Who shot J.R.?” Name that series.",
+          "a": "Dallas",
+          "choices": null
+        },
+        {
+          "q": "Which American singer's 1980s albums included “Like a Virgin” and “True Blue”?",
+          "a": "Madonna",
+          "choices": null
+        },
+        {
+          "q": "Which series, first aired in 1993, followed FBI agents Fox Mulder and Dana Scully as they investigated unexplained cases?",
+          "a": "The X-Files",
+          "choices": null
+        },
+        {
+          "q": "In which 1993 comedy does Bill Murray's weatherman live the same February 2nd over and over in Punxsutawney, Pennsylvania?",
+          "a": "Groundhog Day",
+          "choices": null
+        },
+        {
+          "q": "Which charity concert of July 1985 was staged on the same day at Wembley Stadium in London and JFK Stadium in Philadelphia, raising money for famine relief in Ethiopia?",
+          "a": "Live Aid",
+          "choices": null
+        },
+        {
+          "q": "Which British band, led by the brothers Liam and Noel Gallagher, released the 1995 album “(What's the Story) Morning Glory?”",
+          "a": "Oasis",
+          "choices": null
+        },
+        {
+          "q": "Which Canadian singer-songwriter recorded the 1995 album “Jagged Little Pill”?",
+          "a": "Alanis Morissette",
+          "choices": null
+        },
+        {
+          "q": "Which British stop-motion pair — a cheese-loving inventor and his silent dog — starred in the 1993 short film “The Wrong Trousers”?",
+          "a": "Wallace and Gromit",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Windows 95 was the very first version of Microsoft Windows.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Michael Jordan stepped away from basketball in the 1990s to play professional baseball.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The 1988 Winter Olympic Games were held in Calgary, Canada.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The very first email was sent in the 1990s.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The puzzle game Tetris was created by a programmer working in the Soviet Union.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Internet and the World Wide Web were invented at the same time, by the same person.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Betamax video cassettes went on sale before VHS ones did.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The euro replaced francs, marks and lire in people's wallets before the year 2000.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "DVDs overtook VHS tapes as North America's most common home video format during the 1990s.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Nike's advertising slogan “Just Do It” was first used in the 1980s.",
+          "a": "True",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}
