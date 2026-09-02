@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Music Trivia Night",
+    "subtitle": "Name That Tune",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "How many keys are there on a standard full-size piano?",
+    "a": "88"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What do we call a group of four musicians performing together?",
+          "a": "A quartet",
+          "choices": null
+        },
+        {
+          "q": "Which instrument has black and white keys and is played with both hands?",
+          "a": "The piano",
+          "choices": null
+        },
+        {
+          "q": "What is the musical term for the speed at which a piece is played?",
+          "a": "Tempo",
+          "choices": null
+        },
+        {
+          "q": "How many lines are there on a musical staff?",
+          "a": "Five (5)",
+          "choices": null
+        },
+        {
+          "q": "The violin belongs to which family of instruments?",
+          "a": "The strings",
+          "choices": null
+        },
+        {
+          "q": "What do we call the words of a song?",
+          "a": "The lyrics",
+          "choices": null
+        },
+        {
+          "q": "What is a song performed by exactly two singers called?",
+          "a": "A duet",
+          "choices": null
+        },
+        {
+          "q": "Which brass instrument uses a sliding tube instead of valves?",
+          "a": "The trombone",
+          "choices": null
+        },
+        {
+          "q": "In sheet music, which Italian term instructs the player to play loudly?",
+          "a": "Forte",
+          "choices": null
+        },
+        {
+          "q": "What is the highest of the standard female singing voices called?",
+          "a": "Soprano",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Lyrics and Titles",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "“Hello darkness, my old friend” opens which Simon and Garfunkel song?",
+          "a": "“The Sound of Silence”",
+          "choices": null
+        },
+        {
+          "q": "Which song begins “Just a small town girl, livin' in a lonely world”?",
+          "a": "“Don't Stop Believin'” by Journey",
+          "choices": null
+        },
+        {
+          "q": "“I've paid my dues, time after time” opens which Queen anthem?",
+          "a": "“We Are the Champions”",
+          "choices": null
+        },
+        {
+          "q": "Which Beatles song begins “Yesterday, all my troubles seemed so far away”?",
+          "a": "“Yesterday”",
+          "choices": null
+        },
+        {
+          "q": "“You may say I'm a dreamer, but I'm not the only one” comes from which John Lennon song?",
+          "a": "“Imagine”",
+          "choices": null
+        },
+        {
+          "q": "“Sweet dreams are made of this” opens which Eurythmics hit?",
+          "a": "“Sweet Dreams (Are Made of This)”",
+          "choices": null
+        },
+        {
+          "q": "Which Nirvana song begins “Load up on guns, bring your friends”?",
+          "a": "“Smells Like Teen Spirit”",
+          "choices": null
+        },
+        {
+          "q": "“We're up all night to get lucky” is the repeated line of which Daft Punk song?",
+          "a": "“Get Lucky”",
+          "choices": null
+        },
+        {
+          "q": "Which Elton John song contains the line “How wonderful life is while you're in the world”?",
+          "a": "“Your Song”",
+          "choices": null
+        },
+        {
+          "q": "“I'm gonna pop some tags, only got twenty dollars in my pocket” opens which Macklemore and Ryan Lewis song?",
+          "a": "“Thrift Shop”",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Bands and Solo Acts",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which band has been fronted throughout its career by Mick Jagger?",
+          "a": "The Rolling Stones",
+          "choices": [
+            "The Who",
+            "The Rolling Stones",
+            "The Kinks",
+            "Cream"
+          ]
+        },
+        {
+          "q": "Bono is the lead singer of which Irish band?",
+          "a": "U2",
+          "choices": [
+            "U2",
+            "The Cranberries",
+            "Snow Patrol",
+            "The Corrs"
+          ]
+        },
+        {
+          "q": "Which band recorded “Stairway to Heaven”?",
+          "a": "Led Zeppelin",
+          "choices": [
+            "Deep Purple",
+            "Black Sabbath",
+            "Led Zeppelin",
+            "Cream"
+          ]
+        },
+        {
+          "q": "Which American band recorded “Hotel California”?",
+          "a": "Eagles",
+          "choices": [
+            "Fleetwood Mac",
+            "The Doobie Brothers",
+            "Steely Dan",
+            "Eagles"
+          ]
+        },
+        {
+          "q": "Kurt Cobain fronted which band from Aberdeen, Washington?",
+          "a": "Nirvana",
+          "choices": [
+            "Pearl Jam",
+            "Nirvana",
+            "Soundgarden",
+            "Alice in Chains"
+          ]
+        },
+        {
+          "q": "Stevie Nicks and Lindsey Buckingham both joined which band in 1975?",
+          "a": "Fleetwood Mac",
+          "choices": [
+            "The Mamas and the Papas",
+            "Jefferson Airplane",
+            "Fleetwood Mac",
+            "Crosby, Stills and Nash"
+          ]
+        },
+        {
+          "q": "Geddy Lee, Alex Lifeson and Neil Peart made up which Canadian rock trio?",
+          "a": "Rush",
+          "choices": [
+            "Triumph",
+            "Rush",
+            "April Wine",
+            "Loverboy"
+          ]
+        },
+        {
+          "q": "Which band released the album “The Dark Side of the Moon”?",
+          "a": "Pink Floyd",
+          "choices": [
+            "Genesis",
+            "Yes",
+            "Pink Floyd",
+            "King Crimson"
+          ]
+        },
+        {
+          "q": "Diana Ross was the lead singer of which Motown group before going solo?",
+          "a": "The Supremes",
+          "choices": [
+            "The Ronettes",
+            "Martha and the Vandellas",
+            "The Shirelles",
+            "The Supremes"
+          ]
+        },
+        {
+          "q": "Which Irish singer had a worldwide hit with “Nothing Compares 2 U”, a song written by Prince?",
+          "a": "Sinéad O'Connor",
+          "choices": [
+            "Dolores O'Riordan",
+            "Sinéad O'Connor",
+            "Enya",
+            "Maria McKee"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Albums and Eras",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which decade is disco most associated with?",
+          "a": "The 1970s",
+          "choices": null
+        },
+        {
+          "q": "Michael Jackson's album “Thriller” was released in which decade?",
+          "a": "The 1980s",
+          "choices": null
+        },
+        {
+          "q": "On a vinyl record, what does “LP” stand for?",
+          "a": "Long play",
+          "choices": null
+        },
+        {
+          "q": "A standard seven-inch single plays at how many revolutions per minute?",
+          "a": "45 rpm",
+          "choices": null
+        },
+        {
+          "q": "Which genre of music began in Jamaica in the 1960s and is most associated with Bob Marley?",
+          "a": "Reggae",
+          "choices": null
+        },
+        {
+          "q": "Grunge music is most associated with which American city?",
+          "a": "Seattle",
+          "choices": null
+        },
+        {
+          "q": "Motown Records was founded in which American city?",
+          "a": "Detroit",
+          "choices": null
+        },
+        {
+          "q": "In the United States, what certification does a record receive for selling one million copies?",
+          "a": "Platinum",
+          "choices": null
+        },
+        {
+          "q": "Which 1969 festival in upstate New York became the defining music event of its era?",
+          "a": "Woodstock",
+          "choices": null
+        },
+        {
+          "q": "Which instrument was Louis Armstrong famous for playing?",
+          "a": "The trumpet",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The saxophone is made of brass but is classified as a woodwind instrument.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A standard chromatic scale contains twelve notes.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Vinyl records are played starting from the centre and moving outward.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The violin is larger than the viola.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Beethoven kept composing after he had lost his hearing.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "“Rhapsody in Blue” was composed by George Gershwin.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A metronome is a device for measuring how loud music is.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "A harmonica makes sound only when the player blows out, never when drawing air in.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Nashville, Tennessee is the traditional home of country music.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A standard guitar and a standard ukulele have the same number of strings.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

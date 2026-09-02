@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Television Trivia Night",
+    "subtitle": "Prime Time",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year did “The Simpsons” first air as its own half-hour series?",
+    "a": "1989"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In “The Simpsons”, what is the name of the town the family lives in?",
+          "a": "Springfield",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the blue, cookie-obsessed Muppet on “Sesame Street”?",
+          "a": "Cookie Monster",
+          "choices": null
+        },
+        {
+          "q": "What breed of dog is Scooby-Doo?",
+          "a": "A Great Dane (accept “a dog”)",
+          "choices": null
+        },
+        {
+          "q": "In “SpongeBob SquarePants”, what kind of sea creature is Patrick?",
+          "a": "A starfish (sea star)",
+          "choices": null
+        },
+        {
+          "q": "In the original “Star Trek”, what is the name of Captain Kirk's ship?",
+          "a": "The USS Enterprise",
+          "choices": null
+        },
+        {
+          "q": "Which quiz show requires contestants to give their responses in the form of a question?",
+          "a": "Jeopardy!",
+          "choices": null
+        },
+        {
+          "q": "In “The Office”, what is the name of the paper company the staff work for?",
+          "a": "Dunder Mifflin",
+          "choices": null
+        },
+        {
+          "q": "Which HBO series was based on George R.R. Martin's “A Song of Ice and Fire” novels?",
+          "a": "Game of Thrones",
+          "choices": null
+        },
+        {
+          "q": "In “Breaking Bad”, which school subject did Walter White teach?",
+          "a": "Chemistry",
+          "choices": null
+        },
+        {
+          "q": "Which animated family includes Peter, Lois, Chris, Meg and Stewie?",
+          "a": "The Griffins, in “Family Guy”",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Sitcoms",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In “Seinfeld”, what is the first name of the character played by Julia Louis-Dreyfus?",
+          "a": "Elaine (Elaine Benes)",
+          "choices": null
+        },
+        {
+          "q": "In “The Fresh Prince of Bel-Air”, which city is Will sent away from?",
+          "a": "Philadelphia",
+          "choices": null
+        },
+        {
+          "q": "In “Frasier”, what is the title character's profession?",
+          "a": "A radio psychiatrist",
+          "choices": null
+        },
+        {
+          "q": "In “How I Met Your Mother”, which character declares things “legendary”?",
+          "a": "Barney Stinson",
+          "choices": null
+        },
+        {
+          "q": "In “Schitt's Creek”, what is the surname of the family who buy the town?",
+          "a": "Rose (the Roses)",
+          "choices": null
+        },
+        {
+          "q": "“M*A*S*H” is set during which war?",
+          "a": "The Korean War",
+          "choices": null
+        },
+        {
+          "q": "In “Everybody Loves Raymond”, what is Raymond's job?",
+          "a": "A sportswriter",
+          "choices": null
+        },
+        {
+          "q": "In “Arrested Development”, what is the surname of the family the show follows?",
+          "a": "Bluth",
+          "choices": null
+        },
+        {
+          "q": "“Brooklyn Nine-Nine” follows a police precinct in which city?",
+          "a": "New York City",
+          "choices": null
+        },
+        {
+          "q": "“Kim's Convenience” is set around a family store in which Canadian city?",
+          "a": "Toronto",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Drama and Reality",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which series follows the Dutton family and their Montana ranch?",
+          "a": "Yellowstone",
+          "choices": [
+            "Longmire",
+            "Yellowstone",
+            "Hell on Wheels",
+            "Deadwood"
+          ]
+        },
+        {
+          "q": "In “Stranger Things”, what is the name of the shadowy alternate dimension?",
+          "a": "The Upside Down",
+          "choices": [
+            "The Upside Down",
+            "The Rift",
+            "The Hollow",
+            "The Under"
+          ]
+        },
+        {
+          "q": "Which competition show puts amateur bakers in a tent in the English countryside?",
+          "a": "The Great British Bake Off",
+          "choices": [
+            "MasterChef",
+            "Sugar Rush",
+            "The Great British Bake Off",
+            "Nailed It!"
+          ]
+        },
+        {
+          "q": "Which medical drama is set at Seattle Grace Hospital?",
+          "a": "Grey's Anatomy",
+          "choices": [
+            "ER",
+            "House",
+            "Chicago Med",
+            "Grey's Anatomy"
+          ]
+        },
+        {
+          "q": "Which reality show strands its contestants and has them vote one another out?",
+          "a": "Survivor",
+          "choices": [
+            "Big Brother",
+            "The Mole",
+            "Survivor",
+            "Naked and Afraid"
+          ]
+        },
+        {
+          "q": "Which drama follows advertising executives on Madison Avenue in the 1960s?",
+          "a": "Mad Men",
+          "choices": [
+            "Mad Men",
+            "The Hour",
+            "Pan Am",
+            "Halt and Catch Fire"
+          ]
+        },
+        {
+          "q": "Which business pitch show is known in Canada and the UK as “Dragons' Den”?",
+          "a": "Shark Tank",
+          "choices": [
+            "The Apprentice",
+            "Undercover Boss",
+            "Shark Tank",
+            "The Profit"
+          ]
+        },
+        {
+          "q": "Which series starring Benedict Cumberbatch places Sherlock Holmes in modern-day London?",
+          "a": "Sherlock",
+          "choices": [
+            "Elementary",
+            "Endeavour",
+            "Sherlock",
+            "Luther"
+          ]
+        },
+        {
+          "q": "Which Netflix drama follows the British royal family across successive decades?",
+          "a": "The Crown",
+          "choices": [
+            "Victoria",
+            "The Crown",
+            "Downton Abbey",
+            "The Windsors"
+          ]
+        },
+        {
+          "q": "In which competition series do teams race around the world completing challenges?",
+          "a": "The Amazing Race",
+          "choices": [
+            "The Challenge",
+            "Expedition Impossible",
+            "Departures",
+            "The Amazing Race"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Catchphrases and Theme Tunes",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which sitcom's theme song begins “I'll be there for you”?",
+          "a": "“Friends”",
+          "choices": null
+        },
+        {
+          "q": "“D'oh!” is the catchphrase of which animated character?",
+          "a": "Homer Simpson",
+          "choices": null
+        },
+        {
+          "q": "Which series opens with the words “Space: the final frontier”?",
+          "a": "“Star Trek”",
+          "choices": null
+        },
+        {
+          "q": "“Live long and prosper” is the greeting of which “Star Trek” character?",
+          "a": "Spock",
+          "choices": null
+        },
+        {
+          "q": "“Yabba dabba doo!” is shouted by which cartoon character?",
+          "a": "Fred Flintstone",
+          "choices": null
+        },
+        {
+          "q": "Which show's theme tune asks “Who lives in a pineapple under the sea?”",
+          "a": "“SpongeBob SquarePants”",
+          "choices": null
+        },
+        {
+          "q": "“How you doin'?” is the catchphrase of which “Friends” character?",
+          "a": "Joey Tribbiani",
+          "choices": null
+        },
+        {
+          "q": "On which game show does the announcer tell a contestant to “come on down”?",
+          "a": "“The Price Is Right”",
+          "choices": null
+        },
+        {
+          "q": "Which children's programme opened with a song inviting you to be its neighbour?",
+          "a": "“Mister Rogers' Neighborhood”",
+          "choices": null
+        },
+        {
+          "q": "Which talent show's judges press a button to send a contestant straight through to the finals?",
+          "a": "The Golden Buzzer, on “America's Got Talent” (accept “Britain's Got Talent”)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "“The Simpsons” began as a series of short sketches on another television programme.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "“Friends” was set in Los Angeles.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Lucille Ball was the star of “I Love Lucy”.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "“Doctor Who” first aired in the 1960s.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The television series “M*A*S*H” ran for more years than the war it depicts lasted.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "“Sesame Street” has never won an Emmy Award.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The exact line “Beam me up, Scotty” is never spoken in the original “Star Trek” series.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "“Coronation Street” is an Australian soap opera.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The reality series “Big Brother” takes its name from a George Orwell novel.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "In television, a “pilot” is the final episode of a series.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}
