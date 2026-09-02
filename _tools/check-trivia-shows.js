@@ -24,6 +24,7 @@ const files = fs.readdirSync(DIR).filter((f) => f.endsWith(".tgp.json")).sort();
 const problems = [];
 const warnings = [];
 const seen = new Map(); // normalised question -> "file round Qn"
+const allQ = []; // every question, for the answer-spoiler scan below
 
 const norm = (s) => String(s).toLowerCase()
   .replace(/[‘’']/g, "'").replace(/[“”]/g, '"')
@@ -96,6 +97,8 @@ for (const file of files) {
 
       // Duplicate question across the whole set — a host who bought all five
       // should never meet the same question twice.
+      allQ.push({ show: where, showTitle: (g.game && g.game.title) || "", where: qw,
+        order: ri * 100 + qi, question: q.q, answer: q.a });
       const key = norm(q.q);
       if (key) {
         if (seen.has(key)) problems.push(`${qw}: duplicate question, also at ${seen.get(key)}`);
@@ -144,6 +147,9 @@ const PRODUCTS = {
   "classroom-math": "p177", "classroom-science": "p178",
   "classroom-english": "p179", "classroom-history": "p180",
   "classroom-geography": "p181",
+  "music-name-that-tune": "p183", "tv-prime-time": "p184",
+  "movies-big-screen": "p185", "sports-game-on": "p186",
+  "rewind-80s-90s": "p187",
 };
 for (const [stem, pid] of Object.entries(PRODUCTS)) {
   const showFile = path.join(DIR, `${stem}.tgp.json`);
@@ -161,6 +167,59 @@ for (const [stem, pid] of Object.entries(PRODUCTS)) {
   if (!html.includes(`${qs} questions`))
     warnings.push(`${pid} page does not state "${qs} questions"`);
 }
+
+
+// --- a question that gives away another question's answer ---------------------
+// The duplicate check above only catches identical question TEXT. It misses the
+// costlier overlap: one question's wording containing another's answer. A show
+// asking "which city is Will sent away from?" (Philadelphia) is spoiled by any
+// other question that says "a teenager from West Philadelphia" -- and a host
+// running both never notices until a team shouts it out.
+//
+// Inside one show that is a defect: the same host reads both. Across shows it is
+// only a warning, since they are separate products a buyer may never pair.
+const spoilers = [];
+{
+  const strip = (a) => String(a)
+    .replace(/\([^)]*\)/g, " ")          // "(accept ...)" is marker guidance
+    .replace(/[“”"'’]/g, " ")
+    .replace(/^(the|a|an)\s+/i, "")
+    .replace(/[^A-Za-z0-9 ]/g, " ")
+    .replace(/\s+/g, " ").trim().toLowerCase();
+  // Place names and a handful of generic terms turn up in dozens of question
+  // stems without spoiling anything -- "which ocean lies between Africa and
+  // Australia" does not give away a question whose answer happens to be
+  // Australia in another show. Only distinctive answers are worth flagging.
+  const GENERIC = new Set([
+    "united states", "canada", "australia", "the united kingdom", "new zealand",
+    "south korea", "south america", "north america", "antarctica", "ice hockey",
+    "christopher columbus", "the atlantic ocean", "the pacific ocean",
+    "rio de janeiro", "new york city", "philadelphia", "the north pole",
+  ].map((x) => x.replace(/^the /, "")));
+  for (const a of allQ) {
+    const ans = strip(a.answer);
+    // Short or numeric answers match everything; only distinctive ones count.
+    if (ans.length < 9 || /^[0-9 ]+$/.test(ans)) continue;
+    if (GENERIC.has(ans)) continue;
+    // An answer that is also a word in its own show's title is unavoidable --
+    // the Halloween show says "Halloween" in half its questions, which does not
+    // spoil the film of the same name.
+    if (a.showTitle && a.showTitle.toLowerCase().includes(ans)) continue;
+    for (const b of allQ) {
+      if (a === b) continue;
+      // Only a spoiler if it is READ FIRST -- a later question repeating an
+      // answer the room already gave is just a callback, not a giveaway.
+      if (a.show === b.show && b.order >= a.order) continue;
+      const text = strip(b.question);
+      // Word boundaries, or "0 degrees" matches "less than 90 degrees".
+      if (!new RegExp("(^| )" + ans.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "($| )").test(text)) continue;
+      const msg = `${b.where} gives away the answer to ${a.where} ("${a.answer}")`;
+      if (a.show === b.show) spoilers.push(["problem", msg]);
+      else spoilers.push(["warning", msg]);
+    }
+  }
+}
+for (const [kind, msg] of spoilers) (kind === "problem" ? problems : warnings).push(msg);
 
 console.log(`\n${files.length} show(s), ${seen.size} unique questions across the set`);
 if (warnings.length) {

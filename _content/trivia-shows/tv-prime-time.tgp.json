@@ -53,13 +53,13 @@
           "choices": null
         },
         {
-          "q": "In “SpongeBob SquarePants”, what kind of sea creature is Patrick?",
-          "a": "A starfish (sea star)",
+          "q": "In “Peppa Pig”, what is the name of Peppa's younger brother?",
+          "a": "George",
           "choices": null
         },
         {
-          "q": "In the original “Star Trek”, what is the name of Captain Kirk's ship?",
-          "a": "The USS Enterprise",
+          "q": "In “The Flintstones”, what is the name of the town the family lives in?",
+          "a": "Bedrock",
           "choices": null
         },
         {

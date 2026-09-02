@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Movie Trivia Night",
+    "subtitle": "The Big Screen",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year was the very first Academy Awards ceremony held?",
+    "a": "1929 (16 May 1929, honouring films of 1927–28)"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In Disney's 1989 animated film “The Little Mermaid”, what is the mermaid's name?",
+          "a": "Ariel",
+          "choices": null
+        },
+        {
+          "q": "What kind of animal is the title character of the 1942 Disney film “Bambi”?",
+          "a": "A deer (a fawn)",
+          "choices": null
+        },
+        {
+          "q": "Which 1993 comedy has a television weatherman living the same day over and over in Punxsutawney, Pennsylvania?",
+          "a": "“Groundhog Day”",
+          "choices": null
+        },
+        {
+          "q": "In the 2010 animated film “Despicable Me”, what are the small yellow henchmen called?",
+          "a": "The Minions",
+          "choices": null
+        },
+        {
+          "q": "Which 1997 film starring Leonardo DiCaprio and Kate Winslet is set aboard a doomed ocean liner?",
+          "a": "“Titanic”",
+          "choices": null
+        },
+        {
+          "q": "In which 1976 film does the hero train by running up the steps of the Philadelphia Museum of Art?",
+          "a": "“Rocky”",
+          "choices": null
+        },
+        {
+          "q": "In Marvel's 2018 film “Black Panther”, what is the name of the fictional African nation that T'Challa rules?",
+          "a": "Wakanda",
+          "choices": null
+        },
+        {
+          "q": "In the 1965 musical “The Sound of Music”, what is the surname of the Austrian family whose seven children are taught to sing?",
+          "a": "Von Trapp",
+          "choices": null
+        },
+        {
+          "q": "In the 1952 musical “Singin' in the Rain”, Gene Kelly's character dances through a downpour while swinging around what piece of street furniture?",
+          "a": "A lamp post (a street light)",
+          "choices": null
+        },
+        {
+          "q": "Which 1927 film starring Al Jolson is generally credited as the first feature-length film with synchronised spoken dialogue?",
+          "a": "“The Jazz Singer”",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Quotes and Taglines",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In the 1995 film “Apollo 13”, how does the crew's most famous line finish: “Houston, we have …”?",
+          "a": "“… a problem” (the real 1970 transmission was “Houston, we've had a problem”)",
+          "choices": null
+        },
+        {
+          "q": "In the 2003 animated film “Finding Nemo”, what three words does Dory sing to keep herself going?",
+          "a": "“Just keep swimming”",
+          "choices": null
+        },
+        {
+          "q": "In the 1996 film “Jerry Maguire”, what four-word demand does the football player shout down the phone at his agent?",
+          "a": "“Show me the money!”",
+          "choices": null
+        },
+        {
+          "q": "In the 1984 film “The Karate Kid”, what four-word instruction does Mr. Miyagi give Daniel while he polishes the cars?",
+          "a": "“Wax on, wax off”",
+          "choices": null
+        },
+        {
+          "q": "“You'll believe a man can fly” was the tagline of which 1978 superhero film?",
+          "a": "“Superman” (Superman: The Movie)",
+          "choices": null
+        },
+        {
+          "q": "In the 2001 film “The Lord of the Rings: The Fellowship of the Ring”, what does Gandalf roar at the creature on the bridge?",
+          "a": "“You shall not pass!”",
+          "choices": null
+        },
+        {
+          "q": "In the 1989 film “Field of Dreams”, the whispered voice in the cornfield says “If you build it …” — what comes next?",
+          "a": "“… he will come” (accept “they will come”, the way the line is usually misquoted)",
+          "choices": null
+        },
+        {
+          "q": "“In space, no one can hear you scream” was the tagline of which 1979 science-fiction film?",
+          "a": "“Alien”",
+          "choices": null
+        },
+        {
+          "q": "Which 1939 epic ends with Rhett Butler telling Scarlett O'Hara “Frankly, my dear, I don't give a damn”?",
+          "a": "“Gone with the Wind”",
+          "choices": null
+        },
+        {
+          "q": "Which 1959 Billy Wilder comedy ends with the line “Well, nobody's perfect”?",
+          "a": "“Some Like It Hot”",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Actors and Directors",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which actor voiced the Genie in Disney's 1992 animated film “Aladdin”?",
+          "a": "Robin Williams",
+          "choices": [
+            "Robin Williams",
+            "Eddie Murphy",
+            "Billy Crystal",
+            "Steve Martin"
+          ]
+        },
+        {
+          "q": "Which actor played James Bond in the 1962 film “Dr. No”?",
+          "a": "Sean Connery",
+          "choices": [
+            "Roger Moore",
+            "Sean Connery",
+            "Timothy Dalton",
+            "Pierce Brosnan"
+          ]
+        },
+        {
+          "q": "Which actress played the title role in the 1964 Disney musical “Mary Poppins”?",
+          "a": "Julie Andrews",
+          "choices": [
+            "Debbie Reynolds",
+            "Angela Lansbury",
+            "Julie Andrews",
+            "Shirley Jones"
+          ]
+        },
+        {
+          "q": "Which Canadian-born actor starred in “Ace Ventura: Pet Detective”, “The Mask” and “The Truman Show”?",
+          "a": "Jim Carrey",
+          "choices": [
+            "Mike Myers",
+            "Dan Aykroyd",
+            "Martin Short",
+            "Jim Carrey"
+          ]
+        },
+        {
+          "q": "Which writer-director made the 1980s teen films “The Breakfast Club” and “Ferris Bueller's Day Off”?",
+          "a": "John Hughes",
+          "choices": [
+            "Cameron Crowe",
+            "John Hughes",
+            "Rob Reiner",
+            "Amy Heckerling"
+          ]
+        },
+        {
+          "q": "Which actress starred in “Roman Holiday” in 1953 and “Breakfast at Tiffany's” in 1961?",
+          "a": "Audrey Hepburn",
+          "choices": [
+            "Grace Kelly",
+            "Elizabeth Taylor",
+            "Ingrid Bergman",
+            "Audrey Hepburn"
+          ]
+        },
+        {
+          "q": "Which actor played the lawyer Atticus Finch in the 1962 film “To Kill a Mockingbird”?",
+          "a": "Gregory Peck",
+          "choices": [
+            "Gregory Peck",
+            "Henry Fonda",
+            "James Stewart",
+            "Spencer Tracy"
+          ]
+        },
+        {
+          "q": "Which Japanese director co-founded Studio Ghibli and made “My Neighbour Totoro” and “Spirited Away”?",
+          "a": "Hayao Miyazaki",
+          "choices": [
+            "Akira Kurosawa",
+            "Isao Takahata",
+            "Hayao Miyazaki",
+            "Katsuhiro Otomo"
+          ]
+        },
+        {
+          "q": "Which actress was the first Black woman to win the Academy Award for Best Actress?",
+          "a": "Halle Berry",
+          "choices": [
+            "Whoopi Goldberg",
+            "Angela Bassett",
+            "Viola Davis",
+            "Halle Berry"
+          ]
+        },
+        {
+          "q": "Which director was the first woman to win the Academy Award for Best Director, for the film “The Hurt Locker”?",
+          "a": "Kathryn Bigelow",
+          "choices": [
+            "Kathryn Bigelow",
+            "Sofia Coppola",
+            "Jane Campion",
+            "Greta Gerwig"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sequels and Franchises",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In the “Star Wars” saga, which 1980 film is Episode V?",
+          "a": "“The Empire Strikes Back”",
+          "choices": null
+        },
+        {
+          "q": "The seven “Harry Potter” novels were adapted into how many feature films?",
+          "a": "Eight (8) — the last book was split into two films",
+          "choices": null
+        },
+        {
+          "q": "In the 1989 film “Back to the Future Part II”, Marty McFly travels forward to which year?",
+          "a": "2015",
+          "choices": null
+        },
+        {
+          "q": "Which film and cartoon franchise features four crime-fighting turtles named after Renaissance artists?",
+          "a": "Teenage Mutant Ninja Turtles",
+          "choices": null
+        },
+        {
+          "q": "Which 2008 film starring Robert Downey Jr. was the first release in the Marvel Cinematic Universe?",
+          "a": "“Iron Man”",
+          "choices": null
+        },
+        {
+          "q": "In the “Pirates of the Caribbean” films, what is the name of Captain Jack Sparrow's ship?",
+          "a": "The Black Pearl",
+          "choices": null
+        },
+        {
+          "q": "In the “Indiana Jones” films, what is Indiana Jones's day job when he is not off hunting relics?",
+          "a": "A university archaeology professor (accept “archaeologist” or “professor”)",
+          "choices": null
+        },
+        {
+          "q": "In the original 1968 “Planet of the Apes”, the closing scene reveals the ruined remains of which New York landmark?",
+          "a": "The Statue of Liberty",
+          "choices": null
+        },
+        {
+          "q": "Which Japanese screen monster first appeared in a 1954 film and has been followed by dozens of sequels since?",
+          "a": "Godzilla (Gojira)",
+          "choices": null
+        },
+        {
+          "q": "In the “Pink Panther” film series, what is the name of the bumbling French detective played by Peter Sellers?",
+          "a": "Inspector Clouseau (Jacques Clouseau)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "“Bollywood” is the nickname for the Hindi-language film industry based in Mumbai, India.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "On a film set, a “boom” is a long pole used to hold a microphone above the actors, just out of shot.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A “director's cut” is the version of a film that has been re-edited to the studio's requirements.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Silent films were normally shown in complete silence, with no music playing in the theatre.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "In the 1933 film “King Kong”, the giant ape makes his last stand on top of the Empire State Building.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Hollywood sign in Los Angeles originally read “Hollywoodland”.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The word “blockbuster” was first used to describe a hugely successful film.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Every film that has ever won the Academy Award for Best Picture has been in the English language.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Walt Disney's “Snow White and the Seven Dwarfs” was the first full-length animated feature film produced in the United States.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Film trailers are called trailers because they were originally shown before the main feature.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

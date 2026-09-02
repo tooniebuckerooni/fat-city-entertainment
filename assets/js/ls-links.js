@@ -108,6 +108,12 @@ window.LS_LINKS = {
   "p180": "", // [ ] Classroom Trivia: History &amp; Social Studies — Print and Play, Grades 5–8 — $12.49 USD — /store/p180/triviashowclassroomhistory.html
   "p181": "", // [ ] Classroom Trivia: Geography — Print and Play, Grades 5–8 — $12.49 USD — /store/p181/triviashowclassroomgeography.html
   "p182": "", // [ ] Classroom Trivia 5-Pack — Every Subject, Grades 5–8 — $44.99 USD — /store/p182/triviashowclassroom5pack.html
+  "p183": "", // [ ] Music Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p183/triviashowmusic.html
+  "p184": "", // [ ] Television Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p184/triviashowtv.html
+  "p185": "", // [ ] Movies Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p185/triviashowmovies.html
+  "p186": "", // [ ] Sports Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p186/triviashowsports.html
+  "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p187/triviashowrewind.html
+  "p188": "", // [ ] Pop Culture Trivia Shows — 5-Pack — $44.99 USD — /store/p188/triviashowpopculture5pack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">

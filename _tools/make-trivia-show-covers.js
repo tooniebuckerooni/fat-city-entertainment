@@ -55,6 +55,19 @@ const SHOWS = [
   { slug: "trivia-show-classroom-5pack", n: "5", title: "Classroom Trivia", sub: "All five subjects",
     eyebrow: "FIVE-SUBJECT BUNDLE", accent: "#2f6f8f", titleSize: 84,
     line1: "5 subjects · 250 questions · grades 5–8" },
+  { slug: "trivia-show-music", n: "M", title: "Music", sub: "Name That Tune",
+    eyebrow: "POP CULTURE TRIVIA SHOW", accent: "#a8443a" },
+  { slug: "trivia-show-tv", n: "T", title: "Television", sub: "Prime Time",
+    eyebrow: "POP CULTURE TRIVIA SHOW", accent: "#a8443a" },
+  { slug: "trivia-show-movies", n: "F", title: "Movies", sub: "The Big Screen",
+    eyebrow: "POP CULTURE TRIVIA SHOW", accent: "#a8443a" },
+  { slug: "trivia-show-sports", n: "S", title: "Sports", sub: "Game On",
+    eyebrow: "POP CULTURE TRIVIA SHOW", accent: "#a8443a" },
+  { slug: "trivia-show-rewind", n: "9", title: "The 80s and 90s", sub: "Rewind",
+    eyebrow: "POP CULTURE TRIVIA SHOW", accent: "#a8443a", titleSize: 92 },
+  { slug: "trivia-show-popculture-5pack", n: "5", title: "Pop Culture", sub: "All five shows",
+    eyebrow: "FIVE-SHOW BUNDLE", accent: "#a8443a", titleSize: 96,
+    line1: "5 shows · 250 questions · 5 tiebreakers" },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");

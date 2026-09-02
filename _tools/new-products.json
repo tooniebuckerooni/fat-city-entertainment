@@ -387,5 +387,144 @@
     ],
     "description": "All five Classroom Trivia subjects in one download — Math, Science, English, History and Geography. 250 questions for grades 5–8, print and play.",
     "body": "<div><p>One review game for every core subject, in a single download. Enough for a review day in each class, or a term of Friday warm-ups.</p><p><strong>What's included:</strong></p><ul><li><strong>Math</strong> — numbers and operations, shapes, measurement, and fractions, decimals and percents.</li><li><strong>Science</strong> — life science, Earth and space, the human body, matter and energy.</li><li><strong>English &amp; Language Arts</strong> — vocabulary, grammar, stories and authors, figures of speech.</li><li><strong>History &amp; Social Studies</strong> — the ancient world, explorers and empires, Canadian and American civics, the modern era.</li><li><strong>Geography</strong> — continents and oceans, capitals, landforms and map skills.</li></ul><p>Each subject is five rounds of ten with a tiebreaker, and every question across all five is different — no repeats anywhere.</p><p>Every subject brings its own teacher packet, team answer sheets and a score sheet for up to 12 teams. Read aloud, answered on paper: no projector, no devices, no textbook.</p><p><strong>Licensing.</strong> This price covers one teacher's own classroom. A school-wide licence for all five subjects, covering every teacher in the building, is $84.99 and is chosen at checkout.</p></div>"
+  },
+  {
+    "id": "p183",
+    "slug": "triviashowmusic",
+    "name": "Music Trivia Night — Print and Play Trivia Show",
+    "title": "Music Trivia Night (Name That Tune) - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-music.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "description": "A ready-to-run music trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>Name That Tune — a music night that never needs a speaker: every lyric round is written to be read aloud, flat, and still recognised.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is read aloud and answered on paper: no clips to cue, no screen to set up.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Lyrics and Titles</strong></li><li><strong>Bands and Solo Acts</strong></li><li><strong>Albums and Eras</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Round four is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p184",
+    "slug": "triviashowtv",
+    "name": "Television Trivia Night — Print and Play Trivia Show",
+    "title": "Television Trivia Night (Prime Time) - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-tv.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "description": "A ready-to-run television trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>Prime Time — children's cartoons through prestige drama, so every age in the room has a way in.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is read aloud and answered on paper: no clips to cue, no screen to set up.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Sitcoms</strong></li><li><strong>Drama and Reality</strong></li><li><strong>Catchphrases and Theme Tunes</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Round four is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p185",
+    "slug": "triviashowmovies",
+    "name": "Movies Trivia Night — Print and Play Trivia Show",
+    "title": "Movies Trivia Night (The Big Screen) - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-movies.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "description": "A ready-to-run movies trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>The Big Screen — quotes, directors and franchises, spread across six decades of cinema.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is read aloud and answered on paper: no clips to cue, no screen to set up.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Quotes and Taglines</strong></li><li><strong>Actors and Directors</strong></li><li><strong>Sequels and Franchises</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Round four is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p186",
+    "slug": "triviashowsports",
+    "name": "Sports Trivia Night — Print and Play Trivia Show",
+    "title": "Sports Trivia Night (Game On) - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-sports.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "description": "A ready-to-run sports trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>Game On — built entirely from rules, terminology, venues and settled history, so nothing in it goes stale when a record falls.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is read aloud and answered on paper: no clips to cue, no screen to set up.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Rules and Terms</strong></li><li><strong>Teams and Venues</strong></li><li><strong>Legends of the Game</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Round four is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p187",
+    "slug": "triviashowrewind",
+    "name": "The 80s and 90s Trivia Night — Print and Play Trivia Show",
+    "title": "The 80s and 90s Trivia Night (Rewind) - Printable Pub Trivia Show, 50 Questions",
+    "price": "12.49",
+    "template": "store/p9/thewildwest.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-rewind.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "description": "A ready-to-run the 80s and 90s trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
+    "body": "<div><p>Rewind — the Walkman, the Game Boy, Blockbuster and New Coke — the things people actually touched.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. Everything is read aloud and answered on paper: no clips to cue, no screen to set up.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>The 1980s</strong></li><li><strong>The 1990s</strong></li><li><strong>Screens and Speakers</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Round four is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+  },
+  {
+    "id": "p188",
+    "slug": "triviashowpopculture5pack",
+    "name": "Pop Culture Trivia Shows — 5-Pack",
+    "title": "Pop Culture Trivia 5-Pack - Music, TV, Movies, Sports and the 80s and 90s",
+    "price": "44.99",
+    "template": "store/p49/FBTgk5pack1.html",
+    "image": "/uploads/4/3/3/6/43362499/trivia-show-popculture-5pack.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Pre-made Trivia Shows",
+        "href": "/store/c6/triviagameshows/"
+      }
+    ],
+    "includes": [
+      "p183 Music",
+      "p184 Television",
+      "p185 Movies",
+      "p186 Sports",
+      "p187 The 80s and 90s"
+    ],
+    "description": "Five themed trivia shows in one download — Music, Television, Movies, Sports and the 80s and 90s. 250 questions, print and play.",
+    "body": "<div><p>Five themed nights in one download — enough to run a different show every week for over a month without repeating a question.</p><p><strong>What's included:</strong></p><ul><li><strong>Music — Name That Tune.</strong> Lyrics written to be read aloud, not played.</li><li><strong>Television — Prime Time.</strong> Cartoons through prestige drama.</li><li><strong>Movies — The Big Screen.</strong> Quotes, directors and franchises.</li><li><strong>Sports — Game On.</strong> Rules, venues and settled history.</li><li><strong>The 80s and 90s — Rewind.</strong> A nostalgia night for a room that lived it.</li></ul><p>Every show is five rounds of ten with a tiebreaker, and every question across all five is different — no repeats anywhere.</p><p>Each brings its own host packet, team answer sheets and a score sheet for up to 12 teams. No screen, no projector and no software.</p></div>"
   }
 ]

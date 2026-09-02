@@ -1,8 +1,8 @@
 # Pre-made trivia shows
 
-Source content for the print-and-play trivia shows (`p169`–`p182`) — five
-**General Knowledge** nights, two **seasonal** editions, and five **classroom**
-subject shows for grades 5–8. One `.tgp.json` per game. These are the master copies — edit
+Source content for the print-and-play trivia shows (`p169`–`p188`) — five
+**General Knowledge** nights, two **seasonal** editions, five **classroom**
+subject shows for grades 5–8, and five **pop-culture** themed nights. One `.tgp.json` per game. These are the master copies — edit
 here, never in an exported PDF.
 
 ## What each file is
@@ -26,9 +26,15 @@ name doesn't error — it just quietly becomes a default. Run the checker.
 | `classroom-english.tgp.json` | p179 | Grades 5–8 | classroom — words to figures of speech |
 | `classroom-history.tgp.json` | p180 | Grades 5–8 | classroom — ancient world to modern |
 | `classroom-geography.tgp.json` | p181 | Grades 5–8 | classroom — continents to maps |
+| `music-name-that-tune.tgp.json` | p183 | Name That Tune | pop culture — lyrics / bands / eras |
+| `tv-prime-time.tgp.json` | p184 | Prime Time | pop culture — sitcoms / drama / catchphrases |
+| `movies-big-screen.tgp.json` | p185 | The Big Screen | pop culture — quotes / directors / franchises |
+| `sports-game-on.tgp.json` | p186 | Game On | pop culture — rules / venues / legends |
+| `rewind-80s-90s.tgp.json` | p187 | Rewind | pop culture — two decades of nostalgia |
 
 Bundles carry no game file of their own: **p176** is the five General
-Knowledge nights, **p182** the five classroom subjects.
+Knowledge nights, **p182** the five classroom subjects, **p188** the five
+pop-culture shows.
 
 The classroom shows follow different rules to the pub ones — see
 "Classroom shows" at the foot of this file.
@@ -134,3 +140,25 @@ That $22.00/$84.99 in the copy is hand-written and lives in
 `_tools/new-products.json` — no tool reads it back from LemonSqueezy, so if the
 licence price changes there, edit the spec and re-run
 `node _tools/new-product.js --write --force --only p177,…`.
+
+## The spoiler check
+
+`check-trivia-shows.js` also scans for a question whose *wording* contains
+another question's *answer*. The duplicate check only catches identical
+question text; this catches the costlier overlap, where a host reads an answer
+aloud before asking for it. It found real defects on its first run — the
+Christmas show named "Jingle Bells" in one question and asked for it as the
+answer to another, and the TV show did the same with "Star Trek".
+
+Three refinements keep it honest rather than noisy:
+
+- **Play order matters.** A later question repeating an earlier answer is a
+  callback, not a giveaway. Only earlier-spoils-later counts.
+- **Word boundaries.** Without them `0 degrees` matches `less than 90 degrees`.
+- **Generic answers are skipped**, along with any answer that appears in its own
+  show's title. The Halloween show says "Halloween" in half its questions; that
+  does not spoil the 1978 film of the same name.
+
+Within one show a spoiler is a **problem** — the same host reads both. Across
+shows it is only a **warning**, since they are separate products a buyer may
+never own together.

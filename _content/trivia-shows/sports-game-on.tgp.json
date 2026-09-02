@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Sports Trivia Night",
+    "subtitle": "Game On",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "A marathon is run over how many metres?",
+    "a": "42,195 metres (26 miles 385 yards)"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In ice hockey, what is the name of the hard rubber disc that players shoot at the net?",
+          "a": "A puck",
+          "choices": null
+        },
+        {
+          "q": "In baseball, how many strikes make a strikeout?",
+          "a": "Three (3)",
+          "choices": null
+        },
+        {
+          "q": "How many points is a touchdown worth in American football?",
+          "a": "Six (6)",
+          "choices": null
+        },
+        {
+          "q": "In soccer, how many minutes long is a full match, not counting stoppage time?",
+          "a": "90 minutes (two halves of 45)",
+          "choices": null
+        },
+        {
+          "q": "In golf, what is the name for a score of one stroke under par on a single hole?",
+          "a": "A birdie",
+          "choices": null
+        },
+        {
+          "q": "In tennis, what is the name for a serve the receiver never manages to touch?",
+          "a": "An ace",
+          "choices": null
+        },
+        {
+          "q": "In curling, what is the name of the circular target area that the stones are thrown toward?",
+          "a": "The house",
+          "choices": null
+        },
+        {
+          "q": "In ten-pin bowling, what is the nickname for three strikes in a row?",
+          "a": "A turkey",
+          "choices": null
+        },
+        {
+          "q": "In boxing, what do the initials “TKO” stand for?",
+          "a": "Technical knockout",
+          "choices": null
+        },
+        {
+          "q": "Olympic fencing is contested with three different weapons. Name all three.",
+          "a": "Foil, épée and sabre",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Rules and Terms",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In soccer, what colour of card does a referee show to send a player off the field?",
+          "a": "A red card",
+          "choices": null
+        },
+        {
+          "q": "In golf, what is the name for the closely mown area of grass immediately around the hole?",
+          "a": "The green (the putting green)",
+          "choices": null
+        },
+        {
+          "q": "In volleyball, what is the term for a forceful downward attacking hit into the opponents' court?",
+          "a": "A spike",
+          "choices": null
+        },
+        {
+          "q": "In American football, what is the penalty called when an offensive player moves before the ball is snapped?",
+          "a": "A false start",
+          "choices": null
+        },
+        {
+          "q": "In baseball, what is the name for a home run hit while all three bases are occupied?",
+          "a": "A grand slam",
+          "choices": null
+        },
+        {
+          "q": "In tennis, what word is used for a score of forty–forty, where a player must then win two points in a row to take the game?",
+          "a": "Deuce",
+          "choices": null
+        },
+        {
+          "q": "In basketball, what violation is called when a player takes too many steps while holding the ball without dribbling?",
+          "a": "Travelling (traveling)",
+          "choices": null
+        },
+        {
+          "q": "In ice hockey, what is the infraction called when a player shoots the puck from their own half of the ice across the opponents' goal line without anyone touching it?",
+          "a": "Icing",
+          "choices": null
+        },
+        {
+          "q": "In cricket, what is it called when a batter is dismissed without having scored a single run?",
+          "a": "A duck",
+          "choices": null
+        },
+        {
+          "q": "In baseball, what is the name of the illegal pitching motion made with runners on base?",
+          "a": "A balk",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Teams and Venues",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In which sport is the Stanley Cup awarded?",
+          "a": "Ice hockey",
+          "choices": [
+            "Basketball",
+            "Ice hockey",
+            "Baseball",
+            "Lacrosse"
+          ]
+        },
+        {
+          "q": "The Wimbledon tennis championships are played in which city?",
+          "a": "London",
+          "choices": [
+            "Paris",
+            "Melbourne",
+            "London",
+            "New York"
+          ]
+        },
+        {
+          "q": "Wrigley Field, a baseball park opened in 1914, is in which American city?",
+          "a": "Chicago",
+          "choices": [
+            "Chicago",
+            "Detroit",
+            "Philadelphia",
+            "Pittsburgh"
+          ]
+        },
+        {
+          "q": "Which trophy is presented to the winning team of the Super Bowl?",
+          "a": "The Vince Lombardi Trophy",
+          "choices": [
+            "The George Halas Trophy",
+            "The Commissioner's Trophy",
+            "The Grey Cup",
+            "The Vince Lombardi Trophy"
+          ]
+        },
+        {
+          "q": "The Ashes is a long-running Test cricket rivalry between England and which country?",
+          "a": "Australia",
+          "choices": [
+            "India",
+            "South Africa",
+            "Australia",
+            "New Zealand"
+          ]
+        },
+        {
+          "q": "Which Canadian city hosted the 1976 Summer Olympic Games?",
+          "a": "Montreal",
+          "choices": [
+            "Toronto",
+            "Vancouver",
+            "Calgary",
+            "Montreal"
+          ]
+        },
+        {
+          "q": "The Maracanã, one of the world's best-known soccer stadiums, is in which city?",
+          "a": "Rio de Janeiro",
+          "choices": [
+            "Buenos Aires",
+            "Rio de Janeiro",
+            "Mexico City",
+            "Lisbon"
+          ]
+        },
+        {
+          "q": "The “Green Monster” is the nickname of the towering left-field wall at which ballpark?",
+          "a": "Fenway Park",
+          "choices": [
+            "Fenway Park",
+            "Yankee Stadium",
+            "Dodger Stadium",
+            "Camden Yards"
+          ]
+        },
+        {
+          "q": "The Iditarod, a long-distance sled dog race, is run in which American state?",
+          "a": "Alaska",
+          "choices": [
+            "Montana",
+            "Minnesota",
+            "Maine",
+            "Alaska"
+          ]
+        },
+        {
+          "q": "The Old Course at St Andrews, one of the oldest golf courses in the world, is in which country?",
+          "a": "Scotland",
+          "choices": [
+            "Ireland",
+            "England",
+            "Scotland",
+            "The Netherlands"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Legends of the Game",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Which boxer, born Cassius Clay, called himself “The Greatest” and lit the Olympic flame at the 1996 Atlanta Games?",
+          "a": "Muhammad Ali",
+          "choices": null
+        },
+        {
+          "q": "Which Canadian hockey player was nicknamed “The Great One” and wore the number 99?",
+          "a": "Wayne Gretzky",
+          "choices": null
+        },
+        {
+          "q": "Which basketball player, nicknamed “His Airness”, won six NBA championships with the Chicago Bulls during the 1990s?",
+          "a": "Michael Jordan",
+          "choices": null
+        },
+        {
+          "q": "Which Brazilian soccer player, born Edson Arantes do Nascimento, played on three World Cup-winning teams between 1958 and 1970?",
+          "a": "Pelé",
+          "choices": null
+        },
+        {
+          "q": "Which Jamaican sprinter won the Olympic 100 metres title at three consecutive Games — 2008, 2012 and 2016?",
+          "a": "Usain Bolt",
+          "choices": null
+        },
+        {
+          "q": "Which player broke Major League Baseball's colour barrier in 1947 when he took the field for the Brooklyn Dodgers?",
+          "a": "Jackie Robinson",
+          "choices": null
+        },
+        {
+          "q": "Which American athlete won four gold medals in track and field at the 1936 Olympic Games in Berlin?",
+          "a": "Jesse Owens",
+          "choices": null
+        },
+        {
+          "q": "Which Romanian gymnast was awarded the first perfect score of 10 in Olympic gymnastics, at the 1976 Montreal Games?",
+          "a": "Nadia Comăneci",
+          "choices": null
+        },
+        {
+          "q": "Which American tennis player beat Bobby Riggs in the 1973 exhibition match billed as the “Battle of the Sexes”?",
+          "a": "Billie Jean King",
+          "choices": null
+        },
+        {
+          "q": "Which Czechoslovak runner won gold in the 5,000 metres, the 10,000 metres and the marathon at the 1952 Helsinki Olympics?",
+          "a": "Emil Zátopek",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The Olympic flag shows five interlocking rings.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A regulation baseball game is scheduled for nine innings.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "A Test cricket match must always produce a winner.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "An Olympic-size swimming pool is 100 metres long.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Despite the name, a boxing “ring” is square.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The word “soccer” was invented in the United States.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "An astronaut once hit golf balls on the surface of the Moon.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Tennis balls were white before yellow ones were introduced.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The sport of badminton takes its name from a town in Scotland.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The first Super Bowl was known by that name at the time it was played.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}
