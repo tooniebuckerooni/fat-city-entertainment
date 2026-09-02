@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Christmas Trivia Night",
+    "subtitle": "The Long Night",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "In what year was the first commercial Christmas card produced in Britain?",
+    "a": "1843"
+  },
+  "rounds": [
+    {
+      "name": "Warm-Up",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "On what date is Christmas Day celebrated in most of the world?",
+          "a": "December 25",
+          "choices": null
+        },
+        {
+          "q": "What are hung by the fireplace on Christmas Eve for Santa to fill?",
+          "a": "Stockings",
+          "choices": null
+        },
+        {
+          "q": "Which of Santa's reindeer is known for his glowing red nose?",
+          "a": "Rudolph",
+          "choices": null
+        },
+        {
+          "q": "Which plant, hung in a doorway, traditionally invites a kiss beneath it?",
+          "a": "Mistletoe",
+          "choices": null
+        },
+        {
+          "q": "Which colour is traditionally paired with green as the two Christmas colours?",
+          "a": "Red",
+          "choices": null
+        },
+        {
+          "q": "What are Santa's workshop helpers called?",
+          "a": "Elves",
+          "choices": null
+        },
+        {
+          "q": "Which country is credited with starting the tradition of bringing a decorated tree indoors?",
+          "a": "Germany",
+          "choices": null
+        },
+        {
+          "q": "In Canada and the United Kingdom, what is the day after Christmas called?",
+          "a": "Boxing Day",
+          "choices": null
+        },
+        {
+          "q": "In Charles Dickens's “A Christmas Carol”, what is the surname of the miserly old man?",
+          "a": "Scrooge (Ebenezer Scrooge)",
+          "choices": null
+        },
+        {
+          "q": "How many ghosts visit Scrooge in “A Christmas Carol”, counting Jacob Marley?",
+          "a": "Four (4)",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Christmas Around the World",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In the Netherlands, what is the name of the gift-bringing figure who arrives in December?",
+          "a": "Sinterklaas",
+          "choices": null
+        },
+        {
+          "q": "In which country has eating fried chicken from KFC become a widespread Christmas Day tradition?",
+          "a": "Japan",
+          "choices": null
+        },
+        {
+          "q": "In Italian tradition, which kindly old witch delivers gifts to children at Epiphany?",
+          "a": "La Befana",
+          "choices": null
+        },
+        {
+          "q": "In Iceland, children are visited over the thirteen nights before Christmas by which group of mischievous figures?",
+          "a": "The Yule Lads (Jólasveinar)",
+          "choices": null
+        },
+        {
+          "q": "In Mexico, what is the name of the nine-night celebration of processions leading up to Christmas?",
+          "a": "Las Posadas",
+          "choices": null
+        },
+        {
+          "q": "Which red Christmas plant is native to Mexico and named after an American ambassador?",
+          "a": "The poinsettia",
+          "choices": null
+        },
+        {
+          "q": "A giant straw Yule goat is erected every December in which Swedish city?",
+          "a": "Gävle",
+          "choices": null
+        },
+        {
+          "q": "In Catalonia, children strike a decorated log with sticks so it will produce presents. What is that log called?",
+          "a": "Tió de Nadal (also accept Caga Tió)",
+          "choices": null
+        },
+        {
+          "q": "Saint Nicholas, the historical figure behind Santa Claus, was a bishop in a region that is part of which modern country?",
+          "a": "Turkey (Türkiye)",
+          "choices": null
+        },
+        {
+          "q": "In Ukraine and parts of Eastern Europe, trees are sometimes decorated with artificial webs spun by which creature, said to bring good luck?",
+          "a": "The spider",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Christmas at the Movies",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In “Home Alone”, what is the first name of the boy accidentally left behind?",
+          "a": "Kevin",
+          "choices": [
+            "Kyle",
+            "Kevin",
+            "Charlie",
+            "Danny"
+          ]
+        },
+        {
+          "q": "Which 2003 film stars Will Ferrell as a man raised by elves at the North Pole?",
+          "a": "Elf",
+          "choices": [
+            "Elf",
+            "The Santa Clause",
+            "Jingle All the Way",
+            "Fred Claus"
+          ]
+        },
+        {
+          "q": "In “It's a Wonderful Life”, what is the name of the angel sent to help George Bailey?",
+          "a": "Clarence",
+          "choices": [
+            "Gabriel",
+            "Michael",
+            "Clarence",
+            "Harold"
+          ]
+        },
+        {
+          "q": "Which action film, set during an office Christmas party at Nakatomi Plaza, is argued about every December?",
+          "a": "Die Hard",
+          "choices": [
+            "Lethal Weapon",
+            "The Long Kiss Goodnight",
+            "Die Hard",
+            "Rocky IV"
+          ]
+        },
+        {
+          "q": "In “How the Grinch Stole Christmas”, what is the name of the Grinch's dog?",
+          "a": "Max",
+          "choices": [
+            "Rex",
+            "Buddy",
+            "Sam",
+            "Max"
+          ]
+        },
+        {
+          "q": "Which 1947 film centres on a Macy's department store Santa who claims to be the real Kris Kringle?",
+          "a": "Miracle on 34th Street",
+          "choices": [
+            "Miracle on 34th Street",
+            "It Happened on Fifth Avenue",
+            "Holiday Inn",
+            "The Bishop's Wife"
+          ]
+        },
+        {
+          "q": "In “The Polar Express”, what is the train's destination?",
+          "a": "The North Pole",
+          "choices": [
+            "Lapland",
+            "The North Pole",
+            "Toyland",
+            "The Arctic Circle"
+          ]
+        },
+        {
+          "q": "In which film does Cousin Eddie park his motorhome outside the Griswold family home?",
+          "a": "National Lampoon's Christmas Vacation",
+          "choices": [
+            "Deck the Halls",
+            "Christmas with the Kranks",
+            "National Lampoon's Christmas Vacation",
+            "Four Christmases"
+          ]
+        },
+        {
+          "q": "In “A Christmas Story”, what present does Ralphie desperately want?",
+          "a": "A Red Ryder BB gun",
+          "choices": [
+            "A train set",
+            "A Red Ryder BB gun",
+            "A bicycle",
+            "A chemistry set"
+          ]
+        },
+        {
+          "q": "Which animated television special features a small, drooping tree chosen by the title character?",
+          "a": "A Charlie Brown Christmas",
+          "choices": [
+            "Frosty the Snowman",
+            "The Little Drummer Boy",
+            "A Charlie Brown Christmas",
+            "The Snowman"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Carols and Songs",
+      "type": "double",
+      "format": "open",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "In “The Twelve Days of Christmas”, what gift is given on the first day?",
+          "a": "A partridge in a pear tree",
+          "choices": null
+        },
+        {
+          "q": "Which carol opens with the words “Silent night, holy night”?",
+          "a": "“Silent Night”",
+          "choices": null
+        },
+        {
+          "q": "How many reindeer are named in the poem “A Visit from St. Nicholas”, not counting Rudolph?",
+          "a": "Eight (8)",
+          "choices": null
+        },
+        {
+          "q": "Which Christmas song was the first ever broadcast from space, played on a harmonica aboard Gemini 6 in 1965?",
+          "a": "“Jingle Bells”",
+          "choices": null
+        },
+        {
+          "q": "Which Bing Crosby recording is among the best-selling singles of all time?",
+          "a": "“White Christmas”",
+          "choices": null
+        },
+        {
+          "q": "“Feliz Navidad” was written and recorded by which Puerto Rican singer?",
+          "a": "José Feliciano",
+          "choices": null
+        },
+        {
+          "q": "Which 1984 charity single was recorded by the group Band Aid?",
+          "a": "“Do They Know It's Christmas?”",
+          "choices": null
+        },
+        {
+          "q": "In “Jingle Bells”, what exactly is the singer riding in?",
+          "a": "A one-horse open sleigh",
+          "choices": null
+        },
+        {
+          "q": "Which carol tells of a king looking out on the Feast of Stephen?",
+          "a": "“Good King Wenceslas”",
+          "choices": null
+        },
+        {
+          "q": "Which Christmas song, later a standard, was written in 1945 as a wintry duet and begins with a guest saying they really can't stay?",
+          "a": "“Baby, It's Cold Outside”",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "family",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "Coca-Cola invented the image of Santa Claus in a red suit.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Poinsettias are deadly poisonous to humans.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "“Jingle Bells” was originally written for Thanksgiving, not Christmas.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Reindeer and caribou are the same species of animal.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Christmas celebrations were once banned by law in England.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Rockefeller Center Christmas tree is replanted in a forest after the holidays.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "Boxing Day is named after boxing matches traditionally held the day after Christmas.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "In the Southern Hemisphere, Christmas falls during summer.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Only male reindeer grow antlers.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The poem beginning “'Twas the night before Christmas” originally named two reindeer Dunder and Blixem.",
+          "a": "True",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}

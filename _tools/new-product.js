@@ -17,6 +17,7 @@
 //   node _tools/new-product.js            # dry run, reports what it would build
 //   node _tools/new-product.js --write
 //   node _tools/new-product.js --write --force   # also rebuild existing pages
+//   node _tools/new-product.js --write --force --only p169,p170
 //
 // New products are created STAGED: noindex, not in the sitemap, no category
 // tile. Nothing is public until you pass --publish for that id, which is
@@ -38,6 +39,13 @@ const PUBLISH = process.argv.includes("--publish");
 // Regenerate a product whose page already exists. Off by default so a run
 // that stages one new product cannot rewrite the rest of the catalogue.
 const FORCE = process.argv.includes("--force");
+// Limit a run to specific ids: --only p169,p170. Pairs with --force so an
+// existing page can be rebuilt without putting the whole catalogue at risk.
+const ONLY = (() => {
+  const i = process.argv.indexOf("--only");
+  if (i === -1 || !process.argv[i + 1]) return null;
+  return new Set(process.argv[i + 1].split(",").map((x) => x.trim()).filter(Boolean));
+})();
 const SPEC = path.join(__dirname, "new-products.json");
 
 if (!fs.existsSync(SPEC)) {
@@ -73,6 +81,7 @@ for (const spec of specs) {
 
   const pid = spec.id || nextFreeId(existing);
   existing.add(pid);
+  if (ONLY && !ONLY.has(pid)) { skipped++; continue; }
   const num = pid.slice(1);
 
   const templatePath = path.join(REPO, spec.template);

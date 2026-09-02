@@ -100,6 +100,8 @@ window.LS_LINKS = {
   "p172": "", // [ ] General Knowledge Night Four — Print and Play Trivia Show — $12.49 USD — /store/p172/triviashowgkfour.html
   "p173": "", // [ ] General Knowledge Night Five — Print and Play Trivia Show — $12.49 USD — /store/p173/triviashowgkfive.html
   "p174": "", // [ ] Halloween Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p174/triviashowhalloween.html
+  "p175": "", // [ ] Christmas Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p175/triviashowchristmas.html
+  "p176": "", // [ ] General Knowledge Trivia Shows — 5-Pack — $44.99 USD — /store/p176/triviashowgk5pack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">

@@ -140,6 +140,7 @@ const PRODUCTS = {
   "gk-night-one": "p169", "gk-night-two": "p170", "gk-night-three": "p171",
   "gk-night-four": "p172", "gk-night-five": "p173",
   "halloween-fright-night": "p174",
+  "christmas-long-night": "p175",
 };
 for (const [stem, pid] of Object.entries(PRODUCTS)) {
   const showFile = path.join(DIR, `${stem}.tgp.json`);

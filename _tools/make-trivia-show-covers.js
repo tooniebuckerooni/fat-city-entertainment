@@ -37,6 +37,11 @@ const SHOWS = [
   { slug: "trivia-show-gk-night-five",  n: "FIVE",  title: "Night Five",  sub: "The Decider" },
   { slug: "trivia-show-halloween", n: "31", title: "Halloween", sub: "Fright Night",
     eyebrow: "SEASONAL TRIVIA SHOW", accent: "#d2691e" },
+  { slug: "trivia-show-christmas", n: "25", title: "Christmas", sub: "The Long Night",
+    eyebrow: "SEASONAL TRIVIA SHOW", accent: "#2f7a55" },
+  { slug: "trivia-show-gk-5pack", n: "5", title: "General Knowledge", sub: "The Full Set",
+    eyebrow: "FIVE-SHOW BUNDLE", titleSize: 84,
+    line1: "5 shows · 250 questions · 5 tiebreakers" },
 ];
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -60,13 +65,13 @@ function svg(s) {
         fill="${A}" fill-opacity="0.13">${esc(s.n)}</text>
   <text x="72" y="188" font-family="${FACE}" font-weight="bold" font-size="30"
         fill="${A}" letter-spacing="7">${esc(EY)}</text>
-  <text x="72" y="330" font-family="${FACE}" font-weight="bold" font-size="112"
+  <text x="72" y="330" font-family="${FACE}" font-weight="bold" font-size="${s.titleSize || 112}"
         fill="${CREAM}">${esc(s.title)}</text>
   <text x="72" y="404" font-family="${FACE}" font-size="46"
         fill="${MUTED}" font-style="italic">${esc(s.sub)}</text>
   <rect x="72" y="470" width="132" height="5" fill="${A}"/>
   <text x="72" y="556" font-family="${FACE}" font-size="34" fill="${CREAM}">
-    5 rounds · 50 questions · tiebreaker
+    ${esc(s.line1 || "5 rounds · 50 questions · tiebreaker")}
   </text>
   <text x="72" y="608" font-family="${FACE}" font-size="34" fill="${MUTED}">
     Print and play — no screen needed
