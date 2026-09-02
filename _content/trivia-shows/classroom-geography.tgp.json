@@ -1,0 +1,387 @@
+{
+  "game": {
+    "title": "Classroom Trivia — Geography",
+    "subtitle": "Grades 5–8",
+    "date": "",
+    "host": ""
+  },
+  "branding": {
+    "org": "Fat City Entertainment",
+    "tagline": "Games • Trivia • Music Bingo",
+    "website": "www.fatcityentertainment.com",
+    "accent": "#d94f4f",
+    "font": "helvetica",
+    "logo": null,
+    "logoW": 0,
+    "logoH": 0,
+    "credit": false
+  },
+  "options": {
+    "pageSize": "letter",
+    "showPoints": true,
+    "halfSheets": false,
+    "teams": 12,
+    "tiebreaker": true
+  },
+  "tiebreaker": {
+    "q": "What is the Earth's diameter at the equator, in kilometres?",
+    "a": "12,756 km (7,926 miles)"
+  },
+  "rounds": [
+    {
+      "name": "Continents and Oceans",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "How many continents are there on Earth?",
+          "a": "Seven (7)",
+          "choices": null
+        },
+        {
+          "q": "Which is the largest ocean on Earth?",
+          "a": "The Pacific Ocean",
+          "choices": null
+        },
+        {
+          "q": "Which continent is the coldest?",
+          "a": "Antarctica",
+          "choices": null
+        },
+        {
+          "q": "Which continent contains the most countries?",
+          "a": "Africa",
+          "choices": null
+        },
+        {
+          "q": "Which ocean lies between Africa and Australia?",
+          "a": "The Indian Ocean",
+          "choices": null
+        },
+        {
+          "q": "Which is the smallest continent by land area?",
+          "a": "Australia",
+          "choices": null
+        },
+        {
+          "q": "The Isthmus of Panama joins which two continents?",
+          "a": "North America and South America",
+          "choices": null
+        },
+        {
+          "q": "Which is the smallest of Earth's oceans?",
+          "a": "The Arctic Ocean",
+          "choices": null
+        },
+        {
+          "q": "Which ocean borders the east coast of North America?",
+          "a": "The Atlantic Ocean",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the imaginary line of zero longitude that runs through Greenwich, England?",
+          "a": "The Prime Meridian",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Countries and Capitals",
+      "type": "standard",
+      "format": "open",
+      "ageRange": "kids",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What is the capital city of France?",
+          "a": "Paris",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of the United States?",
+          "a": "Washington, D.C.",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Australia?",
+          "a": "Canberra",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Portugal?",
+          "a": "Lisbon",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Egypt?",
+          "a": "Cairo",
+          "choices": null
+        },
+        {
+          "q": "Nairobi is the capital of which country?",
+          "a": "Kenya",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Argentina?",
+          "a": "Buenos Aires",
+          "choices": null
+        },
+        {
+          "q": "Seoul is the capital of which country?",
+          "a": "South Korea",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Norway?",
+          "a": "Oslo",
+          "choices": null
+        },
+        {
+          "q": "What is the capital city of Peru?",
+          "a": "Lima",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "Physical Geography",
+      "type": "standard",
+      "format": "mc",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "What is the longest river in Africa?",
+          "a": "The Nile",
+          "choices": [
+            "The Congo",
+            "The Niger",
+            "The Zambezi",
+            "The Nile"
+          ]
+        },
+        {
+          "q": "Once molten rock reaches the Earth's surface, what is it called?",
+          "a": "Lava",
+          "choices": [
+            "Magma",
+            "Lava",
+            "Basalt",
+            "Silt"
+          ]
+        },
+        {
+          "q": "What is the name for a large mass of slow-moving ice?",
+          "a": "A glacier",
+          "choices": [
+            "An iceberg",
+            "A floe",
+            "A glacier",
+            "A moraine"
+          ]
+        },
+        {
+          "q": "Which mountain range runs down the western side of South America?",
+          "a": "The Andes",
+          "choices": [
+            "The Rockies",
+            "The Atlas",
+            "The Alps",
+            "The Andes"
+          ]
+        },
+        {
+          "q": "What is the name for a ring-shaped coral reef?",
+          "a": "An atoll",
+          "choices": [
+            "An atoll",
+            "A lagoon",
+            "A cay",
+            "A shoal"
+          ]
+        },
+        {
+          "q": "What do we call the place where a river splits into branches as it meets the sea?",
+          "a": "A delta",
+          "choices": [
+            "An estuary",
+            "A delta",
+            "A basin",
+            "A source"
+          ]
+        },
+        {
+          "q": "What is the name for a narrow channel of water joining two larger bodies of water?",
+          "a": "A strait",
+          "choices": [
+            "A strait",
+            "A bay",
+            "A gulf",
+            "A sound"
+          ]
+        },
+        {
+          "q": "Which layer of the Earth lies directly beneath the crust?",
+          "a": "The mantle",
+          "choices": [
+            "The core",
+            "The mantle",
+            "The crust",
+            "The lithosphere"
+          ]
+        },
+        {
+          "q": "What is the name for a crack in the Earth's surface where two tectonic plates meet?",
+          "a": "A fault",
+          "choices": [
+            "A rift",
+            "A trench",
+            "A fault",
+            "A ridge"
+          ]
+        },
+        {
+          "q": "What word describes the height of land above sea level?",
+          "a": "Elevation",
+          "choices": [
+            "Latitude",
+            "Longitude",
+            "Gradient",
+            "Elevation"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Maps and Landmarks",
+      "type": "double",
+      "format": "open",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "On a standard map, which compass direction is at the top?",
+          "a": "North",
+          "choices": null
+        },
+        {
+          "q": "What are the lines on a map that join points of equal height called?",
+          "a": "Contour lines",
+          "choices": null
+        },
+        {
+          "q": "What do we call the key on a map that explains what its symbols mean?",
+          "a": "The legend (map key)",
+          "choices": null
+        },
+        {
+          "q": "Do lines of latitude run east to west, or north to south?",
+          "a": "East to west",
+          "choices": null
+        },
+        {
+          "q": "What is the name of the instrument with a magnetised needle used to find direction?",
+          "a": "A compass",
+          "choices": null
+        },
+        {
+          "q": "Which canal connects the Mediterranean Sea to the Red Sea?",
+          "a": "The Suez Canal",
+          "choices": null
+        },
+        {
+          "q": "Which canal connects the Atlantic and Pacific Oceans?",
+          "a": "The Panama Canal",
+          "choices": null
+        },
+        {
+          "q": "What is the name for a scale model of the Earth?",
+          "a": "A globe",
+          "choices": null
+        },
+        {
+          "q": "Which strait separates Europe from Africa at their closest point?",
+          "a": "The Strait of Gibraltar",
+          "choices": null
+        },
+        {
+          "q": "Which line of latitude lies at roughly 23.5 degrees north of the equator?",
+          "a": "The Tropic of Cancer",
+          "choices": null
+        }
+      ]
+    },
+    {
+      "name": "True or False",
+      "type": "standard",
+      "format": "tf",
+      "ageRange": "teens",
+      "difficulty": "balanced",
+      "points": 10,
+      "open": true,
+      "questions": [
+        {
+          "q": "The equator passes through Brazil.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Russia lies entirely within Asia.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "There are more countries in Europe than in Africa.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The Amazon rainforest lies mostly within Brazil.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Iceland is considered part of Europe.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "All lines of longitude are the same length.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "Mount Everest is part of the Andes mountain range.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "A peninsula is a piece of land surrounded by water on every side.",
+          "a": "False",
+          "choices": null
+        },
+        {
+          "q": "The Pacific Ocean covers a greater area than all of Earth's land put together.",
+          "a": "True",
+          "choices": null
+        },
+        {
+          "q": "The Tropic of Capricorn lies north of the equator.",
+          "a": "False",
+          "choices": null
+        }
+      ]
+    }
+  ]
+}
