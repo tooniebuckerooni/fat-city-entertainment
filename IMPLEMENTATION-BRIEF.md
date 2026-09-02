@@ -197,3 +197,105 @@ placeholders; replacing one is a drop-in at the same filename.
 4. **Next shows to build**, in order: New Year's Eve (every venue runs
    something and nobody has a show ready), then St. Patrick's Day, where you
    already sell two products so the demand is proven.
+
+---
+
+## 8. What shows "ON SALE" — the roster
+
+Two different mechanisms, and the distinction matters legally as well as
+practically.
+
+**A value-stack compare-at is permanent and legitimate.** "These items cost
+$62.45 bought separately; the pack is $41.99" is true by arithmetic, so a
+bundle can carry it forever. That is how the clubs already work.
+
+**A genuine former price is time-boxed.** A single game marked down from
+$12.49 to $8.99 must actually return to $12.49. Rotate the roster; never leave
+the same games marked down indefinitely, because a "was" price nobody ever
+pays is a fictitious former-price claim.
+
+### Always on sale — 16 bundles, value-stack compare-at
+
+| id | product | was (sum of parts) | sells at | saving | per game |
+|---|---|---|---|---|---|
+| `p128` | One Hit Wonders 2-Pack | $24.98 | $18.99 | $5.99 (24%) | $9.49 |
+| `p127` | Movie Soundtracks 3-Pack | $37.47 | $25.99 | $11.48 (31%) | $8.66 |
+| `p108` | Entertainer's Pack | $37.47 | $27.00 | $10.47 (28%) | $9.00 |
+| `p162` | Word Games 3-Pack | $37.47 | $27.00 | $10.47 (28%) | $9.00 |
+| `p165` | Around The World 4-Pack | $49.96 | $32.49 | $17.47 (35%) | $8.12 |
+| `p166` | Party Starter 4-Pack | $49.96 | $34.00 | $15.96 (32%) | $8.50 |
+| `p147` | Decades 5-Pack | $62.45 | $41.99 | $20.46 (33%) | $8.40 |
+| `p168` | Things In Songs 5-Pack | $62.45 | $41.99 | $20.46 (33%) | $8.40 |
+| `p101` | The Year Was 5-Pack | $62.45 | $41.99 | $20.46 (33%) | $8.40 |
+| `p155` | Holidays 6-Pack | $74.94 | $48.99 | $25.95 (35%) | $8.17 |
+| `p131` | Bronze — 10 games + Day Pass | $131.89 | $79.00 | $52.89 (40%) | $7.90 |
+| `p130` | Silver — 25 games + 1 month | $336.25 | $193.75 | $142.50 (42%) | $7.75 |
+| `p112` | Gold — 50 games + 1 year | $740.50 | $415.50 | $325.00 (44%) | n/a |
+| `p176` | General Knowledge 5-Pack | $62.45 | $44.99 | $17.46 (28%) | $9.00 |
+| `p188` | Pop Culture 5-Pack | $62.45 | $44.99 | $17.46 (28%) | $9.00 |
+| `p182` | Classroom 5-Pack | $44.95 | $34.99 | $9.96 (22%) | $7.00 |
+
+### Rotating — 8 singles at $8.99, from $12.49 (28% off)
+
+Chosen as four proven sellers, one seasonal, and three that need visibility.
+Spread across different bundles on purpose, so no single pack loses most of its
+components to the sale at once.
+
+| id | game | why |
+|---|---|---|
+| `p97` | Halloween Party | seasonal — October is the only month it has |
+| `p62` | Golden Oldies | top-10 seller, and two versions included |
+| `p144` | The 80s | top-10 seller |
+| `p81` | One Hit Wonders | top-10 seller |
+| `p132` | Road Trip! | top-10 seller |
+| `p167` | Punk Rock | newest game, no sales history yet |
+| `p143` | Motown | broad appeal, low visibility |
+| `p160` | 90s R&B | low visibility |
+
+**Rotate monthly.** Swap 4–6 of the eight each month and the store always has
+something on sale without any single game being permanently marked down.
+
+**`p103` Christmas Party is deliberately excluded.** It anchors the "a single
+game" rung of the price-ladder table on `trivia-store.html`, so discounting it
+makes the whole ladder read from $8.99 and the 3-pack's $8.66 then looks like a
+4% saving instead of a 31% one. It is also worth full price in November.
+
+### Does $8.99 break the ladder? No — checked
+
+| rung | per game | vs a $8.99 sale single |
+|---|---|---|
+| 3-pack (cheapest) | $8.66 | still cheaper |
+| 5-pack | $8.40 | still cheaper |
+| 6-pack | $8.17 | still cheaper |
+| Bronze | $7.90 | still cheaper |
+| Silver | $7.75 | still cheaper |
+
+And buying in bulk still wins outright: three sale singles cost $26.97 against
+the 3-pack's $25.99; five cost $44.95 against the 5-pack's $41.99.
+
+### Two rungs to fix while you are in there
+
+- **`p108` and `p162` both work out at $9.00 a game**, which is *above* a $8.99
+  sale single. During a sale those two packs offer no reason to exist. Move
+  both to **$25.99**, matching `p127`, and the whole 3-pack rung lands at $8.66.
+- **`p128` at $9.49 a game** is the weakest rung in the catalogue. **$17.99**
+  would bring it to $9.00. Low priority — it is a 2-pack, and 2-packs are
+  always the worst value per unit.
+
+### How the banner actually appears
+
+The "ON SALE" flash only renders when `set-usd-price.js` is given **two**
+prices — regular then sale:
+
+```bash
+node _tools/set-usd-price.js p97 12.49 8.99     # on sale
+node _tools/set-usd-price.js p97 12.49          # sale over
+```
+
+Omitting the second argument is how a sale ends: it strips the ribbon from the
+product page and the banner from every listing tile.
+
+That banner did not work at all until this branch — Weebly's own JS used to add
+the `sale-active` class at runtime, and the static export kept the markup but
+lost the JS. Not one product has shown a banner since the migration, including
+the three clubs that genuinely were on sale the whole time.
