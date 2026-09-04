@@ -39,6 +39,15 @@ const PROPOSED = {
   p147: "41.99", p168: "41.99", p101: "41.99",   // the three 5-packs
   p155: "48.99",               // Holidays 6-pack
   p130: "193.75",              // Silver — the one cut, to make the ladder descend
+  // These three were in the brief but not here, so a rebuild driven off this
+  // sheet would have put them back at their old prices. p108 and p162 sit at
+  // $27.00 = $9.00/game, which is ABOVE an $8.99 sale single — during a sale
+  // those two packs offer no reason to exist. $25.99 matches p127 and lands the
+  // whole 3-pack rung on $8.66. p128 is the catalogue's weakest rung; $17.99
+  // brings a 2-pack to $9.00, and both also pick up the .99 ending everything
+  // else uses.
+  p108: "25.99", p162: "25.99",
+  p128: "17.99",
 };
 const isNew = (p) => Number(p.pid.slice(1)) >= 169;
 const proposedFor = (p) => {

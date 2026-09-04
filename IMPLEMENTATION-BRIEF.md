@@ -67,7 +67,7 @@ The site shows the single-classroom price; the body copy names the school-wide
 one. Both tiers land at about 22% off buying singly, so the pack is worth
 buying whichever licence someone picks.
 
-### B. Forty-eight repricings
+### B. Fifty-one repricings
 
 | what | from | to | per game |
 |---|---|---|---|
@@ -76,6 +76,8 @@ buying whichever licence someone picks.
 | 5-packs (p147, p168, p101) | $39.99 | **$41.99** | $8.40 |
 | Holidays 6-pack (p155) | $46.99 | **$48.99** | $8.17 |
 | Silver Club (p130) | $198.75 | **$193.75** | $7.75 |
+| Entertainer's (p108), Word Games (p162) | $27.00 | **$25.99** | $8.66 |
+| One Hit Wonders 2-Pack (p128) | $18.99 | **$17.99** | $9.00 |
 | Bronze (p131), Gold (p112) | — | **hold** | $7.90 / n/a |
 
 That descends properly for the first time — 8.66 → 8.40 → 8.17 → 7.90 → 7.75.
@@ -100,8 +102,12 @@ price off p103 and rebuilds all three:
 node _tools/check-value-stacks.js --write
 ```
 
-It then prints the three `set-usd-price.js` commands that align each
-compare-at with its new total. Run those too — the prose and the struck-through
+It also owns the two 4-pack pages (`p165`, `p166`) that state in prose what
+their components cost bought separately — both said **$43.96** (4 × $10.99) and
+nothing regenerated them, so after the reprice both would have understated their
+own pack's saving by $4.00. They now read from the same source. It then prints
+the three `set-usd-price.js` commands that align each club's compare-at with its
+new total. Run those too — the prose and the struck-through
 price are read together, and a page that argues with itself is worse than one
 that is merely out of date.
 
@@ -218,8 +224,27 @@ placeholders; replacing one is a drop-in at the same filename.
    and the value stacks.
 2. **Consult Hour (p137)** — the checkout works but the page is noindex, absent
    from the sitemap and linked from nowhere. Surface it or retire it.
-3. **New artwork** for the ten products at 300×200.
-4. **Next shows to build**, in order: New Year's Eve (every venue runs
+3. **Triv101 Premium (p7) is the one product still priced in CAD** — CA$22.00,
+   and it is fully dormant: noindex, no sitemap entry, no tile, no checkout.
+   Since you are rebuilding everything anyway, either give it a USD price or
+   skip it. If you build it: **$12.99**. That is above Sporcle's $9.99
+   downloadable question bank and above a $11.99 print-and-play show, which is
+   defensible for 1,350 questions, but it has no sales history to justify the
+   ~$16 that CA$22.00 converts to. Skipping it this weekend costs nothing —
+   it earns nothing today.
+4. **Party Starter 4-Pack (p166) is listed in the sale roster below but is not
+   live** — noindex, no tile, no checkout, buy button pointing at
+   `/contact.html`. Either launch it this weekend or drop it from the roster;
+   right now it is a row in a plan for a product nobody can buy.
+5. **New artwork.** 20 products have no source image wider than 600px, so they
+   will look soft on a LemonSqueezy listing. Worst first: `p126` Video Games
+   3-Pack ($63.99, 410px) and the three $32.99 seasonal 2-packs `p33`/`p53`/
+   `p135` (~550px). **Four of the eight rotating sale games are among them** —
+   `p132` Road Trip!, `p143` Motown, `p144` The 80s and `p167` Punk Rock are all
+   300px. Putting a game on sale sends traffic to its image; those four are
+   the ones to re-shoot first. Full list in
+   `_export/lemonsqueezy/MANIFEST.md`.
+6. **Next shows to build**, in order: New Year's Eve (every venue runs
    something and nobody has a show ready), then St. Patrick's Day, where you
    already sell two products so the demand is proven.
 
@@ -246,10 +271,10 @@ All figures below assume singles at **$11.99**. The three club rows include the
 
 | id | product | was (sum of parts) | sells at | saving | per game |
 |---|---|---|---|---|---|
-| `p128` | One Hit Wonders 2-Pack | $23.98 | $18.99 | $4.99 (21%) | $9.49 |
+| `p128` | One Hit Wonders 2-Pack | $23.98 | $17.99 | $5.99 (25%) | $9.00 |
 | `p127` | Movie Soundtracks 3-Pack | $35.97 | $25.99 | $9.98 (28%) | $8.66 |
-| `p108` | Entertainer's Pack | $35.97 | $27.00 | $8.97 (25%) | $9.00 |
-| `p162` | Word Games 3-Pack | $35.97 | $27.00 | $8.97 (25%) | $9.00 |
+| `p108` | Entertainer's Pack | $35.97 | $25.99 | $9.98 (28%) | $8.66 |
+| `p162` | Word Games 3-Pack | $35.97 | $25.99 | $9.98 (28%) | $8.66 |
 | `p165` | Around The World 4-Pack | $47.96 | $32.49 | $15.47 (32%) | $8.12 |
 | `p166` | Party Starter 4-Pack | $47.96 | $34.00 | $13.96 (29%) | $8.50 |
 | `p147` | Decades 5-Pack | $59.95 | $41.99 | $17.96 (30%) | $8.40 |
@@ -264,6 +289,20 @@ All figures below assume singles at **$11.99**. The three club rows include the
 | `p182` | Classroom 5-Pack | $44.95 | $34.99 | $9.96 (22%) | $7.00 |
 
 ### Rotating — 8 singles at $8.99, from $11.99 (25% off)
+
+**$8.99, not $9.00 or $9.99 — settled 4 Sep 2026.** All three were on the
+table; $8.99 wins on three counts and loses on none:
+
+| | left digit | badge (Rule of 100) | ending |
+|---|---|---|---|
+| **$8.99** | **8** — reads a whole digit cheaper | **25% OFF** | .99, like everything else |
+| $9.00 | 9 | 25% OFF | round — reads considered, not discounted |
+| $9.99 | 9 | 17% OFF — a weak flash | .99 |
+
+$9.99 is the one to actually reject: it only reads as 17% off, which is not
+enough to look like a sale, and it sits at the same left digit as $9.00 without
+being cheaper. The ladder holds at all three — the cheapest 3-pack is $8.66 a
+game, still under an $8.99 single — so ladder integrity does not decide it.
 
 Chosen as four proven sellers, one seasonal, and three that need visibility.
 Spread across different bundles on purpose, so no single pack loses most of its
@@ -301,14 +340,20 @@ makes the whole ladder read from $8.99 and the 3-pack's $8.66 then looks like a
 And buying in bulk still wins outright: three sale singles cost $26.97 against
 the 3-pack's $25.99; five cost $44.95 against the 5-pack's $41.99.
 
-### Two rungs to fix while you are in there
+### The three rungs that were nearly missed
+
+These were written up here but were **not** in the callsheet's proposal list, so
+a rebuild driven off that sheet would have put all three back at their old
+prices. They are in it now.
 
 - **`p108` and `p162` both work out at $9.00 a game**, which is *above* a $8.99
-  sale single. During a sale those two packs offer no reason to exist. Move
-  both to **$25.99**, matching `p127`, and the whole 3-pack rung lands at $8.66.
-- **`p128` at $9.49 a game** is the weakest rung in the catalogue. **$17.99**
-  would bring it to $9.00. Low priority — it is a 2-pack, and 2-packs are
-  always the worst value per unit.
+  sale single. During a sale those two packs offer no reason to exist. Both move
+  to **$25.99**, matching `p127`, and the whole 3-pack rung lands on $8.66.
+- **`p128` at $9.49 a game** is the catalogue's weakest rung. **$17.99** brings
+  it to $9.00 — level with a full-price single's best pack alternative, which is
+  as good as a 2-pack gets.
+- Both also pick up the **.99 ending** the rest of the catalogue uses; $27.00
+  and $18.99 were the only round-ish outliers in the bundle range.
 
 ### How the banner actually appears
 

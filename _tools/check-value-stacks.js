@@ -56,7 +56,38 @@ if (!singleM) {
 const SINGLE = Number(singleM[1]);
 console.log(`single-game price (from ${ANCHOR}): ${money(SINGLE)}\n`);
 
+// The same failure mode, smaller: two 4-pack pages state what their components
+// cost bought separately, in prose, as a bare number. Nothing regenerated it,
+// so a single-game reprice left both understating their own pack's saving.
+// Not a club, so it gets its own tiny pass rather than being forced into the
+// CLUBS shape — but the same rule: derive it, never type it.
+const BUNDLE_PROSE = [
+  { pid: "p165", file: "store/p165/aroundtheworldpack.html", games: 4, words: "all four" },
+  { pid: "p166", file: "store/p166/partystarterpack.html",   games: 4, words: "all four" },
+];
+
 const problems = [];
+
+for (const b of BUNDLE_PROSE) {
+  const want = Number((b.games * SINGLE).toFixed(2));
+  const re = new RegExp(`(Buying ${b.words} separately costs )(\\$[0-9,]+\\.[0-9]{2})`);
+  let html = read(b.file);
+  let m = html.match(re);
+  if (!m) {
+    problems.push(`${b.pid}: no "Buying ${b.words} separately costs $X" sentence found`);
+    continue;
+  }
+  if (WRITE && num(m[2]) !== want) {
+    html = html.replace(re, (whole, lead) => lead + money(want));
+    fs.writeFileSync(path.join(REPO, b.file), html);
+    console.log(`  rewrote ${b.file}`);
+    m = html.match(re);
+  }
+  if (Math.abs(num(m[2]) - want) > 0.005)
+    problems.push(`${b.pid}: "bought separately" says ${m[2]}, ${b.games} × ${money(SINGLE)} is ${money(want)}`);
+  else
+    console.log(`${b.pid.padEnd(5)} ${b.games} games bought separately = ${money(want)}`);
+}
 
 for (const c of CLUBS) {
   const html = read(c.file);

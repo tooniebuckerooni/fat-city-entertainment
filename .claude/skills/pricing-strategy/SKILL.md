@@ -44,7 +44,13 @@ node _tools/set-usd-price.js pNN <regular> [<sale>]
 #    copy at <file>:<line>" — see category 3 under "Where prices live" below.
 #    Do this BEFORE step 3: those tools read the page you just edited.
 
-# 3. Re-bake every derived price, in this order
+# 3. If a SINGLE game's price changed, rebuild the three club value stacks.
+#    They are derived from it, and this replaces twelve hand edits.
+node _tools/check-value-stacks.js --write
+#    ...then run the set-usd-price.js commands it prints, to realign each
+#    club's struck-through compare-at with its new total.
+
+# 4. Re-bake every derived price, in this order
 node _tools/add-cross-sell.js --write
 node _tools/add-price-ladder.js --write
 node _tools/build-song-library.js --write
@@ -52,8 +58,9 @@ node _tools/add-jsonld.js --write      # after the library build, which strips f
 node _tools/bake-buy-links.js --write
 node _tools/build-campaign-pages.js --write
 
-# 4. Verify
+# 5. Verify
 node _tools/check-links.js             # 0 broken refs is the bar
+node _tools/check-value-stacks.js      # every stack adds up and matches its compare-at
 ```
 
 `set-usd-price.js` takes the **regular** price first and the optional **sale**
@@ -79,10 +86,11 @@ this within a week by dry-running each tool and opening a GitHub issue if any
 would write — but a week is a long time to quote a price the checkout won't take.
 
 **3. Hand-written prose. Nothing owns these. This is where the money is lost.**
-The three club pages carry a value stack — "*$10.99 a game individually —
-$109.90 for all 10 — plus a $6.99 Bingo Card Generator 2.0 Day Pass. That's
-$116.89 of value. In this pack, it's $79.00 — save $37.89*" — that no tool can
-regenerate, because it is an argument, not a field. A Bronze reprice from $89.00
+The three club pages carry a value stack — "*Ten games at $10.99 is $109.90. Add
+the $6.99 Day Pass and the $10.99 Handbook: $127.88 of value, yours for $79.00 —
+you keep $48.88*" — which for a long time no tool regenerated, because it is an
+argument rather than a field. (`check-value-stacks.js` owns it now; the rest of
+this section is why.) A Bronze reprice from $89.00
 to $79.00 once left "*it's $89.00 — save $27.89*" sitting in the copy. That is
 why `set-usd-price.js` now prints a line-numbered `WARN` when an old amount
 survives in the page. **Never dismiss that warning.**
@@ -107,28 +115,36 @@ independently:
 
 | tier | charged | compare-at | how the compare-at is built | per game |
 |---|---|---|---|---|
-| Bronze / Starter Pack (p131) | $79.00 | $116.89 | 10 × $10.99 + $6.99 BCG Day Pass | $7.90 |
-| Silver Club (p130) | $198.75 | $298.75 | 25 × $10.99 + $24 BCG Monthly | $7.95 |
-| Gold Club (p112) | $415.50 | $665.50 | 50 × $10.99 + $116 BCG Annual | n/a |
+| Bronze / Starter Pack (p131) | $79.00 | $127.88 | 10 × $10.99 + $6.99 Day Pass + $10.99 Handbook | $7.90 |
+| Silver Club (p130) | $193.75 | $309.74 | 25 × $10.99 + $24 Monthly + $10.99 Handbook | $7.75 |
+| Gold Club (p112) | $415.50 | $676.49 | 50 × $10.99 + $116 Annual + $10.99 Handbook | n/a |
 
 Change the single-game price and **all three "of value" totals and all three
 "save $X" figures become false at once**, along with the "$10.99 a game
-individually" clause in each. None of them will be updated by any tool.
+individually" clause in each.
 
-### Worked example: singles $10.99 → $11.99
+**These are no longer hand-edited.** `_tools/check-value-stacks.js` owns the
+three "Quick math" paragraphs: it reads the live single price off p103,
+recomputes every figure, and `--write` regenerates all three. It then prints the
+`set-usd-price.js` commands that realign each compare-at with its new total, and
+it runs in the weekly health check so a drifted stack is caught in a week rather
+than in a refund email. Run it after any single-game reprice instead of editing
+three paragraphs by hand — that hand-editing is what left Bronze advertising
+$89.00 for months after it dropped to $79.00.
+
+### Worked example: singles $10.99 → $11.99 (the fall 2026 plan)
 
 | tier | old stack | new stack | old save | new save |
 |---|---|---|---|---|
-| Bronze | 10 × 10.99 + 6.99 = **$116.89** | 10 × 11.99 + 6.99 = **$126.89** | $37.89 | **$47.89** |
-| Silver | 25 × 10.99 + 24 = **$298.75** | 25 × 11.99 + 24 = **$323.75** | $100.00 | **$125.00** |
-| Gold | 50 × 10.99 + 116 = **$665.50** | 50 × 11.99 + 116 = **$715.50** | $250.00 | **$300.00** |
+| Bronze | 10 × 10.99 + 6.99 + 10.99 = **$127.88** | 10 × 11.99 + 6.99 + 10.99 = **$137.88** | $48.88 | **$58.88** |
+| Silver | 25 × 10.99 + 24 + 10.99 = **$309.74** | 25 × 11.99 + 24 + 10.99 = **$334.74** | $115.99 | **$140.99** |
+| Gold | 50 × 10.99 + 116 + 10.99 = **$676.49** | 50 × 11.99 + 116 + 10.99 = **$726.49** | $260.99 | **$310.99** |
 
-That is four changed numbers per club page — the unit price, the line total,
-the value total and the saving — **twelve hand edits from one
-`set-usd-price.js p103 11.99`**, none of which any tool will make for you. Then
-grep the rest of the site for the old amount, because `$10.99` is quoted in
-plenty of other copy too. Budget for this, or the site advertises savings that
-don't add up.
+That is four changed numbers per club page — the unit price, the line total, the
+value total and the saving — **twelve edits from one `set-usd-price.js p103
+11.99`**. `check-value-stacks.js --write` makes all twelve. Then still grep the
+rest of the site for the old amount, because `$10.99` is quoted in plenty of
+copy that tool does not own.
 
 It cuts the other way too, and worse: **dropping the single price shrinks every
 bundle's headline saving** and compresses the whole ladder. At $8.99 singles,
@@ -193,16 +209,17 @@ prints a warning naming every one it finds. Current state, from
 ```
   The Holidays 6-pack                 $46.99                $7.83/game
   Starter Pack (Bronze)               $79.00 (sale)         $7.90/game
-  Silver Club                        $198.75 (sale)         $7.95/game
+  Silver Club                        $193.75 (sale)         $7.75/game
   Gold Club                          $415.50 (sale)                  —
 
-  LADDER INVERSION — 2 rung(s) cost more per game than the rung above:
+  LADDER INVERSION — 1 rung(s) cost more per game than the rung above:
     Starter Pack (Bronze) at $7.90/game
-    Silver Club at $7.95/game
 ```
 
-Two inversions are **known and deliberate** — closing them means roughly Bronze
-$77 and Silver $192, which is the owner's call, not an agent's. They are
+One inversion is **known and deliberate**: Bronze at $7.90/game sits above the
+Holidays 6-pack's $7.83. Closing it means roughly Bronze $77, which is the
+owner's call, not an agent's. (Silver's old $7.95 inversion is closed by the
+fall plan's cut to $193.75.) They are
 therefore *not* a failure in `site-health.yml`; firing weekly on a known issue
 trains everyone to ignore the check. What matters is that no **new** inversion
 appears. Compare the `--preview` output before and after your change.
@@ -228,6 +245,17 @@ per-game figure, because "everything we make" has no fixed count.
 | Effort | One LS edit **per product**, plus the tool run | One dashboard code + edit four constants in `promo-bar.js` |
 | Ending it | Manual — you must remember to run `set-usd-price.js pNN <regular>` | Self-expiring on the `END` date |
 | Scope | Exactly the products you touched | Whatever the code is scoped to in LS |
+
+**The on-page sale markup now actually works.** Until Sept 2026 it did not, in
+three separate ways: Weebly's `sale-active` class was applied at runtime by JS
+the static export dropped; 45 of 97 product pages had no sale markup at all, so
+a sale price was written into the HTML and then hidden by the stylesheet while
+the shopper read the regular price; and 39 of 149 listing tiles had no banner
+wrapper, 18 of them on `store/c11/musicdoboff/` where every music bingo single
+is listed. `add-sale-banner.js` backfilled all of it and `set-usd-price.js`
+inserts either piece when it meets a page or tile without it. The badge wording
+follows the **Rule of 100** — a percentage under $100, dollars over it — derived
+from the two prices, not passed in.
 
 **Use a real price change** for any permanent repricing, and for anything where
 the on-page badge has to be trustworthy — a seasonal pack you want visibly
