@@ -29,15 +29,57 @@ if (sale !== null && (isNaN(sale) || sale >= price)) {
   process.exit(1);
 }
 const fmt = (n) => `$${n.toFixed(2)} USD`;
+
+// What the "On Sale" flash actually says. The Rule of 100: below $100 a
+// percentage feels bigger than the dollars, above $100 the dollars feel bigger
+// than the percentage. $3.00 off a $11.99 game reads as nothing; 25% OFF reads
+// as a deal. $260.99 off the Gold Club reads as a lot; 39% does not.
+// Falls back to a plain "On Sale" when there is no sale.
+function saleFlash(regular, saleAmt) {
+  if (saleAmt === null) return "On Sale";
+  const off = regular - saleAmt;
+  if (off <= 0) return "On Sale";
+  return regular < 100
+    ? `${Math.round((off / regular) * 100)}% OFF`
+    : `$${off.toFixed(2)} OFF`;
+}
+const FLASH = saleFlash(price, sale);
 const display = sale !== null ? sale : price; // what the customer pays
 
 // ---------------------------------------------------------------- product page
 const pdir = path.join(REPO, "store", pid);
-const pfile = fs
+// A product directory can hold more than one .html: the real page plus a
+// legacy-slug redirect stub kept so an old URL still resolves. Taking the
+// first name alphabetically picked the STUB for p18, p28, p53, p97 and p110 —
+// a 16-line meta-refresh with no price markup in it — so the product page
+// half of the reprice silently did nothing while the listing tiles were
+// rewritten. That is the exact failure this whole tool exists to prevent: a
+// tile advertising $8.99 over a product page still charging $10.99.
+// Pick the page that actually carries a price, and never a redirect stub.
+const candidates = fs
   .readdirSync(pdir)
   .filter((f) => f.endsWith(".html"))
-  .map((f) => path.join(pdir, f))[0];
-let html = fs.readFileSync(pfile, "utf8");
+  .map((f) => path.join(pdir, f))
+  .map((f) => ({ f, src: fs.readFileSync(f, "utf8") }))
+  .filter((c) => !/http-equiv="refresh"/i.test(c.src));
+const priced = candidates.filter((c) => /itemprop="price"/.test(c.src));
+if (!priced.length) {
+  console.error(
+    `no product page with a price in store/${pid}/ ` +
+      `(${fs.readdirSync(pdir).filter((f) => f.endsWith(".html")).join(", ") || "no .html at all"})`
+  );
+  process.exit(1);
+}
+if (priced.length > 1) {
+  console.error(
+    `store/${pid}/ has ${priced.length} pages carrying a price: ` +
+      priced.map((c) => path.basename(c.f)).join(", ") +
+      " — refusing to guess which one sells."
+  );
+  process.exit(1);
+}
+const pfile = priced[0].f;
+let html = priced[0].src;
 
 // Snapshot what the page charged BEFORE anything is rewritten, so the stale-copy
 // check below has something to look for. Only amounts that are changing count:
@@ -57,10 +99,44 @@ html = html.replace(
 // onto the plain one: a range only makes sense for a product with variants at
 // different prices, and its CSS hides the sale container while striking through
 // the regular price, so leaving it in place displays the wrong number.
-html = html.replace(
-  /(<div id="wsite-com-product-price-area" class=")wsite-com-product-show-price(?:-range)?(?:-on-sale)?(")/,
-  `$1wsite-com-product-show-price${sale !== null ? "-on-sale" : ""}$2`
-);
+//
+// The class is REWRITTEN, not merely toggled. Weebly exported `class=""` on the
+// 45 products that happened not to be on sale the day the site was scraped, and
+// the stylesheet's last word on the matter is
+//   #wsite-com-product-price-sale { display:none }
+// so on those pages the sale price is written into the HTML and then hidden,
+// leaving the customer looking at the regular price. Writing $8.99 into a page
+// that shows $11.99 is the half-a-repricing this tool exists to prevent, just
+// pointing the other way — so give every page the class outright.
+{
+  const cls = `wsite-com-product-show-price${sale !== null ? "-on-sale" : ""}`;
+  const areaRe = /(<div id="wsite-com-product-price-area" class=")[^"]*(")/;
+  if (!areaRe.test(html)) {
+    console.error(`  #wsite-com-product-price-area not found in ${path.basename(pfile)}`);
+    process.exit(1);
+  }
+  html = html.replace(areaRe, (m, a, c) => a + cls + c);
+}
+
+// The red "On Sale" ribbon likewise only exists on pages Weebly exported mid-
+// sale. Where it is missing, add it — immediately after the sale-price
+// container, which is where Weebly put it — so the flash can be shown at all.
+if (!/id="wsite-com-product-on-sale"/.test(html)) {
+  const saleContainer =
+    /([ \t]*)<div id="wsite-com-product-price-sale" class="wsite-com-product-price-container">[\s\S]*?<\/div>\n/;
+  const m = html.match(saleContainer);
+  if (m) {
+    const pad = m[1];
+    html = html.replace(
+      saleContainer,
+      (whole, lead) =>
+        whole +
+        `${pad}\t<div id="wsite-com-product-on-sale">\n${pad}\t\tOn Sale\n${pad}\t</div>\n`
+    );
+  } else {
+    console.warn(`  warn: no sale-price container in ${path.basename(pfile)} — cannot add the On Sale ribbon`);
+  }
+}
 
 // the three price containers; itemprop="price" lives on whichever one is shown
 function setAmount(id, text, withItemprop) {
@@ -96,8 +172,13 @@ setAmount("wsite-com-product-price-sale", fmt(display), sale !== null);
 
 // "On Sale" ribbon on the product page
 html = html.replace(
-  /(<div id="wsite-com-product-on-sale")(?: class="wsite-com-product-on-sale-visible")?(>)/,
-  `$1${sale !== null ? ' class="wsite-com-product-on-sale-visible"' : ""}$2`
+  /(<div id="wsite-com-product-on-sale")(?: class="[^"]*")?(>)([\s\S]*?)(<\/div>)/,
+  (m, a, gt, inner, close) => {
+    const cls = sale !== null ? ' class="wsite-com-product-on-sale-visible"' : "";
+    // Keep the surrounding whitespace so the Weebly indentation survives.
+    const body = inner.replace(/(\s*)([^\s][\s\S]*?)(\s*)$/, (mm, lead, _txt, tail) => lead + FLASH + tail);
+    return `${a}${cls}${gt}${body}${close}`;
+  }
 );
 
 // hidden Weebly variation JSON (entity-encoded attribute)
@@ -188,8 +269,32 @@ for (const lf of listings) {
     // reversible and the whole thing stays re-runnable. (The previous version
     // tried to delete a `visible` banner, which never matched — 201 of the 292
     // tiles in the repo carry `placeholder`.)
+    // 39 of the 149 product tiles never had a wrapper in the export at all —
+    // 18 of them on store/c11/musicdoboff/, which is where every regular music
+    // bingo game is listed. Weebly only emitted the markup for products that
+    // were on sale the day the site was scraped, so without this a game can be
+    // discounted on its own page and show nothing on the listing a shopper
+    // browses first. Insert it where Weebly put it: a sibling of the image
+    // wrap, inside the position:relative image container.
     if (!/category__image-sale-banner-wrapper/.test(block)) {
-      console.warn(`  warn: ${path.relative(REPO, lf)} block for ${pid} has no sale-banner wrapper`);
+      const imgWrap =
+        /([ \t]*)<div class="wsite-com-category-(?:product|product-featured)-image-wrap [^"]*">[\s\S]*?\n\1<\/div>\n/;
+      const m = block.match(imgWrap);
+      if (m) {
+        block = block.replace(
+          imgWrap,
+          (whole, pad) =>
+            whole +
+            `${pad}<div class="category__image-sale-banner-wrapper">\n` +
+            `${pad}\t<p class="category__image-sale-banner placeholder">\n` +
+            `${pad}\t\tOn Sale\n${pad}\t</p>\n${pad}</div>\n`
+        );
+      } else {
+        console.warn(`  warn: ${path.relative(REPO, lf)} tile for ${pid} has no image wrap — cannot add a sale banner`);
+      }
+    }
+    if (!/category__image-sale-banner-wrapper/.test(block)) {
+      // still nothing to work with; the warning above already said so
     } else {
       block = block.replace(
         /(<div class="category__image-sale-banner-wrapper)(?:\s+sale-active)?(")/,
@@ -198,6 +303,12 @@ for (const lf of listings) {
       block = block.replace(
         /(<p class="category__image-sale-banner\s+)(?:visible|placeholder)(")/,
         (m, a, c) => a + (sale !== null ? "visible" : "placeholder") + c
+      );
+      // and what it says — same Rule of 100 as the product page ribbon
+      block = block.replace(
+        /(<p class="category__image-sale-banner[^"]*">)([\s\S]*?)(<\/p>)/,
+        (m, a, inner, c) =>
+          a + inner.replace(/(\s*)([^\s][\s\S]*?)(\s*)$/, (mm, lead, _t, tail) => lead + FLASH + tail) + c
       );
     }
 

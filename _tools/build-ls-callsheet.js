@@ -34,7 +34,7 @@ const copyBy = new Map(copy.map((c) => [c.pid, c]));
 // on the site has been repriced. Per the pricing-strategy skill, LemonSqueezy
 // changes first; the site follows only once that is done.
 const PROPOSED = {
-  __singles: "12.49",          // all 42 games currently at $10.99
+  __singles: "11.99",          // all 42 games currently at $10.99
   p127: "25.99",               // 3-pack rung — the cheapest 3-pack sets the rung
   p147: "41.99", p168: "41.99", p101: "41.99",   // the three 5-packs
   p155: "48.99",               // Holidays 6-pack
