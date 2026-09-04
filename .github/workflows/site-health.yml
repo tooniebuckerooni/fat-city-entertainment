@@ -86,19 +86,46 @@ jobs:
             DRIFT="$DRIFT"'|(ladder|sitemap block) (updated|added)'
             DRIFT="$DRIFT"'|\([1-9][0-9]* would change\)'
             DRIFT="$DRIFT"'|NO LIBRARY PAGE|PROBLEM:|MISSING page|no page found'
+            # add-sale-banner reports two counts on one line rather than a
+            # write count, because it backfills markup rather than content.
+            DRIFT="$DRIFT"'|[1-9][0-9]* (product page|tile)\(s\) would change'
             # NOT in the list: LADDER INVERSION. Two rungs are knowingly
             # inverted (HOLIDAY-PLAN.md), so it would fire every week and train
             # everyone to ignore this issue. It is printed in the report body
             # under "Price ladder" instead, where a CHANGE to it is visible.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
-                     bake-buy-links add-page-copy build-song-library build-campaign-pages; do
+                     bake-buy-links add-page-copy build-song-library build-campaign-pages \
+                     add-sale-banner; do
               OUT="$(node _tools/$t.js 2>&1)"
               if echo "$OUT" | grep -Eq "$DRIFT"; then
                 echo "DRIFTED: $t"
                 echo "$OUT" | head -6
                 echo "---"
                 FAIL=1
+              fi
+            done
+            echo '```'
+            echo
+
+            # These two exit non-zero on a real problem rather than reporting a
+            # write count, so they are checked by status rather than by matcher.
+            # check-value-stacks is the one that guards the club "Quick math"
+            # paragraphs — the hand-written prose that advertised $89.00 for
+            # months after Bronze dropped to $79.00, which is the exact failure
+            # this whole workflow exists to catch in a week instead of in a
+            # refund email.
+            echo "### Value stacks and trivia shows"
+            echo '```'
+            for t in check-value-stacks check-trivia-shows; do
+              OUT="$(node _tools/$t.js 2>&1)"
+              if [ $? -ne 0 ]; then
+                echo "FAILED: $t"
+                echo "$OUT" | tail -12
+                echo "---"
+                FAIL=1
+              else
+                echo "$t: OK"
               fi
             done
             echo '```'
