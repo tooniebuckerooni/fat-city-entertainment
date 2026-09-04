@@ -293,8 +293,32 @@ for (const spec of specs) {
     // until a real checkout link exists.
     const lsPath = path.join(REPO, "assets/js/ls-links.js");
     let ls = fs.readFileSync(lsPath, "utf8");
-    if (!new RegExp(`"${pid}":`).test(ls)) {
-      const line = `  "${pid}": "", // [ ] ${spec.name} — $${spec.price} USD — /store/${pid}/${spec.slug}.html`;
+    const comment = `// [ ] ${spec.name} — $${spec.price} USD — /store/${pid}/${spec.slug}.html`;
+    const existing = new RegExp(`^(\\s*"${pid}":\\s*)"([^"]*)"(,?\\s*)//.*$`, "m");
+    const m = ls.match(existing);
+    if (m) {
+      // The entry already exists. Refresh its comment from the spec — but ONLY
+      // while the href is still empty, i.e. the product has never been wired to
+      // a checkout and has therefore never sold at any price. A wired product's
+      // comment tracks what LemonSqueezy actually charges, and set-usd-price.js
+      // owns it; clobbering that from a spec would make it lie.
+      //
+      // Without this the entry was written once and never touched again, so a
+      // --force re-run regenerated the product page from the spec and left the
+      // comment frozen at the ORIGINAL price. That is how 17 comments sat at a
+      // superseded $12.49 after the catalogue settled on $11.99 and $8.99 — a
+      // stale checklist for the one step (the LemonSqueezy build) where being
+      // wrong means charging the wrong amount.
+      if (m[2] === "") {
+        const next = ls.replace(existing, () => `${m[1]}""${m[3]}${comment}`);
+        if (next !== ls) {
+          ls = next;
+          fs.writeFileSync(lsPath, ls);
+          console.log(`  ls-links: refreshed ${pid} comment -> $${spec.price} USD`);
+        }
+      }
+    } else {
+      const line = `  "${pid}": "", ${comment}`;
       // LS_LINKS closes with a bare "}" on its own line, not "};" — an earlier
       // version searched for "};" and silently dropped four products' entries
       // into LS_PRICES instead, so their buy buttons kept the template's link

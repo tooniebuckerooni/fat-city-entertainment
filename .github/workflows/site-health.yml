@@ -115,9 +115,9 @@ jobs:
             # months after Bronze dropped to $79.00, which is the exact failure
             # this whole workflow exists to catch in a week instead of in a
             # refund email.
-            echo "### Value stacks and trivia shows"
+            echo "### Value stacks, trivia shows, LemonSqueezy checklist"
             echo '```'
-            for t in check-value-stacks check-trivia-shows; do
+            for t in check-value-stacks check-trivia-shows check-ls-links; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

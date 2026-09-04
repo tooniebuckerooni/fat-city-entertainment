@@ -44,7 +44,7 @@ window.LS_LINKS = {
   "p100": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/ce1e537e-d804-4132-bf7f-a2bd76751f4b", // [x] Countries - 250 Music Bingo Cards — $10.99 USD — /store/p100/Countries.html
   "p101": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/72357641-1bff-4494-9b1e-7000cd1ad6e9", // [x] 'The Year Was...' Music Bingo 5-Pack — $39.99 USD — /store/p101/theyearwas4pack.html
   "p102": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7db5c34d-c10e-4265-82de-4c97f89ccfc3", // [x] TV Shows 1 - 250 Music Bingo Cards — $10.99 USD — /store/p102/tvshows.html
-  "p103": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/2d99e2d4-8845-4b54-834f-5f0a4a7026f1", // [x] Christmas Party - 250 Music Bingo Cards — $12.49 USD — /store/p103/christmasparty.html
+  "p103": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/2d99e2d4-8845-4b54-834f-5f0a4a7026f1", // [x] Christmas Party - 250 Music Bingo Cards — $10.99 USD — /store/p103/christmasparty.html
   "p106": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/770a5a32-9909-4de9-ab5a-83a4404d54fe", // [x] Movie Soundtracks 1 - 250 Music Bingo Cards — $10.99 USD — /store/p106/moviesoundtracks.html
   "p108": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/333e40b4-b1fd-4b91-a81e-ade465b3a601", // [x] 'Entertainers' Music Bingo 3-Pack — $27.00 USD — /store/p108/entertainerspack.html
   "p109": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/6a13d7d1-647f-40cb-9107-a70c47f52f3b", // [x] Body Parts - 250 Music Bingo Cards — $10.99 USD — /store/p109/bodyparts.html
@@ -93,26 +93,26 @@ window.LS_LINKS = {
   "p165": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/bfb2d0c4-1778-42e5-ba18-a0f62f8eccb8", // [x] Around The World... And Beyond! - Music Bingo 4-Pack — $32.49 USD — /store/p165/aroundtheworldpack.html
   "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html
   "p167": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e9d05bc0-7848-4fc5-8749-642e543970ff", // [x] Punk Rock - 250 Music Bingo Cards — $10.99 USD — /store/p167/punkrock.html
-  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [x] "Things In Songs" Music Bingo 5-Pack — $39.99 USD — /store/p168/thingsinsongs.html
-  "p169": "", // [ ] General Knowledge Night One — Print and Play Trivia Show — $12.49 USD — /store/p169/triviashowgkone.html
-  "p170": "", // [ ] General Knowledge Night Two — Print and Play Trivia Show — $12.49 USD — /store/p170/triviashowgktwo.html
-  "p171": "", // [ ] General Knowledge Night Three — Print and Play Trivia Show — $12.49 USD — /store/p171/triviashowgkthree.html
-  "p172": "", // [ ] General Knowledge Night Four — Print and Play Trivia Show — $12.49 USD — /store/p172/triviashowgkfour.html
-  "p173": "", // [ ] General Knowledge Night Five — Print and Play Trivia Show — $12.49 USD — /store/p173/triviashowgkfive.html
-  "p174": "", // [ ] Halloween Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p174/triviashowhalloween.html
-  "p175": "", // [ ] Christmas Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p175/triviashowchristmas.html
+  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [!] "Things In Songs" Music Bingo 5-Pack — $39.99 USD per this comment, but the page charges $43.00 — VERIFY IN LEMONSQUEEZY BEFORE REPRICING — /store/p168/thingsinsongs.html
+  "p169": "", // [ ] General Knowledge Night One — Print and Play Trivia Show — $11.99 USD — /store/p169/triviashowgkone.html
+  "p170": "", // [ ] General Knowledge Night Two — Print and Play Trivia Show — $11.99 USD — /store/p170/triviashowgktwo.html
+  "p171": "", // [ ] General Knowledge Night Three — Print and Play Trivia Show — $11.99 USD — /store/p171/triviashowgkthree.html
+  "p172": "", // [ ] General Knowledge Night Four — Print and Play Trivia Show — $11.99 USD — /store/p172/triviashowgkfour.html
+  "p173": "", // [ ] General Knowledge Night Five — Print and Play Trivia Show — $11.99 USD — /store/p173/triviashowgkfive.html
+  "p174": "", // [ ] Halloween Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p174/triviashowhalloween.html
+  "p175": "", // [ ] Christmas Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p175/triviashowchristmas.html
   "p176": "", // [ ] General Knowledge Trivia Shows — 5-Pack — $44.99 USD — /store/p176/triviashowgk5pack.html
-  "p177": "", // [ ] Classroom Trivia: Math — Print and Play, Grades 5–8 — $12.49 USD — /store/p177/triviashowclassroommath.html
-  "p178": "", // [ ] Classroom Trivia: Science — Print and Play, Grades 5–8 — $12.49 USD — /store/p178/triviashowclassroomscience.html
-  "p179": "", // [ ] Classroom Trivia: English &amp; Language Arts — Print and Play, Grades 5–8 — $12.49 USD — /store/p179/triviashowclassroomenglish.html
-  "p180": "", // [ ] Classroom Trivia: History &amp; Social Studies — Print and Play, Grades 5–8 — $12.49 USD — /store/p180/triviashowclassroomhistory.html
-  "p181": "", // [ ] Classroom Trivia: Geography — Print and Play, Grades 5–8 — $12.49 USD — /store/p181/triviashowclassroomgeography.html
-  "p182": "", // [ ] Classroom Trivia 5-Pack — Every Subject, Grades 5–8 — $44.99 USD — /store/p182/triviashowclassroom5pack.html
-  "p183": "", // [ ] Music Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p183/triviashowmusic.html
-  "p184": "", // [ ] Television Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p184/triviashowtv.html
-  "p185": "", // [ ] Movies Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p185/triviashowmovies.html
-  "p186": "", // [ ] Sports Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p186/triviashowsports.html
-  "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $12.49 USD — /store/p187/triviashowrewind.html
+  "p177": "", // [ ] Classroom Trivia: Math — Print and Play, Grades 5–8 — $8.99 USD — /store/p177/triviashowclassroommath.html
+  "p178": "", // [ ] Classroom Trivia: Science — Print and Play, Grades 5–8 — $8.99 USD — /store/p178/triviashowclassroomscience.html
+  "p179": "", // [ ] Classroom Trivia: English and Language Arts — Print and Play, Grades 5–8 — $8.99 USD — /store/p179/triviashowclassroomenglish.html
+  "p180": "", // [ ] Classroom Trivia: History and Social Studies — Print and Play, Grades 5–8 — $8.99 USD — /store/p180/triviashowclassroomhistory.html
+  "p181": "", // [ ] Classroom Trivia: Geography — Print and Play, Grades 5–8 — $8.99 USD — /store/p181/triviashowclassroomgeography.html
+  "p182": "", // [ ] Classroom Trivia 5-Pack — Every Subject, Grades 5–8 — $34.99 USD — /store/p182/triviashowclassroom5pack.html
+  "p183": "", // [ ] Music Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p183/triviashowmusic.html
+  "p184": "", // [ ] Television Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p184/triviashowtv.html
+  "p185": "", // [ ] Movies Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p185/triviashowmovies.html
+  "p186": "", // [ ] Sports Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p186/triviashowsports.html
+  "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p187/triviashowrewind.html
   "p188": "", // [ ] Pop Culture Trivia Shows — 5-Pack — $44.99 USD — /store/p188/triviashowpopculture5pack.html
 }
 

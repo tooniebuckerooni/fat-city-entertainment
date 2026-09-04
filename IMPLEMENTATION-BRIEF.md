@@ -73,12 +73,20 @@ buying whichever licence someone picks.
 |---|---|---|---|
 | 42 music bingo singles | $10.99 | **$11.99** | — |
 | 3-pack (p127) | $23.99 | **$25.99** | $8.66 |
-| 5-packs (p147, p168, p101) | $39.99 | **$41.99** | $8.40 |
+| 5-packs (p147, p101) | $39.99 | **$41.99** | $8.40 |
+| Things In Songs 5-pack (p168) | **see below** | **$41.99** | $8.40 |
 | Holidays 6-pack (p155) | $46.99 | **$48.99** | $8.17 |
 | Silver Club (p130) | $198.75 | **$193.75** | $7.75 |
 | Entertainer's (p108), Word Games (p162) | $27.00 | **$25.99** | $8.66 |
 | One Hit Wonders 2-Pack (p128) | $18.99 | **$17.99** | $9.00 |
 | Bronze (p131), Gold (p112) | — | **hold** | $7.90 / n/a |
+
+**`p168` needs checking in the dashboard before you touch it.** Its
+`ls-links.js` comment says $39.99 and its product page charges **$43.00**, and
+the repo cannot tell you which one LemonSqueezy actually bills — the two have
+disagreed since long before this branch. Look it up first: if LS says $43.00 the
+move to $41.99 is a small **cut**, not the raise this table implies. Its entry
+is marked `[!]` in `ls-links.js` so it cannot be worked past without noticing.
 
 That descends properly for the first time — 8.66 → 8.40 → 8.17 → 7.90 → 7.75.
 Revenue per order goes **up** on four of five rungs; Silver is the only cut,
