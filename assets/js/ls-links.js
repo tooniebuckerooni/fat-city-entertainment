@@ -93,7 +93,7 @@ window.LS_LINKS = {
   "p165": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/bfb2d0c4-1778-42e5-ba18-a0f62f8eccb8", // [x] Around The World... And Beyond! - Music Bingo 4-Pack — $32.49 USD — /store/p165/aroundtheworldpack.html
   "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html
   "p167": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e9d05bc0-7848-4fc5-8749-642e543970ff", // [x] Punk Rock - 250 Music Bingo Cards — $10.99 USD — /store/p167/punkrock.html
-  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [!] "Things In Songs" Music Bingo 5-Pack — $39.99 USD per this comment, but the page charges $43.00 — VERIFY IN LEMONSQUEEZY BEFORE REPRICING — /store/p168/thingsinsongs.html
+  "p168": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a5ab2036-1f6a-4269-a69e-6d6e38eaeb52", // [x] "Things In Songs" Music Bingo 5-Pack — $39.99 USD — /store/p168/thingsinsongs.html
   "p169": "", // [ ] General Knowledge Night One — Print and Play Trivia Show — $11.99 USD — /store/p169/triviashowgkone.html
   "p170": "", // [ ] General Knowledge Night Two — Print and Play Trivia Show — $11.99 USD — /store/p170/triviashowgktwo.html
   "p171": "", // [ ] General Knowledge Night Three — Print and Play Trivia Show — $11.99 USD — /store/p171/triviashowgkthree.html

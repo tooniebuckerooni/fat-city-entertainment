@@ -73,20 +73,18 @@ buying whichever licence someone picks.
 |---|---|---|---|
 | 42 music bingo singles | $10.99 | **$11.99** | — |
 | 3-pack (p127) | $23.99 | **$25.99** | $8.66 |
-| 5-packs (p147, p101) | $39.99 | **$41.99** | $8.40 |
-| Things In Songs 5-pack (p168) | **see below** | **$41.99** | $8.40 |
+| 5-packs (p147, p168, p101) | $39.99 | **$41.99** | $8.40 |
 | Holidays 6-pack (p155) | $46.99 | **$48.99** | $8.17 |
 | Silver Club (p130) | $198.75 | **$193.75** | $7.75 |
 | Entertainer's (p108), Word Games (p162) | $27.00 | **$25.99** | $8.66 |
 | One Hit Wonders 2-Pack (p128) | $18.99 | **$17.99** | $9.00 |
 | Bronze (p131), Gold (p112) | — | **hold** | $7.90 / n/a |
 
-**`p168` needs checking in the dashboard before you touch it.** Its
-`ls-links.js` comment says $39.99 and its product page charges **$43.00**, and
-the repo cannot tell you which one LemonSqueezy actually bills — the two have
-disagreed since long before this branch. Look it up first: if LS says $43.00 the
-move to $41.99 is a small **cut**, not the raise this table implies. Its entry
-is marked `[!]` in `ls-links.js` so it cannot be worked past without noticing.
+**`p168` is resolved.** Its product page had drifted to $43.00 while
+LemonSqueezy, the `ls-links.js` comment and all four of its listing tiles said
+$39.99 — the page alone was wrong, and it was overstating, so the site quoted
+$3.01 more than the checkout would take. Corrected to $39.99 on 4 Sep, and it
+reprices to $41.99 with the other two 5-packs like any normal rung.
 
 That descends properly for the first time — 8.66 → 8.40 → 8.17 → 7.90 → 7.75.
 Revenue per order goes **up** on four of five rungs; Silver is the only cut,
@@ -147,8 +145,10 @@ room in it to the last round.
 
 ```
 1.  LemonSqueezy: create the 20 new products, upload PDFs + images
-2.  LemonSqueezy: reprice the 48 existing products
-3.  Paste each new checkout URL into assets/js/ls-links.js
+2.  LemonSqueezy: reprice the 51 existing products
+3.  Fill NEW_CHECKOUT_URL in _export/lemonsqueezy/checkout-links.csv and
+    send it back, OR paste each URL into assets/js/ls-links.js by hand.
+    Importing the sheet:  node _tools/ls-link-sheet.js --import <csv> --write
 4.  node _tools/set-usd-price.js pNN <price>        # once per repriced product
 5.  STOP — fix every "WARN: $X still in the copy" it prints, by hand
 6.  node _tools/check-value-stacks.js --write    # rebuilds the three
@@ -170,6 +170,32 @@ room in it to the last round.
 ```
 
 Steps 4–6 are where money goes wrong. Do not skip step 5.
+
+### The checkout-link round trip (step 3)
+
+Rebuilding every product means all 94 checkout URLs change, and they all have to
+come back into `ls-links.js`. Pasting them one at a time is precisely the job
+where one line lands in the wrong row and a buy button quietly charges for a
+different product.
+
+```bash
+node _tools/ls-link-sheet.js                        # writes the blank sheet
+node _tools/ls-link-sheet.js --import <csv>         # dry run — shows what changes
+node _tools/ls-link-sheet.js --import <csv> --write
+node _tools/bake-buy-links.js --write               # into every buy button
+```
+
+`_export/lemonsqueezy/checkout-links.csv` has one row per product, keyed by id,
+with its name, current price, page and existing URL as context, and one empty
+**NEW_CHECKOUT_URL** column to fill. Fill only the rows you rebuild; leave the
+rest blank and they are untouched.
+
+The import refuses the whole file rather than writing a bad row. It rejects
+anything that is not a LemonSqueezy checkout URL (pasting the dashboard's
+product page instead of the Share link is the easy mistake), and it rejects the
+same URL appearing on two products — whether twice in your sheet or against a
+product already wired to it. That is the mis-paste that charges for the wrong
+thing, and it is caught before anything is written, never in a receipt.
 
 ---
 
