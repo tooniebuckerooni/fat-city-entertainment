@@ -213,8 +213,15 @@ function product(html, url) {
 
   const price = attr(html, /itemprop="price"[^>]*content="([^"]*)"/i);
   const currency = attr(html, /itemprop="priceCurrency"[^>]*content="([^"]*)"/i) || "USD";
-  // Weebly marks an unavailable product by dropping the show-price class.
-  const inStock = /id="wsite-com-product-price-area"[^>]*class="[^"]*wsite-com-product-show-price/i.test(html);
+  // Weebly marks an unavailable product with `wsite-com-product-show-price-
+  // unavailable` on the price area. This used to test for the show-price class
+  // being PRESENT instead, which is not the same thing: the export left
+  // `class=""` on the 45 products that simply were not on sale the day the site
+  // was scraped, so every one of them emitted OutOfStock in its structured data
+  // while selling perfectly well. Test for the unavailable marker itself, and
+  // treat anything else as available — `buyable` below is the real gate.
+  const inStock =
+    !/id="wsite-com-product-price-area"[^>]*class="[^"]*wsite-com-product-show-price-unavailable/i.test(html);
   // A baked-in Lemon Squeezy href means it can actually be bought right now.
   const buyable = /class="[^"]*\bls-buy\b[^"]*"[^>]*href="https:\/\/[^"]*lemonsqueezy/i.test(html);
 

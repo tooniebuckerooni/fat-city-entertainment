@@ -475,7 +475,7 @@
     "imageOnDisk": true,
     "currency": "USD",
     "price": "415.50",
-    "regular": "$665.50 USD",
+    "regular": "$676.49 USD",
     "onSale": true,
     "wired": true
   },
@@ -684,8 +684,8 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/music-bingo-silver-club-promo.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "198.75",
-    "regular": "$298.75 USD",
+    "price": "193.75",
+    "regular": "$309.74 USD",
     "onSale": true,
     "wired": true
   },
@@ -700,7 +700,7 @@
     "imageOnDisk": true,
     "currency": "USD",
     "price": "79.00",
-    "regular": "$116.89 USD",
+    "regular": "$127.88 USD",
     "onSale": true,
     "wired": true
   },
@@ -1119,7 +1119,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-gk-night-one.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1134,7 +1134,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-gk-night-two.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1149,7 +1149,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-gk-night-three.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1164,7 +1164,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-gk-night-four.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1179,7 +1179,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-gk-night-five.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1194,7 +1194,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-halloween.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1209,7 +1209,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-christmas.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1329,7 +1329,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-music.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1344,7 +1344,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-tv.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1359,7 +1359,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-movies.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1374,7 +1374,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-sports.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
@@ -1389,7 +1389,7 @@
     "imageUrl": "https://www.fatcityentertainment.com/uploads/4/3/3/6/43362499/trivia-show-rewind.png",
     "imageOnDisk": true,
     "currency": "USD",
-    "price": "12.49",
+    "price": "11.99",
     "regular": null,
     "onSale": false,
     "wired": false
