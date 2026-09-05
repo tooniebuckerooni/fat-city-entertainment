@@ -88,7 +88,15 @@ const slug = (s) => s.toLowerCase()
   .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 60);
 
 fs.mkdirSync(OUT, { recursive: true });
-for (const f of fs.readdirSync(OUT)) fs.unlinkSync(path.join(OUT, f));
+// Clear only what this tool produces. It used to delete everything in the
+// directory, which silently destroyed checkout-links.csv — the sheet the owner
+// fills in with new checkout URLs — whenever the images happened to be
+// regenerated afterwards. Losing a half-filled sheet to an unrelated tool run
+// is not a trade worth making for a tidy directory.
+const MINE = /\.(jpg|jpeg|png|webp)$|^MANIFEST\.(md|csv)$/i;
+for (const f of fs.readdirSync(OUT)) {
+  if (MINE.test(f)) fs.unlinkSync(path.join(OUT, f));
+}
 
 (async () => {
   const rows = [];
