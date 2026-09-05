@@ -12,6 +12,17 @@
 // they look intentional next to photographic tiles rather than unfinished.
 // Replacing any of them is a drop-in — same filename, same directory.
 //
+// 1200x800 (3:2), which is what the listing grid's image container actually is
+// — measured at 210x139, ratio 1.52, on all four grids. A square source is not
+// wrong on a product page but loses its bottom third in a tile, which on a
+// typographic cover is the half that carries the detail line and the wordmark.
+//
+// The ghosted word IS the thing that was clipping, and it was clipping in the
+// source, not the crop: at a fixed font-size 300 the word forms ("THREE",
+// "FOUR", "FIVE") are far wider than the single digits they share the design
+// with and ran off the left edge, so THREE read as "REE" and FIVE as "VE".
+// The size is derived from the string length now.
+//
 // Output goes to uploads/4/3/3/6/43362499/ alongside the rest of the artwork,
 // as both .png (what product pages link) and .webp (the <picture> source).
 const fs = require("fs");
@@ -85,9 +96,12 @@ function svg(s) {
   <!-- a brass rule top and bottom, so the tile reads as a set member -->
   <rect x="0" y="0" width="${W}" height="10" fill="${A}"/>
   <rect x="0" y="${H - 10}" width="${W}" height="10" fill="${A}"/>
-  <!-- oversized round numeral, ghosted, as the one graphic element -->
+  <!-- Oversized ghosted numeral, the one graphic element. Its size comes from
+       the string length: a fixed 300 fits "5" and "31" but runs a five-letter
+       word off the left edge. -->
   <text x="${W - 60}" y="${H - 96}" text-anchor="end"
-        font-family="${FACE}" font-weight="bold" font-size="300"
+        font-family="${FACE}" font-weight="bold"
+        font-size="${Math.min(300, Math.round(900 / (0.74 * String(s.n).length)))}"
         fill="${A}" fill-opacity="0.13">${esc(s.n)}</text>
   <text x="72" y="188" font-family="${FACE}" font-weight="bold" font-size="30"
         fill="${A}" letter-spacing="7">${esc(EY)}</text>

@@ -39,11 +39,20 @@ Do this on the 9th so the 10th is only execution.
    Wonders 2-Pack works out to **$9.00 a game** — so while that sale runs the
    pack has no per-game argument. Either drop `p81` from the roster, or accept
    the pack goes quiet for those weeks. No wrong answer; it just needs choosing.
-4. **Decide `p165`.** Around The World 4-Pack is $32.49 = **$8.12/game**, which
-   undercuts every 5-pack ($8.40) and the 6-pack ($8.17). It is the only reason
-   store copy still cannot claim "buy more, pay less per game". **$33.99**
-   ($8.50/game) makes the catalogue monotonic end to end and matches the Party
-   Starter 4-Pack. If you want it, change it in LemonSqueezy during Phase 2.
+4. **Decide the two 4-packs.** They currently disagree about what a 4-pack
+   costs, and one of them is the last thing blocking a "buy more, pay less per
+   game" claim.
+
+   | | now | per game | |
+   |---|---|---|---|
+   | `p165` Around The World | $32.49 | **$8.12** | undercuts every 5-pack ($8.40) and the 6-pack ($8.17) |
+   | `p166` Party Starter | $34.00 | $8.50 | correct position, but the only round number in the bundle range |
+
+   **Both to $33.99** is the recommendation: $8.50 a game, which sits properly
+   between the 3-pack's $8.66 and the 5-packs' $8.40, makes the catalogue
+   monotonic end to end, and puts both on the `.99` ending that 78 of the 94
+   products already use. Changing them in LemonSqueezy takes a minute; the site
+   follows with `set-usd-price.js`.
 
 ---
 

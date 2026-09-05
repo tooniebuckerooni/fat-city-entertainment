@@ -255,6 +255,26 @@ for (const spec of specs) {
   html = html.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
 
   // --- staged unless published -------------------------------------------
+  // A cloned template brings its own THUMBNAIL GALLERY with it, and a new
+  // product has no gallery of its own — so p176, p182 and p188 all shipped
+  // showing four screenshots of the Game Show Trivia 5-Pack's board, a
+  // different product in a different format. Strip the secondary images and
+  // the extra og:image tags that go with them; if this product ever gets real
+  // gallery shots they can be added deliberately.
+  html = html.replace(
+    /\n?\t*<a id="wsite-com-product-images-secondary-\d+"[\s\S]*?<\/a>(?=\s*(?:<a id="wsite-com-product-images-secondary-|<\/div>))/g,
+    ""
+  );
+  {
+    // Keep the first og:image (the product's own); drop the rest, which are the
+    // template's gallery restated for social.
+    let seen = false;
+    html = html.replace(/\n?<meta property="og:image" content="[^"]*">/g, (m) => {
+      if (!seen) { seen = true; return m; }
+      return "";
+    });
+  }
+
   const isPublished = PUBLISH && (spec.publish === true);
   if (isPublished) {
     // Publishing regenerates the page from a template that is itself a live,
