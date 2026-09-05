@@ -77,6 +77,11 @@ The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
 > their pack (`p183`–`p188`). Owner is taking these closer to the Christmas
 > launch.
 
+> **For the 10 Sept session, work from `SEPT-10-PLAN.md`** — the sale handover,
+> the eight singles to $8.99, the bundle compare-ats, the artwork queue and the
+> copy/CTA pass, in order, with the LemonSqueezy steps separated from the repo
+> steps. This brief stays the record of how the fall pricing was decided.
+
 Start with the **Catalogue Callsheet** (sent separately, or regenerate with
 `node _tools/build-ls-callsheet.js --write`). It has all 94 products with
 copy buttons for name, summary, description and image URL, plus ticks that
