@@ -256,6 +256,28 @@ for (const spec of specs) {
 
   // --- staged unless published -------------------------------------------
   const isPublished = PUBLISH && (spec.publish === true);
+  if (isPublished) {
+    // Publishing regenerates the page from a template that is itself a live,
+    // wired product — so without this the new page ships with the TEMPLATE's
+    // checkout href. p166 Party Starter was published carrying p147 Decades'
+    // live link; bake-buy-links.js corrected it moments later, but a publish
+    // that skipped that step would have sold Decades from the Party Starter
+    // page. Write this product's own link here so the window never opens.
+    const lsSrc = fs.readFileSync(path.join(REPO, "assets/js/ls-links.js"), "utf8");
+    const own = (lsSrc.match(new RegExp(`"${pid}":\\s*"([^"]*)"`)) || [])[1] || "";
+    html = html.replace(
+      /(<a\b[^>]*\bclass="[^"]*\bls-buy\b[^"]*")([^>]*)>/i,
+      (m, head, rest) => {
+        if (own) return `${head}${rest.replace(/\s+href="[^"]*"/i, ` href="${own}"`)}>`;
+        // No link yet: the safe hidden/"contact us" state, same as staging.
+        rest = rest.replace(/\s+target="_blank"/i, "")
+                   .replace(/\s+rel="noopener"/i, "")
+                   .replace(/\s+href="[^"]*"/i, ' href="/contact.html"');
+        if (!/style="display:none"/i.test(rest)) rest += ' style="display:none"';
+        return `${head.replace(/\s+lemonsqueezy-button\b/, "")}${rest}>`;
+      }
+    );
+  }
   if (!isPublished) {
     if (!/name="robots"/i.test(html)) {
       html = html.replace(/(<\/title>)/i, `$1\n<meta name="robots" content="noindex">`);

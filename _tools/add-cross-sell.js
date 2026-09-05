@@ -35,7 +35,9 @@
 // prose. p108 ("Entertainers" 3-Pack) is deliberately absent: it names "Video
 // Games, Tv Shows, & Movie Soundtracks" and there are two TV Shows games and
 // three Movie Soundtracks games, so which ones is a guess. p166 (Party Starter)
-// is still staged/noindex — add it when it publishes.
+// was held out while it was staged and joined on 5 Sept 2026 when it launched:
+// its spec and its cover art name the same four games, so membership is no
+// longer a guess.
 //
 //   node _tools/add-cross-sell.js            # dry run
 //   node _tools/add-cross-sell.js --write
@@ -50,6 +52,7 @@ const PREVIEW = process.argv.includes("--preview");
 const PRODUCTS = {
   p112: { path: "/store/p112/GoldClub.html", name: "Music Bingo Gold Club" },
   p165: { path: "/store/p165/aroundtheworldpack.html", name: "Around The World... And Beyond! 4-Pack" },
+  p166: { path: "/store/p166/partystarterpack.html", name: "Party Starter 4-Pack" },
   p168: { path: "/store/p168/thingsinsongs.html", name: "“Things In Songs” 5-Pack" },
   p147: { path: "/store/p147/decades.html", name: "“Decades” 5-Pack" },
   p128: { path: "/store/p128/onehitwonders2pack.html", name: "One Hit Wonders 2-Pack" },
@@ -60,6 +63,9 @@ const PRODUCTS = {
   p145: { path: "/store/p145/colors.html", name: "Colors" },
   p109: { path: "/store/p109/bodyparts.html", name: "Body Parts" },
   p92: { path: "/store/p92/foodfight.html", name: "Food Fight" },
+  p121: { path: "/store/p121/lifesabeach.html", name: "Life\u2019s A Beach" },
+  p124: { path: "/store/p124/stadiumsongs.html", name: "Stadium Songs" },
+  p159: { path: "/store/p159/Disco.html", name: "Disco" },
   p71: { path: "/store/p71/zoorock.html", name: "Zoo Rock" },
   p156: { path: "/store/p156/numbers.html", name: "Numbers" },
   p153: { path: "/store/p153/the60s.html", name: "The 60s" },
@@ -91,6 +97,10 @@ const PRODUCTS = {
 // listing four of them would misdescribe what's in the box.
 const BUNDLES = {
   p165: ["p132", "p122", "p100", "p110"],
+  // Launched 5 Sept 2026. Membership was "ambiguous" while it was staged, which
+  // is why it sat out of this map; the spec and the cover art now agree on the
+  // same four, so its components can point at it like every other bundle's.
+  p166: ["p121", "p124", "p159", "p92"],
   p168: ["p145", "p109", "p92", "p71", "p156"],
   p147: ["p153", "p115", "p144", "p113", "p146"],
   // p125 ("One Hit Wonders 2") is NOT a component here: that page is a redirect
@@ -110,8 +120,8 @@ const BUNDLES = {
 // at Halloween in October.
 const GOLD_SINGLES = [
   "p62", "p63", "p95", "p97", "p102", "p103", "p106", "p111", "p114", "p116",
-  "p117", "p121", "p124", "p129", "p133", "p136", "p138", "p141", "p143",
-  "p148", "p149", "p158", "p159", "p160", "p163",
+  "p117", "p129", "p133", "p136", "p138", "p141", "p143",
+  "p148", "p149", "p158", "p160", "p163",
 ];
 
 const link = (pid) => `<a href="${PRODUCTS[pid].path}">${PRODUCTS[pid].name}</a>`;

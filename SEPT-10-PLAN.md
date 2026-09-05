@@ -119,7 +119,7 @@ page simply does not show.
 | `p108` Entertainer's 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p162` Word Games 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p165` Around The World 4-Pack | $32.49 | ~~$47.96~~ $32.49 | 32% |
-| `p166` Party Starter 4-Pack | $34.00 | ~~$47.96~~ $34.00 | 29% |
+| `p166` Party Starter 4-Pack | $34.00 | ~~$47.96~~ $34.00 | 29% | ← launched 5 Sept, sentence already on the page |
 | `p147` Decades 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p168` Things In Songs 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p101` The Year Was 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
@@ -139,8 +139,8 @@ FTC territory in the US, Competition Act in Canada.
 ### Steps
 
 1. **`p165` and `p166` can go immediately** — the arithmetic is already on the
-   page. No LemonSqueezy change needed: the compare-at is a display price, not a
-   charge.
+   page (`p166` launched 5 Sept with it). No LemonSqueezy change needed: the
+   compare-at is a display price, not a charge.
    ```bash
    node _tools/set-usd-price.js p165 47.96 32.49
    node _tools/set-usd-price.js p166 47.96 34.00
@@ -338,3 +338,6 @@ a struck-through number with no explanation is the one state to avoid.
   emphasis in brass, and the image banner is legible over any artwork.
 - `goldclubplaylists.html` is derived rather than hand-written.
 - Four products had another product's cover; all corrected.
+- **`p166` Party Starter 4-Pack launched 5 Sept** — wired, new artwork, on four
+  listing pages and in the sitemap, and its four component games now cross-sell
+  to it. It is still showing a flat $34.00; the compare-at above is one command.
