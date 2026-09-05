@@ -9,7 +9,12 @@
 // aspect-ratio crop all match whatever that page already uses — and swaps in the
 // new product's id, name, price, image and link.
 //
-//   node _tools/add-store-tile.js <pNN> [--after pNN] [--write]
+//   node _tools/add-store-tile.js <pNN> [--after pNN] [--pages a,b] [--remove] [--write]
+//
+// --pages  comma-separated listing pages, overriding the default set. Use the
+//          short names below (storefront, store-root, music-bingo, trivia-shows)
+//          or a repo-relative path.
+// --remove take the product OFF the named pages instead of adding it.
 //
 // Reads the product's own page for its name, price and image, so the tile can't
 // disagree with the product. Re-running replaces an existing tile rather than
@@ -45,7 +50,31 @@ const href = `/store/${PID}/${pageFile}`;
 if (!name || !price) { console.error(`could not read name/price from ${href}`); process.exit(1); }
 console.log(`${PID}  ${name}\n      $${price}${onSale && salePrice ? ` (sale $${salePrice})` : ""}\n      ${img || "NO IMAGE"}`);
 
-const PAGES = ["trivia-store.html", "store/c1/triviastore/index.html", "store/c11/musicdoboff/index.html"];
+// Where tiles can go. The default was a hardcoded three-page list dating from
+// when everything in the store was music bingo — so every product, whatever it
+// was, got a tile in the Music Bingo Card Downloads category. The seven
+// print-and-play trivia shows launched on 5 Sept went in there and NOT into
+// Pre-made Trivia Shows, which is the category a buyer would look in.
+// A product's categories are a merchandising decision, so they are an argument
+// now, not a constant.
+const KNOWN = {
+  storefront: "trivia-store.html",
+  "store-root": "store/c1/triviastore/index.html",
+  "music-bingo": "store/c11/musicdoboff/index.html",
+  "trivia-shows": "store/c6/triviagameshows/index.html",
+};
+const DEFAULT_PAGES = ["storefront", "store-root", "music-bingo"];
+const REMOVE = args.includes("--remove");
+const PAGES = (() => {
+  const i = args.indexOf("--pages");
+  const names = i === -1 ? DEFAULT_PAGES : String(args[i + 1] || "").split(",").map((x) => x.trim()).filter(Boolean);
+  return names.map((n) => {
+    if (KNOWN[n]) return KNOWN[n];
+    if (n.endsWith(".html")) return n;
+    console.error(`unknown page "${n}" — use a path or one of: ${Object.keys(KNOWN).join(", ")}`);
+    process.exit(1);
+  });
+})();
 const TILE = /<div class="wsite-com-category-product(?:-featured)? wsite-com-column ?"\s*data-id="(\d+)">/g;
 
 let touched = 0;
@@ -72,6 +101,15 @@ for (const rel of PAGES) {
     TILE.lastIndex = 0;
     starts.length = 0;
     while ((m = TILE.exec(html))) starts.push({ at: m.index, id: m[1] });
+  }
+
+  // --remove stops here: the tile is already gone from `html`.
+  if (REMOVE) {
+    if (existing === -1) { console.log(`  ${rel}: no tile to remove`); continue; }
+    console.log(`  ${rel}: tile removed`);
+    if (WRITE) fs.writeFileSync(file, html);
+    touched++;
+    continue;
   }
 
   // Clone the requested neighbour, else the first tile on the page.

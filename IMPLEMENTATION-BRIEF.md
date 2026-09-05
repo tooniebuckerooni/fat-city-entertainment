@@ -9,6 +9,19 @@ The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
 > (`p174`), and the **GK 5-Pack** (`p176`) — wired, unstaged, tiled, in the
 > sitemap. Each buy button was checked against its own `ls-links.js` entry.
 >
+> **Where their tiles sit (corrected 5 Sept).** All seven are in **Pre-made
+> Trivia Shows** (`store/c6/`), ordered Halloween → 5-Pack → Nights One-Five.
+> Only Halloween and the 5-Pack also appear on the storefront; the five singles
+> are category-only, so the storefront leads with the seasonal game and the
+> pack rather than five near-identical rows.
+>
+> They first landed in **Music Bingo Card Downloads** and not in Pre-made
+> Trivia Shows at all, because `add-store-tile.js` carried a hardcoded
+> three-page list from when the whole store was music bingo. A product's
+> categories are a merchandising decision, so the tool now takes `--pages`
+> (`storefront`, `store-root`, `music-bingo`, `trivia-shows`, or a path) and a
+> `--remove` flag. Anything non-bingo added from here needs `--pages`.
+>
 > **Displayed prices switched to $11.99** on all 42 singles, plus the 3-pack,
 > the three 5-packs and the Holidays 6-pack. LemonSqueezy is being changed in
 > parallel, so for a short window the site shows $11.99 while checkout may
