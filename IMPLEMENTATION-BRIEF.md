@@ -57,6 +57,21 @@ The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
 > to exist. Either drop `p81` from the roster or accept the pack goes quiet
 > during its weeks.
 >
+> **Three live products were `noindex` while sitting in the sitemap** — `p165`,
+> `p167` and `p168`, all wired, tiled and selling. The page told Google to skip
+> them while the sitemap asked it to crawl them, so they could never rank.
+> Fixed 5 Sept. `--publish` handles this for anything created since; those three
+> predate it.
+>
+> **Every cloned product kept its template's Twitter card.** `new-product.js`
+> rewrote `<meta name="description">` and `og:description` from the spec but not
+> the Twitter tags, so Halloween's link preview advertised The Wild West, Things
+> In Songs advertised Decades, Punk Rock advertised Golden Oldies — invisible on
+> the site, wrong everywhere the link is actually shared. The same thing had
+> happened to all 51 song-library pages from their shared shell. Root cause
+> fixed in `new-product.js` and `build-song-library.js`; `fix-social-tags.js`
+> now refreshes a drifted `twitter:description` instead of only ever adding one.
+>
 > **Still to build in LemonSqueezy:** Christmas (`p175`), the five classroom
 > subjects and their pack (`p177`–`p182`), the five pop-culture shows and
 > their pack (`p183`–`p188`). Owner is taking these closer to the Christmas
@@ -173,6 +188,30 @@ the three `set-usd-price.js` commands that align each club's compare-at with its
 new total. Run those too — the prose and the struck-through
 price are read together, and a page that argues with itself is worse than one
 that is merely out of date.
+
+---
+
+## 2b. Swapping a product's image
+
+```bash
+node _tools/swap-product-image.js <pNN> <image> [--write]
+```
+
+`<image>` is either a file to install into `uploads/`, or the name of one
+already there. It updates the main `<img>`, the cloud-zoom link behind it, every
+`<source srcset>` (the `.webp` twin), `og:image`, `twitter:image` and the alt
+text on the product page; refreshes the tile on every listing page carrying the
+product; updates the `sitemap.xml` image entry; and generates the `.webp` if
+missing. Finish with `node _tools/add-jsonld.js --write`.
+
+**Send me the file, don't paste it into chat** — pasted images do not reach the
+sandbox. A URL or an uploaded file both work.
+
+Before this, an image change meant hand-editing six places on the product page
+and re-running two other tools, which is why `p168` shipped showing the
+**Decades 5-Pack's** cover: its tiles had the right artwork and its page had the
+template's. Same root cause as `p167` Punk Rock going live under Golden Oldies'
+cover.
 
 ---
 

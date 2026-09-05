@@ -140,6 +140,15 @@ for (const spec of specs) {
     () => `<meta property="og:title" content="${esc(spec.title || spec.name)}"`);
   html = html.replace(/<meta property="og:description" content="[^"]*"/i,
     () => `<meta property="og:description" content="${esc(spec.description)}"`);
+  // The Twitter card is separate tags, and leaving them alone meant every
+  // cloned product kept its TEMPLATE's share copy: Halloween's link preview
+  // advertised The Wild West, Things In Songs advertised Decades, Punk Rock
+  // advertised Golden Oldies. Invisible on the page, wrong everywhere the link
+  // is actually shared.
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/i,
+    () => `<meta name="twitter:description" content="${esc(spec.description)}"`);
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/i,
+    () => `<meta name="twitter:title" content="${esc(spec.title || spec.name)}"`);
 
   // --- price -------------------------------------------------------------
   // Both the visible amounts and the microdata, so they can't drift apart.

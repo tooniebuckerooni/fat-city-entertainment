@@ -100,6 +100,16 @@ function build(slugPath, title, description, body) {
     `\n<meta property="og:description" content="${esc(description)}">` +
     `\n<meta property="og:url" content="${url}">` +
     `\n<meta property="og:type" content="website">`);
+  // The Twitter card is a separate set of tags and was inherited wholesale from
+  // the template shell, so all 51 library pages shared one generic
+  // "Everything you need to print music bingo..." while their own meta
+  // description named the pack and its song count. Nobody sees that on the
+  // page; they see it in the link preview, which is the whole point of a page
+  // built to be shared.
+  html = html.replace(/<meta name="twitter:title" content="[^"]*"/i,
+    () => `<meta name="twitter:title" content="${esc(title)}"`);
+  html = html.replace(/<meta name="twitter:description" content="[^"]*"/i,
+    () => `<meta name="twitter:description" content="${esc(description)}"`);
   html = html.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
 
   const start = html.indexOf(CONTENT_OPEN);

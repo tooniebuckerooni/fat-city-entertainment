@@ -56,6 +56,7 @@ const esc = (s) =>
   String(s).replace(/&(?!(amp|lt|gt|quot|#\d+);)/g, "&amp;").replace(/"/g, "&quot;");
 
 let files = 0, pixels = 0, twitter = 0, ogAdded = 0, imgAdded = 0, skipped = 0;
+let twitterFixed = 0;
 
 for (const file of walk(REPO)) {
   const before = fs.readFileSync(file, "utf8");
@@ -110,6 +111,25 @@ for (const file of walk(REPO)) {
     twitter++;
   }
 
+  // 5. A Twitter card that has drifted from the page's own description.
+  // The tags above are only ever ADDED, never refreshed, and new-product.js
+  // rewrites <meta name="description"> and og:description from the spec but not
+  // the twitter one — so every product cloned from a template kept the
+  // TEMPLATE's share copy. 24 pages were affected, including the seven shipped
+  // on 5 Sept: Halloween's card advertised the Wild West, and the Things In
+  // Songs 5-Pack's advertised Decades. Nobody sees this on the site; they see
+  // it in the link preview, which is exactly where a share is judged.
+  if (desc) {
+    const tw = attr(html, /name="twitter:description" content="([^"]*)"/i);
+    if (tw && tw.slice(0, 60) !== esc(desc).slice(0, 60)) {
+      html = html.replace(
+        /(<meta name="twitter:description" content=")([^"]*)(")/i,
+        (m, a, _t, c) => a + esc(desc) + c
+      );
+      twitterFixed++;
+    }
+  }
+
   if (need.length) {
     // NB: replacer FUNCTION, not a replacement string. A string replacement
     // re-reads "$1", "$&" etc. inside the text being inserted, so any
@@ -128,4 +148,5 @@ console.log(`  tracking-pixel og:image tags removed : ${pixels}`);
 console.log(`  pages given a real fallback image    : ${imgAdded}`);
 console.log(`  pages with og: tags backfilled       : ${ogAdded}`);
 console.log(`  pages given Twitter Card tags        : ${twitter}`);
+console.log(`  twitter:description refreshed        : ${twitterFixed}`);
 if (!WRITE) console.log("\n(dry run -- pass --write to apply)");
