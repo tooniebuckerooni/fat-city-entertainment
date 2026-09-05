@@ -117,9 +117,22 @@ const swapImg = (re) => {
   });
 };
 swapImg(/<img[^>]*class="[^"]*wsite-com-product-images-main-image[^"]*"[^>]*>/gi);
+// The cloud-zoom anchor deliberately points at a HIGHER-RES file than the
+// inline image where one exists — that is what makes zoom worth having. Nine
+// products pair e.g. music-bingo-entertainers-3-pack.jpeg with a "-full"
+// twin. So prefer a -full variant of the new image and only fall back to the
+// inline file, rather than flattening the zoom to the same resolution.
+const zoomTarget = (() => {
+  const dot = base.lastIndexOf(".");
+  const stem = base.slice(0, dot), ext = base.slice(dot);
+  for (const cand of [`${stem}-full${ext}`, `${stem}_orig${ext}`]) {
+    if (fs.existsSync(path.join(UPLOADS, cand))) return `/uploads/4/3/3/6/43362499/${cand}`;
+  }
+  return rel;
+})();
 html = html.replace(
   /(<a href=")([^"]*)("[^>]*class="[^"]*cloud-zoom[^"]*")/gi,
-  (m, a, _u, c) => a + rel + c
+  (m, a, _u, c) => a + zoomTarget + c
 );
 // Main image inside a <picture>: the srcset sibling must move with it.
 html = html.replace(

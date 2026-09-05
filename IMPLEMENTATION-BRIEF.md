@@ -205,13 +205,24 @@ product; updates the `sitemap.xml` image entry; and generates the `.webp` if
 missing. Finish with `node _tools/add-jsonld.js --write`.
 
 **Send me the file, don't paste it into chat** — pasted images do not reach the
-sandbox. A URL or an uploaded file both work.
+sandbox. A URL or an uploaded file both work (the same upload that carried
+`checkout-links.csv` works for images).
+
+**Format.** Square **PNG or JPEG, 1200×1200**, under ~400KB. The site renders it
+at 640×640 and `export-ls-images.js` resizes to fit 1600px for LemonSqueezy, so
+a 1200px source serves both and stays clear of the "source narrower than 600px"
+flag that 20 products currently carry. Square matters: the 5-pack covers
+(`things-in-songs-5pack.png`, `around-the-world-and-beyond.png`) are 640×640 and
+the tile grid crops to square. Name it for the product, not the pack it was
+cloned from.
 
 Before this, an image change meant hand-editing six places on the product page
 and re-running two other tools, which is why `p168` shipped showing the
 **Decades 5-Pack's** cover: its tiles had the right artwork and its page had the
-template's. Same root cause as `p167` Punk Rock going live under Golden Oldies'
-cover.
+template's. `p165` Around The World and `p166` Party Starter had the same
+Decades cover, and `p167` Punk Rock went live under Golden Oldies'. All four are
+corrected. The zoom link is handled too — it points at a `-full` variant where
+one exists, so a swap does not flatten a product's high-res zoom.
 
 ---
 
