@@ -119,7 +119,7 @@ page simply does not show.
 | `p108` Entertainer's 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p162` Word Games 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p165` Around The World 4-Pack | $32.49 | ~~$47.96~~ $32.49 | 32% |
-| `p166` Party Starter 4-Pack | $34.00 | ~~$47.96~~ $34.00 | 29% | ← launched 5 Sept, sentence already on the page |
+| `p166` Party Starter 4-Pack | $34.00 | ~~$47.96~~ $34.00 | 29% |
 | `p147` Decades 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p168` Things In Songs 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p101` The Year Was 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
