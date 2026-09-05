@@ -138,6 +138,69 @@ for (const rel of PAGES) {
     // "$13.98" became "</title>3.98" in a live twitter:description tag.
     (m, a, b) => `${a}\n\t\t\t\t\t\t${name}\n\t\t\t\t\t${b}`);
   if (img) {
+    // The vertical crop offset is tuned to the image's ASPECT, and a cloned
+    // tile inherits the neighbour's. Weebly's -25.76% is the value for a SQUARE
+    // image in the standard grid; a 3:2 cover shoved up by that much left a
+    // white band across the bottom third of the GK 5-Pack and Halloween tiles.
+    //
+    // Centring an image of aspect a inside a container that is R as tall as it
+    // is wide gives  top% = -((a - R) / (2R)) * 100.  R is NOT the same on
+    // every page — the standard grid is 0.66 and the featured layout on
+    // store/c34 is 0.42 — so rather than hardcode it, solve for R from the tile
+    // being cloned, whose image and top% are both known:  R = a_src / (1 - 2t).
+    // That reproduces Weebly's own numbers on both layouts instead of
+    // replacing them with a guess.
+    const dimsOf = (u) => {
+      try {
+        const abs = path.join(REPO, String(u).replace(/^\//, "").split("?")[0]);
+        if (!fs.existsSync(abs)) return null;
+        const out = require("child_process").execFileSync("node", ["-e",
+          `const s=require(${JSON.stringify(path.join(__dirname, "node_modules", "sharp"))});` +
+          `s(${JSON.stringify(abs)}).metadata().then(m=>console.log(m.width+" "+m.height));`
+        ], { encoding: "utf8" }).trim().split(" ").map(Number);
+        return out[0] && out[1] ? out : null;
+      } catch (e) { return null; }
+    };
+    const styleOf = (t) => (t.match(/<img[^>]*style="([^"]*)"/i) || [])[1] || "";
+    const srcOf = (t) => (t.match(/<img[^>]*src="(\/uploads\/[^"]+)"/i) || [])[1];
+
+    const srcTile = html.slice(starts[useIdx].at, bound(useIdx));
+    const srcStyle = styleOf(srcTile);
+    const srcDims = dimsOf(srcOf(srcTile));
+    const newDims = dimsOf(img);
+    const pct = (st) => { const m = st.match(/width:\s*([\d.]+)%/); return m ? Number(m[1]) / 100 : 1; };
+    const t0 = (() => { const m = srcStyle.match(/top:\s*(-?[\d.]+)%/); return m ? Number(m[1]) / 100 : null; })();
+
+    if (srcDims && newDims && t0 !== null) {
+      const aSrc = pct(srcStyle) * (srcDims[1] / srcDims[0]);
+      const R = aSrc / (1 - 2 * t0);
+      if (R > 0.05 && R < 3) {
+        tile = tile.replace(/(<img[^>]*style=")([^"]*)(")/i, (m, a, st, c) => {
+          const ratio = newDims[1] / newDims[0];          // image height / width
+          let width, left, top;
+          if (ratio >= R) {
+            // Taller than the container: fill the width and centre vertically.
+            width = 100;
+            left = 0;
+            top = -((ratio - R) / (2 * R)) * 100;
+          } else {
+            // WIDER than the container. At width:100% it is shorter than the
+            // slot, so no vertical offset can fill it — centring just splits
+            // the white band across the top and bottom. Scale it up until it
+            // fills the height and centre horizontally instead. p123 and p159
+            // are 1.78 and 1.96 to the container's 1.52 and were banded.
+            width = (R / ratio) * 100;
+            left = -(width - 100) / 2;
+            top = 0;
+          }
+          const next = st
+            .replace(/width:\s*[\d.]+%/, `width:${width.toFixed(2)}%`)
+            .replace(/top:\s*-?[\d.]+%/, `top:${top.toFixed(2)}%`)
+            .replace(/left:\s*-?[\d.]+%/, `left:${left.toFixed(2)}%`);
+          return a + next + c;
+        });
+      }
+    }
     tile = tile.replace(/srcset="[^"]*"/g, `srcset="${img.replace(/\.(jpe?g|png|gif)/i, ".webp")}"`);
     tile = tile.replace(/(<img[^>]*?)src="[^"]*"/g, (m, a) => `${a}src="${img}"`);
     tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g,
