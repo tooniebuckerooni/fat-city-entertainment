@@ -1460,3 +1460,73 @@ ol.fce-tl li {
   letter-spacing: 0.03em;
   border-radius: 3px;
 }
+
+/* --- Sale price emphasis -------------------------------------------------
+   Weebly's own treatment only DE-emphasises the regular price: opacity .4 plus
+   a line-through, with the sale price rendered exactly like any ordinary price.
+   So the loudest thing about a discount was the faded number next to it, and at
+   .4 the strikethrough reads less like "was" and more like a rendering fault.
+
+   This flips the emphasis onto the number the customer actually pays. Brass
+   (#99790a) rather than a red: the site already treats brass as its promotional
+   accent (.fce-tile-badge, .fce-ladder-sale) and reserves red for Weebly's
+   category__image-sale-banner, which sits directly above this on a tile and is
+   already carrying the "25% OFF" flash. Two reds stacked would compete; brass
+   under red reads as one hierarchy.
+
+   Both selectors match sites.css exactly and win on load order — site-extras.css
+   is linked after it on every page. */
+
+#wsite-com-product-price-area.wsite-com-product-show-price-on-sale #wsite-com-product-price {
+  opacity: .6;
+  font-size: .82em;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+#wsite-com-product-price-area.wsite-com-product-show-price-on-sale #wsite-com-product-price-sale {
+  color: #99790a;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.wsite-com-product-price.single-sale-price .wsite-com-price {
+  opacity: .6;
+  font-size: .85em;
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
+.wsite-com-product-price.single-sale-price .wsite-com-sale-price {
+  color: #99790a;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Sale banner legibility ----------------------------------------------
+   Weebly's banner is `background:red; opacity:.75` with the text inheriting
+   that transparency. Over the Gold Club's red-and-gold artwork the result was
+   effectively invisible — "$310.99 OFF" reading as a faint smear across the
+   product's own lettering. Across 149 tiles the artwork is unpredictable, so
+   the banner has to carry its own contrast rather than borrow the image's.
+
+   A solid red was tried first and failed on the product it mattered most for:
+   the Gold Club's artwork is itself red and gold, so a red bar sat invisibly on
+   top of it. Across 149 tiles the artwork cannot be predicted, so the banner
+   uses a dark scrim instead — legible over red, white, photographic or
+   typographic art alike. The words carry the "sale" meaning; the colour only
+   has to make them readable. Red stays where it still works: the italic
+   ribbon on the product page, which sits on a white background. */
+
+#wsite-com-category-product-group .category__image-sale-banner-wrapper.sale-active {
+  background: linear-gradient(180deg, rgba(10, 10, 12, 0) 0%, rgba(10, 10, 12, .88) 55%);
+  opacity: 1;
+  padding-top: 16px;
+  box-shadow: none;
+}
+#wsite-com-category-product-group .category__image-sale-banner.visible {
+  padding: 5px 6px;
+  font-size: 14px;
+  font-weight: 700 !important;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
+}

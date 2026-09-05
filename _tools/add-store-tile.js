@@ -40,7 +40,18 @@ const pageFile = fs.readdirSync(dir).find((f) => f.endsWith(".html"));
 const page = fs.readFileSync(path.join(dir, pageFile), "utf8");
 
 const name = clean((page.match(/<h1[^>]*id="wsite-com-product-title"[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || "");
-const price = (page.match(/itemprop="price"[^>]*content="([^"]*)"/i) || [])[1];
+// CAREFUL: on a page that is on sale, itemprop="price" sits on the SALE
+// container — it is what the customer pays, which is correct for structured
+// data and wrong for "the regular price". Reading it as the regular price made
+// this tool write the sale figure into BOTH price slots, so the three club
+// tiles rendered "$415.50" struck through above "$415.50". Take the regular
+// price from #wsite-com-product-price, which is the struck-through one, and
+// fall back to itemprop only when the page is not on sale.
+const regularShown = (page.match(
+  /id="wsite-com-product-price" class="wsite-com-product-price-container">[\s\S]*?<span[^>]*>\s*\$?([\d,.]+)/i
+) || [])[1];
+const price = (regularShown && regularShown.replace(/,/g, ""))
+  || (page.match(/itemprop="price"[^>]*content="([^"]*)"/i) || [])[1];
 const salePrice = (page.match(/id="wsite-com-product-price-sale"[\s\S]{0,200}?wsite-com-product-price-amount"[^>]*>\s*\$?([\d.]+)/i) || [])[1];
 const onSale = /class="wsite-com-product-show-price-on-sale"/.test(page);
 const img = (page.match(/<img[^>]*wsite-com-product-images-main-image[^>]*src="([^"]+)"/i)
@@ -132,6 +143,54 @@ for (const rel of PAGES) {
     tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g,
     (m, a) => `${a}alt="${name.replace(/"/g, "&quot;")}"`);
   }
+  // The sale state is a CLASS on the price wrapper, and the tile is a clone of
+  // a neighbouring tile — so without setting it explicitly the clone inherits
+  // whether the NEIGHBOUR was on sale. Four products (p165, p168, p174, p176)
+  // shipped with a strikethrough crossing off their own price: "$41.99 $41.99",
+  // which reads as a broken discount rather than no discount.
+  // The image banner is a SECOND sale state on the same tile — `sale-active` on
+  // the wrapper and `visible` on the <p> — and it is inherited from the cloned
+  // neighbour exactly like the price class. Fixing only the price left four
+  // products with no strikethrough and a sale banner still sitting on their
+  // artwork, which is the same lie in the louder place.
+  {
+    const on = !!(onSale && salePrice);
+    // What the flash says, matching set-usd-price.js: the Rule of 100 — a
+    // percentage under $100, dollars over it.
+    const flash = (() => {
+      if (!on) return "On Sale";
+      const off = Number(price) - Number(salePrice);
+      if (!(off > 0)) return "On Sale";
+      return Number(price) < 100
+        ? `${Math.round((off / Number(price)) * 100)}% OFF`
+        : `$${off.toFixed(2)} OFF`;
+    })();
+    tile = tile.replace(
+      /(<div class="category__image-sale-banner-wrapper)(?:\s+sale-active)?(")/,
+      (m, a, c) => a + (on ? " sale-active" : "") + c
+    );
+    tile = tile.replace(
+      /(<p class="category__image-sale-banner\s+)(?:visible|placeholder)(")/,
+      (m, a, c) => a + (on ? "visible" : "placeholder") + c
+    );
+    tile = tile.replace(
+      /(<p class="category__image-sale-banner[^"]*">)([\s\S]*?)(<\/p>)/,
+      (m, a, inner, c) =>
+        a + inner.replace(/(\s*)([^\s][\s\S]*?)(\s*)$/, (mm, lead, _t, tail) => lead + flash + tail) + c
+    );
+  }
+
+  block: {
+    const has = /class="wsite-com-product-price[^"]*\bsingle-sale-price\b/.test(tile);
+    if (onSale && salePrice && !has) {
+      tile = tile.replace(/(class="wsite-com-product-price)([^"]*)(")/,
+        (m, a, mid, c) => `${a}${mid.replace(/\s+$/, "")} single-sale-price${c}`);
+    } else if ((!onSale || !salePrice) && has) {
+      tile = tile.replace(/(class="wsite-com-product-price)([^"]*)(")/,
+        (m, a, mid, c) => a + mid.replace(/\s*\bsingle-sale-price\b/, "") + c);
+    }
+  }
+
   // Prices: regular container, then the sale container.
   const shown = onSale && salePrice ? salePrice : price;
   // Replacer functions, not replacement strings: a literal "$1" in a price like
