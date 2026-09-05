@@ -37,14 +37,8 @@ const HANDBOOK = 10.99;
 const CLUBS = [
   { pid: "p131", file: "store/p131/BronzeClub.html", games: 10, licence: 6.99,
     sells: 79.00,  words: "Ten games",        licName: "Day Pass" },
-  // HELD at $198.75, the price LemonSqueezy still bills. The fall plan cuts
-  // Silver to $193.75, and unlike every other move in that plan this one goes
-  // DOWN — so displaying it before LemonSqueezy matches would show a price
-  // lower than the checkout takes, which is the one failure this whole
-  // discipline exists to prevent. Flip to 193.75 and re-run --write the moment
-  // the dashboard is changed; that is the entire change.
   { pid: "p130", file: "store/p130/SilverClub.html", games: 25, licence: 24.00,
-    sells: 198.75, words: "Twenty-five games", licName: "Monthly licence" },
+    sells: 193.75, words: "Twenty-five games", licName: "Monthly licence" },
   { pid: "p112", file: "store/p112/GoldClub.html",   games: 50, licence: 116.00,
     sells: 415.50, words: "All fifty games",   licName: "Annual licence" },
 ];

@@ -46,7 +46,7 @@ window.LS_LINKS = {
   "p102": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/7db5c34d-c10e-4265-82de-4c97f89ccfc3", // [x] TV Shows 1 - 250 Music Bingo Cards — $11.99 USD — /store/p102/tvshows.html
   "p103": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/2d99e2d4-8845-4b54-834f-5f0a4a7026f1", // [x] Christmas Party - 250 Music Bingo Cards — $11.99 USD — /store/p103/christmasparty.html
   "p106": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/770a5a32-9909-4de9-ab5a-83a4404d54fe", // [x] Movie Soundtracks 1 - 250 Music Bingo Cards — $11.99 USD — /store/p106/moviesoundtracks.html
-  "p108": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/333e40b4-b1fd-4b91-a81e-ade465b3a601", // [x] 'Entertainers' Music Bingo 3-Pack — $27.00 USD — /store/p108/entertainerspack.html
+  "p108": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/333e40b4-b1fd-4b91-a81e-ade465b3a601", // [x] 'Entertainers' Music Bingo 3-Pack — $25.99 USD — /store/p108/entertainerspack.html
   "p109": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/6a13d7d1-647f-40cb-9107-a70c47f52f3b", // [x] Body Parts - 250 Music Bingo Cards — $11.99 USD — /store/p109/bodyparts.html
   "p110": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/877e3537-426c-4eac-af48-bf35a0403ca8", // [x] Out Of This World - 250 Music Bingo Cards — $11.99 USD — /store/p110/outofthisworld.html
   "p111": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/ffd8f661-8551-4e58-aaaf-4a77753d709b", // [x] Girls Vs Boys — $11.99 USD — /store/p111/girlsvsboys.html
@@ -63,9 +63,9 @@ window.LS_LINKS = {
   "p125": "", // [ ] 'One Hit Wonders 2' - 250 Music Bingo Cards — CA$11.00 — /store/p125/onehitwonders2.html
   "p126": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a30d9c73-ba07-493a-b6da-3b87dca2f7f9", // [x] 'Video Games' Trivia - 3 Pack — $63.99 USD — /store/p126/videogametrivia.html
   "p127": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/274a06f1-c018-4259-944c-f0a4f112bfc5", // [x] Movie Soundtracks - 3 Pack — $25.99 USD — /store/p127/moviesoundtracks3pack.html
-  "p128": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/de58d22b-4ddb-4d90-9d0c-a93a6eb69a90", // [x] One Hit Wonders 2-Pack — $18.99 USD — /store/p128/onehitwonders2pack.html
+  "p128": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/de58d22b-4ddb-4d90-9d0c-a93a6eb69a90", // [x] One Hit Wonders 2-Pack — $17.99 USD — /store/p128/onehitwonders2pack.html
   "p129": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/63c7d3fb-45b4-48ea-b0e9-913aca4dcb56", // [x] Cover Tunes - 250 Music Bingo Cards — $11.99 USD — /store/p129/covertunes.html
-  "p130": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b4f4670c-3a7f-4503-8cd8-ad4efd5e2220", // [x] Music Bingo Silver Club — $198.75 USD — /store/p130/SilverClub.html
+  "p130": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b4f4670c-3a7f-4503-8cd8-ad4efd5e2220", // [x] Music Bingo Silver Club — $193.75 USD — /store/p130/SilverClub.html
   "p131": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/028a1234-44ee-434f-b015-3f2bd6c4cbe1", // [x] Music Bingo Bronze - Top 10 Pack — $79.00 USD — /store/p131/BronzeClub.html
   "p132": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/35e35d4f-390a-47be-888a-8bc13914c8a5", // [x] Road Trip! - 250 Music Bingo Cards — $11.99 USD — /store/p132/roadtrip.html
   "p133": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57441f4e-5bba-4394-8e50-dc88c4e3000c", // [x] Cartoons - 250 Music Bingo Cards — $11.99 USD — /store/p133/cartoons.html
@@ -88,7 +88,7 @@ window.LS_LINKS = {
   "p158": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/d322bd9f-1b3c-4da6-8286-00d7611ac0de", // [x] Acronyms - 250 Music Bingo Cards — $11.99 USD — /store/p158/acronyms.html
   "p159": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/aee876f7-7267-4c45-a03d-c95a4375b54e", // [x] Disco - 250 Music Bingo Cards — $11.99 USD — /store/p159/Disco.html
   "p160": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f1eac68d-e487-4613-8ed2-40f386bf5375", // [x] 90s R&B - 250 Music Bingo Cards — $11.99 USD — /store/p160/90sRnB.html
-  "p162": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57c2c76f-a157-4fd9-977d-370c3a7bd7cd", // [x] Word Games - 3 Pack — $27.00 USD — /store/p162/Word_Games_-_3_Pack.html
+  "p162": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57c2c76f-a157-4fd9-977d-370c3a7bd7cd", // [x] Word Games - 3 Pack — $25.99 USD — /store/p162/Word_Games_-_3_Pack.html
   "p163": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b6ff3a61-b96c-4149-9ce6-7e2771736807", // [x] TV Shows 2 - 250 Music Bingo Cards — $11.99 USD — /store/p163/tvthemes2.html
   "p165": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/bfb2d0c4-1778-42e5-ba18-a0f62f8eccb8", // [x] Around The World... And Beyond! - Music Bingo 4-Pack — $32.49 USD — /store/p165/aroundtheworldpack.html
   "p166": "", // [ ] Party Starter - Music Bingo 4-Pack — $34.00 USD — /store/p166/partystarterpack.html

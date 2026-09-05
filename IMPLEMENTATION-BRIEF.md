@@ -15,23 +15,34 @@ The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
 > still take $10.99. **That direction is safe** — the customer pays less than
 > advertised, which costs a little revenue and no trust.
 >
-> **The reverse direction is not safe, and four products move that way.**
-> A page showing *less* than checkout takes is a bait-and-switch from the
-> buyer's side, and it is the one failure the whole ordering rule exists to
-> prevent. So these are **held at the price LemonSqueezy still bills** and are
-> the only four excluded from the switch:
+> **The four products that move DOWN are now done too** (5 Sept): Silver Club
+> $193.75, Entertainer's and Word Games $25.99, One Hit Wonders 2-Pack $17.99.
+> They were held back until LemonSqueezy matched, because a page showing *less*
+> than checkout takes is a bait-and-switch from the buyer's side — the one
+> failure the ordering rule exists to prevent.
 >
-> | | held at | drops to | why held |
-> |---|---|---|---|
-> | Silver Club (`p130`) | **$198.75** | $193.75 | the only club that moves, and it moves down |
-> | Entertainer's (`p108`) | **$27.00** | $25.99 | |
-> | Word Games (`p162`) | **$27.00** | $25.99 | |
-> | One Hit Wonders 2-Pack (`p128`) | **$18.99** | $17.99 | |
+> **The ladder table is now clean at every rung**, for the first time:
+> $11.99 → $8.66 → $8.40 → $8.17 → $7.90 → $7.75, no inversion.
 >
-> Change each in LemonSqueezy, then run `set-usd-price.js` for it. Silver also
-> needs `sells: 198.75` put back to `193.75` in `_tools/check-value-stacks.js`
-> and `--write` re-run. Until Silver drops, the ladder keeps its known
-> $7.95-vs-$7.90 inversion; that closes with it.
+> **But the copy still may not claim "buy more, pay less per game."** The table
+> has seven rungs and the catalogue has more: the **Around The World 4-Pack
+> (`p165`) at $32.49 works out to $8.12 a game**, which undercuts all three
+> 5-packs at $8.40 and the Holidays 6-pack at $8.17. A buyer comparing those
+> two pages sees a 5-pack costing more per night than a 4-pack. So
+> `add-price-ladder.js` keeps the weaker, true claim — "every multi-game pack
+> works out cheaper per night than buying singles."
+>
+> **`p165` → $33.99 is the whole fix.** That is $8.50 a game, which lands it
+> between the 3-pack's $8.66 and the 5-packs' $8.40 and makes the catalogue
+> monotonic end to end. It also matches the Party Starter 4-Pack's $8.50, so
+> the two 4-packs stop disagreeing about what a 4-pack costs. Do it in
+> LemonSqueezy first, as always.
+>
+> **One sale-roster interaction to watch:** the One Hit Wonders 2-Pack now
+> works out to $9.00 a game, and `p81` One Hit Wonders is on the rotating
+> $8.99 sale list. While that sale runs, the 2-pack offers no per-game reason
+> to exist. Either drop `p81` from the roster or accept the pack goes quiet
+> during its weeks.
 >
 > **Still to build in LemonSqueezy:** Christmas (`p175`), the five classroom
 > subjects and their pack (`p177`–`p182`), the five pop-culture shows and
