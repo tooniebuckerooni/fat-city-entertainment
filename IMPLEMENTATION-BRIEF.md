@@ -1,9 +1,42 @@
 # Implementation brief — fall pricing + 20 new products
 
-Written 2 Sept 2026. Everything below is **on the branch
-`claude/fall-pricing-premade-games-zpcjsj`, not on `main`**, and nothing is
-live: every new product is staged and every reprice is display-only pending
-LemonSqueezy.
+Written 2 Sept 2026. **Batch 1 shipped 5 Sept 2026** — see "Launch log" below.
+The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
+
+> ## Launch log — batch 1, 5 Sept 2026
+>
+> **Live:** the five General Knowledge nights (`p169`–`p173`), Halloween
+> (`p174`), and the **GK 5-Pack** (`p176`) — wired, unstaged, tiled, in the
+> sitemap. Each buy button was checked against its own `ls-links.js` entry.
+>
+> **Displayed prices switched to $11.99** on all 42 singles, plus the 3-pack,
+> the three 5-packs and the Holidays 6-pack. LemonSqueezy is being changed in
+> parallel, so for a short window the site shows $11.99 while checkout may
+> still take $10.99. **That direction is safe** — the customer pays less than
+> advertised, which costs a little revenue and no trust.
+>
+> **The reverse direction is not safe, and four products move that way.**
+> A page showing *less* than checkout takes is a bait-and-switch from the
+> buyer's side, and it is the one failure the whole ordering rule exists to
+> prevent. So these are **held at the price LemonSqueezy still bills** and are
+> the only four excluded from the switch:
+>
+> | | held at | drops to | why held |
+> |---|---|---|---|
+> | Silver Club (`p130`) | **$198.75** | $193.75 | the only club that moves, and it moves down |
+> | Entertainer's (`p108`) | **$27.00** | $25.99 | |
+> | Word Games (`p162`) | **$27.00** | $25.99 | |
+> | One Hit Wonders 2-Pack (`p128`) | **$18.99** | $17.99 | |
+>
+> Change each in LemonSqueezy, then run `set-usd-price.js` for it. Silver also
+> needs `sells: 198.75` put back to `193.75` in `_tools/check-value-stacks.js`
+> and `--write` re-run. Until Silver drops, the ladder keeps its known
+> $7.95-vs-$7.90 inversion; that closes with it.
+>
+> **Still to build in LemonSqueezy:** Christmas (`p175`), the five classroom
+> subjects and their pack (`p177`–`p182`), the five pop-culture shows and
+> their pack (`p183`–`p188`). Owner is taking these closer to the Christmas
+> launch.
 
 Start with the **Catalogue Callsheet** (sent separately, or regenerate with
 `node _tools/build-ls-callsheet.js --write`). It has all 94 products with

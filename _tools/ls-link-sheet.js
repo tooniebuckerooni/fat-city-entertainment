@@ -89,8 +89,17 @@ const table = parseCsv(fs.readFileSync(IMPORT, "utf8"));
 const header = table.shift().map((h) => h.trim().toLowerCase());
 const cPid = header.indexOf("product_id");
 const cUrl = header.indexOf("new_checkout_url");
-if (cPid === -1 || cUrl === -1) {
-  console.error("CSV needs a product_id column and a NEW_CHECKOUT_URL column.");
+// The sheet ships two URL columns — the existing one as context, and the empty
+// one to fill — and typing into the wrong one is the obvious mistake, because
+// for a product that has never been wired the "current" column is empty too and
+// looks like the blank to fill. The first sheet came back exactly that way: all
+// seven new links in current_checkout_url, and an importer that read only
+// NEW_CHECKOUT_URL reported nothing to do, which is the worst possible answer —
+// it looks like success. So read a URL from EITHER column, prefer the one meant
+// for it, and let the ls-links.js comparison decide what is actually new.
+const cCur = header.indexOf("current_checkout_url");
+if (cPid === -1 || (cUrl === -1 && cCur === -1)) {
+  console.error("CSV needs a product_id column and a NEW_CHECKOUT_URL (or current_checkout_url) column.");
   console.error(`found: ${header.join(", ")}`);
   process.exit(1);
 }
@@ -100,11 +109,15 @@ const byPid = new Map(rs.map((r) => [r.pid, r]));
 const problems = [];
 const changes = [];
 const seenUrl = new Map();
+const misfiled = new Set();
 
 for (const row of table) {
   const pid = (row[cPid] || "").trim();
-  const url = (row[cUrl] || "").trim();
+  const fromNew = cUrl === -1 ? "" : (row[cUrl] || "").trim();
+  const fromCur = cCur === -1 ? "" : (row[cCur] || "").trim();
+  const url = fromNew || fromCur;
   if (!pid || !url) continue;
+  if (!fromNew && fromCur) misfiled.add(pid);
   const r = byPid.get(pid);
   if (!r) { problems.push(`${pid}: no such product in ls-links.js`); continue; }
   if (!/^https:\/\/[a-z0-9-]+\.lemonsqueezy\.com\/(checkout|buy)\//i.test(url)) {
@@ -126,6 +139,13 @@ for (const [key, pid] of seenUrl) {
 }
 
 console.log(`${table.length} row(s) read, ${changes.length} would change`);
+const misfiledChanges = changes.filter((c) => misfiled.has(c.r.pid));
+if (misfiledChanges.length) {
+  console.log(
+    `  (${misfiledChanges.length} of them read from current_checkout_url, not NEW_CHECKOUT_URL — ` +
+      `taken as intended, since they differ from what ls-links.js has)`
+  );
+}
 for (const c of changes) {
   console.log(`  ${c.r.pid.padEnd(6)} ${c.r.url ? "re-wired" : "NEWLY WIRED"}  ${c.r.name.slice(0, 44)}`);
 }
