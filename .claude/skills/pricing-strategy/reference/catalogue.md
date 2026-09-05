@@ -13,17 +13,31 @@ node _tools/add-cross-sell.js --preview     # every bundle's rendered arithmetic
 
 ## The price ladder
 
+**Current as of 5 Sept 2026, after the fall repricing.**
+
 | tier | charged | compare-at | per game |
 |---|---|---|---|
-| single game | $10.99 | — | $10.99 |
-| 3-pack | $23.99 – $27.00 | — | $8.00 – $9.00 |
-| 4-pack | $32.49 | — | $8.12 |
-| 5-pack | $39.99 | — | $8.00 |
-| "Holidays" 6-pack (p155) | $46.99 | — | **$7.83** ← best in the catalogue |
+| single game | $11.99 | — | $11.99 |
+| 2-pack (p128) | $17.99 | $23.98 | $9.00 |
+| 3-pack (p127, p108, p162) | $25.99 | $35.97 | $8.66 |
+| 4-pack (p165) | $32.49 | $47.96 | **$8.12** ← undercuts the 5- and 6-packs |
+| 4-pack (p166, staged) | $34.00 | $47.96 | $8.50 |
+| 5-pack (p147, p168, p101) | $41.99 | $59.95 | $8.40 |
+| "Holidays" 6-pack (p155) | $48.99 | $71.94 | $8.17 |
 | Game Show Trivia 5-Pack | $87.99 | — | $17.60 |
-| Starter Pack / Bronze (p131) | $79.00 | $116.89 | $7.90 ← inverted |
-| Silver Club (p130) | $198.75 | $298.75 | $7.95 ← inverted |
-| Gold Club (p112) | $415.50 | $665.50 | n/a — no fixed game count |
+| Starter Pack / Bronze (p131) | $79.00 | $137.88 | $7.90 |
+| Silver Club (p130) | $193.75 | $334.74 | $7.75 |
+| Gold Club (p112) | $415.50 | $726.49 | n/a — no fixed game count |
+| pre-made trivia show | $11.99 | — | — |
+| classroom trivia show | $8.99 (one room) / $22.00 (school-wide) | — | — |
+
+The seven-rung **ladder table on `trivia-store.html` now descends cleanly** for
+the first time — 11.99 → 8.66 → 8.40 → 8.17 → 7.90 → 7.75, no inversion. The
+catalogue as a whole does not: `p165` at $8.12 a game undercuts both the 5-packs
+and the 6-pack, because 4-packs are not a rung in that table. So store copy
+still may **not** claim "buy more, pay less per game"; it claims only that every
+multi-game pack beats buying singles, which is true. `p165` → $33.99 ($8.50/game)
+is the whole fix and is the owner's call.
 
 Repriced 27 Aug 2026 on the owner's call: Starter Pack $89.00 → $79.00, and all
 three 5-packs → $39.99. That fixed the two worst rungs (the 5-pack had been
@@ -39,27 +53,28 @@ Pre-made trivia shows sit on their own rung ($17.60/game) — a different produc
 with a different cost structure. Don't fold them into the music-bingo per-game
 comparison.
 
-## The club value stacks — verbatim
+## The club value stacks — no longer hand-written
 
-These are the hand-written paragraphs that no tool regenerates. Each is one
-`<p>` on its product page.
+`_tools/check-value-stacks.js` owns these. It reads the single-game price off
+p103, recomputes every figure, `--write` regenerates all three paragraphs, and
+it prints the `set-usd-price.js` commands that realign each compare-at. Current
+output (5 Sept 2026):
 
-**Bronze / Starter Pack — `store/p131/BronzeClub.html:519`**
-> $10.99 a game individually — $109.90 for all 10 — plus a $6.99 Bingo Card
-> Generator 2.0 Day Pass. That's **$116.89** of value. In this pack, it's
-> **$79.00** — save **$37.89** buying all 10 at once.
+| tier | games × single | + licence | + Handbook | = value | sells | saves |
+|---|---|---|---|---|---|---|
+| Bronze | 10 × $11.99 = $119.90 | $6.99 | $10.99 | **$137.88** | $79.00 | $58.88 |
+| Silver | 25 × $11.99 = $299.75 | $24.00 | $10.99 | **$334.74** | $193.75 | $140.99 |
+| Gold | 50 × $11.99 = $599.50 | $116.00 | $10.99 | **$726.49** | $415.50 | $310.99 |
 
-Plus a supporting line at `:529`: "*a $6.99 value*".
-
-**Silver Club — `store/p130/SilverClub.html:521`**
-> $10.99 a game individually — $274.75 for all 25 — plus a $24 Bingo Card
-> Generator 2.0 Monthly license. That's **$298.75** of value. In the Silver
-> Club, it's **$198.75** — save **$100** buying the pack.
-
-**Gold Club — `store/p112/GoldClub.html:521`**
-> $10.99 a game individually — $549.50 for all 50 — plus a $116 Bingo Card
-> Generator 2.0 Annual license. That's **$665.50** of value. In the Gold Club,
-> it's **$415.50** — save **$250** buying the pack.
+It also owns two 4-pack pages that state what their components cost bought
+separately (`p165`, `p166` — 4 × the single price), and
+**`goldclubplaylists.html`**, a standalone landing page carrying the whole club
+comparison in a hand-written table: all three tier prices, all three
+cost-per-game figures (licence backed out first), the three buy-button prices
+and the single-game price quoted twice. That page is not a product page, so
+`set-usd-price.js` never sees it and its stale-copy WARN never fires — every
+figure on it went stale in the fall repricing and nothing caught it until the
+owner asked. It is derived now.
 
 Each stack has **four** numbers derived from the single-game price — unit price,
 line total, value total, saving — plus one independently-set add-on price. A

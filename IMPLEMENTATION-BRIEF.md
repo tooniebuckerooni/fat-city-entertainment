@@ -180,6 +180,15 @@ price off p103 and rebuilds all three:
 node _tools/check-value-stacks.js --write
 ```
 
+It also owns **`goldclubplaylists.html`** — a standalone landing page, not a
+product page, so `set-usd-price.js` never saw it and its stale-copy WARN never
+fired. It carried the entire club comparison by hand: all three tier prices,
+all three cost-per-game figures, three buy-button prices and the single-game
+price quoted twice. Every one went stale in the fall repricing — Silver stuck at
+$198.75, singles at $10.99 — and nothing caught it until the owner asked. Now
+derived, including the cost-per-game row, which backs the bundled licence out
+first (Silver moved $6.99 → $6.79 because its price dropped, not the single's).
+
 It also owns the two 4-pack pages (`p165`, `p166`) that state in prose what
 their components cost bought separately — both said **$43.96** (4 × $10.99) and
 nothing regenerated them, so after the reprice both would have understated their

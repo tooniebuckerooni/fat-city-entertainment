@@ -68,6 +68,49 @@ const BUNDLE_PROSE = [
 
 const problems = [];
 
+// goldclubplaylists.html is a standalone landing page — not a product page, so
+// set-usd-price.js never sees it and its stale-copy WARN never fires. It carries
+// the whole club comparison in hand-written prose and a hand-written table: all
+// three tier prices, all three cost-per-game figures, and the single-game price
+// quoted twice. Every one of them went stale in the fall repricing and nothing
+// caught it. Derived here instead.
+const LANDING = "goldclubplaylists.html";
+{
+  let html = read(LANDING);
+  const before = html;
+  const sells = CLUBS.map((c) => c.sells);
+  // Cost per game backs the bundled licence out of the price first, which is
+  // what the page's own "(after backing out the Gen 2 bonus value)" says.
+  const perGame = CLUBS.map((c) => Number(((c.sells - c.licence) / c.games).toFixed(2)));
+
+  const edits = [
+    [/(<td>Price<\/td>)<td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td>/,
+     (m, a) => a + sells.map((v) => `<td>${money(v)}</td>`).join("")],
+    [/(Cost per game[\s\S]{0,120}?<\/td>)<td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td>/,
+     (m, a) => a + perGame.map((v) => `<td>${money(v)}</td>`).join("")],
+    [/(Get the Silver Club &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[1].sells)],
+    [/(Get the Starter Pack &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[0].sells)],
+    [/(Get the Gold Club &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[2].sells)],
+    [/(sold individually for )\$[0-9,.]+/g, (m, a) => a + money(SINGLE)],
+  ];
+  for (const [re, fn] of edits) {
+    if (!re.test(html)) { problems.push(`${LANDING}: could not find ${re.source.slice(0, 40)}…`); continue; }
+    html = html.replace(re, fn);
+  }
+  if (html !== before) {
+    if (WRITE) {
+      fs.writeFileSync(path.join(REPO, LANDING), html);
+      console.log(`  rewrote ${LANDING}`);
+    } else {
+      problems.push(`${LANDING}: prices are stale — re-run with --write`);
+    }
+  }
+  console.log(
+    `${"landing".padEnd(5)} ${LANDING}: tiers ${sells.map(money).join(" / ")}, ` +
+    `per game ${perGame.map(money).join(" / ")}, single ${money(SINGLE)}`
+  );
+}
+
 for (const b of BUNDLE_PROSE) {
   const want = Number((b.games * SINGLE).toFixed(2));
   const re = new RegExp(`(Buying ${b.words} separately costs )(\\$[0-9,]+\\.[0-9]{2})`);
