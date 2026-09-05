@@ -99,7 +99,7 @@
     if (box) {
       if (!lic.key) {
         box.innerHTML = '<p class="hint">No license yet — the rest of Trivia Generator Pro works fully without one. '
-          + '<a href="' + PLANS_URL + '" target="_blank" rel="noopener">Get AI credits →</a></p>';
+          + '<a href="' + PLANS_URL + '" target="_blank" rel="noopener" data-fce-event="ai_credits_cta" data-fce-label="ai-status link">Get AI credits →</a></p>';
       } else if (lic.status === "activating") {
         box.innerHTML = '<p class="hint">Activating…</p>';
       } else if (lic.active) {
