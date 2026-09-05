@@ -101,10 +101,15 @@ here** — the repo is served publicly by GitHub Pages.
   page's own `itemprop="price"`. Neither ever quotes a sale price in prose it
   can't refresh; both report which tiers are on sale at the end of a run, and
   the ladder prints a **LADDER INVERSION** warning naming any rung that costs
-  more per game than the rung above it. Two are currently expected (Bronze
-  $7.90 and Silver $7.95 both sit above the Holidays 6-pack's $7.83) — see
-  `HOLIDAY-PLAN.md`. The copy therefore claims only that multi-packs beat
-  singles, never "buy more, pay less per game".
+  more per game than the rung above it. **As of 5 Sept 2026 there are none** —
+  the catalogue is monotonic end to end (11.99 → 8.99 → 8.66 → 8.50 → 8.40 →
+  8.17 → 7.90 → 7.75), so the ladder copy now makes the stronger claim: *"the
+  more you buy at once, the less each night costs."* That is only true while it
+  stays monotonic — if a rung inverts, weaken the copy back to "every multi-game
+  pack works out cheaper per night than buying singles" in the same commit. The
+  seven-rung table alone is not enough to check: 2-packs and 4-packs are not
+  rungs, and a 4-pack undercut the 5-packs and the 6-pack for months while the
+  table read clean.
 
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`

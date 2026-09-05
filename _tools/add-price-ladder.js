@@ -166,9 +166,10 @@ function render() {
 <h2>How the packs compare</h2>
 <p>Every game is the same thing in the box &mdash; 250 randomized cards, the
 printable callsheet, and ready-made Spotify and Apple Music playlists. The only
-question is how many nights you're buying at once. <strong>Every multi-game pack
-works out cheaper per night than buying singles</strong>, so if you know you'll
-run more than one, the pack pays for itself on the second game.</p>
+question is how many nights you're buying at once. <strong>The more you buy at
+once, the less each night costs</strong> &mdash; every step up this table is
+cheaper per game than the one above it, so if you know you'll run more than one,
+the pack pays for itself on the second game.</p>
 <div class="fce-ladder-scroll">
   <table>
     <thead>

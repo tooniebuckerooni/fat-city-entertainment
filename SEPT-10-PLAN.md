@@ -39,20 +39,14 @@ Do this on the 9th so the 10th is only execution.
    Wonders 2-Pack works out to **$9.00 a game** — so while that sale runs the
    pack has no per-game argument. Either drop `p81` from the roster, or accept
    the pack goes quiet for those weeks. No wrong answer; it just needs choosing.
-4. **Decide the two 4-packs.** They currently disagree about what a 4-pack
-   costs, and one of them is the last thing blocking a "buy more, pay less per
-   game" claim.
+4. ~~**Decide the two 4-packs.**~~ **Done 5 Sept** — both moved to **$33.99**
+   ($8.50/game) in LemonSqueezy and on the site. That closed the last inversion:
+   the catalogue is now monotonic end to end, 11.99 → 8.99 → 8.66 → 8.50 → 8.40
+   → 8.17 → 7.90 → 7.75, with zero inversions across *every* pack rather than
+   just the seven rungs in the table. The ladder copy now makes the stronger
+   claim it has never been allowed to make — *"the more you buy at once, the
+   less each night costs"* — which stays true only while it stays monotonic.
 
-   | | now | per game | |
-   |---|---|---|---|
-   | `p165` Around The World | $32.49 | **$8.12** | undercuts every 5-pack ($8.40) and the 6-pack ($8.17) |
-   | `p166` Party Starter | $34.00 | $8.50 | correct position, but the only round number in the bundle range |
-
-   **Both to $33.99** is the recommendation: $8.50 a game, which sits properly
-   between the 3-pack's $8.66 and the 5-packs' $8.40, makes the catalogue
-   monotonic end to end, and puts both on the `.99` ending that 78 of the 94
-   products already use. Changing them in LemonSqueezy takes a minute; the site
-   follows with `set-usd-price.js`.
 
 ---
 
@@ -127,8 +121,8 @@ page simply does not show.
 | `p127` Movie Soundtracks 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p108` Entertainer's 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
 | `p162` Word Games 3-Pack | $25.99 | ~~$35.97~~ $25.99 | 28% |
-| `p165` Around The World 4-Pack | $32.49 | ~~$47.96~~ $32.49 | 32% |
-| `p166` Party Starter 4-Pack | $34.00 | ~~$47.96~~ $34.00 | 29% |
+| `p165` Around The World 4-Pack | $33.99 | ~~$47.96~~ $33.99 | 29% |
+| `p166` Party Starter 4-Pack | $33.99 | ~~$47.96~~ $33.99 | 29% |
 | `p147` Decades 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p168` Things In Songs 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
 | `p101` The Year Was 5-Pack | $41.99 | ~~$59.95~~ $41.99 | 30% |
@@ -151,8 +145,8 @@ FTC territory in the US, Competition Act in Canada.
    page (`p166` launched 5 Sept with it). No LemonSqueezy change needed: the
    compare-at is a display price, not a charge.
    ```bash
-   node _tools/set-usd-price.js p165 47.96 32.49
-   node _tools/set-usd-price.js p166 47.96 34.00
+   node _tools/set-usd-price.js p165 47.96 33.99
+   node _tools/set-usd-price.js p166 47.96 33.99
    ```
 2. **The other eight need one sentence added first.** Extend the
    `BUNDLE_PROSE` map in `_tools/check-value-stacks.js` to cover them, so the
@@ -349,4 +343,5 @@ a struck-through number with no explanation is the one state to avoid.
 - Four products had another product's cover; all corrected.
 - **`p166` Party Starter 4-Pack launched 5 Sept** — wired, new artwork, on four
   listing pages and in the sitemap, and its four component games now cross-sell
-  to it. It is still showing a flat $34.00; the compare-at above is one command.
+  to it, now at $33.99 like its sibling 4-pack. It still shows a flat price;
+  the compare-at in Phase 3 is one command.

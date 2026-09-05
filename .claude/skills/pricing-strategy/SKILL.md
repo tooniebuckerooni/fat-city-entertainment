@@ -224,10 +224,20 @@ therefore *not* a failure in `site-health.yml`; firing weekly on a known issue
 trains everyone to ignore the check. What matters is that no **new** inversion
 appears. Compare the `--preview` output before and after your change.
 
-The standing copy rule follows from this: store copy may claim **"every
-multi-game pack works out cheaper per night than buying singles"** (true) and
-must **never** claim "buy more, pay less per game" (still not true). If you fix
-the inversions, that claim becomes available — and only then.
+**The inversions were closed on 5 Sept 2026 and the catalogue is now monotonic
+end to end** — 11.99 → 8.99 → 8.66 → 8.50 → 8.40 → 8.17 → 7.90 → 7.75, with zero
+inversions across every pack, not just the seven rungs in the table. The last
+one to go was the 4-pack rung: p165 and p166 both moved to $33.99 ($8.50/game),
+which also stopped the two 4-packs disagreeing about what a 4-pack costs.
+
+So the stronger claim is now **earned**, and the ladder copy makes it: *"The more
+you buy at once, the less each night costs — every step up this table is cheaper
+per game than the one above it."* That sentence is only true while the catalogue
+stays monotonic. **If any rung inverts again, weaken the copy back to "every
+multi-game pack works out cheaper per night than buying singles" in the same
+commit.** Checking the seven-rung table is not sufficient: 2-packs and 4-packs
+are not rungs, and it was a 4-pack that was undercutting the 5-packs and the
+6-pack for months while the table looked clean.
 
 Two mechanical notes on the ladder tool: the `RUNGS` array is hand-maintained,
 so a new pack does not appear in the table until it is added there, with its
