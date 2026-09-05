@@ -52,9 +52,13 @@ const PROPOSED = {
 const isNew = (p) => Number(p.pid.slice(1)) >= 169;
 const proposedFor = (p) => {
   if (isNew(p)) return null;
-  if (PROPOSED[p.pid]) return PROPOSED[p.pid];
-  if (p.price === "10.99") return PROPOSED.__singles;
-  return null;
+  const want = PROPOSED[p.pid] || (p.price === "10.99" ? PROPOSED.__singles : null);
+  // Once a product's page carries the proposed price there is nothing left to
+  // propose, and rendering "$41.99 -> $41.99" is worse than rendering nothing:
+  // it puts a change arrow next to five products that need no change, in the
+  // one document somebody works down row by row. Only show a real move.
+  if (!want || Number(want) === Number(p.price)) return null;
+  return want;
 };
 
 // --------------------------------------------------------------------- grouping
