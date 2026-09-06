@@ -126,9 +126,15 @@ jobs:
             # months after Bronze dropped to $79.00, which is the exact failure
             # this whole workflow exists to catch in a week instead of in a
             # refund email.
-            echo "### Value stacks, trivia shows, LemonSqueezy checklist"
+            # check-tile-structure is here because a malformed listing tile is
+            # invisible to everything else: on 5 Sept a tile spliced INTO
+            # another product's image container left store/c11 showing
+            # Christmas with no name or price and fourteen packs not rendering
+            # at all, while the tile count was right, check-links.js passed and
+            # every price tool reported clean.
+            echo "### Value stacks, trivia shows, LemonSqueezy checklist, tile structure"
             echo '```'
-            for t in check-value-stacks check-trivia-shows check-ls-links; do
+            for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

@@ -98,6 +98,42 @@ here** — the repo is served publicly by GitHub Pages.
   all three pages it knew about, which is why categories looked arbitrary — a
   pack sat wherever `add-store-tile.js` had inserted it (at the front) and
   everything else stayed where Weebly's export left it.
+- **The two ebooks sell on Amazon, not LemonSqueezy**, and their buy links are
+  injected at runtime: `window.KDP_LINKS` in `ls-links.js` holds
+  `{kindle, paperback}` per book and `ls-buy.js` fills in the `.kdp-buy`
+  buttons, cloning a second button for the second edition. So **grepping the
+  HTML for an `amazon.com` href finds nothing and proves nothing** — the href
+  is `#` until the script runs. `bake-buy-links.js` deliberately skips these
+  pages (they are the "no ls-buy button" count), which also means the no-JS
+  `.kdp-pending` fallback text is the only thing a crawler sees; keep it true.
+  The Trivia Host Handbook is `p18` (`/store/p18/fbthandbook.html`), the Music
+  Bingo Handbook is `/musicbingohandbook.html`.
+- **A tile boundary is found by counting div depth, never by a string match.**
+  `add-store-tile.js` used to close the last tile in a grid at
+  `indexOf("\n\t</div>")` when the page had no `<div class="clear">` after it.
+  That string also matches the image-height div about a hundred characters
+  *into* every tile, and c11 is the one listing page with no trailing clear div
+  — so every append landed **inside the previous product**. Christmas rendered
+  with no name and no price and the fourteen packs after it did not render at
+  all. `order-store-tiles.js` carried the same fallback. Both now walk div
+  depth, which cannot land mid-tile.
+- **`_tools/check-tile-structure.js`** (in the weekly health check) is what
+  catches that class of damage: each tile must balance its own divs and carry a
+  name block. Nothing else does — the tile count was right, every link
+  resolved, `check-links.js` passed and every price tool reported clean while
+  half a category was invisible. Subcategory tiles are exempt from the depth
+  check; the subcategory wrapper closes after the last one, so it has read `+1`
+  since the Weebly export.
+- **A product with no `store/pNN/` page gets a tile from the `VIRTUAL` map** in
+  `add-store-tile.js` (`node _tools/add-store-tile.js handbook --after p18
+  --pages …`). The Music Bingo Handbook sells on Amazon KDP and already has a
+  bespoke landing page at `/musicbingohandbook.html`; minting a store page for
+  it purely so the tool had facts to read would put a second indexable URL in
+  front of the same book. Its tile id is `900` — clear of the product range,
+  and safe because every other tool looks a tile up *by* a known product id
+  rather than walking an id back to a directory. The two ebooks (`p18`, `p900`)
+  sit together at the foot of c34 and the storefront: they are the only KDP
+  items and the only two with no price to compare.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`

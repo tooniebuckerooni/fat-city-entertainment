@@ -28,18 +28,51 @@ const WRITE = args.includes("--write");
 const PID = args.find((a) => /^p\d+$/.test(a));
 const AFTER = (() => { const i = args.indexOf("--after"); return i === -1 ? null : args[i + 1]; })();
 
-if (!PID) { console.error("usage: node _tools/add-store-tile.js pNN [--after pNN] [--write]"); process.exit(1); }
-const NUM = PID.slice(1);
+// A product with no store/pNN page of its own. The Music Bingo Handbook sells
+// on Amazon KDP and already has a page at /musicbingohandbook.html — a bespoke
+// landing page, not a Weebly store page. Minting a store page for it purely so
+// this tool had somewhere to read facts from would put a second indexable URL
+// in front of the same book, which is the competing-URL failure
+// SEO-CRAWL-HANDOFF.md is about. So its tile facts are declared here and the
+// tile points at the page that already exists.
+//
+// The id only has to be a number no product uses: tiles are addressed by
+// data-id, and every other tool looks a tile up BY a known product id rather
+// than walking an id back to a store/pNN directory.
+const VIRTUAL = {
+  handbook: {
+    id: "900",
+    name: "The Music Bingo Handbook",
+    href: "/musicbingohandbook.html",
+    img: "/uploads/4/3/3/6/43362499/the-music-bingo-handbook-ebook-cover.jpeg",
+    priceText: "On Amazon",
+  },
+};
+const VKEY = args.find((a) => Object.prototype.hasOwnProperty.call(VIRTUAL, a));
+
+if (!PID && !VKEY) {
+  console.error("usage: node _tools/add-store-tile.js pNN|<virtual> [--after pNN] [--write]");
+  console.error(`       virtual products: ${Object.keys(VIRTUAL).join(", ")}`);
+  process.exit(1);
+}
+const NUM = VKEY ? VIRTUAL[VKEY].id : PID.slice(1);
 
 const clean = (s) => s.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/\s+/g, " ").trim();
 
 // --- read the product's own facts ----------------------------------------
+let name, price, salePrice, onSale, img, href, priceText = null;
+if (VKEY) {
+  const v = VIRTUAL[VKEY];
+  name = v.name; href = v.href; img = v.img; priceText = v.priceText;
+  price = v.price || "0"; salePrice = undefined; onSale = false;
+  console.log(`${VKEY}  ${name}\n      ${priceText || "$" + price}\n      ${img || "NO IMAGE"}`);
+} else {
 const dir = path.join(REPO, "store", PID);
 if (!fs.existsSync(dir)) { console.error(`no such product dir: store/${PID}`); process.exit(1); }
 const pageFile = fs.readdirSync(dir).find((f) => f.endsWith(".html"));
 const page = fs.readFileSync(path.join(dir, pageFile), "utf8");
 
-const name = clean((page.match(/<h1[^>]*id="wsite-com-product-title"[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || "");
+name = clean((page.match(/<h1[^>]*id="wsite-com-product-title"[^>]*>([\s\S]*?)<\/h1>/i) || [])[1] || "");
 // CAREFUL: on a page that is on sale, itemprop="price" sits on the SALE
 // container — it is what the customer pays, which is correct for structured
 // data and wrong for "the regular price". Reading it as the regular price made
@@ -50,16 +83,17 @@ const name = clean((page.match(/<h1[^>]*id="wsite-com-product-title"[^>]*>([\s\S
 const regularShown = (page.match(
   /id="wsite-com-product-price" class="wsite-com-product-price-container">[\s\S]*?<span[^>]*>\s*\$?([\d,.]+)/i
 ) || [])[1];
-const price = (regularShown && regularShown.replace(/,/g, ""))
+price = (regularShown && regularShown.replace(/,/g, ""))
   || (page.match(/itemprop="price"[^>]*content="([^"]*)"/i) || [])[1];
-const salePrice = (page.match(/id="wsite-com-product-price-sale"[\s\S]{0,200}?wsite-com-product-price-amount"[^>]*>\s*\$?([\d.]+)/i) || [])[1];
-const onSale = /class="wsite-com-product-show-price-on-sale"/.test(page);
-const img = (page.match(/<img[^>]*wsite-com-product-images-main-image[^>]*src="([^"]+)"/i)
+salePrice = (page.match(/id="wsite-com-product-price-sale"[\s\S]{0,200}?wsite-com-product-price-amount"[^>]*>\s*\$?([\d.]+)/i) || [])[1];
+onSale = /class="wsite-com-product-show-price-on-sale"/.test(page);
+img = (page.match(/<img[^>]*wsite-com-product-images-main-image[^>]*src="([^"]+)"/i)
           || page.match(/src="(\/uploads\/[^"]+)"[^>]*class="[^"]*wsite-com-product-images-main-image/i) || [])[1];
-const href = `/store/${PID}/${pageFile}`;
+href = `/store/${PID}/${pageFile}`;
 
 if (!name || !price) { console.error(`could not read name/price from ${href}`); process.exit(1); }
 console.log(`${PID}  ${name}\n      $${price}${onSale && salePrice ? ` (sale $${salePrice})` : ""}\n      ${img || "NO IMAGE"}`);
+}
 
 // Where tiles can go. The default was a hardcoded three-page list dating from
 // when everything in the store was music bingo — so every product, whatever it
@@ -256,7 +290,7 @@ for (const rel of PAGES) {
   // Replacer functions, not replacement strings: a literal "$1" in a price like
   // $197.00 is otherwise consumed as a capture-group backreference and the page
   // ends up advertising $97.00.
-  const money = (v) => `$${v} USD`;
+  const money = (v) => (priceText || `$${v} USD`);
   tile = tile.replace(/(<div class="wsite-com-price[^"]*"[^>]*>)[\s\S]*?(<\/div>)/i,
     (_, a, b) => `${a}\n\t\t\t\t\t\t${money(onSale && salePrice ? price : shown)}\n\t\t\t\t\t${b}`);
   tile = tile.replace(/(<div class="wsite-com-sale-price[^"]*"[^>]*>)[\s\S]*?(<\/div>)/i,

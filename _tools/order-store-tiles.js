@@ -78,7 +78,9 @@ const PAGES = [
     order: ["112", "130", "131", "155", "147", "168", "101", "176", "49",
             "165", "166", "28", "127", "162", "108", "123", "42", "126",
             "128", "33", "53", "135"],
-    last: ["24", "25", "27", "26", "18"] },
+    // The two ebooks sit together at the foot: they are the only Amazon/KDP
+    // items in the store, and the only two with no price to compare.
+    last: ["24", "25", "27", "26", "18", "900"] },
 ];
 
 const TILE = /<div class="wsite-com-category-product(?:-featured)? wsite-com-column[^"]*"\s*data-id="(\d+)">/g;
