@@ -78,8 +78,12 @@ here** — the repo is served publicly by GitHub Pages.
   their components, bundle members point at their bundle *with the per-game
   arithmetic*, stand-alone packs get a Gold Club line. Edit the copy/maps in
   the script and re-run (it replaces blocks in place). `--preview` prints the
-  rendered copy. p166 and p108 are excluded (staged / ambiguous membership);
-  styles in `site-extras.css` (`.fce-cross-sell`).
+  rendered copy. **p108 is excluded** — it names "Video Games, Tv Shows, &
+  Movie Soundtracks" and there are two TV Shows games and three Movie
+  Soundtracks games, so which ones is a guess. **p166 joined 5 Sept 2026** when
+  it launched: its spec and its cover art name the same four games, so its
+  membership is no longer ambiguous. Styles are in `site-extras.css`
+  (`.fce-cross-sell`).
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
@@ -364,9 +368,17 @@ no sandbox. It closes the issue automatically when things are clean again.
   unconditionally, so they report `(N would change)` against what's on disk
   rather than a write count. The library comparison strips the `fce:jsonld`
   block, because `add-jsonld.js` runs after it by design.
-- **LADDER INVERSION is deliberately not a failure.** Two rungs are knowingly
-  inverted; firing weekly would train everyone to ignore the issue. It's printed
-  in the report body instead.
+- **CATALOGUE INVERSION is a failure; the seven-rung LADDER INVERSION is not.**
+  That flipped on 5 Sept 2026. The old rule existed because two rungs were
+  knowingly inverted, and firing weekly on a known issue trains everyone to
+  ignore the check. The catalogue is monotonic end to end now, so zero is the
+  baseline and any inversion is real drift — and it is load-bearing, because the
+  ladder copy claims "the more you buy at once, the less each night costs". An
+  inversion makes a live claim false, not just a rung awkward.
+  `add-price-ladder.js` prints CATALOGUE INVERSION across **every** pack,
+  including the 2- and 4-packs that are not rungs; the narrower rung warning
+  stays out of the matcher, because it was a 4-pack that sat inverted for months
+  while the rung table read clean.
 
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and

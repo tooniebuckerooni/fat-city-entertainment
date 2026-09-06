@@ -241,4 +241,71 @@ if (inversions.length) {
   console.log(`\n  LADDER INVERSION — ${inversions.length} rung(s) cost more per game than the rung above:`);
   for (const r of inversions) console.log(`    ${r.tier} at ${money(r.each)}/game`);
 }
+
+// The table above is only SEVEN rungs, and the catalogue has more: there is no
+// 2-pack or 4-pack row. That is not cosmetic — the Around The World 4-pack sat
+// at $8.12/game, under both the 5-packs and the 6-pack, for months while this
+// table read perfectly clean.
+//
+// It matters more since 5 Sept 2026, because the ladder copy now claims "the
+// more you buy at once, the less each night costs". That sentence is true only
+// while the WHOLE catalogue is monotonic, so an inversion anywhere makes live
+// copy false — which is why this is a hard failure in site-health.yml where the
+// seven-rung warning above deliberately is not.
+//
+// Pack membership comes from add-cross-sell.js's BUNDLES map so there is one
+// source of truth for what is in a pack.
+{
+  const csSrc = fs.readFileSync(path.join(REPO, "_tools/add-cross-sell.js"), "utf8");
+  const bm = csSrc.match(/const BUNDLES\s*=\s*\{([\s\S]*?)\n\};/);
+  const packs = {};
+  if (bm) {
+    for (const m of bm[1].matchAll(/(p\d+):\s*\[([^\]]*)\]/g)) {
+      packs[m[1]] = m[2].split(",").filter((x) => x.trim()).length;
+    }
+  }
+  const priceOf = (pid) => {
+    const dir = path.join(REPO, "store", pid);
+    if (!fs.existsSync(dir)) return null;
+    for (const f of fs.readdirSync(dir).filter((x) => x.endsWith(".html"))) {
+      const src = fs.readFileSync(path.join(dir, f), "utf8");
+      if (/http-equiv="refresh"/i.test(src)) continue;
+      const m = src.match(/itemprop="price"\s+content="([\d.]+)"/);
+      if (m) return Number(m[1]);
+    }
+    return null;
+  };
+  const single = priceOf("p103");
+  const items = [];
+  if (single) items.push({ n: 1, each: single, label: "a single game" });
+  for (const [pid, n] of Object.entries(packs)) {
+    const pr = priceOf(pid);
+    if (pr && n >= 2) items.push({ n, each: pr / n, label: pid });
+  }
+  // The clubs price a licence in alongside the games, so use their real
+  // per-game figures rather than deriving them from a pack count.
+  for (const [pid, n] of [["p131", 10], ["p130", 25]]) {
+    const pr = priceOf(pid);
+    if (pr) items.push({ n, each: pr / n, label: pid });
+  }
+  items.sort((a, b) => a.n - b.n || a.each - b.each);
+  const bestAt = new Map();
+  for (const it of items) bestAt.set(it.n, Math.min(bestAt.get(it.n) ?? Infinity, it.each));
+  const bad = [];
+  let prevN = null;
+  for (const it of items) {
+    if (prevN !== null && it.n > prevN && cents(it.each) > cents(bestAt.get(prevN))) {
+      bad.push(`${it.label} (${it.n}-pack) at ${money(it.each)}/game is above the ${prevN}-pack's ${money(bestAt.get(prevN))}`);
+    }
+    if (prevN === null || it.n > prevN) prevN = it.n;
+  }
+  if (bad.length) {
+    console.log(`\n  CATALOGUE INVERSION — ${bad.length} pack(s) cost more per game than a SMALLER pack:`);
+    bad.forEach((b) => console.log(`    ${b}`));
+    console.log(`    The ladder copy claims the opposite. Fix the price, or weaken the copy.`);
+  } else {
+    console.log(`\n  catalogue monotonic across all ${items.length} price points — the "buy more, pay less" claim holds.`);
+  }
+}
+
 if (!WRITE) console.log("\n(dry run -- pass --write to apply)");

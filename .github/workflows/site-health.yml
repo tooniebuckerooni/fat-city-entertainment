@@ -89,10 +89,21 @@ jobs:
             # add-sale-banner reports two counts on one line rather than a
             # write count, because it backfills markup rather than content.
             DRIFT="$DRIFT"'|[1-9][0-9]* (product page|tile)\(s\) would change'
-            # NOT in the list: LADDER INVERSION. Two rungs are knowingly
-            # inverted (HOLIDAY-PLAN.md), so it would fire every week and train
-            # everyone to ignore this issue. It is printed in the report body
-            # under "Price ladder" instead, where a CHANGE to it is visible.
+            # CATALOGUE INVERSION *is* a failure, as of 5 Sept 2026. It was
+            # excluded while two rungs were knowingly inverted — firing weekly
+            # on a known issue trains everyone to ignore the check. That is no
+            # longer the situation: the catalogue is monotonic end to end, so
+            # zero is the baseline and any inversion is real drift. It is also
+            # load-bearing now, because the ladder copy claims "the more you buy
+            # at once, the less each night costs" — an inversion makes a live
+            # claim false, not just a rung awkward.
+            #
+            # Still NOT in the list: the seven-rung "LADDER INVERSION" warning,
+            # which is the narrower check. CATALOGUE INVERSION covers every
+            # pack, including the 2- and 4-packs that are not rungs — and it was
+            # a 4-pack that sat inverted for months while the rung table read
+            # clean.
+            DRIFT="$DRIFT"'|CATALOGUE INVERSION'
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
