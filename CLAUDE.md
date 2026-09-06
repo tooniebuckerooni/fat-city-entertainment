@@ -134,6 +134,18 @@ here** — the repo is served publicly by GitHub Pages.
   rather than walking an id back to a directory. The two ebooks (`p18`, `p900`)
   sit together at the foot of c34 and the storefront: they are the only KDP
   items and the only two with no price to compare.
+- **Swapping a product's artwork is `_tools/swap-product-image.js pNN <file>
+  --write`**, then `add-jsonld.js --write` (which it tells you to run). It
+  repoints the product page, the zoom link, the webp twin, the share cards,
+  every listing tile **in place**, and **every** `<image:loc>` in the sitemap —
+  a cover is often the representative image for its listing pages too, so p18's
+  lived in four sitemap entries and on c34's own share card, none of which the
+  product page's own edit reaches. It used to rebuild tiles by shelling out to
+  `add-store-tile.js`, which refuses a product with no price: a cover swap on an
+  Amazon/KDP book updated the page and silently left all four tiles on the old
+  artwork. Rebuilding also re-inserted the tile at the FRONT of each grid,
+  undoing `order-store-tiles.js`. Give a new cover a new filename — same URL
+  means returning visitors keep the cached old one.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
