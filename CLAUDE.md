@@ -84,6 +84,20 @@ here** — the repo is served publicly by GitHub Pages.
   it launched: its spec and its cover art name the same four games, so its
   membership is no longer ambiguous. Styles are in `site-extras.css`
   (`.fce-cross-sell`).
+- **Tile order** (`_tools/order-store-tiles.js`, idempotent): every page gets
+  its OWN sequence, and the reasons differ. The storefront and store root lead
+  with **packs, biggest first** — LemonSqueezy has no cart, so a single-game
+  tile shown before a pack is an invitation to a one-game order that ends the
+  session. **c11 Music Bingo Card Downloads is the deliberate opposite**
+  (owner's call, 6 Sept 2026): singles first, every pack at the foot smallest
+  to largest, because that page is for browsing the games. **c33 Eras** is
+  chronological, **c40 Holidays** is calendar order, **c34 Bundles** is largest
+  first with the question packs and ebooks after. Anything unlisted keeps its
+  existing relative position behind the listed items, so a new product lands at
+  the back rather than disappearing. Until 6 Sept one global list was applied to
+  all three pages it knew about, which is why categories looked arbitrary — a
+  pack sat wherever `add-store-tile.js` had inserted it (at the front) and
+  everything else stayed where Weebly's export left it.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`

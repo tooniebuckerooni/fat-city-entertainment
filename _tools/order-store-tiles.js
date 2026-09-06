@@ -1,42 +1,89 @@
-// Put the multi-game Packs at the front of the storefront.
-//
-// Lemon Squeezy has no cart — a visitor can only buy one thing per checkout. So
-// every single-game tile shown before a Pack is an invitation to a $10.99 order
-// that ends the session. Leading with the Packs and the Gold Club puts the
-// larger baskets where they're seen first.
-//
-// The tiles are reordered in place; nothing is added, removed or restyled. Order
-// is set by ORDER below, and anything not listed keeps its existing relative
-// position behind the listed items.
+// Order the product tiles on the storefront and each category page.
 //
 //   node _tools/order-store-tiles.js            # dry run
 //   node _tools/order-store-tiles.js --write
+//
+// Tiles are reordered in place; nothing is added, removed or restyled. Anything
+// not named in a page's list keeps its existing relative position behind the
+// listed ones, so a new product never disappears — it just lands at the back
+// until someone places it.
+//
+// WHY EACH PAGE DIFFERS. Until 6 Sept 2026 one global ORDER was applied to all
+// three pages it knew about, which is why the categories looked arbitrary: a
+// pack sat wherever add-store-tile.js had inserted it (at the front, newest
+// first) and everything else stayed wherever Weebly's export left it. The
+// storefront and the category pages are answering different questions, so they
+// get different lists:
+//
+//   Storefront / store root — PACKS FIRST, biggest basket first. Lemon Squeezy
+//     has no cart, so a visitor can only buy one thing per checkout; every
+//     single-game tile shown before a pack is an invitation to a $11.99 order
+//     that ends the session.
+//
+//   c11 Music Bingo Card Downloads — the opposite, on the owner's call: this is
+//     where someone browses the GAMES, so the singles come first and every pack
+//     sits at the foot of the page, smallest to largest, as the next step up.
+//     The storefront still leads with packs, so the AOV argument above is not
+//     lost — it just is not this page's job.
+//
+//   c33 Eras — chronological, because that is what an era means. Golden Oldies
+//     through The 2000s, then the packs.
+//
+//   c40 Holidays — calendar order, Valentine's through Christmas, then the
+//     packs. A holiday category sorted any other way makes a shopper hunt.
+//
+//   c34 Bundles — LARGEST first. Someone on a page called Bundles has already
+//     decided they want more than one game; the biggest basket goes at the top.
+//     Question packs and the ebooks follow, since they are not game bundles.
 const fs = require("fs");
 const path = require("path");
 
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 
-// Packs and clubs first, biggest basket first. Everything else follows in the
-// order it already had.
-const ORDER = ["112", "130", "131", "155", "147", "49", "123"];
+// Packs and clubs first, biggest basket first.
+const STOREFRONT = ["112", "130", "131", "155", "147", "101", "168", "166", "165",
+                    "127", "162", "108", "128", "49", "123", "176"];
 
-// Sold-out items sink to the very end, after everything else including
-// unlisted tiles — a dead-end click doesn't belong in prime real estate.
-const LAST = ["3"]; // Fat Bottom Trivia Host T-shirt
+// Smallest to largest, for the foot of the music bingo category.
+const PACKS_SMALL_TO_LARGE = ["128", "127", "162", "108", "165", "166",
+                              "147", "168", "101", "155", "131", "130", "112"];
 
-const PAGES = ["trivia-store.html", "store/c1/triviastore/index.html",
-               "store/c11/musicdoboff/index.html"];
+const PAGES = [
+  { rel: "trivia-store.html", order: STOREFRONT, last: ["3"] },
+  { rel: "store/c1/triviastore/index.html", order: STOREFRONT, last: ["3"] },
 
-// The storefront uses the "-featured" tile variant; category pages use the plain
-// one. Match either.
-// [^"]* (not just an optional space) so a tile carrying an extra class —
-// e.g. the sold-out shirt's "... wsite-com-column wsite-soldout" — still
-// matches. Without it, that tile was invisible to this whole script and
-// never got reordered.
+  // Singles keep the order they already have; the packs are pulled to the end.
+  { rel: "store/c11/musicdoboff/index.html", order: [], last: PACKS_SMALL_TO_LARGE },
+
+  // Eras: chronological. Punk Rock sits after The 70s — it is a late-70s scene,
+  // and putting it first (where it landed as the newest tile) opened an era
+  // category in the middle of its own timeline.
+  { rel: "store/c33/Eras.html",
+    order: ["62", "153", "143", "115", "159", "167", "144", "63", "113", "160", "146"],
+    last: ["147", "101"] },
+
+  // Holidays: calendar order, then the packs smallest to largest. The music
+  // bingo game and the trivia pack for the same holiday sit together.
+  { rel: "store/c40/holidays/index.html",
+    order: ["111", "136", "149", "72", "97", "103"],
+    // The 2-packs are all the same size, so calendar order decides between
+    // them rather than leaving it arbitrary: Valentine's, St Patrick's,
+    // Halloween, then the Christmas 3-pack and the 6-pack that covers the year.
+    last: ["135", "53", "33", "42", "155"] },
+
+  // Bundles: largest basket first. Question packs and the two ebooks are not
+  // game bundles, so they follow rather than interleave by size.
+  { rel: "store/c34/Music_Bingo_&_Trivia_Bundles.html",
+    order: ["112", "130", "131", "155", "147", "168", "101", "176", "49",
+            "165", "166", "28", "127", "162", "108", "123", "42", "126",
+            "128", "33", "53", "135"],
+    last: ["24", "25", "27", "26", "18"] },
+];
+
 const TILE = /<div class="wsite-com-category-product(?:-featured)? wsite-com-column[^"]*"\s*data-id="(\d+)">/g;
 
-for (const rel of PAGES) {
+for (const { rel, order: ORDER, last: LAST } of PAGES) {
   const file = path.join(REPO, rel);
   if (!fs.existsSync(file)) { console.log(`  skip (missing): ${rel}`); continue; }
   const html = fs.readFileSync(file, "utf8");
@@ -64,8 +111,15 @@ for (const rel of PAGES) {
     html: html.slice(s.at, i + 1 < starts.length ? starts[i + 1].at : lastEnd),
   }));
 
+  // Three bands: ORDER first in its own sequence, then anything unlisted in the
+  // order it already had, then LAST in ITS own sequence. LAST used to return
+  // Infinity for every entry, which sank them all to the end but left them in
+  // whatever order they arrived in — so "packs at the foot, smallest to
+  // largest" put them at the foot in no order at all.
+  const TAIL = 1e6;
   const rank = (id) => {
-    if (LAST.includes(id)) return Infinity;
+    const l = LAST.indexOf(id);
+    if (l !== -1) return TAIL + l;
     const i = ORDER.indexOf(id);
     return i === -1 ? ORDER.length + tiles.findIndex((t) => t.id === id) : i;
   };
