@@ -100,10 +100,7 @@ for (const rel of PAGES) {
   while ((m = TILE.exec(html))) starts.push({ at: m.index, id: m[1] });
   if (starts.length < 2) { console.log(`  ${rel}: no tile grid, skipped`); continue; }
 
-  const bound = (i) => (i + 1 < starts.length ? starts[i + 1].at
-    : (html.indexOf('<div class="clear">', starts[i].at) !== -1
-        ? html.indexOf('<div class="clear">', starts[i].at)
-        : html.indexOf("\n\t</div>", starts[i].at)));
+  const bound = (i) => (i + 1 < starts.length ? starts[i + 1].at : tileEnd(html, starts[i].at));
 
   // Remove any tile this product already has, so re-running replaces it.
   const existing = starts.findIndex((s) => s.id === NUM);
@@ -276,3 +273,32 @@ for (const rel of PAGES) {
 
 console.log(`\npages touched: ${touched}`);
 if (!WRITE) console.log("DRY RUN — nothing written. Re-run with --write.");
+
+// Shared: the offset just past a tile's own closing </div>, found by walking
+// div depth from the tile's opening tag.
+//
+// The old fallback for the LAST tile was html.indexOf("\n\t</div>", at), which
+// also matches the image-height div about 100 characters INTO every tile:
+//
+//     <div class="...featured-image-height ...">
+//     </div>
+//
+// On a page with no <div class="clear"> after the grid (store/c11) that put the
+// boundary inside the last tile, so an appended tile was spliced into the
+// previous product's image container — the product lost its name and price and
+// everything after it rendered inside a broken box. Counting depth cannot land
+// mid-tile.
+function tileEnd(html, at) {
+  const TAG = /<div\b[^>]*>|<\/div>/gi;
+  TAG.lastIndex = at;
+  let depth = 0, m;
+  while ((m = TAG.exec(html))) {
+    depth += m[0][1] === "/" ? -1 : 1;
+    if (depth === 0) {
+      let e = m.index + m[0].length;
+      while (e < html.length && /\s/.test(html[e])) e++;
+      return e;
+    }
+  }
+  return -1;
+}

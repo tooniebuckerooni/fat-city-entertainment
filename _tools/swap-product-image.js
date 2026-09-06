@@ -44,11 +44,17 @@ if (!PID || !SRC) {
 // --- resolve the product page ---------------------------------------------
 const dir = path.join(REPO, "store", PID);
 if (!fs.existsSync(dir)) { console.error(`no such product: store/${PID}`); process.exit(1); }
-const pages = fs.readdirSync(dir).filter((f) => f.endsWith(".html"))
+// Drop redirect stubs first, then narrow by price only if that leaves a
+// choice. Requiring itemprop="price" up front excluded every Amazon/KDP
+// product outright — p18's page carries no price because Amazon sets it, so
+// the tool refused to touch the one product whose cover most needed changing.
+const candidates = fs.readdirSync(dir).filter((f) => f.endsWith(".html"))
   .map((f) => ({ f: path.join(dir, f), s: fs.readFileSync(path.join(dir, f), "utf8") }))
-  .filter((c) => !/http-equiv="refresh"/i.test(c.s) && /itemprop="price"/.test(c.s));
+  .filter((c) => !/http-equiv="refresh"/i.test(c.s));
+const priced = candidates.filter((c) => /itemprop="price"/.test(c.s));
+const pages = priced.length ? priced : candidates.filter((c) => /wsite-com-product-title/.test(c.s));
 if (pages.length !== 1) {
-  console.error(`expected exactly one priced page in store/${PID}, found ${pages.length}`);
+  console.error(`expected exactly one product page in store/${PID}, found ${pages.length}`);
   process.exit(1);
 }
 const pageFile = pages[0].f;

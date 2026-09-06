@@ -102,8 +102,7 @@ for (const { rel, order: ORDER, last: LAST } of PAGES) {
 
   // Each tile runs to the start of the next one; the last runs to the end of the
   // group, which is the last `</div>` before the group's own closing markup.
-  const groupEnd = html.indexOf('<div class="clear">', starts[starts.length - 1].at);
-  const lastEnd = groupEnd !== -1 ? groupEnd : html.indexOf("\n\t</div>", starts[starts.length - 1].at);
+  const lastEnd = tileEnd(html, starts[starts.length - 1].at);
   if (lastEnd === -1) { console.log(`  skip (can't find group end): ${rel}`); continue; }
 
   const tiles = starts.map((s, i) => ({
@@ -139,3 +138,32 @@ for (const { rel, order: ORDER, last: LAST } of PAGES) {
 }
 
 if (!WRITE) console.log("\nDRY RUN — nothing written. Re-run with --write.");
+
+// Shared: the offset just past a tile's own closing </div>, found by walking
+// div depth from the tile's opening tag.
+//
+// The old fallback for the LAST tile was html.indexOf("\n\t</div>", at), which
+// also matches the image-height div about 100 characters INTO every tile:
+//
+//     <div class="...featured-image-height ...">
+//     </div>
+//
+// On a page with no <div class="clear"> after the grid (store/c11) that put the
+// boundary inside the last tile, so an appended tile was spliced into the
+// previous product's image container — the product lost its name and price and
+// everything after it rendered inside a broken box. Counting depth cannot land
+// mid-tile.
+function tileEnd(html, at) {
+  const TAG = /<div\b[^>]*>|<\/div>/gi;
+  TAG.lastIndex = at;
+  let depth = 0, m;
+  while ((m = TAG.exec(html))) {
+    depth += m[0][1] === "/" ? -1 : 1;
+    if (depth === 0) {
+      let e = m.index + m[0].length;
+      while (e < html.length && /\s/.test(html[e])) e++;
+      return e;
+    }
+  }
+  return -1;
+}
