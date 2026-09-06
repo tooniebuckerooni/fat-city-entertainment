@@ -34,9 +34,21 @@ const files = walk(REPO);
 for (const f of files) {
   const $ = cheerio.load(fs.readFileSync(f, "utf8"));
   const rel = path.relative(REPO, f).replace(/\\/g, "/");
-  $("[href], [src]").each((_, el) => {
-    for (const attr of ["href", "src"]) {
-      let v = $(el).attr(attr);
+  // srcset is checked too. It was not, and a <source srcset> pointing at a
+  // .webp twin that to-webp.js had skipped (it declines a conversion saving
+  // under 15%) rendered the Decades 5-Pack tile completely blank on store/c11
+  // while this reported "broken refs: 0". A <source> that 404s does NOT fall
+  // back to the sibling <img> — the browser has already committed to that
+  // candidate — so a missing srcset file is a blank image, not a heavier one.
+  $("[href], [src], [srcset]").each((_, el) => {
+    for (const attr of ["href", "src", "srcset"]) {
+      let raw = $(el).attr(attr);
+      if (!raw) continue;
+      // srcset is a comma-separated candidate list, each "url [descriptor]".
+      const values = attr === "srcset"
+        ? raw.split(",").map((c) => c.trim().split(/\s+/)[0]).filter(Boolean)
+        : [raw];
+      for (let v of values) {
       if (!v) continue;
       v = v.trim();
       if (/^(mailto:|tel:|javascript:|#|data:|about:)/i.test(v)) continue;
@@ -58,6 +70,7 @@ for (const f of files) {
         const key = (v.startsWith("/") ? v : `${v} (in ${path.posix.dirname(rel)}/)`).split("?")[0];
         if (!broken[key]) broken[key] = [];
         if (broken[key].length < 3) broken[key].push(rel);
+      }
       }
     }
   });

@@ -110,6 +110,7 @@ const alt = name.replace(/"/g, "&quot;");
 // Replacer functions throughout: a filename or alt text containing "$1" or "$&"
 // is otherwise consumed as a backreference. That bug shipped a live
 // twitter:description reading "50 credits for </title>3.98".
+const hasWebpTwin = fs.existsSync(path.join(REPO, webp.replace(/^\//, "")));
 const before = html;
 // The path being replaced. Listing pages and the sitemap reference a product's
 // cover by this exact URL, so it is what makes "find every reference" possible
@@ -155,10 +156,17 @@ html = html.replace(
   /(<a href=")([^"]*)("[^>]*class="[^"]*cloud-zoom[^"]*")/gi,
   (m, a, _u, c) => a + zoomTarget + c
 );
-// Main image inside a <picture>: the srcset sibling must move with it.
+// Main image inside a <picture>: the srcset sibling must move with it — but
+// only to a twin that exists. to-webp.js skips a sub-15% win, and a <source>
+// pointing at a file that was never generated shows nothing at all rather than
+// falling back to the <img> beside it.
 html = html.replace(
-  /(<source[^>]*srcset=")([^"]*)(")/gi,
-  (m, a, u, c) => (OLD.test(u) && !/logo|favicon/i.test(u) ? a + webp + c : m)
+  /<source\b[^>]*srcset="([^"]*)"[^>]*>/gi,
+  (m, u) => {
+    if (!OLD.test(u) || /logo|favicon/i.test(u)) return m;
+    OLD.lastIndex = 0;
+    return hasWebpTwin ? m.replace(/srcset="[^"]*"/i, `srcset="${webp}"`) : "";
+  }
 );
 html = html.replace(
   /(<meta property="og:image" content="https:\/\/www\.fatcityentertainment\.com)([^"]*)(")/i,
@@ -274,7 +282,11 @@ if (WRITE && carriers.length) {
     if (end === -1) { failed.push(lf); continue; }
     let tile = src.slice(m.index, end);
     const had = tile;
-    tile = tile.replace(/srcset="[^"]*"/g, `srcset="${webp}"`);
+    // Same trap as add-store-tile.js: the .webp twin may never have been
+    // generated (to-webp.js skips a sub-15% win), and a <source> that 404s
+    // shows nothing rather than falling back to the <img>.
+    if (hasWebpTwin) tile = tile.replace(/srcset="[^"]*"/g, `srcset="${webp}"`);
+    else tile = tile.replace(/<source\b[^>]*>/gi, "");
     tile = tile.replace(/(<img[^>]*?)src="[^"]*"/g, (mm, a) => `${a}src="${rel}"`);
     tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g, (mm, a) => `${a}alt="${alt}"`);
     if (tile === had) { failed.push(lf); continue; }

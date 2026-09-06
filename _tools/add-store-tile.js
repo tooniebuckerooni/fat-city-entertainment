@@ -232,7 +232,20 @@ for (const rel of PAGES) {
         });
       }
     }
-    tile = tile.replace(/srcset="[^"]*"/g, `srcset="${img.replace(/\.(jpe?g|png|gif)/i, ".webp")}"`);
+    // to-webp.js declines any conversion saving under 15%, so a .webp twin is
+    // NOT guaranteed to exist for every image. Writing this unconditionally
+    // pointed <source type="image/webp"> at a file that was never generated,
+    // and a <source> that 404s does NOT fall back to the sibling <img> — the
+    // browser has already committed to that candidate. That is why the Decades
+    // 5-Pack tile rendered completely blank on store/c11. Offer the twin only
+    // when it is really there; otherwise drop the <source> and let the <img>
+    // serve the original.
+    const webpRel = img.replace(/\.(jpe?g|png|gif)$/i, ".webp");
+    if (webpRel !== img && fs.existsSync(path.join(REPO, webpRel.replace(/^\//, "")))) {
+      tile = tile.replace(/srcset="[^"]*"/g, `srcset="${webpRel}"`);
+    } else {
+      tile = tile.replace(/<source\b[^>]*>/gi, "");
+    }
     tile = tile.replace(/(<img[^>]*?)src="[^"]*"/g, (m, a) => `${a}src="${img}"`);
     tile = tile.replace(/(<img[^>]*?)alt="[^"]*"/g,
     (m, a) => `${a}alt="${name.replace(/"/g, "&quot;")}"`);
