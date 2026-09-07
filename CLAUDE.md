@@ -453,6 +453,23 @@ no sandbox. It closes the issue automatically when things are clean again.
   unconditionally, so they report `(N would change)` against what's on disk
   rather than a write count. The library comparison strips the `fce:jsonld`
   block, because `add-jsonld.js` runs after it by design.
+- **The ten nav tools are in the loop** (added 7 Sept 2026), because nothing was
+  watching the nav and a page cloned from an old shell silently keeps an old
+  menu. Two live cases: post #4 sat three weeks with a pre-rename "Generator 2"
+  item after being merged from a stale branch, and the two new pillar pages
+  shipped with the over-optimised "Bingo Card Generator" anchor
+  `vary-bcg-nav-anchor.js` exists to retire.
+  They needed **three new matcher patterns** — `would update: *[1-9]`,
+  `DRY RUN: [1-9][0-9]* files`, `files changed *: *[1-9]` — because the nav
+  tools report in shapes the old regex missed: `would update: 2 page(s)` has a
+  COLON where `would update [1-9]` expects a space. Adding the tools without
+  those patterns would have read as an all-clear forever, which is the exact
+  trap the rule above describes. All three were proved by reverting a real nav
+  item on a real page and confirming the matcher fires, then goes quiet.
+  **Grep the nav by the tool's own pattern, not by `>Label<`.** A menu label sits
+  on its own line inside `<span class="wsite-menu-title">`, so `>Bingo Card
+  Generator<` matches an `<h2>` heading in body copy and misses every nav item —
+  it named the wrong two pages when this was being diagnosed.
 - **CATALOGUE INVERSION is a failure; the seven-rung LADDER INVERSION is not.**
   That flipped on 5 Sept 2026. The old rule existed because two rungs were
   knowingly inverted, and firing weekly on a known issue trains everyone to

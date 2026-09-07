@@ -104,10 +104,29 @@ jobs:
             # a 4-pack that sat inverted for months while the rung table read
             # clean.
             DRIFT="$DRIFT"'|CATALOGUE INVERSION'
+            # The nav tools report in three shapes of their own, none of which
+            # the patterns above match: "would update: 2 page(s)" has a COLON
+            # where 'would update [1-9]' expects a space, and the rename tools
+            # lead with "DRY RUN: 3 files". Adding the tools without these
+            # patterns would have looked like an all-clear forever.
+            DRIFT="$DRIFT"'|would update: *[1-9]'
+            DRIFT="$DRIFT"'|DRY RUN: [1-9][0-9]* files'
+            DRIFT="$DRIFT"'|files changed *: *[1-9]'
+            # Nav drift is why these are here: post #4 sat live for three weeks
+            # with a pre-rename "Generator 2" item after being merged from a
+            # stale branch, and features.html/aboutus.html kept the
+            # over-optimised "Bingo Card Generator" anchor. Nothing was watching
+            # the nav, so a page cloned from an old shell silently kept an old
+            # menu. Every one of these is idempotent and reads 0 today.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
-                     add-sale-banner; do
+                     add-sale-banner \
+                     add-app-nav add-trivia-store-nav add-song-lists-nav \
+                     add-bingocardmaker-nav rename-generator2-nav \
+                     rename-trivia-generator-nav drop-blog-nav-dropdown \
+                     restyle-featured-nav remove-costume-performers-nav \
+                     vary-bcg-nav-anchor; do
               OUT="$(node _tools/$t.js 2>&1)"
               if echo "$OUT" | grep -Eq "$DRIFT"; then
                 echo "DRIFTED: $t"
