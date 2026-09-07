@@ -57,4 +57,4 @@ Once you know your number, you shouldn't be hand-making cards. [The free Bingo C
 
 Count your players, pick your cards-per-player, add your spares, and print once. Do the math up front and bingo night runs without a single "hang on, let me print more."
 
-For the full hosting playbook, see [how to run a music bingo night](/triviahostresources/how-to-run-a-music-bingo-night).
+For the full hosting playbook, see [how to run a music bingo night](/triviahostresources/how-to-run-a-music-bingo-night), and the [bingo card generator guide](/bingo-card-generator-guide.html) for making the cards themselves.

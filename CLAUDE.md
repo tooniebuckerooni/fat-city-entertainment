@@ -354,6 +354,29 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   page was already written correctly). Finish with `node
   _tools/check-links.js` (needs `npm install --prefix _tools` once) — 0 broken
   refs is the bar.
+- **There is no blog scheduler, and there never was one.** The only cron
+  workflows are `bake-green-room.yml` (daily) and `site-health.yml` (Mondays);
+  neither publishes anything. A batch of GEO posts was built on
+  `claude/fatcity-404-errors-6t8n9z` in Aug 2026 as a **drip** — its commits say
+  "pillar; drips live with post #5" — but the drip mechanism was *a person
+  merging the next one*, and after post #4 nobody did. Three finished posts and
+  two pillar pages sat unmerged for three weeks while the branch fell 115
+  commits behind. Shipped 7 Sept 2026.
+  **Do not merge a stale content branch to catch up.** Those page shells were
+  cloned before the 28 Aug tracking work, so they carried **no GA4 and no
+  Clarity at all**, plus a nav missing Free Song Lists and the All-Purpose
+  Generator rename. Re-publish from the draft with `publish-post.js` instead, so
+  the post inherits the current shell; then run `add-song-lists-nav.js`,
+  `rename-generator2-nav.js` and `add-tracking.js` over any hand-carried page.
+  Post #4 *was* merged from that branch and had been sitting live with a stale
+  "Generator 2" nav item ever since — the nav tools are not in the weekly health
+  check, so nothing caught it.
+- **A pillar page must be linked FROM its cluster posts, not just to them.** The
+  two guides (`trivia-night-guide.html`, `bingo-card-generator-guide.html`)
+  linked down into their posts but nothing linked back up, which is how a hub
+  page ends up orphaned — reachable only from the sitemap, collecting no
+  internal link equity. The up-links live in the **drafts**, so they survive a
+  re-publish; never hand-edit a generated post to add one.
 - **Blog listing shells** (`category/`, `archives/`, `previous/N`, across
   `triviahostresources/` *and* the legacy `whatsnew|inspiration|blog|4` trees)
   must carry `noindex,follow` — `node _tools/noindex-blog-taxonomy.js --write`
