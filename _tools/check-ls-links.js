@@ -54,6 +54,31 @@ for (const m of ls.matchAll(ROW)) {
   }
 }
 
+// The STATUS header is the first thing anyone reads — LEMONSQUEEZY-TODO.md
+// literally says "live status lives in the code now... it won't go stale". It
+// did: it read "69 of 74 wired — 5 to go" while 17 were actually pending,
+// because the new trivia shows were added without touching it. A checklist that
+// under-reports what is left is worse than no checklist. Recount and compare.
+{
+  const wired = (ls.match(/"p\d+": *"http[^"]+", *\/\/ *\[x\]/g) || []).length;
+  const pend = (ls.match(/"p\d+": *"", *\/\/ *\[ \]/g) || []).length;
+  const na = (ls.match(/"p\d+": *"", *\/\/ *\[—\]/g) || []).length;
+  const header = (ls.match(/\/\/ STATUS:[^\n]*/) || [""])[0];
+  const said = header.match(/(\d+) of (\d+) wired — (\d+) to go/);
+  if (!said) {
+    problems.push("ls-links.js has no parsable STATUS header");
+  } else if (
+    Number(said[1]) !== wired ||
+    Number(said[2]) !== wired + pend + na ||
+    Number(said[3]) !== pend
+  ) {
+    problems.push(
+      `ls-links STATUS header is stale: says "${said[1]} of ${said[2]} wired — ${said[3]} to go", ` +
+        `actual is ${wired} of ${wired + pend + na} wired — ${pend} to go`
+    );
+  }
+}
+
 console.log(`checked ${checked} ls-links comment(s) against their product pages`);
 if (problems.length) {
   console.log(`\n${problems.length} PROBLEM(S):`);

@@ -146,6 +146,12 @@ here** — the repo is served publicly by GitHub Pages.
   artwork. Rebuilding also re-inserted the tile at the FRONT of each grid,
   undoing `order-store-tiles.js`. Give a new cover a new filename — same URL
   means returning visitors keep the cached old one.
+- **`_tools/add-lazy-images.js` is the one tool you must not just run.** It has
+  **no `--write` flag — it writes immediately** — and it parses with cheerio,
+  which re-serializes the whole document: running it 7 Sept 2026 rewrote 84
+  unrelated lines across 4 pages (`defer` → `defer=""`, `&` → `&amp;`) for 18
+  lazy attributes. Reverted. It needs a dry-run flag and a targeted regex before
+  anyone uses it again. Every other `_tools/` script is dry-run by default.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
@@ -514,6 +520,12 @@ retired on purpose, not lost.
   LemonSqueezy and in what order, and the four decisions still open. The
   question content lives in `_content/trivia-shows/` (see its own README);
   `_tools/build-ls-callsheet.js` builds the per-product worksheet.
+- `IMAGE-OPTIMIZATION.md` — **the image runbook.** Audited 7 Sept 2026: 137 MB of
+  uploads, 615 orphaned files (57.9 MB), and two category pages carrying 2.0 MB
+  and 1.4 MB of images because tiles serve 1200px files into a 210px box. Says
+  what is automated (webp twins, recompression — worth only ~0.1 MB) and what is
+  **not** (resizing, which is the entire win), which 20 product images are too
+  small to fix without new uploads, and why `add-lazy-images.js` must not be run.
 - `TRIV101-POLISH.md` — the current backlog for the game, the survey stream,
   and Green Room next steps. Start here for "what's left."
 - `POST-LAUNCH.md` — the marketing/catalog punch list: pricing decisions,

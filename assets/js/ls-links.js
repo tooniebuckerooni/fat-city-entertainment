@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 69 of 74 wired — 5 to go.  Search "[ ]" to find them.
+// STATUS: 79 of 97 wired — 17 to go (1 sells on Amazon, not LS).  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
