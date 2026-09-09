@@ -82,6 +82,12 @@ const PRODUCTS = {
   p149: { path: "/store/p149/aprilsfoolsday.html", name: "April Fools (Soundalikes)" },
   p97: { path: "/store/p97/halloweenparty.html", name: "Halloween Party" },
   p103: { path: "/store/p103/christmasparty.html", name: "Christmas Party" },
+  // Real titles are "Girls Vs Boys" and "Rocker Moms" — sold standalone at
+  // $11.99 like every other single, just not under a holiday name. Named here
+  // to match how the Holidays 6-pack itself already brands them (its own
+  // image asset is literally music-bingo-holidays-valentines-day-icon.jpeg).
+  p111: { path: "/store/p111/girlsvsboys.html", name: "Valentine's Day" },
+  p72: { path: "/store/p72/rockermoms.html", name: "Mother's Day" },
   p116: { path: "/store/p116/anagrams.html", name: "Anagrams" },
   p114: { path: "/store/p114/antonyms.html", name: "Antonyms" },
   p158: { path: "/store/p158/acronyms.html", name: "Acronyms" },
@@ -109,7 +115,7 @@ const BUNDLES = {
   p128: ["p81", "One Hit Wonders 2"],
   p162: ["p116", "p114", "p158"],
   p127: ["p106", "Movie Soundtracks 2", "Movie Soundtracks 3"],
-  p155: ["Valentine's Day", "p136", "p149", "Mother's Day", "p97", "p103"],
+  p155: ["p111", "p136", "p149", "p72", "p97", "p103"],
   p101: ["The Year Was… 1983", "The Year Was… 1992", "The Year Was… 2001",
          "The Year Was… 2009", "The Year Was… 2022"],
 };
@@ -169,9 +175,9 @@ function blockFor(pid) {
     let maths = "";
     if (each && saving > 0) {
       maths = ` That is <strong>${each} a game</strong> against ` +
-              `${money(separately)} bought one at a time &mdash; you keep ${money(saving)}.`;
+              `${money(separately)} bought one at a time, and you keep ${money(saving)}.`;
     } else if (each) {
-      maths = ` One checkout, one download &mdash; <strong>${each} a game</strong>.`;
+      maths = ` One checkout, one download: <strong>${each} a game</strong>.`;
     }
 
     inner = `<strong>${parts.length} games in this pack:</strong> ` +
@@ -191,7 +197,7 @@ function blockFor(pid) {
         ? `which puts the second at <strong>${money(rest)}</strong>.`
         : `which puts the other ${others} at <strong>${money(rest)} each</strong>.`;
       maths = ` This game is ${money(mine.amount)}; the pack is ` +
-              `${money(bundle.amount)} &mdash; ${tail}`;
+              `${money(bundle.amount)}, ${tail}`;
     }
 
     inner = `<strong>Also in a pack:</strong> ${link(inBundle)}.` + maths;
@@ -202,7 +208,7 @@ function blockFor(pid) {
     // day the sale ends.
     inner =
       `<strong>Hosting every week?</strong> The ${link("p112")} unlocks every ` +
-      `music bingo game we make &mdash; this one included &mdash; plus each new ` +
+      `music bingo game we make (this one included), plus each new ` +
       `release and a year of the Bingo Card Generator.`;
   } else {
     return null;

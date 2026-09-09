@@ -83,7 +83,7 @@ window.LS_LINKS = {
   "p148": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/aecab422-61c9-4b39-bcda-5612b2a55699", // [x] Guitar Gods - 250 Music Bingo Cards — $11.99 USD — /store/p148/guitargods.html
   "p149": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/e8cad9f0-3e86-42d7-9e0f-dae62cc907b9", // [x] April Fools (Soundalikes) - 250 Music Bingo Cards — $11.99 USD — /store/p149/aprilsfoolsday.html
   "p153": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/1fe18c3a-5567-4558-a873-222bd36cc43b", // [x] The 60s - 250 Music Bingo Cards — $11.99 USD — /store/p153/the60s.html
-  "p155": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/5cf46eea-20ac-4292-981b-0c7954334ab8", // [x] 'Holidays' Music Bingo 6-Pack — $48.99 USD — /store/p155/holidays.html
+  "p155": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/5cf46eea-20ac-4292-981b-0c7954334ab8", // [x] 'Holidays' Music Bingo 6-Pack — $57.56 USD — /store/p155/holidays.html
   "p156": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/8537c4bb-5de5-470c-aa19-1b8f46602b48", // [x] Numbers - 250 Music Bingo Cards — $11.99 USD — /store/p156/numbers.html
   "p158": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/d322bd9f-1b3c-4da6-8286-00d7611ac0de", // [x] Acronyms - 250 Music Bingo Cards — $11.99 USD — /store/p158/acronyms.html
   "p159": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/aee876f7-7267-4c45-a03d-c95a4375b54e", // [x] Disco - 250 Music Bingo Cards — $11.99 USD — /store/p159/Disco.html

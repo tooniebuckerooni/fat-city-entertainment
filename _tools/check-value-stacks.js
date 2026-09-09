@@ -1,14 +1,14 @@
-// Verify the club "Quick math" paragraphs still add up.
+// Verify the club (and club-shaped-bundle) "Quick math" paragraphs still add up.
 //
 //   node _tools/check-value-stacks.js            # check
 //   node _tools/check-value-stacks.js --write    # regenerate the prose
 //
-// The three club pages each carry a hand-written value stack — so many games at
-// the single-game price, plus a Bingo Card Generator licence, plus the Handbook,
-// totalling a compare-at figure. **No tool generates that prose**, which is
-// exactly how Bronze ended up advertising $89 months after it dropped to $79,
-// and how its cost-per-game cell stayed wrong because it was derived from the
-// stale number.
+// The three club pages, plus any ADDON_PACKS entry, each carry a hand-written
+// value stack — so many games at the single-game price, plus a Bingo Card
+// Generator licence, plus (clubs only) the Handbook, totalling a compare-at
+// figure. **No tool generates that prose**, which is exactly how Bronze ended
+// up advertising $89 months after it dropped to $79, and how its cost-per-game
+// cell stayed wrong because it was derived from the stale number.
 //
 // This recomputes every figure from the live single-game price and the licence
 // prices, and checks the struck-through compare-at on the page matches the total
@@ -41,6 +41,20 @@ const CLUBS = [
     sells: 193.75, words: "Twenty-five games", licName: "Monthly licence" },
   { pid: "p112", file: "store/p112/GoldClub.html",   games: 50, licence: 116.00,
     sells: 386.49, words: "All fifty games",   licName: "Annual licence" },
+];
+
+// Same "games + licence = value" arithmetic as the clubs, for a pack that
+// bundles in a Generator licence perk without the Handbook — so it gets its
+// own list rather than being forced into CLUBS, which goldclubplaylists.html
+// below assumes is exactly the three real club tiers.
+const ADDON_PACKS = [
+  { pid: "p155", file: "store/p155/holidays.html", games: 6, licence: 24.00,
+    sells: 57.56, words: "Six games", licName: "Monthly licence" },
+];
+
+const VALUE_STACKS = [
+  ...CLUBS.map((c) => ({ ...c, handbook: true })),
+  ...ADDON_PACKS.map((c) => ({ ...c, handbook: false })),
 ];
 
 const read = (rel) => fs.readFileSync(path.join(REPO, rel), "utf8");
@@ -90,9 +104,9 @@ const LANDING = "goldclubplaylists.html";
      (m, a) => a + sells.map((v) => `<td>${money(v)}</td>`).join("")],
     [/(Cost per game[\s\S]{0,120}?<\/td>)<td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td><td>\$[0-9,.]+<\/td>/,
      (m, a) => a + perGame.map((v) => `<td>${money(v)}</td>`).join("")],
-    [/(Get the Silver Club &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[1].sells)],
-    [/(Get the Starter Pack &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[0].sells)],
-    [/(Get the Gold Club &mdash; )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[2].sells)],
+    [/(Get the Silver Club: )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[1].sells)],
+    [/(Get the Starter Pack: )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[0].sells)],
+    [/(Get the Gold Club: )\$[0-9,.]+/g, (m, a) => a + money(CLUBS[2].sells)],
     [/(sold individually for )\$[0-9,.]+/g, (m, a) => a + money(SINGLE)],
   ];
   for (const [re, fn] of edits) {
@@ -134,10 +148,12 @@ for (const b of BUNDLE_PROSE) {
     console.log(`${b.pid.padEnd(5)} ${b.games} games bought separately = ${money(want)}`);
 }
 
-for (const c of CLUBS) {
+for (const c of VALUE_STACKS) {
   const html = read(c.file);
   const expectGames = Number((c.games * SINGLE).toFixed(2));
-  const expectTotal = Number((expectGames + c.licence + HANDBOOK).toFixed(2));
+  const expectTotal = Number(
+    (expectGames + c.licence + (c.handbook ? HANDBOOK : 0)).toFixed(2)
+  );
   const expectSave = Number((expectTotal - c.sells).toFixed(2));
 
   // Every dollar figure in the Quick math paragraph, in order.
@@ -145,11 +161,15 @@ for (const c of CLUBS) {
     `${c.words} at \\$[0-9,.]+ is [\\s\\S]*?you keep <strong>\\$[0-9,.]+</strong>\\.`
   );
   if (WRITE) {
-    const rebuilt =
-      `${c.words} at ${money(SINGLE)} is ${money(expectGames)}. Add the ` +
-      `${money(c.licence)} ${c.licName} and the ${money(HANDBOOK)} Handbook: ` +
-      `<strong>${money(expectTotal)}</strong> of value, yours for ` +
-      `<strong>${money(c.sells)}</strong> — you keep <strong>${money(expectSave)}</strong>.`;
+    const rebuilt = c.handbook
+      ? `${c.words} at ${money(SINGLE)} is ${money(expectGames)}. Add the ` +
+        `${money(c.licence)} ${c.licName} and the ${money(HANDBOOK)} Handbook: ` +
+        `<strong>${money(expectTotal)}</strong> of value, yours for ` +
+        `<strong>${money(c.sells)}</strong>, and you keep <strong>${money(expectSave)}</strong>.`
+      : `${c.words} at ${money(SINGLE)} is ${money(expectGames)}. Add the ` +
+        `${money(c.licence)} ${c.licName}: <strong>${money(expectTotal)}</strong> ` +
+        `of value, yours for <strong>${money(c.sells)}</strong>, and you keep ` +
+        `<strong>${money(expectSave)}</strong>.`;
     if (SENTENCE.test(html)) {
       const next = html.replace(SENTENCE, () => rebuilt);
       if (next !== html) {
@@ -168,8 +188,10 @@ for (const c of CLUBS) {
     continue;
   }
   const figs = (mathM[0].match(/\$[0-9,]+\.[0-9]{2}/g) || []).map(num);
-  // single, games-value, licence, handbook, total, sells, save
-  const [gotSingle, gotGames, gotLic, gotHb, gotTotal, gotSells, gotSave] = figs;
+  // single, games-value, licence, [handbook], total, sells, save
+  const [gotSingle, gotGames, gotLic, gotHb, gotTotal, gotSells, gotSave] = c.handbook
+    ? figs
+    : [figs[0], figs[1], figs[2], undefined, figs[3], figs[4], figs[5]];
 
   const check = (label, got, want) => {
     if (got === undefined) problems.push(`${c.pid}: ${label} missing from Quick math`);
@@ -179,7 +201,7 @@ for (const c of CLUBS) {
   check("single-game price", gotSingle, SINGLE);
   check("games subtotal", gotGames, expectGames);
   check("licence price", gotLic, c.licence);
-  check("handbook price", gotHb, HANDBOOK);
+  if (c.handbook) check("handbook price", gotHb, HANDBOOK);
   check("value total", gotTotal, expectTotal);
   check("selling price", gotSells, c.sells);
   check("saving", gotSave, expectSave);
@@ -197,7 +219,8 @@ for (const c of CLUBS) {
 
   console.log(
     `${c.pid.padEnd(5)} ${c.games} games ${money(expectGames)} + ${money(c.licence)} licence ` +
-    `+ ${money(HANDBOOK)} handbook = ${money(expectTotal)} -> sells ${money(c.sells)}, saves ${money(expectSave)}`
+    (c.handbook ? `+ ${money(HANDBOOK)} handbook ` : "") +
+    `= ${money(expectTotal)} -> sells ${money(c.sells)}, saves ${money(expectSave)}`
   );
 }
 
@@ -205,8 +228,8 @@ if (WRITE) {
   // The compare-at lives in the price area, which set-usd-price.js owns. Print
   // the exact command rather than reaching into another tool's territory.
   console.log("\nNow align each compare-at with its new total:");
-  for (const c of CLUBS) {
-    const t = (c.games * SINGLE + c.licence + HANDBOOK).toFixed(2);
+  for (const c of VALUE_STACKS) {
+    const t = (c.games * SINGLE + c.licence + (c.handbook ? HANDBOOK : 0)).toFixed(2);
     console.log(`  node _tools/set-usd-price.js ${c.pid} ${t} ${c.sells.toFixed(2)}`);
   }
 }
@@ -216,4 +239,4 @@ if (problems.length) {
   problems.forEach((p) => console.log(`  ! ${p}`));
   process.exit(1);
 }
-console.log("\nall three value stacks add up, and match their compare-at prices.");
+console.log(`\nall ${VALUE_STACKS.length} value stacks add up, and match their compare-at prices.`);
