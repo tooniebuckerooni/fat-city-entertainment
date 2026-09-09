@@ -40,7 +40,7 @@ const CLUBS = [
   { pid: "p130", file: "store/p130/SilverClub.html", games: 25, licence: 24.00,
     sells: 193.75, words: "Twenty-five games", licName: "Monthly licence" },
   { pid: "p112", file: "store/p112/GoldClub.html",   games: 50, licence: 116.00,
-    sells: 415.50, words: "All fifty games",   licName: "Annual licence" },
+    sells: 386.49, words: "All fifty games",   licName: "Annual licence" },
 ];
 
 const read = (rel) => fs.readFileSync(path.join(REPO, rel), "utf8");
