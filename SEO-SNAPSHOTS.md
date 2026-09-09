@@ -18,9 +18,10 @@ Performance (Queries + Pages), "Last 3 months" window, pulled 2026-09-09.
 Microsoft Clarity Dashboard/URL-performance/Referrer/Top-exit-pages exports,
 08/11–09/09/2026 window, pulled 2026-09-09.
 **Not available this run:** GA4 (no export/screenshot provided, no MCP tool
-connected), Statcounter (no screenshot provided), Ahrefs (MCP connected but
-plan-gated — confirmed again today via `public-domain-rating-free`, same
-"Insufficient plan" error as 9 Sept's earlier check this session).
+connected), Statcounter (no screenshot provided). Ahrefs' MCP connection is
+still plan-gated (confirmed via `public-domain-rating-free`), but the owner
+pulled real data manually from Ahrefs Webmaster Tools the same day — see
+below.
 
 **Clarity (08/11–09/09/2026, 29 days):** 621 sessions / 493 unique users,
 14% returning, 2.70 pages/session. Core Web Vitals healthy site-wide (score
@@ -41,15 +42,29 @@ plausible quality-signal explanation neither source shows alone.
 despite being indexed — worth checking against `IMAGE-OPTIMIZATION.md`'s
 known heavy-image pages.
 
-**Ahrefs / backlinks: no baseline yet.** This is the first `/state-of-seo`
-run and the Ahrefs API plan doesn't include the endpoints this skill needs.
-There is no DR, referring-domain, or backlink count to log, and nothing to
-diff on the next run either. **The one concrete next step:** set up Ahrefs
-Webmaster Tools (free, needs the domain verified) — see
-`references/sources.md` in the skill for the manual path. Once that's done,
-the next run can log a real baseline and start tracking new/lost links,
-which is the part of this that actually matters for the link-building work
-in progress.
+**Ahrefs / backlinks: real baseline established, same day, via Ahrefs
+Webmaster Tools.** Current (2026-09-09): **DR 16** (dipped to 8 briefly Aug
+26–28, recovered), **461 referring domains**. History export covers daily
+counts back to 2015; the recent shape is the notable part — a steady climb
+from 489 (Aug 1) to a **peak of 579 (Aug 22)**, then a sharp, concentrated
+drop to **456 (Sep 5)**, a loss of 123 domains in under 2 weeks, with only
+partial recovery since (461 as of today). Over the full Aug 1–Sep 9 window:
+**141 new domains, 167 lost** (net –26), but the loss is heavily clustered
+right after the Aug 22 peak (single days losing –21, –18, –17, –16 domains),
+not spread evenly — the signature of a batch of domains appearing together
+and then dropping together, not organic day-to-day churn.
+
+**Read on this, not yet confirmed:** this export only has daily counts, not
+which domains. The shape (a sharp synchronized rise-then-fall) is much more
+consistent with a wave of low-quality/spam or bot-crawled domains entering
+and then leaving Ahrefs' link graph than with real editorial links being
+lost — nothing in GSC's or Clarity's real-traffic data from the same window
+shows a correlated crash, which real lost links usually do produce. **Not
+something to chase or fix from the site side** either way — these are other
+sites linking in, outside FCE's control. To actually confirm rather than
+infer: pull AWT's **New/Lost backlinks table** (the one with real domain
+names, not just counts) next time — that turns this from "the shape suggests
+spam churn" into "here are the domains and here's what they were."
 
 **Indexing headline (as of the Sept 3 chart date):** 276 indexed / 345 not
 indexed (44.5% of Google's known-URL universe indexed). **That number reads
@@ -71,4 +86,26 @@ split across both URL forms with the **wrong** one winning (no-slash: 47
 clicks, position 12.3; slash/canonical: 7 clicks, position 25.8). Nothing to
 fix in the repo here — the signals are already consistent — just a lag worth
 re-checking next run rather than a new problem to chase.
+
+**Dead-click bug found and fixed, same day:** owner exported a Clarity
+Dashboard pre-filtered to the 58 dead-click sessions. Its "Top pages" panel
+turned out to just be the sitewide numbers unfiltered (matched the earlier
+export exactly, and summed far above 58) — not trustworthy — but Referrer,
+Top-exit-pages, and URL-performance were correctly scoped to the segment.
+`bingocardgenerator.html` was the dominant exit page within it (23 of ~47
+attributed exits). Read `generateCards()` in `files/theme/script.js`: it
+calls `new jsPDF(...)` and a long chain of jsPDF methods with **no error
+handling**, and jsPDF loads from `unpkg.com` with no fallback. Confirmed
+live with Playwright against the actual page: when the jsPDF script fails to
+load for any reason, "Download PDF" → email gate → "No thanks, just
+download" completes visibly (gate opens, closes) but the PDF silently never
+builds — no error, no feedback. Exactly the dead-click shape, on the site's
+single highest-traffic interactive tool. Fixed by wrapping `generateCards()`
+in try/catch with a visible `.fce-bcg-error` message on failure
+(`files/theme/script.js`, `bingocardgenerator.html`, `files/theme/styles.css`)
+— re-tested, the message now surfaces instead of failing silently. Can't
+claim this explains all 58 sessions (Clarity's own JS-error count reads 0
+sitewide, and this failure throws a real catchable exception that should
+have shown up), but it was a real, previously-unguarded failure mode
+regardless of exact attribution to this specific session batch.
 
