@@ -103,10 +103,10 @@ for (const [rel, info] of Object.entries(data)) {
     `<strong>${esc(info.pack)}</strong>. ` +
     (lib
       ? `<a href="${LIB_ROOT}/${lib.slug}/">See all ${lib.total} songs</a>, or get the ` +
-        `full callsheet &mdash; every song in play order, with the answers &mdash; ` +
+        `full callsheet (every song in play order, with the answers) ` +
         `with your download.`
-      : `The full callsheet &mdash; every song in ` +
-        `play order, with the answers &mdash; comes with your download.`);
+      : `The full callsheet (every song in ` +
+        `play order, with the answers) comes with your download.`);
 
   // A call to action at the FOOT of the list matters more than it looks. This
   // block is below the buy button, and the traffic it attracts — people

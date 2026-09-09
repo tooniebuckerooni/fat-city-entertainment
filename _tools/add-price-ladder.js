@@ -150,7 +150,7 @@ function render() {
       : `${fn(r.low)} &ndash; ${fn(r.high)}`);
     const each = r.games
       ? span((n) => money(n / r.games)) + " a game"
-      : "&mdash;";
+      : "N/A";
     const sale = r.onSale ? ' <span class="fce-ladder-sale">on sale</span>' : "";
     return `      <tr>\n` +
       `        <th scope="row"><a href="${r.href}">${esc(r.tier)}</a></th>\n` +
@@ -164,12 +164,11 @@ function render() {
 <section class="fce-copy fce-ladder">
 <div class="fce-copy-inner">
 <h2>How the packs compare</h2>
-<p>Every game is the same thing in the box &mdash; 250 randomized cards, the
+<p>Every game is the same thing in the box: 250 randomized cards, the
 printable callsheet, and ready-made Spotify and Apple Music playlists. The only
-question is how many nights you're buying at once. <strong>The more you buy at
-once, the less each night costs</strong> &mdash; every step up this table is
-cheaper per game than the one above it, so if you know you'll run more than one,
-the pack pays for itself on the second game.</p>
+question is how many nights you're buying at once, and <strong>every multi-game
+pack works out cheaper per night than buying singles</strong>, so if you know
+you'll run more than one, the pack pays for itself on the second game.</p>
 <div class="fce-ladder-scroll">
   <table>
     <thead>
@@ -181,7 +180,7 @@ ${body}
   </table>
 </div>
 <p class="fce-ladder-note">Prices in USD. The Gold Club has no per-game figure
-because it doesn't have a fixed number of games &mdash; every new release is
+because it doesn't have a fixed number of games: every new release is
 included as it lands. Already own a game that's inside a pack you want? Email us
 before you buy and we'll send you a credit code.</p>
 </div>
