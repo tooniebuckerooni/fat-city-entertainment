@@ -27,8 +27,11 @@
 // - Prices are READ FROM THE PRODUCT PAGES at build time, never typed. Re-run
 //   after any repricing, same standing rule as add-cross-sell.js and
 //   add-price-ladder.js.
-// - Buy buttons carry class="ls-buy" data-product="pNN" so ls-buy.js, the promo
-//   discount prefill, bake-buy-links.js and the GA4 tracking all work unchanged.
+// - Buy buttons carry class="ls-buy" data-product="pNN" so ls-buy.js,
+//   bake-buy-links.js and the GA4 tracking all work unchanged. No promo-bar.js
+//   include here (dropped when Back 2 School was dismantled Sept 2026) — a
+//   future sitewide discount-code promo would need that script tag added back
+//   to this template for its prefill to reach campaign pages too.
 // - Self-contained CSS. No Weebly stylesheet, no 45KB of table scaffolding —
 //   these load fast, and swapping the visual direction means swapping one
 //   THEMES entry rather than rebuilding a page.
@@ -309,7 +312,6 @@ ${songList}
 
 <script src="/assets/js/ls-links.js"></script>
 <script src="/assets/js/ls-buy.js"></script>
-<script defer src="/assets/js/promo-bar.js"></script>
 <!-- fce:tracking -->
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
