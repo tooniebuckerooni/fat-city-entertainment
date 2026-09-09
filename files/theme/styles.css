@@ -128,6 +128,13 @@
 	text-align: center;
 }
 
+.fce-bcg-error {
+	margin: 10px 0 0;
+	font-size: 13px;
+	color: #b00020;
+	text-align: center;
+}
+
 @media screen and (max-width: 480px) {
 	.fce-bcg {
 		padding: 22px 18px 26px;
