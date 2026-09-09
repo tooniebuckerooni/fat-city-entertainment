@@ -578,9 +578,9 @@ retired on purpose, not lost.
   declining to index for **content** reasons that no amount of tooling fixes.
 - `SEO-SNAPSHOTS.md` — dated log kept by the `/state-of-seo` skill, mainly for
   the backlink delta (new/lost links, DR trend) since a single Ahrefs pull
-  can't show what changed. First entry 9 Sept 2026 has no backlink data yet —
-  the Ahrefs connection is plan-gated; Ahrefs Webmaster Tools (free) still
-  needs setting up to get a real baseline.
+  can't show what changed. Baseline established 9 Sept 2026 via Ahrefs
+  Webmaster Tools (DR 16, 461 referring domains) — the direct Ahrefs API/MCP
+  connection is still plan-gated, AWT is the free manual workaround.
 - `TRIVIA-SHOW-MAKER-HANDOFF.md` — the Trivia Show Maker: as of 2026-08-10 the
   app (`trivia-show-maker/`) and its AI backend (`tgp-ai-gateway/`) are
   sourced in **this** repo — `trivia-generator-pro` is retired, don't edit
