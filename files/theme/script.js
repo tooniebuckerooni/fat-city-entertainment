@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function generateCards() {
+	var errorEl = document.getElementById("fce-bcg-error");
+	if (errorEl) errorEl.style.display = "none";
+	try {
 	var doc = new jsPDF({
 	  orientation: 'landscape',
 	  unit: 'mm',
@@ -224,5 +227,9 @@ function generateCards() {
 
 	// console.log(cardTitle.value);
 	doc.save(cardsAmount.value + "-bingo-cards.pdf");
+	} catch (err) {
+		console.error("Bingo card PDF generation failed:", err);
+		if (errorEl) errorEl.style.display = "block";
+	}
 	// location.reload();
 }
