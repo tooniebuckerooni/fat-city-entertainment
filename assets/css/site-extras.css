@@ -132,6 +132,37 @@ a.fce-cta-secondary:hover {
   background-color: rgba(0, 0, 0, 0.06);
 }
 
+/* Short feature badges under a CTA/paragraph — same black-border, uppercase
+   Montserrat language as .fce-cta-secondary, just non-interactive. Each <li>
+   gets a checkmark via ::before rather than typed into the copy, so the
+   glyph can't be edited out of step with the rest of the badge's styling. */
+ul.fce-upsell-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+}
+ul.fce-upsell-badges li {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 14px;
+  border: 1px solid #000000;
+  border-radius: 2px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #000000;
+}
+ul.fce-upsell-badges li::before {
+  content: "\2713";
+}
+
 /* When a KDP product lists Kindle and paperback separately, ls-buy.js clones the
    buy button for the second edition and drops the duplicate `id`. The theme only
    gives buy buttons their white-on-black text via
