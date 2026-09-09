@@ -64,6 +64,8 @@ console.log(`single-game price (from ${ANCHOR}): ${money(SINGLE)}\n`);
 const BUNDLE_PROSE = [
   { pid: "p165", file: "store/p165/aroundtheworldpack.html", games: 4, words: "all four" },
   { pid: "p166", file: "store/p166/partystarterpack.html",   games: 4, words: "all four" },
+  { pid: "p147", file: "store/p147/decades.html",             games: 5, words: "all five" },
+  { pid: "p168", file: "store/p168/thingsinsongs.html",       games: 5, words: "all five" },
 ];
 
 const problems = [];
