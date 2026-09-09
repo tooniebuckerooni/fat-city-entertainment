@@ -576,6 +576,11 @@ retired on purpose, not lost.
 - `SEO-CRAWL-HANDOFF.md` — the Aug 9 2026 crawl/indexation fix: why ~380 pages
   had two competing URLs, what got normalised, and the 16 pages Google is
   declining to index for **content** reasons that no amount of tooling fixes.
+- `SEO-SNAPSHOTS.md` — dated log kept by the `/state-of-seo` skill, mainly for
+  the backlink delta (new/lost links, DR trend) since a single Ahrefs pull
+  can't show what changed. First entry 9 Sept 2026 has no backlink data yet —
+  the Ahrefs connection is plan-gated; Ahrefs Webmaster Tools (free) still
+  needs setting up to get a real baseline.
 - `TRIVIA-SHOW-MAKER-HANDOFF.md` — the Trivia Show Maker: as of 2026-08-10 the
   app (`trivia-show-maker/`) and its AI backend (`tgp-ai-gateway/`) are
   sourced in **this** repo — `trivia-generator-pro` is retired, don't edit
