@@ -22,6 +22,19 @@ here** — the repo is served publicly by GitHub Pages.
   preview — but confirm before merging anything that touches pricing, buy
   links, or removes/hides something already live.
 
+## Writing style — no em-dashes in customer-facing copy
+**Never use em-dashes (—, `&mdash;`) in anything a visitor reads** — product
+copy, cross-sell/value-stack sentences, page prose, button labels. They read as
+AI-generated, which people notice and dislike. Use a comma, colon, semicolon,
+parentheses, or just a period instead. This was a real, repo-wide problem as of
+7 Sept 2026 — dozens of `_tools/` scripts template em-dashes straight into
+product pages (`add-cross-sell.js`, `add-price-ladder.js`, `check-value-stacks.js`,
+`add-tracklists.js` were fixed then; others may still have them) — so **fix it at
+the template in `_tools/`, then re-run with `--write`**, never by hand-editing
+the generated page (the next `--write` run silently reverts a hand edit). Code
+comments in `_tools/*.js` are fine — this is about what a customer reads, not
+internal documentation, which uses em-dashes throughout on purpose.
+
 ## Site-wide edits (nav, favicons, etc.)
 - The nav is **duplicated on ~397 live pages** (a desktop + a mobile copy each).
   **Never hand-edit nav across pages** — use/extend the idempotent Node scripts
