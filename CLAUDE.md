@@ -186,15 +186,22 @@ internal documentation, which uses em-dashes throughout on purpose.
   page's own `itemprop="price"`. Neither ever quotes a sale price in prose it
   can't refresh; both report which tiers are on sale at the end of a run, and
   the ladder prints a **LADDER INVERSION** warning naming any rung that costs
-  more per game than the rung above it. **As of 5 Sept 2026 there are none** —
-  the catalogue is monotonic end to end (11.99 → 8.99 → 8.66 → 8.50 → 8.40 →
-  8.17 → 7.90 → 7.75), so the ladder copy now makes the stronger claim: *"the
-  more you buy at once, the less each night costs."* That is only true while it
-  stays monotonic — if a rung inverts, weaken the copy back to "every multi-game
-  pack works out cheaper per night than buying singles" in the same commit. The
-  seven-rung table alone is not enough to check: 2-packs and 4-packs are not
-  rungs, and a 4-pack undercut the 5-packs and the 6-pack for months while the
-  table read clean.
+  more per game than the rung above it. The catalogue was monotonic end to end
+  from 5 Sept until **9 Sept 2026, when Holidays (p155) was deliberately
+  repriced to $57.56** ($9.59/game) — owner's call, made with the inversion
+  named and accepted, not missed. It now costs more per game than the 5-pack
+  rung above it ($8.40/game). **Known and deliberate, same idiom as the old
+  Bronze/Silver inversions before 5 Sept** — don't "fix" the price to close it
+  without asking first. Because of it, the ladder copy is back to the weaker
+  claim, *"every multi-game pack works out cheaper per night than buying
+  singles,"* in both `trivia-store.html` and `add-price-ladder.js`'s own
+  template (fix both together, or the next `--write` reverts the page). The
+  seven-rung table alone is not enough to check: 2-packs, 4-packs and Holidays'
+  6-pack are not rungs, and a 4-pack undercut the 5-packs and the 6-pack for
+  months while the table read clean before 5 Sept.
+- **The weekly health check's CATALOGUE INVERSION line will now fire every
+  Monday** because of the Holidays inversion above — expected, not a
+  regression to chase. See "Weekly health check" below.
 
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
@@ -489,17 +496,19 @@ no sandbox. It closes the issue automatically when things are clean again.
   on its own line inside `<span class="wsite-menu-title">`, so `>Bingo Card
   Generator<` matches an `<h2>` heading in body copy and misses every nav item —
   it named the wrong two pages when this was being diagnosed.
-- **CATALOGUE INVERSION is a failure; the seven-rung LADDER INVERSION is not.**
-  That flipped on 5 Sept 2026. The old rule existed because two rungs were
-  knowingly inverted, and firing weekly on a known issue trains everyone to
-  ignore the check. The catalogue is monotonic end to end now, so zero is the
-  baseline and any inversion is real drift — and it is load-bearing, because the
-  ladder copy claims "the more you buy at once, the less each night costs". An
-  inversion makes a live claim false, not just a rung awkward.
+- **CATALOGUE INVERSION is checked in the matcher; the seven-rung LADDER
+  INVERSION is not.** That split was added 5 Sept 2026 so a known issue
+  wouldn't train everyone to ignore the check — the narrower rung warning is
+  the one that's allowed to sit inverted without paging anyone.
   `add-price-ladder.js` prints CATALOGUE INVERSION across **every** pack,
-  including the 2- and 4-packs that are not rungs; the narrower rung warning
-  stays out of the matcher, because it was a 4-pack that sat inverted for months
-  while the rung table read clean.
+  including 2-, 4- and 6-packs that aren't rungs; it was a 4-pack that sat
+  inverted for months while the rung table read clean, which is why both are
+  checked now. **As of 9 Sept 2026 the matcher WILL fire every Monday**: the
+  Holidays 6-pack (p155, $57.56) is a known, owner-approved catalogue
+  inversion (see the price-ladder note above) — the resulting GitHub issue is
+  expected, not a new regression. Don't "fix" it by reverting the price without
+  checking first; if the ladder ever needs a true zero-inversion baseline
+  again, that's a repricing decision, not a health-check bug.
 
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and
@@ -533,6 +542,18 @@ retired on purpose, not lost.
   LemonSqueezy and in what order, and the four decisions still open. The
   question content lives in `_content/trivia-shows/` (see its own README);
   `_tools/build-ls-callsheet.js` builds the per-product worksheet.
+- `SEPT-10-PLAN.md` — the Back 2 School handover plan. **Partially executed as
+  of 9 Sept 2026**: Phase 1 (end the sitewide promo) done — the popup and
+  checkout auto-discount were pulled site-wide ahead of the plan's own Sept 10
+  self-expiry, on the owner's explicit call to do it now rather than wait.
+  Phase 3 (bundle compare-ats) done for p165, p166, p147, p168, **and p155
+  Holidays** (added beyond the plan's original list, with a Generator-month
+  perk bundled in — see the price-ladder note above for why that one's
+  inverted on purpose). **Still open:** Phase 2 (the eight singles to $8.99,
+  including the p81/One Hit Wonders 2-Pack decision), the other five bundle
+  compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
+  copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
+  current 5 Sept, not 9 Sept.
 - `IMAGE-OPTIMIZATION.md` — **the image runbook.** Audited 7 Sept 2026: 137 MB of
   uploads, 615 orphaned files (57.9 MB), and two category pages carrying 2.0 MB
   and 1.4 MB of images because tiles serve 1200px files into a 210px box. Says
