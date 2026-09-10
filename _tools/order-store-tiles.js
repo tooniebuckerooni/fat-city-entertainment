@@ -66,11 +66,18 @@ const PAGES = [
   // Holidays: calendar order, then the packs smallest to largest. The music
   // bingo game and the trivia pack for the same holiday sit together.
   { rel: "store/c40/holidays/index.html",
-    order: ["111", "136", "149", "72", "97", "103"],
+    // SEASONAL, 10 Sept 2026 - REVERT AFTER 1 NOV 2026 to
+    // ["111", "136", "149", "72", "97", "103"] (calendar order).
+    // Halloween is the one holiday whose buying window is short and whose
+    // products were scattered: p174 was not in this category at all until
+    // today, so a shopper browsing Holidays for Halloween saw one of the
+    // three things we sell for it. Halloween trio first for the season,
+    // calendar order behind it.
+    order: ["97", "174", "33", "111", "136", "149", "72", "103"],
     // The 2-packs are all the same size, so calendar order decides between
     // them rather than leaving it arbitrary: Valentine's, St Patrick's,
     // Halloween, then the Christmas 3-pack and the 6-pack that covers the year.
-    last: ["135", "53", "33", "42", "155"] },
+    last: ["135", "53", "42", "155"] },
 
   // Bundles: largest basket first. Question packs and the two ebooks are not
   // game bundles, so they follow rather than interleave by size.

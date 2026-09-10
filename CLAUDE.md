@@ -554,6 +554,15 @@ retired on purpose, not lost.
   compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
   copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
   current 5 Sept, not 9 Sept.
+- `HALLOWEEN-PLAN.md` — **the Halloween 2026 push, written 10 Sept.** Two items
+  shipped that day (p174 into c40 Holidays plus a seasonal Halloween-first
+  order to REVERT AFTER 1 NOV, and the indexable
+  `/halloween-trivia-and-music-bingo.html` hub). Records why p97's poor Clarity
+  score is **not** worth chasing (the page is 40 KB and 0.06 MB of images, so
+  the score is small-sample noise, not weight), and carries a **blocker worth
+  reading before any new Generator perk**: the live Generator 2.0 redemption
+  codes sit in plaintext in tracked `_content/redemption-docs/make_pdfs.py`, in
+  a public repo with `.nojekyll` on.
 - `IMAGE-OPTIMIZATION.md` — **the image runbook.** Audited 7 Sept 2026: 137 MB of
   uploads, 615 orphaned files (57.9 MB), and two category pages carrying 2.0 MB
   and 1.4 MB of images because tiles serve 1200px files into a 210px box. Says

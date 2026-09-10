@@ -74,6 +74,18 @@ for (const spec of specs) {
   html = html.replace(/<meta property="og:type"[^>]*>\s*/gi, "");
   html = html.replace(/(<link rel="canonical"[^>]*>)/i, (m, canonical) => `${canonical}\n${og}`);
 
+  // twitter: tags were NOT being rewritten, so every page built here shipped
+  // the TEMPLATE's Twitter card. what-is-music-bingo.html advertised "Print
+  // Music Bingo Cards - Gold, Silver & Bronze Packs" on X, and so did the new
+  // Halloween hub. Same bug class as a cloned product keeping its template's
+  // checkout link or cover art: the clone inherits an identity nobody
+  // remembered to overwrite. Function replacers here too, for the same
+  // dollar-amount reason as above.
+  html = html.replace(/<meta[^>]+name="twitter:title"[^>]*>/i,
+    () => `<meta name="twitter:title" content="${esc(spec.title)}">`);
+  html = html.replace(/<meta[^>]+name="twitter:description"[^>]*>/i,
+    () => `<meta name="twitter:description" content="${esc(spec.description)}">`);
+
   // Drop the template's structured data; add-jsonld.js regenerates per page.
   html = html.replace(/<!-- fce:jsonld -->[\s\S]*?<!-- \/fce:jsonld -->\n?/i, "");
 
