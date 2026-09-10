@@ -52,17 +52,17 @@ Halloween effort on p97 performance.**
   PowerPoint show, so it *contained* p97. It is now the standalone
   **Halloween Party Game Show** at $16.99, retitled and rewritten, and pulled
   from c11 (it is not a music bingo product). p189 bundles p97 + p174 + p33
-  plus a free month of Generator 2.0, $64.97 of value at $44.99.
+  plus a free month of Generator 2.0, $64.97 of value at $39.99.
   **c6 is now order-managed** (it was not, so refreshing any tile there
   silently promoted that product to the top of the category).
 
-> **OPEN PRICING QUESTION.** At $44.99 the bundle costs **$4.02 more than its
-> three games bought separately** ($40.97). The whole saving rests on valuing
-> the Generator month at $24. `add-cross-sell.js` will not print a saving it
-> cannot substantiate, so the block under the buy button reads "One checkout,
-> one download: $15.00 a game" against $11.99 singles. $39.99 would make the
-> bundle cheaper than its parts and let the tool write a real saving.
-> LemonSqueezy first if it changes.
+> **RESOLVED 10 Sept: $39.99.** At $44.99 the bundle cost $4.02 more than its
+> three games bought separately ($40.97), so the entire saving rested on the
+> $24 Generator month and `add-cross-sell.js` refused to claim a saving at all,
+> printing "$15.00 a game" under the buy button instead. At $39.99 the bundle
+> is cheaper than its parts and the tool writes the real line: *"$13.33 a game
+> against $40.97 bought one at a time, and you keep $0.98."* The page's own
+> copy carries the stronger frame, $64.97 down to $39.99, keep $24.98.
 
 ## Next
 
