@@ -15,3 +15,11 @@ _tools/ls-callsheet.html
 # Generated image bundles for uploading elsewhere (see _tools/export-ls-images.js).
 # These are copies of art already in the repo; no reason to version them twice.
 _export/
+
+# Generator 2.0 redemption codes and the PDFs built from them. These are LIVE
+# LemonSqueezy discount codes and this repo is public (and .nojekyll is on, so
+# _-prefixed paths are served verbatim). make_pdfs.py reads the codes from the
+# untracked JSON and refuses to run without it. The built PDFs are delivered
+# through the LemonSqueezy product download, never from this repo.
+_content/redemption-docs/redemption-codes.json
+_content/redemption-docs/*.pdf

@@ -12,6 +12,31 @@ DARK = colors.HexColor("#24242a")
 GREY = colors.HexColor("#666666")
 LIGHTBG = colors.HexColor("#f7f7f5")
 
+
+# --------------------------------------------------------------- codes
+# Redemption codes are LIVE LemonSqueezy discount codes. This repo is public
+# and .nojekyll is on, so anything committed here is world-readable: they are
+# read from an untracked file instead, and this script refuses to run without
+# it rather than emitting PDFs with a placeholder in the code box. Same idiom
+# as publish-post.js refusing an unresolved [bracket link] and seed.js refusing
+# an [OWNER: ...] placeholder.
+#
+#   cp redemption-codes.example.json redemption-codes.json   # then fill it in
+import json, os, sys
+_here = os.path.dirname(os.path.abspath(__file__))
+_codes_path = os.path.join(_here, "redemption-codes.json")
+if not os.path.exists(_codes_path):
+    sys.exit(
+        "make_pdfs.py: redemption-codes.json not found.\n"
+        "  Copy redemption-codes.example.json to redemption-codes.json and put the\n"
+        "  current LemonSqueezy codes in it. Never commit that file."
+    )
+with open(_codes_path, encoding="utf-8") as _f:
+    CODES = json.load(_f)
+for _k in ("gold-club", "silver-club", "starter-pack", "halloween"):
+    if not CODES.get(_k):
+        sys.exit(f"make_pdfs.py: redemption-codes.json is missing a code for '{_k}'.")
+
 styles = getSampleStyleSheet()
 brand = ParagraphStyle("brand", parent=styles["Normal"], fontName="Helvetica-Bold",
                         fontSize=10, textColor=GOLD, spaceAfter=2, tracking=1)
@@ -93,7 +118,7 @@ build(
     "gold-club-bcg2-redemption.pdf",
     "1 Year Free — Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Gold Club",
-    "FCEGOLDYR1",
+    CODES["gold-club"],
     "Annual",
     [
         f"Go to <b>{PLAN_URL}</b> and choose the <b>Annual</b> plan.",
@@ -118,7 +143,7 @@ build(
     "silver-club-bcg2-redemption.pdf",
     "1 Month Free — Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Silver Club",
-    "FCESILVMO1",
+    CODES["silver-club"],
     "Monthly",
     [
         f"Go to <b>{PLAN_URL}</b> and choose the <b>Monthly</b> plan.",
@@ -143,7 +168,7 @@ build(
     "starter-pack-bcg2-redemption.pdf",
     "Free Day Pass — Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Starter Pack (Bronze)",
-    "FCEBRZDAY1",
+    CODES["starter-pack"],
     "Day Pass",
     [
         f"Go to <b>{PLAN_URL}</b> and choose the <b>Day Pass</b> plan.",
@@ -157,4 +182,34 @@ build(
     ],
     "One redemption per customer. This code may be rotated periodically for security — if it "
     "doesn't work, contact us for a current one.",
+)
+
+# ------------------------------------------------------- Halloween bundle
+# Customer-facing copy, so no em-dashes (CLAUDE.md writing-style rule). The
+# three tier PDFs above predate that rule and still have them; low priority.
+build(
+    "halloween-bcg2-redemption.pdf",
+    "1 Month Free: Bingo Card Generator 2.0",
+    "Your bonus with the Halloween Complete Pack",
+    CODES["halloween"],
+    "Monthly",
+    [
+        f"Go to <b>{PLAN_URL}</b> and choose the <b>Monthly</b> plan.",
+        "At checkout, enter your redemption code above in the discount code field.",
+        "Complete checkout. Your card is charged <b>$0</b> for the first month, and "
+        "Bingo Card Generator 2.0 unlocks immediately.",
+    ],
+    [
+        "Make your own Halloween cards in any colours you like, on any word or song list "
+        "you paste in. Your bundle already includes 250 ready-to-print cards; this is for "
+        "the night you want something different.",
+        "Your first month is completely free. After 30 days it "
+        "<b>automatically renews at the regular Monthly price</b> unless you cancel first.",
+        "You'll get an email reminder from Bingo Card Generator 2.0 / LemonSqueezy before it "
+        "renews. Cancel any time before then from your LemonSqueezy customer portal link (in "
+        "your purchase confirmation email). No phone calls, no questions asked.",
+    ],
+    "One redemption per customer. This code may be rotated periodically for security. If it "
+    "doesn't work, contact us for a current one. Valid for new Bingo Card Generator 2.0 "
+    "subscriptions only.",
 )
