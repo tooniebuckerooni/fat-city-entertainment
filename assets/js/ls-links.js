@@ -7,7 +7,7 @@
 //   3. Flip that line's  [ ]  to  [x].  The buy button activates automatically;
 //      products left empty show a "contact us to order" note instead.
 //
-// STATUS: 79 of 97 wired — 17 to go (1 sells on Amazon, not LS).  Search "[ ]" to find them.
+// STATUS: 80 of 98 wired — 17 to go (1 sells on Amazon, not LS).  Search "[ ]" to find them.
 //
 // PRICES ARE NOW USD. The "CA$" amounts in the comments below are the OLD
 // Weebly prices, kept as reference while you re-price each product in USD.
@@ -27,7 +27,7 @@ window.LS_LINKS = {
   "p26": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c98a7947-0563-4e5c-a55c-f96d4b7c3cf3", // [x] 13,000+ Q&A Pack 4 — $15.00 USD — /store/p26/13,000__Q&A_Pack_4.html
   "p27": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/f55c00b5-7139-41fe-935a-77bf0131bfb9", // [x] 10,000+ Q&A Pack 3 — $15.00 USD — /store/p27/10,000__Q&A_Pack_3.html
   "p28": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/b483369a-a045-4e71-aaf5-f6b8300a87bf", // [x] Touchdown Trivia (4-Pack) — $72.99 USD — /store/p28/touchdowntriviapack.html
-  "p33": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/be117494-8134-4d41-a031-133901ee478b", // [x] Halloween Party Trivia 2-Pack — $32.99 USD — /store/p33/fatbottomtrivia15.html
+  "p33": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/be117494-8134-4d41-a031-133901ee478b", // [x] Halloween Party Trivia 2-Pack — $16.99 USD — /store/p33/fatbottomtrivia15.html
   "p42": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/a28b7e57-be5d-4b5d-a14f-3ec9a6baa683", // [x] Christmas Party Trivia 3-Pack — $53.99 USD — /store/p42/Christmaspartypack.html
   "p49": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/10e8a04c-a720-48d6-9ee0-bd7c44755190", // [x] Game Show Trivia - 5 Pack — $87.99 USD — /store/p49/FBTgk5pack1.html
   "p51": "", // [ ] FBT 3.1 Valentine's Day Special — CA$29.00 — /store/p51/fatbottomtrivia31.html
@@ -114,6 +114,7 @@ window.LS_LINKS = {
   "p186": "", // [ ] Sports Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p186/triviashowsports.html
   "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p187/triviashowrewind.html
   "p188": "", // [ ] Pop Culture Trivia Shows — 5-Pack — $44.99 USD — /store/p188/triviashowpopculture5pack.html
+  "p189": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/43a558b5-33e1-49d0-baa7-1570fac9c2c3", // [x] Halloween Complete Pack - Music Bingo & 2 Trivia Shows — $44.99 USD — /store/p189/halloweencompletepack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">

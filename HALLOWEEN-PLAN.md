@@ -47,6 +47,23 @@ Halloween effort on p97 performance.**
 
 ---
 
+- [x] **4/5. Halloween Complete Pack (p189) and the p33 conversion**, 10 Sept.
+  p33 was never a "Trivia 2-Pack": it was the music bingo game plus a
+  PowerPoint show, so it *contained* p97. It is now the standalone
+  **Halloween Party Game Show** at $16.99, retitled and rewritten, and pulled
+  from c11 (it is not a music bingo product). p189 bundles p97 + p174 + p33
+  plus a free month of Generator 2.0, $64.97 of value at $44.99.
+  **c6 is now order-managed** (it was not, so refreshing any tile there
+  silently promoted that product to the top of the category).
+
+> **OPEN PRICING QUESTION.** At $44.99 the bundle costs **$4.02 more than its
+> three games bought separately** ($40.97). The whole saving rests on valuing
+> the Generator month at $24. `add-cross-sell.js` will not print a saving it
+> cannot substantiate, so the block under the buy button reads "One checkout,
+> one download: $15.00 a game" against $11.99 singles. $39.99 would make the
+> bundle cheaper than its parts and let the tool write a real saving.
+> LemonSqueezy first if it changes.
+
 ## Next
 
 ### 3. Seasonal nav item
@@ -56,7 +73,7 @@ by a tool the way every other nav change is done (see
 `add-trivia-store-nav.js` cannot do it: it builds the dropdown whole and skips
 any page that already has one). **Remove 1 Nov.**
 
-### 4. The Generator perk — the real opportunity
+### 4. The Generator perk — SHIPPED on p189, reusable elsewhere
 Owner's idea, 10 Sept, and the strongest one on this page. **Bundle a free month
 of Bingo Card Generator 2.0 with a Halloween purchase.**
 
@@ -80,28 +97,19 @@ So a Halloween version is: create the code in LemonSqueezy, add a
 `halloween-bcg2-redemption.pdf` to `make_pdfs.py`, bundle it in the product
 download, and add the perk line to the product copy.
 
-> **BLOCKER, fix before adding a fourth code.** The live redemption codes sit in
-> **plaintext in `_content/redemption-docs/make_pdfs.py`, which is tracked in a
-> public repo**, and the built PDFs are tracked too. `.nojekyll` is on, so
-> GitHub Pages serves `_`-prefixed directories verbatim and those PDFs are
-> likely fetchable at a guessable URL as well. Anyone reading the repo can
-> redeem Generator 2.0 for $0, including the Gold tier's free year. The PDFs
-> themselves say the code "may be rotated periodically for security", so the
-> risk is known. **Rotate the codes in LemonSqueezy, gitignore
-> `_content/redemption-docs/`, and keep code values out of the repo** (pass them
-> as an env var or an untracked local file to `make_pdfs.py`). Owner action in
-> the dashboard; the repo side is quick.
+> **RESOLVED 10 Sept, repo side.** `make_pdfs.py` now reads codes from an
+> untracked `redemption-codes.json` and refuses to run without it; that file and
+> the built PDFs are gitignored, and the three PDFs were removed from the index.
+> A fourth `build()` call produces `halloween-bcg2-redemption.pdf`.
+> **Still owner action:** the three OLD codes are in public git history
+> permanently and must be rotated in the LemonSqueezy dashboard. Removing them
+> from HEAD does not unpublish them.
 
-### 5. Halloween bundle
-$56.97 across three SKUs is a natural bundle, but **the owner's read on 10 Sept
-was that a bundle may not be worth it given overlap** between the two trivia
-products (p33 is 2 presentation shows, p174 is a print-and-play show). The
-Generator perk in item 4 may be the better value shift.
-
-If it does go ahead: **run the `pricing-strategy` skill first.** The existing
-ladder is built on music-bingo per-game maths and this bundle mixes formats, so
-a naive number risks undercutting a rung. And per CLAUDE.md, LemonSqueezy first,
-site second.
+### 5. Halloween bundle — SHIPPED, see Done above
+Superseded 10 Sept. The overlap the owner suspected was real and worse than
+thought: p33 contained p97. Resolved by splitting p33 into the standalone game
+show and building p189 on top. The open question is the price, not whether to
+do it.
 
 ### 6. Colour palettes in the free generator
 The generator's PDF colours are **hardcoded** in `files/theme/script.js` (jsPDF

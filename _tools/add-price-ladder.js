@@ -296,12 +296,43 @@ if (inversions.length) {
     if (prevN !== null && it.n > prevN && cents(it.each) > cents(bestAt.get(prevN))) {
       bad.push(`${it.label} (${it.n}-pack) at ${money(it.each)}/game is above the ${prevN}-pack's ${money(bestAt.get(prevN))}`);
     }
+    // Also compare a pack against the BEST pack of its OWN size. The loop
+    // above only fires when it.n > prevN, so two packs of the same size were
+    // never compared to each other: p189 at $15.00/game sat in the 3-pack
+    // group beside p162 and p127 at $8.66 and went unflagged. Same family of
+    // hole as the 4-pack that hid for months by not being a rung.
+    if (cents(it.each) > cents(bestAt.get(it.n))) {
+      bad.push(`${it.label} (${it.n}-pack) at ${money(it.each)}/game is above the best ${it.n}-pack at ${money(bestAt.get(it.n))}`);
+    }
     if (prevN === null || it.n > prevN) prevN = it.n;
   }
-  if (bad.length) {
-    console.log(`\n  CATALOGUE INVERSION — ${bad.length} pack(s) cost more per game than a SMALLER pack:`);
-    bad.forEach((b) => console.log(`    ${b}`));
-    console.log(`    The ladder copy claims the opposite. Fix the price, or weaken the copy.`);
+  // Inversions the owner has looked at and accepted. Both carry a Bingo Card
+  // Generator 2.0 month priced into the pack, which this check cannot see: it
+  // divides price by GAME COUNT, so a pack with a licence in it always reads
+  // high. Listing them here keeps the weekly health check meaningful — without
+  // it the CATALOGUE INVERSION line fires every Monday on things nobody is
+  // going to change, which is exactly how a check stops being read. A pack NOT
+  // on this list is still a real failure.
+  const ACCEPTED = {
+    p155: "Holidays 6-pack, repriced 9 Sept 2026 with the inversion named and accepted; includes a Generator 2.0 month.",
+    p189: "Halloween Complete Pack, launched 10 Sept 2026; mixed-format bundle including a Generator 2.0 month.",
+  };
+  const accepted = bad.filter((b) => ACCEPTED[b.split(" ")[0]]);
+  const unexpected = bad.filter((b) => !ACCEPTED[b.split(" ")[0]]);
+  if (accepted.length) {
+    console.log(`\n  accepted inversion(s): ${accepted.length}`);
+    accepted.forEach((b) => {
+      const pid = b.split(" ")[0];
+      console.log(`    ${b}`);
+      console.log(`      accepted: ${ACCEPTED[pid]}`);
+    });
+  }
+  if (unexpected.length) {
+    console.log(`\n  CATALOGUE INVERSION — ${unexpected.length} pack(s) cost more per game than a SMALLER pack:`);
+    unexpected.forEach((b) => console.log(`    ${b}`));
+    console.log(`    Not on the accepted list. Fix the price, or weaken the copy.`);
+  } else if (accepted.length) {
+    console.log(`\n  no NEW catalogue inversion (${accepted.length} accepted, listed above).`);
   } else {
     console.log(`\n  catalogue monotonic across all ${items.length} price points — the "buy more, pay less" claim holds.`);
   }

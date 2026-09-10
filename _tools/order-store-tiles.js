@@ -42,7 +42,7 @@ const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 
 // Packs and clubs first, biggest basket first.
-const STOREFRONT = ["112", "130", "131", "155", "147", "101", "168", "166", "165",
+const STOREFRONT = ["189", "112", "130", "131", "155", "147", "101", "168", "166", "165",
                     "127", "162", "108", "128", "49", "123", "176"];
 
 // Smallest to largest, for the foot of the music bingo category.
@@ -73,7 +73,7 @@ const PAGES = [
     // today, so a shopper browsing Holidays for Halloween saw one of the
     // three things we sell for it. Halloween trio first for the season,
     // calendar order behind it.
-    order: ["97", "174", "33", "111", "136", "149", "72", "103"],
+    order: ["189", "97", "174", "33", "111", "136", "149", "72", "103"],
     // The 2-packs are all the same size, so calendar order decides between
     // them rather than leaving it arbitrary: Valentine's, St Patrick's,
     // Halloween, then the Christmas 3-pack and the 6-pack that covers the year.
@@ -81,8 +81,18 @@ const PAGES = [
 
   // Bundles: largest basket first. Question packs and the two ebooks are not
   // game bundles, so they follow rather than interleave by size.
+  // c6 Pre-made Trivia Shows. Added 10 Sept 2026 capturing the order that was
+  // already on the page, so the category is managed rather than at the mercy of
+  // whatever add-store-tile.js last inserted (it inserts at the FRONT). Without
+  // this, refreshing one tile's copy silently promoted that product to the top
+  // of the category. New print-and-play shows lead, older presentation packs
+  // follow.
+  { rel: "store/c6/triviagameshows/index.html",
+    order: ["189", "174", "176", "173", "172", "171", "170", "169", "49", "123",
+            "28", "126", "9", "13", "53", "33", "42"],
+    last: ["18"] },
   { rel: "store/c34/Music_Bingo_&_Trivia_Bundles.html",
-    order: ["112", "130", "131", "155", "147", "168", "101", "176", "49",
+    order: ["189", "112", "130", "131", "155", "147", "168", "101", "176", "49",
             "165", "166", "28", "127", "162", "108", "123", "42", "126",
             "128", "33", "53", "135"],
     // The two ebooks sit together at the foot: they are the only Amazon/KDP

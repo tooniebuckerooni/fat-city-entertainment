@@ -526,5 +526,34 @@
     ],
     "description": "Five themed trivia shows in one download — Music, Television, Movies, Sports and the 80s and 90s. 250 questions, print and play.",
     "body": "<div><p>Five themed nights in one download — enough to run a different show every week for over a month without repeating a question.</p><p><strong>What's included:</strong></p><ul><li><strong>Music — Name That Tune.</strong> Lyrics written to be read aloud, not played.</li><li><strong>Television — Prime Time.</strong> Cartoons through prestige drama.</li><li><strong>Movies — The Big Screen.</strong> Quotes, directors and franchises.</li><li><strong>Sports — Game On.</strong> Rules, venues and settled history.</li><li><strong>The 80s and 90s — Rewind.</strong> A nostalgia night for a room that lived it.</li></ul><p>Every show is five rounds of ten with a tiebreaker, and every question across all five is different — no repeats anywhere.</p><p>Each brings its own host packet, team answer sheets and a score sheet for up to 12 teams. No screen, no projector and no software.</p></div>"
+  },
+  {
+    "id": "p189",
+    "slug": "halloweencompletepack",
+    "name": "Halloween Complete Pack - Music Bingo & 2 Trivia Shows",
+    "title": "Halloween Complete Pack - Music Bingo, Print and Play Trivia and a Game Show",
+    "price": 64.97,
+    "sale_price": 44.99,
+    "template": "store/p49/FBTgk5pack1.html",
+    "image": "/uploads/4/3/3/6/43362499/music-bingo-halloween-party.jpeg",
+    "publish": true,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Bundles",
+        "href": "/store/c34/Music_Bingo_%26_Trivia_Bundles.html"
+      }
+    ],
+    "includes": [
+      "p97 Halloween Party Music Bingo",
+      "p174 Halloween Trivia Night (print and play)",
+      "p33 Halloween Party Game Show",
+      "1 month Bingo Card Generator 2.0"
+    ],
+    "description": "Everything we make for Halloween in one download: 250-card music bingo with the playlists, a print and play trivia show, the game show presentation, and a free month of Bingo Card Generator 2.0.",
+    "body": "<div><p>Everything we make for Halloween, in one download. One night, three ways to run it: a 250-card music bingo game with the playlist already sequenced, a print and play trivia show you can print the afternoon of, and the full game show presentation for a room with a screen.</p>\n<p><strong>What's included:</strong></p>\n<ul>\n<li><strong>Halloween Party Music Bingo.</strong> 250 randomized cards, 30 spooky-season songs, the printable callsheet, and ready-made Spotify and Apple Music playlists. Press play and host.</li>\n<li><strong>Halloween Trivia Night, print and play.</strong> Five rounds, 50 questions and a tiebreaker, team answer sheets, and a score sheet for up to 12 teams.</li>\n<li><strong>Halloween Party Game Show.</strong> The presentation version, for a venue with a screen (requires PowerPoint or equivalent).</li>\n<li><strong>Bonus: one month of Bingo Card Generator 2.0, free.</strong> Make your own Halloween cards in any colours you like, on any word or song list you paste in. Redemption code included with your download.</li>\n</ul>\n<p>Bought separately these come to $64.97. In this pack it is $44.99, so you keep $19.98.</p>\n<p>Spooky rather than gruesome: it plays in a pub, and it plays at a community hall or a staff party without anyone wincing. Instant download, print as many copies as you need, and it is yours to run every year.</p></div>"
   }
 ]

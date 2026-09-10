@@ -50,6 +50,9 @@ const PREVIEW = process.argv.includes("--preview");
 
 // pid -> { path, name } for every page we link to.
 const PRODUCTS = {
+  p189: { path: "/store/p189/halloweencompletepack.html", name: "Halloween Complete Pack" },
+  p174: { path: "/store/p174/triviashowhalloween.html", name: "Halloween Trivia Night (print and play)" },
+  p33: { path: "/store/p33/fatbottomtrivia15.html", name: "Halloween Party Game Show" },
   p112: { path: "/store/p112/GoldClub.html", name: "Music Bingo Gold Club" },
   p165: { path: "/store/p165/aroundtheworldpack.html", name: "Around The World... And Beyond! 4-Pack" },
   p166: { path: "/store/p166/partystarterpack.html", name: "Party Starter 4-Pack" },
@@ -102,6 +105,14 @@ const PRODUCTS = {
 // 6-pack has to list six things whether or not all six are separately for sale;
 // listing four of them would misdescribe what's in the box.
 const BUNDLES = {
+  // Halloween Complete Pack, 10 Sept 2026. Mixed-format bundle: one music
+  // bingo game, one print-and-play trivia show, one presentation game show,
+  // plus a month of Bingo Card Generator 2.0 that is a perk rather than a
+  // component (it has no product page, so it is not listed here). p33 became
+  // the standalone game show the same day; before that it silently contained
+  // p97's music bingo, which is why an earlier draft of this bundle
+  // double-counted the game.
+  p189: ["p97", "p174", "p33"],
   p165: ["p132", "p122", "p100", "p110"],
   // Launched 5 Sept 2026. Membership was "ambiguous" while it was staged, which
   // is why it sat out of this map; the spec and the cover art now agree on the
