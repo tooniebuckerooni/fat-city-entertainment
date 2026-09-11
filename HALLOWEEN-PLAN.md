@@ -114,12 +114,15 @@ Halloween effort on p97 performance.**
 
 ## Next
 
-### 3. Seasonal nav item
-"Halloween" in the Trivia Store dropdown pointing at the hub, added and removed
-by a tool the way every other nav change is done (see
-`rename-generator2-nav.js` / `vary-bcg-nav-anchor.js` for the idiom, and note
-`add-trivia-store-nav.js` cannot do it: it builds the dropdown whole and skips
-any page that already has one). **Remove 1 Nov.**
+### 3. Seasonal nav item — SHIPPED 11 Sept
+`_tools/add-halloween-nav.js`, 484 pages, 968 nav copies, first item in the
+Trivia Store dropdown. **`--remove --write` after 1 Nov**; the takedown was
+proved to restore the tree byte for byte before the item was applied.
+
+The real find was how isolated the hub was: `/halloween-trivia-and-music-bingo.html`
+shipped 10 Sept as the indexable Halloween landing page and, a day later, was
+linked from **one** other page. In the sitemap, orphaned everywhere else, seven
+weeks out. It now has 484 inbound links.
 
 ### 4. The Generator perk — SHIPPED on p189, reusable elsewhere
 Owner's idea, 10 Sept, and the strongest one on this page. **Bundle a free month

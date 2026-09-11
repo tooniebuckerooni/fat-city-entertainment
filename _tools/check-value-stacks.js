@@ -72,14 +72,28 @@ const MIXED_PACKS = [
     pid: "p189",
     file: "store/p189/halloweencompletepack.html",
     components: [
-      "store/p97/halloweenparty.html",
-      "store/p174/triviashowhalloween.html",
-      "store/p33/fatbottomtrivia15.html",
+      // `quote` overrides the price read off the page. Owner's call, 11 Sept
+      // 2026: a music bingo game that ships with a one-click autoload link into
+      // Generator 2.0 is worth $16.99, and this bundle is priced against that
+      // edition, while p97 sold on its own is still the plain $11.99 game.
+      //
+      // An override is a liability, so it is loud: the run prints the gap and
+      // the total it produces on every pass, and it CANNOT go stale quietly the
+      // way a hand-typed paragraph does. Retire it the moment p97 itself moves
+      // to $16.99 in LemonSqueezy, and the stack goes back to reading three
+      // real page prices.
+      { file: "store/p97/halloweenparty.html", quote: 16.99, why: "autoload edition" },
+      { file: "store/p174/triviashowhalloween.html" },
+      { file: "store/p33/fatbottomtrivia15.html" },
     ],
     words: "Bought one at a time the three games come to",
-    licence: 24.00,
-    licName: "Monthly licence",
-    sells: 39.99,
+    // The Generator month is NOT in the compare-at any more. It reads better as
+    // a free bonus on top of a real saving than as $24 of padding inside one,
+    // and it keeps the compare-at to things that are genuinely for sale as
+    // games. Set `licence` to fold it back in.
+    licence: 0,
+    bonus: "the month of Bingo Card Generator 2.0",
+    sells: 35.97,
   },
 ];
 
@@ -251,24 +265,49 @@ for (const c of VALUE_STACKS) {
 }
 
 for (const m of MIXED_PACKS) {
-  const prices = m.components.map((rel) => {
+  let onPage = 0;
+  const prices = m.components.map((c) => {
+    const rel = typeof c === "string" ? c : c.file;
     const hit = read(rel).match(/itemprop="price"\s+content="([0-9.]+)"/);
-    if (!hit) problems.push(`${m.pid}: no price on ${rel}`);
-    return hit ? Number(hit[1]) : null;
+    if (!hit) { problems.push(`${m.pid}: no price on ${rel}`); return null; }
+    const real = Number(hit[1]);
+    onPage += real;
+    const quote = typeof c === "object" && c.quote ? c.quote : real;
+    if (quote !== real) {
+      console.log(
+        `  NOTE ${m.pid}: ${rel} is quoted at ${money(quote)} (${c.why || "override"}) ` +
+        `but its own page charges ${money(real)}`
+      );
+    }
+    return quote;
   });
   if (prices.some((v) => v === null)) continue;
 
   const expectGames = Number(prices.reduce((n, v) => n + v, 0).toFixed(2));
   const expectTotal = Number((expectGames + m.licence).toFixed(2));
   const expectSave = Number((expectTotal - m.sells).toFixed(2));
+  const gap = Number((expectGames - onPage).toFixed(2));
+  if (gap > 0) {
+    console.log(
+      `  NOTE ${m.pid}: compare-at is ${money(gap)} above the ${money(onPage)} a shopper ` +
+      `gets by adding up the linked product pages`
+    );
+  }
 
-  const rebuilt =
-    `${m.words} ${money(expectGames)}. Add the ${money(m.licence)} ${m.licName}: ` +
-    `<strong>${money(expectTotal)}</strong> of value, yours for ` +
-    `<strong>${money(m.sells)}</strong>, and you keep <strong>${money(expectSave)}</strong>.`;
+  const rebuilt = m.licence
+    ? `${m.words} ${money(expectGames)}. Add the ${money(m.licence)} ${m.licName}: ` +
+      `<strong>${money(expectTotal)}</strong> of value, yours for ` +
+      `<strong>${money(m.sells)}</strong>, and you keep <strong>${money(expectSave)}</strong>.`
+    : `${m.words} ${money(expectGames)}. In this pack they are ` +
+      `<strong>${money(m.sells)}</strong>, so you keep <strong>${money(expectSave)}</strong>, ` +
+      `and ${m.bonus} is free.`;
 
+  // Anchored on the opening words and run to the end of the paragraph, rather
+  // than to a "you keep $X." tail: a pack whose perk is a free bonus ends on the
+  // bonus instead, and a tail-anchored pattern silently stops matching the
+  // moment the sentence shape changes — which is how a stack goes unverified.
   const SENTENCE = new RegExp(
-    `${m.words} \\$[0-9,.]+\\.[\\s\\S]*?you keep <strong>\\$[0-9,.]+</strong>\\.`
+    `${m.words} \\$[0-9,.]+\\.[\\s\\S]*?(?=</p>)`
   );
   let html = read(m.file);
   if (!SENTENCE.test(html)) {
@@ -286,8 +325,12 @@ for (const m of MIXED_PACKS) {
 
   const got = (html.match(SENTENCE) || [""])[0];
   const figs = (got.match(/\$[0-9,]+\.[0-9]{2}/g) || []).map(num);
-  const want = [expectGames, m.licence, expectTotal, m.sells, expectSave];
-  const labels = ["games subtotal", "licence price", "value total", "selling price", "saving"];
+  const want = m.licence
+    ? [expectGames, m.licence, expectTotal, m.sells, expectSave]
+    : [expectGames, m.sells, expectSave];
+  const labels = m.licence
+    ? ["games subtotal", "licence price", "value total", "selling price", "saving"]
+    : ["games subtotal", "selling price", "saving"];
   want.forEach((w, i) => {
     if (figs[i] === undefined) problems.push(`${m.pid}: ${labels[i]} missing from Quick math`);
     else if (Math.abs(figs[i] - w) > 0.005)
@@ -304,9 +347,9 @@ for (const m of MIXED_PACKS) {
     problems.push(`${m.pid}: struck-through compare-at is ${money(num(regM[1]))}, value stack totals ${money(expectTotal)}`);
 
   console.log(
-    `${m.pid.padEnd(5)} ${prices.map(money).join(" + ")} = ${money(expectGames)} + ` +
-    `${money(m.licence)} licence = ${money(expectTotal)} -> sells ${money(m.sells)}, ` +
-    `saves ${money(expectSave)}`
+    `${m.pid.padEnd(5)} ${prices.map(money).join(" + ")} = ${money(expectGames)}` +
+    (m.licence ? ` + ${money(m.licence)} licence = ${money(expectTotal)}` : "") +
+    ` -> sells ${money(m.sells)}, saves ${money(expectSave)}`
   );
 }
 
@@ -319,7 +362,9 @@ if (WRITE) {
     console.log(`  node _tools/set-usd-price.js ${c.pid} ${t} ${c.sells.toFixed(2)}`);
   }
   for (const m of MIXED_PACKS) {
-    const games = m.components.reduce((n, rel) => {
+    const games = m.components.reduce((n, c) => {
+      const rel = typeof c === "string" ? c : c.file;
+      if (typeof c === "object" && c.quote) return n + c.quote;
       const hit = read(rel).match(/itemprop="price"\s+content="([0-9.]+)"/);
       return n + (hit ? Number(hit[1]) : 0);
     }, 0);

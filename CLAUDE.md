@@ -53,7 +53,12 @@ internal documentation, which uses em-dashes throughout on purpose.
 - Top-level nav: **Trivia Store (dropdown) · ★ Featured! (dropdown) · Our
   Games (dropdown) · Bingo Card Maker (dropdown) · Blog · Contact**. **Trivia
   Store** dropdown (added Aug 13 2026, via `_tools/add-trivia-store-nav.js`)
-  holds Music Bingo Card Downloads, **Free Song Lists** (added Aug 27 2026 via
+  holds **Halloween** (SEASONAL, added 11 Sept 2026 via
+  `_tools/add-halloween-nav.js`, first in the dropdown, pointing at the hub
+  `/halloween-trivia-and-music-bingo.html` which until then was linked from
+  exactly ONE page despite being in the sitemap — **take it down after 1 Nov
+  with `--remove --write`**, which restores the menu byte for byte),
+  Music Bingo Card Downloads, **Free Song Lists** (added Aug 27 2026 via
   `_tools/add-song-lists-nav.js` — a separate insert-into-existing-dropdown
   script, because `add-trivia-store-nav.js` only builds the dropdown whole and
   skips any page that already has one), Eras, Pre-made Trivia Shows, Bundles,

@@ -152,9 +152,22 @@ const BUNDLES = {
 // divided by its game count answers a question nobody asked: p189's $13.33 a
 // game is ABOVE the $11.99 single, because one of its three games is the $16.99
 // game show. The total-against-total line is both stronger and the honest one.
+// `amount: 0` means the perk is named but NOT counted in the comparison: a free
+// bonus on top of a real saving rather than padding inside one. p189 moved to
+// that shape 11 Sept 2026 when its compare-at was rebased on the games alone.
 const PERKS = {
-  p189: { name: "a month of Bingo Card Generator 2.0", amount: 24.00 },
+  p189: { name: "a month of Bingo Card Generator 2.0, free", amount: 0,
+          quotes: { p97: 16.99 } },
   p155: { name: "a month of Bingo Card Generator 2.0", amount: 24.00 },
+};
+
+// A component price the bundle quotes at something other than that product's
+// own page price. p189 is priced against the autoload edition of p97 ($16.99)
+// while p97 on its own is still the plain $11.99 game. Documented in
+// check-value-stacks.js, which prints the gap on every run.
+const quoted = (bundlePid, pid, amount) => {
+  const q = PERKS[bundlePid] && PERKS[bundlePid].quotes;
+  return q && q[pid] ? q[pid] : amount;
 };
 
 // Music bingo singles that get the Gold Club line. Bundle membership wins where
@@ -208,13 +221,14 @@ function blockFor(pid) {
     const allKnown = known.length === parts.length && known.every(Boolean);
     const perk = PERKS[pid] || null;
     const separately = allKnown
-      ? known.reduce((n, p) => n + p.amount, 0) + (perk ? perk.amount : 0)
+      ? parts.filter(isPid).reduce((n, c) => n + quoted(pid, c, priceOf(c).amount), 0) +
+        (perk ? perk.amount : 0)
       : null;
     const saving = allKnown && bundle ? separately - bundle.amount : null;
 
     let maths = "";
     if (perk && saving > 0) {
-      maths = ` Bought separately that is ${money(separately)}. In this pack it is ` +
+      maths = ` Bought separately the games are ${money(separately)}. In this pack it is ` +
               `<strong>${money(bundle.amount)}</strong>, so you keep ${money(saving)}.`;
     } else if (each && saving > 0) {
       maths = ` That is <strong>${each} a game</strong> against ` +
@@ -241,8 +255,9 @@ function blockFor(pid) {
     let maths = "";
     if (mine && bundle && perk) {
       const parts = BUNDLES[inBundle].filter(isPid).map(priceOf);
+      const pids = BUNDLES[inBundle].filter(isPid);
       const full = parts.every(Boolean)
-        ? parts.reduce((n, p) => n + p.amount, 0) + perk.amount
+        ? pids.reduce((n, c) => n + quoted(inBundle, c, priceOf(c).amount), 0) + perk.amount
         : null;
       maths = ` This game is ${money(mine.amount)}. The pack is ` +
               `<strong>${money(bundle.amount)}</strong> for all ` +

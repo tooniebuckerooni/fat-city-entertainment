@@ -114,7 +114,7 @@ window.LS_LINKS = {
   "p186": "", // [ ] Sports Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p186/triviashowsports.html
   "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p187/triviashowrewind.html
   "p188": "", // [ ] Pop Culture Trivia Shows — 5-Pack — $44.99 USD — /store/p188/triviashowpopculture5pack.html
-  "p189": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/43a558b5-33e1-49d0-baa7-1570fac9c2c3", // [x] Halloween Complete Pack - Music Bingo & 2 Trivia Shows — $39.99 USD — /store/p189/halloweencompletepack.html
+  "p189": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/43a558b5-33e1-49d0-baa7-1570fac9c2c3", // [x] Halloween Complete Pack - Music Bingo & 2 Trivia Shows — $35.97 USD — /store/p189/halloweencompletepack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">
