@@ -111,6 +111,14 @@ is legitimate and it is also exactly the kind of thing a later agent "fixes".
 Put the override in the tool with the owner's own words beside it, and make the
 tool print the gap on every run.
 
+**Every seasonal block competes with the ones already on the page.** A product
+page can end up carrying its body copy, a Quick math box, a cross-sell and a
+badge, all arguing the same point. Before adding a block, read the page as a
+buyer: p189's cross-sell repeated the game list AND the arithmetic one paragraph
+below both. `add-cross-sell.js` has a `NO_BLOCK` set for exactly this.
+Reassurance (one-time payment, what renews, refunds) belongs **after** the
+button, not between the price and the button.
+
 **Copy runs long.** The owner's steer, twice: more succinct, less information,
 keep a little mystery. Lead with what it is, four bullets, one closing line. Put
 the arithmetic in the `.fce-value-math` block, not in prose.

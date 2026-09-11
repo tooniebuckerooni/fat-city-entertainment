@@ -180,8 +180,15 @@ jobs:
             # tiles; content pages, campaign specs and blog posts had no check
             # at all. It compares a dollar amount written immediately beside a
             # link to /store/pNN/ against that product's own page.
+            # check-css-balance joined 11 Sept 2026. One stray } in
+            # site-extras.css broke every rule below it, and the visible symptom
+            # was the Halloween perk badge floating off the product image into
+            # the breadcrumbs, because the position:relative it needs sat under
+            # the damage. Nothing read CSS, and a browser recovers from a stray
+            # brace silently by skipping ahead, so the only sign is rules not
+            # applying somewhere further down.
             for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure \
-                     fix-product-divs check-linked-prices; do
+                     fix-product-divs check-linked-prices check-css-balance; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

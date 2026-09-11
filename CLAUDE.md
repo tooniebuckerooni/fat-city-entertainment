@@ -197,6 +197,21 @@ internal documentation, which uses em-dashes throughout on purpose.
   This game is $11.99"*, where the link points at the pack and the amount is the
   page you are standing on. It checks the SPECS as well as the pages, because
   fixing only the page is how a hand edit gets reverted.
+- **`_tools/check-css-balance.js` reads `site-extras.css` for stray braces.**
+  One unmatched `}` broke every rule below it, and what the owner saw was the
+  perk badge floating off the product image into the breadcrumbs: the
+  `#wsite-com-product-images { position: relative; }` it positions against sat
+  under the damage and never applied. **Nothing read CSS**, and a browser
+  recovers from a stray brace silently by skipping ahead, so the only symptom is
+  rules quietly not applying somewhere further down. Comments and quoted strings
+  are blanked before counting; a first hand-rolled count that skipped the string
+  pass reported a phantom imbalance 260 lines from the real one.
+- **A product page can be excluded from its own cross-sell** via `NO_BLOCK` in
+  `add-cross-sell.js`. p189 is: its body names all three games and the Quick
+  math block above the button already states the comparison, so the block one
+  paragraph below repeated both. The pid stays in `BUNDLES` because the
+  component pages still point at it. A retired block is **removed**, not left to
+  rot quoting a price nothing refreshes.
 - **A product with no `store/pNN/` page gets a tile from the `VIRTUAL` map** in
   `add-store-tile.js` (`node _tools/add-store-tile.js handbook --after p18
   --pages …`). The Music Bingo Handbook sells on Amazon KDP and already has a

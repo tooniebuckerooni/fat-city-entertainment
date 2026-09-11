@@ -182,6 +182,15 @@ const GOLD_SINGLES = [
   "p148", "p149", "p158", "p160", "p163",
 ];
 
+// Pages that are in the maps above but must NOT carry a block of their own.
+// p189 joined 11 Sept 2026: its body copy already names all three games, and
+// the .fce-value-math block directly above the button already states the whole
+// comparison. The cross-sell repeated both, one paragraph below, which is how a
+// product page gets long enough that nobody reads the part that sells it. The
+// entry stays in BUNDLES because the three component pages still need to point
+// AT p189 and read its price.
+const NO_BLOCK = new Set(["p189"]);
+
 const link = (pid) => `<a href="${PRODUCTS[pid].path}">${PRODUCTS[pid].name}</a>`;
 const isPid = (c) => /^p\d+$/.test(c) && PRODUCTS[c];
 // A component reads as a link when it has its own page, and as plain text when
@@ -208,6 +217,7 @@ function priceOf(pid) {
 const money = (n) => "$" + n.toFixed(2);
 
 function blockFor(pid) {
+  if (NO_BLOCK.has(pid)) return null;
   const inBundle = Object.keys(BUNDLES).find((b) => BUNDLES[b].includes(pid));
   let inner;
 
@@ -330,7 +340,21 @@ for (const pid of [...pids].sort()) {
   }
 
   const block = blockFor(pid);
-  if (!block) continue;
+  if (!block) {
+    // A page that used to get a block and no longer should: strip the old one
+    // rather than leaving it to rot. Silent skipping is how a retired block
+    // sits live for months quoting a price nothing refreshes.
+    if (NO_BLOCK.has(pid)) {
+      const html0 = fs.readFileSync(file, "utf8");
+      if (MARKER_RE.test(html0)) {
+        const next = html0.replace(/\n?[ \t]*<!-- fce:cross-sell:start -->[\s\S]*?<!-- fce:cross-sell:end -->/, () => "");
+        console.log(`  ${WRITE ? "removed" : "would remove"} the block on ${pid} (NO_BLOCK)`);
+        if (WRITE) fs.writeFileSync(file, next);
+        updated++;
+      }
+    }
+    continue;
+  }
   // Prices are baked in, so make them reviewable without diffing 49 pages.
   if (PREVIEW) {
     console.log(`\n${pid} — ${PRODUCTS[pid] ? PRODUCTS[pid].name : path.relative(REPO, file)}`);
