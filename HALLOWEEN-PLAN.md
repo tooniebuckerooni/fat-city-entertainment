@@ -112,6 +112,24 @@ Halloween effort on p97 performance.**
   button, `/cards/halloween/`, that hands the whole game to the generator.
   The code still prints in the box, for paper and for readers that strip links.
 
+## Shipped 11 Sept, second pass
+
+- [x] **The hub's stale price.** It said $39.99 for two days after the pack
+  moved to $35.97, and its "bought separately" line still said $64.97. Both were
+  in `new-content-pages.json` as well as on the page. New
+  `_tools/check-linked-prices.js` compares any dollar amount written beside a
+  link to `/store/pNN/` against that product's own page, reads the specs too,
+  and is in the weekly health check.
+- [x] **Perk badge** on p189's main image and all five listing tiles, reading
+  "1 Month Free / Bingo Card Generator 2.0". `_tools/add-perk-badge.js`, generic,
+  a map entry per product, `--remove` when the perk ends.
+- [x] **Copy cut by a third** and rewritten around the differentiator: one line,
+  four bullets, one close. The autoload bullet is now the longest, which is
+  right, it is the thing nothing else in the catalogue has.
+- [x] **`.claude/skills/seasonal-push`** — the reusable version of all of this,
+  for Christmas and after. What to build, in what order, and every trap this run
+  hit.
+
 ## Next
 
 ### 3. Seasonal nav item — SHIPPED 11 Sept

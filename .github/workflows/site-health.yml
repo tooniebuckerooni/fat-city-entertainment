@@ -134,7 +134,7 @@ jobs:
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
                      add-sale-banner add-product-gallery build-generator-links \
-                     add-halloween-banner \
+                     add-halloween-banner add-perk-badge \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
@@ -174,8 +174,14 @@ jobs:
             # defect that is already live.
             echo "### Value stacks, trivia shows, LemonSqueezy checklist, tile and page structure"
             echo '```'
+            # check-linked-prices joined 11 Sept 2026: the Halloween hub quoted
+            # $39.99 for two days after the pack moved to $35.97, and nothing
+            # looked. set-usd-price.js only walks product pages and listing
+            # tiles; content pages, campaign specs and blog posts had no check
+            # at all. It compares a dollar amount written immediately beside a
+            # link to /store/pNN/ against that product's own page.
             for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure \
-                     fix-product-divs; do
+                     fix-product-divs check-linked-prices; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

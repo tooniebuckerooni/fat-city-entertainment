@@ -170,6 +170,25 @@ internal documentation, which uses em-dashes throughout on purpose.
   `add-store-tile.js` does. Its dry run reports **thumbnail files separately
   from pages**: a deleted thumbnail changes no HTML, so a page count alone would
   read as an all-clear while the strip rendered a blank box.
+- **`_tools/add-perk-badge.js` puts a bundled perk on the artwork.** A tile
+  shows a box shot and a price, so a month of Generator 2.0 inside the pack is
+  invisible exactly where the decision gets made. Add a `BADGES` entry and
+  re-run; `--remove` takes it down. Top-LEFT, because Weebly's sale banner is a
+  full-width strip along the bottom of the same wrapper. **Two tile shapes
+  exist**, `wsite-com-category-product` and `wsite-com-category-product-featured`
+  — matching only the first misses `trivia-store.html` and `store/c1`, the two
+  highest-traffic placements on the site.
+- **`_tools/check-linked-prices.js` catches a stale price in prose.** A dollar
+  amount written immediately beside a link to `/store/pNN/` is a claim about
+  that product, and it is compared against that product's own page. The
+  Halloween hub said $39.99 for two days after the pack moved to $35.97, because
+  `set-usd-price.js` only walks product pages and listing tiles and nothing
+  looked at content pages, campaign specs or blog posts. **Adjacency is the
+  whole trick**: a first draft used "within 90 characters" and produced 40 false
+  positives off one shape, the cross-sell's *"…&lt;a&gt;Holidays 6-Pack&lt;/a&gt;.
+  This game is $11.99"*, where the link points at the pack and the amount is the
+  page you are standing on. It checks the SPECS as well as the pages, because
+  fixing only the page is how a hand edit gets reverted.
 - **A product with no `store/pNN/` page gets a tile from the `VIRTUAL` map** in
   `add-store-tile.js` (`node _tools/add-store-tile.js handbook --after p18
   --pages …`). The Music Bingo Handbook sells on Amazon KDP and already has a
@@ -710,3 +729,14 @@ retired on purpose, not lost.
   `image-seo-audit-products` branch confirmed redundant) were resolved the
   same morning — see the doc for the full record.
 - `GREENROOM-PLAN.md` / `README-greenroom.md` — see "The Green Room" above.
+
+## Skills (`.claude/skills/`)
+- **`pricing-strategy`** — anything a customer pays or sees as a price.
+- **`seasonal-push`** (added 11 Sept 2026) — the whole shape of a Halloween /
+  Christmas / Valentine's push: the bundle, the seasonal category order, the
+  indexable hub, the nav item, the banner, the perk badge, the Generator
+  preload link and the redemption PDF, in the order that keeps each step true.
+  Written from the Halloween 2026 run, so it carries that run's mistakes:
+  the orphaned hub, the stale price in prose, the 98-cent saving, the watermark
+  that makes an autoload worthless without a pass, and the rule that **a
+  seasonal edit's takedown is proved before the thing goes up**.

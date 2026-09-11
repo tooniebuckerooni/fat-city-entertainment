@@ -1635,3 +1635,52 @@ ol.fce-tl li {
   .fce-hw-banner-head { font-size: 19px; }
   .fce-hw-banner-cta { flex: 1 1 100%; text-align: center; padding: 14px 20px; }
 }
+
+/* Perk badge (_tools/add-perk-badge.js): names something that comes with a
+   product but is invisible in the cover art. Top-LEFT on purpose. Weebly's own
+   sale banner is a full-width strip along the bottom of the same
+   position:relative wrapper (.category__image-sale-banner-wrapper in
+   sites.css), so the two never meet. */
+#wsite-com-product-images { position: relative; }
+.fce-perk-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  display: block;
+  padding: 7px 11px 6px;
+  border-radius: 0 0 8px 0;
+  background: #99790a;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  line-height: 1.15;
+  text-align: left;
+  pointer-events: none; /* never eat a click meant for the product link */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+}
+.fce-perk-badge b {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+}
+.fce-perk-badge i {
+  display: block;
+  margin-top: 1px;
+  font-style: normal;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #f2e3ad;
+}
+/* Tiles render about 210px wide, so the same badge at full size would cover a
+   third of the artwork. */
+.fce-perk-badge--sm { padding: 5px 8px 4px; }
+.fce-perk-badge--sm b { font-size: 10.5px; }
+.fce-perk-badge--sm i { font-size: 8px; letter-spacing: 0.02em; }
+@media (max-width: 640px) {
+  .fce-perk-badge--sm b { font-size: 9.5px; }
+  .fce-perk-badge--sm i { font-size: 7.5px; }
+}
