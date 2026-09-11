@@ -46,6 +46,13 @@ const WRITE = process.argv.includes("--write");
 const SITE = "https://www.fatcityentertainment.com";
 const ROOT = "go";
 
+// Names are scraped back OUT of a product page, so they arrive already escaped.
+// Decode before re-escaping or "&amp;" compounds into "&amp;amp;" and the
+// Halloween pack advertised itself as "Music Bingo &amp;amp; 2 Trivia Shows"
+// in an email landing page. Same trap as the gallery tool's alt text.
+const unesc = (s) => String(s)
+  .replace(/&quot;/g, '"').replace(/&#0?39;/g, "'").replace(/&apos;/g, "'")
+  .replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const money = (n) => "$" + n.toFixed(2);
@@ -74,7 +81,7 @@ function product(pid) {
         href: "/" + rel,
         price: Number(price[1]),
         onSale: shown.length > 1,
-        name: name ? name[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim() : pid,
+        name: name ? unesc(name[1].replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()) : pid,
         image: img ? img[1] : null,
       };
       break;
@@ -222,10 +229,14 @@ function page(slug, c) {
       </div>`;
   }).join("\n");
 
-  const last = items[items.length - 1];
+  // The closing CTA. Defaults to the last pick, which is the most expensive,
+  // but that is not always the one a given send should close on: the Halloween
+  // send's last pick is the all-year 6-pack while its ANSWER is the Halloween
+  // bundle. A spec can name `cta` to override it.
+  const last = items.find((i) => i.pid === c.cta) || items[items.length - 1];
   const songList = c.song_list
     ? `    <section>
-      <p class="proof">Not sure the songs suit your crowd? <a href="/music-bingo-song-lists/${esc(c.song_list)}/">${esc(c.song_list_label || "Read the full song list, free")}</a> — every track, in play order, before you spend anything.</p>
+      <p class="proof">Not sure the songs suit your crowd? <a href="/music-bingo-song-lists/${esc(c.song_list)}/">${esc(c.song_list_label || "Read the full song list, free")}</a>. Every track, in play order, before you spend anything.</p>
     </section>`
     : "";
 
@@ -291,7 +302,7 @@ ${songList}
         <ul>
           <li><strong>250 randomized cards.</strong> Every card different, so a full room can play at once without two people sharing a winning line. Prints landscape on ordinary letter paper.</li>
           <li><strong>The printable callsheet.</strong> Every answer in play order, so you can confirm a win in seconds from the host table.</li>
-          <li><strong>Playlists, already sequenced.</strong> Spotify and Apple Music — press play and host.</li>
+          <li><strong>Playlists, already sequenced.</strong> Spotify and Apple Music, so you press play and host.</li>
         </ul>
       </div>
     </section>

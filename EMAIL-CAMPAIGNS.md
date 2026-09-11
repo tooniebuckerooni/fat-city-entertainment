@@ -139,7 +139,7 @@ Record per send, in this doc, as they happen:
 
 | send | direction | delivered | opens | clicks | sessions | begin_checkout | orders |
 |---|---|---|---|---|---|---|---|
-| Halloween, late Sept | A | | | | | | |
+| Halloween, ~20 Sept | A | | | | | | |
 | Christmas, mid Oct | B | | | | | | |
 | Bundles, early Nov | C | | | | | | |
 | Last-minute, early Dec | winner | | | | | | |
@@ -161,15 +161,49 @@ send.
    two weeks ahead of the mid-September deadline.
 3. ✅ **Campaign tracking** — `track.js` reports `view_item_list` on load with
    the whole ladder, and every buy click carries `origin: "campaign-<slug>"`.
-4. **Owner: add UTMs to the email links** (below) and send.
+4. **Owner: add UTMs to the email links** (below) and send. Target as of
+   11 Sept: **a Sunday-to-Tuesday slot in the second half of September.** Later
+   in that range is better than earlier. Venues book Halloween 2 to 4 weeks out,
+   so a send landing around 20 to 22 Sept puts the offer in front of them about
+   six weeks before the night: early enough to plan, late enough to still be
+   remembered when they actually book.
 5. Record the row in the table above, then repeat for B and C.
+
+> **The gap worth deciding on: Halloween gets ONE touch.** The schedule goes
+> straight to `/go/christmas/` in mid-October, which is precisely when venues
+> are booking Halloween. A short second Halloween send in the week of 12 to 19
+> October, pointing at the same page, costs one email and no new build. It is
+> not in the four-send plan because the four sends were picked to each test a
+> direction; a repeat of direction A is not a test, which is exactly why it is
+> cheap.
 
 ### What `/go/halloween/` actually is
 
-9KB against a 39KB product page. One occasion, three rungs
-($10.99 → $32.99 → $46.99), the full song list as free proof, no nav dropdowns,
-no blog links, no footer maze. Buy buttons keep `ls-buy` + `data-product` so the
-promo-code prefill, `bake-buy-links.js` and the tracking all work unchanged.
+9KB against a 39KB product page. One occasion, three rungs, the full song list
+as free proof, no nav dropdowns, no blog links, no footer maze. Buy buttons keep
+`ls-buy` + `data-product` so the promo-code prefill, `bake-buy-links.js` and the
+tracking all work unchanged.
+
+**Refreshed 11 Sept 2026, before the first send.** It had gone stale in three
+ways that a send would have shipped:
+
+- **The Halloween Complete Pack (p189) was not on it.** It did not exist on
+  28 Aug. It is the flagship Halloween product, and the send would have pointed
+  a Halloween list at the singles. The ladder is now
+  **$11.99 → $35.97 → $57.56**: one night, the whole night, the whole year.
+- **p33's blurb described a product that no longer exists.** It read "two full
+  Halloween trivia shows in presentation format"; p33 was split on 10 Sept into
+  the standalone game show, because as a 2-pack it silently contained p97. It is
+  dropped as a pick, since p189 contains it.
+- **Em-dashes in the spec and in the tool's own template**, against the repo's
+  writing rule. Fixed at both, so the next campaign inherits the fix.
+
+Two tool fixes came out of it. A spec can now name `cta` for the closing button,
+which defaulted to the last and most expensive pick: on a Halloween send that
+closed on the all-year 6-pack rather than the Halloween answer. And product
+names are scraped back out of product pages already escaped, so `&amp;` was
+compounding into `&amp;amp;` and the pack advertised itself as
+"Music Bingo &amp;amp; 2 Trivia Shows".
 
 Adding the next campaign is an entry in `_content/campaigns.json` and a re-run.
 
