@@ -56,3 +56,5 @@ The other half of the equation is what it costs you to produce each show. Writin
 Price for the value you bring, keep your prep lean, prove the crowd, and raise your rate on a schedule. Hosting trivia is a real side income — but only if you charge like it is.
 
 For the rest of the playbook, see [8 tips for hosting a most excellent trivia show](/triviahostresources/8-tips-for-hosting-a-most-excellent-trivia-show) and [how many trivia questions you need for a night](/triviahostresources/how-many-trivia-questions-for-a-trivia-night).
+
+Still building the night itself? The format is covered end to end in our [trivia night guide](/trivia-night-guide.html).

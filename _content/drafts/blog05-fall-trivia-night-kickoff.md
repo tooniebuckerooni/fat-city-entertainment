@@ -34,3 +34,5 @@ Whichever crowd you're hosting for, the same rule applies: open with something f
 ## Where to Start
 
 Browse the full lineup in the [Trivia Store](/trivia-store.html) to build your season-opener playlist, or get every pack — including everything we add through the fall — with [Music Bingo Gold Club].
+
+New to hosting, or rebuilding the format from scratch? Start with our [trivia night guide](/trivia-night-guide.html).

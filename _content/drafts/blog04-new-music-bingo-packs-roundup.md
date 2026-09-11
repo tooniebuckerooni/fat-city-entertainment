@@ -36,3 +36,5 @@ Five games hiding everyday words in their titles — Colors, Body Parts, Food Fi
 None of these are meant to replace a solid decades round — they're built to sit alongside one. Drop a niche pack in as your second or third round once the crowd is warmed up, and you get the same "wait, they made a pack for *that*?" reaction that keeps regulars coming back to see what's next.
 
 Browse the full lineup in the [Trivia Store](/trivia-store.html), or get every pack we release — new and old — with [Music Bingo Gold Club].
+
+Building your own instead? Making cards from any song list is covered in our [bingo card generator guide](/bingo-card-generator-guide.html).

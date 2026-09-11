@@ -569,10 +569,25 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
   check, so nothing caught it.
 - **A pillar page must be linked FROM its cluster posts, not just to them.** The
   two guides (`trivia-night-guide.html`, `bingo-card-generator-guide.html`)
-  linked down into their posts but nothing linked back up, which is how a hub
-  page ends up orphaned — reachable only from the sitemap, collecting no
-  internal link equity. The up-links live in the **drafts**, so they survive a
-  re-publish; never hand-edit a generated post to add one.
+  linked down into their posts but only 3 of 13 posts linked back up, which is
+  how a hub page ends up orphaned — reachable only from the sitemap, collecting
+  no internal link equity. Fixed 11 Sept 2026: the trivia guide now has 6
+  inbound posts and the generator guide 7. The sentence lives in **two** places
+  on purpose, the draft (so it survives a re-publish) and
+  **`_tools/add-pillar-uplinks.js`** (so it is on the live page without one).
+  The tool places it at the end of the prose, which on the six blog posts means
+  **before** the "Complete Your Night" CTA, not after the buy buttons.
+- **`publish-post.js` on an EXISTING post is destructive. Do not "just
+  re-publish" to add something.** Measured on a real post 11 Sept 2026: it
+  regenerates the page from the Zoo Rock template and throws away everything
+  added after publication. On the four GEO posts that is a hand-built
+  `<!-- fce:faq -->` section, three of them carrying a bespoke inline SVG
+  diagram, which no tool regenerates. It also resets `twitter:title` and
+  `twitter:description` to the template's (the same bug fixed in
+  `new-content-page.js` on 10 Sept, still live here) and resets the JSON-LD
+  headline and `datePublished`, so a re-publish without `--date` also silently
+  re-dates the post. Use it for NEW posts. To change a live one, use a targeted
+  idempotent tool and update the draft alongside it.
 - **Blog listing shells** (`category/`, `archives/`, `previous/N`, across
   `triviahostresources/` *and* the legacy `whatsnew|inspiration|blog|4` trees)
   must carry `noindex,follow` — `node _tools/noindex-blog-taxonomy.js --write`

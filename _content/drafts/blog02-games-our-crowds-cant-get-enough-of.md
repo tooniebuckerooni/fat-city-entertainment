@@ -50,3 +50,5 @@ This kind of rotation keeps regulars curious about what's coming without requiri
 ## Where to Start
 
 If your current lineup has been running the same generic playlist for a while, a decades round is the easiest and highest-leverage change to make first — it's the format most likely to convert a quiet Tuesday into your busiest night. [Explore Music Bingo Gold Club] for a full rotation of decade and genre packs built and ready to run, or [try the free Bingo Card Generator] to build your next set of cards for whichever format you pick.
+
+Would rather build a round from your own song list? That is what our [bingo card generator guide](/bingo-card-generator-guide.html) is for.

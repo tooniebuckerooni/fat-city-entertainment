@@ -57,3 +57,5 @@ You don't need to build any of this yourself. [Try the free Bingo Card Generator
 If music bingo is your thing, the same uniqueness rules apply to song-based cards — see [how to run a music bingo night](/triviahostresources/how-to-run-a-music-bingo-night) for the full setup, and [print-ready music bingo cards](/printmusicbingocards.html) if you'd rather grab a finished pack.
 
 Print with confidence: when the generator is built right, "no two cards the same" isn't a hope — it's a guarantee.
+
+Everything else a good generator should do, from card counts to colour themes, is in our [bingo card generator guide](/bingo-card-generator-guide.html).

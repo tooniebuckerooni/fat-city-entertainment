@@ -40,3 +40,5 @@ None of this means "don't use AI for trivia." It means the raw prompt is the fir
 The [Trivia Show Maker](/trivia-show-maker/) is free and runs entirely in your browser: build your rounds, generate questions with difficulty and audience dialed in, and print a complete game kit — host packet, question sheets, team answer sheets, and a score sheet — as ready-to-host PDFs. Once it's printed, the whole night runs on paper, no wifi or laptop at the table.
 
 Want to know how many questions to actually generate? See [how many trivia questions you need for a trivia night](/triviahostresources/how-many-trivia-questions-for-a-trivia-night) before you build your set.
+
+For the rest of the hosting playbook, from question counts to pacing and prizes, start with the [trivia night guide](/trivia-night-guide.html).

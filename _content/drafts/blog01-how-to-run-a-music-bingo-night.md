@@ -69,3 +69,5 @@ Most music bingo nights don't fail because the concept is bad — they fail beca
 The hosts who get the most out of music bingo treat it as a recurring fixture, not a special event. A consistent weekly or biweekly slot, with a rotating theme calendar planned a month or two ahead, is what turns "that bar does trivia sometimes" into "that's our Thursday spot." Once you have a rhythm going, subscription-style access to fresh playlists and themes — like [Music Bingo Gold Club] — makes it easy to keep every week feeling new without doing the playlist-building work yourself.
 
 Ready to build your first set of cards? [Try the free Bingo Card Generator] to get started, or explore [Music Bingo Gold Club] for a constant stream of new themed packs to keep your regulars coming back.
+
+Making the cards is its own job, and it is covered end to end in our [bingo card generator guide](/bingo-card-generator-guide.html).

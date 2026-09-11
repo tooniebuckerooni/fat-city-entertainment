@@ -56,3 +56,5 @@ A night that keeps energy climbing from start to finish usually looks something 
 ## Skip the Playlist-Building
 
 Sourcing, sequencing, and testing a full round of recognizable songs takes real time — time most hosts would rather spend promoting the event or running the room. [Music Bingo Gold Club] gives you a constantly refreshed library across every decade and theme above, built and ready to run. If you're just getting started, [try the free Bingo Card Generator] to build your first card set, or grab [Bingo Card Generator Pro] for unlimited card sets as you build out your rotation.
+
+Turning any of these playlists into printable cards takes minutes, and our [bingo card generator guide](/bingo-card-generator-guide.html) walks through it.

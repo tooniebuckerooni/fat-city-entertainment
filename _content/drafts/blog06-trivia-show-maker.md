@@ -59,3 +59,5 @@ The whole design philosophy is that everything complicated happens in your brows
 That's a deliberate choice. The simpler the night is to run, the more likely it actually happens every week. And a weekly night that actually happens is worth more than a flashy setup that burns out after a month.
 
 [Try the Trivia Show Maker — it's free.](/trivia-show-maker/)
+
+For the night around the questions, from rounds and pacing to prizes, see the [trivia night guide](/trivia-night-guide.html).

@@ -53,3 +53,5 @@ Once you know your count and rounds, you have to actually write and format them 
 For the wider hosting playbook — equipment, promotion, pacing, and prizes — see [how to run a music bingo night](/triviahostresources/how-to-run-a-music-bingo-night) and our [8 tips for hosting a most excellent trivia show](/triviahostresources/8-tips-for-hosting-a-most-excellent-trivia-show).
 
 Get the count right, break it into rounds, leave room to score, and the night runs itself.
+
+The full picture, from rounds and timing to what to put on the line, is in our [trivia night guide](/trivia-night-guide.html).
