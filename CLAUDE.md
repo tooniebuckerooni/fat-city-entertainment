@@ -198,6 +198,16 @@ internal documentation, which uses em-dashes throughout on purpose.
   unrelated lines across 4 pages (`defer` → `defer=""`, `&` → `&amp;`) for 18
   lazy attributes. Reverted. It needs a dry-run flag and a targeted regex before
   anyone uses it again. Every other `_tools/` script is dry-run by default.
+- **Seasonal Halloween banner** (`_tools/add-halloween-banner.js`, idempotent,
+  SEPT 2026): an announcement block between `<!-- fce:halloween-banner -->`
+  markers on the nine entry pages, styled `.fce-hw-banner*`. **Not
+  `promo-bar.js` and not a discount** (owner's call 11 Sept: the promo bar did
+  not look good). It sits **inside `#wsite-content` in normal flow, never fixed
+  or floated** — that is the whole reason it is safe, since the old sitewide bar
+  covered the mobile hamburger. Verified with `elementFromPoint` at 390px. It
+  bakes p189's price, read off that page, so it is **on the
+  re-run-after-repricing list**. **`--remove --write` after 1 Nov**, which
+  restores every page exactly.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`
@@ -214,7 +224,8 @@ internal documentation, which uses em-dashes throughout on purpose.
      amount survives in the copy, which is how a stale `$89.00` was caught;
   4. re-run `add-cross-sell.js --write`, `add-price-ladder.js --write`,
      `build-song-library.js --write`, `add-jsonld.js --write`,
-     `bake-buy-links.js --write`.
+     `bake-buy-links.js --write`, `check-value-stacks.js --write`, and (while
+     the season is on) `add-halloween-banner.js --write`.
 - Both cross-sell and ladder **bake prices into HTML**, read from each product
   page's own `itemprop="price"`. Neither ever quotes a sale price in prose it
   can't refresh; both report which tiers are on sale at the end of a run, and
@@ -281,14 +292,18 @@ three figures are hardcoded in `check-value-stacks.js`, in `add-cross-sell.js`'s
   recalled; the payload lives in a file we can regenerate. Squares come from
   `_content/song-lists.json`, which is already published free, so a preload link
   publishes nothing new. **Never encode a puzzle-answer column.**
-- **The generator does not read `?load=` yet.** Run
-  `build-generator-links.js --patch` for the exact four-line handler; it reuses
-  the generator's existing `?card=` encoding and `applyState()`. An unpatched
-  generator ignores the parameter and shows an empty generator, so the link
-  degrades rather than erroring. Also broken over there and unrelated: the init
-  block calls `hCb(qp.get('code'))` and **`hCb` is not defined**, so any `?code=`
-  visit throws mid-init and kills the `?card=`, saved-games, autosave and
-  `?activated` handlers after it.
+- **The generator lives in its own repo: `tooniebuckerooni/bingocardgenerator2`,
+  also GitHub Pages, `index.html` is the whole app.** It is NOT a dashboard
+  paste like the Workers. Attach it with `add_repo` when it needs changing.
+  The `?load=` handler was written and browser-tested 11 Sept and sits on branch
+  `claude/preload-link-handler` there; **merge it and the preload links work**.
+  `build-generator-links.js --patch` still prints the handler if it is ever
+  needed again. An unpatched generator ignores `?load=` and shows an empty
+  generator, so a preload link degrades rather than erroring.
+  That same branch also **deletes a live crash**: the init block called
+  `hCb(qp.get('code'))` and `hCb` was defined nowhere, so any `?code=` visit
+  threw mid-init and killed the `?card=`, saved-games, autosave and `?activated`
+  handlers after it. Reproduced in a browser against the previous commit.
 - **Free-tier generator downloads carry a `FREE DEMO` watermark on every card.**
   This is the fact that governs perk pricing: a preload link without a pass
   produces cards nobody can hand to a room, so an "autoload" is only worth

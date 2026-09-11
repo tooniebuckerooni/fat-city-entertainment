@@ -134,6 +134,7 @@ jobs:
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
                      add-sale-banner add-product-gallery build-generator-links \
+                     add-halloween-banner \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

@@ -1561,3 +1561,77 @@ ol.fce-tl li {
   text-transform: uppercase;
   text-shadow: 0 1px 1px rgba(0, 0, 0, .35);
 }
+
+/* Seasonal Halloween banner (_tools/add-halloween-banner.js, Sept 2026).
+   REMOVE THE TOOL'S BLOCKS AFTER 1 NOV; these rules can stay, they cost
+   nothing when no page carries the markup.
+
+   In normal flow inside #wsite-content, never fixed and never floated. The
+   sitewide promo bar this replaces was position:relative while the mobile
+   header nav is position:fixed;top:0 in the theme CSS, so it sat on top of the
+   hamburger and covered it completely on every phone. A block in the content
+   column cannot reach the header, which is the whole point of putting it here.
+
+   Colours are the same orange-on-black as the Halloween card palette the
+   generator preload link ships (#FF7518 on #141414), so the banner, the cards
+   and the product art read as one thing. */
+.fce-hw-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0 0 28px;
+  padding: 20px 24px;
+  border-radius: 10px;
+  border-left: 5px solid #ff7518;
+  background: #141414;
+  background: linear-gradient(100deg, #141414 0%, #241a10 100%);
+  color: #f2f2f2;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.fce-hw-banner-text { flex: 1 1 340px; min-width: 0; }
+.fce-hw-banner-kicker {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: #ff9a4d;
+}
+.fce-hw-banner-head {
+  margin: 0 0 6px;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 700;
+  color: #ffffff;
+}
+.fce-hw-banner-sub {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: #d8d8d8;
+}
+.fce-hw-banner-sub a { color: #ffb066; text-decoration: underline; }
+.fce-hw-banner-sub a:hover { color: #ffd0a3; }
+.fce-hw-banner-cta {
+  flex: 0 0 auto;
+  display: inline-block;
+  padding: 13px 26px;
+  border-radius: 999px;
+  background: #ff7518;
+  color: #141414 !important;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+.fce-hw-banner-cta:hover { background: #ff9040; color: #141414 !important; }
+
+/* Phone: stack, and let the button run the full width so it is a real target
+   rather than a link squeezed against the right edge. */
+@media (max-width: 640px) {
+  .fce-hw-banner { padding: 18px; gap: 16px; }
+  .fce-hw-banner-head { font-size: 19px; }
+  .fce-hw-banner-cta { flex: 1 1 100%; text-align: center; padding: 14px 20px; }
+}

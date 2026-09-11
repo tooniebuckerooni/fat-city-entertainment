@@ -191,14 +191,50 @@ links and already draws traffic. It currently converts nothing. Add a product
 CTA. Same argument applies to the other 49 library pages, so treat Halloween as
 the pilot.
 
-### 10. Seasonal promo
-`promo-bar.js` is intact on disk and referenced by **zero** pages, so a promo is
-a config edit (`CODE`/`PCT`/`END`/`COPY`) plus `add-promo-bar.js`. Needs the
-code created in LemonSqueezy. **The store is shared with Bingo Card Generator
-subscriptions, so scope the code per-product** or a Halloween sale hits
-Generator billing. Self-expires on its `END` date.
+### 10. Seasonal banner — SHIPPED 11 Sept. Promo bar dropped.
+**Owner's call, 11 Sept: skip the promo bar, just do the banner.** So this is
+not `promo-bar.js` and not a discount. `_tools/add-halloween-banner.js` puts a
+plain announcement block on the nine entry pages a shopper actually lands on:
+home, the storefront, the store root, Music Bingo Downloads, Holidays, Pre-made
+Trivia Shows, Bundles, and the two Our Games pages. Product pages are excluded,
+they already carry a cross-sell.
 
-### 11. The generator's `?load=` handler — OWNER, one paste, blocks the second PDF button
+It sits **inside `#wsite-content` in normal flow**, never fixed and never
+floated, which is the whole reason it can exist at all: the old sitewide bar was
+`position: relative` against a `position: fixed; top: 0` mobile header and
+covered the hamburger on every phone. Verified with `elementFromPoint` at 390px
+that the hamburger now resolves to itself, not to the banner.
+
+The pack price is read off p189's own page at build time, so **this tool is on
+the re-run-after-repricing list** with the cross-sell and the ladder. Proved in
+the weekly health check by repricing p189 and watching it fire.
+
+**`--remove --write` after 1 Nov**, which restores every page exactly.
+
+`promo-bar.js` is still intact on disk and referenced by zero pages if a real
+discount is ever wanted: a config edit (`CODE`/`PCT`/`END`/`COPY`) plus
+`add-promo-bar.js`, and the code has to exist in LemonSqueezy. **The store is
+shared with Bingo Card Generator subscriptions, so scope any code per-product**
+or a Halloween sale hits Generator billing.
+
+### 11. The generator's `?load=` handler — WRITTEN AND TESTED, awaiting merge
+
+> **SHIPPED 11 Sept to a branch.** `tooniebuckerooni/bingocardgenerator2`,
+> branch `claude/preload-link-handler`. Merge it and the second PDF button
+> works. Tested in Chromium against the real 30-song payload: title, all 30
+> squares, the orange-on-black palette and the toast all land, with no page
+> errors; a malformed payload shows the error toast and leaves a working
+> generator; a plain visit is unchanged.
+>
+> It also **removes a live crash**. `if(qp.has('code'))hCb(qp.get('code'));` ran
+> on every visit carrying `?code=` and `hCb` was not defined anywhere in that
+> file. Reproduced against the previous commit: `hCb is not defined`, thrown
+> mid-init, which took `?card=` share links, the saved-games list, the autosave
+> restore and the `?activated` post-checkout handler down with it. Removed
+> rather than guessed at; wire it to `oUnlock()` + `tryAct()` if it was meant to
+> carry a license key.
+
+The original writeup, for reference:
 
 `/cards/halloween/` is live and forwards to the generator with the whole game
 encoded in a `?load=` payload: title, all 30 song titles, and an orange-on-black
