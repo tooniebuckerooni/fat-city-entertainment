@@ -1,0 +1,32 @@
+{
+  "_comment": [
+    "Preload handoffs into Bingo Card Generator 2.0. Each entry becomes a short",
+    "redirect stub at /cards/<slug>/ that forwards to the generator with the",
+    "game already encoded in a ?load= payload. Built by",
+    "_tools/build-generator-links.js — edit this file and re-run, never edit the",
+    "generated stub.",
+    "",
+    "The short URL is the one that goes in print (the redemption PDFs, a QR",
+    "code, an email). It is ours, so if the generator ever changes its param",
+    "shape we re-run this tool and every printed link keeps working.",
+    "",
+    "squares: either a 'songList' key from _content/song-lists.json (song titles",
+    "become the squares) or an explicit 'squares' array.",
+    "",
+    "colours: [card background, square text, title bar, title text, free space],",
+    "the order Generator 2.0's own hydrateCustom() reads. Only used when theme",
+    "is 'custom'."
+  ],
+  "links": [
+    {
+      "slug": "halloween",
+      "name": "Halloween Party music bingo",
+      "title": "Halloween Party Music Bingo",
+      "songList": "Halloween Party",
+      "theme": "custom",
+      "colours": ["#141414", "#F2F2F2", "#FF7518", "#141414", "#FF7518"],
+      "utm_content": "halloween-redemption-pdf",
+      "note": "Shipped with the p189 Halloween Complete Pack redemption PDF."
+    }
+  ]
+}

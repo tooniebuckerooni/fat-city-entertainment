@@ -57,6 +57,32 @@ const VALUE_STACKS = [
   ...ADDON_PACKS.map((c) => ({ ...c, handbook: false })),
 ];
 
+// A pack whose components are NOT all the same price, so "N games at the single
+// price" cannot describe it. p189 is one music bingo game at $11.99, a print
+// and play trivia show at $11.99 and a game show presentation at $16.99, plus
+// the Generator month.
+//
+// It gets its own pass rather than a `games` count, because the whole point is
+// that there is no single figure to multiply. Each component price is read off
+// that component's own page, so a reprice anywhere in the bundle moves this
+// paragraph on the next run instead of leaving it quietly wrong — which is the
+// failure this whole file exists to stop.
+const MIXED_PACKS = [
+  {
+    pid: "p189",
+    file: "store/p189/halloweencompletepack.html",
+    components: [
+      "store/p97/halloweenparty.html",
+      "store/p174/triviashowhalloween.html",
+      "store/p33/fatbottomtrivia15.html",
+    ],
+    words: "Bought one at a time the three games come to",
+    licence: 24.00,
+    licName: "Monthly licence",
+    sells: 39.99,
+  },
+];
+
 const read = (rel) => fs.readFileSync(path.join(REPO, rel), "utf8");
 const money = (n) => "$" + n.toFixed(2);
 const num = (s) => Number(String(s).replace(/[$,]/g, ""));
@@ -224,6 +250,66 @@ for (const c of VALUE_STACKS) {
   );
 }
 
+for (const m of MIXED_PACKS) {
+  const prices = m.components.map((rel) => {
+    const hit = read(rel).match(/itemprop="price"\s+content="([0-9.]+)"/);
+    if (!hit) problems.push(`${m.pid}: no price on ${rel}`);
+    return hit ? Number(hit[1]) : null;
+  });
+  if (prices.some((v) => v === null)) continue;
+
+  const expectGames = Number(prices.reduce((n, v) => n + v, 0).toFixed(2));
+  const expectTotal = Number((expectGames + m.licence).toFixed(2));
+  const expectSave = Number((expectTotal - m.sells).toFixed(2));
+
+  const rebuilt =
+    `${m.words} ${money(expectGames)}. Add the ${money(m.licence)} ${m.licName}: ` +
+    `<strong>${money(expectTotal)}</strong> of value, yours for ` +
+    `<strong>${money(m.sells)}</strong>, and you keep <strong>${money(expectSave)}</strong>.`;
+
+  const SENTENCE = new RegExp(
+    `${m.words} \\$[0-9,.]+\\.[\\s\\S]*?you keep <strong>\\$[0-9,.]+</strong>\\.`
+  );
+  let html = read(m.file);
+  if (!SENTENCE.test(html)) {
+    problems.push(`${m.pid}: no "${m.words} …" Quick math sentence found`);
+    continue;
+  }
+  if (WRITE) {
+    const next = html.replace(SENTENCE, () => rebuilt);
+    if (next !== html) {
+      fs.writeFileSync(path.join(REPO, m.file), next);
+      console.log(`  rewrote ${m.file}`);
+      html = next;
+    }
+  }
+
+  const got = (html.match(SENTENCE) || [""])[0];
+  const figs = (got.match(/\$[0-9,]+\.[0-9]{2}/g) || []).map(num);
+  const want = [expectGames, m.licence, expectTotal, m.sells, expectSave];
+  const labels = ["games subtotal", "licence price", "value total", "selling price", "saving"];
+  want.forEach((w, i) => {
+    if (figs[i] === undefined) problems.push(`${m.pid}: ${labels[i]} missing from Quick math`);
+    else if (Math.abs(figs[i] - w) > 0.005)
+      problems.push(`${m.pid}: ${labels[i]} says ${money(figs[i])}, should be ${money(w)}`);
+  });
+
+  const priceM = html.match(/itemprop="price"\s+content="([0-9.]+)"/);
+  const regM = html.match(
+    /<div id="wsite-com-product-price" class="wsite-com-product-price-container">[\s\S]*?\$([0-9,]+\.[0-9]{2})/
+  );
+  if (priceM && Math.abs(Number(priceM[1]) - m.sells) > 0.005)
+    problems.push(`${m.pid}: itemprop price is ${money(Number(priceM[1]))}, prose sells at ${money(m.sells)}`);
+  if (regM && Math.abs(num(regM[1]) - expectTotal) > 0.005)
+    problems.push(`${m.pid}: struck-through compare-at is ${money(num(regM[1]))}, value stack totals ${money(expectTotal)}`);
+
+  console.log(
+    `${m.pid.padEnd(5)} ${prices.map(money).join(" + ")} = ${money(expectGames)} + ` +
+    `${money(m.licence)} licence = ${money(expectTotal)} -> sells ${money(m.sells)}, ` +
+    `saves ${money(expectSave)}`
+  );
+}
+
 if (WRITE) {
   // The compare-at lives in the price area, which set-usd-price.js owns. Print
   // the exact command rather than reaching into another tool's territory.
@@ -232,6 +318,14 @@ if (WRITE) {
     const t = (c.games * SINGLE + c.licence + (c.handbook ? HANDBOOK : 0)).toFixed(2);
     console.log(`  node _tools/set-usd-price.js ${c.pid} ${t} ${c.sells.toFixed(2)}`);
   }
+  for (const m of MIXED_PACKS) {
+    const games = m.components.reduce((n, rel) => {
+      const hit = read(rel).match(/itemprop="price"\s+content="([0-9.]+)"/);
+      return n + (hit ? Number(hit[1]) : 0);
+    }, 0);
+    const t = (games + m.licence).toFixed(2);
+    console.log(`  node _tools/set-usd-price.js ${m.pid} ${t} ${m.sells.toFixed(2)}`);
+  }
 }
 
 if (problems.length) {
@@ -239,4 +333,4 @@ if (problems.length) {
   problems.forEach((p) => console.log(`  ! ${p}`));
   process.exit(1);
 }
-console.log(`\nall ${VALUE_STACKS.length} value stacks add up, and match their compare-at prices.`);
+console.log(`\nall ${VALUE_STACKS.length + MIXED_PACKS.length} value stacks add up, and match their compare-at prices.`);

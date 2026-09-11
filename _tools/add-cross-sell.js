@@ -131,6 +131,32 @@ const BUNDLES = {
          "The Year Was… 2009", "The Year Was… 2022"],
 };
 
+// PERKS: what a bundle includes that is not a game.
+//
+// p189 and p155 each bundle a month of Bingo Card Generator 2.0. Leaving it out
+// of the arithmetic understates the pack, and on p189 it understated it into
+// nonsense: three games at $11.99, $11.99 and $16.99 come to $40.97 against a
+// $39.99 pack, so the line read "you keep $0.98". True, and useless. Nobody
+// crosses the room for 98 cents, and the actual offer is $64.97 of value for
+// $39.99 — which the page's own body copy was already saying while the block
+// under the buy button contradicted it.
+//
+// A perk price is NOT read off a page, unlike every game price here. Generator
+// 2.0 is a different product on a different site with no itemprop to read. The
+// same figure is hardcoded in check-value-stacks.js (CLUBS / ADDON_PACKS) and
+// the two must be changed together — check-value-stacks.js verifies the number
+// against what each page claims, so a mismatch surfaces there rather than
+// silently going live in two different amounts.
+//
+// Quoting a per-game price is dropped for a pack that carries one. A mixed pack
+// divided by its game count answers a question nobody asked: p189's $13.33 a
+// game is ABOVE the $11.99 single, because one of its three games is the $16.99
+// game show. The total-against-total line is both stronger and the honest one.
+const PERKS = {
+  p189: { name: "a month of Bingo Card Generator 2.0", amount: 24.00 },
+  p155: { name: "a month of Bingo Card Generator 2.0", amount: 24.00 },
+};
+
 // Music bingo singles that get the Gold Club line. Bundle membership wins where
 // a game is in both lists — a $46.99 six-pack is a far likelier next step from a
 // $10.99 game than a club tier, and it's the right one to show a buyer looking
@@ -180,11 +206,17 @@ function blockFor(pid) {
     // check, and an unverifiable number is worse than no number.
     const known = parts.filter(isPid).map(priceOf);
     const allKnown = known.length === parts.length && known.every(Boolean);
-    const separately = allKnown ? known.reduce((n, p) => n + p.amount, 0) : null;
+    const perk = PERKS[pid] || null;
+    const separately = allKnown
+      ? known.reduce((n, p) => n + p.amount, 0) + (perk ? perk.amount : 0)
+      : null;
     const saving = allKnown && bundle ? separately - bundle.amount : null;
 
     let maths = "";
-    if (each && saving > 0) {
+    if (perk && saving > 0) {
+      maths = ` Bought separately that is ${money(separately)}. In this pack it is ` +
+              `<strong>${money(bundle.amount)}</strong>, so you keep ${money(saving)}.`;
+    } else if (each && saving > 0) {
       maths = ` That is <strong>${each} a game</strong> against ` +
               `${money(separately)} bought one at a time, and you keep ${money(saving)}.`;
     } else if (each) {
@@ -192,7 +224,8 @@ function blockFor(pid) {
     }
 
     inner = `<strong>${parts.length} games in this pack:</strong> ` +
-            parts.map(namePart).join(" &middot; ") + "." + maths;
+            parts.map(namePart).join(" &middot; ") +
+            (perk ? `, plus ${perk.name}` : "") + "." + maths;
 
   } else if (inBundle) {
     const mine = priceOf(pid);
@@ -201,8 +234,21 @@ function blockFor(pid) {
 
     // The number that moves someone: not what the bundle costs, but what the
     // games they are not currently buying cost if they take it.
+    // The same split as above: a per-game figure derived from a pack that also
+    // contains a Generator month is not a like-for-like number, so a perk pack
+    // states the whole comparison instead of dividing.
+    const perk = PERKS[inBundle] || null;
     let maths = "";
-    if (mine && bundle && others > 0) {
+    if (mine && bundle && perk) {
+      const parts = BUNDLES[inBundle].filter(isPid).map(priceOf);
+      const full = parts.every(Boolean)
+        ? parts.reduce((n, p) => n + p.amount, 0) + perk.amount
+        : null;
+      maths = ` This game is ${money(mine.amount)}. The pack is ` +
+              `<strong>${money(bundle.amount)}</strong> for all ` +
+              `${BUNDLES[inBundle].length}, plus ${perk.name}` +
+              (full ? `, which comes to ${money(full)} bought separately.` : ".");
+    } else if (mine && bundle && others > 0) {
       const rest = (bundle.amount - mine.amount) / others;
       const tail = others === 1
         ? `which puts the second at <strong>${money(rest)}</strong>.`

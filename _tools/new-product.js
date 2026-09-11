@@ -157,10 +157,27 @@ for (const spec of specs) {
     (m, attrs) => `<span class="wsite-com-product-price-amount"${attrs}>$${spec.price} USD</span>`);
 
   // --- body copy ---------------------------------------------------------
+  // Put back ONE closer, not two. The template's short description is
+  //   <div id="…short-description">  <div class="paragraph">…</div>  </div>
+  // so a lazy match up to `</div>\s*</div>` swallows both closers, and every
+  // spec body is itself a wrapped <div>. Re-emitting the pair left one stray
+  // </div> on all 25 pages this tool has generated: #wsite-com-product-info-
+  // inner closed straight after the description, so the buy button and the
+  // cross-sell block became its siblings and every wrapper after them closed a
+  // level early. Repaired by _tools/fix-product-divs.js, which is in the weekly
+  // health check so it cannot come back quietly.
   if (spec.body) {
+    const bal = (t) => [...t.matchAll(/<div\b[^>]*>|<\/div>/gi)]
+      .reduce((n, m) => n + (m[0][1] === "/" ? -1 : 1), 0);
+    if (bal(spec.body) !== 0) {
+      throw new Error(
+        `${spec.id}: body has unbalanced <div>s (${bal(spec.body)}). It is injected ` +
+        `verbatim into the product page, so it has to close everything it opens.`
+      );
+    }
     html = html.replace(
-      /(<div id="wsite-com-product-short-description"[^>]*>)[\s\S]*?(<\/div>\s*<\/div>)/i,
-      (m, a, b) => `${a}\n${spec.body}\n${b}`
+      /(<div id="wsite-com-product-short-description"[^>]*>)[\s\S]*?<\/div>(\s*<\/div>)/i,
+      (m, a, close) => `${a}\n${spec.body}${close}`
     );
   }
 

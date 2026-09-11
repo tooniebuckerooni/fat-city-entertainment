@@ -110,6 +110,11 @@ jobs:
             # lead with "DRY RUN: 3 files". Adding the tools without these
             # patterns would have looked like an all-clear forever.
             DRIFT="$DRIFT"'|would update: *[1-9]'
+            # Same colon shape for the other verbs. add-product-gallery counts
+            # thumbnail files it would regenerate separately from pages, because
+            # a deleted thumbnail changes no HTML and would otherwise report as
+            # "0 pages, nothing to do" while the page renders a blank box.
+            DRIFT="$DRIFT"'|would (write|add|rewrite): *[1-9]'
             DRIFT="$DRIFT"'|DRY RUN: [1-9][0-9]* files'
             DRIFT="$DRIFT"'|files changed *: *[1-9]'
             # Nav drift is why these are here: post #4 sat live for three weeks
@@ -118,10 +123,17 @@ jobs:
             # over-optimised "Bingo Card Generator" anchor. Nothing was watching
             # the nav, so a page cloned from an old shell silently kept an old
             # menu. Every one of these is idempotent and reads 0 today.
+            #
+            # add-product-gallery and build-generator-links joined 11 Sept 2026.
+            # Both report "would update: N", which the nav patterns above
+            # already cover, and both read 0 today. The gallery one matters
+            # because a thumbnail strip points at generated -thumb files: if one
+            # is ever deleted the tool regenerates it, and until it is re-run
+            # the page shows a blank box rather than a heavier image.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
-                     add-sale-banner \
+                     add-sale-banner add-product-gallery build-generator-links \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
@@ -151,9 +163,18 @@ jobs:
             # Christmas with no name or price and fourteen packs not rendering
             # at all, while the tile count was right, check-links.js passed and
             # every price tool reported clean.
-            echo "### Value stacks, trivia shows, LemonSqueezy checklist, tile structure"
+            # fix-product-divs is the same class of blind spot one level up, on
+            # the PRODUCT page rather than the listing tile: new-product.js put
+            # one stray </div> on all 25 pages it had ever generated, closing
+            # #wsite-com-product-info-inner right after the description so the
+            # buy button and cross-sell became its siblings. Nothing read the
+            # shape of a product page until 11 Sept 2026. It is checked by exit
+            # status, not by a write count, because an unbalanced page is a
+            # defect that is already live.
+            echo "### Value stacks, trivia shows, LemonSqueezy checklist, tile and page structure"
             echo '```'
-            for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure; do
+            for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure \
+                     fix-product-divs; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

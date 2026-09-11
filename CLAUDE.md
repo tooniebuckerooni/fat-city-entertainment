@@ -91,7 +91,15 @@ internal documentation, which uses em-dashes throughout on purpose.
   their components, bundle members point at their bundle *with the per-game
   arithmetic*, stand-alone packs get a Gold Club line. Edit the copy/maps in
   the script and re-run (it replaces blocks in place). `--preview` prints the
-  rendered copy. **p108 is excluded** — it names "Video Games, Tv Shows, &
+  rendered copy. A bundle carrying something that is **not a game** (p189 and
+  p155 each include a month of Generator 2.0) gets a `PERKS` entry, and then the
+  block states the whole comparison instead of dividing: p189's three games come
+  to $40.97 against a $39.99 pack, so the games-only line read *"you keep
+  $0.98"* while the page's own copy said $24.98. A per-game figure is **dropped**
+  for a perk pack on purpose, because a mixed pack divided by its game count can
+  land *above* the single ($13.33 against $11.99). The perk amount is hardcoded
+  in two places, here and in `check-value-stacks.js`; change both.
+  **p108 is excluded** — it names "Video Games, Tv Shows, &
   Movie Soundtracks" and there are two TV Shows games and three Movie
   Soundtracks games, so which ones is a guess. **p166 joined 5 Sept 2026** when
   it launched: its spec and its cover art name the same four games, so its
@@ -137,6 +145,26 @@ internal documentation, which uses em-dashes throughout on purpose.
   half a category was invisible. Subcategory tiles are exempt from the depth
   check; the subcategory wrapper closes after the last one, so it has read `+1`
   since the Weebly export.
+- **`_tools/fix-product-divs.js` (11 Sept 2026) reads the shape of a PRODUCT
+  page**, which nothing did before it. `new-product.js` put one stray `</div>`
+  on all 25 pages it had ever generated: its body-injection regex matched lazily
+  up to `</div>\s*</div>`, which in the template is the inner `.paragraph`
+  closer *plus* the short-description closer, and it put both back while every
+  spec `body` brings its own. `#wsite-com-product-info-inner` closed right after
+  the description, so the buy button, the fact notes and the cross-sell became
+  its siblings and every wrapper after them closed a level early. Fixed at the
+  source and repaired; the check is in the weekly health run and reports by
+  **exit status**, not a write count, because an unbalanced page is already
+  live. It removes a closer only when doing so brings the whole document to
+  balance, so an unfamiliar break is reported and left alone.
+- **`_tools/add-product-gallery.js` fills the thumbnail strip** the Weebly
+  template leaves empty (`#wsite-com-product-images-strip`). Add a `GALLERIES`
+  entry and re-run. It generates each 160px `-thumb` and its webp twin, writes
+  the `<source>` **only when the twin is really on disk** (the blank-tile trap
+  again), and derives every crop from the page's own slot ratio the way
+  `add-store-tile.js` does. Its dry run reports **thumbnail files separately
+  from pages**: a deleted thumbnail changes no HTML, so a page count alone would
+  read as an all-clear while the strip rendered a blank box.
 - **A product with no `store/pNN/` page gets a tile from the `VIRTUAL` map** in
   `add-store-tile.js` (`node _tools/add-store-tile.js handbook --after p18
   --pages …`). The Music Bingo Handbook sells on Amazon KDP and already has a
@@ -219,6 +247,47 @@ from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
   `data-fce-price`, so the promo prefill, `bake-buy-links.js` and the tracking
   all work. `<body data-fce-campaign="slug">` is what makes `track.js` report
   `view_item_list` and `origin: campaign-<slug>` instead of guessing.
+
+## Generator 2.0 perks, redemption PDFs and preload links
+
+Several packs bundle free time on **Bingo Card Generator 2.0**, a separate
+product on a separate site (`bingocardgenerator.online`, GA `G-97J4XBSHBW`).
+Plans: **Day Pass $6.99** one-time/24h, **Monthly $24**, **Annual $116**. Those
+three figures are hardcoded in `check-value-stacks.js`, in `add-cross-sell.js`'s
+`PERKS` map and in `_content/redemption-docs/make_pdfs.py`; they must agree.
+
+- **Redemption is a LemonSqueezy discount code that takes the plan to $0.** The
+  live codes are **never** committed: `make_pdfs.py` reads them from untracked
+  `redemption-codes.json` and refuses to run without it, and the built PDFs are
+  gitignored too. The three pre-Sept codes are in public git history forever and
+  still need rotating in the dashboard.
+- **Each PDF opens the right checkout in one click**, with the code applied via
+  LemonSqueezy's `checkout[discount_code]` prefill (the same parameter
+  `ls-buy.js` uses for a promo). The code still prints in the box, for paper and
+  for readers that strip links. `make_pdfs.py` **exits non-zero if any leaflet
+  runs to two pages** — nobody prints page 2, and page 2 is where the
+  cancel-anytime disclosure would land.
+- **A preload link hands a whole game to the generator.**
+  `_tools/build-generator-links.js` reads `_content/generator-links.json` and
+  writes a short `noindex` redirect stub at `/cards/<slug>/` that forwards to the
+  generator with the title, the squares and a palette encoded in a `?load=`
+  payload. **The short URL is what goes in print**, because the real one is
+  ~2,000 characters and, once it ships inside a paid download, cannot be
+  recalled; the payload lives in a file we can regenerate. Squares come from
+  `_content/song-lists.json`, which is already published free, so a preload link
+  publishes nothing new. **Never encode a puzzle-answer column.**
+- **The generator does not read `?load=` yet.** Run
+  `build-generator-links.js --patch` for the exact four-line handler; it reuses
+  the generator's existing `?card=` encoding and `applyState()`. An unpatched
+  generator ignores the parameter and shows an empty generator, so the link
+  degrades rather than erroring. Also broken over there and unrelated: the init
+  block calls `hCb(qp.get('code'))` and **`hCb` is not defined**, so any `?code=`
+  visit throws mid-init and kills the `?card=`, saved-games, autosave and
+  `?activated` handlers after it.
+- **Free-tier generator downloads carry a `FREE DEMO` watermark on every card.**
+  This is the fact that governs perk pricing: a preload link without a pass
+  produces cards nobody can hand to a room, so an "autoload" is only worth
+  charging for when a pass ships with it. See `HALLOWEEN-PLAN.md` §12.
 
 ## Analytics & conversion tracking
 - **One tag on the live site: GA4 `G-LYMVV05F3X`**, on 459 pages, plus a
@@ -496,6 +565,17 @@ no sandbox. It closes the issue automatically when things are clean again.
   on its own line inside `<span class="wsite-menu-title">`, so `>Bingo Card
   Generator<` matches an `<h2>` heading in body copy and misses every nav item —
   it named the wrong two pages when this was being diagnosed.
+- **Three tools joined 11 Sept 2026**, and all three were proved by simulating a
+  real break and confirming the matcher fires, then goes quiet.
+  `build-generator-links` and `add-product-gallery` report `would update: N`,
+  already covered. `fix-product-divs` is checked by **exit status** alongside
+  `check-value-stacks` and `check-tile-structure`, because an unbalanced page is
+  a defect that is already live rather than a pending write. The gallery tool
+  needed a **new matcher pattern** (`would (write|add|rewrite): *[1-9]`) and a
+  change to the tool: a deleted thumbnail changes no HTML, so its page count
+  alone read as an all-clear while the strip would have rendered a blank box.
+  It now reports regenerated files separately. That is the same trap the rule
+  above describes, hit for the third time.
 - **CATALOGUE INVERSION is checked in the matcher; the seven-rung LADDER
   INVERSION is not.** That split was added 5 Sept 2026 so a known issue
   wouldn't train everyone to ignore the check — the narrower rung warning is
@@ -554,7 +634,12 @@ retired on purpose, not lost.
   compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
   copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
   current 5 Sept, not 9 Sept.
-- `HALLOWEEN-PLAN.md` — **the Halloween 2026 push, written 10 Sept.** Two items
+- `HALLOWEEN-PLAN.md` — **the Halloween 2026 push, written 10 Sept, worked
+  again 11 Sept.** §11 is the four-line `?load=` handler the generator needs
+  before the preload links do anything, and §12 is the autoload pricing move
+  (music bingo singles to $16.99 *with a Day Pass*, piloted on p97 only, and
+  why p103 must not move: it is the anchor every club compare-at is derived
+  from). Original 10 Sept notes: Two items
   shipped that day (p174 into c40 Holidays plus a seasonal Halloween-first
   order to REVERT AFTER 1 NOV, and the indexable
   `/halloween-trivia-and-music-bingo.html` hub). Records why p97's poor Clarity

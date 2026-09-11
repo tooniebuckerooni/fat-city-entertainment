@@ -43,9 +43,9 @@ brand = ParagraphStyle("brand", parent=styles["Normal"], fontName="Helvetica-Bol
 h1 = ParagraphStyle("h1", parent=styles["Title"], fontName="Helvetica-Bold",
                      fontSize=22, textColor=DARK, spaceAfter=6, alignment=TA_LEFT)
 h2 = ParagraphStyle("h2", parent=styles["Normal"], fontName="Helvetica",
-                     fontSize=13, textColor=GREY, spaceAfter=18, alignment=TA_LEFT)
+                     fontSize=13, textColor=GREY, spaceAfter=12, alignment=TA_LEFT)
 sectionhead = ParagraphStyle("sectionhead", parent=styles["Normal"], fontName="Helvetica-Bold",
-                              fontSize=12, textColor=DARK, spaceBefore=16, spaceAfter=8)
+                              fontSize=12, textColor=DARK, spaceBefore=12, spaceAfter=7)
 body = ParagraphStyle("body", parent=styles["Normal"], fontName="Helvetica",
                        fontSize=10.5, textColor=DARK, leading=15, spaceAfter=6)
 step = ParagraphStyle("step", parent=body, leftIndent=14, spaceAfter=8)
@@ -55,6 +55,10 @@ codelabel = ParagraphStyle("codelabel", parent=styles["Normal"], fontName="Helve
                             fontSize=9, textColor=GREY, alignment=TA_CENTER, spaceAfter=4)
 codeval = ParagraphStyle("codeval", parent=styles["Normal"], fontName="Courier-Bold",
                           fontSize=22, textColor=DARK, alignment=TA_CENTER)
+buttontext = ParagraphStyle("buttontext", parent=styles["Normal"], fontName="Helvetica-Bold",
+                             fontSize=12, textColor=colors.white, alignment=TA_CENTER, leading=15)
+buttoncap = ParagraphStyle("buttoncap", parent=styles["Normal"], fontName="Helvetica",
+                            fontSize=8, textColor=GREY, alignment=TA_CENTER, leading=11)
 
 
 def code_box(code):
@@ -66,14 +70,58 @@ def code_box(code):
     t.setStyle(TableStyle([
         ("BACKGROUND", (0, 0), (-1, -1), LIGHTBG),
         ("BOX", (0, 0), (-1, -1), 1, GOLD),
-        ("TOPPADDING", (0, 0), (-1, 0), 14),
-        ("BOTTOMPADDING", (0, 1), (-1, 1), 16),
+        ("TOPPADDING", (0, 0), (-1, 0), 11),
+        ("BOTTOMPADDING", (0, 1), (-1, 1), 13),
         ("TOPPADDING", (0, 1), (-1, 1), 2),
     ]))
     return t
 
 
-def build(filename, product_name, tagline, code, plan_name, steps, after_paragraphs, fine_print):
+# --------------------------------------------------------------- links
+# One click, not an instruction. "Go to bingocardgenerator.online/#pricing and
+# choose the Monthly plan" is four decisions (find the site, find the pricing
+# section, pick the right one of three plans, then find the discount field) and
+# every one of them is somewhere a redemption can be abandoned. These are the
+# real LemonSqueezy checkout URLs for each plan with the code already applied
+# via LemonSqueezy's documented checkout[discount_code] prefill parameter, the
+# same one assets/js/ls-buy.js uses for a live promo.
+#
+# The code still prints in the box above the buttons. It has to: a customer
+# reading this on paper, or with a PDF reader that strips links, needs a path
+# that does not depend on a hyperlink working.
+PLAN_URLS = {
+    "Day Pass": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57e0d1f5-52cc-4ba7-820e-383b7393eacf",
+    "Monthly":  "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/dc206378-e5ea-47eb-a33c-1a8ddfd340e5",
+    "Annual":   "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c28a8f6f-d7e3-448c-b010-0b5eaf6999ab",
+}
+
+# Plain-text fallback, for the fine print and for anyone typing it in.
+PLAN_PAGE = "bingocardgenerator.online/#pricing"
+
+
+def checkout_url(plan_name, code):
+    return f"{PLAN_URLS[plan_name]}?checkout[discount_code]={code}"
+
+
+def link_button(label, url, caption=None):
+    """A filled bar whose whole label is the hyperlink, plus an optional
+    printable URL underneath for paper copies."""
+    rows = [[Paragraph(f"<a href='{url}' color='#ffffff'><b>{label}</b></a>", buttontext)]]
+    t = Table(rows, colWidths=[5.4 * inch])
+    t.setStyle(TableStyle([
+        ("BACKGROUND", (0, 0), (-1, -1), GOLD),
+        ("TOPPADDING", (0, 0), (-1, -1), 11),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 11),
+        ("LEFTPADDING", (0, 0), (-1, -1), 14),
+        ("RIGHTPADDING", (0, 0), (-1, -1), 14),
+    ]))
+    if not caption:
+        return [t, Spacer(1, 10)]
+    return [t, Spacer(1, 3), Paragraph(caption, buttoncap), Spacer(1, 12)]
+
+
+def build(filename, product_name, tagline, code, plan_name, primary_label, steps,
+          after_paragraphs, fine_print, extra_links=()):
     doc = SimpleDocTemplate(
         filename, pagesize=letter,
         leftMargin=0.9 * inch, rightMargin=0.9 * inch,
@@ -86,7 +134,15 @@ def build(filename, product_name, tagline, code, plan_name, steps, after_paragra
     story.append(Paragraph(tagline, h2))
 
     story.append(code_box(code))
-    story.append(Spacer(1, 18))
+    story.append(Spacer(1, 14))
+
+    story.extend(link_button(
+        primary_label,
+        checkout_url(plan_name, code),
+        "Opens the checkout with your code already applied.",
+    ))
+    for label, url, caption in extra_links:
+        story.extend(link_button(label, url, caption))
 
     story.append(Paragraph("How to redeem it", sectionhead))
     for i, s in enumerate(steps, 1):
@@ -108,108 +164,128 @@ def build(filename, product_name, tagline, code, plan_name, steps, after_paragra
     story.append(Paragraph(fine_print, fine))
 
     doc.build(story)
-    print("wrote", filename)
+    pages = doc.page  # SimpleDocTemplate leaves the final page number here
+    print(f"wrote {filename} ({pages} page{'s' if pages != 1 else ''})")
+    if pages > 1:
+        sys.exit(
+            f"make_pdfs.py: {filename} ran to {pages} pages. These are one-page leaflets;\n"
+            "  trim the copy or the spacing rather than letting the fine print fall off\n"
+            "  the page a customer actually reads."
+        )
 
 
-PLAN_URL = "bingocardgenerator.online/#pricing"
+PLAN_PAGE_TXT = "bingocardgenerator.online/#pricing"
+
+
+def STEPS(plan):
+    """The same three steps for every tier: the button, what arrives, and the
+    manual path for anyone whose PDF reader will not follow a link."""
+    return [
+        f"Click the button above. It opens the <b>{plan}</b> checkout with your code already "
+        "applied, so the total reads <b>$0.00</b>.",
+        "Complete checkout. Bingo Card Generator 2.0 unlocks immediately and your licence key "
+        "is emailed to you.",
+        f"Prefer to do it by hand? Go to <b>{PLAN_PAGE_TXT}</b>, choose the <b>{plan}</b> plan, "
+        "and type the code above into the discount field at checkout.",
+    ]
+
+
+CANCEL = (
+    "You will get an email reminder from Bingo Card Generator 2.0 / LemonSqueezy before it "
+    "renews. Cancel any time before then from your LemonSqueezy customer portal link, which is "
+    "in your purchase confirmation email. No phone calls, no questions asked."
+)
+
+FINE_SUB = (
+    "One redemption per customer. This code may be rotated periodically for security. If it "
+    "does not work, contact us for a current one. Valid for new Bingo Card Generator 2.0 "
+    "subscriptions only."
+)
 
 # ---------------------------------------------------------------- Gold
 build(
     "gold-club-bcg2-redemption.pdf",
-    "1 Year Free — Bingo Card Generator 2.0",
+    "1 Year Free: Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Gold Club",
     CODES["gold-club"],
     "Annual",
+    "Activate my free year of Generator 2.0",
+    STEPS("Annual"),
     [
-        f"Go to <b>{PLAN_URL}</b> and choose the <b>Annual</b> plan.",
-        "At checkout, enter your redemption code above in the discount code field.",
-        "Complete checkout — your card is charged <b>$0</b> for the first year. "
-        "Bingo Card Generator 2.0 unlocks immediately.",
+        "Your first year of Bingo Card Generator 2.0 is completely free. After 12 months it "
+        "<b>automatically renews at the regular Annual price</b> unless you cancel first.",
+        CANCEL,
     ],
-    [
-        "Your first year of Bingo Card Generator 2.0 is completely free. After 12 months, "
-        "it <b>automatically renews at the regular Annual price</b> unless you cancel first.",
-        "You'll get an email reminder from Bingo Card Generator 2.0 / LemonSqueezy before it renews. "
-        "Cancel any time before then from your LemonSqueezy customer portal link (in your "
-        "purchase confirmation email) — no phone calls, no questions asked.",
-    ],
-    "One redemption per customer. This code may be rotated periodically for security — if it "
-    "doesn't work, contact us for a current one. Valid for new Bingo Card Generator 2.0 "
-    "subscriptions only.",
+    FINE_SUB,
 )
 
 # ---------------------------------------------------------------- Silver
 build(
     "silver-club-bcg2-redemption.pdf",
-    "1 Month Free — Bingo Card Generator 2.0",
+    "1 Month Free: Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Silver Club",
     CODES["silver-club"],
     "Monthly",
+    "Activate my free month of Generator 2.0",
+    STEPS("Monthly"),
     [
-        f"Go to <b>{PLAN_URL}</b> and choose the <b>Monthly</b> plan.",
-        "At checkout, enter your redemption code above in the discount code field.",
-        "Complete checkout — your card is charged <b>$0</b> for the first month. "
-        "Bingo Card Generator 2.0 unlocks immediately.",
-    ],
-    [
-        "Your first month of Bingo Card Generator 2.0 is completely free. After 30 days, it "
+        "Your first month of Bingo Card Generator 2.0 is completely free. After 30 days it "
         "<b>automatically renews at the regular Monthly price</b> unless you cancel first.",
-        "You'll get an email reminder from Bingo Card Generator 2.0 / LemonSqueezy before it renews. "
-        "Cancel any time before then from your LemonSqueezy customer portal link (in your "
-        "purchase confirmation email) — no phone calls, no questions asked.",
+        CANCEL,
     ],
-    "One redemption per customer. This code may be rotated periodically for security — if it "
-    "doesn't work, contact us for a current one. Valid for new Bingo Card Generator 2.0 "
-    "subscriptions only.",
+    FINE_SUB,
 )
 
 # ---------------------------------------------------------------- Bronze
 build(
     "starter-pack-bcg2-redemption.pdf",
-    "Free Day Pass — Bingo Card Generator 2.0",
+    "Free Day Pass: Bingo Card Generator 2.0",
     "Your bonus with the Music Bingo Starter Pack (Bronze)",
     CODES["starter-pack"],
     "Day Pass",
+    "Activate my free day pass of Generator 2.0",
+    STEPS("Day Pass"),
     [
-        f"Go to <b>{PLAN_URL}</b> and choose the <b>Day Pass</b> plan.",
-        "At checkout, enter your redemption code above in the discount code field.",
-        "Complete checkout at <b>$0</b> — Bingo Card Generator 2.0 unlocks immediately for one "
-        "full day.",
+        "This is a one-time, one-day pass, <b>not</b> a subscription. It simply expires after "
+        "24 hours. Nothing renews, nothing to cancel, and no payment method is required to "
+        "redeem it.",
     ],
-    [
-        "This is a one-time, one-day pass — <b>not</b> a subscription. It simply expires after "
-        "24 hours. Nothing renews, nothing to cancel, and no payment method is required to redeem it.",
-    ],
-    "One redemption per customer. This code may be rotated periodically for security — if it "
-    "doesn't work, contact us for a current one.",
+    "One redemption per customer. This code may be rotated periodically for security. If it "
+    "does not work, contact us for a current one.",
 )
 
 # ------------------------------------------------------- Halloween bundle
-# Customer-facing copy, so no em-dashes (CLAUDE.md writing-style rule). The
-# three tier PDFs above predate that rule and still have them; low priority.
+# Two links, not one. The free month is only half the perk: the other half is
+# that the buyer does not have to retype thirty song titles to use it. The
+# second button hands the whole Halloween game to the generator with the
+# squares, the title and an orange-on-black palette already set, so their first
+# custom card is one click from here rather than an evening's typing.
+#
+# It points at OUR short URL, /cards/halloween/, not at the generator directly.
+# That link is printed inside a paid download and cannot be recalled, so the
+# long encoded payload lives in a file we can re-generate instead. Built by
+# _tools/build-generator-links.js from _content/generator-links.json.
 build(
     "halloween-bcg2-redemption.pdf",
     "1 Month Free: Bingo Card Generator 2.0",
     "Your bonus with the Halloween Complete Pack",
     CODES["halloween"],
     "Monthly",
+    "Activate my free month of Generator 2.0",
+    STEPS("Monthly"),
     [
-        f"Go to <b>{PLAN_URL}</b> and choose the <b>Monthly</b> plan.",
-        "At checkout, enter your redemption code above in the discount code field.",
-        "Complete checkout. Your card is charged <b>$0</b> for the first month, and "
-        "Bingo Card Generator 2.0 unlocks immediately.",
+        "Make your own Halloween cards in any colours you like, on any word or song list you "
+        "paste in. Your bundle already includes 250 ready-to-print cards, so this is for the "
+        "night you want something different.",
+        "Your first month is completely free. After 30 days it <b>automatically renews at the "
+        "regular Monthly price</b> unless you cancel first.",
+        CANCEL,
     ],
-    [
-        "Make your own Halloween cards in any colours you like, on any word or song list "
-        "you paste in. Your bundle already includes 250 ready-to-print cards; this is for "
-        "the night you want something different.",
-        "Your first month is completely free. After 30 days it "
-        "<b>automatically renews at the regular Monthly price</b> unless you cancel first.",
-        "You'll get an email reminder from Bingo Card Generator 2.0 / LemonSqueezy before it "
-        "renews. Cancel any time before then from your LemonSqueezy customer portal link (in "
-        "your purchase confirmation email). No phone calls, no questions asked.",
-    ],
-    "One redemption per customer. This code may be rotated periodically for security. If it "
-    "doesn't work, contact us for a current one. Valid for new Bingo Card Generator 2.0 "
-    "subscriptions only.",
+    FINE_SUB,
+    extra_links=[(
+        "Open the Halloween game in the generator",
+        "https://www.fatcityentertainment.com/cards/halloween/",
+        "All 30 songs, the title and a Halloween palette, already filled in. "
+        "Or type fatcityentertainment.com/cards/halloween",
+    )],
 )
