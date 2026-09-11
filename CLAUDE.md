@@ -206,6 +206,23 @@ internal documentation, which uses em-dashes throughout on purpose.
   rules quietly not applying somewhere further down. Comments and quoted strings
   are blanked before counting; a first hand-rolled count that skipped the string
   pass reported a phantom imbalance 260 lines from the real one.
+- **The reassurance lines under a buy button are `_tools/add-fact-notes.js`**
+  (`.fce-fact-note`, between `<!-- fce:fact-notes -->` markers, BELOW the button
+  and its no-JS fallback). Before 11 Sept 2026 they were hand-typed on five
+  pages and owned by nothing, and four things had already gone wrong unnoticed:
+  **10 of the 13 notes carried em-dashes** on live copy; four pages put them
+  *above* the button and one below; p155 had one of the three and was missing
+  the guarantee entirely; and any regeneration from a spec would have dropped
+  them. A product either bundles a Generator plan or it does not, so the map is
+  just `pid -> plan` and the wording is shared.
+- **Generator 2.0 plan prices and checkout URLs live in
+  `_content/generator-plans.json`, and nowhere else.** They used to be typed
+  into four files with a note here saying they must agree, which is what you
+  write down when nothing is enforcing it. `check-value-stacks.js`,
+  `add-cross-sell.js`, `add-fact-notes.js` and
+  `_content/redemption-docs/make_pdfs.py` all read it. Verified by changing the
+  Monthly price and watching all four move. The URLs are there for the same
+  reason: a redemption PDF ships inside a paid download and cannot be recalled.
 - **A product page can be excluded from its own cross-sell** via `NO_BLOCK` in
   `add-cross-sell.js`. p189 is: its body names all three games and the Quick
   math block above the button already states the comparison, so the block one
@@ -319,8 +336,11 @@ from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
 Several packs bundle free time on **Bingo Card Generator 2.0**, a separate
 product on a separate site (`bingocardgenerator.online`, GA `G-97J4XBSHBW`).
 Plans: **Day Pass $6.99** one-time/24h, **Monthly $24**, **Annual $116**. Those
-three figures are hardcoded in `check-value-stacks.js`, in `add-cross-sell.js`'s
-`PERKS` map and in `_content/redemption-docs/make_pdfs.py`; they must agree.
+figures and their checkout URLs live in **`_content/generator-plans.json`** and
+are read from there by `check-value-stacks.js`, `add-cross-sell.js`,
+`add-fact-notes.js` and `make_pdfs.py`. Change the plan price in LemonSqueezy,
+then change that one file, then re-run those tools. Do not retype a plan price
+anywhere else.
 
 - **Redemption is a LemonSqueezy discount code that takes the plan to $0.** The
   live codes are **never** committed: `make_pdfs.py` reads them from untracked

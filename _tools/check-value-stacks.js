@@ -22,6 +22,7 @@ const fs = require("fs");
 const path = require("path");
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
+const read = (rel) => fs.readFileSync(path.join(REPO, rel), "utf8");
 
 // The single-game price every stack is built from. Read it off a real product
 // rather than hardcoding, so the check follows a reprice automatically.
@@ -29,18 +30,21 @@ const WRITE = process.argv.includes("--write");
 // its "a single game" rung, so the two tools agree by construction.
 const ANCHOR = "store/p103/christmasparty.html";
 
-// Perks bundled with each tier. These ARE hardcoded: they are third-party
-// prices (a Generator licence, an Amazon ebook) that appear nowhere in this
-// repo as a machine-readable figure. If one changes, change it here AND in the
-// three club pages AND on printmusicbingocards.html.
+// Perks bundled with each tier. The Generator licence prices come from
+// _content/generator-plans.json, the one place they live: they used to be typed
+// into four files with a note in CLAUDE.md saying they must agree, which is
+// what you write down when nothing is enforcing it. The Handbook price is still
+// hardcoded (an Amazon price with no machine-readable source here); if it
+// changes, change it here AND on printmusicbingocards.html.
+const PLANS = JSON.parse(read("_content/generator-plans.json")).plans;
 const HANDBOOK = 10.99;
 const CLUBS = [
-  { pid: "p131", file: "store/p131/BronzeClub.html", games: 10, licence: 6.99,
-    sells: 79.00,  words: "Ten games",        licName: "Day Pass" },
-  { pid: "p130", file: "store/p130/SilverClub.html", games: 25, licence: 24.00,
-    sells: 193.75, words: "Twenty-five games", licName: "Monthly licence" },
-  { pid: "p112", file: "store/p112/GoldClub.html",   games: 50, licence: 116.00,
-    sells: 386.49, words: "All fifty games",   licName: "Annual licence" },
+  { pid: "p131", file: "store/p131/BronzeClub.html", games: 10, licence: PLANS.daypass.price,
+    sells: 79.00,  words: "Ten games",        licName: PLANS.daypass.name },
+  { pid: "p130", file: "store/p130/SilverClub.html", games: 25, licence: PLANS.monthly.price,
+    sells: 193.75, words: "Twenty-five games", licName: PLANS.monthly.name + " licence" },
+  { pid: "p112", file: "store/p112/GoldClub.html",   games: 50, licence: PLANS.annual.price,
+    sells: 386.49, words: "All fifty games",   licName: PLANS.annual.name + " licence" },
 ];
 
 // Same "games + licence = value" arithmetic as the clubs, for a pack that
@@ -48,8 +52,8 @@ const CLUBS = [
 // own list rather than being forced into CLUBS, which goldclubplaylists.html
 // below assumes is exactly the three real club tiers.
 const ADDON_PACKS = [
-  { pid: "p155", file: "store/p155/holidays.html", games: 6, licence: 24.00,
-    sells: 57.56, words: "Six games", licName: "Monthly licence" },
+  { pid: "p155", file: "store/p155/holidays.html", games: 6, licence: PLANS.monthly.price,
+    sells: 57.56, words: "Six games", licName: PLANS.monthly.name + " licence" },
 ];
 
 const VALUE_STACKS = [
@@ -102,7 +106,6 @@ const MIXED_PACKS = [
   },
 ];
 
-const read = (rel) => fs.readFileSync(path.join(REPO, rel), "utf8");
 const money = (n) => "$" + n.toFixed(2);
 const num = (s) => Number(String(s).replace(/[$,]/g, ""));
 

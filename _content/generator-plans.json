@@ -1,0 +1,45 @@
+{
+  "_comment": [
+    "The Bingo Card Generator 2.0 plans, in ONE place.",
+    "",
+    "These three prices used to be typed into four files: check-value-stacks.js,",
+    "add-cross-sell.js, add-fact-notes.js and make_pdfs.py. CLAUDE.md carried a",
+    "note saying they must agree, which is what you write down when nothing is",
+    "enforcing it. A licence price change is rare enough that all four would",
+    "have drifted before anyone noticed, and three of them bake the number into",
+    "live customer-facing copy.",
+    "",
+    "The checkout URLs are here for the same reason: the redemption PDFs open",
+    "them with a discount code prefilled, and a PDF shipped inside a paid",
+    "download cannot be recalled if the URL changes.",
+    "",
+    "Generator 2.0 is a separate product on a separate site, so there is no",
+    "itemprop on a page of ours to read. This file is the source."
+  ],
+  "plans": {
+    "daypass": {
+      "name": "Day Pass",
+      "price": 6.99,
+      "freeLabel": "a free Bingo Card Generator 2.0 Day Pass",
+      "period": "24 hours",
+      "recurring": false,
+      "checkout": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57e0d1f5-52cc-4ba7-820e-383b7393eacf"
+    },
+    "monthly": {
+      "name": "Monthly",
+      "price": 24.0,
+      "freeLabel": "1 Month Free",
+      "period": "month",
+      "recurring": true,
+      "checkout": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/dc206378-e5ea-47eb-a33c-1a8ddfd340e5"
+    },
+    "annual": {
+      "name": "Annual",
+      "price": 116.0,
+      "freeLabel": "1 Year Free",
+      "period": "year",
+      "recurring": true,
+      "checkout": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c28a8f6f-d7e3-448c-b010-0b5eaf6999ab"
+    }
+  }
+}

@@ -111,6 +111,15 @@ is legitimate and it is also exactly the kind of thing a later agent "fixes".
 Put the override in the tool with the owner's own words beside it, and make the
 tool print the gap on every run.
 
+**Prose that no tool owns is the recurring failure on this site, in every
+form.** Club value stacks, a hub page's price, the reassurance lines under a buy
+button: each was hand-typed, each drifted, and none of it was caught by a check.
+If a seasonal push makes you type a sentence containing a price, a plan name or
+a perk onto a page, stop and put it in a tool with a map instead. The tools that
+exist because of exactly this: `check-value-stacks.js`, `check-linked-prices.js`,
+`add-fact-notes.js`. And a figure that appears in more than one tool belongs in
+one data file that all of them read, not in a comment saying they must agree.
+
 **Every seasonal block competes with the ones already on the page.** A product
 page can end up carrying its body copy, a Quick math box, a cross-sell and a
 badge, all arguing the same point. Before adding a block, read the page as a

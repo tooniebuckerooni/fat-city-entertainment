@@ -89,11 +89,13 @@ def code_box(code):
 # The code still prints in the box above the buttons. It has to: a customer
 # reading this on paper, or with a PDF reader that strips links, needs a path
 # that does not depend on a hyperlink working.
-PLAN_URLS = {
-    "Day Pass": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/57e0d1f5-52cc-4ba7-820e-383b7393eacf",
-    "Monthly":  "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/dc206378-e5ea-47eb-a33c-1a8ddfd340e5",
-    "Annual":   "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/c28a8f6f-d7e3-448c-b010-0b5eaf6999ab",
-}
+# Read from _content/generator-plans.json, the one place the plans live, rather
+# than a fourth copy of three URLs. A link printed inside a paid download cannot
+# be recalled, so a URL that drifts out of sync here is the worst of the four.
+_plans_path = os.path.join(_here, "..", "generator-plans.json")
+with open(_plans_path, encoding="utf-8") as _pf:
+    _PLANS = json.load(_pf)["plans"]
+PLAN_URLS = {p["name"]: p["checkout"] for p in _PLANS.values()}
 
 # Plain-text fallback, for the fine print and for anyone typing it in.
 PLAN_PAGE = "bingocardgenerator.online/#pricing"

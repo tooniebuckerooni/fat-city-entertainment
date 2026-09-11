@@ -155,10 +155,11 @@ const BUNDLES = {
 // `amount: 0` means the perk is named but NOT counted in the comparison: a free
 // bonus on top of a real saving rather than padding inside one. p189 moved to
 // that shape 11 Sept 2026 when its compare-at was rebased on the games alone.
+const PLANS = JSON.parse(fs.readFileSync(path.join(REPO, "_content/generator-plans.json"), "utf8")).plans;
 const PERKS = {
   p189: { name: "a month of Bingo Card Generator 2.0, free", amount: 0,
           quotes: { p97: 16.99 } },
-  p155: { name: "a month of Bingo Card Generator 2.0", amount: 24.00 },
+  p155: { name: "a month of Bingo Card Generator 2.0", amount: PLANS.monthly.price },
 };
 
 // A component price the bundle quotes at something other than that product's
