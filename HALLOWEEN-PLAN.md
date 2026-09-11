@@ -287,7 +287,20 @@ Once it is live, upgrade the p189 bonus bullet in `_tools/new-products.json`
 from "make your own cards" to "one link loads this game in". It is deliberately
 not claiming that today, because today it would not be true.
 
-### 12. Autoload pricing: music bingo singles at $16.99 — OWNER DECISION
+### 12. Autoload pricing — DECIDED 11 Sept for the bundle, open for singles
+
+> **The rule, in the owner's words: "we're calling the autoload feature an added
+> $5."** So the Halloween Complete Pack's $45.97 compare-at is built against the
+> $16.99 autoload edition of p97, while p97 sold on its own stays $11.99 because
+> it does not have autoload yet. The $5.00 gap `check-value-stacks.js` prints on
+> every run IS that feature, priced. Not a bug, not to be closed by dropping the
+> quote, and **not to be bragged about in copy yet**. Whether p97 standalone
+> gets autoload, and moves to $16.99, is a later decision.
+>
+> The generator side is live: `bingocardgenerator2` merged the `?load=` handler
+> 11 Sept, so `/cards/halloween/` fills the editor in for real.
+
+The original writeup, which still holds for the catalogue-wide version:
 
 Owner's steer, 11 Sept: *"music bingo games with the autoload should be around
 16.99 or 17.99. So once we add that, the inherent value should increase too."*

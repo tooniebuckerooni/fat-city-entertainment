@@ -72,10 +72,15 @@ const MIXED_PACKS = [
     pid: "p189",
     file: "store/p189/halloweencompletepack.html",
     components: [
-      // `quote` overrides the price read off the page. Owner's call, 11 Sept
-      // 2026: a music bingo game that ships with a one-click autoload link into
-      // Generator 2.0 is worth $16.99, and this bundle is priced against that
-      // edition, while p97 sold on its own is still the plain $11.99 game.
+      // `quote` overrides the price read off the page. KNOWN AND DELIBERATE,
+      // owner's call 11 Sept 2026, in the owner's own words: "we're calling the
+      // autoload feature an added $5". A music bingo game that ships with a
+      // one-click autoload link into Generator 2.0 is $16.99; p97 sold on its
+      // own does not have autoload yet and stays the plain $11.99 game. The
+      // $5.00 gap the run prints below IS that feature, priced. Do not "fix" it
+      // by dropping the quote back to $11.99, and do not add copy bragging
+      // about the $5 either; whether p97 gets autoload standalone is a later
+      // decision. Same idiom as the p155 accepted ladder inversion.
       //
       // An override is a liability, so it is loud: the run prints the gap and
       // the total it produces on every pass, and it CANNOT go stale quietly the
@@ -290,7 +295,7 @@ for (const m of MIXED_PACKS) {
   if (gap > 0) {
     console.log(
       `  NOTE ${m.pid}: compare-at is ${money(gap)} above the ${money(onPage)} a shopper ` +
-      `gets by adding up the linked product pages`
+      `gets by adding up the linked product pages (deliberate, see the map)`
     );
   }
 

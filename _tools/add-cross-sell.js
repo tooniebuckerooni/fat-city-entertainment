@@ -162,9 +162,11 @@ const PERKS = {
 };
 
 // A component price the bundle quotes at something other than that product's
-// own page price. p189 is priced against the autoload edition of p97 ($16.99)
-// while p97 on its own is still the plain $11.99 game. Documented in
-// check-value-stacks.js, which prints the gap on every run.
+// own page price. KNOWN AND DELIBERATE: the owner prices the one-click autoload
+// into Generator 2.0 at "an added $5", so p189 is built against the $16.99
+// autoload edition of p97 while p97 sold on its own, which does not have
+// autoload yet, stays $11.99. check-value-stacks.js prints the gap on every run
+// so it cannot rot. Retire the quote if and when p97 itself moves.
 const quoted = (bundlePid, pid, amount) => {
   const q = PERKS[bundlePid] && PERKS[bundlePid].quotes;
   return q && q[pid] ? q[pid] : amount;

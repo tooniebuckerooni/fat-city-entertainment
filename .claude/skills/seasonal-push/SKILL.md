@@ -97,6 +97,20 @@ storefront and the store root, the two highest-traffic placements on the site.
 flow**, never fixed, never floated. Check it the way the original bug was
 caught: `elementFromPoint` at the hamburger's coordinates at 390px wide.
 
+**Start the banner quiet and turn it up.** `add-halloween-banner.js` carries a
+`TONE` constant, `"subtle"` or `"bold"`. Weeks out, subtle: a paper-coloured
+note with a text link. In the last month, bold: dark block, filled button. A
+full-strength promo in the run-up is shouting at people who are not shopping
+yet, and it stops registering by the time they are. Keep every painted property
+scoped to a modifier class so the switch is one word.
+
+**Price a bundled feature explicitly, and write down that you did.** The
+Halloween pack's compare-at quotes one component above its own page price
+because that component ships with a one-click autoload link, valued at $5. That
+is legitimate and it is also exactly the kind of thing a later agent "fixes".
+Put the override in the tool with the owner's own words beside it, and make the
+tool print the gap on every run.
+
 **Copy runs long.** The owner's steer, twice: more succinct, less information,
 keep a little mystery. Lead with what it is, four bullets, one closing line. Put
 the arithmetic in the `.fce-value-math` block, not in prose.

@@ -104,6 +104,14 @@ internal documentation, which uses em-dashes throughout on purpose.
   for a perk pack on purpose, because a mixed pack divided by its game count can
   land *above* the single ($13.33 against $11.99). The perk amount is hardcoded
   in two places, here and in `check-value-stacks.js`; change both.
+  A `PERKS` entry can also carry `quotes`, a per-component price override.
+  **p189 quotes p97 at $16.99, not the $11.99 its own page charges, and that is
+  known and deliberate**: owner's call 11 Sept 2026, *"we're calling the
+  autoload feature an added $5"*. The pack is built against the autoload edition
+  of the game; p97 standalone does not have autoload yet and whether it ever
+  does is a later decision. `check-value-stacks.js` prints the $5.00 gap on
+  every run so it cannot rot. **Don't close it by dropping the quote, and don't
+  add copy bragging about the $5.** Same idiom as the p155 accepted inversion.
   **p108 is excluded** — it names "Video Games, Tv Shows, &
   Movie Soundtracks" and there are two TV Shows games and three Movie
   Soundtracks games, so which ones is a guess. **p166 joined 5 Sept 2026** when
@@ -227,6 +235,14 @@ internal documentation, which uses em-dashes throughout on purpose.
   bakes p189's price, read off that page, so it is **on the
   re-run-after-repricing list**. **`--remove --write` after 1 Nov**, which
   restores every page exactly.
+  **Two treatments, one `TONE` constant.** `"subtle"` is a paper-coloured note
+  with a text link, currently live because Halloween is still weeks out;
+  `"bold"` is the dark orange-on-black block with a filled button, for October.
+  Change the word, re-run, nothing else moves. **Every painted property is
+  scoped to a modifier class**: an earlier pass left paint on the bare
+  `.fce-hw-banner-*` classes and scoped only some of them, which put the bold
+  pill button and its light-on-dark body text inside the cream card. If you add
+  a property, put it under `--subtle` or `--bold`.
 - **Store price ladder** (`_tools/add-price-ladder.js`): the tier-comparison
   table on `trivia-store.html`, in a `<!-- fce:price-ladder -->` block placed
   *before* `<!-- fce:copy -->` — inside the copy markers `add-page-copy.js`

@@ -1572,9 +1572,16 @@ ol.fce-tl li {
    hamburger and covered it completely on every phone. A block in the content
    column cannot reach the header, which is the whole point of putting it here.
 
-   Colours are the same orange-on-black as the Halloween card palette the
-   generator preload link ships (#FF7518 on #141414), so the banner, the cards
-   and the product art read as one thing. */
+   TWO TREATMENTS, ONE MARKUP. The tool writes .fce-hw-banner--subtle or
+   .fce-hw-banner--bold; everything unmodified below is layout only, so turning
+   it up in October is a one-word change in add-halloween-banner.js and nothing
+   moves on the page.
+
+   Every painted property is scoped to a modifier. An earlier pass left the
+   paint on the bare .fce-hw-banner-* classes and only scoped some of them,
+   which put the bold pill button and its light-on-dark body text inside the
+   subtle card: orange button, grey text, cream background. If you add a
+   property here, put it under --subtle or --bold, never on the bare class. */
 .fce-hw-banner {
   display: flex;
   align-items: center;
@@ -1582,16 +1589,66 @@ ol.fce-tl li {
   gap: 20px;
   flex-wrap: wrap;
   margin: 0 0 28px;
+  font-family: "Montserrat", Arial, sans-serif;
+}
+.fce-hw-banner-text { flex: 1 1 340px; min-width: 0; }
+.fce-hw-banner-cta { flex: 0 0 auto; white-space: nowrap; }
+
+/* SUBTLE: a note, not a promo. Owner's call while Halloween is still seven
+   weeks out. Paper-coloured, a thin orange rule, body-sized text, a plain
+   link. A full-strength block in mid-September is shouting at people who are
+   not shopping yet, and it stops registering by the time they are. */
+.fce-hw-banner--subtle {
+  padding: 14px 18px;
+  border-radius: 6px;
+  border: 1px solid #ece4d6;
+  border-left: 3px solid #ff7518;
+  background: #fbf8f3;
+}
+.fce-hw-banner--subtle .fce-hw-banner-kicker {
+  margin: 0 0 3px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #b4660d;
+}
+.fce-hw-banner--subtle .fce-hw-banner-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: #3f3f3f;
+}
+.fce-hw-banner--subtle .fce-hw-banner-sub a {
+  color: #a35c0b;
+  font-weight: 600;
+  text-decoration: underline;
+}
+.fce-hw-banner--subtle .fce-hw-banner-sub a:hover { color: #7d4507; }
+.fce-hw-banner--subtle .fce-hw-banner-cta {
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  color: #a35c0b !important;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+.fce-hw-banner--subtle .fce-hw-banner-cta:hover {
+  color: #7d4507 !important;
+  text-decoration: underline !important;
+}
+
+/* BOLD: for October, when the season is the reason anyone is on the page. */
+.fce-hw-banner--bold {
   padding: 20px 24px;
   border-radius: 10px;
   border-left: 5px solid #ff7518;
   background: #141414;
   background: linear-gradient(100deg, #141414 0%, #241a10 100%);
   color: #f2f2f2;
-  font-family: "Montserrat", Arial, sans-serif;
 }
-.fce-hw-banner-text { flex: 1 1 340px; min-width: 0; }
-.fce-hw-banner-kicker {
+.fce-hw-banner--bold .fce-hw-banner-kicker {
   margin: 0 0 4px;
   font-size: 11px;
   font-weight: 700;
@@ -1599,23 +1656,22 @@ ol.fce-tl li {
   text-transform: uppercase;
   color: #ff9a4d;
 }
-.fce-hw-banner-head {
+.fce-hw-banner--bold .fce-hw-banner-head {
   margin: 0 0 6px;
   font-size: 22px;
   line-height: 1.2;
   font-weight: 700;
   color: #ffffff;
 }
-.fce-hw-banner-sub {
+.fce-hw-banner--bold .fce-hw-banner-sub {
   margin: 0;
   font-size: 14.5px;
   line-height: 1.55;
   color: #d8d8d8;
 }
-.fce-hw-banner-sub a { color: #ffb066; text-decoration: underline; }
-.fce-hw-banner-sub a:hover { color: #ffd0a3; }
-.fce-hw-banner-cta {
-  flex: 0 0 auto;
+.fce-hw-banner--bold .fce-hw-banner-sub a { color: #ffb066; text-decoration: underline; }
+.fce-hw-banner--bold .fce-hw-banner-sub a:hover { color: #ffd0a3; }
+.fce-hw-banner--bold .fce-hw-banner-cta {
   display: inline-block;
   padding: 13px 26px;
   border-radius: 999px;
@@ -1624,16 +1680,20 @@ ol.fce-tl li {
   font-size: 15px;
   font-weight: 700;
   text-decoration: none !important;
-  white-space: nowrap;
 }
-.fce-hw-banner-cta:hover { background: #ff9040; color: #141414 !important; }
+.fce-hw-banner--bold .fce-hw-banner-cta:hover { background: #ff9040; color: #141414 !important; }
 
-/* Phone: stack, and let the button run the full width so it is a real target
-   rather than a link squeezed against the right edge. */
+/* Phone. The subtle link just wraps under the sentence; the bold button runs
+   full width so it is a real target rather than a link squeezed against the
+   right edge. */
 @media (max-width: 640px) {
-  .fce-hw-banner { padding: 18px; gap: 16px; }
-  .fce-hw-banner-head { font-size: 19px; }
-  .fce-hw-banner-cta { flex: 1 1 100%; text-align: center; padding: 14px 20px; }
+  .fce-hw-banner { gap: 12px; }
+  .fce-hw-banner--subtle { padding: 13px 15px; }
+  .fce-hw-banner--bold { padding: 18px; gap: 16px; }
+  .fce-hw-banner--bold .fce-hw-banner-head { font-size: 19px; }
+  .fce-hw-banner--bold .fce-hw-banner-cta { flex: 1 1 100%; text-align: center; padding: 14px 20px; }
+}
+
 }
 
 /* Perk badge (_tools/add-perk-badge.js): names something that comes with a
