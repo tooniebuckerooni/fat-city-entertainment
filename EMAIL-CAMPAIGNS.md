@@ -26,11 +26,30 @@ been measurable end to end.
 ## Shape
 
 ```
-/go/halloween/       late Sept send
-/go/christmas/       mid Oct send
-/go/bundles/         early Nov send
-/go/last-minute/     early Dec send
+(no page)            Trivia Show Maker launch   September send   <- blast 1
+/go/halloween/       Halloween                  early Oct send   <- blast 2
+/go/christmas/       Christmas                  early Nov send
+/go/bundles/ or
+/go/last-minute/     the December send          early Dec send
 ```
+
+> **RESEQUENCED 11 Sept 2026, owner's call.** The first send is the **Trivia
+> Show Maker launch**, not Halloween. The original four were all seasonal store
+> pushes, and neither of the two tools appeared anywhere in the plan, despite
+> being the newest things the business owns and the only two that bill more than
+> once. Halloween moves to blast 2, which *improves* its timing: venues book two
+> to four weeks out, so an early-October send lands nearer the decision than a
+> late-September one did.
+>
+> **Blast 1 needs no landing page.** The call to action is "open the tool", and
+> the tool is the page. It points at `/trivia-show-maker/` with the credit page
+> as the secondary destination. Copy is drafted in
+> `_content/drafts/email01-trivia-show-maker-launch.md`, with a header-image
+> prompt and the two discount codes the owner has to create first.
+>
+> That also means **direction A gets tested on a page this plan does not own**,
+> so treat blast 1's numbers as a baseline for the *offer*, not for the layout,
+> and start the layout comparison at blast 2.
 
 Rules, all non-negotiable and all learned the hard way here:
 
@@ -139,7 +158,8 @@ Record per send, in this doc, as they happen:
 
 | send | direction | delivered | opens | clicks | sessions | begin_checkout | orders |
 |---|---|---|---|---|---|---|---|
-| Halloween, ~20 Sept | A | | | | | | |
+| Show Maker launch, Sept | A (app page) | | | | | | |
+| Halloween, early Oct | A | | | | | | |
 | Christmas, mid Oct | B | | | | | | |
 | Bundles, early Nov | C | | | | | | |
 | Last-minute, early Dec | winner | | | | | | |

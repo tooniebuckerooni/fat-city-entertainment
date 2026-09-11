@@ -36,7 +36,8 @@ comments in `_tools/*.js` are fine — this is about what a customer reads, not
 internal documentation, which uses em-dashes throughout on purpose.
 
 ## Site-wide edits (nav, favicons, etc.)
-- The nav is **duplicated on ~397 live pages** (a desktop + a mobile copy each).
+- The nav is **duplicated on 484 live pages** (a desktop + a mobile copy each;
+  verified 11 Sept 2026).
   **Never hand-edit nav across pages** — use/extend the idempotent Node scripts
   in `_tools/` (e.g. `add-app-nav.js`, `restyle-featured-nav.js`). Match the
   "Trivia Store" item by its link, not its `<li>` id (Weebly rewrites the id to
@@ -388,8 +389,10 @@ anywhere else.
   charging for when a pass ships with it. See `HALLOWEEN-PLAN.md` §12.
 
 ## Analytics & conversion tracking
-- **One tag on the live site: GA4 `G-LYMVV05F3X`**, on 459 pages, plus a
-  StatCounter pixel (project `12764046`) on 457. The `AW-`/`UA-`/second-`G-` IDs
+- **One tag on the live site: GA4 `G-LYMVV05F3X`**, on 488 pages, plus a
+  StatCounter pixel (project `12764046`) on 484. (Counts verified 11 Sept 2026;
+  they were 459/457 on 28 Aug. They climb every time pages are added, so treat
+  any number here as a date-stamped measurement, not a constant.) The `AW-`/`UA-`/second-`G-` IDs
   you'll find by grepping are only in `_tools/scraped/` — the archived original
   Weebly scrape, not served. **Grep with filenames** (`grep -rn`, not `-rh`)
   when auditing this, or the `_tools/scraped` filter silently does nothing and
@@ -397,7 +400,7 @@ anywhere else.
 - Until 28 Aug 2026 that tag fired `gtag('config')` and **nothing else** — no
   events, no ecommerce, nine months of pageviews and zero data about money.
 - **Microsoft Clarity** (project `y99er61yhf`) rides in the same
-  `<!-- fce:tracking -->` block, on 458 pages. Session recordings and heatmaps.
+  `<!-- fce:tracking -->` block, on 486 pages. Session recordings and heatmaps.
   It's inline rather than folded into `track.js` because `track.js` is deferred
   and anything before it loads isn't recorded. It is the *right* instrument at
   ~380 visits/month: an A/B test needs thousands of sessions per arm, watching
@@ -573,7 +576,7 @@ footer, theme, the lot) — never hand-write one from scratch, clone via the
 - **Blog listing shells** (`category/`, `archives/`, `previous/N`, across
   `triviahostresources/` *and* the legacy `whatsnew|inspiration|blog|4` trees)
   must carry `noindex,follow` — `node _tools/noindex-blog-taxonomy.js --write`
-  does all 245 of them. Legacy *post* duplicates are different: they get a
+  does all 247 of them. Legacy *post* duplicates are different: they get a
   `rel=canonical` to the live post and **no** noindex. Never both on one page —
   Google honours the noindex, drops the page, and the canonical never gets to
   pass its signals on.
@@ -705,9 +708,36 @@ no sandbox. It closes the issue automatically when things are clean again.
   (e.g. `https://github.com/tooniebuckerooni/fat-city-entertainment/blob/main/tgp-ai-gateway/worker.js`
   — swap in `triv101-api/` or `greenroom-api/src/index.js` for those Workers)
   so they can open and copy it directly, in addition to summarizing the diff.
+- **The git proxy blocks branch DELETION** (`git push origin --delete` returns
+  HTTP 403, while ordinary pushes work). There is no GitHub MCP tool for it
+  either. Stale branches have to be removed from the repo's Branches page in the
+  browser, or with `git push origin --delete <branch>` from a normal machine.
+  As of 11 Sept 2026 there are 38 remote branches, 11 of them fully merged into
+  `main` and safe to delete.
 - **Images the user pastes into chat are not reachable as files.** There's no
   path on disk to read or copy them from — ask for a URL or an upload
   (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
+
+## Auditing this repo (what a `/state-of-site` pass gets wrong here)
+
+The skill is generic; these four traps are specific to this site, and each one
+produced a wrong answer on 11 Sept 2026 before being caught. Recorded here
+because the skill itself lives outside the repo and its fixes do not travel.
+
+- **Percent-decode sitemap URLs before comparing them to disk.** The four store
+  files with `,`/`&` in their names are deliberately encoded (see "URL shape"),
+  so a naive comparison reports four missing pages that are all present.
+- **A green Monday health check is not proof of no drift.** The workflow is
+  built to succeed *and* file a GitHub issue, because failing the job would only
+  notify whoever pushed last. Read the open issues separately. Also check when
+  the last run was: as of 11 Sept the most recent predated the 9 Sept repricing.
+- **`data-id="NN"` matches a product's own page, not just a listing tile.**
+  `#wsite-com-product-gen` carries it too, so counting tiles that way says every
+  staged product has one. Match the tile class as well.
+- **The Bingo Card Generator is a separate repo on a separate domain**
+  (`tooniebuckerooni/bingocardgenerator2`), and a feature can be half-shipped
+  across the two. The preload links were live here and dead there for a day.
+  Check both deploy states, not just this one's.
 
 ## Planning docs
 Trimmed periodically — retired once a doc's content is either done, or fully

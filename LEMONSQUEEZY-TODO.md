@@ -1,7 +1,15 @@
 # LemonSqueezy re-listing checklist
 
+> **DEFERRED, owner's call 11 Sept 2026.** The 13 staged trivia shows stay
+> staged for at least a month. A large batch of products just launched and the
+> decision is to let those mature before adding more to the store rather than
+> flooding it. This is not a forgotten backlog item: revisit mid-October at the
+> earliest. The staging is clean in the meantime (noindex, absent from the
+> sitemap, no listing tile, no live checkout URL), so nothing is half-shipped.
+
+
 **Live status lives in the code now, not here:** `assets/js/ls-links.js` has a
-self-updating header comment ("STATUS: N of 74 wired — M to go") and marks
+self-updating header comment ("STATUS: N of 98 wired, M to go") and marks
 each remaining product inline with `[ ]` — search that file for `[ ]` to find
 exactly what's left. This doc is the one-time migration reference: how to
 wire a product, and the original Weebly CAD prices for setting a new USD

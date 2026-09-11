@@ -25,7 +25,7 @@ mode that motivated retiring it. Don't resurrect the two-repo workflow.
 | **AI Studio backend** | `tgp-ai-gateway/worker.js` — the Cloudflare Worker source (deploy-by-paste, see its `README.md`). |
 | **Legacy URL redirect** | `trivia-generator.html` — a 301 redirect stub → `/trivia-show-maker/`. |
 | **Sitewide nav rename** | `_tools/rename-trivia-generator-nav.js` — renamed the nav item to "Trivia Show Maker" across all pages. |
-| **Credit pack product page** | `trivia-show-maker-plans.html` — three live LemonSqueezy checkouts: Starter 50 ($7.99), Host 200 ($24.99, "Most popular"), Pro 500 ($49.99). |
+| **Credit pack product page** | `trivia-show-maker-plans.html`, three live LemonSqueezy checkouts. **Verified 11 Sept 2026: Starter 50 credits $13.98, Host 250 credits $54.99, Subscription 250/mo $44.99 ("Most popular").** This row previously read "Starter 50 ($7.99), Host 200 ($24.99), Pro 500 ($49.99)", which was wrong on all three prices and two of the credit counts. The page is generated from `_tools/new-content-pages.json`, so **read prices off that spec, never off this table.** |
 | **Trivia Store banner** | `trivia-store.html` has a 2-up banner row (Trivia Show Maker + Bingo Card Generator) above the category tiles; the Trivia Show Maker banner links to `trivia-show-maker-plans.html`. |
 | **Store / offers** | `store/p65/bingocardgeneratorpro.html` (legacy Bingo page, refreshed copy + subtle cross-offer), `features.html`, `bingocardgenerator.html` (schema). |
 | **Blog links** | 3 posts under `triviahostresources/*/index.html` link to the tool contextually. |
