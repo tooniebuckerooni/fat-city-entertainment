@@ -46,13 +46,18 @@ for (const file of products.sort()) {
   const apple = /music\.apple\.com|itunes\.apple\.com/i.test(html);
   if (!spotify && !apple) { noPlaylist++; continue; }
 
+  // The article belongs to the phrase, not to the sentence: a page linking both
+  // services used to read "comes with A ready-made Spotify and Apple Music
+  // playlistS", which was live on every two-service pack.
   const services =
-    spotify && apple ? "Spotify and Apple Music playlists" :
-    spotify ? "Spotify playlist" : "Apple Music playlist";
+    spotify && apple ? "ready-made Spotify and Apple Music playlists" :
+    spotify ? "a ready-made Spotify playlist" : "a ready-made Apple Music playlist";
 
+  // No em-dash: this is customer-facing copy, and the rule says fix it in the
+  // template rather than on the generated page. It was on every badged page.
   const badge =
-    `${MARK_OPEN}<strong>Playlist included.</strong> This pack comes with a ` +
-    `ready-made ${services} — press play and host. No playlist building, no ` +
+    `${MARK_OPEN}<strong>Playlist included.</strong> This pack comes with ` +
+    `${services}, so you press play and host. No playlist building, no ` +
     `hunting for songs.</p>\n`;
 
   // Drop an earlier badge before inserting the current one.

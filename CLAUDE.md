@@ -224,11 +224,19 @@ internal documentation, which uses em-dashes throughout on purpose.
   Monthly price and watching all four move. The URLs are there for the same
   reason: a redemption PDF ships inside a paid download and cannot be recalled.
 - **A product page can be excluded from its own cross-sell** via `NO_BLOCK` in
-  `add-cross-sell.js`. p189 is: its body names all three games and the Quick
-  math block above the button already states the comparison, so the block one
-  paragraph below repeated both. The pid stays in `BUNDLES` because the
-  component pages still point at it. A retired block is **removed**, not left to
-  rot quoting a price nothing refreshes.
+  `add-cross-sell.js`. **p189 and p155 are**: their body copy names every game,
+  links each one, and the Quick math block above the button already states the
+  comparison, so the block one paragraph below repeated both. The pid stays in
+  `BUNDLES` because the component pages still point at it. A retired block is
+  **removed**, not left to rot quoting a price nothing refreshes.
+- **`add-playlist-badge.js` had two bugs in its template**, fixed 11 Sept 2026
+  and re-run across 53 pages: an **em-dash** in customer-facing copy, and *"comes
+  with **a** ready-made Spotify and Apple Music **playlists**"* on every pack
+  that links both services. The article now belongs to the phrase, not the
+  sentence. It decides whether to badge a page by grepping the page for a
+  Spotify or Apple URL, so **stripping playlist links out of a description
+  silently removes the badge** as well; p155's rewrite kept all twelve links for
+  exactly that reason, compressed onto one line per game.
 - **A product with no `store/pNN/` page gets a tile from the `VIRTUAL` map** in
   `add-store-tile.js` (`node _tools/add-store-tile.js handbook --after p18
   --pages …`). The Music Bingo Handbook sells on Amazon KDP and already has a

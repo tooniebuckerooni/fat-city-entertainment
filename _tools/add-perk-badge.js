@@ -46,6 +46,7 @@ const SKIP_DIRS = new Set(["_tools", ".git", "node_modules", "assets", "files", 
 // pid -> what the badge says. `lead` is the shout, `sub` the qualifier.
 const BADGES = {
   p189: { lead: "1 Month Free", sub: "Bingo Card Generator 2.0" },
+  p155: { lead: "1 Month Free", sub: "Bingo Card Generator 2.0" },
 };
 
 const START = (pid) => `<!-- fce:perk-badge:${pid} -->`;

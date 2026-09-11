@@ -184,13 +184,14 @@ const GOLD_SINGLES = [
 ];
 
 // Pages that are in the maps above but must NOT carry a block of their own.
-// p189 joined 11 Sept 2026: its body copy already names all three games, and
+// p189 and p155 joined 11 Sept 2026: their body copy already names every game,
+// links each one, and
 // the .fce-value-math block directly above the button already states the whole
 // comparison. The cross-sell repeated both, one paragraph below, which is how a
 // product page gets long enough that nobody reads the part that sells it. The
 // entry stays in BUNDLES because the three component pages still need to point
 // AT p189 and read its price.
-const NO_BLOCK = new Set(["p189"]);
+const NO_BLOCK = new Set(["p189", "p155"]);
 
 const link = (pid) => `<a href="${PRODUCTS[pid].path}">${PRODUCTS[pid].name}</a>`;
 const isPid = (c) => /^p\d+$/.test(c) && PRODUCTS[c];
