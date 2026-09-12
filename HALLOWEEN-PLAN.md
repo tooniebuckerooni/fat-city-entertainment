@@ -235,11 +235,11 @@ discount is ever wanted: a config edit (`CODE`/`PCT`/`END`/`COPY`) plus
 shared with Bingo Card Generator subscriptions, so scope any code per-product**
 or a Halloween sale hits Generator billing.
 
-### 11. The generator's `?load=` handler — WRITTEN AND TESTED, awaiting merge
+### 11. The generator's `?load=` handler — MERGED AND LIVE (11 Sept 2026)
 
-> **SHIPPED 11 Sept to a branch.** `tooniebuckerooni/bingocardgenerator2`,
-> branch `claude/preload-link-handler`. Merge it and the second PDF button
-> works. Tested in Chromium against the real 30-song payload: title, all 30
+> **LIVE.** `tooniebuckerooni/bingocardgenerator2` PR #35, merged by the owner
+> 11 Sept 2026, deploy green, handler confirmed on the live page. The second PDF
+> button works. Tested in Chromium against the real 30-song payload: title, all 30
 > squares, the orange-on-black palette and the toast all land, with no page
 > errors; a malformed payload shows the error toast and leaves a working
 > generator; a plain visit is unchanged.

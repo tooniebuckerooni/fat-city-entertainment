@@ -374,12 +374,13 @@ anywhere else.
 - **The generator lives in its own repo: `tooniebuckerooni/bingocardgenerator2`,
   also GitHub Pages, `index.html` is the whole app.** It is NOT a dashboard
   paste like the Workers. Attach it with `add_repo` when it needs changing.
-  The `?load=` handler was written and browser-tested 11 Sept and sits on branch
-  `claude/preload-link-handler` there; **merge it and the preload links work**.
+  The `?load=` handler is **LIVE** as of 11 Sept 2026 (PR #35 there, merged by
+  the owner, deploy green, and confirmed by fetching the live page), so
+  `/cards/<slug>/` really does fill the editor in.
   `build-generator-links.js --patch` still prints the handler if it is ever
   needed again. An unpatched generator ignores `?load=` and shows an empty
   generator, so a preload link degrades rather than erroring.
-  That same branch also **deletes a live crash**: the init block called
+  That same change also **deleted a live crash**: the init block called
   `hCb(qp.get('code'))` and `hCb` was defined nowhere, so any `?code=` visit
   threw mid-init and killed the `?card=`, saved-games, autosave and `?activated`
   handlers after it. Reproduced in a browser against the previous commit.
