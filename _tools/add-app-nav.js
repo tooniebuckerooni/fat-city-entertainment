@@ -45,7 +45,7 @@ function dropdown(indent) {
     `\n${t}<ul class="wsite-menu">` +
     sub("wsite-nav-triv101", "/triv101/", "Triv 101", "") +
     sub("wsite-nav-trivia-generator", "/trivia-generator.html", "Trivia Generator", "") +
-    sub("wsite-nav-bingo-generator", "https://bingocardgenerator.online/", "Bingo Card Generator", ' target="_blank" rel="noopener"') +
+    sub("wsite-nav-bingo-generator", "https://bingocardgenerator.online/?utm_source=fatcityentertainment&amp;utm_medium=referral&amp;utm_campaign=onsite-upsell&amp;utm_content=nav", "Bingo Card Generator", ' target="_blank" rel="noopener"') +
     `\n${t}</ul>` +
     `\n${t}</div>` +
     `\n${i}</li>`
