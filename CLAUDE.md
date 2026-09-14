@@ -133,6 +133,21 @@ internal documentation, which uses em-dashes throughout on purpose.
   all three pages it knew about, which is why categories looked arbitrary — a
   pack sat wherever `add-store-tile.js` had inserted it (at the front) and
   everything else stayed where Weebly's export left it.
+  **p65 Generator Pro has NO tile as of 14 Sept 2026** (owner's call). It is a
+  software licence, not a game: it sat 17th of 20 on the storefront and the
+  store root, the fifth-priciest item on the page, and being a terminal
+  purchase it fed no cross-sell and no ladder rung. Its real distribution is
+  the Bingo Card Maker nav item on all 484 pages plus three body links on
+  `/bingocardgenerator.html`, which is where a host actually meets the
+  watermark — so the tiles cost the grid its coherence and returned nothing.
+  Taken off with `add-store-tile.js p65 --remove --pages
+  storefront,store-root`. **The price did not change** and the page, the nav
+  item and the sitemap entry all stay live. The open question is whether $74.50
+  lifetime should stand at all against Generator 2.0's $24/mo and $116/yr — it
+  pays back in 3.1 and 7.7 months respectively, so it undercuts the
+  subscription the whole perk strategy is built on. Answering that needs
+  LemonSqueezy order volume, which is why `store-tile` went into `track.js` in
+  the same commit.
 - **The two ebooks sell on Amazon, not LemonSqueezy**, and their buy links are
   injected at runtime: `window.KDP_LINKS` in `ls-links.js` holds
   `{kindle, paperback}` per book and `ls-buy.js` fills in the `.kdp-buy`
@@ -411,7 +426,14 @@ anywhere else.
   product pages, **`begin_checkout` on every buy-button click**, `select_item`
   on internal links into a product, and `view_song_list` on library pages. Each
   carries an `origin` (`cross-sell`, `price-ladder`, `song-list-page`,
-  `product-tracklist`, `nav`, …) so you can tell which block produced a click.
+  `product-tracklist`, `store-tile`, `nav`, …) so you can tell which block
+  produced a click. **`store-tile` was added 14 Sept 2026** — before that the
+  list had no entry for a listing tile, so a tile click and an ordinary body
+  link both reported `page` and nothing could tell whether a grid was selling
+  or merely occupying the page. It matches **both** tile shapes, the same trap
+  `add-perk-badge.js` hit. Order in `ORIGINS` is precedence: the ladder and the
+  cross-sell are checked first, so a link inside one of those still reports as
+  that block even on a listing page.
 - **`begin_checkout` is a proxy, not a sale.** LemonSqueezy checkout is on
   `lemonsqueezy.com`, so a tag on this domain physically cannot see a purchase.
   Real revenue data needs LemonSqueezy's own Google Analytics integration
