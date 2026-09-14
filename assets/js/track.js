@@ -105,6 +105,12 @@
     [".fce-songlist", "song-list"],
     ["#wsite-com-product-buy", "product-buy-area"],
     [".fce-copy", "page-copy"],
+    // A listing-page tile. Without this a tile click and an ordinary body link
+    // both reported "page", so nothing could tell whether the storefront grid
+    // was producing sales or just occupying it. Two tile shapes exist and
+    // matching only the first misses trivia-store.html and store/c1, which are
+    // the two highest-traffic grids on the site.
+    [".wsite-com-category-product, .wsite-com-category-product-featured", "store-tile"],
     ["nav, .wsite-menu, .wsite-nav", "nav"],
   ];
 

@@ -32,7 +32,7 @@ const DOWNLOAD =
   "permitted.&nbsp;</strong>";
 
 const BOOKING =
-  "<strong>This books your date — it isn't a download. After checkout you'll get " +
+  "<strong>This books your date. It isn't a download. After checkout you'll get " +
   "an email confirming your booking, and we'll follow up to lock in the details. " +
   'Please&nbsp;<a href="/contact.html" target="_blank">contact us</a>&nbsp;to ' +
   "confirm availability before you book.</strong>";
@@ -41,12 +41,12 @@ const BOOKING =
 // right at the buy button, and pre-warning about delivery failure reads as
 // doubt at the worst possible moment (Aug 2026 conversion audit, item 5).
 const TOOL =
-  "<strong>Instant access — your link lands in your inbox right after " +
+  "<strong>Instant access. Your link lands in your inbox right after " +
   "checkout. Bingo Card Generator Pro runs in your browser: nothing to " +
   "install, and lifetime access means no monthly fee, ever.</strong>";
 
 const PHYSICAL =
-  "<strong>This one ships to you — free shipping in the USA and Canada. You'll " +
+  "<strong>This one ships to you, with free shipping in the USA and Canada. You'll " +
   "get an order confirmation by email after checkout, and we'll be in touch about " +
   'sizing.&nbsp;<a href="/contact.html" target="_blank">Contact Us</a>&nbsp;with ' +
   "any questions.</strong>";
@@ -71,13 +71,38 @@ for (const dir of fs.readdirSync(path.join(REPO, "store"))) {
   }
 }
 
-let added = 0, hadIt = 0, skipped = 0, noSlot = 0;
+// Wording repairs to notes this tool has ALREADY written.
+//
+// The three notes above shipped with em-dashes in them, which CLAUDE.md bans in
+// anything a visitor reads. Fixing the constants alone changes nothing: the
+// guard below skips any page that already carries a note, so the corrected
+// wording could never land on the four pages that have one. Each entry is the
+// old form -> the new one, applied before that guard. Idempotent, because after
+// the swap the pattern no longer matches.
+const REPAIRS = [
+  [/<strong>This books your date \u2014 it isn't a download\./g,
+   "<strong>This books your date. It isn't a download."],
+  [/<strong>Instant access \u2014 your link lands/g,
+   "<strong>Instant access. Your link lands"],
+  [/<strong>This one ships to you \u2014 free shipping in the USA and Canada\./g,
+   "<strong>This one ships to you, with free shipping in the USA and Canada."],
+];
+
+let added = 0, hadIt = 0, skipped = 0, noSlot = 0, repaired = 0;
 
 for (const [pid, file] of products.sort()) {
   let html = fs.readFileSync(file, "utf8");
 
   if (/http-equiv="refresh"/i.test(html) || SKIP.has(pid)) { skipped++; continue; }
-  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|instant access — your link|ships to you/i.test(html)) {
+
+  const beforeRepair = html;
+  for (const [re_, to] of REPAIRS) html = html.replace(re_, to);
+  if (html !== beforeRepair) {
+    if (WRITE) fs.writeFileSync(file, html);
+    console.log("  wording repaired:", path.relative(REPO, file));
+    repaired++;
+  }
+  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|instant access[.—] your link|ships to you/i.test(html)) {
     hadIt++;
     continue;
   }
@@ -115,6 +140,7 @@ for (const [pid, file] of products.sort()) {
 
 console.log(`product pages   : ${products.length}`);
 console.log(`note added      : ${added}`);
+console.log(`wording repaired: ${repaired}`);
 console.log(`already had one : ${hadIt}`);
 console.log(`skipped         : ${skipped}   (redirect stubs, and p18 which sells on Amazon)`);
 console.log(`no slot found   : ${noSlot}`);
