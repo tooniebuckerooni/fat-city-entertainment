@@ -84,6 +84,11 @@ const REPAIRS = [
    "<strong>This books your date. It isn't a download."],
   [/<strong>Instant access \u2014 your link lands/g,
    "<strong>Instant access. Your link lands"],
+  // p65 was hand-edited on the page to a comma on 12 Sept, which fixed the
+  // em-dash but left this one note disagreeing with the tool and with the
+  // three sibling pages. A comma splice either way, so converge it here.
+  [/<strong>Instant access, your link lands/g,
+   "<strong>Instant access. Your link lands"],
   [/<strong>This one ships to you \u2014 free shipping in the USA and Canada\./g,
    "<strong>This one ships to you, with free shipping in the USA and Canada."],
 ];
@@ -102,7 +107,7 @@ for (const [pid, file] of products.sort()) {
     console.log("  wording repaired:", path.relative(REPO, file));
     repaired++;
   }
-  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|instant access[.—] your link|ships to you/i.test(html)) {
+  if (/download your music bingo|emailed a copy|isn't a download|access link is emailed|instant access[.,—] your link|ships to you/i.test(html)) {
     hadIt++;
     continue;
   }
