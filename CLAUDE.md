@@ -424,9 +424,13 @@ internal documentation, which uses em-dashes throughout on purpose.
   seven-rung table alone is not enough to check: 2-packs, 4-packs and Holidays'
   6-pack are not rungs, and a 4-pack undercut the 5-packs and the 6-pack for
   months while the table read clean before 5 Sept.
-- **The weekly health check's CATALOGUE INVERSION line will now fire every
-  Monday** because of the Holidays inversion above — expected, not a
-  regression to chase. See "Weekly health check" below.
+- **The weekly health check does NOT fire on the Holidays inversion**, and this
+  note used to say the opposite. `add-price-ladder.js` now carries an accepted
+  list and prints *"no NEW catalogue inversion (2 accepted, listed above)"*, so
+  the matcher stays quiet; what it does print is the narrower `LADDER INVERSION`
+  line, which is deliberately not in the matcher. Verified 16 Sept 2026 by
+  running the whole drift loop. **So a CATALOGUE INVERSION issue on a Monday is a
+  real, new one — do not wave it through as "that's just Holidays".**
 
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
@@ -812,12 +816,15 @@ no sandbox. It closes the issue automatically when things are clean again.
   `add-price-ladder.js` prints CATALOGUE INVERSION across **every** pack,
   including 2-, 4- and 6-packs that aren't rungs; it was a 4-pack that sat
   inverted for months while the rung table read clean, which is why both are
-  checked now. **As of 9 Sept 2026 the matcher WILL fire every Monday**: the
-  Holidays 6-pack (p155, $57.56) is a known, owner-approved catalogue
-  inversion (see the price-ladder note above) — the resulting GitHub issue is
-  expected, not a new regression. Don't "fix" it by reverting the price without
-  checking first; if the ladder ever needs a true zero-inversion baseline
-  again, that's a repricing decision, not a health-check bug.
+  checked now. **The matcher does NOT fire on the Holidays 6-pack** (p155,
+  $57.56), despite what this file said between 9 and 16 Sept 2026:
+  `add-price-ladder.js` classifies it as an accepted inversion and reports *"no
+  NEW catalogue inversion (2 accepted, listed above)"*, which the matcher does
+  not match. Confirmed 16 Sept 2026 against the full loop. A CATALOGUE INVERSION
+  issue is therefore a genuinely new one and worth chasing. Don't "fix" an
+  accepted inversion by reverting the price without checking first; if the ladder
+  ever needs a true zero-inversion baseline again, that's a repricing decision,
+  not a health-check bug.
 
 ## Sandbox gotcha (important for coding agents)
 - This environment's egress proxy **blocks `api.cloudflare.com` and
