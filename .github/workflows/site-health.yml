@@ -131,6 +131,11 @@ jobs:
             # is ever deleted the tool regenerates it, and until it is re-run
             # the page shows a blank box rather than a heavier image.
             #
+            # set-cta-labels joined with them. It reports "would update: N
+            # page(s)". It only ever rewrites a button still reading the generic
+            # "Buy & Download", so a label somebody wrote by hand survives both
+            # the tool and the Monday run; p18, p65 and p140 are the live proof.
+            #
             # build-store-facets and add-store-filters joined 16 Sept 2026 too.
             # The first regenerates assets/js/store-facets.js unconditionally and
             # reports "(1 would change)" against what is on disk, the same shape
@@ -159,7 +164,7 @@ jobs:
                      add-sale-banner add-product-gallery build-generator-links \
                      add-halloween-banner add-perk-badge add-fact-notes \
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
-                     build-store-facets add-store-filters \
+                     build-store-facets add-store-filters set-cta-labels \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

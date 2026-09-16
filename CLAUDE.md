@@ -113,6 +113,22 @@ internal documentation, which uses em-dashes throughout on purpose.
   the pair outright, so an empty one reports "would remove the block" every Monday.
   Converting the badge to a slot also made it idempotent-reporting for the first
   time, so it could finally join the health-check loop.
+- **The buy button's label is `_tools/set-cta-labels.js`** (16 Sept 2026).
+  SEPT-10-PLAN Phase 5 measured 89 of 94 CTAs reading the generic "Buy &
+  Download", against the three club pages which already said "Get All 50 Games"
+  and so on. This spreads that pattern: a single reads "Download the Game" (or
+  "the Show" for a pre-made trivia show), a pack "Get All 5 Games", a 2-pack
+  "Get Both Games". The count comes from `store-facets.js`, never derived here,
+  so there is one source and it is in the drift loop. Running the rule against
+  the three clubs reproduces their existing labels **byte for byte**, which is
+  what says the rule is right.
+  **Two safety rules, both found by its own `--preview`.** A product the facets
+  cannot speak for is **left alone, not reset to the default** — the first draft
+  fell through to "Buy & Download" and would have overwritten *"Buy on Amazon"*
+  on p18, *"Buy Lifetime Access"* on p65 and *"Book Now"* on p140 with something
+  less true. And only a button still reading the generic default is rewritten, so
+  a label a person chose survives the tool and survives `--remove`. Always
+  `--preview` before `--write`: it is the most-read copy on the site.
 - **The sticky phone buy bar lives in `assets/js/ls-buy.js`**, not its own asset:
   that file is already on exactly the 100 pages with a buy button, already runs at
   the right moment, and already owns the clone-a-button idiom. It **clones the real
