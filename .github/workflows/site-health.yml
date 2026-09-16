@@ -130,12 +130,24 @@ jobs:
             # because a thumbnail strip points at generated -thumb files: if one
             # is ever deleted the tool regenerates it, and until it is re-run
             # the page shows a blank box rather than a heavier image.
+            #
+            # reorder-product-cta and add-playlist-badge joined 16 Sept 2026.
+            # The first keeps the buy button directly under the price on all 95
+            # product pages; anything that regenerates a page from an older
+            # template would silently drop it back below the description, which
+            # is the position the move exists to fix. The second only became
+            # checkable here in the same change: it used to re-insert its badge
+            # on every run and so always reported a non-zero count, which would
+            # have read as permanent drift. Now it fills a marker slot and a
+            # clean run reports 0. Both report "would update: N page(s)", which
+            # the nav patterns above already match -- confirmed by reverting a
+            # real page and watching the matcher fire, then go quiet.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
                      add-sale-banner add-product-gallery build-generator-links \
                      add-halloween-banner add-perk-badge add-fact-notes \
-                     add-pillar-uplinks \
+                     add-pillar-uplinks reorder-product-cta add-playlist-badge \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

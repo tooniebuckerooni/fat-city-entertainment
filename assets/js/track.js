@@ -103,6 +103,12 @@
     [".fce-ladder", "price-ladder"],
     [".fce-tracklist", "product-tracklist"],
     [".fce-songlist", "song-list"],
+    // The sticky phone buy bar (built by ls-buy.js). It lives at the end of
+    // <body>, not inside #wsite-com-product-buy, so without its own entry every
+    // click from it would fall through to "page" and be indistinguishable from
+    // an ordinary body link -- which would make it impossible to tell whether
+    // the bar is worth its screen space.
+    [".fce-buybar", "sticky-buy-bar"],
     ["#wsite-com-product-buy", "product-buy-area"],
     [".fce-copy", "page-copy"],
     // A listing-page tile. Without this a tile click and an ordinary body link

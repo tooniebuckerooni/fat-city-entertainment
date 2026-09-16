@@ -8,6 +8,14 @@
 // never does. This stays the authority — it re-applies everything idempotently,
 // which keeps a stale baked page correct after ls-links.js changes — and it is
 // still the only thing that loads lemon.js for the overlay checkout.
+//
+// It also builds the sticky phone buy bar (see stickyBar() at the foot of this
+// file). That lives here rather than in its own asset because this file is
+// already on exactly the 100 pages that have a buy button, it already runs at
+// the right moment, and it already owns the one clone-a-button idiom the bar
+// needs. A separate asset would have meant a new injection tool, a new
+// cache-bust to keep in step and another entry in the weekly health check, for
+// no behaviour this file cannot reach.
 (function () {
   // While a sitewide promo is live (window.FCE_PROMO, set by promo-bar.js —
   // a deferred script, so it runs before our DOMContentLoaded init), append
@@ -99,6 +107,90 @@
       s.defer = true;
       document.body.appendChild(s);
     }
+    try { stickyBar(); } catch (e) { /* never let the bar break a buy button */ }
+  }
+
+  // A sticky buy bar for phones.
+  //
+  // reorder-product-cta.js moved the button up under the price, which fixes the
+  // first screen but means that on a long page the button is gone once you have
+  // scrolled into the description. This puts it back within thumb reach.
+  //
+  // The bar's button is CLONED from the real one rather than written into the
+  // page, for a specific reason: _tools/bake-buy-links.js rewrites only the
+  // first .ls-buy anchor it matches (one html.match, one string-needle replace),
+  // so a second button in the markup would keep a stale checkout URL the day a
+  // link changed, with nothing reporting it. One button in the source, one
+  // authority. This is the same clone-and-drop-the-id move the KDP second
+  // edition above already makes.
+  function stickyBar() {
+    if (!window.matchMedia || !window.matchMedia("(max-width: 767px)").matches) return;
+    if (!window.IntersectionObserver) return;
+    if (document.querySelector(".fce-buybar")) return;
+
+    var area = document.getElementById("wsite-com-product-buy");
+    if (!area) return;
+    var btn = area.querySelector(".ls-buy[data-product]");
+    // No bar for a staged product whose button is deliberately hidden, or for
+    // the Amazon page, whose button ls-buy.js may itself have cloned.
+    if (!btn || btn.style.display === "none" || !btn.getAttribute("href")) return;
+    if (btn.getAttribute("href").charAt(0) === "#") return;
+
+    var title = document.getElementById("wsite-com-product-title");
+    var sale = document.querySelector("#wsite-com-product-price-sale .wsite-com-product-price-amount");
+    var list = document.querySelector("#wsite-com-product-price .wsite-com-product-price-amount");
+    var onSale = /show-price-on-sale/.test(
+      (document.getElementById("wsite-com-product-price-area") || {}).className || ""
+    );
+
+    var bar = document.createElement("div");
+    bar.className = "fce-buybar";
+    var inner = document.createElement("div");
+    inner.className = "fce-buybar-inner";
+
+    var meta = document.createElement("span");
+    meta.className = "fce-buybar-meta";
+    var name = document.createElement("span");
+    name.className = "fce-buybar-name";
+    name.textContent = title ? title.textContent.trim() : "";
+    var price = document.createElement("span");
+    price.className = "fce-buybar-price";
+    // Read off the page, never baked, so the bar cannot quote a stale figure.
+    if (onSale && list) {
+      var was = document.createElement("span");
+      was.className = "fce-buybar-was";
+      // "USD" once, on the price being charged. The bar is the narrowest place
+      // a price appears on the site and "$59.95 USD $41.99 USD" does not fit a
+      // 360px phone without the currency being cut off the end.
+      was.textContent = list.textContent.trim().replace(/\s*USD\s*$/, "");
+      price.appendChild(was);
+    }
+    price.appendChild(
+      document.createTextNode(((onSale ? sale : list) || {}).textContent
+        ? ((onSale ? sale : list).textContent).trim() : "")
+    );
+    meta.appendChild(name);
+    meta.appendChild(price);
+
+    var clone = btn.cloneNode(true);
+    clone.removeAttribute("id");
+    clone.className += " fce-buybar-btn";
+    clone.style.display = "";
+
+    inner.appendChild(meta);
+    inner.appendChild(clone);
+    bar.appendChild(inner);
+    document.body.appendChild(bar);
+    document.body.className += " fce-has-buybar";
+
+    // Show the bar only once the real button has scrolled out of view.
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) bar.className = "fce-buybar";
+        else bar.className = "fce-buybar fce-buybar--on";
+      }
+    }, { threshold: 0 });
+    io.observe(btn);
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);

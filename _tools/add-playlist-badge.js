@@ -6,10 +6,10 @@
 // was sitting as a plain text link at the very bottom of the description, below
 // the printing instructions.
 //
-// This puts a one-line statement of it immediately above the buy button, where
-// the decision actually happens. It restates a fact the page already proves with
-// its own links (which stay where they are, just above) rather than adding a
-// second copy of them.
+// This puts a one-line statement of it directly under the description, where
+// the page has just finished describing what is in the box. It restates a fact
+// the page already proves with its own links (which stay where they are, just
+// above) rather than adding a second copy of them.
 //
 // Only pages that genuinely link a playlist get the badge, and the wording
 // matches which services that page actually links.
@@ -17,13 +17,27 @@
 //   node _tools/add-playlist-badge.js            # dry run
 //   node _tools/add-playlist-badge.js --write
 //
-// Idempotent — an existing badge is replaced.
+// WHERE IT GOES
+// -------------
+// Into the <!-- fce:playlist-slot --> that reorder-product-cta.js plants on every
+// product page. It used to find its spot with
+// indexOf('<div id="wsite-com-product-buy">') and insert just above it, which was
+// right while the buy button was the last thing on the page. Once the button
+// moved up under the price (Sept 2026) that same anchor would have put the
+// playlist callout back BETWEEN the price and the button -- reintroducing the
+// exact box the move was meant to clear. A slot the tool fills, rather than an
+// anchor it hunts for, cannot drift that way again.
+//
+// Idempotent — the slot is replaced wholesale, so a clean re-run reports 0.
 const fs = require("fs");
 const path = require("path");
 
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 const MARK_OPEN = '<p class="fce-playlist-badge">';
+const SLOT_OPEN = "<!-- fce:playlist-slot -->";
+const SLOT_CLOSE = "<!-- /fce:playlist-slot -->";
+const SLOT_RE = /<!-- fce:playlist-slot -->[\s\S]*?<!-- \/fce:playlist-slot -->/;
 
 const products = [];
 for (const dir of fs.readdirSync(path.join(REPO, "store"))) {
@@ -58,16 +72,18 @@ for (const file of products.sort()) {
   const badge =
     `${MARK_OPEN}<strong>Playlist included.</strong> This pack comes with ` +
     `${services}, so you press play and host. No playlist building, no ` +
-    `hunting for songs.</p>\n`;
+    `hunting for songs.</p>`;
 
-  // Drop an earlier badge before inserting the current one.
-  html = html.replace(/<p class="fce-playlist-badge">[\s\S]*?<\/p>\n?/i, () => { replaced++; return ""; });
-
-  const anchor = '<div id="wsite-com-product-buy">';
-  const at = html.indexOf(anchor);
-  if (at === -1) { skipped++; continue; }
-
-  html = html.slice(0, at) + badge + html.slice(at);
+  // Fill the slot wholesale. A function replacer, always: the badge is plain
+  // prose today, but "$1" in a replacement string is a backreference and this
+  // repo has been bitten twice by exactly that.
+  if (!SLOT_RE.test(html)) {
+    console.log(`  PROBLEM: no playlist slot in ${path.relative(REPO, file)} — run reorder-product-cta.js first`);
+    skipped++; process.exitCode = 1; continue;
+  }
+  const want = `${SLOT_OPEN}\n${badge}\n${SLOT_CLOSE}`;
+  if (html.match(SLOT_RE)[0] !== want) replaced++;
+  html = html.replace(SLOT_RE, () => want);
 
   if (html !== before) {
     if (WRITE) fs.writeFileSync(file, html);
@@ -76,7 +92,7 @@ for (const file of products.sort()) {
 }
 
 console.log(`product pages       : ${products.length}`);
-console.log(`badge on page       : ${added}   (${replaced} refreshed)`);
+console.log(`${WRITE ? "updated" : "would update"}: ${added} page(s)   (${replaced} slot(s) rewritten)`);
 console.log(`no playlist linked  : ${noPlaylist}`);
 console.log(`skipped             : ${skipped}`);
 if (!WRITE) console.log("\nDRY RUN — nothing written. Re-run with --write.");

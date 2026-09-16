@@ -308,8 +308,14 @@ function blockFor(pid) {
 }
 
 const MARKER_RE = /<!-- fce:cross-sell:start -->[\s\S]*?<!-- fce:cross-sell:end -->/;
-// The buy area: button + ls-pending fallback, then the div closes.
-const BUY_RE = /(<div id="wsite-com-product-buy">[\s\S]*?<\/p>\s*<\/div>)/;
+// Where a page gets its FIRST block. Until Sept 2026 this was the buy area, on
+// the reasoning that the upsell belongs under the button. The button has since
+// moved up under the price (reorder-product-cta.js), so anchoring there now would
+// wedge a beige upsell box between the price and the CTA. reorder-product-cta.js
+// plants <!-- fce:below-copy --> as the last thing inside #wsite-com-product-info-inner,
+// which is where this block has always rendered, and it stays put from then on
+// because MARKER_RE is tested first and replaces in place.
+const BELOW_RE = /([ \t]*<!-- fce:below-copy -->)/;
 
 let added = 0, updated = 0, missing = 0, noSlot = 0, stubs = 0;
 const pids = new Set([...Object.keys(BUNDLES), ...GOLD_SINGLES]);
@@ -375,12 +381,12 @@ for (const pid of [...pids].sort()) {
   if (MARKER_RE.test(html)) {
     html = html.replace(MARKER_RE, () => block);
     if (html !== before) { updated++; if (WRITE) fs.writeFileSync(file, html); }
-  } else if (BUY_RE.test(html)) {
-    html = html.replace(BUY_RE, (m) => `${m}\n${block}`);
+  } else if (BELOW_RE.test(html)) {
+    html = html.replace(BELOW_RE, (m) => `${block}\n${m}`);
     added++;
     if (WRITE) fs.writeFileSync(file, html);
   } else {
-    console.log("  no buy area:", path.relative(REPO, file));
+    console.log("  PROBLEM: no below-copy slot in", path.relative(REPO, file), "— run reorder-product-cta.js first");
     noSlot++;
   }
 }

@@ -1743,3 +1743,170 @@ ol.fce-tl li {
   .fce-perk-badge--sm b { font-size: 9.5px; }
   .fce-perk-badge--sm i { font-size: 7.5px; }
 }
+
+/* ------------------------------------------------------------ product buy CTA
+   The buy button and the space around it (_tools/reorder-product-cta.js).
+
+   The button used to be the last thing inside #wsite-com-product-info-inner,
+   under a median 373 visible words of description. It now sits directly beneath
+   the price. These rules give it the weight that position asks for: the theme's
+   default is a small pill that reads as a secondary link when it is the first
+   thing a visitor sees.
+
+   COLOUR IS DELIBERATELY NOT TOUCHED HERE. main_style.css paints this button
+   through #wsite-com-product-add-to-cart.wsite-button-highlight, and its
+   :not(.wsite-buy-button) branch flips it to white-on-white, so the id and the
+   .wsite-buy-button class are both load-bearing. Everything below is size and
+   spacing, none of which the theme marks !important.
+
+   The padding lives on .wsite-button-inner, not on the anchor: main_style.css
+   gives the anchor padding:0 and the inner 14px 30px. Sizing the anchor alone
+   does nothing, which is the trap to know about here. */
+#wsite-com-product-price-area { padding-bottom: 16px; margin-bottom: 0; }
+#wsite-com-product-buy { padding-top: 18px; margin-bottom: 20px; }
+
+#wsite-com-product-buy #wsite-com-product-add-to-cart .wsite-button-inner {
+  padding: 17px 38px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  line-height: 1.15;
+}
+#wsite-com-product-buy #wsite-com-product-add-to-cart {
+  border-radius: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16);
+}
+#wsite-com-product-buy #wsite-com-product-add-to-cart:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.22);
+}
+/* The reassurance lines (add-fact-notes.js) sit inside the buy div, so they
+   follow the button up the page and need to stop crowding it. */
+#wsite-com-product-buy .fce-fact-note:first-of-type { margin-top: 12px; }
+
+/* Phone. main_style.css stops floating the image column at 767px, which is the
+   width where the button was getting pushed two scrolls down, so the full-width
+   treatment starts at the same place rather than at the 640px used elsewhere in
+   this file. Do not "tidy" it to 640px: between 641 and 767 the page is still
+   stacked and the button still needs to be a real target. */
+@media (max-width: 767px) {
+  /* The anchor stays inline-block on purpose. sites.css floats
+     .wsite-button-inner left, and an inline-block parent is what contains that
+     float; switching the anchor to display:block collapses the button to the
+     height of its own borders (measured: 2px). The inner gets float:none as
+     well, so neither rule is load-bearing alone. */
+  #wsite-com-product-buy #wsite-com-product-add-to-cart {
+    display: inline-block;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  #wsite-com-product-buy #wsite-com-product-add-to-cart .wsite-button-inner {
+    display: block;
+    float: none;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 18px 20px;
+  }
+}
+
+/* ------------------------------------------------------- sticky mobile buy bar
+   Built at runtime by assets/js/ls-buy.js, which clones the real button so there
+   is never a second .ls-buy in the HTML source. bake-buy-links.js rewrites only
+   the FIRST match it finds, so two buttons in the markup would quietly disagree
+   the day a checkout URL changed.
+
+   The clone drops its id (an id must stay unique), and with it the theme's
+   colour rule -- exactly what happened to the cloned KDP button, which is why
+   the .kdp-buy rule further up this file exists. Hence the explicit colours
+   here: this is the one place the buy button's paint is restated on purpose.
+
+   BOTTOM-ANCHORED, AND UNDER THE HEADER. The theme puts .birdseye-header and
+   .mobile-nav at position:fixed; top:0; z-index:12. The sitewide promo bar that
+   was retired in Aug 2026 sat on top of the mobile hamburger and covered it
+   completely for months. This bar is at the other edge of the screen and one
+   z-index below, so it cannot repeat that. */
+.fce-buybar { display: none; }
+
+@media (max-width: 767px) {
+  .fce-buybar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -2px 14px rgba(0, 0, 0, 0.13);
+    padding: 9px 14px;
+    padding-bottom: calc(9px + env(safe-area-inset-bottom, 0px));
+    transform: translateY(115%);
+    transition: transform 180ms ease;
+  }
+  .fce-buybar.fce-buybar--on { transform: none; }
+
+  .fce-buybar-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .fce-buybar-meta { flex: 1 1 auto; min-width: 0; }
+  .fce-buybar-name {
+    display: block;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.3;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .fce-buybar-price {
+    display: block;
+    font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #000;
+    /* The bar is the narrowest place a price appears on the site. Without this
+       a sale price wraps and drops "USD" onto a second line, which pushes the
+       bar taller than the button inside it. */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .fce-buybar-was {
+    margin-right: 5px;
+    font-weight: 400;
+    font-size: 12px;
+    color: #888;
+    text-decoration: line-through;
+  }
+
+  .fce-buybar .fce-buybar-btn {
+    flex: 0 0 auto;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 1px solid #000 !important;
+    border-radius: 2px;
+  }
+  .fce-buybar .fce-buybar-btn .wsite-button-inner {
+    display: block;
+    float: none;
+    padding: 14px 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  /* Give the footer room so the bar never covers its last line. Padding goes on
+     .footer-wrap rather than body so the footer's own background extends with
+     it, and it is reserved for as long as the bar exists rather than toggled
+     with it, which would shift the page under the reader's thumb. */
+  body.fce-has-buybar .footer-wrap { padding-bottom: 74px; }
+}
