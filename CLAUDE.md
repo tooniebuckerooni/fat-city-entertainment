@@ -92,6 +92,80 @@ internal documentation, which uses em-dashes throughout on purpose.
   is close to always, since they roll one into the next. `window.FCE_PROMO`
   is still set unconditionally regardless of whether the popup is ever shown
   or dismissed, so the checkout discount doesn't depend on it.
+- **The buy button sits directly under the price, and a tool owns that**
+  (`_tools/reorder-product-cta.js`, 16 Sept 2026, idempotent). Weebly's template
+  put the CTA last inside `#wsite-com-product-info-inner`, below a median 373
+  visible words and, on 53 pages, below the playlist callout too; `main_style.css`
+  stops floating the image column at **767px**, so on a phone it sat about a full
+  screen below the price (measured at 390x844: 1414-1508px down the document,
+  now 530-841px). The tool moves the buy div, and the `.fce-value-math` "Quick
+  math" block where there is one, to just after the price area. Boundaries by div
+  depth, never a string match. `--remove --write` restores all 95 pages **byte for
+  byte**, and apply/remove/apply is identical to apply.
+  **It plants two marker slots, and that is the part to know about.** Two tools
+  used to locate themselves *relative to the buy div* and would have dragged the
+  old layout back on their next `--write`: `add-playlist-badge.js` inserted
+  immediately above it (which after the move puts the callout back between price
+  and button, the exact thing being fixed) and now fills
+  `<!-- fce:playlist-slot -->`; `add-cross-sell.js` appends after it, but only for
+  a page's FIRST block, and that anchor is now `<!-- fce:below-copy -->`.
+  **Never plant an empty cross-sell marker pair** — `NO_BLOCK` (p189, p155) strips
+  the pair outright, so an empty one reports "would remove the block" every Monday.
+  Converting the badge to a slot also made it idempotent-reporting for the first
+  time, so it could finally join the health-check loop.
+- **The sticky phone buy bar lives in `assets/js/ls-buy.js`**, not its own asset:
+  that file is already on exactly the 100 pages with a buy button, already runs at
+  the right moment, and already owns the clone-a-button idiom. It **clones the real
+  button at runtime** rather than adding a second `.ls-buy` to the markup, because
+  `bake-buy-links.js` rewrites only the FIRST match it finds and two buttons in the
+  source would quietly disagree the day a checkout URL changed. The clone drops its
+  `id` and with it the theme's colour, exactly as the cloned KDP button did, so
+  `.fce-buybar-btn` restates the paint on purpose. Bottom edge, `z-index: 11`,
+  under the theme's fixed header at 12 — verified with `elementFromPoint` at 390px
+  that the mobile hamburger is still hit, which is the check the retired promo bar
+  never had. Prices are read off the page, never baked. **Its breakpoint is 767px,
+  not the house 640px**, because 767 is where the theme stacks the columns; don't
+  "tidy" it.
+- **Store sort/filter** (`_tools/add-store-filters.js` + `assets/js/store-filters.js`
+  + `_tools/build-store-facets.js`, 16 Sept 2026). Live on `trivia-store.html` and
+  `store/c11/`; the rest of the grids are listed commented in the tool, including
+  **`store/c42/hardgames` and `store/c41/virtualevents`, which are in NEITHER
+  `order-store-tiles.js` NOR `check-tile-structure.js`** and so get skipped by every
+  hardcoded page list in this repo.
+  **No tile markup is touched, and that is deliberate.** `add-store-tile.js:123` and
+  `order-store-tiles.js:103` both match a tile with the `>` immediately after
+  `data-id`, so an added attribute would make them match **zero** tiles — while
+  `check-tile-structure.js:39`, which does not require that `>`, carried on
+  reporting every tile well formed. An all-clear over two blinded write tools is
+  the failure this repo keeps hitting, so the filters look a product up by the
+  `data-id` already there. Sorting sets CSS `order` on the flex grid instead of
+  moving nodes, so the curated per-page sequence stays the DOM order, stays the
+  default ("Featured"), and the delegated `select_item` tracking keeps working.
+  **"On sale" is read off the tile's own `sale-active` / `single-sale-price`
+  classes**, never stored, so it cannot disagree with the checkout.
+- **Product facets are two kinds, and the split is the point**
+  (`_content/product-facets.json` -> `_tools/build-store-facets.js --write` ->
+  `assets/js/store-facets.js`). DERIVED facets (category membership, playlist,
+  song list, delivery, occasion, era) are recomputed every run and never stored.
+  JUDGEMENT facets (`printable`, `challenging`, `family`, `games`) are hand-owned;
+  the file holds only overrides and **a hand-set value always beats the seed, while
+  a blank cell means "use the seed"**. `--sheet` writes
+  `_tools/product-facets-sheet.csv` for the owner, `--from-sheet --write` merges it
+  back — the same CSV round trip as `ls-link-sheet.js`.
+  **`games` is read off each page's own words** (its cross-sell "5 games in this
+  pack", its club button's "Get All 50 Games", its title's "5-Pack"), never a map,
+  for the reason `add-price-ladder.js:74` gives about guessing at a component list.
+  72 of 79 are seeded; the 7 blanks are correct as blanks (four Q&A question banks,
+  a Zoom booking, the handbook, and p189 which is a mixed-format bundle).
+  **A null facet never matches a filter**, and a chip only renders when at least
+  two tiles on that page carry a value for it, so a half-filled facet hides itself
+  rather than offering a filter that returns nothing.
+  **"Best selling" has no data source in this repo** — GA4 is on an account the
+  owner cannot see and LemonSqueezy checkout is off-domain, so `bestsellers` is an
+  owner-supplied ranked pid array and the sort is **not rendered at all** while it
+  is empty. Never invent a ranking. Note the per-game sort makes the deliberate
+  Holidays inversion visible to shoppers; that is expected, and the figure already
+  appears in cross-sell prose on 53 pages.
 - **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
   the buy area between `<!-- fce:cross-sell -->` markers — bundle pages list
   their components, bundle members point at their bundle *with the per-game

@@ -131,6 +131,17 @@ jobs:
             # is ever deleted the tool regenerates it, and until it is re-run
             # the page shows a blank box rather than a heavier image.
             #
+            # build-store-facets and add-store-filters joined 16 Sept 2026 too.
+            # The first regenerates assets/js/store-facets.js unconditionally and
+            # reports "(1 would change)" against what is on disk, the same shape
+            # build-song-library.js uses, so the existing pattern catches it: a
+            # product that changes category, gains a song list or loses its
+            # playlist links changes its facets, and a stale file would filter it
+            # into the wrong set. It also prints PROBLEM: for a facet entry whose
+            # product no longer has a tile, which the matcher already catches.
+            # Neither tool touches a tile, so neither can affect the tile checks
+            # in the exit-status loop below.
+            #
             # reorder-product-cta and add-playlist-badge joined 16 Sept 2026.
             # The first keeps the buy button directly under the price on all 95
             # product pages; anything that regenerates a page from an older
@@ -148,6 +159,7 @@ jobs:
                      add-sale-banner add-product-gallery build-generator-links \
                      add-halloween-banner add-perk-badge add-fact-notes \
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
+                     build-store-facets add-store-filters \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

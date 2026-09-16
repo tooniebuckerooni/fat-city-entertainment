@@ -1910,3 +1910,91 @@ ol.fce-tl li {
      with it, which would shift the page under the reader's thumb. */
   body.fce-has-buybar .footer-wrap { padding-bottom: 74px; }
 }
+
+/* ----------------------------------------------------------- store filters
+   Sort and filter above a listing grid (_tools/add-store-filters.js +
+   assets/js/store-filters.js).
+
+   The host element is injected empty and the controls are built at runtime,
+   because which chips are worth showing depends on how many tiles on that page
+   carry each facet. Until the script runs there is nothing to see, which is
+   also what a visitor with JS off gets: no dead controls, every tile visible.
+
+   Nothing here styles a tile. The filters hide a tile with an inline
+   display:none and order it with an inline `order`, both set by the script, so
+   the grid's own rules further up this file are untouched. */
+.fce-filters { margin: 0 0 18px; }
+.fce-filters:not(.fce-filters--ready) { display: none; }
+
+.fce-filters-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 10px;
+}
+
+.fce-chip {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 8px 14px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 999px;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  line-height: 1.1;
+  color: #333;
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+.fce-chip:hover { border-color: #888; }
+.fce-chip--on {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+.fce-filters-tools {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.fce-filters-sort {
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  background: #fff;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  color: #333;
+}
+.fce-filters-count {
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  color: #777;
+}
+.fce-filters-clear {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 12.5px;
+  color: #333;
+  text-decoration: underline;
+}
+.fce-filters-empty {
+  margin: 14px 0 0;
+  font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 640px) {
+  .fce-chip { padding: 9px 13px; font-size: 12px; }
+  .fce-filters-tools { gap: 10px; }
+  .fce-filters-sort { flex: 1 1 100%; }
+}
