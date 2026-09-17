@@ -62,14 +62,31 @@ function pixelRects() {
 }
 
 // The traced grid runs edge-to-edge (the roofline spans col 0-15), which pokes
-// past the circular crop a launcher/new-tab tile applies to a favicon. INSET
+// past the circular crop a launcher/new-tab tile applies to a favicon. MARGIN
 // scales the whole mark down around the canvas centre rather than touching
 // PIXELS, so it stays a faithful trace of the source PSD at every size.
-const INSET = 0.9;
+const MARGIN = 1; // grid units inset on every side (1px at native 16x16)
+const SCALE = (GRID - 2 * MARGIN) / GRID;
+
+const GOLD = "#D4AF37";
+const BORDER = 1; // grid units thick
+function borderRects() {
+  const t = BORDER;
+  return [
+    `<rect x="0" y="0" width="${GRID}" height="${t}"/>`,
+    `<rect x="0" y="${GRID - t}" width="${GRID}" height="${t}"/>`,
+    `<rect x="0" y="${t}" width="${t}" height="${GRID - 2 * t}"/>`,
+    `<rect x="${GRID - t}" y="${t}" width="${t}" height="${GRID - 2 * t}"/>`,
+  ].join("\n");
+}
+
 const svg = () => `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${GRID} ${GRID}" shape-rendering="crispEdges">
   <rect width="${GRID}" height="${GRID}" fill="#ffffff"/>
-  <g fill="${INK}" transform="translate(${GRID / 2} ${GRID / 2}) scale(${INSET}) translate(${-GRID / 2} ${-GRID / 2})">
+  <g fill="${GOLD}">
+${borderRects()}
+  </g>
+  <g fill="${INK}" transform="translate(${GRID / 2} ${GRID / 2}) scale(${SCALE}) translate(${-GRID / 2} ${-GRID / 2})">
 ${pixelRects()}
   </g>
 </svg>`;
