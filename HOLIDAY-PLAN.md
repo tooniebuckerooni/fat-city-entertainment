@@ -321,6 +321,16 @@ The warmest sub-audience is past buyers: someone who paid $10.99 for one game
 and enjoyed it is the natural buyer of a $43 bundle. Segment them out if Sender's
 data allows; send to them separately with the bundle-credit offer.
 
+**Send 1 is written and ready: `_content/email-sends/halloween-2026.md`**
+(17 Sept 2026). Subject lines, preheader, all six blocks, the past-buyer variant
+and the after-send measurement list. Every price in it was read off the product
+page that day, every component list came from `add-cross-sell.js`'s own maps, and
+it carries the one trap worth not re-deriving: **never itemize p189's $45.97 in
+customer copy**, because that total uses the deliberate $16.99 autoload quote for
+p97 against the $11.99 its page charges, so printing both hands the reader a $5
+hole. State the $10.00 saving instead. Nothing in the repo blocks the send; it
+needs pasting into Sender.
+
 Sequence:
 - **Late Sept** — "plan your Halloween night" → Halloween pack + 6-Pack
 - **Mid Oct** — "Christmas party season starts now" → Holidays 6-Pack, booking

@@ -227,6 +227,14 @@ compounding into `&amp;amp;` and the pack advertised itself as
 
 Adding the next campaign is an entry in `_content/campaigns.json` and a re-run.
 
+### The send copy itself
+
+**`_content/email-sends/halloween-2026.md`** (17 Sept 2026) holds the finished
+send 1: three subject lines, the preheader, all six blocks in order, the
+past-buyer-only line, and what to record afterwards. It is direction A, the
+baseline the other three are judged against, which is why it goes first and does
+not experiment. Later sends get a sibling file in the same folder.
+
 ### The links to put in the Sender send
 
 ```
