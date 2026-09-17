@@ -65,11 +65,11 @@ function pixelRects() {
 // past the circular crop a launcher/new-tab tile applies to a favicon. MARGIN
 // scales the whole mark down around the canvas centre rather than touching
 // PIXELS, so it stays a faithful trace of the source PSD at every size.
-const MARGIN = 1; // grid units inset on every side (1px at native 16x16)
+const MARGIN = 2; // grid units inset on every side, clears the border below
 const SCALE = (GRID - 2 * MARGIN) / GRID;
 
 const GOLD = "#D4AF37";
-const BORDER = 1; // grid units thick
+const BORDER = 2; // grid units thick
 function borderRects() {
   const t = BORDER;
   return [
