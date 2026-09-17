@@ -170,6 +170,19 @@ jobs:
             # closing </div> rather than by matching the whole string, because the
             # first draft matched the whole string and silently did 39 of 92 while
             # reporting success.
+            #
+            # count-subcategory-tiles joined 17 Sept 2026, with the change that
+            # retired the storefront's filter chips. It writes a live product
+            # count into each subcategory tile ("Music Bingo Card Downloads
+            # (53)"), and every count is DERIVED by counting the product tiles
+            # on that tile's own link target -- so a product added to, or pulled
+            # from, a category leaves the tile quoting a number the category no
+            # longer holds until the tool is re-run. That is exactly the drift
+            # this workflow exists for, and it is invisible otherwise: the page
+            # renders perfectly with a wrong number on it. Reports "would
+            # update: N page(s)", which the nav patterns above already match --
+            # proved by pulling a real product tile off store/c33/Eras.html and
+            # watching the matcher fire, then go quiet.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
@@ -178,6 +191,7 @@ jobs:
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
                      build-store-facets add-store-filters set-cta-labels \
                      tidy-listing-intro set-delivery-boilerplate \
+                     count-subcategory-tiles \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

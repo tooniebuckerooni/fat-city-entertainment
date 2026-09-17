@@ -170,11 +170,40 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   not the house 640px**, because 767 is where the theme stacks the columns; don't
   "tidy" it.
 - **Store sort/filter** (`_tools/add-store-filters.js` + `assets/js/store-filters.js`
-  + `_tools/build-store-facets.js`, 16 Sept 2026). Live on `trivia-store.html` and
-  `store/c11/`; the rest of the grids are listed commented in the tool, including
+  + `_tools/build-store-facets.js`, 16 Sept 2026). Live on **`store/c11/` only**;
+  the rest of the grids are listed commented in the tool, including
   **`store/c42/hardgames` and `store/c41/virtualevents`, which are in NEITHER
   `order-store-tiles.js` NOR `check-tile-structure.js`** and so get skipped by every
   hardcoded page list in this repo.
+  **A filter is only honest on a page holding a COMPLETE set for that axis, and
+  the storefront was not one** (owner spotted it live, 17 Sept 2026: *"if someone
+  checks the toggle for 'Music Bingo' it shows 11. this might be confusing to users
+  thinking that's all the # of mb games we have"*). `trivia-store.html` is a curated
+  **19 of 81** products, complete for nothing, so every chip there counted the page
+  while reading as a claim about the catalogue: *Music bingo (11)* against a store
+  holding **53**. "Best selling" had the same defect, ranking 19 tiles under a
+  catalogue-wide label. The chips and the sorts came off together, and the honest
+  version of that information went onto the category tiles instead
+  (`count-subcategory-tiles.js`, below), because **a chip narrows the page you are
+  on, a tile leaves it** - so the number a tile carries is the number you get when
+  you click it. The page is in `RETIRED` in the tool rather than deleted from
+  `PAGES`: every run still strips the block from a retired page, so the storefront
+  cannot drift back to a false count, and moving it back up restores it.
+  **Which pages ARE complete, measured 17 Sept 2026:** c11 53/53 music bingo, c6
+  18/18 trivia shows, c33 13/13 eras, c40 13/13 holidays, c34 21/21 packs. Those
+  four beyond c11 would all carry honest chips, and **rolling them out is
+  deliberately DEFERRED past Christmas** (owner's call: *"any adjustments are to be
+  subtle through Christmas... if anything we should be widdling down to our best of
+  the best userflow"*). It is expansion, not whittling. Revisit in January.
+  **No "all products" page is needed** and the question was checked, not assumed:
+  the categories already reach **80 of 81** products, the only orphan being p3, the
+  T-shirt.
+  **Two things found while measuring this, neither acted on.** `store/c1/triviastore/`
+  is a **byte-identical duplicate of the storefront with 0 inbound links**, so every
+  storefront tool has to list it twice; and `store/c42/hardgames` is **13 curated
+  tiles against 37 products the `challenging` facet tags**, so the page and the facet
+  now disagree about what "hard" means. That one is a curation call, not a tooling
+  bug.
   **No tile markup is touched, and that is deliberate.** `add-store-tile.js:123` and
   `order-store-tiles.js:103` both match a tile with the `>` immediately after
   `data-id`, so an added attribute would make them match **zero** tiles — while
@@ -258,6 +287,36 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   own: the banner paste anchors on the ladder marker, which is still there
   afterwards, so it carries a `sentinel` saying "already applied". Both were found
   by running the tool twice rather than assuming.
+- **A subcategory tile carries its own live count**
+  (`_tools/count-subcategory-tiles.js`, 17 Sept 2026, idempotent, `--remove --write`
+  restores byte for byte). Renders *Music Bingo Card Downloads (53)*, *Pre-made
+  Trivia Shows (18)*, *Music Bingo & Trivia Bundles (29)*, *Eras (13)*, *Holidays
+  (13)* inside `<!-- fce:subcat-count -->` markers in the tile's own name span, on
+  the three pages that carry subcategory tiles: the storefront, its `store/c1/` twin,
+  and c11. This is what the storefront says INSTEAD of a chip, and it is the answer
+  to the thing the chips got wrong: a shopper on a 19-tile page can now see that the
+  music bingo category is 53 games.
+  **Every count is DERIVED, never stored.** The tool resolves each tile's own `href`
+  to a file on disk and counts the product tiles on it, so a figure cannot disagree
+  with the catalogue and a product moving category updates the tile on the next run.
+  Same discipline as the derived half of `product-facets.json`. It percent-decodes
+  the href first, because the four store files with `,`/`&` in their names are kept
+  encoded on purpose.
+  **`MIN_COUNT = 2`, and it currently suppresses exactly one tile: Virtual Events
+  (c41), which holds 1 product.** A tile reading *(1)* advertises thinness at the
+  moment someone is choosing where to go, and a one-product category is a page you
+  can just visit. The suppressed tile is **printed on every run** so the decision
+  cannot rot unnoticed.
+  It hits the two familiar traps on purpose: product tiles are **both**
+  `wsite-com-category-product` and `-featured` and the class attribute carries a
+  **trailing space**, and a tile's extent is found by **walking div depth**, never a
+  string match.
+  **In the Monday loop**, and the drift proof is worth repeating because the first
+  attempt at it was wrong rather than the tool: pulling a tile off `store/c33/Eras.html`
+  by string-replacing `wsite-com-category-product-featured` hit an
+  `...-featured-image-height` div instead of a tile, the count stayed 13, and the
+  matcher correctly stayed quiet. **Verify a simulated drift actually changed the
+  thing you meant to change before concluding a check is blind.**
 - **OPEN QUESTION, owner's, 17 Sept 2026: are c11's two subcategory tiles now
   redundant with the chips?** They are **Eras** and **Holidays**, 204px, sitting at
   448px on `store/c11/musicdoboff/`, and the chips right below them read *Decades &
@@ -276,6 +335,10 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   The general shape: **a chip narrows the page you are on, a tile leaves it.**
   Those are different jobs whenever the category is not a strict subset, which is
   exactly the check to run before calling any tile redundant.
+  **Since 17 Sept the tiles say so out loud**: c11's now read *Eras (13)* and
+  *Holidays (13)* against chips reading *Decades & eras (12)* and *Holiday &
+  seasonal (4)*, so the 13-against-4 gap that makes Holidays non-redundant is now
+  visible on the page rather than only in this file.
 - **The delivery and guarantee small print is `_tools/set-delivery-boilerplate.js`**
   (17 Sept 2026). 92 product pages ended in **66 words wrapped entirely in
   `<strong>`**, so nothing was emphasised and the last thing a shopper read was
