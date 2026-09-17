@@ -1,4 +1,8 @@
 {
   "bestsellers": [],
+  "hidden": [
+    "playlist",
+    "songlist"
+  ],
   "products": {}
 }

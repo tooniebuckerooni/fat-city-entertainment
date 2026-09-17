@@ -1295,7 +1295,14 @@ ol.fce-tl li {
 }
 .fce-tl-song { color: #16161a; font-weight: 700; }
 .fce-tl-artist { color: #5a5a66; }
-.fce-tl-artist::before { content: " — "; }
+/* Separator between song and artist. A middle dot, not an em-dash: CLAUDE.md
+   bans em-dashes in anything a visitor reads, and this one is read on 39
+   tracklist pages. The Sept 7 2026 sweep missed it because it lives in CSS
+   rather than a _tools/ template. A comma was considered and rejected: 50 song
+   titles and 87 artist fields in _content/song-lists.json already contain one,
+   so "Bad, Bad Leroy Brown, Jim Croce" would not say where the title ends.
+   Escaped rather than literal so no charset can mangle it. */
+.fce-tl-artist::before { content: " \00b7  "; }
 @media screen and (max-width: 640px) {
   ol.fce-tl { columns: 1; }
   .fce-tracklist { padding: 28px 16px 32px; }

@@ -43,9 +43,24 @@
 
   var FACETS = window.FCE_FACETS || {};
   var BEST = window.FCE_BESTSELLERS || [];
+  // Chips and sorts the owner has switched off, from _content/product-facets.json.
+  // Checked before anything else, so switching one off is a data change rather
+  // than a code edit and does not disturb the values already tagged.
+  var HIDDEN = window.FCE_HIDDEN_FACETS || [];
+  function off(key) { return HIDDEN.indexOf(key) !== -1; }
 
   // key, chip label, and the test a tile must pass. Order here is the order the
   // chips render in.
+  // "playlist" and "songlist" are DEFINED here but switched off in
+  // _content/product-facets.json's `hidden` list, not deleted. Both were true of
+  // nearly everything on the page where music bingo is actually browsed -- 46 of
+  // 53 and 43 of 53 -- so neither narrowed anything; a host assumes the playlist.
+  // That a fact sells a product is an argument for SHOWING it, which
+  // add-playlist-badge.js does on the product page, not for filtering by it.
+  //
+  // They stay defined so bringing one back is a data change rather than a code
+  // edit, which is the whole reason the facets file exists. Deleting them would
+  // also have hidden the threshold bug below instead of fixing it.
   var FILTERS = [
     ["sale", "On sale", function (t) { return t.onSale; }],
     ["music", "Music bingo", function (t) { return t.f.type === "music-bingo"; }],
@@ -107,11 +122,15 @@
     var chips = [];
     for (var i = 0; i < FILTERS.length; i++) {
       var key = FILTERS[i][0], label = FILTERS[i][1], test = FILTERS[i][2];
+      if (off(key)) continue;
       var n = 0;
       for (var j = 0; j < tiles.length; j++) if (test(tiles[j])) n++;
-      // Two is the floor: one match is not a filter, and a facet that matches
-      // every tile on the page narrows nothing.
-      if (n < 2 || n === tiles.length) continue;
+      // Two is the floor: one match is not a filter. The ceiling is the half that
+      // was missing -- the old test only caught a chip matching EVERY tile, so
+      // "Playlist included" at 46 of 53 sailed through and offered to remove seven
+      // items. A chip that keeps almost everything narrows nothing, so anything
+      // over 80% of the page hides itself, whoever adds it and whenever.
+      if (n < 2 || n > tiles.length * 0.8) continue;
       var b = document.createElement("button");
       b.type = "button";
       b.className = "fce-chip";
@@ -131,8 +150,10 @@
     sel.setAttribute("aria-label", "Sort products");
     for (var s = 0; s < SORTS.length; s++) {
       // No invented ranking: without an owner-supplied order the option is not
-      // offered at all.
+      // offered at all. Featured and the price sorts are never droppable, because
+      // a grid with no sort is where this started.
       if (SORTS[s][0] === "best" && !BEST.length) continue;
+      if (off(SORTS[s][0])) continue;
       var o = document.createElement("option");
       o.value = SORTS[s][0];
       o.textContent = SORTS[s][1];

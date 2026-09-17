@@ -37,6 +37,13 @@
 //
 // NOT HERE: "discounted". The filter reads that off the tile's own sale classes
 // at runtime, so it cannot disagree with what the checkout charges.
+//
+// SWITCHING A CHIP OFF IS A DATA CHANGE, NOT A CODE EDIT. `hidden` in
+// product-facets.json lists the chips and sorts the storefront must not offer, and
+// is emitted as window.FCE_HIDDEN_FACETS for store-filters.js to honour first.
+// That is the same reason this file exists at all: a merchandising decision should
+// not need a developer. It is also non-destructive -- hiding `family` does not
+// touch a single family value, so turning it back on costs nothing.
 const fs = require("fs");
 const path = require("path");
 
@@ -161,7 +168,7 @@ function seedFor(pid, derived, html, title) {
   return seed;
 }
 
-let stored = { bestsellers: [], products: {} };
+let stored = { bestsellers: [], hidden: [], products: {} };
 if (fs.existsSync(DATA)) stored = JSON.parse(fs.readFileSync(DATA, "utf8"));
 
 // ------------------------------------------------------------ merge the sheet
@@ -245,7 +252,8 @@ const banner =
 const body =
   banner +
   "window.FCE_FACETS = " + JSON.stringify(facets, null, 0) + ";\n" +
-  "window.FCE_BESTSELLERS = " + JSON.stringify(stored.bestsellers || []) + ";\n";
+  "window.FCE_BESTSELLERS = " + JSON.stringify(stored.bestsellers || []) + ";\n" +
+  "window.FCE_HIDDEN_FACETS = " + JSON.stringify(stored.hidden || []) + ";\n";
 
 const had = fs.existsSync(OUT) ? fs.readFileSync(OUT, "utf8") : "";
 const changed = had !== body;
@@ -269,6 +277,7 @@ if (SHEET) {
 console.log(`\nproducts with a tile : ${Object.keys(facets).length}`);
 console.log(`still blank          : printable ${gaps.printable}, challenging ${gaps.challenging}, family ${gaps.family}, games ${gaps.games}`);
 console.log(`best sellers ranked  : ${(stored.bestsellers || []).length}   (empty = the sort is not offered)`);
+console.log(`chips switched off   : ${(stored.hidden || []).join(", ") || "(none)"}`);
 if (!SHEET) {
   console.log(`assets/js/store-facets.js: ${changed ? "(1 would change)" : "up to date"}`);
   if (WRITE && changed) fs.writeFileSync(OUT, body);
