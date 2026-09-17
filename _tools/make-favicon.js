@@ -61,10 +61,15 @@ function pixelRects() {
   return rects.join("\n");
 }
 
+// The traced grid runs edge-to-edge (the roofline spans col 0-15), which pokes
+// past the circular crop a launcher/new-tab tile applies to a favicon. INSET
+// scales the whole mark down around the canvas centre rather than touching
+// PIXELS, so it stays a faithful trace of the source PSD at every size.
+const INSET = 0.9;
 const svg = () => `
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${GRID} ${GRID}" shape-rendering="crispEdges">
   <rect width="${GRID}" height="${GRID}" fill="#ffffff"/>
-  <g fill="${INK}">
+  <g fill="${INK}" transform="translate(${GRID / 2} ${GRID / 2}) scale(${INSET}) translate(${-GRID / 2} ${-GRID / 2})">
 ${pixelRects()}
   </g>
 </svg>`;
