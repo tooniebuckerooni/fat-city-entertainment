@@ -258,6 +258,24 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   own: the banner paste anchors on the ladder marker, which is still there
   afterwards, so it carries a `sentinel` saying "already applied". Both were found
   by running the tool twice rather than assuming.
+- **OPEN QUESTION, owner's, 17 Sept 2026: are c11's two subcategory tiles now
+  redundant with the chips?** They are **Eras** and **Holidays**, 204px, sitting at
+  448px on `store/c11/musicdoboff/`, and the chips right below them read *Decades &
+  eras (12)* and *Holiday & seasonal (4)*. One for one, so the question is fair.
+  The owner wants to live with it a while before deciding. **Do not act on it
+  unprompted, and check the membership before anyone does, because the two tiles
+  are not the same case:**
+  - **Eras is nearly redundant.** c33 holds 13 products and 12 of them are on c11
+    already; the tile buys a shopper exactly one thing they cannot reach with the
+    chip, **p153 The 60s**.
+  - **Holidays is NOT redundant, and dropping it would cost real routes.** c40
+    holds 13 and **7 are not on c11 at all**: p33, p42, p53, p135, p149, p174 and
+    p189, mostly trivia shows rather than music bingo. The chip can only filter
+    the 53 tiles on the page, so it reaches 4 of them. That tile is c11's only
+    path to the other seven, and it matters most in the weeks before a season.
+  The general shape: **a chip narrows the page you are on, a tile leaves it.**
+  Those are different jobs whenever the category is not a strict subset, which is
+  exactly the check to run before calling any tile redundant.
 - **The delivery and guarantee small print is `_tools/set-delivery-boilerplate.js`**
   (17 Sept 2026). 92 product pages ended in **66 words wrapped entirely in
   `<strong>`**, so nothing was emphasised and the last thing a shopper read was
