@@ -603,6 +603,69 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   running the whole drift loop. **So a CATALOGUE INVERSION issue on a Monday is a
   real, new one — do not wave it through as "that's just Holidays".**
 
+## Email capture (two platforms, and only one of them collects)
+
+**Resend collects. Sender sends.** Owner's call 17 Sept 2026, and the reason is
+that the free Sender plan is nearly full. Addresses move from Resend to Sender
+**by hand** for now, which is the one manual step in HOLIDAY-PLAN's email engine.
+
+- **Everything posts to one endpoint:**
+  `https://triv101-api.dustinramsbottom.workers.dev/api/subscribe`, handled in
+  `triv101-api/src/index.js`, which calls the Resend audience and sends a welcome
+  email. Both best-effort: a Resend hiccup must never be why someone's cards page
+  errors.
+- **Two front ends.** The generator's gate (`bingocardgenerator.html`, handler in
+  `files/theme/script.js`, live since 1 Aug 2026) and the 50 song-library pages
+  (`_tools/build-song-library.js` -> `assets/js/fce-capture.js`, 17 Sept 2026).
+  **The endpoint URL is typed in both `assets/js/fce-capture.js` and
+  `files/theme/script.js` - change both**, the same documented-duplication idiom
+  as the perk amount in `add-cross-sell.js` and `check-value-stacks.js`. Sharing
+  an asset would mean editing the generator's whole PDF engine to save one string.
+- **THE TRAP WORTH KEEPING.** Three separate write-ups
+  (`build-song-library.js`, `HOLIDAY-PLAN.md`, `POST-LAUNCH.md`) asserted the site
+  had **no email capture** or that the gate was blocked, for six weeks while it was
+  live and collecting. All three traced to one audit that grepped for `<form`, and
+  **`bingocardgenerator.html` contains zero `<form>` elements**: its gate is a
+  `<div>` with a bare `<input>`. Off that false premise a whole second capture
+  mechanism was designed for a second platform, and it never even shipped because
+  its form ID stayed an owner placeholder and rendered on zero of 50 pages.
+  **Grep for what a thing does, not for the tag you expect it to use.** The
+  library's form is a real `<form>` partly so the next audit finds it.
+- **`novalidate` on that form is load-bearing.** With `type="email"` and `required`
+  and no `novalidate`, the browser's own validation blocks the submit event before
+  the handler runs, so the styled error never showed and the visitor got an
+  unstyled native bubble. Found in a browser, not by reading the markup.
+- **The button ships `disabled` and the no-JS line ships visible**, both flipped by
+  the script. A page whose script never loads then shows a route that works (email
+  us) instead of a form that silently eats an address. The blank-tile trap, failed
+  the safe way round.
+- **`source` was accepted and discarded for six weeks.** The gate always sent
+  `{email, source}`; `/api/subscribe` read only the email, so every contact looked
+  identical and nothing could tell a generator signup from a song-list one. Fixed
+  17 Sept: it is clamped (`[^a-z0-9_-]` stripped, 60 chars, defaults `unknown`,
+  because it is client input that reaches D1) and written to a **`subscribers`
+  table in D1** (`migrations/0003_subscribers.sql`). Resend's contacts API takes
+  only email/first_name/last_name/unsubscribed, so there is no honest field for a
+  source there, and D1 is the one store the owner can actually read given GA4 sits
+  on an account their login cannot see. `ON CONFLICT(email) DO NOTHING` keeps the
+  FIRST source: where someone found us is the useful fact.
+  Library sources are `song-list-<slug>`, so per-page conversion is queryable.
+- **The welcome email is `source`-aware**, because a song-list subscriber who never
+  touched the generator was being thanked for cards. It is **customer-facing copy,
+  so the em-dash rule applies**: two shipped in it and are gone.
+- **A URL inside the Worker is outside `canonicalize-trailing-slash.js`'s reach.**
+  That tool walks repo HTML; the welcome email is a string in a Worker. It linked
+  `/triviahostresources/how-to-run-a-music-bingo-night` with **no trailing slash**
+  to a directory page that really exists, sending every new subscriber to the
+  non-canonical twin. Now `GUIDE_URL`/`LIBRARY_URL` constants with a comment.
+  **Check any URL added here by hand.**
+- **The Worker is a dashboard paste** (see the sandbox note), so none of the
+  `/api/subscribe` changes are live until the owner re-pastes
+  `triv101-api/src/index.js` and applies `0003_subscribers.sql` in the D1 console.
+  The library's front end needed **no** Worker change to start working: that
+  endpoint already returns `access-control-allow-origin: *` on both the preflight
+  and every real response.
+
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
 from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.

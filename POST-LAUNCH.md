@@ -394,7 +394,7 @@ things needed pinning down:
 |---|---|---|
 | 7 | **"Complete Your Night" CTA box** — on `/bingocardgenerator2.html` already; still to add on the legacy generator page and at the end of blog posts | small |
 | ~~8~~ | ~~Gold Club placements~~ — **footer sitewide (386 pages) + homepage section done July 25.** A nav entry is the one remaining slot | mostly done |
-| ~~9~~ | ~~Email-capture gate~~ — **built Aug 1** on the legacy generator, Resend-backed. Blocked on deploying the Worker + setting Resend keys | blocked on you |
+| ~~9~~ | ~~Email-capture gate~~ — **built Aug 1** on the legacy generator, Resend-backed. **LIVE and collecting**, owner-confirmed 17 Sept 2026: this row said "blocked on deploying the Worker + setting Resend keys" for six weeks after it was already working. The 50 song-library pages now post to the same endpoint | done |
 | ~~10~~ | ~~UTM tagging~~ — **done July 25.** Outbound links tagged and `utm-tagging-standard.md` corrected | done |
 | 11 | Structure blog content for AI answer engines — clear headers, direct answers, possibly FAQ/HowTo structured data | small |
 | 12 | Convert `pages/index-draft.html` to UTF-8 (currently UTF-16LE; unlinked and `noindex`, so harmless until it ships) | small |

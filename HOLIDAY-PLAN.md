@@ -337,12 +337,25 @@ Sequence:
 - **Early Nov** — the year's best bundle offer → Starter Pack / Silver / Gold
 - **Early Dec** — last-minute downloads → singles, instant delivery angle
 
-**Capture is the gap.** The site still has no visible email capture outside the
-generator gate mentioned in `SEO-HANDOFF.md` (which I could not find in the
-markup — verify). The Song List Library is now the obvious place: fifty pages of
-people who arrived wanting music bingo song lists is precisely the list to grow,
-and the offer writes itself — *"the printable version of this list, plus the
-next one we publish."* Worth doing before the October traffic arrives, not after.
+**Capture: SHIPPED 17 Sept 2026, and this paragraph was wrong about it.** It used
+to read *"the site still has no visible email capture outside the generator gate
+mentioned in `SEO-HANDOFF.md` (which I could not find in the markup — verify)."*
+The gate was there all along, live since 1 Aug and collecting. It is not a
+`<form>` element: it is a `<div>` with a bare `<input>`, so a grep for forms
+found nothing and two separate write-ups concluded the site had no capture.
+**Grep for what a thing does, not for the tag you expect.**
+
+The 50 song-library pages now post to that same Resend endpoint
+(`_tools/build-song-library.js` -> `assets/js/fce-capture.js` ->
+`/api/subscribe`), so one audience collects every address on the site. Owner's
+call: Resend owns capture, because the free Sender plan is nearly full. **The
+four sends below still go from Sender and addresses move across by hand** until
+that changes, which is the one manual step left in this engine.
+
+The offer is deliberately *"the new song lists as we publish them"* and **not**
+the *"printable version of this list"* this paragraph used to propose: no such
+PDF exists, generating 50 is its own project, and the generator gate already
+showed what a live promise nothing fulfils costs.
 
 ---
 

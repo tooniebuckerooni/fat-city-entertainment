@@ -65,7 +65,7 @@ async function readBody(request) {
 // from Resend's own dashboard, no code needed for those), then send the
 // welcome email immediately via the transactional API. Both are best-effort:
 // a Resend hiccup should never be the reason someone's cards page errors.
-async function resendSubscribe(env, email) {
+async function resendSubscribe(env, email, source) {
   const result = { audience: false, email: false };
   if (!env.RESEND_API_KEY) return result;
   const headers = {
@@ -90,8 +90,8 @@ async function resendSubscribe(env, email) {
         body: JSON.stringify({
           from: env.RESEND_FROM_EMAIL,
           to: [email],
-          subject: "Your cards, plus a couple of hosting tips",
-          html: welcomeEmailHtml()
+          subject: welcomeSubject(source),
+          html: welcomeEmailHtml(source)
         })
       });
       result.email = r.ok;
@@ -100,9 +100,54 @@ async function resendSubscribe(env, email) {
   return result;
 }
 
-function welcomeEmailHtml() {
-  return `<div style="font-family:Arial,sans-serif;max-width:520px;margin:0 auto;color:#222;line-height:1.6">
-<p>Hey there,</p>
+// Two audiences arrive here now and they asked for different things, so the
+// welcome cannot thank both for cards. A song-list subscriber never touched the
+// generator; being told "thanks for grabbing your cards" reads as the wrong
+// email and is the fastest way to earn an unsubscribe on contact one.
+function fromSongList(source) {
+  return typeof source === "string" && source.indexOf("song-list") === 0;
+}
+
+function welcomeSubject(source) {
+  return fromSongList(source)
+    ? "You're on the list, and the other 50 are free to read"
+    : "Your cards, plus a couple of hosting tips";
+}
+
+// NOTE ON THE GUIDE LINK BELOW. It must keep its TRAILING SLASH.
+// /triviahostresources/how-to-run-a-music-bingo-night/index.html exists, so
+// that path is a directory page, and CLAUDE.md's one rule that must not drift
+// is that a directory page always ends in a slash. GitHub Pages serves both
+// forms and cannot redirect, so the only thing stopping the two competing is
+// the site saying the same thing everywhere. This string shipped WITHOUT the
+// slash, which sent every new subscriber to the non-canonical twin, and
+// canonicalize-trailing-slash.js can never reach it: it walks repo HTML, and
+// this is a string inside a Worker. Any URL added here needs checking by hand.
+const GUIDE_URL =
+  "https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night/";
+const LIBRARY_URL = "https://www.fatcityentertainment.com/music-bingo-song-lists/";
+
+// No em-dashes in here. It is copy a customer reads, so the house rule applies
+// exactly as it does on a product page; two of them shipped in this email and
+// are gone.
+function welcomeEmailHtml(source) {
+  const wrap = (inner) =>
+    `<div style="font-family:Arial,sans-serif;max-width:520px;margin:0 auto;color:#222;line-height:1.6">
+${inner}
+<p>Good luck out there,<br>The FatCity Entertainment Team</p>
+</div>`;
+
+  if (fromSongList(source)) {
+    return wrap(`<p>Hey there,</p>
+<p>You're on the list. When a new game's full song list goes up, you'll hear about it here first.</p>
+<p>While you wait, the rest of them are already published in full, free to read:</p>
+<p><a href="${LIBRARY_URL}" style="color:#000;font-weight:bold">All 50 song lists, 1,674 songs &rarr;</a></p>
+<p>And if you are getting ready to actually run a night, this is the whole thing start to finish: round structure, pricing, prizes, and the mistakes that quietly kill momentum.</p>
+<p><a href="${GUIDE_URL}" style="color:#000;font-weight:bold">How to Run a Music Bingo Night &rarr;</a></p>
+<p>A couple of emails a month at most. One click to stop, any time, from the link below.</p>`);
+  }
+
+  return wrap(`<p>Hey there,</p>
 <p>Thanks for grabbing your cards from the Bingo Card Generator!</p>
 <p>A couple of things that'll make tonight easier if this is your first time running music bingo:</p>
 <ul>
@@ -110,11 +155,9 @@ function welcomeEmailHtml() {
 <li><strong>Start with a crowd-pleasing mix</strong>, then get more specific (a decade, a genre) once the room's warmed up.</li>
 <li><strong>Test your sound before doors open.</strong> It's the single biggest thing that makes or breaks a night.</li>
 </ul>
-<p>If you want the full breakdown — round structure, pricing, prizes, and the mistakes that quietly kill momentum — here's the complete guide:</p>
-<p><a href="https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night" style="color:#000;font-weight:bold">How to Run a Music Bingo Night &rarr;</a></p>
-<p>We send one email a week at most: a new playlist idea, a hosting tip, or an early look at seasonal packs. If that's not for you, no hard feelings — unsubscribe any time from the link below.</p>
-<p>Good luck tonight,<br>The FatCity Entertainment Team</p>
-</div>`;
+<p>If you want the full breakdown, round structure, pricing, prizes, and the mistakes that quietly kill momentum, here's the complete guide:</p>
+<p><a href="${GUIDE_URL}" style="color:#000;font-weight:bold">How to Run a Music Bingo Night &rarr;</a></p>
+<p>We send one email a week at most: a new playlist idea, a hosting tip, or an early look at seasonal packs. If that's not for you, no hard feelings, just unsubscribe any time from the link below.</p>`);
 }
 
 // ---- Ably (optional) -------------------------------------------------------
@@ -374,7 +417,22 @@ export default {
         const b = await readBody(request);
         const email = (b.email || "").trim().toLowerCase();
         if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad("valid email required");
-        const result = await resendSubscribe(env, email);
+        // `source` has been arriving in this body since the gate shipped and
+        // was being thrown away. Clamped rather than trusted: it is client
+        // input, it goes into D1 and it picks the welcome email.
+        const source = (b.source || "unknown").trim().toLowerCase()
+          .replace(/[^a-z0-9_-]/g, "").slice(0, 60) || "unknown";
+        const result = await resendSubscribe(env, email, source);
+        // Attribution, best-effort. A failure here must never be the reason
+        // someone's cards page errors, so it cannot throw out of the handler.
+        // ON CONFLICT keeps the first source rather than overwriting it: where
+        // someone found us is the useful fact, not where they were last.
+        try {
+          await env.DB.prepare(
+            "INSERT INTO subscribers (email,source,created_at,resend_ok) VALUES (?,?,?,?) " +
+            "ON CONFLICT(email) DO NOTHING"
+          ).bind(email, source, now(), result.audience ? 1 : 0).run();
+        } catch (e) { /* non-fatal, see above */ }
         return json({ ok: true, ...result });
       }
 
