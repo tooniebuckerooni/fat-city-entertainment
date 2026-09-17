@@ -37,7 +37,7 @@ const REMOVE = args.includes("--remove");
 
 // Bump when either script changes so a returning visitor is not served a
 // cached half of the pair (the add-green-room.js idiom).
-const VERSION = "1";
+const VERSION = "2";
 
 const PAGES = [
   "trivia-store.html",

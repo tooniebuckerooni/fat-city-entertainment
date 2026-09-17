@@ -1,9 +1,247 @@
 {
-  "bestsellers": [],
+  "bestsellers": [
+    "p147",
+    "p62"
+  ],
   "hidden": [
     "playlist",
     "songlist",
-    "printable"
+    "printable",
+    "family"
   ],
-  "products": {}
+  "products": {
+    "p9": {
+      "family": true
+    },
+    "p13": {
+      "family": true
+    },
+    "p28": {
+      "challenging": true
+    },
+    "p33": {
+      "family": true
+    },
+    "p42": {
+      "family": true
+    },
+    "p49": {
+      "challenging": true,
+      "family": true
+    },
+    "p62": {
+      "family": true
+    },
+    "p63": {
+      "family": true
+    },
+    "p71": {
+      "family": true
+    },
+    "p72": {
+      "challenging": true,
+      "family": true
+    },
+    "p81": {
+      "challenging": true,
+      "family": true
+    },
+    "p92": {
+      "family": true
+    },
+    "p95": {
+      "family": true
+    },
+    "p97": {
+      "family": true
+    },
+    "p100": {
+      "family": true
+    },
+    "p101": {
+      "challenging": true,
+      "family": true
+    },
+    "p102": {
+      "family": true
+    },
+    "p103": {
+      "family": true
+    },
+    "p106": {
+      "family": true
+    },
+    "p108": {
+      "family": true
+    },
+    "p109": {
+      "family": true
+    },
+    "p110": {
+      "challenging": true,
+      "family": true
+    },
+    "p111": {
+      "family": true
+    },
+    "p112": {
+      "family": true
+    },
+    "p113": {
+      "family": true
+    },
+    "p114": {
+      "family": true
+    },
+    "p115": {
+      "family": true
+    },
+    "p116": {
+      "family": true
+    },
+    "p117": {
+      "family": true
+    },
+    "p121": {
+      "family": true
+    },
+    "p122": {
+      "challenging": true,
+      "family": true
+    },
+    "p123": {
+      "family": true
+    },
+    "p124": {
+      "family": true
+    },
+    "p126": {
+      "challenging": true,
+      "family": true
+    },
+    "p127": {
+      "family": true
+    },
+    "p128": {
+      "challenging": true,
+      "family": true
+    },
+    "p129": {
+      "family": true
+    },
+    "p130": {
+      "challenging": true,
+      "family": true
+    },
+    "p131": {
+      "family": true
+    },
+    "p132": {
+      "family": true
+    },
+    "p133": {
+      "family": true
+    },
+    "p136": {
+      "challenging": true
+    },
+    "p138": {
+      "family": true
+    },
+    "p140": {
+      "family": true
+    },
+    "p143": {
+      "challenging": true,
+      "family": true
+    },
+    "p144": {
+      "family": true
+    },
+    "p145": {
+      "family": true
+    },
+    "p146": {
+      "family": true
+    },
+    "p147": {
+      "family": true
+    },
+    "p148": {
+      "family": true
+    },
+    "p149": {
+      "challenging": true,
+      "family": true
+    },
+    "p153": {
+      "challenging": true,
+      "family": true
+    },
+    "p155": {
+      "family": true
+    },
+    "p156": {
+      "family": true
+    },
+    "p158": {
+      "family": true
+    },
+    "p159": {
+      "challenging": true,
+      "family": true
+    },
+    "p160": {
+      "challenging": true
+    },
+    "p162": {
+      "family": true
+    },
+    "p163": {
+      "family": true
+    },
+    "p165": {
+      "challenging": true,
+      "family": true
+    },
+    "p166": {
+      "family": true
+    },
+    "p167": {
+      "challenging": true
+    },
+    "p168": {
+      "family": true
+    },
+    "p169": {
+      "challenging": true,
+      "family": true
+    },
+    "p170": {
+      "challenging": true,
+      "family": true
+    },
+    "p171": {
+      "challenging": true,
+      "family": true
+    },
+    "p172": {
+      "challenging": true,
+      "family": true
+    },
+    "p173": {
+      "challenging": true,
+      "family": true
+    },
+    "p174": {
+      "family": true
+    },
+    "p176": {
+      "challenging": true,
+      "family": true
+    },
+    "p189": {
+      "family": true
+    }
+  }
 }

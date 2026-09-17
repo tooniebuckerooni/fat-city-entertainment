@@ -58,6 +58,15 @@
   // That a fact sells a product is an argument for SHOWING it, which
   // add-playlist-badge.js does on the product page, not for filtering by it.
   //
+  // "family" is off for the same reason, and it is the clearest case of it: the
+  // owner tagged 67 of 79 products family friendly by hand, which came out at 49
+  // of 53 on c11 and 15 of 19 on the storefront. That is an answer, not a gap --
+  // almost everything this store sells is family friendly, so the chip was never
+  // going to narrow anything. The inverse was considered and rejected, because
+  // four of the twelve untagged products are question banks and a handbook, where
+  // blank means the question does not apply rather than "no". All 67 values are
+  // kept in _content/product-facets.json.
+  //
   // They stay defined so bringing one back is a data change rather than a code
   // edit, which is the whole reason the facets file exists. Deleting them would
   // also have hidden the threshold bug below instead of fixing it.
@@ -65,6 +74,13 @@
     ["sale", "On sale", function (t) { return t.onSale; }],
     ["music", "Music bingo", function (t) { return t.f.type === "music-bingo"; }],
     ["trivia", "Trivia show", function (t) { return t.f.type === "trivia-show"; }],
+    // Both DERIVED (c33 membership, and the occasion names build-store-facets.js
+    // reads off the Holidays grid), so neither costs anybody a tagging pass and
+    // neither can drift away from the catalogue. They were computed from the
+    // start and simply never offered: without them c11 rendered three chips,
+    // because "Music bingo" correctly hides itself on the music bingo category.
+    ["era", "Decades & eras", function (t) { return t.f.era === true; }],
+    ["occasion", "Holiday & seasonal", function (t) { return !!t.f.occasion; }],
     ["printable", "Printable", function (t) { return t.f.printable === true; }],
     ["challenging", "More challenging", function (t) { return t.f.challenging === true; }],
     ["family", "Family friendly", function (t) { return t.f.family === true; }],

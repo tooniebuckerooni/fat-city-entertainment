@@ -173,13 +173,36 @@ internal documentation, which uses em-dashes throughout on purpose.
   for the reason `add-price-ladder.js:74` gives about guessing at a component list.
   72 of 79 are seeded; the 7 blanks are correct as blanks (four Q&A question banks,
   a Zoom booking, the handbook, and p189 which is a mixed-format bundle).
-  **A null facet never matches a filter**, and a chip only renders when at least
-  two tiles on that page carry a value for it, so a half-filled facet hides itself
-  rather than offering a filter that returns nothing.
+  **A null facet never matches a filter.** A chip renders only when between 2 and
+  80% of that page's tiles carry a value for it: below two it is not a filter, and
+  above 80% it narrows nothing. The ceiling is the half that was missing at first,
+  which is how "Playlist included" shipped matching 46 of 53 on c11.
+  **Four chips are switched off in `hidden`, and none of their data was deleted**
+  (owner's calls, 17 Sept 2026): `playlist` (46/53 on c11), `songlist` (43/53, and
+  the owner found the name odd), `printable`, and `family`. **`family` is the one
+  worth understanding.** The owner hand-tagged 67 of 79 products family friendly,
+  which measured 49/53 (92%) on c11 and 15/19 (79%) on the storefront: the tagging
+  answered the question, and the answer is that nearly everything here is family
+  friendly, so the chip was never going to narrow anything. **The inverse was
+  considered and rejected**: of the twelve untagged, p18 and the four Q&A question
+  banks are not games at all, so blank there means *the question does not apply*,
+  not "no", and flipping it would have labelled them from a blank. All 67 values
+  stay in `_content/product-facets.json`, so turning the chip back on is one
+  toggle. Switching a chip off is a data change, never a code edit — every chip
+  stays DEFINED in `store-filters.js`.
+  **`era` and `occasion` became chips 17 Sept 2026** ("Decades & eras", "Holiday &
+  seasonal"). Both were derived from the start and simply never offered; they cost
+  nobody a tagging pass and cannot drift from the catalogue. Measured that day:
+  storefront 4/19 and 2/19, c11 12/53 and 4/53. Without them c11 rendered three
+  chips, because "Music bingo" correctly hides itself at 53/53 on the music bingo
+  category. Date-stamped measurements, not constants.
   **"Best selling" has no data source in this repo** — GA4 is on an account the
   owner cannot see and LemonSqueezy checkout is off-domain, so `bestsellers` is an
   owner-supplied ranked pid array and the sort is **not rendered at all** while it
-  is empty. Never invent a ranking. Note the per-game sort makes the deliberate
+  is empty. Never invent a ranking. It is currently `["p147","p62"]`, the owner's
+  own knowledge of their store rather than anything GA4 or LemonSqueezy produced;
+  a partial list is correct, because `store-filters.js` sorts everything unranked
+  to `Infinity` and falls back to the curated per-page order. Note the per-game sort makes the deliberate
   Holidays inversion visible to shoppers; that is expected, and the figure already
   appears in cross-sell prose on 53 pages.
 - **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
