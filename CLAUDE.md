@@ -199,10 +199,16 @@ internal documentation, which uses em-dashes throughout on purpose.
   **"Best selling" has no data source in this repo** — GA4 is on an account the
   owner cannot see and LemonSqueezy checkout is off-domain, so `bestsellers` is an
   owner-supplied ranked pid array and the sort is **not rendered at all** while it
-  is empty. Never invent a ranking. It is currently `["p147","p62"]`, the owner's
+  is empty. Never invent a ranking. It currently holds **31 products**, the owner's
   own knowledge of their store rather than anything GA4 or LemonSqueezy produced;
   a partial list is correct, because `store-filters.js` sorts everything unranked
-  to `Infinity` and falls back to the curated per-page order. Note the per-game sort makes the deliberate
+  to `Infinity` and falls back to the curated per-page order. It covers 10 of the
+  storefront's 19 tiles and 30 of c11's 53. **Every entry is music bingo and no
+  trivia show is ranked at all; that is confirmed, not an oversight** (owner, 17
+  Sept 2026: *"music bingo outsells trivia currently"*). So "Best selling" on the
+  storefront deliberately pushes the trivia-show line, the Silver Club and the
+  handbook to the back of the grid. Don't file it as a gap, and don't pad the list
+  to balance the categories: that would be inventing a ranking. Note the per-game sort makes the deliberate
   Holidays inversion visible to shoppers; that is expected, and the figure already
   appears in cross-sell prose on 53 pages.
 - **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
