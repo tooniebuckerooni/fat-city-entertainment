@@ -182,7 +182,7 @@ ${buyNote}
 <div style="height: 12px; overflow: hidden;"></div>
 <div class="paragraph"><a class="fce-cta" href="${esc(p.url)}">${buyLabel}</a> <a class="fce-cta-secondary" href="/${ROOT}/">Browse all song lists</a></div>
 
-${capture()}
+${capture(p.slug)}
 <div style="height: 24px; overflow: hidden;"></div>
 <h2 class="wsite-content-title">More song lists</h2>
 <div class="paragraph"><ul>
@@ -191,39 +191,63 @@ ${related.map(r => `<li><a href="/${ROOT}/${r.slug}/">${esc(r.pack)}</a>, ${r.to
 }
 
 // ---- email capture ------------------------------------------------------
-// The site has no email capture anywhere — audited 28 Aug 2026, zero forms on
-// 458 pages. The Sender list of ~2,000 is therefore not growing, and
-// HOLIDAY-PLAN.md calls that list the single biggest lever between now and
-// Christmas. Fifty pages of people who arrived wanting music bingo song lists
-// is precisely the audience to be adding to it.
+// Posts to the Resend-backed gate endpoint, the SAME one
+// bingocardgenerator.html has used since 1 Aug 2026, so one audience collects
+// every address on the site. Owner's call 17 Sept 2026: Resend owns capture,
+// because the free Sender plan is nearly full. The four planned sends still go
+// from Sender and addresses move across by hand for now.
+//
+// THIS COMMENT USED TO SAY "the site has no email capture anywhere -- audited
+// 28 Aug 2026, zero forms on 458 pages", and that was FALSE. The generator's
+// gate was already live and already collecting. The audit grepped for "<form"
+// and bingocardgenerator.html has ZERO <form> elements: its gate is a <div>
+// with a bare <input>. So a second capture mechanism got planned here, on a
+// second platform, feeding a second list, off a false premise -- and it never
+// even shipped, because its form ID stayed an owner placeholder and the block
+// rendered on zero of 50 pages. Two lessons, both worth keeping: grep for what
+// a thing DOES, not for the tag you expect it to use; and a block gated behind
+// an owner placeholder is a block that may never exist, so prefer wiring to
+// something that already works.
 //
 // Placed AFTER the buy CTA on purpose: someone who scrolled past the button
 // without buying is exactly who is worth capturing, and putting a form above
 // the button would cost sales to gain addresses.
 //
-// Refuses to render until the form ID is real, the same idiom publish-post.js
-// and greenroom seed.js use for owner placeholders. A broken embed on 51 pages
-// is worse than no embed, so a placeholder simply omits the block and the run
-// prints a reminder.
-const SENDER_FORM_ID = "[OWNER: Sender > Forms > (form) > Embed — paste the form ID here]";
-const captureReady = () => /^[A-Za-z0-9_-]{4,}$/.test(SENDER_FORM_ID);
-
-function capture() {
-  if (!captureReady()) return "";
+// A REAL <form>, deliberately, for keyboard behaviour and so the next audit
+// for capture on this site finds it. `novalidate` is load-bearing: with
+// type="email" + required and no novalidate, the browser's own validation
+// blocks the submit event before the handler runs, so the styled
+// .fce-capture-error never appeared and the visitor got an unstyled native
+// bubble instead. Found in a browser, not by reading the markup. The
+// attributes stay for semantics and screen readers; only the blocking UI is
+// waived.
+//
+// THE PROMISE IS ONLY WHAT WE CAN KEEP. The first draft of this copy offered
+// "this list as a clean one-page PDF you can take to the host table". No such
+// PDF exists, and generating 50 of them is its own project. The generator gate
+// already demonstrated the cost of a live promise nothing fulfils, so this
+// offers the half that is true today.
+function capture(slug) {
   return `
 <div style="height: 28px; overflow: hidden;"></div>
 <div class="fce-capture">
-  <h2>Want the printable version?</h2>
-  <p>We'll email you this list as a clean one-page PDF you can take to the host
-  table, plus the new song lists as we publish them. No more than a couple of
-  emails a month, and one click to stop.</p>
-  <div class="sender-form-field" data-sender-form-id="${SENDER_FORM_ID}"></div>
+  <h2>Want the new song lists as we publish them?</h2>
+  <p>We'll email you when a new game's full song list goes up, so you can plan a
+  night around it before anyone else. No more than a couple of emails a month,
+  and one click to stop.</p>
+  <form class="fce-capture-form" data-fce-source="song-list-${esc(slug)}" novalidate>
+    <label class="fce-capture-label" for="fce-capture-${esc(slug)}">Email address</label>
+    <input class="fce-capture-input" id="fce-capture-${esc(slug)}" type="email"
+      name="email" placeholder="you@example.com" autocomplete="email" required>
+    <button class="fce-capture-button" type="submit" disabled>Send them to me</button>
+    <p class="fce-capture-error">Enter a valid email address.</p>
+    <p class="fce-capture-done">You're on the list. Talk soon.</p>
+    <p class="fce-capture-nojs">Email
+      <a href="mailto:info@fatcityentertainment.com">info@fatcityentertainment.com</a>
+      and we'll add you to the list.</p>
+  </form>
 </div>
-<script>(function (s, e, n, d, er) { s['Sender'] = er;
-  s[er] = s[er] || function () { (s[er].q = s[er].q || []).push(arguments) };
-  var f = e.createElement(n), z = e.getElementsByTagName(n)[0];
-  f.async = 1; f.src = d; z.parentNode.insertBefore(f, z);
-})(window, document, 'script', 'https://cdn.sender.net/accounts_resources/universal.js', 'sender');</script>`;
+<script defer src="/assets/js/fce-capture.js?v=1"></script>`;
 }
 
 // ---- hub ----------------------------------------------------------------
@@ -343,11 +367,8 @@ if (WRITE && smAction !== "unchanged") fs.writeFileSync(smFile, sitemap);
 console.log(`${WRITE ? "wrote" : "checked"} ${written} page(s) under /${ROOT}/  (${changed} would change)`);
 console.log(`  hub + ${packs.length} game pages, ${packs.reduce((n,p)=>n+p.total,0)} songs published`);
 console.log(`  sitemap block ${smAction} (${outputs.length} <url> entries)`);
-if (!captureReady()) {
-  console.log("  EMAIL CAPTURE OFF — SENDER_FORM_ID is still the owner placeholder.");
-  console.log("    The block is written and styled; paste the real form ID at the top of");
-  console.log("    this file and re-run to put it on all 51 pages. Until then it is omitted");
-  console.log("    rather than shipped broken.");
-}
+console.log(`  email capture on ${packs.length} game page(s) -> Resend, via the gate endpoint`);
+console.log("    source is song-list-<slug>, so the audience can be read per page --");
+console.log("    but /api/subscribe DISCARDS source until the Worker is re-pasted.");
 if (!WRITE) console.log("\n(dry run -- pass --write to apply)");
 else console.log("\nNow run: add-jsonld.js --write, canonicalize-trailing-slash.js --write, check-links.js");

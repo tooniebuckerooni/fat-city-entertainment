@@ -1471,7 +1471,74 @@ ol.fce-tl li {
   margin: 0 0 14px !important;
   max-width: 58ch;
 }
-.fce-capture .sender-form-field { margin: 0; }
+/* The form posts to the Resend gate endpoint via assets/js/fce-capture.js.
+   Button ships disabled and .fce-capture-nojs ships visible, both flipped by
+   that script, so a page whose script never loads still offers a route that
+   works instead of a form that eats an address. */
+.fce-capture-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+}
+.fce-capture-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.fce-capture-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 11px 13px;
+  font-family: inherit;
+  font-size: 16px; /* under 16px, iOS Safari zooms the page on focus */
+  color: #16161a;
+  background: #fff;
+  border: 1px solid #c8cec0;
+  border-radius: 4px;
+}
+.fce-capture-input:focus {
+  outline: 2px solid #7a8b5f;
+  outline-offset: 1px;
+  border-color: #7a8b5f;
+}
+.fce-capture-button {
+  flex: 0 0 auto;
+  padding: 11px 20px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  background: #4a5a33;
+  border: 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.fce-capture-button:hover { background: #3c4a29; }
+.fce-capture-button[disabled] { opacity: 0.55; cursor: default; }
+/* All three messages are hidden until the script has something to say. */
+.fce-capture-error,
+.fce-capture-done {
+  display: none;
+  flex: 1 1 100%;
+  font-size: 14px !important;
+  margin: 2px 0 0 !important;
+}
+.fce-capture-error { color: #9a2f2f; }
+.fce-capture-done { color: #3c5a2a; font-weight: 700; }
+.fce-capture-nojs {
+  flex: 1 1 100%;
+  font-size: 14px !important;
+  color: #4a4a52;
+  margin: 2px 0 0 !important;
+}
+@media (max-width: 480px) {
+  .fce-capture-input,
+  .fce-capture-button { flex: 1 1 100%; }
+}
 
 /* --------------------------------------------------------- wsite-soldout
    Weebly's own theme already adds .wsite-soldout to a sold-out tile's
