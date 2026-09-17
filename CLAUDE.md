@@ -24,7 +24,8 @@ here** — the repo is served publicly by GitHub Pages.
 
 ## Writing style — no em-dashes in customer-facing copy
 **Never use em-dashes (—, `&mdash;`) in anything a visitor reads** — product
-copy, cross-sell/value-stack sentences, page prose, button labels. They read as
+copy, cross-sell/value-stack sentences, page prose, button labels, **and `alt`
+text, which a screen reader speaks and Google indexes**. They read as
 AI-generated, which people notice and dislike. Use a comma, colon, semicolon,
 parentheses, or just a period instead. This was a real, repo-wide problem as of
 7 Sept 2026 — dozens of `_tools/` scripts template em-dashes straight into
@@ -34,6 +35,21 @@ the template in `_tools/`, then re-run with `--write`**, never by hand-editing
 the generated page (the next `--write` run silently reverts a hand edit). Code
 comments in `_tools/*.js` are fine — this is about what a customer reads, not
 internal documentation, which uses em-dashes throughout on purpose.
+**The 7 Sept sweep fixed four tool templates and nothing else.** A full sweep of
+visible text on 17 Sept 2026 found **1,277 em-dashes across 243 live files**.
+Cleared that day: `build-song-library.js`'s template (**13 strings, 51 pages, one
+file** — by far the best leverage on the site, and the reason to look for the
+generator before touching the pages), all five `_content/copy/*.html` partials,
+both customer-facing strings in `add-price-ladder.js`, and the storefront's intro,
+store note and banner `alt` text. **Still outstanding, each its own job:** ~117
+blog posts (`publish-post.js` on a live post is destructive, so they need a
+targeted idempotent tool, never a re-publish), ~40 hand-written top-level pages
+(`goldclubplaylists.html` alone has 56, `printmusicbingocards.html` 22), and a few
+**product titles** such as *"Music Bingo Starter Pack — Top 10 (Bronze)"*, which
+propagate to every tile and breadcrumb and whose rename reaches LemonSqueezy, so
+that is a pricing-adjacent decision rather than a copy fix. One deliberate
+exception: `add-price-ladder.js:199` renders a bare `—` as the "no per-game
+figure" cell for the Gold Club. That is a table null marker, not prose; it stays.
 
 ## Site-wide edits (nav, favicons, etc.)
 - The nav is **duplicated on 484 live pages** (a desktop + a mobile copy each;
@@ -46,7 +62,18 @@ internal documentation, which uses em-dashes throughout on purpose.
 - **Long-form copy on a Weebly page** goes in `_content/copy/<name>.html` as plain
   semantic HTML, and `node _tools/add-page-copy.js --write` injects it before the
   footer inside `<!-- fce:copy -->` markers (styled by `.fce-copy`). Edit the
-  partial and re-run to update. Never type prose into the page itself — those
+  partial and re-run to update.
+  **The storefront's partial is collapsed into `<details>` accordions** (17 Sept
+  2026, owner's call). It ran 741 words and about 3,445px, four phone screens of
+  prose after the last product; collapsed it is **1,141px**, which took the whole
+  storefront from 11.8 screens to 8.8. **Every word is still in the served HTML**
+  and verified there by `curl | grep`, because this block is the storefront's whole
+  organic-search surface: the height was the problem, not the content. Native
+  `<details>`, no JavaScript. The `<h2>` stays **inside** each `<summary>` so the
+  heading outline a crawler reads is unchanged, and the chevron is drawn in CSS
+  rather than typed into the partial so it can never reach the indexed text. Note
+  the FAQ section alone is 130 of the 741 words, so collapsing only the FAQ would
+  have saved about 500px of 3,445; the mechanism had to go where the words were. Never type prose into the page itself — those
   pages are nested multicol `<table>` scaffolding with inline `<font>` tags, and
   hand-editing them is how a live layout gets broken.
 - New content pages are cloned from a live page's shell (see
@@ -211,6 +238,40 @@ internal documentation, which uses em-dashes throughout on purpose.
   to balance the categories: that would be inventing a ranking. Note the per-game sort makes the deliberate
   Holidays inversion visible to shoppers; that is expected, and the figure already
   appears in cross-sell prose on 53 pages.
+- **What sits ABOVE a listing grid is `_tools/tidy-listing-intro.js`** (17 Sept
+  2026, idempotent, `--remove --write` restores byte for byte). Measured in
+  Chromium at 390x844: the storefront made a shopper scroll **2.7 phone screens
+  before the first product**, against 1.7 on c11 and c1 and 0.2 to 0.8 everywhere
+  else. The tool cut that to **1.9 screens**, and c11 to **1.1**, and **removed no
+  imagery at all** (owner's call: *"we're light on imagery already and should not
+  cut them. Focus on reducing and relocating copy"*). What it does:
+  the "Also from Fat City" banners **move below the grid with both pictures
+  intact**; the credit-code line that was on the storefront **twice** loses the
+  hand-placed copy and keeps `add-price-ladder.js`'s; the intro drops from 38
+  words to 22; and c11's 69-word *"Make Sure To Print 'Landscape'"* block moves
+  below the grid in sentence case, because printing instructions above 53 unchosen
+  games are post-purchase content on a browse page.
+  **Every change is an exact string swap with a recorded inverse**, and two traps
+  are worth knowing. A pure deletion cannot be reversed that way: leaving `to` as
+  `"\n"` made the reverse match **1,799 times**, so a dropped line leaves a marker
+  comment instead. And an edit whose anchor SURVIVES it is not idempotent on its
+  own: the banner paste anchors on the ladder marker, which is still there
+  afterwards, so it carries a `sentinel` saying "already applied". Both were found
+  by running the tool twice rather than assuming.
+- **The delivery and guarantee small print is `_tools/set-delivery-boilerplate.js`**
+  (17 Sept 2026). 92 product pages ended in **66 words wrapped entirely in
+  `<strong>`**, so nothing was emphasised and the last thing a shopper read was
+  spam folders and link expiry. **Nothing owned it** - a grep found it only in
+  `_tools/scraped/` and on the live pages, hand-carried through every clone since
+  the Weebly export. Now 41 words, guarantee first, one bold phrase, and every
+  commitment kept (instant download, emailed links, spam note, 90-day expiry, a
+  fresh link on request, satisfaction guaranteed, exchange for a larger pack).
+  **It finds the block by its opening tag and the next `</div>`, never by matching
+  the whole string.** The first draft matched the whole string, found **39 of 92**,
+  and reported success: the block had drifted into **four shapes** (the wording on
+  p108, and three different invisible trailing whitespace forms). `--remove`
+  restores the canonical shape on all 92, so the four converge to one; the rendered
+  text is identical and the run prints the count.
 - **Store cross-sells** (`_tools/add-cross-sell.js`, idempotent): block under
   the buy area between `<!-- fce:cross-sell -->` markers — bundle pages list
   their components, bundle members point at their bundle *with the per-game

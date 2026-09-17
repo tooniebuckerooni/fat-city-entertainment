@@ -2005,3 +2005,79 @@ ol.fce-tl li {
   .fce-filters-tools { gap: 10px; }
   .fce-filters-sort { flex: 1 1 100%; }
 }
+
+/* Accordion sections inside a .fce-copy block (17 Sept 2026, owner's call).
+   The storefront's copy partial ran 741 words and about 3,445px, four phone
+   screens of prose after the last product. Collapsing it keeps every word in the
+   served HTML, which is the point: this block is the storefront's whole organic
+   search surface, so the height is what had to change, not the content.
+
+   Native <details>, no JavaScript. The <h2> stays inside the <summary> so the
+   heading outline a crawler reads is unchanged; these rules keep that heading
+   sitting on the summary line instead of wrapping to its own block. */
+.fce-copy-inner details {
+  border-top: 1px solid #e0e0da;
+}
+.fce-copy-inner details:last-of-type {
+  border-bottom: 1px solid #e0e0da;
+}
+.fce-copy-inner summary {
+  cursor: pointer;
+  list-style: none;          /* Firefox */
+  display: flex;             /* also suppresses the default marker in WebKit */
+  align-items: baseline;
+  gap: 10px;
+  padding: 16px 0;
+}
+.fce-copy-inner summary::-webkit-details-marker {
+  display: none;
+}
+.fce-copy-inner summary h2 {
+  margin: 0;
+  flex: 1 1 auto;
+  font-size: 19px;
+}
+/* The chevron is drawn here rather than typed into the partial, so the copy file
+   stays plain semantic HTML and the marker can never end up in the indexed text. */
+.fce-copy-inner summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  margin-top: 4px;
+  border-right: 2px solid #8a8a80;
+  border-bottom: 2px solid #8a8a80;
+  transform: rotate(45deg);
+  transition: transform .15s ease;
+}
+.fce-copy-inner details[open] > summary::after {
+  transform: rotate(-135deg);
+}
+.fce-copy-inner summary:hover h2 {
+  color: #b0122b;
+}
+.fce-copy-inner summary:focus-visible {
+  outline: 2px solid #b0122b;
+  outline-offset: 2px;
+}
+.fce-copy-inner details > *:last-child {
+  margin-bottom: 20px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .fce-copy-inner summary::after { transition: none; }
+}
+
+/* The delivery and guarantee line under a product's buy area
+   (_tools/set-delivery-boilerplate.js, 17 Sept 2026). It used to be 66 words
+   wrapped entirely in <strong>, which emphasised nothing and left "check your
+   spam folder" as the last thing a shopper read. Now 41 words with the guarantee
+   leading and only that phrase bold, so this rule just makes the rest read as
+   the small print it is. */
+.fce-delivery-terms {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: #55555f;
+}
+.fce-delivery-terms strong {
+  color: #24242a;
+}

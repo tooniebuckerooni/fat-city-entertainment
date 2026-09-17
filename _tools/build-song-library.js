@@ -150,13 +150,13 @@ function leafBody(p, related) {
   const bundleName = String(p.product_title || "bundle")
     .split(/\s+[-–—]\s+Download\b/i)[0].trim() || "bundle";
   const buyLabel = p.via === "bundle"
-    ? `Get it in the ${esc(bundleName)}${priced ? ` — ${priced}` : ""}`
-    : `Get ${esc(p.pack)}${priced ? ` — ${priced}` : ""}`;
+    ? `Get it in the ${esc(bundleName)}${priced ? `, ${priced}` : ""}`
+    : `Get ${esc(p.pack)}${priced ? `, ${priced}` : ""}`;
   const buyNote = p.via === "bundle"
     ? `<div class="paragraph">${esc(p.pack)} is sold as part of a multi-game pack rather than on its own.</div>`
     : "";
 
-  return `<h1 class="wsite-content-title">${esc(p.pack)} Music Bingo — Full Song List</h1>
+  return `<h1 class="wsite-content-title">${esc(p.pack)} Music Bingo: Full Song List</h1>
 
 <div class="paragraph">Every one of the <strong>${p.total} songs</strong> in the ${esc(p.pack)} music bingo game, in play order. Free to read, copy, or use to plan your own night.</div>
 
@@ -174,9 +174,9 @@ ${rows}
 <h2 class="wsite-content-title">Want to actually run this game?</h2>
 <div class="paragraph">The song list is the easy part. The game pack is what saves you the evening:</div>
 <div class="paragraph"><ul>
-<li><strong>250 randomized bingo cards</strong> — every card different, so a full room can play at once without two people sharing a winning line. Prints landscape on ordinary letter paper.</li>
-<li><strong>The printable callsheet</strong> — all ${p.total} answers in play order, so you can confirm a bingo in seconds instead of scrolling this page at the host table.</li>
-<li><strong>The playlists, already sequenced</strong> — Spotify and Apple Music, ready to press play.</li>
+<li><strong>250 randomized bingo cards.</strong> Every card different, so a full room can play at once without two people sharing a winning line. Prints landscape on ordinary letter paper.</li>
+<li><strong>The printable callsheet.</strong> All ${p.total} answers in play order, so you can confirm a bingo in seconds instead of scrolling this page at the host table.</li>
+<li><strong>The playlists, already sequenced.</strong> Spotify and Apple Music, ready to press play.</li>
 </ul></div>
 ${buyNote}
 <div style="height: 12px; overflow: hidden;"></div>
@@ -186,7 +186,7 @@ ${capture()}
 <div style="height: 24px; overflow: hidden;"></div>
 <h2 class="wsite-content-title">More song lists</h2>
 <div class="paragraph"><ul>
-${related.map(r => `<li><a href="/${ROOT}/${r.slug}/">${esc(r.pack)}</a> — ${r.total} songs</li>`).join("\n")}
+${related.map(r => `<li><a href="/${ROOT}/${r.slug}/">${esc(r.pack)}</a>, ${r.total} songs</li>`).join("\n")}
 </ul></div>`;
 }
 
@@ -215,7 +215,7 @@ function capture() {
 <div class="fce-capture">
   <h2>Want the printable version?</h2>
   <p>We'll email you this list as a clean one-page PDF you can take to the host
-  table — plus the new song lists as we publish them. No more than a couple of
+  table, plus the new song lists as we publish them. No more than a couple of
   emails a month, and one click to stop.</p>
   <div class="sender-form-field" data-sender-form-id="${SENDER_FORM_ID}"></div>
 </div>
@@ -229,11 +229,11 @@ function capture() {
 // ---- hub ----------------------------------------------------------------
 function hubBody() {
   const items = packs.map(p =>
-    `<li><a href="/${ROOT}/${p.slug}/">${esc(p.pack)}</a> — ${p.total} songs</li>`).join("\n");
+    `<li><a href="/${ROOT}/${p.slug}/">${esc(p.pack)}</a>, ${p.total} songs</li>`).join("\n");
   const totalTracks = packs.reduce((n, p) => n + p.total, 0);
   return `<h1 class="wsite-content-title">Music Bingo Song Lists</h1>
 
-<div class="paragraph">The complete song list for every music bingo game we make — <strong>${packs.length} games, ${totalTracks} songs</strong>, free to read. Use them to plan a night, check a theme before you buy, or just settle an argument about which decade had the better hooks.</div>
+<div class="paragraph">The complete song list for every music bingo game we make: <strong>${packs.length} games, ${totalTracks} songs</strong>, free to read. Use them to plan a night, check a theme before you buy, or just settle an argument about which decade had the better hooks.</div>
 
 <div class="paragraph">Each list is the real playing order. If you want to run the game rather than build it yourself, every pack comes with 250 randomized cards, a printable callsheet and ready-made Spotify and Apple Music playlists.</div>
 
@@ -251,8 +251,8 @@ const outputs = [];
 
 outputs.push({
   dir: ROOT,
-  html: build(ROOT, "Free Music Bingo Song Lists — All 50 Games",
-    `The full song list for all ${packs.length} Fat City music bingo games — ${packs.reduce((n,p)=>n+p.total,0)} songs in total, free to read. Plan a night or check a theme before you buy.`,
+  html: build(ROOT, "Free Music Bingo Song Lists: All 50 Games",
+    `The full song list for all ${packs.length} Fat City music bingo games, ${packs.reduce((n,p)=>n+p.total,0)} songs in total, free to read. Plan a night or check a theme before you buy.`,
     hubBody()),
 });
 
@@ -262,7 +262,7 @@ packs.forEach((p, i) => {
   outputs.push({
     dir: `${ROOT}/${p.slug}`,
     html: build(`${ROOT}/${p.slug}`,
-      `${p.pack} Music Bingo Song List — All ${p.total} Songs`,
+      `${p.pack} Music Bingo Song List: All ${p.total} Songs`,
       `The complete ${p.total}-song list for ${p.pack} music bingo, in play order. Free to read, with Spotify and Apple Music playlists.`,
       leafBody(p, related)),
   });
