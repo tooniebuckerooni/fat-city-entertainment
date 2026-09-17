@@ -40,7 +40,6 @@ const REMOVE = args.includes("--remove");
 const VERSION = "2";
 
 const PAGES = [
-  "trivia-store.html",
   "store/c11/musicdoboff/index.html",
   // Next, once this has run for a week:
   // "store/c1/triviastore/index.html",   // the storefront's store-root twin
@@ -50,6 +49,21 @@ const PAGES = [
   // "store/c6/triviagameshows/index.html",
   // "store/c42/hardgames/index.html",    // in no other tool's page list
   // "store/c41/virtualevents/index.html",// in no other tool's page list
+];
+
+// RETIRED, 17 Sept 2026 (owner's call). A filter is only honest on a page that
+// holds a COMPLETE set for that axis. trivia-store.html is a curated 19 of 81
+// products, complete for nothing, so its chips counted the page and read as if
+// they counted the catalogue: "Music bingo (11)" on a store with 53 of them.
+// "Best selling" had the same defect, ranking 19 tiles under a catalogue-wide
+// label. c11 keeps its chips because it really does hold all 53.
+//
+// Listed here rather than deleted so the tool still OWNS the page: every run
+// strips the block from these, so the storefront cannot drift back to a false
+// count, and the reason travels with the code. Move a page back up to PAGES to
+// restore it.
+const RETIRED = [
+  "trivia-store.html",
 ];
 
 const START = "<!-- fce:store-filters -->";
@@ -75,7 +89,8 @@ const GRID = '<div id="wsite-com-category-product-group"';
 
 let changed = 0, missing = 0;
 
-for (const rel of PAGES) {
+for (const rel of PAGES.concat(RETIRED)) {
+  const retired = RETIRED.indexOf(rel) !== -1;
   const file = path.join(REPO, rel);
   if (!fs.existsSync(file)) {
     console.log(`  PROBLEM: missing ${rel}`);
@@ -88,7 +103,7 @@ for (const rel of PAGES) {
   html = html.replace(BLOCK_RE, () => "");
   html = html.replace(TAGS_RE, () => "");
 
-  if (!REMOVE) {
+  if (!REMOVE && !retired) {
     const at = html.indexOf(GRID);
     if (at === -1) {
       console.log(`  PROBLEM: no product grid in ${rel} — refusing to guess`);
@@ -115,6 +130,7 @@ for (const rel of PAGES) {
 }
 
 console.log(`\nlisting pages     : ${PAGES.length}`);
+if (RETIRED.length) console.log(`retired (stripped): ${RETIRED.length}`);
 if (missing) console.log(`PROBLEM pages     : ${missing}`);
 console.log(`${WRITE ? "updated" : "would update"}: ${changed} page(s)`);
 if (!WRITE && changed) console.log("re-run with --write");
