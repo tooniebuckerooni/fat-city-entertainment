@@ -230,6 +230,34 @@ ul.fce-upsell-badges li::before {
   margin-bottom: 115% !important;
 }
 
+/* Tile label sized to the tile. Overrides the "cinematic treatment" block in
+   files/main_style.css:148-161, which sets 19px/22px padding; this file is
+   linked on every page and loads AFTER main_style.css, so an equal-specificity
+   rule wins without editing the theme. Change both together or they drift.
+
+   Measured in Chromium 18 Sept 2026, owner reported from a live desktop:
+   at the 5-across breakpoint a tile is 164px wide, so 22px padding each side
+   leaves 120px of text, about seven characters a line at 19px Georgia bold.
+   "Music Bingo Card Downloads (53)" therefore ran to FOUR lines whose top
+   edge sat 22% down the tile, and the artwork scrim is
+   rgba(10,8,6,0) at 22% -> .68 at 65%, so it is fully transparent above 22%:
+   the first two lines were reading against bare, busy artwork with only a
+   text-shadow. Identical at 1280, 1440 and 1600 (the tile is a fixed 20% of
+   the column), so this was never a narrow-window case.
+
+   16px is a cliff, not a preference. At 17px the longest label still takes 3
+   lines; at 16px every long label drops to 2 and the block starts 56% down,
+   inside the dark half of the gradient. The scrim is deliberately NOT touched:
+   at 56% the text is already over the dark part, so changing the gradient
+   would be risk without benefit.
+
+   Adding the (53) counts on 17 Sept is what pushed that label to four lines,
+   which is worth knowing before anything else is appended to these labels. */
+#wsite-com-store .wsite-com-category-subcategory-name-text {
+  font-size: 16px;
+  padding: 14px 15px 16px;
+}
+
 /* Small corner badge for a category tile, e.g. the Bundles tile below —
    the tile used to lean on its (off-brand) image, a green "SAVE" button, to
    signal "this is the affordable path." That image is gone; this callout

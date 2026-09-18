@@ -51,14 +51,32 @@ const PACK_PAGE = "store/p189/halloweencompletepack.html";
 // than one. The hub itself is excluded for the obvious reason.
 const PAGES = [
   "index.html",
-  "trivia-store.html",
-  "store/c1/triviastore/index.html",
   "store/c11/musicdoboff/index.html",
   "store/c40/holidays/index.html",
   "store/c6/triviagameshows/index.html",
   "store/c34/Music_Bingo_&_Trivia_Bundles.html",
   "musicdoboffbingocards.html",
   "partyentertainment.html",
+];
+
+// RETIRED, 18 Sept 2026 (owner's call): the banner came off the storefront as
+// part of minimising what sits above the grid. It stays on the homepage and the
+// other six entry pages, so the season is still announced where a visitor first
+// lands; this only stops the storefront carrying a second pitch above products
+// a shopper has already chosen to browse.
+//
+// BOTH storefront copies, not just the one the owner named. store/c1/ is the
+// byte-identical twin of trivia-store.html, and leaving the banner on one of two
+// copies of the same page is how the next audit finds a discrepancy nobody
+// intended.
+//
+// Listed here rather than deleted so the tool still OWNS these pages: every run
+// takes the REMOVE branch for them, so the banner cannot creep back on the next
+// --write, and the reason travels with the code. Move a page back up to PAGES to
+// restore it. The 1 Nov `--remove --write` takedown still clears everything.
+const RETIRED = [
+  "trivia-store.html",
+  "store/c1/triviastore/index.html",
 ];
 
 const money = (n) => "$" + Number(n).toFixed(2);
@@ -103,13 +121,14 @@ let changed = 0, missing = 0, noAnchor = 0, unchanged = 0;
 const price = packPrice();
 if (!REMOVE) console.log(`p189 price read from its own page: ${money(price)}\n`);
 
-for (const rel of PAGES) {
+for (const rel of PAGES.concat(RETIRED)) {
+  const retired = RETIRED.indexOf(rel) !== -1;
   const abs = path.join(REPO, rel);
   if (!fs.existsSync(abs)) { console.log(`  missing: ${rel}`); missing++; continue; }
   const html = fs.readFileSync(abs, "utf8");
   let next;
 
-  if (REMOVE) {
+  if (REMOVE || retired) {
     if (!html.includes(START)) { unchanged++; continue; }
     next = html.replace(BLOCK_RE, () => "");
   } else if (BLOCK_RE.test(html)) {
@@ -130,6 +149,7 @@ for (const rel of PAGES) {
 }
 
 console.log(`\nunchanged: ${unchanged}`);
+if (RETIRED.length) console.log(`retired (stripped): ${RETIRED.length}`);
 if (missing) console.log(`missing:   ${missing}`);
 if (noAnchor) console.log(`no anchor: ${noAnchor}`);
 console.log(`${WRITE ? "updated" : "would update"}: ${changed} page(s)`);
