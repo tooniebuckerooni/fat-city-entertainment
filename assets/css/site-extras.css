@@ -214,9 +214,24 @@ ul.fce-upsell-badges li::before {
    The width fix only applies where a grid has exactly 5 tiles (:has() below)
    — other pages reuse this same class with as few as 2 subcategories (e.g.
    store/c11/musicdoboff/), where 20%-wide columns would leave the opposite
-   problem, a big empty gap. Desktop only — below 641px Weebly's own theme
-   rules already lay these out 2-per-row and that reads fine at that width. */
-@media (min-width: 641px) {
+   problem, a big empty gap. Desktop only — below the breakpoint Weebly's own
+   theme rules already lay these out 2- or 3-per-row and that reads fine.
+
+   BREAKPOINT RAISED 641px -> 1200px, 18 Sept 2026. It was 641px, which was
+   wrong for a reason nothing here accounted for: at 768px the theme reveals a
+   200px #wsite-com-hierarchy sidebar, and the tile group loses that width
+   without the 20% rule knowing. Measured across the band, the tile collapsed
+   to 86px at 768 and 102px at 850, and the label overflowed the tile
+   completely at both. It was never visible on a wide desktop, which is why it
+   sat unnoticed.
+
+   1200px is where a 20% column finally reaches its full 164px and the longest
+   label fits on two lines; at 1100 it is still only 144px and runs to three.
+   Below 1200 the tiles fall back to the inline 33.33%, which is 3-across over
+   2 rows and reads better at every width in that band (156px at 768, 253px at
+   1100) than a squeezed 5-across did. Verified 641 to 1920: no overflow at any
+   width. Pick this number by measuring the column, not the viewport. */
+@media (min-width: 1200px) {
   .wsite-com-category-subcategory-group:has(> .wsite-com-column:nth-child(5)):not(:has(> .wsite-com-column:nth-child(6)))
     .wsite-com-column {
     width: 20% !important;

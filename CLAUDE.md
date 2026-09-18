@@ -317,6 +317,38 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   `...-featured-image-height` div instead of a tile, the count stayed 13, and the
   matcher correctly stayed quiet. **Verify a simulated drift actually changed the
   thing you meant to change before concluding a check is blind.**
+- **A subcategory tile's LABEL and its BREAKPOINT, both fixed 18 Sept 2026 after
+  the owner spotted the labels "only just fitting" on a live desktop.** Two
+  separate faults in the same component, both found by measuring in Chromium
+  rather than by reading the CSS.
+  - **The label was sized for a tile that does not exist.** At five-across a tile
+    is **164px**, so the theme's 22px padding left 120px of text at 19px Georgia
+    bold, about seven characters a line. *Music Bingo Card Downloads (53)* ran to
+    **four lines starting 22% down**, and the artwork scrim is
+    `rgba(10,8,6,0)` at 22% rising to `.68` at 65%, so it is **fully transparent
+    above 22%**: the top two lines read against bare artwork with only a
+    text-shadow. **16px is a cliff, not a preference** (17px still gives three
+    lines; 16px gives two, starting 56% down, inside the dark half). The scrim was
+    deliberately left alone. Adding the `(53)` counts the day before is what
+    pushed that label to four lines, so **check the longest label before appending
+    anything to these again**.
+  - **The five-across rule fired 559px too early.** It was `min-width: 641px`, but
+    at **768px the theme reveals a 200px `#wsite-com-hierarchy` sidebar** and the
+    tile group silently loses that width. Measured: the tile collapsed to **86px
+    at 768 and 102px at 850**, and the label overflowed the tile completely at
+    both. Raised to **`min-width: 1200px`**, which is where a 20% column finally
+    reaches its full 164px (at 1100 it is still 144px and runs to three lines).
+    Below that the tiles fall back to the inline 33.33%, three across over two
+    rows, which is wider at every width in the band. Verified 641 to 1920 on all
+    three subcategory pages: no overflow anywhere, and c11's two-tile grid is
+    untouched because the `:has(:nth-child(5))` guard still excludes it.
+  - **The rule lives in `site-extras.css`, which loads AFTER `files/main_style.css`**,
+    so it overrides that file's "cinematic treatment" block (`main_style.css:148-161`)
+    without editing the theme. Change both together or they drift.
+  - The general lesson: **pick a grid breakpoint by measuring the COLUMN, not the
+    viewport.** A viewport number says nothing when a sidebar appears partway
+    through the range, and the damage was invisible on a wide desktop, which is
+    why it sat unnoticed.
 - **OPEN QUESTION, owner's, 17 Sept 2026: are c11's two subcategory tiles now
   redundant with the chips?** They are **Eras** and **Holidays**, 204px, sitting at
   448px on `store/c11/musicdoboff/`, and the chips right below them read *Decades &
