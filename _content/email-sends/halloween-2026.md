@@ -1,8 +1,20 @@
-# Send 1 of 4: Halloween (direction A)
+# Halloween send (direction A)
 
-**Status:** ready to send. Nothing in it needs a repo change first.
-**Written:** 17 Sept 2026. **Send window:** the plan's slot is 15 to 30 Sept,
-Sunday to Tuesday, so this is due now.
+**Status: written, UNSENT, and still the next one out.** Nothing in it needs a
+repo change first.
+
+**It is no longer "send 1".** A first e-blast went out in the week of roughly 8
+to 14 Sept (owner, 18 Sept 2026). It was a different message, not this one, and
+not built to the direction-A design. See `EMAIL-CAMPAIGNS.md` for what still
+needs recording about it, and for why direction A is now a mid-sequence data
+point rather than the baseline it was meant to be.
+
+**Written:** 17 Sept 2026. **Send window:** the plan's slot was 15 to 30 Sept.
+**Timing is now the live question.** Halloween search demand peaks early-to-mid
+October, so this still lands inside the window, but the margin is no longer
+generous and it shrinks every day it waits. The owner is travelling until roughly
+1 Oct; **pasting this into Sender does not require being back at a desk**, and
+reading the results later is a separate job from getting it out.
 **List:** ~2,000 on Sender. Segment past buyers out if Sender's data allows and
 send to them separately with the bundle-credit line (noted at the foot).
 **Direction:** A, "current, tightened". This is the baseline the other three

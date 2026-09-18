@@ -321,20 +321,43 @@ The warmest sub-audience is past buyers: someone who paid $10.99 for one game
 and enjoyed it is the natural buyer of a $43 bundle. Segment them out if Sender's
 data allows; send to them separately with the bundle-credit offer.
 
-**Send 1 is written and ready: `_content/email-sends/halloween-2026.md`**
-(17 Sept 2026). Subject lines, preheader, all six blocks, the past-buyer variant
-and the after-send measurement list. Every price in it was read off the product
-page that day, every component list came from `add-cross-sell.js`'s own maps, and
-it carries the one trap worth not re-deriving: **never itemize p189's $45.97 in
+**THE FIRST E-BLAST HAS GONE OUT.** Owner, 18 Sept 2026: it sent in the week of
+roughly 8 to 14 Sept, it was **not** the Halloween send, and it was **not** built
+to the `/go/halloween/` direction-A design. **This engine was never at zero and
+this document said it was.** The owner also notes sales were better that week and
+wonders whether the send is why; treat that as a hypothesis worth checking in GA4,
+not as an attribution. Nobody has looked yet, because they are travelling until
+roughly 1 Oct.
+
+**Details are owner-to-fill and deliberately not guessed here** (send date,
+subject line, audience size, how the design differed, opens and clicks). The
+placeholder block is in `EMAIL-CAMPAIGNS.md`'s results table. **Do not invent
+them**, and do not assume the `/go/halloween/` page's design describes what
+subscribers actually saw.
+
+**The Halloween send is therefore still UNSENT**, and
+`_content/email-sends/halloween-2026.md` is still the next one out, not a record
+of something that happened. Every price in it was read off the product page on 17
+Sept, every component list came from `add-cross-sell.js`'s own maps, and it
+carries the one trap worth not re-deriving: **never itemize p189's $45.97 in
 customer copy**, because that total uses the deliberate $16.99 autoload quote for
 p97 against the $11.99 its page charges, so printing both hands the reader a $5
-hole. State the $10.00 saving instead. Nothing in the repo blocks the send; it
-needs pasting into Sender.
+hole. State the $10.00 saving instead. Nothing in the repo blocks it; it needs
+pasting into Sender, which does not require being back at a desk.
 
-Sequence:
-- **Late Sept** — "plan your Halloween night" → Halloween pack + 6-Pack
-- **Mid Oct** — "Christmas party season starts now" → Holidays 6-Pack, booking
-- **Early Nov** — the year's best bundle offer → Starter Pack / Silver / Gold
+Sequence, **recalibrated 18 Sept**. The design now has to follow what actually
+went out rather than the direction-A control that was never used, so the "one
+direction per send, judged directionally" plan in `EMAIL-CAMPAIGNS.md` has lost
+its baseline: read that section's caveats before treating any of these as
+comparable.
+
+- ~~**Opener**~~ — **SENT**, week of ~8-14 Sept, contents owner-to-fill
+- **Late Sept / early Oct** — "plan your Halloween night" → Halloween pack + 6-Pack.
+  **Timing is the live question.** Halloween search demand peaks early-to-mid
+  October, so this still lands inside the window, but the margin is no longer
+  generous and it shrinks every day it waits.
+- **Mid-to-late Oct** — "Christmas party season starts now" → Holidays 6-Pack, booking
+- **Early-to-mid Nov** — the year's best bundle offer → Starter Pack / Silver / Gold
 - **Early Dec** — last-minute downloads → singles, instant delivery angle
 
 **Capture: SHIPPED 17 Sept 2026, and this paragraph was wrong about it.** It used
@@ -369,7 +392,7 @@ Real, sized, but none of them are the growth story.
 | Desktop CTR | pos 17.3 vs mobile 8.9 | 2.3x the impressions, fewer clicks. Investigate before spending elsewhere. |
 | ~100 over-length titles | truncated in results | Now that Search Console CTR data exists, shorten the ones with high impressions and low CTR **only** — do not mass-edit blind. |
 | Trivia Show Maker page | price/checkout mismatch | Owner confirmed fixed 26 Aug. Re-verify after any repricing. |
-| GA4 access | blocked | The live property is "Fat City 2" under a Wordjab account the connected login cannot see. Grant `dustin@fatcityentertainment.com` Viewer access, or connect that Google account in Zapier. Without it there is no conversion data at all. |
+| ~~GA4 access~~ | **not blocked, never was** | Corrected by the owner 18 Sept 2026. "Fat City 2" is filed under a Wordjab account **they own**, so it is accessible today; a transfer down to the Fat City account is a someday tidy-up, not a prerequisite. This row read "blocked" for weeks and was wrong. What GA4 still cannot show is **revenue**, because LemonSqueezy checkout is off-domain, so `begin_checkout` is as far as it reaches. That is a domain boundary, not an access problem, and it is fixed by LemonSqueezy's own GA integration. |
 
 ---
 

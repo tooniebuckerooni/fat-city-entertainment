@@ -252,10 +252,18 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   storefront 4/19 and 2/19, c11 12/53 and 4/53. Without them c11 rendered three
   chips, because "Music bingo" correctly hides itself at 53/53 on the music bingo
   category. Date-stamped measurements, not constants.
-  **"Best selling" has no data source in this repo** — GA4 is on an account the
-  owner cannot see and LemonSqueezy checkout is off-domain, so `bestsellers` is an
-  owner-supplied ranked pid array and the sort is **not rendered at all** while it
-  is empty. Never invent a ranking. It currently holds **31 products**, the owner's
+  **"Best selling" has no SALES data source** — LemonSqueezy checkout is
+  off-domain, so no tag on this domain can see a purchase, and `bestsellers` is an
+  owner-supplied ranked pid array. The sort is **not rendered at all** while it is
+  empty. Never invent a ranking.
+  **This used to say GA4 was on an account the owner could not see. That was
+  wrong** (owner, 18 Sept 2026): the property is filed under Wordjab but they own
+  it, and it is accessible. So a **`begin_checkout` ranking per product is now
+  available to sanity-check this list against**, which it never was before. Treat
+  that as a check, never as the source: a checkout started is not a sale, and
+  substituting one for the other would be exactly the invented ranking this rule
+  forbids. The owner's list stays the source until LemonSqueezy's own GA
+  integration is wired up. It currently holds **31 products**, the owner's
   own knowledge of their store rather than anything GA4 or LemonSqueezy produced;
   a partial list is correct, because `store-filters.js` sorts everything unranked
   to `Infinity` and falls back to the curated per-page order. It covers 10 of the
@@ -678,8 +686,12 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   because it is client input that reaches D1) and written to a **`subscribers`
   table in D1** (`migrations/0003_subscribers.sql`). Resend's contacts API takes
   only email/first_name/last_name/unsubscribed, so there is no honest field for a
-  source there, and D1 is the one store the owner can actually read given GA4 sits
-  on an account their login cannot see. `ON CONFLICT(email) DO NOTHING` keeps the
+  source there, and D1 is a store the owner controls outright.
+  (**The original note here justified D1 by saying GA4 was inaccessible. That was
+  wrong**, corrected 18 Sept 2026: GA4 is accessible. D1 is still the right home,
+  because a subscriber row is first-party data that should not depend on an
+  analytics tag a visitor can block, but the reason is durability, not access.)
+  `ON CONFLICT(email) DO NOTHING` keeps the
   FIRST source: where someone found us is the useful fact.
   Library sources are `song-list-<slug>`, so per-page conversion is queryable.
 - **The welcome email is `source`-aware**, because a song-list subscriber who never
@@ -811,10 +823,19 @@ anywhere else.
   pageviews nobody made — inflating sessions, deflating conversion rate, and
   inventing entry pages. `add-tracking.js` skips redirect stubs on purpose.
   The one real gap the report found was `/triv101/`, fixed 28 Aug.
-- The GA4 property is "Fat City 2" under a **Wordjab** Google account the
-  owner's login can't see. Either get Viewer on it, or create a property the
-  owner controls and add a second `gtag('config', …)`. Nothing in the repo
-  depends on which.
+- **The GA4 property is "Fat City 2", filed under a Wordjab Google account, and
+  the owner OWNS that account. It is accessible today.** Corrected 18 Sept 2026
+  by the owner. This file said for weeks that it sat on an account "the owner's
+  login can't see" and that access was blocked; that was never true, it was filed
+  in the wrong place. A transfer down to the Fat City account is a someday
+  tidy-up, not a prerequisite, and **nothing is waiting on it**. If you are about
+  to write "there is no analytics access here", stop: ask for the number instead.
+- **What GA4 still cannot tell you is revenue, and that is a different problem
+  with a different cause.** LemonSqueezy checkout is off-domain, so no tag on this
+  domain can see a purchase however good the access is. `begin_checkout` is the
+  furthest this property reaches. Real revenue needs LemonSqueezy's own Google
+  Analytics integration pointed at the same `G-` ID, which is a dashboard step.
+  Don't conflate the two: access was never the blocker, the domain boundary is.
 
 ## URL shape — the one rule that must not drift
 **Directory pages always end in a trailing slash: `/triviahostresources/<slug>/`,

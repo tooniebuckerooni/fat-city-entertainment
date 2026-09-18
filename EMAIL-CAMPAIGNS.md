@@ -158,11 +158,30 @@ Record per send, in this doc, as they happen:
 
 | send | direction | delivered | opens | clicks | sessions | begin_checkout | orders |
 |---|---|---|---|---|---|---|---|
-| Show Maker launch, Sept | A (app page) | | | | | | |
-| Halloween, early Oct | A | | | | | | |
-| Christmas, mid Oct | B | | | | | | |
-| Bundles, early Nov | C | | | | | | |
+| **FIRST SEND, ~8-14 Sept — OWNER TO FILL** | **not direction A** | | | | | | |
+| Halloween, late Sept / early Oct | was to be A | | | | | | |
+| Christmas, mid-to-late Oct | B | | | | | | |
+| Bundles, early-to-mid Nov | C | | | | | | |
 | Last-minute, early Dec | winner | | | | | | |
+
+**The first send has gone out and nobody has recorded it** (owner, 18 Sept 2026).
+It went in the week of roughly 8 to 14 Sept, it was **not** the Halloween send,
+and it was **not** built to the direction-A design. It may be the Show Maker
+launch this table anticipated, but **that is not confirmed and must not be
+assumed**. Fill in, from Sender and GA4: **which send it was, the date, the
+subject line, how the design differed, delivered, opens and clicks.** Do not
+guess any of it, and do not describe the design from `/go/halloween/`, because
+subscribers did not see that page.
+
+**This costs the comparison its control, and that is worth being honest about.**
+The whole point of running A first was to have a baseline before anything was
+judged. The first send went out in an unrecorded direction, so directions B and C
+now have nothing clean to be measured against. Two consequences: the Halloween
+send in direction A is now a **mid-sequence** data point rather than a baseline,
+and any later claim that "B beat A" has to say plainly that the arms were never
+comparable. Given the traffic maths below said this was never a real A/B test,
+that is a small loss, but it is a loss and should not be quietly written up as if
+the plan ran as designed.
 
 **Orders is the column that can't be filled from the site.** LemonSqueezy
 checkout is off-domain; the number has to come from the LS dashboard, matched by
