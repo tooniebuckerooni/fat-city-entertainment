@@ -1,17 +1,253 @@
 {
-  "_note": "The one list of city pages, read by _tools/add-city-rounds.js. A city belongs here only when the site has a real page for it AND a real reason to have one. As of 23 Sept 2026 that is two: Calgary (where the hosting started in 1999, see aboutus.html) and Charlotte (nine blog posts from the 2017-2019 run). Adding a city with no history or local content would be a doorway page, so a new entry needs its page first. status is 'draft' until the owner has fact-checked the round; a draft round is not published to /trivia-show-maker/rounds/ and puts nothing on the page.",
+  "_note": "The one list of city pages, read by _tools/add-city-rounds.js. 31 cities across the six English-speaking markets where hosted trivia and pub quizzes are a weekly habit (owner's brief, 23 Sept 2026: the top markets, 25-35 cities, not so many that Google reads it as scaled doorway pages). Calgary and Charlotte have real history and real pages; the other 29 are 'planned': no page yet, skipped by every tool. What keeps 30 pages on the right side of Google is not the count but that each one carries content no other page has: a 10-question local round, fact-checked, and nothing claiming a local presence the business does not have. 'term' is what the market calls the night, and the page must use it (a Manchester page that says 'trivia night' reads as American). status: planned (no page) -> draft (page and round exist, round unchecked, nothing placed) -> live.",
   "cities": [
     {
       "slug": "calgary",
       "name": "Calgary",
+      "country": "CA",
+      "term": "trivia night",
       "page": "yycevents.html",
       "status": "draft"
     },
     {
       "slug": "charlotte",
       "name": "Charlotte",
+      "country": "US",
+      "term": "trivia night",
       "page": "charlotte-events.html",
       "status": "draft"
+    },
+    {
+      "slug": "new-york",
+      "name": "New York",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "chicago",
+      "name": "Chicago",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "los-angeles",
+      "name": "Los Angeles",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "boston",
+      "name": "Boston",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "philadelphia",
+      "name": "Philadelphia",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "washington-dc",
+      "name": "Washington, DC",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "atlanta",
+      "name": "Atlanta",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "nashville",
+      "name": "Nashville",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "austin",
+      "name": "Austin",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "denver",
+      "name": "Denver",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "minneapolis",
+      "name": "Minneapolis",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "seattle",
+      "name": "Seattle",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "portland",
+      "name": "Portland",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "san-diego",
+      "name": "San Diego",
+      "country": "US",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "toronto",
+      "name": "Toronto",
+      "country": "CA",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "vancouver",
+      "name": "Vancouver",
+      "country": "CA",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "edmonton",
+      "name": "Edmonton",
+      "country": "CA",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "ottawa",
+      "name": "Ottawa",
+      "country": "CA",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "london",
+      "name": "London",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "manchester",
+      "name": "Manchester",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "birmingham",
+      "name": "Birmingham",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "bristol",
+      "name": "Bristol",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "edinburgh",
+      "name": "Edinburgh",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "glasgow",
+      "name": "Glasgow",
+      "country": "GB",
+      "term": "pub quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "dublin",
+      "name": "Dublin",
+      "country": "IE",
+      "term": "table quiz",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "sydney",
+      "name": "Sydney",
+      "country": "AU",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "melbourne",
+      "name": "Melbourne",
+      "country": "AU",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "brisbane",
+      "name": "Brisbane",
+      "country": "AU",
+      "term": "trivia night",
+      "page": null,
+      "status": "planned"
+    },
+    {
+      "slug": "auckland",
+      "name": "Auckland",
+      "country": "NZ",
+      "term": "quiz night",
+      "page": null,
+      "status": "planned"
     }
   ]
 }

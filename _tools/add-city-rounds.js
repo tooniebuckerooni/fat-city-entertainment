@@ -46,14 +46,19 @@ const TRIVIA_SHOWS = "/store/c6/triviagameshows/";
 const esc = s => String(s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
+// What the round is called in that market: "trivia" for a trivia night, "quiz"
+// for a pub, table or quiz night. A London page reading "trivia round" is the
+// tell that it was written from somewhere else.
+const noun = city => /quiz/.test(city.term || "") ? "quiz" : "trivia";
+
 function block(city, round) {
   const qs = round.questions.map(q => `<li>${esc(q.q)}</li>`).join("\n");
   const as = round.questions.map(q => `<li>${esc(q.a)}</li>`).join("\n");
   return `${OPEN}
 <section class="fce-copy fce-city-round">
 <div class="fce-copy-inner">
-<h2>A free ${esc(city.name)} trivia round</h2>
-<p>Ten questions about ${esc(city.name)}, free to use at your next trivia night. Read them out as they are, or load the round into Trivia Show Maker to add it to a full show and print the answer sheets.</p>
+<h2>A free ${esc(city.name)} ${esc(noun(city))} round</h2>
+<p>Ten questions about ${esc(city.name)}, free to use at your next ${esc(city.term || "trivia night")}. Read them out as they are, or load the round into Trivia Show Maker to add it to a full show and print the answer sheets.</p>
 <ol>
 ${qs}
 </ol>
@@ -91,8 +96,11 @@ const { cities } = JSON.parse(fs.readFileSync(LIST, "utf8"));
 const changes = [];
 const problems = [];
 const drafts = [];
+let planned = 0;
 
 for (const city of cities) {
+  // planned: on the list, but no page or round yet. Nothing to place or check.
+  if (city.status === "planned") { planned++; continue; }
   if (!/^[a-z0-9-]{1,40}$/.test(city.slug)) { problems.push(`${city.slug}: slug must match the autoload's [a-z0-9-]`); continue; }
   const page = path.join(REPO, city.page);
   const src = path.join(SRC, `${city.slug}.json`);
@@ -138,6 +146,7 @@ for (const [file, body, what] of changes) {
 
 console.log(`\n${WRITE ? "updated" : "would update"}: ${changes.length} file(s)`);
 if (drafts.length && !REMOVE) console.log(`  draft, not on any page until checked and set to "live": ${drafts.join(", ")}`);
+if (planned) console.log(`  planned, no page yet: ${planned}`);
 for (const p of problems) console.log(`  PROBLEM: ${p}`);
 if (!WRITE && changes.length) console.log("\n(dry run -- pass --write to apply)");
 process.exitCode = problems.length ? 1 : 0;

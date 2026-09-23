@@ -713,11 +713,16 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
 
 ## City pages and their free local trivia rounds (23 Sept 2026)
 
-- **The city list is `_content/city-pages.json`, and it holds two cities:**
-  Calgary (`yycevents.html`, where the hosting started in 1999) and Charlotte
-  (`charlotte-events.html`, the 2017-2019 run and its nine blog posts). Those are
-  the only cities the site has real history in. A new city needs a real page and
-  a real reason first; a city page with nothing local on it is a doorway page.
+- **The city list is `_content/city-pages.json`: 31 cities** in the six
+  English-speaking markets with a weekly trivia or pub-quiz habit (15 US, 5 CA,
+  6 GB, 1 IE, 3 AU, 1 NZ; owner's brief 23 Sept 2026, "25-35, not so many that
+  Google might ding us"). Only Calgary (`yycevents.html`) and Charlotte
+  (`charlotte-events.html`) have pages and real history; the other 29 are
+  `"planned"` and every tool skips them. **What keeps 31 city pages from reading
+  as scaled doorway pages is not the count, it is that each carries content no
+  other page has** (its own checked local round) and claims no local presence
+  the business does not have. Each entry has a `term` ("pub quiz", "table
+  quiz", "quiz night") and the page must use it.
 - **Each city gets a 10-question local round** in `_content/city-rounds/<slug>.json`
   (Trivia Show Maker's own round shape). `node _tools/add-city-rounds.js --write`
   puts the questions, a collapsed answers list and a "Load this round into Trivia
