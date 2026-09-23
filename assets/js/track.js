@@ -110,6 +110,9 @@
     // the bar is worth its screen space.
     [".fce-buybar", "sticky-buy-bar"],
     ["#wsite-com-product-buy", "product-buy-area"],
+    // A city page's free local round. It carries .fce-copy for its styling, so
+    // it has to be checked before that entry or every click reads "page-copy".
+    [".fce-city-round", "city-round"],
     [".fce-copy", "page-copy"],
     // A listing-page tile. Without this a tile click and an ordinary body link
     // both reported "page", so nothing could tell whether the storefront grid

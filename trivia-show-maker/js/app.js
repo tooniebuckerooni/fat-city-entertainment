@@ -120,23 +120,63 @@
       options: { ...d.options, ...(obj.options || {}) },
       tiebreaker: { ...d.tiebreaker, ...(obj.tiebreaker || {}) },
       rounds: Array.isArray(obj.rounds) && obj.rounds.length
-        ? obj.rounds.map(r => ({
-            name: r.name || "",
-            type: ["standard", "double", "wager"].includes(r.type) ? r.type : "standard",
-            format: ["open", "tf", "mc"].includes(r.format) ? r.format : "open",
-            ageRange: AGE_IDS.includes(r.ageRange) ? r.ageRange : "family",
-            difficulty: DIFF_IDS.includes(r.difficulty) ? r.difficulty : "balanced",
-            points: Number(r.points) || 10,
-            open: r.open !== false,
-            questions: Array.isArray(r.questions) && r.questions.length
-              ? r.questions.map(q => ({
-                  q: String(q.q || ""), a: String(q.a || ""),
-                  choices: Array.isArray(q.choices) ? q.choices.map(x => String(x || "")) : null
-                }))
-              : [blankQ()]
-          }))
+        ? obj.rounds.map(normRound)
         : d.rounds
     };
+  }
+
+  function normRound(r) {
+    return {
+      name: r.name || "",
+      type: ["standard", "double", "wager"].includes(r.type) ? r.type : "standard",
+      format: ["open", "tf", "mc"].includes(r.format) ? r.format : "open",
+      ageRange: AGE_IDS.includes(r.ageRange) ? r.ageRange : "family",
+      difficulty: DIFF_IDS.includes(r.difficulty) ? r.difficulty : "balanced",
+      points: Number(r.points) || 10,
+      open: r.open !== false,
+      questions: Array.isArray(r.questions) && r.questions.length
+        ? r.questions.map(q => ({
+            q: String(q.q || ""), a: String(q.a || ""),
+            choices: Array.isArray(q.choices) ? q.choices.map(x => String(x || "")) : null
+          }))
+        : [blankQ()]
+    };
+  }
+
+  /* ---------- ?round=<slug>: a free published round, e.g. a city page's ---------- */
+
+  /* Only ever reads /trivia-show-maker/rounds/<slug>.json, never a path from
+     the URL: a free-form ?load= would open any JSON on the site, including the
+     paid shows' source files. Published by _tools/add-city-rounds.js. */
+  function autoloadRound() {
+    let slug = null;
+    try { slug = new URLSearchParams(location.search).get("round"); } catch (e) { return; }
+    if (!slug) return;
+    try {
+      const u = new URL(location.href);
+      u.searchParams.delete("round");
+      history.replaceState(null, "", u.pathname + u.search + u.hash);
+    } catch (e) { /* old browser: a reload just re-offers the round */ }
+    if (!/^[a-z0-9-]{1,40}$/.test(slug)) return;
+    fetch("/trivia-show-maker/rounds/" + slug + ".json", { cache: "no-cache" })
+      .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then(obj => {
+        if (!obj || !obj.round || !Array.isArray(obj.round.questions)) throw new Error("bad round");
+        const round = normRound(obj.round);
+        const dup = state.rounds.some(r => r.name === round.name && r.questions[0] && r.questions[0].q === round.questions[0].q);
+        if (dup) { toast(round.name + " is already in your show."); return; }
+        const empty = !String(state.game.title || "").trim() && state.rounds.every(r => !r.name.trim() && r.questions.every(q => !q.q.trim() && !q.a.trim()));
+        if (empty) {
+          state.rounds = [round];
+          state.game.title = String(obj.title || "");
+        } else {
+          state.rounds.push(round);
+        }
+        applyControls(); renderRounds(); save();
+        toast(empty ? "Loaded " + round.name + "." : "Added " + round.name + " to the end of your show.");
+        try { if (typeof gtag === "function") gtag("event", "load_round", { round: slug, origin: "url" }); } catch (e) {}
+      })
+      .catch(() => toast("That round isn't available right now."));
   }
 
   /* ---------- small utils ---------- */
@@ -917,4 +957,5 @@
   bindTheme();
   bindTiebreakerAI();
   if (window.TGP_AI) TGP_AI.init();
+  autoloadRound();
 })();

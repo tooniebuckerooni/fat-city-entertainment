@@ -1,0 +1,17 @@
+{
+  "_note": "The one list of city pages, read by _tools/add-city-rounds.js. A city belongs here only when the site has a real page for it AND a real reason to have one. As of 23 Sept 2026 that is two: Calgary (where the hosting started in 1999, see aboutus.html) and Charlotte (nine blog posts from the 2017-2019 run). Adding a city with no history or local content would be a doorway page, so a new entry needs its page first. status is 'draft' until the owner has fact-checked the round; a draft round is not published to /trivia-show-maker/rounds/ and puts nothing on the page.",
+  "cities": [
+    {
+      "slug": "calgary",
+      "name": "Calgary",
+      "page": "yycevents.html",
+      "status": "draft"
+    },
+    {
+      "slug": "charlotte",
+      "name": "Charlotte",
+      "page": "charlotte-events.html",
+      "status": "draft"
+    }
+  ]
+}

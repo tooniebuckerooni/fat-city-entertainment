@@ -1,0 +1,21 @@
+{
+  "title": "Calgary Trivia Night",
+  "round": {
+    "name": "Local Round: Calgary",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Calgary hosted the Winter Olympics in which year?", "a": "1988" },
+      { "q": "Which July event in Calgary bills itself as \"The Greatest Outdoor Show on Earth\"?", "a": "The Calgary Stampede" },
+      { "q": "Which two rivers meet in Calgary?", "a": "The Bow and the Elbow" },
+      { "q": "What is the name of Calgary's NHL team?", "a": "The Calgary Flames" },
+      { "q": "What is the name of Calgary's CFL team?", "a": "The Calgary Stampeders" },
+      { "q": "Calgary's airport code has become a nickname for the city. What is it?", "a": "YYC" },
+      { "q": "What name is given to the warm, dry winter wind that can raise Calgary's temperature by 20 degrees in a few hours?", "a": "A chinook" },
+      { "q": "The 1993 film Cool Runnings follows which country's bobsled team at the Calgary Olympics?", "a": "Jamaica" },
+      { "q": "What is the name of Calgary's light rail transit system?", "a": "The CTrain" },
+      { "q": "Which mountain range can be seen to the west of Calgary on a clear day?", "a": "The Rocky Mountains" }
+    ]
+  }
+}

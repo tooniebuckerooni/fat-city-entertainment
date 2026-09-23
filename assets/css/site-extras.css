@@ -1012,6 +1012,31 @@ a.fce-tool-banner-link:hover {
 .fce-copy-inner a:hover {
   color: #7d0c1e;
 }
+/* A city page's free local round (_tools/add-city-rounds.js). Rides on the
+   .fce-copy block above; only the numbered list and the answers toggle need
+   anything of their own. */
+.fce-city-round {
+  border-top: 1px solid #e2e0da;
+}
+.fce-city-round .fce-copy-inner ol {
+  margin: 0 0 18px;
+  padding-left: 26px;
+  list-style: decimal;
+}
+.fce-city-round .fce-copy-inner li {
+  margin-bottom: 8px;
+}
+.fce-city-round details {
+  margin: 0 0 22px;
+}
+.fce-city-round summary {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  color: #b0122b;
+  margin-bottom: 12px;
+}
+
 @media screen and (max-width: 640px) {
   .fce-copy {
     padding: 32px 16px 36px;

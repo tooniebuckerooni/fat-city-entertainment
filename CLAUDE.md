@@ -711,6 +711,34 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   endpoint already returns `access-control-allow-origin: *` on both the preflight
   and every real response.
 
+## City pages and their free local trivia rounds (23 Sept 2026)
+
+- **The city list is `_content/city-pages.json`, and it holds two cities:**
+  Calgary (`yycevents.html`, where the hosting started in 1999) and Charlotte
+  (`charlotte-events.html`, the 2017-2019 run and its nine blog posts). Those are
+  the only cities the site has real history in. A new city needs a real page and
+  a real reason first; a city page with nothing local on it is a doorway page.
+- **Each city gets a 10-question local round** in `_content/city-rounds/<slug>.json`
+  (Trivia Show Maker's own round shape). `node _tools/add-city-rounds.js --write`
+  puts the questions, a collapsed answers list and a "Load this round into Trivia
+  Show Maker" button on the page between `<!-- fce:city-round -->` markers, and
+  publishes the round to `trivia-show-maker/rounds/<slug>.json`.
+- **A round ships as `"status": "draft"` and a draft does nothing**: no block, no
+  served file. Flip it to `"live"` only after the owner has checked every answer;
+  a wrong local fact gets corrected out loud by the room. Both rounds were
+  written 23 Sept 2026 and are still drafts. `--remove --write`, or flipping back
+  to draft, restores the page byte for byte (verified).
+- **The autoload is `/trivia-show-maker/?round=<slug>`** (`autoloadRound()` in
+  `trivia-show-maker/js/app.js`). It fetches ONLY `/trivia-show-maker/rounds/<slug>.json`
+  with the slug checked against `[a-z0-9-]`, never a path from the URL, because
+  the paid shows' `.tgp.json` sources sit in `_content/trivia-shows/` on the
+  same origin and a free-form `?load=` would open them in one click. On an empty
+  show it loads the round and its title; otherwise it **appends** and never
+  clobbers someone's saved work, refuses a duplicate, and strips the parameter so
+  a reload does not add it twice. Fires GA4 `load_round`.
+- **Re-run after `new-content-page.js`**, which regenerates `charlotte-events.html`
+  whole and drops the block. In the Monday loop; clicks report `origin: city-round`.
+
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
 from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.

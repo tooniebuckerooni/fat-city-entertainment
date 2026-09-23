@@ -183,6 +183,13 @@ jobs:
             # update: N page(s)", which the nav patterns above already match --
             # proved by pulling a real product tile off store/c33/Eras.html and
             # watching the matcher fire, then go quiet.
+            #
+            # add-city-rounds joined 23 Sept 2026. A live city round is baked
+            # twice, onto its city page and into trivia-show-maker/rounds/ for
+            # the ?round= autoload, so an edit to _content/city-rounds/ that is
+            # not re-run leaves the page and the tool reading different answers.
+            # Reports "would update: N file(s)"; proved by going live, editing an
+            # answer, and watching the matcher fire, then go quiet.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
@@ -191,7 +198,7 @@ jobs:
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
                      build-store-facets add-store-filters set-cta-labels \
                      tidy-listing-intro set-delivery-boilerplate \
-                     count-subcategory-tiles \
+                     count-subcategory-tiles add-city-rounds \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
