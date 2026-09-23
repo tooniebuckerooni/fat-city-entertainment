@@ -1,0 +1,51 @@
+{
+  "title": "Toronto Trivia Night",
+  "round": {
+    "name": "Local Round: Toronto",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "What is the name of Toronto's NHL team?",
+        "a": "The Toronto Maple Leafs"
+      },
+      {
+        "q": "The Toronto Blue Jays won back-to-back World Series titles in which two years?",
+        "a": "1992 and 1993"
+      },
+      {
+        "q": "In which year did the Toronto Raptors win their first NBA championship?",
+        "a": "2019"
+      },
+      {
+        "q": "Which Great Lake lies along Toronto's waterfront?",
+        "a": "Lake Ontario"
+      },
+      {
+        "q": "When it opened, the \"CN\" in CN Tower stood for which company, which built it?",
+        "a": "Canadian National (the railway)"
+      },
+      {
+        "q": "Which Toronto-born rapper did most to popularise the nickname \"The 6\"?",
+        "a": "Drake"
+      },
+      {
+        "q": "Before it was incorporated as a city in 1834, Toronto was known by what name?",
+        "a": "York"
+      },
+      {
+        "q": "The Hall of Fame for which sport is in downtown Toronto, partly housed in an old bank building?",
+        "a": "Hockey"
+      },
+      {
+        "q": "Toronto's famous peameal bacon is rolled in what today?",
+        "a": "Cornmeal"
+      },
+      {
+        "q": "What was the Rogers Centre called when it opened in 1989?",
+        "a": "SkyDome"
+      }
+    ]
+  }
+}

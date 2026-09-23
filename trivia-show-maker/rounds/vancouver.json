@@ -1,0 +1,51 @@
+{
+  "title": "Vancouver Trivia Night",
+  "round": {
+    "name": "Local Round: Vancouver",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Vancouver co-hosted the Winter Olympics with Whistler in which year?",
+        "a": "2010"
+      },
+      {
+        "q": "Vancouver hosted a world's fair, remembered by the name \"Expo\" and a two-digit year. Which year?",
+        "a": "1986 (Expo 86)"
+      },
+      {
+        "q": "The Governor General who gave Stanley Park its name also donated a trophy first awarded in 1893. In which sport?",
+        "a": "Ice hockey (the Stanley Cup)"
+      },
+      {
+        "q": "Which Vancouver neighbourhood takes its name from a talkative saloon keeper, John Deighton?",
+        "a": "Gastown"
+      },
+      {
+        "q": "What is the name of Vancouver's NHL team?",
+        "a": "The Vancouver Canucks"
+      },
+      {
+        "q": "What is the name of the CFL team that plays at BC Place?",
+        "a": "The BC Lions"
+      },
+      {
+        "q": "Which suspension bridge carries traffic from Stanley Park across Burrard Inlet to the North Shore?",
+        "a": "The Lions Gate Bridge"
+      },
+      {
+        "q": "The city is named after a Royal Navy captain who charted this coast in 1792. What was his first name?",
+        "a": "George"
+      },
+      {
+        "q": "Which international environmental organization was founded in Vancouver?",
+        "a": "Greenpeace"
+      },
+      {
+        "q": "Which strait separates the Vancouver area from Vancouver Island?",
+        "a": "The Strait of Georgia"
+      }
+    ]
+  }
+}

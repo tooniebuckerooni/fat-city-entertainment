@@ -1,0 +1,51 @@
+{
+  "title": "Sydney Trivia Night",
+  "round": {
+    "name": "Local Round: Sydney",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "The Sydney Opera House was designed by an architect from which country?",
+        "a": "Denmark (Jørn Utzon)"
+      },
+      {
+        "q": "Sydney hosted the Summer Olympic Games in which year?",
+        "a": "2000"
+      },
+      {
+        "q": "What affectionate nickname do Sydneysiders give the Harbour Bridge?",
+        "a": "The Coathanger"
+      },
+      {
+        "q": "The City2Surf fun run finishes at which famous Sydney beach?",
+        "a": "Bondi Beach"
+      },
+      {
+        "q": "In which year did the First Fleet arrive at Sydney Cove?",
+        "a": "1788"
+      },
+      {
+        "q": "What is the official name of the natural harbour better known as Sydney Harbour?",
+        "a": "Port Jackson"
+      },
+      {
+        "q": "The Manly ferry leaves from which harbourside transport hub in the city centre?",
+        "a": "Circular Quay"
+      },
+      {
+        "q": "Which historic precinct on the western side of Circular Quay grew up around the colony's first settlement in 1788?",
+        "a": "The Rocks"
+      },
+      {
+        "q": "Which harbourside amusement park at Milsons Point is entered through a giant smiling face?",
+        "a": "Luna Park"
+      },
+      {
+        "q": "Which AFL club, originally South Melbourne, moved to Sydney in 1982?",
+        "a": "The Sydney Swans"
+      }
+    ]
+  }
+}

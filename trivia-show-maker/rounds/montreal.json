@@ -1,0 +1,51 @@
+{
+  "title": "Soirée quiz à Montréal",
+  "round": {
+    "name": "Ronde locale : Montréal",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Montréal a accueilli les Jeux olympiques d'été en quelle année ?",
+        "a": "1976"
+      },
+      {
+        "q": "Quelle montagne, dont le parc a été dessiné par Frederick Law Olmsted, l'un des architectes de Central Park, domine le centre-ville ?",
+        "a": "Le mont Royal"
+      },
+      {
+        "q": "Sous quel nom Montréal a-t-elle été fondée en 1642 ?",
+        "a": "Ville-Marie"
+      },
+      {
+        "q": "La Biosphère de l'île Sainte-Hélène était le pavillon de quel pays à Expo 67 ?",
+        "a": "Les États-Unis"
+      },
+      {
+        "q": "Quel architecte a conçu Habitat 67, cet empilement de cubes de béton au bord du fleuve ?",
+        "a": "Moshe Safdie"
+      },
+      {
+        "q": "Quel surnom anglais donne-t-on au Stade olympique ?",
+        "a": "Le Big O"
+      },
+      {
+        "q": "Quel surnom d'un seul mot, évoquant les trois couleurs de leur chandail, donne-t-on aux Canadiens de Montréal ?",
+        "a": "Le Tricolore"
+      },
+      {
+        "q": "Quelle spécialité de viande, servie en sandwich sur pain de seigle avec de la moutarde, est emblématique de Montréal ?",
+        "a": "La viande fumée (smoked meat)"
+      },
+      {
+        "q": "Le circuit de l'île Notre-Dame, où se court le Grand Prix du Canada, porte le nom de quel pilote québécois ?",
+        "a": "Gilles Villeneuve"
+      },
+      {
+        "q": "Quel poète et chanteur montréalais a écrit « Hallelujah » ?",
+        "a": "Leonard Cohen"
+      }
+    ]
+  }
+}

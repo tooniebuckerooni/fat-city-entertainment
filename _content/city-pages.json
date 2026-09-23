@@ -25,7 +25,7 @@
       "country": "US",
       "term": "trivia night",
       "page": "trivia-nights/new-york/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -34,7 +34,7 @@
       "country": "US",
       "term": "trivia night",
       "page": "trivia-nights/chicago/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -151,7 +151,7 @@
       "country": "CA",
       "term": "trivia night",
       "page": "trivia-nights/toronto/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -160,7 +160,7 @@
       "country": "CA",
       "term": "trivia night",
       "page": "trivia-nights/vancouver/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -188,7 +188,7 @@
       "term": "soirée quiz",
       "lang": "fr",
       "page": "trivia-nights/montreal/index.html",
-      "status": "draft"
+      "status": "live"
     },
     {
       "slug": "london",
@@ -196,7 +196,7 @@
       "country": "GB",
       "term": "pub quiz",
       "page": "trivia-nights/london/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -205,7 +205,7 @@
       "country": "GB",
       "term": "pub quiz",
       "page": "trivia-nights/manchester/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -250,7 +250,7 @@
       "country": "IE",
       "term": "table quiz",
       "page": "trivia-nights/dublin/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -259,7 +259,7 @@
       "country": "AU",
       "term": "trivia night",
       "page": "trivia-nights/sydney/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {
@@ -268,7 +268,7 @@
       "country": "AU",
       "term": "trivia night",
       "page": "trivia-nights/melbourne/index.html",
-      "status": "draft",
+      "status": "live",
       "lang": "en"
     },
     {

@@ -1,0 +1,51 @@
+{
+  "title": "Manchester Pub Quiz",
+  "round": {
+    "name": "Local Round: Manchester",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Which insect has been a symbol of Manchester since the days of the cotton mills?",
+        "a": "The worker bee"
+      },
+      {
+        "q": "Which band, formed in Manchester and led by the Gallagher brothers, released \"Wonderwall\"?",
+        "a": "Oasis"
+      },
+      {
+        "q": "Which long-running ITV soap is set in the fictional town of Weatherfield?",
+        "a": "Coronation Street"
+      },
+      {
+        "q": "Thanks to its many mills, Victorian Manchester earned which nickname?",
+        "a": "Cottonopolis"
+      },
+      {
+        "q": "The world's first inter-city passenger railway, opened in 1830, linked Manchester with which city?",
+        "a": "Liverpool"
+      },
+      {
+        "q": "Which Manchester record label, co-founded by Tony Wilson, released Joy Division and New Order?",
+        "a": "Factory Records"
+      },
+      {
+        "q": "The 1819 attack on a peaceful crowd at St Peter's Field is known by what name?",
+        "a": "The Peterloo Massacre"
+      },
+      {
+        "q": "Which suffragette leader, who founded the Women's Social and Political Union in Manchester in 1903, has a statue in St Peter's Square?",
+        "a": "Emmeline Pankhurst"
+      },
+      {
+        "q": "Which codebreaker and computer pioneer, who worked at the University of Manchester, is remembered with a statue in Sackville Gardens?",
+        "a": "Alan Turing"
+      },
+      {
+        "q": "Manchester City's home ground was originally built for which multi-sport event in 2002?",
+        "a": "The Commonwealth Games"
+      }
+    ]
+  }
+}

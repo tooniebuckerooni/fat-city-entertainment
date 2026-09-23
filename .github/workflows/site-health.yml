@@ -204,7 +204,7 @@ jobs:
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
                      build-store-facets add-store-filters set-cta-labels \
                      tidy-listing-intro set-delivery-boilerplate \
-                     count-subcategory-tiles add-city-rounds build-city-pages \
+                     count-subcategory-tiles add-city-rounds build-city-pages add-city-nav \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

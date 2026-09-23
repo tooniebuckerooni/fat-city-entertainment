@@ -1,0 +1,51 @@
+{
+  "title": "Chicago Trivia Night",
+  "round": {
+    "name": "Local Round: Chicago",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "The Great Chicago Fire broke out in which year?",
+        "a": "1871"
+      },
+      {
+        "q": "Which Great Lake forms Chicago's eastern shoreline?",
+        "a": "Lake Michigan"
+      },
+      {
+        "q": "Name both of Chicago's Major League Baseball teams.",
+        "a": "The Cubs and the White Sox"
+      },
+      {
+        "q": "What is the name of the North Side ballpark famous for its ivy-covered outfield walls?",
+        "a": "Wrigley Field"
+      },
+      {
+        "q": "Every St. Patrick's Day, Chicago dyes what bright green?",
+        "a": "The Chicago River"
+      },
+      {
+        "q": "The mirrored sculpture in Millennium Park known as \"The Bean\" has what official name?",
+        "a": "Cloud Gate"
+      },
+      {
+        "q": "Which condiment does Chicago tradition say must never go on a Chicago-style hot dog?",
+        "a": "Ketchup"
+      },
+      {
+        "q": "Michael Jordan won six NBA championships with which Chicago team?",
+        "a": "The Chicago Bulls"
+      },
+      {
+        "q": "Which ride, named after the engineer who built it, was the star attraction of Chicago's 1893 World's Columbian Exposition?",
+        "a": "The Ferris wheel"
+      },
+      {
+        "q": "Chicago's Sears Tower was renamed in 2009. What is it called now?",
+        "a": "Willis Tower"
+      }
+    ]
+  }
+}

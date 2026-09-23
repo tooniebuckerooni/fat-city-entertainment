@@ -1,0 +1,51 @@
+{
+  "title": "New York Trivia Night",
+  "round": {
+    "name": "Local Round: New York",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Which New York City borough is also known as Kings County?",
+        "a": "Brooklyn"
+      },
+      {
+        "q": "In which year did the Brooklyn Bridge open?",
+        "a": "1883"
+      },
+      {
+        "q": "The Statue of Liberty was a gift to the United States from which country?",
+        "a": "France"
+      },
+      {
+        "q": "Olmsted and Vaux won an 1858 design competition with their \"Greensward Plan\" for which Manhattan park?",
+        "a": "Central Park"
+      },
+      {
+        "q": "Which Major League Baseball team plays its home games in the Bronx?",
+        "a": "The New York Yankees"
+      },
+      {
+        "q": "What did the Dutch call their settlement on Manhattan when they founded it in the 1620s?",
+        "a": "New Amsterdam"
+      },
+      {
+        "q": "In the 1933 film King Kong, which skyscraper does the giant ape climb?",
+        "a": "The Empire State Building"
+      },
+      {
+        "q": "Which river separates Manhattan from New Jersey?",
+        "a": "The Hudson River"
+      },
+      {
+        "q": "In which Manhattan square does a lit ball drop at midnight on New Year's Eve?",
+        "a": "Times Square"
+      },
+      {
+        "q": "Which island in New York Harbor was the main federal immigration station from 1892 to 1954?",
+        "a": "Ellis Island"
+      }
+    ]
+  }
+}

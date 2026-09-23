@@ -90,7 +90,7 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   `_tools/add-song-lists-nav.js` — a separate insert-into-existing-dropdown
   script, because `add-trivia-store-nav.js` only builds the dropdown whole and
   skips any page that already has one), Eras, Pre-made Trivia Shows, Bundles,
-  Virtual Events. **Featured!** dropdown holds Triv 101, **Trivia Show Maker**
+  Virtual Events. **Trivia Nights by City** (added 23 Sept 2026 via `_tools/add-city-nav.js`, directly under Free Song Lists, links the `/trivia-nights/` hub never a single city; `--remove --write` restores all 505 pages byte for byte, verified). **Featured!** dropdown holds Triv 101, **Trivia Show Maker**
   (`/trivia-show-maker/`, live; this line said "Trivia Generator (coming soon)"
   until 23 Sept 2026), and BingoCardGenerator.Online (external link to
   https://bingocardgenerator.online/, UTM-tagged). Hub page: `/features.html`. **Bingo
@@ -795,8 +795,9 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   publishes the round to `trivia-show-maker/rounds/<slug>.json`.
 - **A round ships as `"status": "draft"` and a draft does nothing**: no block, no
   served file. Flip it to `"live"` only after the owner has checked every answer;
-  a wrong local fact gets corrected out loud by the room. Both rounds were
-  written 23 Sept 2026 and are still drafts. `--remove --write`, or flipping back
+  a wrong local fact gets corrected out loud by the room. **Wave 1's ten cities
+  went live 23 Sept 2026** on the owner's word, after 220/220 evidence. Wave 2,
+  Calgary and Charlotte stay draft until the owner says otherwise. `--remove --write`, or flipping back
   to draft, restores the page byte for byte (verified).
 - **The autoload is `/trivia-show-maker/?round=<slug>`** (`autoloadRound()` in
   `trivia-show-maker/js/app.js`). It fetches ONLY `/trivia-show-maker/rounds/<slug>.json`
