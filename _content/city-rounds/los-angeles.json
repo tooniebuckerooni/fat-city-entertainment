@@ -1,0 +1,33 @@
+{
+  "title": "Los Angeles Trivia Night",
+  "round": {
+    "name": "Local Round: Los Angeles",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Translated from Spanish, what does the name \"Los Angeles\" mean?", "a": "The Angels" },
+      { "q": "When the Hollywood Sign went up in 1923, it carried which four extra letters on the end?", "a": "LAND" },
+      { "q": "Which baseball team moved to Los Angeles from Brooklyn in 1958?", "a": "The Dodgers" },
+      { "q": "Ice Age fossils, including saber-toothed cats, are still dug out of which sticky pits in Hancock Park?", "a": "The La Brea Tar Pits" },
+      { "q": "Which Los Angeles stadium hosted the Summer Olympics in both 1932 and 1984?", "a": "The Los Angeles Memorial Coliseum" },
+      { "q": "The Hollywood Walk of Fame runs along Hollywood Boulevard and which cross street?", "a": "Vine Street" },
+      { "q": "The Lakers kept their name from the state they played in before moving west. Which state?", "a": "Minnesota" },
+      { "q": "Which architect designed the curving stainless steel Walt Disney Concert Hall downtown?", "a": "Frank Gehry" },
+      { "q": "Stars have left what in the wet cement of the forecourt at the TCL (formerly Grauman's) Chinese Theatre?", "a": "Handprints and footprints" },
+      { "q": "Which university, whose teams are the Bruins, has its campus in Westwood?", "a": "UCLA" }
+    ]
+  },
+  "notes": [
+    "Spanish 'los ángeles' = 'the angels', from the founding name El Pueblo de Nuestra Señora la Reina de los Ángeles; see Los Angeles (Wikipedia), Etymology.",
+    "Erected 1923 as HOLLYWOODLAND; the LAND letters were removed in 1949; see Hollywood Sign (Wikipedia) or hollywoodsign.org.",
+    "Dodgers played their first Los Angeles season in 1958 after leaving Brooklyn; see Los Angeles Dodgers (Wikipedia) or MLB.com.",
+    "La Brea Tar Pits in Hancock Park, Smilodon among the fossils; see La Brea Tar Pits (Wikipedia) or tarpits.org (Natural History Museum of LA County).",
+    "Memorial Coliseum was main stadium for the 1932 and 1984 Summer Olympics; see Los Angeles Memorial Coliseum (Wikipedia) or lacoliseum.com.",
+    "Walk of Fame covers Hollywood Boulevard and Vine Street; see Hollywood Walk of Fame (Wikipedia) or walkoffame.com.",
+    "Minneapolis Lakers, named for Minnesota's 'Land of 10,000 Lakes', moved to LA in 1960; see Los Angeles Lakers (Wikipedia) or NBA.com.",
+    "Walt Disney Concert Hall (opened 2003) designed by Frank Gehry; see Walt Disney Concert Hall (Wikipedia) or laphil.com.",
+    "Forecourt of the Stars with hand and footprints in cement since 1927; see TCL Chinese Theatre (Wikipedia).",
+    "UCLA Bruins, campus in Westwood; see University of California, Los Angeles (Wikipedia) or ucla.edu."
+  ]
+}

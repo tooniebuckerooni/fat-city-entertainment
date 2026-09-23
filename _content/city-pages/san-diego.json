@@ -1,0 +1,34 @@
+{
+  "slug": "san-diego",
+  "title": "San Diego Trivia Night: Harbor, Padres and Ten Questions",
+  "description": "Cabrillo, Balboa Park, the Midway and Comic-Con in ten San Diego trivia night questions, with notes on Padres nights, June gloom and a Navy town's crowds.",
+  "h1": "San Diego Trivia Night, From Point Loma to North Park",
+  "kicker": "Ten local questions for a town that stays out late.",
+  "poem": [
+    "San Diego mornings arrive under a lid of marine layer, soft and gray, the palms along the bay standing in it like pencil marks. By noon it burns off and the light turns hard and clean, the sort that makes the Coronado Bridge look freshly painted and the sailboats on the bay look arranged. In May and June the gray holds all day, and locals shrug and call it June Gloom as if it were a relative.",
+    "It is a Navy town, a surf town, a border town and a college town at once, and a trivia night here gathers all of them at one table. A corpsman from Balboa, a grad student from La Jolla, a couple who drove down from Escondido: by round four they are debating whether the fish taco came from Ensenada or whether the San Diego version counts. A Padres question gets a groan and a cheer in the same breath.",
+    "Weeknight rooms like these depend on the people who stand up in them: the host reading scores over the ice machine, the jazz trio in North Park, the stand-up testing a bit on a Thursday. Afterward the air off the Pacific is cool enough for a sweatshirt, and out past Point Loma the lighthouse keeps its old watch over the harbor mouth."
+  ],
+  "sections": [
+    {
+      "h2": "Padres, Comic-Con and the Marine Layer",
+      "paras": [
+        "San Diego crowds enjoy a round about their own coast: Cabrillo and the missions, Balboa Park and the zoo, the Midway, Coronado and the Hotel del. Military history is a safe bet in a city with this much Navy and Marine Corps in it, and a film round can lean on Top Gun and Anchorman. Keep sports questions historical; the Chargers' departure is still a sore subject for plenty of people.",
+        "The weather is kind all year, so the real rhythm comes from events. Comic-Con takes over downtown each July, Padres home games pull crowds around the ballpark, and fleet deployments and college semesters change who is in town. Summer evenings pull people outdoors, so start later then."
+      ]
+    },
+    {
+      "h2": "Shore Leave, Semesters and a Crowd That Keeps Changing",
+      "paras": [
+        "San Diego is always saying hello and goodbye. Sailors rotate in and out, students arrive at the universities every fall, and new arrivals keep coming for the weather. A standing weekly night gives all of them somewhere to walk into alone and walk out of with a team, and the people running those nights, from quizmasters to open-mic hosts to bands on a Tuesday bill, are doing quiet civic work.",
+        "Support them in the plain ways: show up, bring someone new, tip the host and buy the band's shirt. If your neighborhood has no trivia night yet, the San Diego questions below will carry a first night, and they read just as well to a table of newcomers as to a room of natives."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0a6c8f",
+    "paper": "#f1f7fa",
+    "ink": "#0c1a20",
+    "motif": "♆"
+  }
+}

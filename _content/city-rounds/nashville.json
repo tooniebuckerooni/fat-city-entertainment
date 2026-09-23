@@ -1,0 +1,33 @@
+{
+  "title": "Nashville Trivia Night",
+  "round": {
+    "name": "Local Round: Nashville",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Which weekly country music radio show, first broadcast in 1925, is Nashville's most famous?", "a": "The Grand Ole Opry" },
+      { "q": "Nashville's full-scale replica of an ancient Greek temple stands in which park?", "a": "Centennial Park" },
+      { "q": "Nashville hot chicken is traditionally served on white bread and topped with what?", "a": "Pickles" },
+      { "q": "Which Nashville NHL team took its saber-toothed cat logo from a fossil dug up downtown?", "a": "The Predators" },
+      { "q": "Before moving to Tennessee, the Titans were known as the Houston what?", "a": "Oilers" },
+      { "q": "Which Nashville university's sports teams are called the Commodores?", "a": "Vanderbilt" },
+      { "q": "President Andrew Jackson's plantation home outside Nashville is known by what name?", "a": "The Hermitage" },
+      { "q": "The Jubilee Singers began touring in 1871 to raise money for which Nashville university?", "a": "Fisk University" },
+      { "q": "The cluster of record labels and publishers around 16th and 17th Avenues is known by what two-word name?", "a": "Music Row" },
+      { "q": "Nashville's downtown strip of honky-tonks runs along the lower end of which street?", "a": "Broadway" }
+    ]
+  },
+  "notes": [
+    "First broadcast 28 November 1925 on WSM as the WSM Barn Dance; see Grand Ole Opry (Wikipedia) or opry.com history.",
+    "The Parthenon, built for the 1897 Tennessee Centennial Exposition, in Centennial Park; see Parthenon (Nashville) (Wikipedia) or nashvilleparthenon.com.",
+    "Hot chicken is served on white bread with pickle chips; see Hot chicken (Wikipedia).",
+    "Smilodon fossil found in 1971 during construction downtown inspired the Predators' logo; see Nashville Predators (Wikipedia) or NHL.com.",
+    "Houston Oilers moved to Tennessee in 1997, renamed Titans in 1999; see Tennessee Titans (Wikipedia).",
+    "Vanderbilt University athletics are the Commodores; see Vanderbilt Commodores (Wikipedia) or vucommodores.com.",
+    "The Hermitage, Jackson's home in the Hermitage area of Davidson County; see The Hermitage (Nashville, Tennessee) (Wikipedia) or thehermitage.com.",
+    "Fisk Jubilee Singers first toured in October 1871 to raise funds for Fisk University; see Fisk Jubilee Singers (Wikipedia).",
+    "Music Row, centred on 16th and 17th Avenues South; see Music Row (Wikipedia).",
+    "Lower Broadway honky-tonk district downtown; see Lower Broadway (Wikipedia) or visitmusiccity.com."
+  ]
+}

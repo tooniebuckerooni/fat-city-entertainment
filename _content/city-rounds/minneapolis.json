@@ -1,0 +1,33 @@
+{
+  "title": "Minneapolis Trivia Night",
+  "round": {
+    "name": "Local Round: Minneapolis",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Minneapolis and which neighboring city together make up the Twin Cities?", "a": "Saint Paul" },
+      { "q": "Which waterfall on the Mississippi River powered the flour mills that earned Minneapolis the name Mill City?", "a": "Saint Anthony Falls" },
+      { "q": "The Minneapolis Sculpture Garden's best-known work is a giant spoon holding what?", "a": "A cherry" },
+      { "q": "Which 1984 film starring Prince was shot largely in Minneapolis?", "a": "Purple Rain" },
+      { "q": "What name is given to the Minneapolis burger with melted cheese sealed inside the patty?", "a": "The Juicy Lucy (or Jucy Lucy)" },
+      { "q": "In the opening credits of which 1970s sitcom does the star toss her hat in the air on a downtown Minneapolis street?", "a": "The Mary Tyler Moore Show" },
+      { "q": "Which NBA franchise played in Minneapolis before moving to Los Angeles in 1960?", "a": "The Lakers" },
+      { "q": "Downtown's network of enclosed, second-story pedestrian bridges between buildings is known as what?", "a": "The Skyway (system)" },
+      { "q": "Minnehaha Falls was made famous by which Henry Wadsworth Longfellow poem?", "a": "The Song of Hiawatha" },
+      { "q": "The Minnesota Twins won the World Series in 1987 and in which other year?", "a": "1991" }
+    ]
+  },
+  "notes": [
+    "Minneapolis and Saint Paul are the Twin Cities; see Minneapolis-Saint Paul (Wikipedia).",
+    "Saint Anthony Falls powered the mills that made Minneapolis the flour milling capital, hence Mill City; see Saint Anthony Falls (Wikipedia).",
+    "Spoonbridge and Cherry (1988) by Claes Oldenburg and Coosje van Bruggen; see Spoonbridge and Cherry (Wikipedia) or Walker Art Center.",
+    "Purple Rain (1984) filmed largely in Minneapolis; see Purple Rain (film) (Wikipedia).",
+    "Cheese-stuffed burger claimed by Minneapolis; both spellings in use; see Juicy Lucy (Wikipedia).",
+    "The Mary Tyler Moore Show (CBS, 1970-1977) was set in Minneapolis; the hat toss was filmed on Nicollet Mall; see The Mary Tyler Moore Show (Wikipedia).",
+    "Minneapolis Lakers moved to Los Angeles in 1960; see History of the Minneapolis Lakers (Wikipedia).",
+    "Minneapolis Skyway System, enclosed second-level walkways; see Minneapolis Skyway System (Wikipedia).",
+    "Longfellow's The Song of Hiawatha (1855) named Minnehaha and made the falls famous; see Minnehaha Falls (Wikipedia).",
+    "Twins won the World Series in 1987 and 1991; see Minnesota Twins (Wikipedia) or MLB.com."
+  ]
+}

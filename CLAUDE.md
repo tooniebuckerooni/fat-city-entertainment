@@ -722,7 +722,10 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   Toronto, Vancouver, Montréal, London, Manchester, Dublin, Sydney, Melbourne.
   **Wave 2 (same day) built ten more**: Boston, Washington DC, Austin, Seattle,
   Ottawa, Birmingham, Edinburgh, Glasgow, Brisbane, Auckland. The remaining 10
-  are `"planned"` and every tool skips them.
+  are `"planned"` and every tool skips them. **Wave 3 (same day) built the
+  last ten as drafts**: Los Angeles, Philadelphia, Atlanta, Nashville, Denver,
+  Minneapolis, Portland (Oregon), San Diego, Edmonton, Bristol. All 32 cities
+  now have pages; their fact-check evidence lands in the next commit.
 - **`_tools/build-city-pages.js` owns `/trivia-nights/`**: each city page from
   `_content/city-pages/<slug>.json` (title, description, h1, kicker, a three-
   paragraph "poem", two practical sections, and a `look`: accent, paper, ink,

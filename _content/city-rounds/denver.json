@@ -1,0 +1,33 @@
+{
+  "title": "Denver Trivia Night",
+  "round": {
+    "name": "Local Round: Denver",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "An engraved step on the west side of the Colorado State Capitol marks what famous measurement?", "a": "One mile above sea level" },
+      { "q": "Denver was founded in 1858 where Cherry Creek meets which river?", "a": "The South Platte River" },
+      { "q": "Which Major League Baseball team plays at Coors Field?", "a": "The Colorado Rockies" },
+      { "q": "The Denver Nuggets won their first NBA championship in which year?", "a": "2023" },
+      { "q": "Which quarterback led the Denver Broncos to back-to-back Super Bowl wins in the late 1990s?", "a": "John Elway" },
+      { "q": "What is the name of the famous open-air music venue set among giant sandstone formations just west of Denver?", "a": "Red Rocks Amphitheatre" },
+      { "q": "Denver socialite Margaret \"Molly\" Brown became famous for surviving which 1912 disaster?", "a": "The sinking of the Titanic" },
+      { "q": "The giant blue mustang statue with glowing red eyes outside Denver International Airport has what nickname?", "a": "Blucifer" },
+      { "q": "Coins struck at the Denver Mint carry which single-letter mint mark?", "a": "D" },
+      { "q": "The city was named after James W. Denver, a governor of which territory?", "a": "Kansas Territory" }
+    ]
+  },
+  "notes": [
+    "The 13th step of the Capitol's west steps is engraved 'One Mile Above Sea Level'; see Colorado State Capitol (Wikipedia).",
+    "Founded 1858 at the confluence of Cherry Creek and the South Platte River; see Denver and South Platte River (Wikipedia).",
+    "Coors Field, home of the Colorado Rockies since 1995; see Coors Field (Wikipedia) or MLB.com.",
+    "Nuggets beat the Miami Heat in the 2023 NBA Finals for their first title; see 2023 NBA Finals (Wikipedia).",
+    "Elway won Super Bowls XXXII and XXXIII (1998 and 1999 games); see John Elway (Wikipedia).",
+    "Red Rocks Amphitheatre, Morrison, Colorado, owned by the City of Denver; see Red Rocks Amphitheatre (Wikipedia).",
+    "Margaret Brown survived the Titanic sinking in April 1912; her Denver home is the Molly Brown House Museum; see Margaret Brown (Wikipedia).",
+    "Luis Jimenez's 'Blue Mustang' sculpture at DEN, widely nicknamed Blucifer; see Blue Mustang (Wikipedia).",
+    "The Denver Mint uses the 'D' mint mark; see Denver Mint (Wikipedia) or usmint.gov.",
+    "Named in 1858 for James W. Denver, governor of Kansas Territory; see Denver (Wikipedia) and James W. Denver (Wikipedia)."
+  ]
+}

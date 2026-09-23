@@ -1,0 +1,34 @@
+{
+  "slug": "denver",
+  "title": "Denver Trivia Night: Questions from the Mile High City",
+  "description": "Denver trivia night ideas: Broncos and Nuggets rounds, Red Rocks lore, snow-day rhythms, plus ten local questions you can load into Trivia Show Maker.",
+  "h1": "Trivia Night at a Mile High",
+  "kicker": "Thin air, big sky, and ten questions about home.",
+  "poem": [
+    "The light in Denver arrives early and hard, pouring over the plains from the east and hitting the Front Range so the peaks turn pink before anyone downtown is awake. By noon the sky is a blue that visitors photograph and locals stop noticing. Then a storm drops eight inches on Larimer Square, and by the next afternoon the sidewalks are dry and someone is in shorts again.",
+    "People here spend their weekends on trails and their weeknights looking for each other. Colfax hums after dark, the Highlands fill up, and somewhere a team of engineers, a nurse and a ski instructor squeeze around one table to argue over a question about the Broncos. A trivia night in Denver has the easy mood of a town where half the room arrived from somewhere else and everyone has quietly decided to stay.",
+    "This city has always kept a stage lit: jazz on Five Points, songwriters in small rooms along South Broadway, comics working late sets, quizmasters reading the scores in a hoarse voice after a day on the slopes. They keep going because people come in from the cold to listen. Walk out afterward and the mountains are a black line under the stars, the air thin and sharp as a bell."
+  ],
+  "sections": [
+    {
+      "h2": "Broncos Sundays, Powder Days and a Round About Blucifer",
+      "paras": [
+        "Denver crowds love a round about their own backyard, and there is plenty to work with: the mile marker on the Capitol steps, the Denver Mint, Molly Brown's Titanic story, the blue mustang at the airport that everyone has a theory about. Sports questions land well, with the Broncos, Nuggets, Avalanche and Rockies each carrying loyal tables, and an outdoors round (fourteeners, rivers, ski towns) lets the hikers show off.",
+        "Plan around the calendar. Fall Sundays belong to the Broncos, and fresh snow on a weekend empties the city toward I-70, so weeknights are your friend. Late spring and early fall are ideal: patios are open and nobody is up at dawn to beat traffic to the mountains."
+      ]
+    },
+    {
+      "h2": "From Five Points Jazz to Red Rocks, Denver Pays for Its Music",
+      "paras": [
+        "Denver has a long habit of showing up. Five Points was once called the Harlem of the West, and the famous amphitheatre in the red sandstone outside town draws people who drive an hour just to sit on cold stone and listen. That same instinct keeps smaller rooms going: the open mic on a Wednesday, the comic trying new material, the quizmaster who writes forty questions every week.",
+        "Newcomers arrive here all the time, and a regular weeknight is one of the quickest ways to meet people who will still be around in a year. Buy a ticket to the local band, laugh at the late set, and say thanks to whoever wrote Tuesday's questions. If you want to start your own night, the Denver round on this page makes a good opener."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#fb4f14",
+    "paper": "#fff5ee",
+    "ink": "#1b140f",
+    "motif": "☼"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "los-angeles",
+  "title": "Los Angeles Trivia Night: Questions From the Basin",
+  "description": "Los Angeles trivia night ideas for rooms from Echo Park to Long Beach: Dodgers and Lakers rounds, studio lore, freeway pacing, and a local round to borrow.",
+  "h1": "Trivia Night Across the Los Angeles Basin",
+  "kicker": "Sprawling city, small rooms, and ten questions about home.",
+  "poem": [
+    "Los Angeles comes to you sideways, through a windshield. Jacarandas drop purple on the parked cars in May, June brings a gray lid of marine layer that burns off by noon, and in the fall the Santa Anas come over the passes and make everyone a little strange. The late light on the west side is what the studios came here for, and it still works for free.",
+    "People say nobody walks here, but everybody gathers. They do it in strip-mall rooms beside a taco counter, in Koreatown basements, in back rooms in Highland Park and Long Beach. A trivia night in this town draws screenwriters who know every Oscar winner, Dodgers fans who still replay Kirk Gibson's 1988 home run, and a transplant from Ohio who takes the geography round with suspicious calm.",
+    "It is a city full of people who came to perform, and most of them are doing it on a Wednesday for a room of twenty: the stand-up on a bar stage in the Valley, the cover band in Silver Lake, the quizmaster reading question seven into a microphone that crackles. When the scores are in, the drive home is a river of red taillights on the 101, and the Hollywood Sign sits dark on the hill."
+  ],
+  "sections": [
+    {
+      "h2": "Dodger Blue, Studio Lore and the Traffic Clause",
+      "paras": [
+        "A Los Angeles room will forgive almost anything except a lazy movie round, so make it specific: filming locations, the Chinese Theatre forecourt, the Walk of Fame, which studio sits where. Sports split three ways at least (Dodgers, Lakers, and whoever is loyal to the Clippers or a college team), so keep questions historical and fair. Food is a gift here: tacos, Korean barbecue, the French dip, and a long argument about who invented it.",
+        "Start later than you think. Nobody crosses town before 7:30 on a weeknight, so a first round at eight lets the people stuck on the 405 arrive in time. Check for Dodgers home games and Lakers playoff nights, and expect a lighter room on Oscar Sunday."
+      ]
+    },
+    {
+      "h2": "A Town of Performers Who Need a Weeknight Crowd",
+      "paras": [
+        "Los Angeles has more working performers than almost anywhere, and most of them are not on a screen. They learn the craft in small rooms: open mics in the Valley, improv theaters on a Monday, a songwriter night in a corner of Echo Park, a quiz host who has been reading questions at the same table for a decade. Those rooms are where careers start and neighbors in a spread-out city meet.",
+        "They only work if people come. Buy a ticket to your friend's showcase and turn up to trivia in a week when it is raining (which here counts as an event). If your part of town has no weekly quiz, the Los Angeles round below is ten questions anyone with a microphone can start with."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#005a9c",
+    "paper": "#fbf7ee",
+    "ink": "#12161c",
+    "motif": "✺"
+  }
+}

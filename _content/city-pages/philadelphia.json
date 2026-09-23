@@ -1,0 +1,34 @@
+{
+  "slug": "philadelphia",
+  "title": "Philadelphia Trivia Night: Rowhouse Rounds and Rivals",
+  "description": "Philadelphia trivia night notes for rooms from Fishtown to South Philly: Liberty Bell history, Eagles fever, cheesesteak debates and ten questions to borrow.",
+  "h1": "Philly Trivia Night, From Old City to the Schuylkill",
+  "kicker": "Rowhouse neighbors, loud opinions and ten questions on home turf.",
+  "poem": [
+    "Philadelphia is built close. Brick rowhouses lean shoulder to shoulder down narrow streets, the stoops are scrubbed and argued on, and the El rattles over Kensington Avenue with sparks at the joints. In spring the Schuylkill fills with rowing shells slicing the water past Boathouse Row; in August the air goes thick enough to chew and the hydrants open for the kids on the block.",
+    "This is a city that likes to keep score and does not mind saying so. The same people who will explain, unprompted, why their cheesesteak order is the correct one bring that confidence to a trivia night. A room in Fishtown or South Philly settles in with pencils ready, somebody's uncle knows every Phillies lineup from 1980, and a history round about the Continental Congress gets heckled like a missed field goal.",
+    "It is also the town that gave the world a sound of its own, from the lush seventies soul records the city sent around the world to the string bands strutting on New Year's Day. That music came up through small rooms on ordinary nights, and still does: the jazz trio on a Tuesday, the comic working out new material, the quizmaster reading the tiebreaker as the room leans in. Afterward, the lights of Boathouse Row trace their outline on the dark river."
+  ],
+  "sections": [
+    {
+      "h2": "Bells, Birds and the Wit-or-Witout Question",
+      "paras": [
+        "A Philadelphia crowd knows its history and will tell you if you get it wrong, so the founding years make a strong round: Independence Hall, the Liberty Bell, Franklin, Betsy Ross. Sports are close to a faith here, and an Eagles question will get the loudest reaction of the night, so keep it about history, not the current depth chart. Food is its own round: cheesesteaks, soft pretzels, water ice, scrapple and the Tastykake.",
+        "The calendar runs on the Birds. Avoid Sunday and Monday Night Football in the fall, and never book against a playoff game. Winter is the steady season for indoor nights, and the week around New Year's belongs to the Mummers."
+      ]
+    },
+    {
+      "h2": "Where the Philly Sound Started: Small Rooms on School Nights",
+      "paras": [
+        "The Philadelphia sound was never built in stadiums. It came out of neighborhood clubs, church basements, corner stages and string band clubhouses where people practiced all year for one day on Broad Street. The city's comics and folk singers came up the same way, a few minutes at a time in front of whoever showed up on a weeknight.",
+        "Those rooms still need people in the seats. Go to the jazz night on a Wednesday, see the open mic your coworker keeps mentioning, and learn the name of the quizmaster at your local. If your block has no trivia night yet, the Philadelphia round below is a fair first ten questions, and it will find out quickly who in the room can spell Schuylkill."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#004c54",
+    "paper": "#f1f6f6",
+    "ink": "#0e1819",
+    "motif": "✢"
+  }
+}

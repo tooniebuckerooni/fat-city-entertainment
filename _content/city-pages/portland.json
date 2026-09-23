@@ -1,0 +1,34 @@
+{
+  "slug": "portland",
+  "title": "Portland, Oregon Trivia Night: Bridges, Roses, Ten Questions",
+  "description": "Willamette bridges, Mount Hood and a coin toss that nearly made it Boston: ten Portland, Oregon trivia night questions plus notes on Blazers nights and May.",
+  "h1": "Portland, Oregon: A Trivia Night for Bridgetown",
+  "kicker": "Ten questions for the Rose City, coin toss included.",
+  "poem": [
+    "Portland is a river town that forgot to act like one for a while and then remembered. Bridge after bridge stitches the east side to the west across the Willamette, each a different shape: the green Gothic towers of the St. Johns, the Hawthorne lifting its deck for a barge while a line of bikes waits at the gate. On a clear day Mount Hood stands up at the end of the east-side streets, and people stop on the sidewalk to point at it as though it just arrived.",
+    "The city was named on a coin toss, and it has kept that taste for settling things over a friendly bet. On a weeknight in Sellwood or on Alberta, teams with names too long for the answer sheet sit down with a dog under the table and a basket of fries in the middle, and argue the Blazers' 1977 roster as if the championship parade were last spring.",
+    "Rooms like that run on people: the quizmaster with a folder of questions, the fiddler at a Sunday session, the comic trying new material on a Tuesday crowd of twenty. Walk home afterward and the White Stag sign is lit over the Burnside Bridge, its little reindeer caught mid-leap, and the river runs black and quick underneath."
+  ],
+  "sections": [
+    {
+      "h2": "Blazers, Timbers and the Rose Festival Calendar",
+      "paras": [
+        "Portland crowds like a round that rewards knowing the place: the bridges and which is which, the coin toss, Lewis and Clark, the Oregon Trail, and the streets Matt Groening borrowed for The Simpsons. Food lands well here, from food carts to marionberries, and a beer or coffee round will draw strong opinions. Keep it good-humored; a round that mocks the city's reputation plays worse than one that trusts the room to know it.",
+        "Plan around the calendar. The Rose Festival fills June, and Timbers home matches take a big share of the city on match nights. Blazers playoff games empty a room fast, so check before booking. The wet months from November to March are prime indoor season."
+      ]
+    },
+    {
+      "h2": "Keeping the East Side Busy on a Wednesday",
+      "paras": [
+        "A lot of Portland's live culture happens in small rooms rather than big halls: folk and old-time sessions, punk shows, storytelling nights, comedy open mics and weekly quiz nights on neighborhood corners across the east side. None of them has a marketing budget. They survive because regulars keep turning up and bring a friend who has never been.",
+        "So go on a Wednesday, learn the host's name, buy the band's record at the merch table and laugh at the new comic's rough five minutes. If your corner of the city has no quiz night, open with the Portland questions below; Trivia Show Maker will print it for a first night anywhere between SE 12th and 82nd."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#b0305a",
+    "paper": "#fbf3f6",
+    "ink": "#1c1116",
+    "motif": "⚘"
+  }
+}

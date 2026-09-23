@@ -1,0 +1,34 @@
+{
+  "slug": "bristol",
+  "title": "Bristol Pub Quiz: Ten Questions from Brunel to Banksy",
+  "description": "Brunel, the Balloon Fiesta, Massive Attack and the Matthew, set as ten questions for a Bristol pub quiz, plus notes on student terms and rainy Mondays.",
+  "h1": "A Bristol Pub Quiz, Up the Hill and Down the Harbour",
+  "kicker": "Painted terraces, soft rain and a quiz sheet on the table.",
+  "poem": [
+    "Bristol is built on hills that nobody warned you about. The terraces climb out of the harbour in sugared-almond colours, Totterdown pink and Cliftonwood yellow, and every walk home seems to end in a slope. Rain comes up the Avon Gorge off the Severn, the little yellow ferries nose between the moorings, and on a clear evening the suspension bridge hangs over the gorge like a line somebody drew and forgot to rub out.",
+    "It is a city with a sound. Sound systems in St Pauls, basslines leaking out of Stokes Croft, a band rehearsing above a chip shop somewhere in Bedminster. The pub quiz fits right in: a table of students, a table of nurses off shift, a table of old boys who have sat in the same corner since decimalisation, all bent over one answer sheet. The music round in Bristol is not a formality. People here will fight you over trip-hop.",
+    "Every one of those nights has someone at the front: the quizmaster with a biro behind one ear, the sound engineer who stayed late, the comic testing new material to a room of twelve. Walk out afterwards and the harbour lights are shaking on the water, and somewhere up on the Downs a balloon basket waits for August."
+  ],
+  "sections": [
+    {
+      "h2": "Setting a quiz for a Bristol crowd",
+      "paras": [
+        "Bristol rooms are clever and a little contrary, so give them questions worth arguing over. Brunel, the docks and the Matthew make a strong local history round; Aardman, Banksy and the city's music give you an easy crossover into film, art and pop. Football splits the city between City and Rovers, so ask about both grounds and let the room heckle. A picture round of the painted terraces or the Balloon Fiesta will have tables squinting and swearing.",
+        "Watch the calendar. Two universities mean the crowd changes shape with the terms: packed in October and February, quiet over summer and at Christmas. Check the fixture list before a Saturday, and remember that a wet Monday in November is a quiz night's best friend."
+      ]
+    },
+    {
+      "h2": "A city that learned its music in small rooms",
+      "paras": [
+        "Bristol's most famous sounds did not start on big stages. Massive Attack grew out of a sound system crew, Portishead and a generation of drum and bass producers came up through parties, basements and back rooms, and St Pauls Carnival still turns whole streets into dancefloors each summer. That scene has always depended on somebody booking the small room on a weeknight.",
+        "The pub quiz belongs to the same economy. The people who run it often DJ, gig or write comedy the rest of the week, and a full Tuesday keeps them in the city. Go along, stay for the band, and if your local has gone quiet, ask the landlord for a Tuesday and bring the Bristol questions below."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#c8102e",
+    "paper": "#fbf4f3",
+    "ink": "#1a1113",
+    "motif": "⌒"
+  }
+}

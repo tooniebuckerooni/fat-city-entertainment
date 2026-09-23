@@ -42,8 +42,8 @@
       "name": "Los Angeles",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/los-angeles/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -60,8 +60,8 @@
       "name": "Philadelphia",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/philadelphia/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -78,8 +78,8 @@
       "name": "Atlanta",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/atlanta/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -87,8 +87,8 @@
       "name": "Nashville",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/nashville/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -105,8 +105,8 @@
       "name": "Denver",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/denver/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -114,8 +114,8 @@
       "name": "Minneapolis",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/minneapolis/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -132,8 +132,8 @@
       "name": "Portland",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/portland/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -141,8 +141,8 @@
       "name": "San Diego",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/san-diego/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -168,8 +168,8 @@
       "name": "Edmonton",
       "country": "CA",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/edmonton/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -222,8 +222,8 @@
       "name": "Bristol",
       "country": "GB",
       "term": "pub quiz",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/bristol/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {

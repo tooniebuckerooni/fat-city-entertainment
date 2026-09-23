@@ -1,0 +1,34 @@
+{
+  "slug": "nashville",
+  "title": "Nashville Trivia Night for a Room Full of Songwriters",
+  "description": "Nashville trivia night notes: quizzing a room that knows every songwriting credit, dodging CMA Fest and bachelorette weekends, and a Music City round to load.",
+  "h1": "A Nashville Trivia Night Between the First and Second Set",
+  "kicker": "Music City knows the words. Test it on the rest.",
+  "poem": [
+    "Nashville sits in a bend of the Cumberland with green hills folding around it, and on a humid evening the river smell drifts up to the old brick warehouses on Second Avenue. Downtown, the sound carries for blocks: a steel guitar from one open door, a bachelorette party singing along through another, a busker on the corner with a cardboard sign and a better voice than he lets on.",
+    "Away from the neon, the city is quieter and more neighborly. East Nashville porches, Germantown row houses, a songwriters' night where the whole room hushes for a first verse. That hush is the local habit, and trivia night borrows it: a table of session players, nurses and grad students leaning in over question seven, then groaning together when the answer turns out to be a Dolly Parton lyric every one of them knew.",
+    "Music City was built by people who played for tips on weeknights before anybody knew their names, and it still runs on them: writers in the round, comics on a Wednesday showcase, the quizmaster reading scores between a band's first and second set. Late in the evening the downtown lights shake on the water, and the Batman Building stands over it all with its two pointed ears lit against the dark."
+  ],
+  "sections": [
+    {
+      "h2": "Hot Chicken, Titans Sundays and the Songwriter's Hush",
+      "paras": [
+        "Nashville crowds know music better than any room you will ever quiz, so treat the music round with respect: check every credit, because a table of professionals will catch a wrong songwriter before you finish reading the answer. Local history plays well too, from the Opry's radio days to the 1960 lunch-counter sit-ins downtown. A food round can start a fair fight over hot chicken heat levels, meat-and-three sides and the Goo Goo Cluster.",
+        "The rhythm follows the visitors. Downtown fills on weekends and through bachelorette season, so a neighborhood quiz does best midweek. In the fall, check the Titans and Vanderbilt schedules before booking, and give CMA Fest week in June a wide berth."
+      ]
+    },
+    {
+      "h2": "The Grind, the Tip Jar and the Rooms Between Gigs",
+      "paras": [
+        "Nashville has a word for the life most of its performers lead: the grind. A writer might play a round at seven, a session next morning and a covers set that weekend, and the weeknight rooms are where the grind pays. Plenty of quizzes here are run by a singer or a comic with a good voice, and the tip jar on the bar is part of how their rent gets covered.",
+        "So treat the quiz like any other gig in town. Tip the host as you would a band, stay for whoever plays after, and bring a friend who has never been. To start one in your own part of town, Trivia Show Maker can build the first night, with the Nashville round on this page to open it."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#1e5aa8",
+    "paper": "#f1f5fb",
+    "ink": "#0d1420",
+    "motif": "♫"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "San Diego Trivia Night",
+  "round": {
+    "name": "Local Round: San Diego",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "The San Diego Zoo sits inside which large park, home to the 1915 Panama-California Exposition?", "a": "Balboa Park" },
+      { "q": "Which explorer sailed into San Diego Bay in 1542 and is honored by a national monument on Point Loma?", "a": "Juan Rodríguez Cabrillo" },
+      { "q": "Which Franciscan friar founded Mission San Diego de Alcalá in 1769, the first of the California missions?", "a": "Junípero Serra" },
+      { "q": "Which aircraft carrier, retired in 1992, is now a museum on the downtown waterfront?", "a": "USS Midway" },
+      { "q": "What is the name of San Diego's Major League Baseball team?", "a": "The Padres" },
+      { "q": "Which fan convention, first held in 1970, fills the San Diego Convention Center each summer?", "a": "Comic-Con" },
+      { "q": "A long, curving blue bridge across San Diego Bay, opened in 1969, links the city to which neighboring city?", "a": "Coronado" },
+      { "q": "The Hotel del Coronado stood in for a Florida resort in which 1959 Billy Wilder comedy starring Marilyn Monroe?", "a": "Some Like It Hot" },
+      { "q": "The 1986 film Top Gun is set at the Navy's fighter weapons school, then based at which San Diego naval air station?", "a": "Miramar" },
+      { "q": "Which 2004 Will Ferrell comedy follows a 1970s news anchor who signs off with \"Stay classy, San Diego\"?", "a": "Anchorman" }
+    ]
+  },
+  "notes": [
+    "San Diego Zoo is in Balboa Park, site of the 1915-16 Panama-California Exposition; see Balboa Park (Wikipedia) or balboapark.org.",
+    "Cabrillo entered San Diego Bay on 28 September 1542; Cabrillo National Monument is on Point Loma; see Cabrillo National Monument (NPS, nps.gov/cabr).",
+    "Founded 16 July 1769 by Junípero Serra, first of the 21 Alta California missions; see Mission San Diego de Alcalá (Wikipedia).",
+    "USS Midway decommissioned 1992, opened as a museum in 2004 at Navy Pier; see USS Midway Museum (Wikipedia) or midway.org.",
+    "San Diego Padres, MLB since 1969; see San Diego Padres (Wikipedia) or MLB.com.",
+    "First San Diego comic convention held in 1970; now held each July at the San Diego Convention Center; see San Diego Comic-Con (Wikipedia).",
+    "San Diego-Coronado Bridge opened August 1969, painted blue; see San Diego-Coronado Bridge (Wikipedia) or Caltrans.",
+    "Some Like It Hot (1959) used the Hotel del Coronado as the Florida 'Seminole Ritz'; see Some Like It Hot or Hotel del Coronado (Wikipedia).",
+    "Top Gun (1986) set at the Navy Fighter Weapons School, then at NAS Miramar (moved to Fallon, Nevada, in 1996); see Top Gun (Wikipedia) or United States Navy Strike Fighter Tactics Instructor program.",
+    "Anchorman: The Legend of Ron Burgundy (2004), set at a San Diego TV station, catchphrase 'Stay classy, San Diego'; see Anchorman (Wikipedia)."
+  ]
+}

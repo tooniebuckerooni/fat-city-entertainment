@@ -1,0 +1,34 @@
+{
+  "slug": "atlanta",
+  "title": "Atlanta Trivia Night: Braves, Peachtree and Pollen Season",
+  "description": "Atlanta trivia night notes for hosts: pitching questions to natives and transplants, timing around the Connector and summer storms, and a local round to load.",
+  "h1": "Trivia Night in Atlanta, Under the Pines and the Skyline",
+  "kicker": "A city of transplants and natives, arguing over which Peachtree.",
+  "poem": [
+    "Atlanta grew up around a railroad stake and has not stopped building. The trees came with it: oaks and pines so thick over old neighborhoods that from a plane the city looks like a forest with a skyline set down in the middle. Spring arrives as a yellow haze of pollen on every windshield, and summer as a wall of heat that breaks most afternoons into a thunderstorm, clears the streets for twenty minutes and leaves them steaming.",
+    "People here gather indoors when the air turns thick. The Sunday cookout moves to a Tuesday table, and the argument about which Peachtree somebody meant carries on over wings and sweet tea. Trivia night suits a city that loves to talk. A room in Decatur or Little Five Points goes loud over a question about the Braves, then quiet for one about the movement that grew up on Auburn Avenue.",
+    "This is the city that sent OutKast out of East Point and made a basement sound the world copied. That came from people who kept going out on weeknights: to the open mic, the DJ night, the comedy showcase, the trivia host with a borrowed mic and a stack of index cards. After the last round the Beltline lights string out past the old warehouses, and the heat still rises off the pavement at midnight."
+  ],
+  "sections": [
+    {
+      "h2": "Natives, Transplants and a Round Called Peachtree",
+      "paras": [
+        "An Atlanta room mixes people born here with people who moved here last year, so pitch the local round both ways: a couple of questions every newcomer can get, and a couple that only somebody who grew up inside the Perimeter will know. Civil rights history deserves real questions, asked with care. Hip-hop and film make strong music and screen rounds, since so much of both has been made here over the last two decades.",
+        "Plan for heat and traffic. A 7:30 start lets people clear the Connector, and a summer storm can empty a room for an hour and then fill it again. Fall Saturdays belong to college football, so keep the quiz to the middle of the week."
+      ]
+    },
+    {
+      "h2": "From the Basement Studio to the Tuesday Mic",
+      "paras": [
+        "Atlanta's music did not start in big rooms. It came out of basements, skating rinks, college radio and small clubs where a DJ, a rapper or a comic could try something new on a slow night and learn by the end of the set whether it worked. A trivia night belongs to the same family: a weeknight room kept alive by one person with a microphone who decided the neighborhood deserved somewhere to go.",
+        "Back those rooms in practical ways. Come on the slow nights, bring a table of six, and buy the host a drink. If your side of town has no quiz yet, Trivia Show Maker can print a first night, with this Atlanta round as the opener."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#ce1141",
+    "paper": "#fcf3f1",
+    "ink": "#1a0f0d",
+    "motif": "❦"
+  }
+}

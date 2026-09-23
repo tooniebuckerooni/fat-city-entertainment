@@ -1,0 +1,34 @@
+{
+  "slug": "edmonton",
+  "title": "Edmonton Trivia Night: Ten Questions on the River City",
+  "description": "Gretzky, the High Level Bridge, Fort Edmonton and the Fringe: ten questions for an Edmonton trivia night, plus notes on hosting through a prairie winter.",
+  "h1": "Edmonton Trivia Night, Down in the River Valley",
+  "kicker": "Midnight sun in June, minus thirty in January, one good room.",
+  "poem": [
+    "In June the sun over Edmonton barely bothers to set. It hangs low and gold above the river valley until well past ten, the paths along the North Saskatchewan fill with cyclists and dog walkers, and the heritage streetcar rattles across the High Level Bridge as if it has somewhere better to be. By August the city has turned itself over to festivals, and Old Strathcona smells of kettle corn and sunscreen.",
+    "Then the dark comes back, and it comes hard. January here means plugged-in block heaters, breath freezing on scarves, and the long white stillness of the prairie at the edge of town. That is when trivia night becomes a civic institution. Teams bundle in off Whyte Avenue, stamp the snow off their boots and argue about 1988 as though it happened last week. There is always one table that wants a Calgary question, purely so they can get it wrong on purpose.",
+    "Those rooms stay warm because people run them: the host with the clipboard, the fiddler booked for the second set, the improv players who have kept this city laughing since the eighties. Walk home afterwards under a sky cracked with cold, and some winter nights it hangs green curtains of aurora over the valley."
+  ],
+  "sections": [
+    {
+      "h2": "Oil Country questions, prairie winter rhythm",
+      "paras": [
+        "An Edmonton room knows its hockey, so an Oilers round is close to mandatory; set it for the whole table, not just the person in the jersey. The fur trade, the Klondike rush that ran through town, the Legislature and the river valley's bridges all make good local material, and West Edmonton Mall is worth a question because everyone has a story about it. A gentle jab at Calgary will get a cheer. Keep it gentle; half the room has family down the QEII.",
+        "Build your calendar around the seasons. Trivia thrives from October to March, when a warm room on a Tuesday beats another night indoors. In summer the festivals win, so go lighter, and on playoff nights either pick another date or quiz through the intermissions."
+      ]
+    },
+    {
+      "h2": "The Festival City, fifty-one weeks a year",
+      "paras": [
+        "Edmonton calls itself the Festival City, and it has earned the name: the Fringe, the Folk Music Festival on the hill at Gallagher Park, Heritage Days and a dozen more. The trouble is that a festival lasts a week or two. The performers who fill those stages spend the rest of the year in small rooms, and those rooms are what carry a scene through January.",
+        "So treat the weeknight like a festival that happens to be quiet. Go to the Tuesday trivia, stay for the singer-songwriter after it, catch the sketch night in a church basement near the university. If your community hall or staff room needs a night of its own, the Edmonton round on this page will open it for you."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#ff4c00",
+    "paper": "#fdf6f1",
+    "ink": "#101828",
+    "motif": "⧫"
+  }
+}

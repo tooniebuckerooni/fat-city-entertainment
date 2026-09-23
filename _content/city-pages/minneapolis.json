@@ -1,0 +1,34 @@
+{
+  "slug": "minneapolis",
+  "title": "Minneapolis Trivia Night: Lakes, Prince and Mill City",
+  "description": "Minneapolis trivia night ideas for long winters: Twins and Vikings rounds, Mill City history, Prince, the skyways, plus a local round for Trivia Show Maker.",
+  "h1": "A Minneapolis Trivia Night Worth Crossing the Skyway For",
+  "kicker": "Frozen lakes outside, warm tables and quick answers within.",
+  "poem": [
+    "Minneapolis measures the year by its lakes. In summer they are ringed with bikes and sailboats and somebody's dog swimming after a stick; by January they are white fields dotted with ice-fishing houses, and people walk across water as if it were the most ordinary thing in the world. The Mississippi keeps working through all of it, sliding past the old mill ruins at Saint Anthony Falls under the Stone Arch Bridge.",
+    "Winter here is not something to endure alone, so people build ways around it. Office workers cross downtown through glass skyways without ever touching the cold, and on a Thursday in February whole neighborhoods seem to agree to meet indoors. A trivia night in Minneapolis runs on polite competitiveness: nobody gloats out loud, but everybody remembers who won last week.",
+    "This is a city that gave the world Prince and the Minneapolis sound, and it has kept a crowded calendar of theater, stand-up and small-club music ever since. That survives because people put on two layers, scrape the windshield and go out anyway to hear a band, a comic or a quizmaster. On the walk home the snow squeaks underfoot and the skyline glows orange against a low, soft sky."
+  ],
+  "sections": [
+    {
+      "h2": "Hot Dish, Juicy Lucys and the Twins: Local Rounds That Land",
+      "paras": [
+        "Minneapolis crowds enjoy a round that proves they know the place. Try Saint Anthony Falls and the flour mills that earned the Mill City name, the Spoonbridge and Cherry, Minnehaha Falls, and the Lakers leaving for Los Angeles. Food is reliable fun: the cheese-sealed Juicy Lucy (and the running argument over how to spell it), hot dish, and the Minneapolis against Saint Paul rivalry that turns up in almost any subject.",
+        "The rhythm is set by the weather. From November to March weeknights are when people want somewhere warm to go, and a regular night can build a loyal crowd fast. In summer, compete with the lakes by starting later and keeping it brisk. Check the Vikings schedule in the fall, and give Twins playoff nights a wide berth."
+      ]
+    },
+    {
+      "h2": "Long Winters Built a Room-Going City",
+      "paras": [
+        "Cold climates make people choose their evenings deliberately, and Minneapolis chose to fill them with stages. The same city that sent Prince up from its clubs supports theater companies, improv troupes and songwriters far beyond what its size would suggest, largely because audiences here treat a night out as a habit, not a special occasion.",
+        "A weekly trivia night belongs in that tradition. The person reading the questions is doing the same job as the singer and the stand-up: turning strangers into a room. So pay the cover, laugh at the new material, and bring the quizmaster a coffee in January. To get something started on your own block, the Minneapolis round here is a good first page."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#4f2683",
+    "paper": "#f5f2fa",
+    "ink": "#16121d",
+    "motif": "❅"
+  }
+}
