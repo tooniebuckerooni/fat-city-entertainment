@@ -1,0 +1,33 @@
+{
+  "title": "Chicago Trivia Night",
+  "round": {
+    "name": "Local Round: Chicago",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "The Great Chicago Fire broke out in which year?", "a": "1871" },
+      { "q": "Which Great Lake forms Chicago's eastern shoreline?", "a": "Lake Michigan" },
+      { "q": "Name both of Chicago's Major League Baseball teams.", "a": "The Cubs and the White Sox" },
+      { "q": "What is the name of the North Side ballpark famous for its ivy-covered outfield walls?", "a": "Wrigley Field" },
+      { "q": "Every St. Patrick's Day, Chicago dyes what bright green?", "a": "The Chicago River" },
+      { "q": "The mirrored sculpture in Millennium Park known as \"The Bean\" has what official name?", "a": "Cloud Gate" },
+      { "q": "Which condiment does Chicago tradition say must never go on a Chicago-style hot dog?", "a": "Ketchup" },
+      { "q": "Michael Jordan won six NBA championships with which Chicago team?", "a": "The Chicago Bulls" },
+      { "q": "Which fairground ride made its debut at Chicago's 1893 World's Columbian Exposition?", "a": "The Ferris wheel" },
+      { "q": "Chicago's Sears Tower was renamed in 2009. What is it called now?", "a": "Willis Tower" }
+    ]
+  },
+  "notes": [
+    "Began 8 October 1871; see Great Chicago Fire on Wikipedia or the Chicago History Museum.",
+    "See Chicago geography on Wikipedia or any map; the city sits on Lake Michigan's southwestern shore.",
+    "Cubs (National League) and White Sox (American League); see MLB.com team pages.",
+    "Wrigley Field ivy planted 1937; see Wrigley Field on Wikipedia or MLB.com/cubs.",
+    "Annual river dyeing since 1962; see Chicago St. Patrick's Day Parade site or Wikipedia.",
+    "Anish Kapoor sculpture, official title Cloud Gate; see City of Chicago Millennium Park page.",
+    "Standard toppings exclude ketchup by long-standing tradition; see Chicago-style hot dog on Wikipedia.",
+    "Bulls titles 1991-93 and 1996-98; see NBA.com or Michael Jordan on Wikipedia.",
+    "George Ferris's wheel debuted at the 1893 fair; see World's Columbian Exposition on Wikipedia.",
+    "Renamed Willis Tower in July 2009; see Willis Tower on Wikipedia or willistower.com."
+  ]
+}

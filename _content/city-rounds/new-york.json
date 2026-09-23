@@ -1,0 +1,33 @@
+{
+  "title": "New York Trivia Night",
+  "round": {
+    "name": "Local Round: New York",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Which New York City borough is also known as Kings County?", "a": "Brooklyn" },
+      { "q": "In which year did the Brooklyn Bridge open?", "a": "1883" },
+      { "q": "The Statue of Liberty was a gift to the United States from which country?", "a": "France" },
+      { "q": "Frederick Law Olmsted and Calvert Vaux designed which Manhattan park?", "a": "Central Park" },
+      { "q": "Which Major League Baseball team plays its home games in the Bronx?", "a": "The New York Yankees" },
+      { "q": "What was New York called when it was a Dutch colonial settlement?", "a": "New Amsterdam" },
+      { "q": "In the 1933 film King Kong, which skyscraper does the giant ape climb?", "a": "The Empire State Building" },
+      { "q": "Which river separates Manhattan from New Jersey?", "a": "The Hudson River" },
+      { "q": "In which Manhattan square does a lit ball drop at midnight on New Year's Eve?", "a": "Times Square" },
+      { "q": "Which island in New York Harbor was the main federal immigration station from 1892 to 1954?", "a": "Ellis Island" }
+    ]
+  },
+  "notes": [
+    "Kings County is coextensive with Brooklyn; see Brooklyn Wikipedia / NY State county list",
+    "Opened 24 May 1883; see Brooklyn Bridge Wikipedia / NYC DOT",
+    "Gift of the people of France, dedicated 1886; see National Park Service Statue of Liberty page",
+    "Greensward Plan by Olmsted and Vaux, 1858; see Central Park Conservancy history",
+    "Yankee Stadium is in the Bronx; see MLB.com Yankees",
+    "Dutch New Netherland settlement renamed New York in 1664; see New Amsterdam Wikipedia",
+    "Climax of King Kong (1933) on the Empire State Building; see AFI Catalog / film Wikipedia",
+    "Hudson River forms Manhattan's western shore; see Hudson River Wikipedia",
+    "Times Square Ball drop since 1907; see Times Square Alliance",
+    "Ellis Island immigration station operated 1892 to 1954; see National Park Service Ellis Island page"
+  ]
+}

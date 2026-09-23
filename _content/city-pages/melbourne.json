@@ -1,0 +1,34 @@
+{
+  "slug": "melbourne",
+  "title": "Melbourne Trivia Night: Host Your Own, Free Local Round",
+  "description": "Host a Melbourne trivia night with a free local round on the Yarra, the G, Phar Lap and Ned Kelly. Read it on the page or load it into a printable quiz.",
+  "h1": "Run a Trivia Night in Melbourne",
+  "kicker": "Four seasons in one day, and one more round.",
+  "poem": [
+    "Melbourne keeps its best rooms tucked out of sight. You find them down bluestone laneways off Flinders Lane, up a flight of stairs in Fitzroy, behind a door in Brunswick with a hand-painted sign. The trams grind round the corners, the Yarra runs brown and unbothered under the bridges, and the afternoon can go from shirtsleeves to a cold change so fast that everyone carries a jacket out of habit.",
+    "It is a city that argues well: about coffee, about footy, about which side of the river is better and whether anyone south of it can be trusted. Trivia night gives all of that somewhere to go. Midweek, in pubs from Carlton to Footscray, teams hunch over answer sheets with the gravity of a grand final, and a question about Phar Lap can split a table for the rest of the night.",
+    "Those nights run on people. The host with the microphone and the tie-breaker, the band loading in through the back, the comic doing five minutes in a room that holds forty on a good night. Melbourne has always backed its live culture, but only by turning up. The laneways stay lit because someone keeps walking down them on a weeknight."
+  ],
+  "sections": [
+    {
+      "h2": "What a Melbourne trivia crowd wants",
+      "paras": [
+        "Sport is a round of its own here, and footy most of all. Keep it fair across the clubs, because every table has a supporter who will take a question about their rivals personally. Cricket in summer, the Australian Open in January and the Cup in November give you a seasonal hook for every month of the year.",
+        "Local history plays well too: the gold rush, Federation, the 1956 Olympics, Ned Kelly and the trams. Melbourne crowds tend to be sharp and a little competitive, so mark carefully and read the answers slowly. A picture round of laneways or landmarks goes down well, and so does a music round with a strong Australian bent. Keep teams small enough to talk without shouting."
+      ]
+    },
+    {
+      "h2": "Keeping Melbourne live",
+      "paras": [
+        "A playlist can fill a quiet room, but it cannot run one. A good host notices the team that has not scored yet, keeps the regulars honest and knows when the room needs a laugh. That is the same skill the city's musicians and comics bring to its small stages, and none of it survives unless people keep booking tickets and showing up midweek.",
+        "So get behind the locals: the trivia hosts, the bands playing the front bar, the comedians trying out new material. If your footy club, school or workplace wants a night of its own, the Melbourne round on this page is a fair place to start, and Trivia Show Maker will print the rest free."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#5b8f22",
+    "paper": "#f2f2ef",
+    "ink": "#1a1a1a",
+    "motif": "⁂"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "title": "Manchester Pub Quiz",
+  "round": {
+    "name": "Local Round: Manchester",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Which insect has been a symbol of Manchester since the days of the cotton mills?", "a": "The worker bee" },
+      { "q": "Which band, formed in Manchester and led by the Gallagher brothers, released \"Wonderwall\"?", "a": "Oasis" },
+      { "q": "Which long-running ITV soap is set in the fictional town of Weatherfield?", "a": "Coronation Street" },
+      { "q": "Thanks to its many mills, Victorian Manchester earned which nickname?", "a": "Cottonopolis" },
+      { "q": "The world's first inter-city passenger railway, opened in 1830, linked Manchester with which city?", "a": "Liverpool" },
+      { "q": "Which Manchester record label, co-founded by Tony Wilson, released Joy Division and New Order?", "a": "Factory Records" },
+      { "q": "The 1819 attack on a peaceful crowd at St Peter's Field is known by what name?", "a": "The Peterloo Massacre" },
+      { "q": "Which suffragette leader, who founded the Women's Social and Political Union in Manchester in 1903, has a statue in St Peter's Square?", "a": "Emmeline Pankhurst" },
+      { "q": "Which codebreaker and computer pioneer, who worked at the University of Manchester, is remembered with a statue in Sackville Gardens?", "a": "Alan Turing" },
+      { "q": "Manchester City's home ground was originally built for which multi-sport event in 2002?", "a": "The Commonwealth Games" }
+    ]
+  },
+  "notes": [
+    "Worker bee adopted as a city emblem during the Industrial Revolution (appears on the 1842 city coat of arms); see Manchester City Council / Wikipedia 'Manchester bee'.",
+    "Oasis formed in Manchester in 1991; 'Wonderwall' from (What's the Story) Morning Glory? (1995); see Oasis Wikipedia.",
+    "Coronation Street, ITV since 1960, set in fictional Weatherfield (based on Salford); see Coronation Street Wikipedia.",
+    "'Cottonopolis' nickname for 19th-century Manchester; see Wikipedia 'Cottonopolis' / Science and Industry Museum.",
+    "Liverpool and Manchester Railway opened 15 September 1830; see Wikipedia / Science and Industry Museum (Liverpool Road station).",
+    "Factory Records founded 1978 by Tony Wilson and Alan Erasmus; see Factory Records Wikipedia.",
+    "Peterloo Massacre, 16 August 1819, St Peter's Field; see Wikipedia 'Peterloo Massacre' / People's History Museum.",
+    "Pankhurst founded the WSPU at her Nelson Street home in Manchester in October 1903; statue 'Rise Up, Women' unveiled in St Peter's Square in December 2018; see Pankhurst Centre / Wikipedia.",
+    "Alan Turing Memorial statue in Sackville Park (Sackville Gardens), unveiled 2001; Turing worked at the University of Manchester from 1948; see Wikipedia 'Alan Turing Memorial'.",
+    "City of Manchester Stadium (now the Etihad) built for the 2002 Commonwealth Games, Man City moved in 2003; see Wikipedia 'City of Manchester Stadium'."
+  ]
+}

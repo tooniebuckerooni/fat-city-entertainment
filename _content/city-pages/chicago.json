@@ -1,0 +1,34 @@
+{
+  "slug": "chicago",
+  "title": "Chicago Trivia Night: Host a Great One in the Windy City",
+  "description": "Plan a Chicago trivia night that works: Cubs and Sox rounds, lakefront lore, winter rhythms, and a free local round you can load in one click.",
+  "h1": "A Chicago Trivia Night, Cubs and Sox Welcome",
+  "kicker": "Lake wind outside, a full room and ten good questions inside.",
+  "poem": [
+    "Chicago is a city you hear before you see: the El grinding its curve over the Loop, a lake wind that finds the gap in every collar, a bus sighing at a corner three-flat where somebody's porch light has been on since 1962. In January the lake steams like a kettle. In July the whole city seems to live on its stoops and rooftops, arguing about pizza with the confidence of people who have never once been wrong.",
+    "It is a neighborhood town, and neighborhoods need somewhere to meet. So on a Tuesday, when the sidewalks are salted and the Bears have already broken someone's heart, people push through a heavy door into a warm back room, claim a table, name their team something they will regret, and wait for a quizmaster to clear their throat. A trivia night here is part civic duty, part grudge match, and the Cubs fans and Sox fans sit at the same tables.",
+    "This is the city that taught the country how to do improv and gave the blues its electric voice. That did not happen by accident. It happened because people kept showing up on weeknights for the hosts, the bands, the comics and the quizmasters, and a room full of strangers kept deciding to laugh together. Keep showing up."
+  ],
+  "sections": [
+    {
+      "h2": "Running a trivia night Chicagoans will come back for",
+      "paras": [
+        "Chicago crowds are loyal, loud and proud of their city, so a local round is the easiest win you have. The Cubs and White Sox split is good for at least one question and one friendly heckle. The Great Fire, the Columbian Exposition, the river that runs backward and the architecture of the Loop all make strong material, and food rounds (deep dish against tavern-style thin crust, Italian beef, the ketchup question) will start arguments you want.",
+        "Mind the rhythm. Winter is peak indoor season and weeknights fill up; summer brings patio nights and street festivals, so start later. Check the Bears schedule before booking a Sunday or Monday, and keep playoff nights for watching, not quizzing."
+      ]
+    },
+    {
+      "h2": "Why a live host still matters in Chicago",
+      "paras": [
+        "Put a speaker in the corner and people talk over it. Put a person with a microphone there and they read the crowd, lets the table that named itself after a Cubs curse enjoy its moment, and keeps the pace brisk when the lake wind has everyone tired. That is a craft, and Chicago has a long tradition of people who practice it well, on comedy stages and bandstands as much as at quiz nights.",
+        "So tip your quizmaster, stay for the second set, and go see the improv show your friend keeps mentioning. Want to run one yourself? Borrow the Chicago round on this page for your opener. The questions are the easy part; showing up every week is the job."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#e4002b",
+    "paper": "#eef7fc",
+    "ink": "#111827",
+    "motif": "✶"
+  }
+}

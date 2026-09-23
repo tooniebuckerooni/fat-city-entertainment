@@ -1,0 +1,34 @@
+{
+  "slug": "dublin",
+  "title": "Run a Table Quiz in Dublin: Free Local Round to Print",
+  "description": "Plan a Dublin table quiz the room will talk about: tips on local rounds, fundraiser nights and pacing, plus a free 10-question round to print or load.",
+  "h1": "The Dublin Table Quiz, Done Properly",
+  "kicker": "A free local round and a few notes for quizmasters",
+  "poem": [
+    "Dublin does soft light better than anywhere. Rain comes in off the bay, lingers for ten minutes, and leaves the Georgian doors on Merrion Square shining like they were painted that morning. The Liffey runs brown and quick under the Ha'penny Bridge, gulls argue over the quays, and the DART slides along the coast from Howth to Bray with the sea on one side and back gardens on the other.",
+    "This is a city that treats conversation as a sport, so of course it settled on the table quiz. Tables of four, a pencil each, answer sheets passed up to the top of the room, and a raffle at the break with a hamper nobody needs. The GAA club runs one, the school runs one, the local charity runs one every spring, and half the parish turns up to lose to the same team of retired teachers.",
+    "None of it happens without the people at the front. The quizmaster who reads the tie-break twice, the musicians at a Tuesday session, the comedian trying new material in an upstairs room: they keep the weeknights of this city worth leaving the house for. Go and see them, and stay for one more."
+  ],
+  "sections": [
+    {
+      "h2": "Running a good table quiz in Dublin",
+      "paras": [
+        "A Dublin crowd knows its quizzes and will spot a lazy question from the back of the room. Local rounds go down well: the northside and southside divide, the bus routes, Joyce and Wilde, the Dubs in Croke Park, and the Irish names on the street signs. A picture round and a music round of Irish acts give every table something to shout about.",
+        "Many table quizzes here raise money for a club, a school or a charity, so plan for a raffle at the half-way point and a spot prize for the last-placed table. Weeknights in autumn and the run-up to Christmas are the busy season. Avoid clashing with a big All-Ireland match or a Six Nations weekend, or you will be quizzing to an empty hall."
+      ]
+    },
+    {
+      "h2": "Keeping live nights going in the city",
+      "paras": [
+        "A pub quiz with a real quizmaster is a different night from one with a speaker in the corner. The host keeps the pace, reads the scores with a bit of mischief and decides, firmly, whether \"the Liffey\" and \"Anna Livia\" are the same answer. That is what brings people back the following week.",
+        "Dublin has a long habit of live entertainment in small rooms: trad sessions, singer-songwriters, stand-up nights and quizzes that have run for years. Support them by turning up, bringing a table of friends and telling the staff you came for the night. Running one for the club or the school this year? Start with the Dublin round below, and let Trivia Show Maker, which is free, print the answer sheets for every table."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#169b62",
+    "paper": "#f3f8f4",
+    "ink": "#10231a",
+    "motif": "☘"
+  }
+}

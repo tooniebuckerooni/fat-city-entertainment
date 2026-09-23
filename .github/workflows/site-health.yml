@@ -190,6 +190,12 @@ jobs:
             # not re-run leaves the page and the tool reading different answers.
             # Reports "would update: N file(s)"; proved by going live, editing an
             # answer, and watching the matcher fire, then go quiet.
+            #
+            # build-city-pages joined the same day. It regenerates every page under
+            # /trivia-nights/ from _content/city-pages/, and carries forward the
+            # round and JSON-LD blocks other tools own, so an unchanged page reads
+            # 0. Proved by editing one sentence of a city's copy without a rebuild
+            # and watching "would update: 1" fire, then go quiet after --write.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
@@ -198,7 +204,7 @@ jobs:
                      add-pillar-uplinks reorder-product-cta add-playlist-badge \
                      build-store-facets add-store-filters set-cta-labels \
                      tidy-listing-intro set-delivery-boilerplate \
-                     count-subcategory-tiles add-city-rounds \
+                     count-subcategory-tiles add-city-rounds build-city-pages \
                      add-app-nav add-trivia-store-nav add-song-lists-nav \
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \

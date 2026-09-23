@@ -1,0 +1,34 @@
+{
+  "slug": "london",
+  "title": "Host a Pub Quiz in London, With a Free Local Round",
+  "description": "Plan a pub quiz in London with a free 10-question local round on the Thames, the Tube and the Great Fire, ready to read out or load into Trivia Show Maker.",
+  "h1": "Run Your Own London Pub Quiz",
+  "kicker": "Ten free questions on London for your next quiz night.",
+  "poem": [
+    "London does its gathering indoors for half the year. The light goes early over the Thames, the bus windows steam up, and by six the pavements outside every station are full of people deciding where to shelter. It is a city of villages stitched together by the Tube and the night bus, and each village has its own local, its own regulars, its own table by the radiator that everyone wants.",
+    "The pub quiz belongs to that geography. On a Tuesday in Walthamstow or a Wednesday in Brixton, a room of strangers splits into teams with names that are mostly puns, and for two hours the city's oldest argument (who knows best) is settled with a biro and an answer sheet. Nobody is too clever for the music round. Somebody always knows the capital of Burkina Faso and is unbearable about it.",
+    "It only happens because somebody turns up to run it. The quizmaster with the crackling microphone, the folk trio in the back room, the comic trying out ten new minutes upstairs in Camden: they are what keeps a weeknight in London from being a night in. Go out on a Thursday. Buy a round. Clap for the tiebreak."
+  ],
+  "sections": [
+    {
+      "h2": "Running a good pub quiz in London",
+      "paras": [
+        "London teams are competitive and well read, so pitch the general knowledge a notch harder than you think and keep one round genuinely easy for the table that came for the company. Picture rounds work well here, and so does anything on the Tube map: stations, lines, the colour of the Central line. Football is dangerous ground in a city with this many clubs, so ask about the game rather than about anyone's team.",
+        "Mind the rhythm. Midweek is quiz night across most of the city, because Fridays belong to after-work drinks and weekends scatter people out to the suburbs. Keep it to about two hours, finish before the last trains thin out, and leave time to read the answers properly."
+      ]
+    },
+    {
+      "h2": "Why a London room needs a quizmaster",
+      "paras": [
+        "A playlist fills silence. A quizmaster fills a room: reads the tables, teases the team called Quiz Team Aguilera, rules on whether a Jaffa Cake is a cake, and keeps things moving when the bar gets loud. That is a real skill, and in London it is often practised by the same people who play the open mic on Monday and compère the comedy night on Sunday.",
+        "If your local has a quiz, go, and tip the quizmaster. If it does not, ask the landlord for a Tuesday and bring the London round from this page. Trivia Show Maker, free here, will print the answer sheets."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0019a8",
+    "paper": "#f4f5fa",
+    "ink": "#0b0f2a",
+    "motif": "⊖"
+  }
+}

@@ -713,12 +713,39 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
 
 ## City pages and their free local trivia rounds (23 Sept 2026)
 
-- **The city list is `_content/city-pages.json`: 31 cities** in the six
-  English-speaking markets with a weekly trivia or pub-quiz habit (15 US, 5 CA,
+- **The city list is `_content/city-pages.json`: 32 cities** in the six
+  English-speaking markets with a weekly trivia or pub-quiz habit (15 US, 6 CA,
   6 GB, 1 IE, 3 AU, 1 NZ; owner's brief 23 Sept 2026, "25-35, not so many that
-  Google might ding us"). Only Calgary (`yycevents.html`) and Charlotte
-  (`charlotte-events.html`) have pages and real history; the other 29 are
-  `"planned"` and every tool skips them. **What keeps 31 city pages from reading
+  Google might ding us"). Calgary (`yycevents.html`) and Charlotte
+  (`charlotte-events.html`) are hand pages with real history. **Wave 1 (23 Sept
+  2026) built ten more** under `/trivia-nights/<slug>/`: New York, Chicago,
+  Toronto, Vancouver, Montréal, London, Manchester, Dublin, Sydney, Melbourne.
+  The remaining 20 are `"planned"` and every tool skips them.
+- **`_tools/build-city-pages.js` owns `/trivia-nights/`**: each city page from
+  `_content/city-pages/<slug>.json` (title, description, h1, kicker, a three-
+  paragraph "poem", two practical sections, and a `look`: accent, paper, ink,
+  one text-presentation glyph), plus the hub, a managed `<!-- fce:city-pages -->`
+  sitemap block, and the `musicbingonearme.html` "Looking locally?" line. **One
+  switch, `status: "live"`, flips everything together**: indexable (no robots
+  tag), in the sitemap, on the hub, in sibling links, round placed and
+  published. A draft page is built for preview but is `noindex,follow` and
+  linked from nothing; the hub is noindex until a city is live. It **carries
+  forward** the `fce:jsonld` and `fce:city-round` blocks other tools own, so a
+  rebuild never drops a round and an unchanged page reads 0 in the Monday loop
+  (drift proof: one edited sentence fires, a rebuild quiets it). Live-to-draft
+  was round-tripped byte for byte across the whole repo. Order after an edit:
+  build-city-pages, add-city-rounds, add-jsonld, check-links.
+- **Montréal is the French test** (`lang: "fr"`): `<html lang="fr-CA">`,
+  `og:locale fr_CA`, JSON-LD `inLanguage`, and every string the two tools add is
+  in Quebec French too (`T` tables in both). The site nav and Trivia Show Maker
+  stay English, and the French buttons say so ("(en anglais)").
+- **Wave 1 copy was drafted by five parallel agents from one brief, and the
+  brief left fingerprints**: 9 of 9 English pages ended on the same "the games
+  on this site and the free Trivia Show Maker" sentence, 6 said "a playlist
+  fills silence; a host fills a room", and 3 H1s read "Host Your Own X Trivia
+  Night". All rewritten per city before building. **Before a wave ships, grep
+  the new pages for shared 6-word shingles**; sameness across city pages is the
+  one thing that makes 30 of them read as doorway pages. **What keeps 31 city pages from reading
   as scaled doorway pages is not the count, it is that each carries content no
   other page has** (its own checked local round) and claims no local presence
   the business does not have. Each entry has a `term` ("pub quiz", "table

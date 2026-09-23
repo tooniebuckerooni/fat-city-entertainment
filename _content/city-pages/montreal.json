@@ -1,0 +1,34 @@
+{
+  "slug": "montreal",
+  "title": "Soirée quiz à Montréal : une ronde locale gratuite",
+  "description": "Organisez votre soirée quiz à Montréal : dix questions sur le mont Royal, Expo 67 et le Tricolore, des conseils pour remplir la salle et un quiz gratuit.",
+  "h1": "Lancer une soirée quiz à Montréal",
+  "kicker": "Dix questions bien d'ici, prêtes à lire au micro ce soir.",
+  "poem": [
+    "Montréal se lit d'abord par ses escaliers extérieurs, ces spirales de fer qui grimpent aux façades du Plateau et de Rosemont, où l'on s'assoit l'été avec une bière pendant que la ruelle joue au hockey-balle. L'hiver, la ville change de peau : la neige bleuit sous les lampadaires, les souffleuses grondent toute la nuit, et la croix du mont Royal veille sur les toits blancs.",
+    "Entre le 1er juillet des déménagements et les terrasses qui ouvrent au premier rayon d'avril, on comprend vite qu'ici, on se rassemble. Au dépanneur, au parc La Fontaine, dans le métro qui sent le pneu chaud. Et un mardi soir, dans une taverne ou un sous-sol d'église, quelqu'un prend le micro, lit une question sur les Expos, et toute la salle se met à s'obstiner en deux langues.",
+    "La soirée quiz, c'est ça : une raison de sortir en semaine, de voir du monde, de perdre fièrement contre la table d'à côté. Comme les soirées d'humour dans les petites salles et les bands qui jouent devant quarante personnes sur Saint-Laurent, elle ne tient que grâce à ceux qui se déplacent. Allez-y. Applaudissez l'animateur. Restez pour la dernière ronde."
+  ],
+  "sections": [
+    {
+      "h2": "Réussir sa soirée quiz à Montréal",
+      "paras": [
+        "Le public montréalais aime qu'on lui parle de lui. Une ronde sur les stations de métro, sur les Expos et le Stade olympique, sur les chansons de Beau Dommage ou d'Harmonium, et la salle se réveille d'un coup. Prévoyez des questions qui passent bien dans les deux langues, ou annoncez clairement la langue de la soirée : les équipes mixtes vont l'apprécier.",
+        "Côté calendrier, suivez le rythme de la ville. Les soirs de match du Canadien, en séries surtout, avancez l'heure ou mettez la game à l'écran entre deux rondes. L'été, vos concurrents s'appellent festivals et terrasses ; c'est en novembre et en février, quand personne n'a envie de rester tout seul chez soi, que les salles se remplissent."
+      ]
+    },
+    {
+      "h2": "Garder la scène vivante",
+      "paras": [
+        "Une musique d'ambiance, ça meuble. Un animateur, ça rassemble : c'est lui qui connaît le nom des habitués, qui taquine l'équipe en dernière place et qui sait quand baisser la musique pour laisser rire le monde. Aucune application ne fait ça, et c'est pour ça que les gens reviennent à la même table, le même soir, semaine après semaine.",
+        "Montréal doit sa réputation de ville de sorties à des milliers de personnes qui montent sur une scène un mercredi soir : musiciens de la relève, humoristes qui rodent leur numéro, animateurs de quiz. Achetez le billet, laissez un pourboire, revenez la semaine prochaine. Et si votre quartier n'a pas encore sa soirée, commencez avec la ronde montréalaise de cette page ; Trivia Show Maker, gratuit ici, imprime le reste."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#003da5",
+    "paper": "#f3f6fc",
+    "ink": "#0a1a3a",
+    "motif": "⚜"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "manchester",
+  "title": "Manchester Pub Quiz: Run Your Own Night, Free Round",
+  "description": "Run a Manchester pub quiz with a free local round on bees, Peterloo, Factory Records and Corrie. Read it here or load it into a printable quiz in one click.",
+  "h1": "Host a Pub Quiz in Manchester",
+  "kicker": "Red brick, soft rain and a room that loves a scoreline.",
+  "poem": [
+    "Manchester does rain the way other cities do weather: patiently, sideways, without fuss. It darkens the red brick of Ancoats to the colour of strong tea and puts a shine on the setts along Castlefield, where the canals slide under the railway viaducts and the old warehouses have learned to be flats. Somewhere a tram bell goes, and a worker bee stares back from a bollard.",
+    "This is a city that built the modern world in cotton and then talked about it for two hundred years, so it knows a thing or two about a room full of people with opinions. On a wet Tuesday the pub quiz is where those opinions go: teams named after half-remembered B-sides, a picture round passed round like contraband, and someone at the back insisting the Hacienda question was worded unfairly.",
+    "None of that happens by itself. It happens because someone stood up with a microphone and a clipboard, the same way someone plugged in at a Northern Quarter gig or tried out ten new minutes above a pub in Chorlton. The city has never been short of people willing to get up and do a turn. It only needs the rest of us to come in out of the rain and watch."
+  ],
+  "sections": [
+    {
+      "h2": "What a Manchester quiz room wants",
+      "paras": [
+        "Music is non-negotiable. A room here will argue about Joy Division, the Smiths, the Stone Roses and Oasis longer than about anything else, so a music round or a Name That Tune slot earns its place. Football is the other live wire: split it fairly between red and blue, or keep it general and let both halves of the room groan together.",
+        "History lands well too, because people here know it: the mills, the Ship Canal, Peterloo, the suffragettes, Turing and the Baby computer. Midweek is quiz territory, and a warm pub is never more welcome than in November. Keep the teams to six, read every answer out clearly, and leave time for the sheet to be marked properly."
+      ]
+    },
+    {
+      "h2": "Keep Manchester's rooms live",
+      "paras": [
+        "Background music never heckled anyone back. A quizmaster does, and the good ones read the crowd, makes the regulars laugh, spots the new team in the corner and gives them a shout. That is the same craft that keeps the city's open mics, comedy nights and small gig rooms going, and all of it depends on people turning up on a weeknight.",
+        "So back the locals: the hosts, the bands playing to thirty people, the comics trying out new material. No quiz at your pub, club or office social yet? The Manchester round on this page makes a decent first ten questions, and the rest can be printed from Trivia Show Maker for nothing."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#f2a900",
+    "paper": "#fbf6ec",
+    "ink": "#1c1917",
+    "motif": "⬢"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "new-york",
+  "title": "Host a Trivia Night in New York City: Free Local Round",
+  "description": "Run a New York trivia night that the room will argue about: tips for a five-borough crowd, plus a free 10-question local round to print or load in one click.",
+  "h1": "Trivia Night in New York, Five Boroughs at a Time",
+  "kicker": "A free local round and notes for hosts across the city",
+  "poem": [
+    "New York keeps its own weather underground. Steam lifts out of the manholes in January, the subway platforms hold July long after the street has let it go, and the 7 train rattles over Queens with the sunset flashing between the girders. Everyone here walks fast and talks faster, and nobody has a living room big enough to host a party.",
+    "So the city gathers in back rooms. On a Tuesday in Astoria, a Wednesday in Park Slope, a Thursday somewhere below 14th Street, teams with names too clever by half hunch over answer sheets and fight about whether Staten Island counts. Trivia night here is a neighborhood habit: the same six friends, the same corner table, the same rival team that always wins the music round.",
+    "It only works because somebody stands up with a microphone and a stack of questions. The quizmasters, the open-mic comics, the bands loading gear down a narrow stair after a full day at another job: they are the reason a weeknight in this city still feels like going out. Buy the round, tip the host, stay for the last question."
+  ],
+  "sections": [
+    {
+      "h2": "Running a good trivia night in New York",
+      "paras": [
+        "A New York room is competitive and loud about it, so write questions people can argue over. Borough pride is the easiest win: a round on Brooklyn, the Bronx, Queens, Manhattan and Staten Island will split tables along lines they already care about. Subway lines, pizza versus bagels, Broadway musicals, Yankees against Mets and the Knicks' long history all land well.",
+        "Most trivia nights here run midweek, Monday to Thursday, because weekends belong to everything else. Keep rounds tight and the pace brisk; people arrive after long commutes and leave for the last train. Plan around the sports calendar, and expect a thin crowd during a big playoff game unless you put it on the screen."
+      ]
+    },
+    {
+      "h2": "Keeping live nights alive in the city",
+      "paras": [
+        "A playlist fills silence. A host fills a room. Someone reading the questions, teasing the team in last place and settling a dispute over spelling turns a bar into a place people come back to every week, and that regular crowd is what keeps a neighborhood spot open.",
+        "New York has always run on performers working small rooms: comics at open mics, musicians at weeknight residencies, quizmasters with a clipboard and a strong voice. Go to their nights, bring friends, and tell the bar you came for the show. Starting your own? Trivia Show Maker, free on this site, will lay out a first night's rounds and answer sheets, and the local round below is yours to open with."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#f2b705",
+    "paper": "#fbf7ea",
+    "ink": "#141414",
+    "motif": "●"
+  }
+}

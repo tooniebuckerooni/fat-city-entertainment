@@ -1,0 +1,34 @@
+{
+  "slug": "toronto",
+  "title": "Host a Trivia Night in Toronto, With a Free Local Round",
+  "description": "Plan a Toronto trivia night with a free local round on the Leafs, the Jays, the CN Tower and old York, to read aloud or load into Trivia Show Maker.",
+  "h1": "Toronto Trivia Night, From Old York to the 6",
+  "kicker": "Ten free questions on Toronto, from old York to the SkyDome.",
+  "poem": [
+    "Toronto lives beside a lake it mostly forgets is there, until a summer evening turns the water silver at the foot of Yonge Street and everyone remembers at once. The streetcars grind along King and Queen, the Island ferry fills with coolers and bikes, and in February half of downtown goes underground into the PATH and waits the winter out.",
+    "Winter is when trivia night earns its keep. A room on the Danforth or up in North York, windows fogged, boots dripping by the door, six friends arguing over whether it was Joe Carter or Roberto Alomar. People here come from everywhere, so the table that wins the geography round is rarely the one you expect, and the music round swings from the Tragically Hip to Bollywood to whatever Drake put out last.",
+    "None of it happens without the people at the front of the room. The trivia host with the handwritten scoresheet, the band loading in through the side door on a Wednesday, the comic working out a new bit in a basement on Queen West: they are the neighbourhood's real infrastructure. The city keeps building towers; somebody has to keep the rooms at street level full."
+  ],
+  "sections": [
+    {
+      "h2": "What a Toronto room responds to",
+      "paras": [
+        "Toronto rooms are mixed in every sense, so build a quiz that does not assume everyone shared one childhood. World geography lands well, so does food, and a round on the city itself sets off the best arguments: which TTC line goes where, what the SkyDome is called now, when the Leafs last won the Stanley Cup. Keep hockey questions fair to the casual fan; the diehards will get them anyway.",
+        "Plan around the seasons. Patio months pull people outdoors and trivia numbers dip; from November to March a warm room on a Tuesday is exactly what people want. On playoff nights, check the schedule before you pick a date, or mute the game and quiz through the intermissions."
+      ]
+    },
+    {
+      "h2": "Keeping live entertainment going in Toronto",
+      "paras": [
+        "A playlist never notices that table six has lost every round and needs a win. A host does. The best trivia nights in Toronto feel like a neighbourhood event because someone is reading the room, keeping score with some flair, and knowing when to throw in a bonus question. That person is often a musician, a comic or an improviser with a day job, and the weeknight gig helps keep them in the city.",
+        "So show up for them. Catch the band after the quiz, go to the stand-up night downstairs, and if your neighbourhood has no trivia night at all, start one. The Toronto round on this page will cover your first ten questions. Winning over regulars through a February is the part nobody can print for you."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#1b3f8b",
+    "paper": "#f3f5fa",
+    "ink": "#0f172a",
+    "motif": "▲"
+  }
+}

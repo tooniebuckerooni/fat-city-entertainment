@@ -40,7 +40,9 @@ const OUT = path.join(REPO, "trivia-show-maker", "rounds");
 
 const OPEN = "<!-- fce:city-round -->";
 const CLOSE = "<!-- /fce:city-round -->";
-const ANCHORS = ["    <!-- fce:copy -->", '    <div class="footer-wrap">'];
+// A generated city page (build-city-pages.js) plants its own slot, so the round
+// sits between the copy and the page's buttons rather than under the footer.
+const ANCHORS = ["<!-- fce:city-round-slot -->", "    <!-- fce:copy -->", '    <div class="footer-wrap">'];
 const TRIVIA_SHOWS = "/store/c6/triviagameshows/";
 
 const esc = s => String(s)
@@ -51,24 +53,44 @@ const esc = s => String(s)
 // tell that it was written from somewhere else.
 const noun = city => /quiz/.test(city.term || "") ? "quiz" : "trivia";
 
+// Every string the block contributes, per page language. The French page has to
+// be French all the way through, including the button.
+const T = {
+  en: city => ({
+    h2: `A free ${esc(city.name)} ${esc(noun(city))} round`,
+    intro: `Ten questions about ${esc(city.name)}, free to use at your next ${esc(city.term || "trivia night")}. Read them out as they are, or load the round into Trivia Show Maker to add it to a full show and print the answer sheets.`,
+    answers: "Show the answers",
+    load: "Load this round into Trivia Show Maker",
+    shows: "Browse full trivia shows",
+  }),
+  fr: city => ({
+    h2: `Une ronde gratuite sur ${esc(city.name)}`,
+    intro: `Dix questions sur ${esc(city.name)}, à utiliser gratuitement à votre prochaine ${esc(city.term || "soirée quiz")}. Lisez-les telles quelles, ou chargez la ronde dans Trivia Show Maker pour l'ajouter à une soirée complète et imprimer les feuilles de réponses (l'outil est en anglais).`,
+    answers: "Voir les réponses",
+    load: "Charger cette ronde dans Trivia Show Maker",
+    shows: "Voir les quiz prêts à jouer (en anglais)",
+  }),
+};
+
 function block(city, round) {
+  const t = (T[city.lang] || T.en)(city);
   const qs = round.questions.map(q => `<li>${esc(q.q)}</li>`).join("\n");
   const as = round.questions.map(q => `<li>${esc(q.a)}</li>`).join("\n");
   return `${OPEN}
-<section class="fce-copy fce-city-round">
+<section class="fce-copy fce-city-round"${city.lang === "fr" ? ' lang="fr-CA"' : ""}>
 <div class="fce-copy-inner">
-<h2>A free ${esc(city.name)} ${esc(noun(city))} round</h2>
-<p>Ten questions about ${esc(city.name)}, free to use at your next ${esc(city.term || "trivia night")}. Read them out as they are, or load the round into Trivia Show Maker to add it to a full show and print the answer sheets.</p>
+<h2>${t.h2}</h2>
+<p>${t.intro}</p>
 <ol>
 ${qs}
 </ol>
 <details>
-<summary>Show the answers</summary>
+<summary>${t.answers}</summary>
 <ol>
 ${as}
 </ol>
 </details>
-<p><a class="fce-cta" href="/trivia-show-maker/?round=${city.slug}">Load this round into Trivia Show Maker</a> <a class="fce-cta-secondary" href="${TRIVIA_SHOWS}">Browse full trivia shows</a></p>
+<p><a class="fce-cta" href="/trivia-show-maker/?round=${city.slug}">${t.load}</a> <a class="fce-cta-secondary" href="${TRIVIA_SHOWS}">${t.shows}</a></p>
 </div>
 </section>
 ${CLOSE}

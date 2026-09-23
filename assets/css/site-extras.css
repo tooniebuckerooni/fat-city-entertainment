@@ -1012,6 +1012,91 @@ a.fce-tool-banner-link:hover {
 .fce-copy-inner a:hover {
   color: #7d0c1e;
 }
+/* City pages under /trivia-nights/ (_tools/build-city-pages.js). Each page sets
+   three custom properties inline from its content file (--city-accent, -paper,
+   -ink), so a city's look is data, not a new rule. The accent is decoration
+   only (a border, the motif, the list markers): body text is always --city-ink
+   on --city-paper, which the build refuses below 7:1. Deliberately small. */
+.fce-city {
+  --city-accent: #b0122b;
+  --city-paper: #f7f4ee;
+  --city-ink: #16161a;
+}
+.fce-city-hero {
+  position: relative;
+  background: var(--city-paper);
+  color: var(--city-ink);
+  border-top: 6px solid var(--city-accent);
+  padding: 28px 24px 24px;
+  margin: 0 0 28px;
+  overflow: hidden;
+}
+.fce-city-hero .wsite-content-title {
+  color: var(--city-ink);
+  margin: 0 0 8px;
+  padding-right: 64px;
+}
+.fce-city-motif {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 56px;
+  line-height: 1;
+  color: var(--city-accent);
+  font-variant-emoji: text;
+  opacity: .9;
+}
+.fce-city-eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin: 0 0 10px;
+  color: var(--city-ink);
+}
+.fce-city-eyebrow a { color: inherit; }
+.fce-city-kicker {
+  font-family: "PT Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 18px;
+  margin: 0;
+  color: var(--city-ink);
+}
+.fce-city-poem {
+  border-left: 3px solid var(--city-accent);
+  padding: 2px 0 2px 20px;
+  margin: 0 0 30px;
+  max-width: 720px;
+}
+.fce-city-poem p {
+  font-family: "PT Serif", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+.fce-city-poem p:last-child { margin-bottom: 0; }
+.fce-city .fce-city-round { margin: 30px 0; }
+.fce-city .fce-city-round summary { color: var(--city-ink); }
+.fce-city .fce-city-round .fce-copy-inner ol li::marker { color: var(--city-accent); font-weight: 700; }
+.fce-city-ctas { margin: 24px 0; }
+.fce-city-more {
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  border-top: 1px solid #e2e0da;
+  padding-top: 16px;
+  margin-top: 28px;
+}
+.fce-city-more span { font-weight: 700; }
+.fce-city-list { columns: 2; padding-left: 20px; }
+@media screen and (max-width: 640px) {
+  .fce-city-hero { padding: 22px 16px 18px; }
+  .fce-city-motif { font-size: 40px; right: 12px; }
+  .fce-city-hero .wsite-content-title { padding-right: 44px; }
+  .fce-city-poem { padding-left: 14px; }
+  .fce-city-poem p { font-size: 17px; }
+}
+
 /* A city page's free local round (_tools/add-city-rounds.js). Rides on the
    .fce-copy block above; only the numbered list and the answers toggle need
    anything of their own. */

@@ -93,6 +93,11 @@ const ogImage = (h) => attr(h, /<meta property="og:image" content="([^"]+)"/i);
 const metaDesc = (h) => attr(h, /<meta[^>]+name="description"[^>]+content="([^"]*)"/i);
 const pageTitle = (h) => { const t = attr(h, /<title>([\s\S]*?)<\/title>/i); return t ? clean(t) : null; };
 
+const CITY_BY_SLUG = new Map(
+  JSON.parse(fs.readFileSync(path.join(REPO, "_content", "city-pages.json"), "utf8")).cities.map((c) => [c.slug, c])
+);
+const CITY_COUNTRY = { US: "United States", CA: "Canada", GB: "United Kingdom", IE: "Ireland", AU: "Australia", NZ: "New Zealand" };
+
 function walk(dir, out = []) {
   const SKIP = new Set(["_tools", "node_modules", ".git", ".claude", "_export", "_content", "pages"]);
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -532,6 +537,43 @@ for (const file of walk(REPO).sort()) {
         { name: `${p.pack} Song List`, url },
       ]));
       bump("song list");
+    }
+  } else if (rel === "trivia-nights/index.html") {
+    // The city hub (build-city-pages.js). Only reached once a city is live:
+    // until then the hub carries noindex and is skipped above.
+    graph.push({
+      "@type": "CollectionPage",
+      url,
+      name: pageTitle(html),
+      description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
+      publisher: { "@id": ORG_ID },
+    }, breadcrumbs([
+      { name: "Home", url: SITE + "/" },
+      { name: "Trivia Nights by City", url },
+    ]));
+    bump("city hub");
+  } else if (/^trivia-nights\/[^/]+\/index\.html$/.test(rel)) {
+    // A city page. `about` names the place, so the page is tied to the city it
+    // is written for rather than read as a generic trivia page; inLanguage is
+    // what carries the French page. No LocalBusiness and no address, on
+    // purpose: there is no Fat City premises in any of these cities.
+    const city = CITY_BY_SLUG.get(rel.split("/")[1]);
+    if (city) {
+      const lang = attr(html, /<html lang="([^"]+)"/i) || "en";
+      graph.push({
+        "@type": "WebPage",
+        url,
+        name: pageTitle(html),
+        description: metaDesc(html) ? clean(metaDesc(html)) : undefined,
+        inLanguage: lang,
+        about: { "@type": "City", name: city.name, containedInPlace: { "@type": "Country", name: CITY_COUNTRY[city.country] } },
+        publisher: { "@id": ORG_ID },
+      }, breadcrumbs([
+        { name: "Home", url: SITE + "/" },
+        { name: "Trivia Nights by City", url: SITE + "/trivia-nights/" },
+        { name: city.name, url },
+      ]));
+      bump("city");
     }
   } else if (rel === "triviahostresources.html") {
     graph.push({

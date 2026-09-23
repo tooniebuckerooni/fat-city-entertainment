@@ -1,0 +1,33 @@
+{
+  "title": "London Pub Quiz",
+  "round": {
+    "name": "Local Round: London",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Which river flows through the centre of London?", "a": "The Thames" },
+      { "q": "In which year did the Great Fire of London break out?", "a": "1666" },
+      { "q": "\"Big Ben\" is strictly the nickname of what: the tower, the clock, or the great bell?", "a": "The great bell" },
+      { "q": "What is the London Underground's everyday nickname?", "a": "The Tube" },
+      { "q": "Nelson's Column stands in which London square?", "a": "Trafalgar Square" },
+      { "q": "Which architect designed St Paul's Cathedral after the Great Fire?", "a": "Sir Christopher Wren" },
+      { "q": "Tradition says a true Cockney is born within the sound of which bells?", "a": "Bow Bells (St Mary-le-Bow)" },
+      { "q": "The Yeoman Warders at the Tower of London are better known by what nickname?", "a": "Beefeaters" },
+      { "q": "What is the street address of the Prime Minister's official residence?", "a": "10 Downing Street" },
+      { "q": "London has hosted the Summer Olympics three times. Name all three years.", "a": "1908, 1948 and 2012" }
+    ]
+  },
+  "notes": [
+    "River Thames; see the River Thames Wikipedia article or the Port of London Authority.",
+    "Began 2 September 1666 in Pudding Lane; see Great Fire of London (Wikipedia) or the Museum of London.",
+    "UK Parliament's own site says Big Ben is the nickname of the Great Bell; the tower was renamed Elizabeth Tower in 2012.",
+    "Universal nickname; Transport for London uses 'the Tube' in its own branding.",
+    "Nelson's Column, Trafalgar Square; see the Greater London Authority's Trafalgar Square pages.",
+    "Wren designed the present St Paul's, completed 1710; see St Paul's Cathedral's own history pages.",
+    "Bow Bells of St Mary-le-Bow, Cheapside; see Cockney (Wikipedia) or the church's own site.",
+    "Yeoman Warders, nicknamed Beefeaters; see Historic Royal Palaces (Tower of London).",
+    "10 Downing Street; see gov.uk 'History of 10 Downing Street'.",
+    "1908, 1948, 2012; see the International Olympic Committee's list of host cities."
+  ]
+}

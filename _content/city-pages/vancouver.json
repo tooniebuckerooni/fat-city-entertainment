@@ -1,0 +1,34 @@
+{
+  "slug": "vancouver",
+  "title": "Vancouver Trivia Night: A Free Local Round to Host",
+  "description": "Host a trivia night in Vancouver with ten free local questions on Gastown, Stanley Park, Expo 86 and the Canucks, plus tips for filling a room in the rain.",
+  "h1": "Start a Trivia Night in Vancouver",
+  "kicker": "Ten West Coast questions, ready to read aloud tonight.",
+  "poem": [
+    "Vancouver talks about the weather because the weather is always doing something worth talking about. From November on, rain comes in off the Pacific in soft grey sheets, beading on cedar boughs and glass towers alike, then lifts all at once to show the North Shore mountains standing close enough to touch, snow on their shoulders above a green, dripping city.",
+    "People here gather by water. On the seawall at English Bay for the sunset, on Commercial Drive when the café chairs spill onto the sidewalk, in line for the SeaBus with a paper cup and a damp umbrella. Summer is long light and beaches; the rest of the year the city comes indoors, and a trivia night becomes the reason to cross a bridge on a Tuesday, pull on a hoodie still wet from the walk, and argue with friends about a Canucks trade from twenty years ago.",
+    "That habit is worth protecting. The rooms along Main Street and the Drive, the comedy nights in back rooms, the bands loading gear in the rain, the quizmaster with a clipboard and a terrible pun: they last only if people show up on a weeknight. The mountains will be there on Saturday. The Tuesday room might not be, unless people fill it."
+  ],
+  "sections": [
+    {
+      "h2": "Planning a Vancouver trivia night",
+      "paras": [
+        "Vancouver crowds love questions about their own backyard: the neighbourhoods, the bridges, the mountains, the 2010 Olympics, and the endless films and series shot here while pretending to be somewhere else. A round on which city Vancouver was playing gets a room talking fast. Keep a question or two about the coast and its wildlife, too; people here know their orcas from their sea lions.",
+        "Plan around the calendar. Canucks games, especially in the playoffs, will empty a room unless you schedule around them or put the game on between rounds. Summer evenings compete with patios and beaches, so the long rainy stretch from October to March is when a weekly night builds its regulars. Start early enough for the crowd catching the last SkyTrain or SeaBus home."
+      ]
+    },
+    {
+      "h2": "Why the room needs a host",
+      "paras": [
+        "Rain on the windows and a speaker in the corner make a quiet night. A host makes a loud one: someone who knows the regulars by name, ribs the team in last place, and cuts the music at the right moment so a laugh can land. No screen does that, and it is why people keep coming back to the same table on the same night.",
+        "Vancouver has worn the \"No Fun City\" label for decades, and the people proving it wrong are the ones on small stages: musicians playing to thirty people, comics working out new material, quizmasters writing questions on the bus. Buy the ticket, order another round, bring a friend next week. If your neighbourhood has no trivia night yet, open one with the Vancouver round on this page; Trivia Show Maker, free here, handles the rest of the paperwork."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0f6e7a",
+    "paper": "#eef6f5",
+    "ink": "#0b2226",
+    "motif": "≈"
+  }
+}

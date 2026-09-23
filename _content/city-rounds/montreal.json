@@ -1,0 +1,33 @@
+{
+  "title": "Soirée quiz à Montréal",
+  "round": {
+    "name": "Ronde locale : Montréal",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Montréal a accueilli les Jeux olympiques d'été en quelle année ?", "a": "1976" },
+      { "q": "Quelle montagne, dont le parc a été dessiné par Frederick Law Olmsted, l'architecte de Central Park, domine le centre-ville ?", "a": "Le mont Royal" },
+      { "q": "Sous quel nom Montréal a-t-elle été fondée en 1642 ?", "a": "Ville-Marie" },
+      { "q": "La Biosphère de l'île Sainte-Hélène était le pavillon de quel pays à Expo 67 ?", "a": "Les États-Unis" },
+      { "q": "Quel architecte a conçu Habitat 67, cet empilement de cubes de béton au bord du fleuve ?", "a": "Moshe Safdie" },
+      { "q": "Quel surnom anglais donne-t-on au Stade olympique ?", "a": "Le Big O" },
+      { "q": "Quel surnom, tiré des couleurs de leur chandail, donne-t-on aux Canadiens de Montréal ?", "a": "Le Tricolore" },
+      { "q": "Quelle viande, servie en sandwich sur pain de seigle avec de la moutarde, est une grande spécialité montréalaise ?", "a": "La viande fumée (smoked meat)" },
+      { "q": "Le circuit de l'île Notre-Dame, où se court le Grand Prix du Canada, porte le nom de quel pilote québécois ?", "a": "Gilles Villeneuve" },
+      { "q": "Quel poète et chanteur montréalais a écrit « Hallelujah » ?", "a": "Leonard Cohen" }
+    ]
+  },
+  "notes": [
+    "Montreal hosted the 1976 Summer Olympics (Games of the XXI Olympiad); see Olympics.com / Wikipedia '1976 Summer Olympics'.",
+    "Mount Royal Park was designed by Frederick Law Olmsted and opened in 1876; see Wikipedia 'Mount Royal Park' / Les amis de la montagne.",
+    "Founded 17 May 1642 as Ville-Marie by Maisonneuve and Jeanne Mance; see Wikipedia 'History of Montreal' / Pointe-à-Callière museum.",
+    "The Biosphère (Buckminster Fuller dome) was the United States pavilion at Expo 67; see Wikipedia 'Montreal Biosphere' / Environment Canada.",
+    "Habitat 67 was designed by Moshe Safdie for Expo 67; see Wikipedia 'Habitat 67' / safdiearchitects.com.",
+    "The Olympic Stadium is nicknamed 'The Big O' (also punned 'Big Owe' over its debt); see Wikipedia 'Olympic Stadium (Montreal)'. Accept 'Big Owe'.",
+    "The Canadiens are nicknamed 'le Tricolore' (also 'les Habs', 'la Sainte-Flanelle'); see Wikipedia 'Montreal Canadiens'. Accept any of the three.",
+    "Montreal-style smoked meat on rye with mustard; see Wikipedia 'Montreal-style smoked meat'.",
+    "Circuit Gilles Villeneuve on Île Notre-Dame, renamed after Villeneuve's death in 1982, hosts the Canadian Grand Prix; see Wikipedia 'Circuit Gilles Villeneuve'.",
+    "Leonard Cohen (born Westmount, Montreal, 1934) wrote 'Hallelujah' (1984, album Various Positions); see Wikipedia 'Leonard Cohen' / 'Hallelujah (Leonard Cohen song)'."
+  ]
+}

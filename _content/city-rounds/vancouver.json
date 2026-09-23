@@ -1,0 +1,33 @@
+{
+  "title": "Vancouver Trivia Night",
+  "round": {
+    "name": "Local Round: Vancouver",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "Vancouver co-hosted the Winter Olympics with Whistler in which year?", "a": "2010" },
+      { "q": "Vancouver hosted a world's fair, remembered by the name \"Expo\" and a two-digit year. Which year?", "a": "1986 (Expo 86)" },
+      { "q": "Stanley Park is named after the same Governor General as which famous trophy?", "a": "The Stanley Cup" },
+      { "q": "Which Vancouver neighbourhood takes its name from a talkative saloon keeper, John Deighton?", "a": "Gastown" },
+      { "q": "What is the name of Vancouver's NHL team?", "a": "The Vancouver Canucks" },
+      { "q": "What is the name of the CFL team that plays at BC Place?", "a": "The BC Lions" },
+      { "q": "Which suspension bridge carries traffic from Stanley Park across Burrard Inlet to the North Shore?", "a": "The Lions Gate Bridge" },
+      { "q": "The city is named after a Royal Navy captain who charted this coast in 1792. What was his first name?", "a": "George" },
+      { "q": "Which international environmental organization was founded in Vancouver in the early 1970s?", "a": "Greenpeace" },
+      { "q": "Which strait separates the Vancouver area from Vancouver Island?", "a": "The Strait of Georgia" }
+    ]
+  },
+  "notes": [
+    "Vancouver 2010 Olympic Winter Games, co-hosted with Whistler; see Olympics.com / Wikipedia '2010 Winter Olympics'.",
+    "Expo 86 ran May to October 1986 in Vancouver; see Wikipedia 'Expo 86'.",
+    "Stanley Park (opened 1888) and the Stanley Cup are both named for Lord Stanley of Preston, Governor General; see Wikipedia 'Stanley Park' / 'Stanley Cup'.",
+    "Gastown is named for John 'Gassy Jack' Deighton, a talkative saloon keeper who arrived in 1867; see Wikipedia 'Gastown' / City of Vancouver.",
+    "Vancouver Canucks, NHL since 1970; see nhl.com/canucks / Wikipedia 'Vancouver Canucks'.",
+    "BC Lions play home games at BC Place; see bclions.com / Wikipedia 'BC Lions'.",
+    "Lions Gate Bridge (opened 1938) crosses the First Narrows of Burrard Inlet from Stanley Park to the North Shore; see Wikipedia 'Lions Gate Bridge'.",
+    "Named after Captain George Vancouver, who surveyed Burrard Inlet in 1792; see Wikipedia 'George Vancouver' / City of Vancouver history.",
+    "Greenpeace grew out of the Don't Make a Wave Committee formed in Vancouver in 1970, taking the Greenpeace name in 1971-72; see Wikipedia 'Greenpeace'. Question says 'early 1970s' to avoid the 1970/1971/1972 dispute.",
+    "The Strait of Georgia (part of the Salish Sea) lies between the Lower Mainland and Vancouver Island; see Wikipedia 'Strait of Georgia'. Accept 'the Salish Sea' or 'Georgia Strait'."
+  ]
+}

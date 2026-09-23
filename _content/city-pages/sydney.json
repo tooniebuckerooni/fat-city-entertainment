@@ -1,0 +1,34 @@
+{
+  "slug": "sydney",
+  "title": "Sydney Trivia Night: How to Host One by the Harbour",
+  "description": "Run a Sydney trivia night people talk about: league and AFL rounds, harbour history, beach-town timing, and a free local round ready to load in one click.",
+  "h1": "A Sydney Trivia Night, After the Southerly",
+  "kicker": "Harbour light, a southerly on the way, and a full table.",
+  "poem": [
+    "Sydney wakes to water. Ferries shoulder out of Circular Quay with the light already hard and bright on the harbour, the Coathanger throws its long shadow over The Rocks, and somewhere in the inner west a row of terraces is still asleep behind its iron lace. By afternoon the cicadas are deafening and the whole city is waiting for the southerly to blow in and drop the heat by ten degrees in as many minutes.",
+    "When it does, people come in off the beaches and out of the office towers and head for the local. A trivia night here is a weeknight habit that never quite admits to being one: sandy thongs under the table, a team name that is a terrible pun, a mate who swears he knows every capital in Europe, and a quizmaster reading the answers over the sound of a footy replay somebody forgot to mute.",
+    "The flying foxes cross the sky at dusk and the rooms fill up. What keeps them full is the people at the front of them: the hosts, the pub bands, the comics trying new material on a Wednesday. Go out on a school night. Clap for them. That is how a city keeps its evenings."
+  ],
+  "sections": [
+    {
+      "h2": "Running a trivia night Sydney will turn up for",
+      "paras": [
+        "Sydneysiders love a local round, and sport is the fastest way in. Rugby league runs deep here, so a State of Origin question lands every time, but the Swans and the Giants give you AFL material too, and cricket at the SCG covers summer. Harbour history, the First Fleet, beach suburbs, the Opera House and the Olympics all make strong rounds, and a suburb-rivalry question (north shore against inner west, east against west) gets a room going.",
+        "Watch the calendar. Never schedule against an Origin game unless you are showing it. Summer pulls people to the beach until late, so start later from December to February, and winter weeknights are when trivia nights fill fastest."
+      ]
+    },
+    {
+      "h2": "Why a live host still matters in Sydney",
+      "paras": [
+        "A playlist in the corner is background. A host is the reason a room of strangers ends up cheering for the table of nurses who nailed the tie-breaker. Good quizmasters read the crowd, keep the rounds moving when the heat has everyone flagging, and know when to let a heckle run. It is the same craft that keeps a pub band or a comedy night working, and Sydney has plenty who do it well.",
+        "So back them: buy the raffle ticket, stay for the last round, see a local band on a Thursday. Keen to start one at the local, the footy club or the surf club? Open with the Sydney round on this page and build the rest in Trivia Show Maker, which is free."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0b5cad",
+    "paper": "#fbf5ea",
+    "ink": "#13233a",
+    "motif": "☀"
+  }
+}
