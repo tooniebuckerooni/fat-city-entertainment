@@ -6,16 +6,46 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Portland got its name from a coin toss in 1845. Which city's name lost the toss?", "a": "Boston" },
-      { "q": "Which river runs through downtown Portland, dividing the east side from the west?", "a": "The Willamette" },
-      { "q": "Which snow-capped volcano, the highest point in Oregon, can be seen east of Portland on a clear day?", "a": "Mount Hood" },
-      { "q": "Portland's most famous nickname is the City of what?", "a": "Roses" },
-      { "q": "Portland's NBA team won its only championship in 1977. What is the team called?", "a": "The Trail Blazers" },
-      { "q": "Which Simpsons character, the family's next-door neighbor, shares his surname with a Portland street?", "a": "Ned Flanders" },
-      { "q": "A two-foot-wide circle of ground in a Naito Parkway median is recognized by Guinness as the world's smallest what?", "a": "Park (Mill Ends Park)" },
-      { "q": "Complete the city's unofficial slogan, seen on bumper stickers: Keep Portland what?", "a": "Weird" },
-      { "q": "Which sportswear company, founded as Blue Ribbon Sports, has its world headquarters in the Portland suburb of Beaverton?", "a": "Nike" },
-      { "q": "At Portland Timbers home matches, what does the mascot Timber Joey cut with a chainsaw after every home goal?", "a": "A slice of a log" }
+      {
+        "q": "Portland got its name from a coin toss in 1845. Which city's name lost the toss?",
+        "a": "Boston"
+      },
+      {
+        "q": "Which river runs through downtown Portland, dividing the east side from the west?",
+        "a": "The Willamette"
+      },
+      {
+        "q": "Which snow-capped volcano, the highest point in Oregon, can be seen east of Portland on a clear day?",
+        "a": "Mount Hood"
+      },
+      {
+        "q": "Portland's most famous nickname is the City of what?",
+        "a": "Roses"
+      },
+      {
+        "q": "Portland's NBA team won its only championship in 1977. What is the team called?",
+        "a": "The Trail Blazers"
+      },
+      {
+        "q": "Which Simpsons character, the family's next-door neighbor, shares his surname with a Portland street?",
+        "a": "Ned Flanders"
+      },
+      {
+        "q": "A two-foot-wide circle in a Naito Parkway median held the Guinness record from 1971 to 2025 as the world's smallest what?",
+        "a": "Park (Mill Ends Park)"
+      },
+      {
+        "q": "Complete the city's unofficial slogan, seen on bumper stickers: Keep Portland what?",
+        "a": "Weird"
+      },
+      {
+        "q": "Which sportswear company, founded as Blue Ribbon Sports, has its world headquarters in the Portland suburb of Beaverton?",
+        "a": "Nike"
+      },
+      {
+        "q": "At Portland Timbers home matches, what does the mascot Timber Joey cut with a chainsaw after every Timbers goal?",
+        "a": "A slice of a log"
+      }
     ]
   },
   "notes": [
@@ -25,9 +55,9 @@
     "Nicknamed the City of Roses / Rose City, home of the Portland Rose Festival and International Rose Test Garden; see Portland, Oregon (Wikipedia).",
     "Portland Trail Blazers won the 1977 NBA Finals over the 76ers, their only title; see Portland Trail Blazers (Wikipedia) or NBA.com.",
     "Matt Groening grew up in Portland and named Flanders, Lovejoy, Quimby and others after local streets; see Northwest Flanders Street / Ned Flanders (Wikipedia).",
-    "Mill Ends Park, about 2 ft across, listed by Guinness as the smallest park in the world since 1971; see Mill Ends Park (Wikipedia) or Portland Parks & Recreation.",
+    "Mill Ends Park; lost the record to a park in Nagaizumi, Japan, in February 2025, hence the dates.",
     "'Keep Portland Weird' slogan, adopted from Austin's 'Keep Austin Weird'; see Keep Portland Weird (Wikipedia).",
     "Nike founded 1964 as Blue Ribbon Sports, renamed 1971, headquartered near Beaverton, Oregon; see Nike, Inc. (Wikipedia).",
-    "Timber Joey saws a slab ('log slice') off a log after each Timbers home goal and presents it to the scorer; see Portland Timbers (Wikipedia) or timbers.com."
+    "A round ('cookie') of a log; accept round, cookie, slab or Goal Slice."
   ]
 }

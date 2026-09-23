@@ -1,0 +1,86 @@
+{
+ "slug": "portland",
+ "checked": "2026-09-23",
+ "items": [
+  {
+   "n": 1,
+   "verdict": "confirmed",
+   "wiki": "en:Portland_Penny",
+   "quote": "The City of Portland's two founders, Francis Pettygrove from Portland, Maine, and Asa Lovejoy from Boston, Massachusetts, both wanted to name the fledgling site—then known as The Clearing—after their respective home towns",
+   "match": "Boston",
+   "note": "Next sentence: 'The coin toss was decided in 1845 with two out of three tosses which Pettygrove won.' Strictly it was best of three tosses, not one; the question's 'a coin toss' is the usual shorthand."
+  },
+  {
+   "n": 2,
+   "verdict": "confirmed",
+   "wiki": "en:Portland,_Oregon",
+   "quote": "Downtown Portland straddles the banks of the Willamette River, which flows north through the city center and separates the city's east and west neighborhoods",
+   "match": "Willamette",
+   "note": ""
+  },
+  {
+   "n": 3,
+   "verdict": "confirmed",
+   "wiki": "en:Mount_Hood",
+   "quote": "Mount Hood is an active stratovolcano in the Cascade Range",
+   "match": "Hood",
+   "note": "Same article: 'With a summit elevation of 11,249 ft, it is the highest mountain in the U.S. state of Oregon'. It sits about 50 mi east-southeast of Portland, so 'east' is fine."
+  },
+  {
+   "n": 4,
+   "verdict": "confirmed",
+   "wiki": "en:Portland,_Oregon",
+   "quote": "it is most often called \"Rose City\" or \"The City of Roses\" (unofficial nickname since 1888, official since 2003)",
+   "match": "Roses",
+   "note": "Wikipedia also lists Bridgetown, Stumptown, Rip City, PDX; only Roses fits 'the City of ___' and the article says it is the most-used. Accept 'Rose City'."
+  },
+  {
+   "n": 5,
+   "verdict": "confirmed",
+   "wiki": "en:Portland_Trail_Blazers",
+   "quote": "the number represents the 1977 NBA Championship he won while coaching the Blazers",
+   "match": "Blazers",
+   "note": "Same article: 'The team has advanced to the NBA Finals three times, winning the NBA championship once in 1977', and the 1976-77 season is when it 'captured its only NBA title'. Accept 'Blazers'."
+  },
+  {
+   "n": 6,
+   "verdict": "confirmed",
+   "wiki": "en:Ned_Flanders",
+   "quote": "named the character after Flanders Street in his hometown of Portland, Oregon",
+   "match": "Flanders",
+   "note": "Looked hard at this one. Groening named several Simpsons characters after Portland streets (Flanders, Lovejoy, Quimby, Kearney, Terwilliger, Van Houten per common accounts), so 'shares his surname with a Portland street' alone would be ambiguous. The 'family's next-door neighbor' clause pins it to Flanders uniquely (Ned Flanders article: 'He is the good-natured, cheery next-door neighbor to the Simpson family'). The only other next-door neighbor ever (Ruth Powers) is female and not a Portland-street name, so no second answer. The quote is the article's image caption; it passes the checker."
+  },
+  {
+   "n": 7,
+   "verdict": "wrong",
+   "wiki": "en:Mill_Ends_Park",
+   "quote": "It was the smallest park in the world, according to the Guinness Book of Records, which first granted it this recognition in 1971, and held the distinction until February 2025",
+   "match": "park",
+   "note": "OUT OF DATE. The answer word (park) is right but the premise 'IS recognized by Guinness as the world's smallest' is false since February 2025, when Guinness gave the title to a park in Nagaizumi, Shizuoka, Japan (0.24 m2). A room with a phone will call it. Reword: 'A two-foot-wide circle in a Naito Parkway median held the Guinness record from 1971 to 2025 as the world's smallest what?' (still answer: park / Mill Ends Park). Wikipedia still calls it 'the smallest urban park in the United States', which is another safe wording."
+  },
+  {
+   "n": 8,
+   "verdict": "confirmed",
+   "wiki": "en:Keep_Portland_Weird",
+   "quote": "\"Keep Portland Weird\" is a popular slogan that appears on bumper stickers, signs, and public buildings throughout Portland, Oregon and its surrounding metro area",
+   "match": "Weird",
+   "note": ""
+  },
+  {
+   "n": 9,
+   "verdict": "confirmed",
+   "wiki": "en:Nike,_Inc.",
+   "quote": "The company was founded on January 25, 1964, as \"Blue Ribbon Sports\", by Bill Bowerman and Phil Knight, and officially became Nike, Inc. on May 30, 1971",
+   "match": "Nike",
+   "note": "Nitpick only: Wikipedia's lead says 'headquartered near Beaverton' (the campus sits largely in unincorporated Washington County), though the History section says 'World Headquarters campus in Beaverton'. Answer is unambiguous; optional 'near Beaverton'."
+  },
+  {
+   "n": 10,
+   "verdict": "confirmed",
+   "wiki": "en:Portland_Timbers",
+   "quote": "Joey continues Jim's trademark of cutting a round (or \"cookie\") from a large log with a chainsaw every time the Timbers score a goal",
+   "match": "log",
+   "note": "Looked hard at this one. Current (MLS-era) article confirms Timber Joey is the official mascot and cuts a round from a log with a chainsaw on each Timbers goal; the round is given to the scorer (and to the goalkeeper for a shutout). Supported also by en:Portland_Timbers_(2001–2010) ('cutting off a slab of a log each time the team scores'). Two small points: (1) 'after every home goal' could be misread as any goal scored at a home match, including the visitors'; he only cuts for Timbers goals. Suggest 'after every Timbers goal at a home match'. (2) Accept 'a round', 'a cookie', 'a slab' or 'a Goal Slice' of log: the article uses round/cookie and the image caption calls it the 'Goal Slice'."
+  }
+ ]
+}
