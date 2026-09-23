@@ -14,9 +14,14 @@
     { "n": 4, "verdict": "confirmed", "wiki": "en:National_Cherry_Blossom_Festival",
       "quote": "commemorating the March 27, 1912, gift of Japanese cherry trees from Mayor Yukio Ozaki of Tokyo City to the city of Washington, D.C.",
       "match": "Japan", "note": "Strictly the gift was from the city of Tokyo (Mayor Ozaki), not the national government; \"Tokyo\" should also be accepted. Answer is right." },
-    { "n": 5, "verdict": "unclear", "wiki": "en:James_Smithson",
-      "quote": "James Smithson (c. 1765 – 27 June 1829) was a British chemist and mineralogist",
-      "match": "British", "note": "Answer is right, but the same article says he was \"Born in Paris, France\" and given the French name Jacques-Louis Macie, so a room can fairly argue \"French\", and \"English\" is also correct. Suggested rewording: \"The Smithsonian Institution was founded with money left by a British scientist who never visited America. What was his surname?\" Answer: Smithson (James Smithson). Also note the question half gives the answer away (Smithsonian / Smithson) either way, which is fine as an easy one." },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Wright_Flyer",
+      "quote": "Today, it is on display in a place of honor in the National Air and Space Museum in Washington, D.C.",
+      "match": "National Air and Space Museum",
+      "note": "New question. en:National_Air_and_Space_Museum: 'its main building opened on the National Mall near L'Enfant Plaza in 1976'. 'On the National Mall' correctly excludes the museum's Udvar-Hazy Center in Virginia. The Mall building is mid-renovation (galleries reopening through 2026), but the Flyer's gallery is open. No giveaway, one answer."
+    },
     { "n": 6, "verdict": "confirmed", "wiki": "en:Hope_Diamond",
       "quote": "The Hope Diamond is currently housed in the National Gem and Mineral collection at the National Museum of Natural History in Washington",
       "match": "Hope Diamond", "note": "" },

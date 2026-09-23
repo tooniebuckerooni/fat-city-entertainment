@@ -60,11 +60,11 @@
     },
     {
       "n": 8,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:The_Rocks,_New_South_Wales",
       "quote": "The Rocks was established shortly after the colony's formation in 1788.",
       "match": "The Rocks",
-      "note": "The Rocks is the intended answer, but the clue 'at the southern end of the Harbour Bridge' fits Dawes Point more literally: en:Dawes_Point says 'Dawes Point is located on the north-western edge of the Sydney central business district, at the southern end of Sydney Harbour Bridge, adjacent to The Rocks', and it too dates from 1788 ('the site of the first guns mounted in Sydney by Dawes in 1788'). Millers Point is also next door, and 'earliest European settlement' also invites 'Sydney Cove'. Suggested rewording: 'Which historic precinct on the western side of Circular Quay, named for the local sandstone its early buildings used, grew up with the 1788 settlement?'"
+      "note": "Rechecked after rewording. Same article: its boundaries run 'in the east to the shoreline of Circular Quay' on the 'western side of Sydney Cove'. Dawes Point (under the bridge) and Millers Point (west of The Rocks) do not front Circular Quay, and Sydney Cove is the water, not a precinct. One answer."
     },
     {
       "n": 9,
@@ -80,7 +80,7 @@
       "wiki": "en:Sydney_Swans",
       "quote": "On 29 July 1981, the VFL formally accepted the proposal, and paved the way for the Swans to shift to Sydney in 1982.",
       "match": "Swans",
-      "note": "Minor anachronism: at the time of the move (1982) the competition was the VFL; it became the AFL in 1990. Answer unaffected; could say 'Which club, originally South Melbourne, moved to Sydney in 1982?'"
+      "note": "Rechecked after rewording. 'Which AFL club' describes the club as it is now, so the VFL-era move is no longer an anachronism. One answer."
     }
   ]
 }

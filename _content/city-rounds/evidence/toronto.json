@@ -36,11 +36,11 @@
     },
     {
       "n": 5,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:CN_Tower",
       "quote": "Its name \"CN\" refers to Canadian National, the railway company that built the tower",
       "match": "Canadian National",
-      "note": "Right as history, but the present tense \"takes its initials from\" is out of date: the same article says the tower was officially renamed Canada's National Tower (from Canadian National Tower) and the CN railway logo was removed, so a room can argue \"Canada's National\". Suggested rewording: \"When it was built, the CN in CN Tower stood for which company, which built it?\""
+      "note": "Rechecked after rewording; 'when it opened' (1976) predates the 1995 transfer to Canada Lands Company and the Canada's National Tower rename, so 'Canada's National' no longer fits. One answer."
     },
     {
       "n": 6,

@@ -20,11 +20,11 @@
     },
     {
       "n": 3,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Stanley_Cup",
       "quote": "is named after Lord Stanley of Preston, the governor general of Canada, who donated it as an award to Canada's top-ranking amateur ice hockey club",
-      "match": "Stanley",
-      "note": "Correct (Stanley Park is named after the same Lord Stanley, per en:Stanley_Park), but the question gives the answer away: \"Stanley\" plus \"famous trophy\" is Stanley Cup for anyone in a Canadian room. Suggested rewording that keeps the fact but needs knowledge: \"The Governor General who gave Stanley Park its name also donated a trophy first awarded in 1893. In which sport?\" (answer: ice hockey)."
+      "match": "ice hockey",
+      "note": "Rechecked after rewording; no longer names the trophy. Same article: 'The first Cup was awarded in 1893 to the Montreal Hockey Club'. en:Stanley_Park: it 'was named after Lord Stanley 16th Earl of Derby ... Governor General of Canada' (the same man; he succeeded as Earl in 1893) and 'Lord Stanley opened the park in his name' in 1888. 'Gave Stanley Park its name' is slightly loose (the city named it for him) but not misleading."
     },
     {
       "n": 4,
@@ -72,7 +72,7 @@
       "wiki": "en:Vancouver",
       "quote": "In 1969, Greenpeace was founded in Vancouver",
       "match": "Greenpeace",
-      "note": "Answer is solid, but the date in the question is not: en:Vancouver says 1969 (the Don't Make a Wave Committee), en:Greenpeace says 1971. The answer does not change, but consider dropping \"in the early 1970s\" so no one challenges the premise."
+      "note": "Rechecked after rewording; dropping the date removes the 1969/1971 conflict. One residual risk, NOT supported by Wikipedia so not grounds to downgrade: Sea Shepherd's own history says its predecessor, the Earth Force Society (1977), was set up in Vancouver by Paul Watson, but en:Sea_Shepherd_Conservation_Society and en:Paul_Watson do not say where. If a team argues Sea Shepherd, the host can tighten to 'Which international environmental organization grew out of Vancouver's 1971 protest voyage against nuclear testing at Amchitka?'"
     },
     {
       "n": 10,

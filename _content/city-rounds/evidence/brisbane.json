@@ -20,11 +20,11 @@
     },
     {
       "n": 3,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Brisbane_Broncos",
-      "quote": "The Brisbane Broncos are an Australian professional rugby league football club based in Red Hill, a suburb of Brisbane",
+      "quote": "Founded in April 1987, the Broncos compete in the National Rugby League (NRL)",
       "match": "Broncos",
-      "note": "Since 2023 Brisbane has a second NRL club: the Dolphins (Redcliffe-based, most home games at Suncorp Stadium in Brisbane; en:Dolphins_(NRL)). \"Brisbane's NRL team\" now has two defensible answers. Reword: \"Which Brisbane NRL club, founded in 1987, is nicknamed after a wild horse?\" or \"What is the nickname of the NRL club named after the city, the Brisbane ...?\""
+      "note": "Rechecked after rewording; 'founded in 1987' excludes the Dolphins (a 1947 club, NRL since 2023). 'Named after a wild horse' is close to a giveaway for anyone who knows the name, acceptable as an easy one."
     },
     {
       "n": 4,

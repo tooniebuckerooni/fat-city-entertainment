@@ -5,9 +5,14 @@
     { "n": 1, "verdict": "confirmed", "wiki": "en:Keep_Austin_Weird",
       "quote": "Keep Austin Weird is an unofficial slogan of Austin, Texas",
       "match": "Weird", "note": "" },
-    { "n": 2, "verdict": "unclear", "wiki": "en:Ann_W._Richards_Congress_Avenue_Bridge",
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Ann_W._Richards_Congress_Avenue_Bridge",
       "quote": "Ann W. Richards Congress Avenue Bridge is home to the world's largest urban bat colony, which is composed of Mexican free-tailed bats",
-      "match": "Congress Avenue Bridge", "note": "Renamed: the Austin City Council renamed it the Ann W. Richards Congress Avenue Bridge on November 16, 2006 (same article; it was \"formerly known simply as the Congress Avenue Bridge\"). The answer is still how most people say it, but it is the old name. Suggested answer: \"The Congress Avenue Bridge (officially the Ann W. Richards Congress Avenue Bridge since 2006)\", accepting either." },
+      "match": "Congress Avenue Bridge",
+      "note": "Rechecked after the answer was updated to give both the common and the official (2006) name. One answer."
+    },
     { "n": 3, "verdict": "confirmed", "wiki": "en:Austin_City_Limits",
       "quote": "Austin City Limits is an American live music television program recorded and produced by Austin PBS",
       "match": "Austin City Limits", "note": "Pilot: \"The pilot was shot on October 17, 1974, and starred Willie Nelson\" (same article; a B.W. Stevenson taping the night before was unusable, so the Willie claim stands). \"Takes its name from the city\" hands over half the answer; fine as an easy one. Do not accept the ACL Music Festival, which is a spin-off." },

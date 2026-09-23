@@ -769,7 +769,7 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   "unclear" (a room could argue a second answer, or the question gave itself
   away, or it had gone stale: the Neighbours finale, the Dolphins joining the
   NRL, the SEC Armadillo rename, the CN Tower's new name). All 19 reworded, plus
-  one replaced question; the reworded items were sent to a third agent for a fresh check (see the commit that follows this one). **Evidence is not the
+  one replaced question, then re-checked by a third agent. That pass confirmed 27 of 28 and caught one rewording that made things worse (Glasgow's "Clockwork Orange": a giveaway, and Wikipedia calls the nickname seldom used outside the press), now replaced with Hampden Park. **220/220 verified**, 23 Sept 2026. **Evidence is not the
   owner's sign-off**; it turns "check 220 answers" into "read what it prints".
 - **`node _tools/test-round-autoload.js` drives the real tool in Chromium**
   against every round, draft or live (it serves the repo and answers

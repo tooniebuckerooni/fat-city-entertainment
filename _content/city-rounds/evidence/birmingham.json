@@ -44,11 +44,11 @@
     },
     {
       "n": 6,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Balti_(food)",
-      "quote": "A region of Birmingham with many balti restaurants has become known as the Balti Triangle",
-      "match": "Balti",
-      "note": "Answer is right, but the premise 'named after the steel pan' is disputed: the article's Origin section gives a rival derivation from Baltistan (Pat Chapman) against the cooking-pot one (Colleen Taylor Sen). Suggested rewording: 'Which curry, served in a thin steel bowl of the same name, was developed in Birmingham in the 1970s?'"
+      "quote": "is a type of curry within the United Kingdom served in a thin, pressed-steel wok called a balti bowl",
+      "match": "balti",
+      "note": "Rechecked after rewording. 'Shares its name with' makes no claim about which way the naming ran, so the disputed Baltistan etymology no longer matters. Same article: 'The dish was developed in Birmingham, England in the 1970s'. One answer."
     },
     {
       "n": 7,

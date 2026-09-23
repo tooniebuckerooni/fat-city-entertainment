@@ -20,11 +20,11 @@
     },
     {
       "n": 3,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Trinity_College_Dublin",
       "quote": "has housed the Book of Kells since 1661",
       "match": "Book of Kells",
-      "note": "The Book of Kells is the intended answer, but the Book of Durrow is ALSO an illuminated manuscript of the four Gospels held by Trinity College Library (en:Book_of_Durrow: 'contains the Vulgate Latin text of the four Gospels' and 'Today it is in the Library of Trinity College Dublin (TCD MS 57)'), given to Trinity by the same bishop in the same period. A well-read team could fairly answer Durrow. Suggested rewording: 'Which illuminated Gospel book, Ireland's most famous medieval manuscript, draws queues to Trinity College Dublin's Old Library?'"
+      "note": "Rechecked after rewording; 'Ireland's most famous medieval manuscript' excludes the Book of Durrow (also a Trinity Gospel book). en:Book_of_Kells: 'It has been on display to the public in the Old Library at Trinity since the 19th century.' One answer."
     },
     {
       "n": 4,

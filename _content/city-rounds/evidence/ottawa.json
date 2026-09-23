@@ -4,11 +4,11 @@
   "items": [
     {
       "n": 1,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Rideau_Canal",
       "quote": "the section of the Rideau Canal passing through central Ottawa has been re-purposed as what is officially the world's largest and second longest skating rink",
       "match": "Rideau Canal",
-      "note": "Answer is right, but 'every winter' is false: the same article records the 2022-23 season as 'the first ever season with zero skating days'. Suggested rewording: 'Which Ottawa waterway, a UNESCO World Heritage Site, becomes a skateway in most winters?'"
+      "note": "Rechecked after rewording; 'most winters' is true despite the zero-skating-day 2022-23 season. One answer."
     },
     {
       "n": 2,

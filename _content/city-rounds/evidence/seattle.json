@@ -68,11 +68,11 @@
     },
     {
       "n": 9,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Seattle",
       "quote": "Seattle is situated on an isthmus between Puget Sound, an inlet of the Pacific Ocean, and Lake Washington",
       "match": "Puget Sound",
-      "note": "Right answer, but Elliott Bay (a bay of Puget Sound) is literally the downtown waterfront, and a room could also say Salish Sea. Suggested rewording: 'Seattle sits on an isthmus between Lake Washington and which inlet of the Pacific Ocean?' (and still accept Elliott Bay only if the host chooses)."
+      "note": "Rechecked after rewording; the question now tracks the article almost word for word. Elliott Bay is an inlet of Puget Sound rather than of the Pacific, and the Salish Sea is not an inlet, so one answer."
     },
     {
       "n": 10,

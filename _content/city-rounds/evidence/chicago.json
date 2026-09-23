@@ -68,11 +68,11 @@
     },
     {
       "n": 9,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Ferris_wheel",
       "quote": "The term Ferris wheel comes from the designer of the best known early example, George Washington Gale Ferris Jr., whose Ferris Wheel Company built a large amusement for the Chicago World's Columbian Exposition in 1893",
       "match": "Ferris wheel",
-      "note": "Answer is what the room will say, but the \"made its debut\" claim is shakier than it looks: the same article says smaller wooden wheels of the same idea predate it, and William Somers ran a 50-foot passenger wheel at Atlantic City from 1891 (Ferris rode it before designing his). A pedant can argue the ride did not debut in 1893. Suggested rewording: \"Which ride, named after the engineer who built it, was the landmark attraction of Chicago's 1893 World's Columbian Exposition?\""
+      "note": "Rechecked after rewording; 'star attraction' no longer claims a debut, so the pre-1893 wheels (Somers, Atlantic City 1891) no longer contradict it. One answer."
     },
     {
       "n": 10,

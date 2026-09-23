@@ -21,10 +21,10 @@
     {
       "n": 3,
       "verdict": "confirmed",
-      "wiki": "en:Glasgow_Subway",
-      "quote": "nickname, \"The Clockwork Orange\" (coined from the title of the book and film A Clockwork Orange) is subject to dispute",
-      "match": "Orange",
-      "note": "Answer is sound, but the premise \"because of the colour of its trains\" is shakier than it reads: Wikipedia says the nickname is seldom used outside the press and was coined from the book/film title, with its origin disputed. Safer wording: \"Glasgow's Subway, with its orange carriages, is nicknamed the 'Clockwork' what?\""
+      "wiki": "en:Hampden_Park",
+      "quote": "currently known as Barclays Hampden for sponsorship reasons, is a football stadium in the Mount Florida area",
+      "match": "Hampden",
+      "note": "Replaced the Clockwork Orange question. Mount Florida placement is in the article's first sentence. Also accept Barclays Hampden (sponsorship name). The same article: 'It is the national stadium of football in Scotland and home of the Scotland national football team'."
     },
     {
       "n": 4,
@@ -76,11 +76,11 @@
     },
     {
       "n": 10,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:SEC_Armadillo",
       "quote": "The SEC Armadillo (originally known as the Clyde Auditorium) is an auditorium located near the River Clyde",
       "match": "Armadillo",
-      "note": "Out of date framing: the venue's official name is now the SEC Armadillo; \"Clyde Auditorium\" is its original name, so \"better known by the nickname\" is no longer true, and the question half-gives the answer away. Reword: \"Glasgow's riverside concert venue, originally called the Clyde Auditorium, is now officially named after which armoured animal?\""
+      "note": "Rechecked after rewording; 'first called the Clyde Auditorium' and 'now officially' match the article. 'Armoured animal' allows pangolin or tortoise in principle, but only one is the venue's name. One answer."
     }
   ]
 }
