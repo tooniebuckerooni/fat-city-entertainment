@@ -122,8 +122,9 @@ return firstNum(meta.product_name) ?? firstNum(meta.variant_name);
 ```
 
 It reads **the first number in the product name**. That means each LemonSqueezy
-product must be named so the first number is its credit count — "200 AI
-Credits", "500 AI Credits". The failure modes are not subtle:
+product must be named so the first number is its credit count — "50 AI
+Credits", "250 AI Credits" (the 200/500 tiers this section was first written
+against were retired 2026-08-11; `TIER_CAPS` was still empty on 23 Sept 2026). The failure modes are not subtle:
 
 | product named | first number | what the buyer gets |
 |---|---|---|
@@ -143,8 +144,8 @@ entirely and is the more robust option:
 ```js
 const TIER_CAPS = {
   '<starter_variant_id>': 50,
-  '<host_variant_id>': 200,
-  '<pro_variant_id>': 500,
+  '<pack_variant_id>': 250,
+  '<subscription_variant_id>': 250,
 };
 ```
 

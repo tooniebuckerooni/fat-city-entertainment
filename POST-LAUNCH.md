@@ -97,7 +97,7 @@ work, the other 178 do.
 | ~~2~~ | ~~Blog share buttons~~ — **done July 25**, all 571 | done |
 | ~~3~~ | ~~`check-links.js` absolute same-domain URLs~~ — **done July 25**; found 4 real breakages immediately | done |
 | ~~4~~ | ~~`<lastmod>` in `sitemap.xml`~~ — **done July 25** | done |
-| 5 | A **US-city landing page** — still the cheapest SEO win; `yycevents.html` (Calgary) is the only geo page | larger |
+| 5 | A **US-city landing page** — still the cheapest SEO win; **partly done 10 Sept 2026**: `charlotte-events.html` shipped (generated from `_tools/new-content-pages.json`, history-first by design) alongside `yycevents.html` (Calgary). No other city pages exist yet | larger |
 | ~~6~~ | ~~Publish the three blog drafts~~ — **done July 25**; see "Blog cluster" below | done |
 | 7 | **Music Bingo Handbook follow-ups** — held back on purpose Aug 29 when the Handbook itself went live; see below | medium |
 

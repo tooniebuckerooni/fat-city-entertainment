@@ -90,9 +90,10 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   `_tools/add-song-lists-nav.js` — a separate insert-into-existing-dropdown
   script, because `add-trivia-store-nav.js` only builds the dropdown whole and
   skips any page that already has one), Eras, Pre-made Trivia Shows, Bundles,
-  Virtual Events. **Featured!** dropdown holds Triv 101, Trivia Generator
-  (coming soon), and Bingo Card Generator (external link to
-  https://bingocardgenerator.online/). Hub page: `/features.html`. **Bingo
+  Virtual Events. **Featured!** dropdown holds Triv 101, **Trivia Show Maker**
+  (`/trivia-show-maker/`, live; this line said "Trivia Generator (coming soon)"
+  until 23 Sept 2026), and BingoCardGenerator.Online (external link to
+  https://bingocardgenerator.online/, UTM-tagged). Hub page: `/features.html`. **Bingo
   Card Maker** dropdown (added Aug 13 2026, via
   `_tools/add-bingocardmaker-nav.js`) holds Free Generator, Generator Pro
   (Lifetime Access), All-Purpose Generator (renamed from "Generator 2" Aug 18
@@ -1134,8 +1135,8 @@ no sandbox. It closes the issue automatically when things are clean again.
   HTTP 403, while ordinary pushes work). There is no GitHub MCP tool for it
   either. Stale branches have to be removed from the repo's Branches page in the
   browser, or with `git push origin --delete <branch>` from a normal machine.
-  As of 11 Sept 2026 there are 38 remote branches, 11 of them fully merged into
-  `main` and safe to delete.
+  The 11 Sept 2026 backlog of 38 remote branches has since been cleared: on
+  23 Sept 2026 the remote held only `main` and the current feature branch.
 - **Images the user pastes into chat are not reachable as files.** There's no
   path on disk to read or copy them from — ask for a URL or an upload
   (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
