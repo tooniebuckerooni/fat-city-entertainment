@@ -1,32 +1,86 @@
-{ "slug": "edmonton", "checked": "2026-09-23", "items": [
-  { "n": 1, "verdict": "confirmed", "wiki": "en:North_Saskatchewan_River",
-    "quote": "In Edmonton, the river passes through the centre of the city in a northeasterly direction",
-    "match": "river", "note": "The article names it as the North Saskatchewan throughout; only river through the city." },
-  { "n": 2, "verdict": "confirmed", "wiki": "en:Galaxyland",
-    "quote": "is an indoor amusement park located in the West Edmonton Mall in Edmonton, Alberta, Canada",
-    "match": "West Edmonton Mall", "note": "World Waterpark article also says it is located within the West Edmonton Mall." },
-  { "n": 3, "verdict": "unclear", "wiki": "en:Edmonton_Oilers",
-    "quote": "After joining the NHL, the Oilers won the Stanley Cup on five occasions: 1983–84, 1984–85, 1986–87, 1987–88, and 1989–90",
-    "match": "Oilers", "note": "Answer is correct (1984, 1985, 1987, 1988, 1990), but Q4 says 'In 1988 the Oilers traded Wayne Gretzky', which hands this answer to anyone who has heard Q4 before submitting. Reword Q4 to 'In 1988 Edmonton traded Wayne Gretzky to which NHL team?' (or drop 'Oilers' from it) so Q3 stands on its own." },
-  { "n": 4, "verdict": "confirmed", "wiki": "en:Edmonton_Oilers",
-    "quote": "Gretzky, along with enforcer Marty McSorley and centre Mike Krushelnyski, were traded to the Los Angeles Kings on August 9, 1988",
-    "match": "Los Angeles Kings", "note": "See Q3: this question's wording is what gives Q3 away." },
-  { "n": 5, "verdict": "confirmed", "wiki": "en:Edmonton_Elks",
-    "quote": "On June 1, 2021, the team formally announced that the new Edmonton team name would be the Edmonton Elks",
-    "match": "Elks", "note": "Formerly the Edmonton Eskimos (to 2020), briefly the 'Edmonton Football Team' in between; the new name is unambiguous." },
-  { "n": 6, "verdict": "confirmed", "wiki": "en:Fort_Edmonton",
-    "quote": "Fort Edmonton (also named Edmonton House) was the name of a series of trading posts of the Hudson's Bay Company (HBC) from 1795 to 1914",
-    "match": "Hudson's Bay Company", "note": "Minor: the first Fort Edmonton shared a palisade with the North West Company's Fort Augustus, so a keen room might say 'North West Company'. Fort Edmonton itself was always the HBC post, so the answer stands." },
-  { "n": 7, "verdict": "confirmed", "wiki": "en:Michael_J._Fox",
-    "quote": "Fox was born on June 9, 1961, in Edmonton, Alberta",
-    "match": "Fox", "note": "" },
-  { "n": 8, "verdict": "unclear", "wiki": "en:Muttart_Conservatory",
-    "quote": "is composed of four glassed pyramids built around a central service core",
-    "match": "four", "note": "Four is the famous answer (four display pyramids: tropical, temperate, arid, feature), but the same article says 'A fifth minor skylight pyramid lights up the central foyer', so a room that has visited can fairly answer five, and the question as worded ('how many glass pyramids make up') counts all of them. Reword: 'How many large glass display pyramids house the Muttart Conservatory's plant collections?' Answer: Four." },
-  { "n": 9, "verdict": "confirmed", "wiki": "en:High_Level_Bridge_(Edmonton)",
-    "quote": "which is used only by the High Level Bridge Streetcar, a historic streetcar route operated by the Edmonton Radial Railway Society",
-    "match": "High Level Bridge", "note": "Same article: 'Opened as a bilevel bridge in 1913'. Seasonal (summer) operation of the streetcar is not stated in this article beyond holiday weekends in its early years; widely documented by the Radial Railway Society as a May to October service, so the wording is fine." },
-  { "n": 10, "verdict": "confirmed", "wiki": "en:Edmonton",
-    "quote": "Edmonton hosts several large festivals each year, contributing to its nickname, \"Canada's Festival City\"",
-    "match": "Festival City", "note": "Edmonton has other nicknames (City of Champions, Gateway to the North), but the festival clue pins it to this one. Accept 'Canada's Festival City'." }
-] }
+{
+  "slug": "edmonton",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:North_Saskatchewan_River",
+      "quote": "In Edmonton, the river passes through the centre of the city in a northeasterly direction",
+      "match": "river",
+      "note": "The article names it as the North Saskatchewan throughout; only river through the city."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Galaxyland",
+      "quote": "is an indoor amusement park located in the West Edmonton Mall in Edmonton, Alberta, Canada",
+      "match": "West Edmonton Mall",
+      "note": "World Waterpark article also says it is located within the West Edmonton Mall."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Edmonton_Oilers",
+      "quote": "After joining the NHL, the Oilers won the Stanley Cup on five occasions: 1983–84, 1984–85, 1986–87, 1987–88, and 1989–90",
+      "match": "five",
+      "note": "Reworded to ask how many; the quote states five occasions."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Edmonton_Oilers",
+      "quote": "Gretzky, along with enforcer Marty McSorley and centre Mike Krushelnyski, were traded to the Los Angeles Kings on August 9, 1988",
+      "match": "Los Angeles Kings",
+      "note": "Q4 no longer names the Oilers, which was the old giveaway for Q3. It still says 'Edmonton traded', which tells a room Edmonton had an NHL team, but in an Edmonton round Q3 is guessable anyway; acceptable."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Edmonton_Elks",
+      "quote": "On June 1, 2021, the team formally announced that the new Edmonton team name would be the Edmonton Elks",
+      "match": "Elks",
+      "note": "Formerly the Edmonton Eskimos (to 2020), briefly the 'Edmonton Football Team' in between; the new name is unambiguous."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Fort_Edmonton",
+      "quote": "Fort Edmonton (also named Edmonton House) was the name of a series of trading posts of the Hudson's Bay Company (HBC) from 1795 to 1914",
+      "match": "Hudson's Bay Company",
+      "note": "Minor: the first Fort Edmonton shared a palisade with the North West Company's Fort Augustus, so a keen room might say 'North West Company'. Fort Edmonton itself was always the HBC post, so the answer stands."
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Michael_J._Fox",
+      "quote": "Fox was born on June 9, 1961, in Edmonton, Alberta",
+      "match": "Fox",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Muttart_Conservatory",
+      "quote": "is composed of four glassed pyramids built around a central service core",
+      "match": "four",
+      "note": "'Display' shuts out the 'fifth minor skylight pyramid' over the foyer. Small wrinkle, not enough to argue: the article says 'The two larger pyramids are 660 m2... and the two medium-sized ones are 410 m2', so 'large' could be read as two. Dropping 'large' ('How many glass display pyramids...') would remove even that; optional."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:High_Level_Bridge_(Edmonton)",
+      "quote": "which is used only by the High Level Bridge Streetcar, a historic streetcar route operated by the Edmonton Radial Railway Society",
+      "match": "High Level Bridge",
+      "note": "Same article: 'Opened as a bilevel bridge in 1913'. Seasonal (summer) operation of the streetcar is not stated in this article beyond holiday weekends in its early years; widely documented by the Radial Railway Society as a May to October service, so the wording is fine."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Edmonton",
+      "quote": "Edmonton hosts several large festivals each year, contributing to its nickname, \"Canada's Festival City\"",
+      "match": "Festival City",
+      "note": "Edmonton has other nicknames (City of Champions, Gateway to the North), but the festival clue pins it to this one. Accept 'Canada's Festival City'."
+    }
+  ]
+}

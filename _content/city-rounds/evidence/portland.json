@@ -52,11 +52,11 @@
   },
   {
    "n": 7,
-   "verdict": "wrong",
+   "verdict": "confirmed",
    "wiki": "en:Mill_Ends_Park",
    "quote": "It was the smallest park in the world, according to the Guinness Book of Records, which first granted it this recognition in 1971, and held the distinction until February 2025",
    "match": "park",
-   "note": "OUT OF DATE. The answer word (park) is right but the premise 'IS recognized by Guinness as the world's smallest' is false since February 2025, when Guinness gave the title to a park in Nagaizumi, Shizuoka, Japan (0.24 m2). A room with a phone will call it. Reword: 'A two-foot-wide circle in a Naito Parkway median held the Guinness record from 1971 to 2025 as the world's smallest what?' (still answer: park / Mill Ends Park). Wikipedia still calls it 'the smallest urban park in the United States', which is another safe wording."
+   "note": "Now true: past tense and the 1971 to 2025 span match the article. Other details also check out: 'a small circle 2 ft across' and 'located in the median strip of SW Naito Parkway'."
   },
   {
    "n": 8,
@@ -80,7 +80,7 @@
    "wiki": "en:Portland_Timbers",
    "quote": "Joey continues Jim's trademark of cutting a round (or \"cookie\") from a large log with a chainsaw every time the Timbers score a goal",
    "match": "log",
-   "note": "Looked hard at this one. Current (MLS-era) article confirms Timber Joey is the official mascot and cuts a round from a log with a chainsaw on each Timbers goal; the round is given to the scorer (and to the goalkeeper for a shutout). Supported also by en:Portland_Timbers_(2001–2010) ('cutting off a slab of a log each time the team scores'). Two small points: (1) 'after every home goal' could be misread as any goal scored at a home match, including the visitors'; he only cuts for Timbers goals. Suggest 'after every Timbers goal at a home match'. (2) Accept 'a round', 'a cookie', 'a slab' or 'a Goal Slice' of log: the article uses round/cookie and the image caption calls it the 'Goal Slice'."
+   "note": "'After every Timbers goal' removes the old reading that he cuts for visitors' goals too. Accept 'a round', 'a cookie', 'a slab' or 'a Goal Slice' of log."
   }
  ]
 }

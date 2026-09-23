@@ -4,11 +4,11 @@
   "items": [
     {
       "n": 1,
-      "verdict": "unclear",
+      "verdict": "confirmed",
       "wiki": "en:Atlanta",
       "quote": "the area around the milepost had developed into a settlement, first known as Terminus, and later Thrasherville",
       "match": "Terminus",
-      "note": "Wikipedia gives THREE names before Atlanta: Terminus, then Thrasherville, then Marthasville ('renamed Marthasville to honor Governor Wilson Lumpkin's daughter Martha'). 'Before it was called Marthasville' therefore admits Thrasherville too. Fix: 'Before it was called Marthasville and then Atlanta, the settlement at the end of the Western and Atlantic Railroad was FIRST known by what name?' (Also note 'end of the railroad' is a strong hint at Terminus; acceptable.)"
+      "note": "'First known' removes the Thrasherville answer the old wording allowed. The question skips Thrasherville ('later renamed Marthasville and then Atlanta'), which is an omission, not a false claim: it was renamed Marthasville in 1842 ('renamed Marthasville to honor Governor Wilson Lumpkin's daughter Martha'). 'At the end of the railroad' still hints at Terminus; a gentle, acceptable nudge."
     },
     {
       "n": 2,

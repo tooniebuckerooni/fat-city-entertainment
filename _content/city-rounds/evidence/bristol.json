@@ -1,10 +1,12 @@
 { "slug": "bristol", "checked": "2026-09-23", "items": [
-  { "n": 1, "verdict": "unclear", "wiki": "en:Clifton_Suspension_Bridge",
-    "quote": "The bridge is built to a design by William Henry Barlow and John Hawkshaw, based on an earlier design by Isambard Kingdom Brunel",
-    "match": "Isambard Kingdom Brunel", "note": "Two problems. (a) Wikipedia's lead says the bridge as built is Barlow and Hawkshaw's design based on Brunel's; Brunel died in 1859 and it was completed in 1864, so a pedant can argue. (b) Q2 opens 'Which Brunel steamship', which gives this answer away if a team hears Q2 before handing in. Reword Q1: 'Whose winning design of 1831 was the basis for the Clifton Suspension Bridge, finished after his death?' and Q2: 'Which steamship, launched in 1843, is now a museum in a Bristol dry dock?' (still unique: SS Great Britain)." },
+  { "n": 1, "verdict": "confirmed", "wiki": "en:Clifton_Suspension_Bridge",
+    "quote": "In 1831, an attempt to build Brunel's design was halted by the 1831 Bristol riots, and the revised version of his designs was built after his death and completed in 1864",
+    "match": "Brunel",
+    "note": "Rewording fixed both problems: 'basis for' and 'finished after his death' accommodate Barlow and Hawkshaw's revision, and Q2 no longer names Brunel. One wrinkle checked: the 1831 judges first declared Smith and Hawkes the winners, then 'The committee then declared Brunel the winner', so 'winning design of 1831' still has one answer, since Smith and Hawkes' design was never the basis of anything." },
   { "n": 2, "verdict": "confirmed", "wiki": "en:SS_Great_Britain",
     "quote": "Now listed as part of the National Historic Fleet, Great Britain is a visitor attraction and museum",
-    "match": "Great Britain", "note": "Launched (floated out) 19 July 1843. See Q1 for the giveaway in this question's 'Brunel' wording." },
+    "match": "Great Britain",
+    "note": "'When launched in 1843, Great Britain was by far the largest vessel ever built'; she sits in 'the dry dock in the Great Western Dockyard' in Bristol where she was built. No longer names Brunel, so no longer gives Q1 away. 'Steamship, 1843, Bristol dry dock' has one answer." },
   { "n": 3, "verdict": "confirmed", "wiki": "en:Avon_Gorge",
     "quote": "gorge on the River Avon in Bristol, England",
     "match": "River Avon", "note": "" },
@@ -26,7 +28,8 @@
   { "n": 9, "verdict": "confirmed", "wiki": "en:Bristol",
     "quote": "The two Football League clubs are Bristol City and Bristol Rovers",
     "match": "Bristol City", "note": "Both still Football League (professional) clubs in 2026-27." },
-  { "n": 10, "verdict": "unclear", "wiki": "en:Bristol_International_Balloon_Fiesta",
+  { "n": 10, "verdict": "confirmed", "wiki": "en:Bristol_International_Balloon_Fiesta",
     "quote": "Teams from the UK and other parts of the world bring their hot air balloons to the site and participate in mass ascents where as many as 100 balloons may launch at a time",
-    "match": "Balloon", "note": "Answer is right and unique, but 'hundreds of hot-air balloons lift off' overstates it: Wikipedia says as many as 100 launch at a time, and the organisers bill 'over 100 balloons'. A host will get corrected by a local. Reword: 'Every August, more than a hundred hot-air balloons lift off from Ashton Court for which event?'" }
+    "match": "Balloon",
+    "note": "'More than a hundred' is now safe: Wikipedia says 'as many as 100 balloons may launch at a time' at a single mass ascent, and the organisers bill over 100 balloons across the four days, so the total claim holds. August is right (infobox 'dates=August', moved from September). Ashton Court also hosts the Ashton Court Festival, but that is not a balloon event, so one answer." }
 ] }

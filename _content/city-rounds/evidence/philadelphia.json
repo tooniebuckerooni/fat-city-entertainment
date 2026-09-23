@@ -36,11 +36,11 @@
     },
     {
       "n": 5,
-      "verdict": "unclear",
-      "wiki": "en:Philadelphia_Museum_of_Art",
-      "quote": "In October 2025, the museum rebranded as the \"Philadelphia Art Museum\" after more than a year of planning",
-      "match": "Philadelphia",
-      "note": "Answer is right, but the building renamed itself in October 2025 (Philadelphia_Museum_of_Art article: 'rebranded as the \"Philadelphia Art Museum\"'). Steps confirmed in en:Rocky_Steps ('72 stone steps leading up to the East entrance of the Philadelphia Museum of Art'). A room will give either name. Fix: change the answer to 'The Philadelphia Museum of Art (renamed the Philadelphia Art Museum in 2025)' so the host accepts both."
+      "verdict": "confirmed",
+      "wiki": "en:Rocky_Steps",
+      "quote": "The Rocky Steps is an informal name to the 72 stone steps leading up to the East entrance of the Philadelphia Museum of Art in Philadelphia that gained global fame after being featured in a notable scene from the 1976 film Rocky",
+      "match": "Philadelphia Museum of Art",
+      "note": "Rewording fixed it: the answer now carries both names, and the October 2025 rebrand to 'Philadelphia Art Museum' is in en:Philadelphia_Museum_of_Art. 'Front steps' is the east entrance, the only steps he runs. Accept 'the Art Museum' / 'the Rocky Steps' building."
     },
     {
       "n": 6,

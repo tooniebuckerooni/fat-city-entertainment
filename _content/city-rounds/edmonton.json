@@ -15,8 +15,8 @@
         "a": "West Edmonton Mall"
       },
       {
-        "q": "Between 1984 and 1990, which NHL team won the Stanley Cup five times?",
-        "a": "The Edmonton Oilers"
+        "q": "How many Stanley Cups did the Edmonton Oilers win between 1984 and 1990?",
+        "a": "Five"
       },
       {
         "q": "In 1988 Edmonton traded Wayne Gretzky to which NHL team?",
@@ -35,7 +35,7 @@
         "a": "Michael J. Fox"
       },
       {
-        "q": "How many large glass display pyramids house the Muttart Conservatory's plant collections?",
+        "q": "How many glass display pyramids house the Muttart Conservatory's plant collections?",
         "a": "Four"
       },
       {
@@ -51,7 +51,7 @@
   "notes": [
     "The North Saskatchewan River flows through the centre of Edmonton; see North Saskatchewan River and Edmonton River Valley (Wikipedia).",
     "Galaxyland and World Waterpark are attractions inside West Edmonton Mall; see West Edmonton Mall (Wikipedia) or wem.ca.",
-    "Oilers won the Cup in 1984, 1985, 1987, 1988 and 1990; see Edmonton Oilers (Wikipedia) or NHL.com.",
+    "Five: 1984, 1985, 1987, 1988, 1990. Reworded from 'which team', which an Edmonton round answers by itself.",
     "Los Angeles Kings; reworded so it no longer names the Oilers and gives Q3 away.",
     "Formerly the Edmonton Eskimos; renamed the Edmonton Elks in June 2021; see Edmonton Elks (Wikipedia).",
     "Fort Edmonton was a Hudson's Bay Company post founded in 1795; see Fort Edmonton (Wikipedia) or Fort Edmonton Park.",

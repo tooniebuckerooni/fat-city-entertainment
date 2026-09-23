@@ -725,7 +725,10 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   are `"planned"` and every tool skips them. **Wave 3 (same day) built the
   last ten as drafts**: Los Angeles, Philadelphia, Atlanta, Nashville, Denver,
   Minneapolis, Portland (Oregon), San Diego, Edmonton, Bristol. All 32 cities
-  now have pages; their fact-check evidence lands in the next commit.
+  now have pages. Wave 3's 100 answers went through the same pipeline: 0 wrong
+  on the first pass except one gone stale (Mill Ends Park lost its Guinness
+  record in Feb 2025), 11 reworded and re-checked. **320/320 verified** across
+  all 32 cities, 23 Sept 2026.
 - **`_tools/build-city-pages.js` owns `/trivia-nights/`**: each city page from
   `_content/city-pages/<slug>.json` (title, description, h1, kicker, a three-
   paragraph "poem", two practical sections, and a `look`: accent, paper, ink,
