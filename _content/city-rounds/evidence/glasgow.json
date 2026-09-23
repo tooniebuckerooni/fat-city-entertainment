@@ -1,0 +1,86 @@
+{
+  "slug": "glasgow",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Glasgow",
+      "quote": "Glasgow is the most populous city in Scotland, located on the banks of the River Clyde",
+      "match": "Clyde",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Old_Firm",
+      "quote": "The Old Firm is a collective term for the Scottish football clubs Celtic and Rangers",
+      "match": "Celtic and Rangers",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Glasgow_Subway",
+      "quote": "nickname, \"The Clockwork Orange\" (coined from the title of the book and film A Clockwork Orange) is subject to dispute",
+      "match": "Orange",
+      "note": "Answer is sound, but the premise \"because of the colour of its trains\" is shakier than it reads: Wikipedia says the nickname is seldom used outside the press and was coined from the book/film title, with its origin disputed. Safer wording: \"Glasgow's Subway, with its orange carriages, is nicknamed the 'Clockwork' what?\""
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Equestrian_statue_of_the_Duke_of_Wellington,_Glasgow",
+      "quote": "Since at least the 1980s it has been traditionally capped with a traffic cone by members of the public",
+      "match": "traffic cone",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Glasgow_School_of_Art",
+      "quote": "The most famous of its buildings was designed by Charles Rennie Mackintosh and Margaret Macdonald Mackintosh",
+      "match": "Charles Rennie Mackintosh",
+      "note": "Wikipedia now co-credits Margaret Macdonald Mackintosh, but she was not Glasgow-born, so \"Glasgow-born architect\" still yields one answer. The Mackintosh Building was gutted by fires in 2014 and 2018; \"best-known building\" still holds."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Glasgow",
+      "quote": "This was abbreviated to \"Let Glasgow Flourish\" and adopted as the city's motto",
+      "match": "Flourish",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Saint_Mungo",
+      "quote": "known as Mungo, was a missionary in the Brittonic Kingdom of Strathclyde in the late sixth century, and the founder and patron saint of the city of Glasgow",
+      "match": "Mungo",
+      "note": "The question gives \"Kentigern\", which is the same saint, so a room that knows one name knows the other; fine as a gimme."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Coat_of_arms_of_Glasgow",
+      "quote": "Three fish are depicted in the coat of arms, each with a ring in its mouth",
+      "match": "fish",
+      "note": "The rhyme itself sits in a template the checker strips, so the quote is the coat-of-arms description instead. Accept \"salmon\"."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Christ_of_Saint_John_of_the_Cross",
+      "quote": "is in the collection of the Kelvingrove Art Gallery and Museum, Glasgow",
+      "match": "Kelvingrove",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "verdict": "unclear",
+      "wiki": "en:SEC_Armadillo",
+      "quote": "The SEC Armadillo (originally known as the Clyde Auditorium) is an auditorium located near the River Clyde",
+      "match": "Armadillo",
+      "note": "Out of date framing: the venue's official name is now the SEC Armadillo; \"Clyde Auditorium\" is its original name, so \"better known by the nickname\" is no longer true, and the question half-gives the answer away. Reword: \"Glasgow's riverside concert venue, originally called the Clyde Auditorium, is now officially named after which armoured animal?\""
+    }
+  ]
+}

@@ -6,22 +6,52 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Which river flows through the centre of Dublin?", "a": "The Liffey" },
-      { "q": "Arthur Guinness signed a 9,000-year lease on which Dublin brewery site in 1759?", "a": "St James's Gate" },
-      { "q": "Which illuminated manuscript of the four Gospels is on display at Trinity College Dublin?", "a": "The Book of Kells" },
-      { "q": "Which building on O'Connell Street served as the rebels' headquarters during the 1916 Easter Rising?", "a": "The GPO (General Post Office)" },
-      { "q": "What name is given to the 16 June celebration of James Joyce's novel Ulysses?", "a": "Bloomsday" },
-      { "q": "The name Dublin comes from the Irish \"Dubh Linn\". What does it mean in English?", "a": "Black pool" },
-      { "q": "Which Dublin stadium is the headquarters of the Gaelic Athletic Association?", "a": "Croke Park" },
-      { "q": "Which large Dublin park is home to Áras an Uachtaráin and a herd of wild fallow deer?", "a": "Phoenix Park" },
-      { "q": "Which Dublin-born author wrote the 1897 novel Dracula?", "a": "Bram Stoker" },
-      { "q": "In the song about Molly Malone, what does she sell as she wheels her barrow?", "a": "Cockles and mussels" }
+      {
+        "q": "Which river flows through the centre of Dublin?",
+        "a": "The Liffey"
+      },
+      {
+        "q": "Arthur Guinness signed a 9,000-year lease on which Dublin brewery site in 1759?",
+        "a": "St James's Gate"
+      },
+      {
+        "q": "Which illuminated Gospel book, Ireland's most famous medieval manuscript, is on display in Trinity College Dublin's Old Library?",
+        "a": "The Book of Kells"
+      },
+      {
+        "q": "Which building on O'Connell Street served as the rebels' headquarters during the 1916 Easter Rising?",
+        "a": "The GPO (General Post Office)"
+      },
+      {
+        "q": "What name is given to the 16 June celebration of James Joyce's novel Ulysses?",
+        "a": "Bloomsday"
+      },
+      {
+        "q": "The name Dublin comes from the Irish \"Dubh Linn\". What does it mean in English?",
+        "a": "Black pool"
+      },
+      {
+        "q": "Which Dublin stadium is the headquarters of the Gaelic Athletic Association?",
+        "a": "Croke Park"
+      },
+      {
+        "q": "Which large Dublin park is home to Áras an Uachtaráin and a herd of wild fallow deer?",
+        "a": "Phoenix Park"
+      },
+      {
+        "q": "Which Dublin-born author wrote the 1897 novel Dracula?",
+        "a": "Bram Stoker"
+      },
+      {
+        "q": "In the song about Molly Malone, what does she sell as she wheels her barrow?",
+        "a": "Cockles and mussels"
+      }
     ]
   },
   "notes": [
     "River Liffey flows through Dublin city centre; see River Liffey Wikipedia",
     "9,000-year lease at St James's Gate signed 31 December 1759; see Guinness Storehouse history / Guinness Wikipedia",
-    "Book of Kells displayed in the Old Library; see Trinity College Dublin Book of Kells page",
+    "Book of Kells. Trinity also holds the Book of Durrow, hence 'most famous'.",
     "GPO was headquarters of the Rising; see GPO Witness History / Easter Rising Wikipedia",
     "Bloomsday, 16 June, the day Ulysses is set (1904); see Bloomsday Wikipedia / James Joyce Centre",
     "Dubh Linn = black pool; see Dublin Wikipedia (etymology) / Dublin City Council",

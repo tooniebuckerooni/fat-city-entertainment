@@ -1,0 +1,33 @@
+{
+  "title": "Auckland Quiz Night",
+  "round": {
+    "name": "Local Round: Auckland",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "What is Auckland's name in te reo Māori?", "a": "Tāmaki Makaurau" },
+      { "q": "Auckland's waterfront and yachting culture have earned it which nickname?", "a": "The City of Sails" },
+      { "q": "Auckland sits between two harbours. Name either one.", "a": "Waitematā or Manukau" },
+      { "q": "Which symmetrical volcanic island guards the entrance to the Waitematā Harbour?", "a": "Rangitoto" },
+      { "q": "What is the name of the tall telecommunications and observation tower in Auckland's city centre?", "a": "The Sky Tower" },
+      { "q": "The extra lanes added to the Auckland Harbour Bridge in 1969 were built in Japan. What nickname did they earn?", "a": "The Nippon Clip-ons" },
+      { "q": "Which Auckland stadium hosted the Rugby World Cup final in both 1987 and 2011?", "a": "Eden Park" },
+      { "q": "Auckland was New Zealand's capital until 1865. Which city took over?", "a": "Wellington" },
+      { "q": "Which singer from Auckland's North Shore had a worldwide hit with \"Royals\" as a teenager?", "a": "Lorde" },
+      { "q": "The volcanic cone Maungawhau is better known by which English name?", "a": "Mount Eden" }
+    ]
+  },
+  "notes": [
+    "Tāmaki Makaurau is the standard te reo Māori name; see Auckland on Te Ara (teara.govt.nz) or Auckland Council.",
+    "Long-standing nickname; see Auckland on Wikipedia or aucklandnz.com.",
+    "Waitematā Harbour (east, Hauraki Gulf) and Manukau Harbour (west, Tasman Sea); see Te Ara, 'Auckland places'.",
+    "Rangitoto Island, the youngest volcano in the Auckland field; see doc.govt.nz (Rangitoto Island).",
+    "Sky Tower opened 1997; see skycityauckland.co.nz or Wikipedia.",
+    "Four clip-on lanes built by IHI in Japan, added 1969; see Auckland Harbour Bridge on Wikipedia or NZTA.",
+    "Eden Park hosted the 1987 and 2011 RWC finals, both won by the All Blacks; see edenpark.co.nz or world.rugby.",
+    "Seat of government moved from Auckland to Wellington in 1865; see nzhistory.govt.nz ('Wellington becomes capital').",
+    "Lorde (Ella Yelich-O'Connor), raised in Devonport; 'Royals' released 2013; see Lorde on Wikipedia.",
+    "Maungawhau / Mount Eden, one of the Tūpuna Maunga; see maunga.nz or Wikipedia."
+  ]
+}

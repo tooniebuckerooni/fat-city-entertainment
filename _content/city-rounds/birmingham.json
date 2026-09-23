@@ -1,0 +1,63 @@
+{
+  "title": "Birmingham Pub Quiz",
+  "round": {
+    "name": "Local Round: Birmingham",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "What name is given to someone from Birmingham, and to the local accent?",
+        "a": "Brummie"
+      },
+      {
+        "q": "Cadbury built its factory and model village in which Birmingham suburb?",
+        "a": "Bournville"
+      },
+      {
+        "q": "Birmingham is often called the city of a thousand what?",
+        "a": "Trades"
+      },
+      {
+        "q": "Which band, formed in Birmingham in 1968 with Ozzy Osbourne on vocals, is often credited with inventing heavy metal?",
+        "a": "Black Sabbath"
+      },
+      {
+        "q": "Which BBC drama follows the Shelby family, a gang in Small Heath after the First World War?",
+        "a": "Peaky Blinders"
+      },
+      {
+        "q": "Which curry, served in the thin steel bowl it shares its name with, was developed in Birmingham in the 1970s?",
+        "a": "Balti"
+      },
+      {
+        "q": "Birmingham hosted the Commonwealth Games in which year?",
+        "a": "2022"
+      },
+      {
+        "q": "Which Birmingham football club won the European Cup in 1982?",
+        "a": "Aston Villa"
+      },
+      {
+        "q": "Which author of The Hobbit spent much of his childhood in Birmingham?",
+        "a": "J. R. R. Tolkien"
+      },
+      {
+        "q": "Which Birmingham band had a UK number one in 1983 with \"Red Red Wine\"?",
+        "a": "UB40"
+      }
+    ]
+  },
+  "notes": [
+    "Brummie (from Brummagem); see Brummie dialect (Wikipedia) or the Oxford English Dictionary.",
+    "Cadbury moved to Bournville in 1879 and built the model village; see Bournville Village Trust or Cadbury World's history pages.",
+    "'City of a thousand trades' is a long-standing nickname; see Birmingham (Wikipedia) or Birmingham Museums Trust.",
+    "Formed in Aston, Birmingham, in 1968; see Black Sabbath (Wikipedia) or the band's official site.",
+    "Peaky Blinders (BBC, 2013-2022), set in Small Heath, Birmingham, from 1919; see the BBC programme pages.",
+    "Balti; the name's origin is disputed, so the question no longer claims it.",
+    "Birmingham 2022 Commonwealth Games, 28 July to 8 August 2022; see the Commonwealth Games Federation site.",
+    "Aston Villa beat Bayern Munich 1-0 in the 1982 European Cup final in Rotterdam; see UEFA.com or Aston Villa (Wikipedia).",
+    "Tolkien grew up in Sarehole and Edgbaston, Birmingham; see the Tolkien Society or Birmingham Museums (Sarehole Mill).",
+    "UB40's 'Red Red Wine' reached UK No. 1 in 1983; see the Official Charts Company or UB40 (Wikipedia)."
+  ]
+}

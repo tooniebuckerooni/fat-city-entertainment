@@ -13,9 +13,43 @@ const TGP_PDF = (() => {
     return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
   }
 
+  /* The built-in PDF fonts (Helvetica, Times, Courier) can only draw the
+     Windows-1252 character set. Hand jsPDF one character outside it, such as
+     the macron in the Maori "Tamaki", and it re-encodes the whole string: the
+     line prints as spaced-out garbage and stops at that letter. So every string
+     is made safe on the way in. A letter with an accent the font lacks keeps its
+     base letter (a macron a becomes a), which is the least-bad reading on
+     paper; anything with no base letter becomes "?". Accents the font DOES
+     have (e, o with a slash, French guillemets, curly quotes) pass through
+     untouched. Embedding a full Unicode font would print the macron too, at the
+     cost of several hundred KB on every load of the tool. */
+  const CP1252_EXTRA = "\u20ac\u201a\u0192\u201e\u2026\u2020\u2021\u02c6\u2030\u0160\u2039\u0152\u017d" +
+    "\u2018\u2019\u201c\u201d\u2022\u2013\u2014\u02dc\u2122\u0161\u203a\u0153\u017e\u0178";
+  const drawable = ch => {
+    const c = ch.charCodeAt(0);
+    return ch.length === 1 && ((c >= 0x20 && c <= 0x7e) || (c >= 0xa0 && c <= 0xff) || c === 10 || c === 13 || CP1252_EXTRA.indexOf(ch) !== -1);
+  };
+  // Letters whose stroke is part of the glyph, so NFD has nothing to strip.
+  const STROKED = { "\u0141": "L", "\u0142": "l", "\u0110": "D", "\u0111": "d", "\u0131": "i", "\u0126": "H", "\u0127": "h", "\u0166": "T", "\u0167": "t" };
+  function pdfSafe(s) {
+    if (typeof s !== "string") return s;
+    let out = "";
+    for (const ch of s) {
+      if (drawable(ch)) { out += ch; continue; }
+      const base = STROKED[ch] || ch.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+      out += base && [...base].every(drawable) ? base : "?";
+    }
+    return out;
+  }
+  const safeArg = v => (Array.isArray(v) ? v.map(pdfSafe) : pdfSafe(v));
+
   function newDoc(state, orientation = "portrait") {
     const format = state.options.pageSize === "a4" ? "a4" : "letter";
     const doc = new jsPDF({ unit: "mm", format, orientation, compress: true });
+    for (const fn of ["text", "splitTextToSize", "getTextWidth"]) {
+      const orig = doc[fn].bind(doc);
+      doc[fn] = (t, ...rest) => orig(safeArg(t), ...rest);
+    }
     return {
       doc,
       W: doc.internal.pageSize.getWidth(),

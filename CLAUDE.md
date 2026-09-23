@@ -720,7 +720,9 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   (`charlotte-events.html`) are hand pages with real history. **Wave 1 (23 Sept
   2026) built ten more** under `/trivia-nights/<slug>/`: New York, Chicago,
   Toronto, Vancouver, Montréal, London, Manchester, Dublin, Sydney, Melbourne.
-  The remaining 20 are `"planned"` and every tool skips them.
+  **Wave 2 (same day) built ten more**: Boston, Washington DC, Austin, Seattle,
+  Ottawa, Birmingham, Edinburgh, Glasgow, Brisbane, Auckland. The remaining 10
+  are `"planned"` and every tool skips them.
 - **`_tools/build-city-pages.js` owns `/trivia-nights/`**: each city page from
   `_content/city-pages/<slug>.json` (title, description, h1, kicker, a three-
   paragraph "poem", two practical sections, and a `look`: accent, paper, ink,
@@ -750,6 +752,42 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   other page has** (its own checked local round) and claims no local presence
   the business does not have. Each entry has a `term` ("pub quiz", "table
   quiz", "quiz night") and the page must use it.
+- **`build-city-pages.js` refuses a repeated motif and prints `SAMENESS`** for
+  any six-word run on three or more city pages (title, description and copy).
+  It fired on wave 2 at once: 12 shared runs, almost all in meta descriptions
+  ("with a free local round on" on 7 pages). Rewritten to zero. Read that list
+  before every wave; it is a warning, not a failure, on purpose.
+- **Every answer has machine-checked evidence** in
+  `_content/city-rounds/evidence/<slug>.json`, written by a fact-checking agent
+  that did NOT write the round, and checked by `node _tools/check-city-rounds.js`,
+  which **refetches each cited Wikipedia article** (raw wikitext; the API is
+  rate-limited from the sandbox) and fails an item unless the quote is really in
+  it and a `match` string is in both the quote and the answer. That second rule
+  is what catches a real quote about the wrong thing; the first catches a
+  checker that invented its quote (tested: a made-up "gift from Belgium" fails
+  twice). Result 23 Sept 2026 across 220 answers: **0 wrong**, 19 flagged
+  "unclear" (a room could argue a second answer, or the question gave itself
+  away, or it had gone stale: the Neighbours finale, the Dolphins joining the
+  NRL, the SEC Armadillo rename, the CN Tower's new name). All 19 reworded, plus
+  one replaced question; the reworded items were sent to a third agent for a fresh check (see the commit that follows this one). **Evidence is not the
+  owner's sign-off**; it turns "check 220 answers" into "read what it prints".
+- **`node _tools/test-round-autoload.js` drives the real tool in Chromium**
+  against every round, draft or live (it serves the repo and answers
+  `/trivia-show-maker/rounds/<slug>.json` from `_content/`, so nothing is
+  published to test). Per round: the round lands byte for byte, the parameter is
+  stripped, and the **Host and Question PDFs are downloaded and text-extracted**
+  (PyMuPDF) to prove every question and answer prints. Plus append-not-replace,
+  duplicate refusal, utm kept, seven hostile slugs fetching nothing, and missing /
+  malformed / wrong-shaped files leaving the show untouched. 146 checks, all pass.
+- **That test found a live Trivia Show Maker bug**: jsPDF's built-in fonts only
+  draw Windows-1252, and one character outside it (the macron in "Tāmaki")
+  makes jsPDF re-encode the whole string, so the line printed as spaced-out
+  garbage and stopped at that letter. Every host who ever typed a macron, a
+  Polish Ł or an emoji got a broken packet. Fixed in `pdfgen.js` (`pdfSafe`,
+  wrapped round `text`/`splitTextToSize`/`getTextWidth`): an undrawable accented
+  letter prints as its base letter (ā → a, Ł → L), anything else as "?". The web
+  pages keep their macrons; only paper loses them. Embedding a Unicode font would
+  keep them too, at several hundred KB per load of the tool.
 - **Each city gets a 10-question local round** in `_content/city-rounds/<slug>.json`
   (Trivia Show Maker's own round shape). `node _tools/add-city-rounds.js --write`
   puts the questions, a collapsed answers list and a "Load this round into Trivia

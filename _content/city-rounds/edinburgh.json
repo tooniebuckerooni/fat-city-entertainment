@@ -1,0 +1,33 @@
+{
+  "title": "Edinburgh Pub Quiz",
+  "round": {
+    "name": "Local Round: Edinburgh",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "What is the name of the extinct volcano in Holyrood Park that towers over the city?", "a": "Arthur's Seat" },
+      { "q": "What is the everyday name of the open-access arts festival that fills the city every August?", "a": "The Fringe" },
+      { "q": "Greyfriars Bobby, the loyal dog who kept watch over his master's grave, is traditionally said to be which breed?", "a": "A Skye Terrier" },
+      { "q": "Which Edinburgh-born author wrote Treasure Island and Strange Case of Dr Jekyll and Mr Hyde?", "a": "Robert Louis Stevenson" },
+      { "q": "The run of streets from the castle down to the Palace of Holyroodhouse is known by what nickname?", "a": "The Royal Mile" },
+      { "q": "Edinburgh's main railway station takes its name from a series of novels by which author?", "a": "Sir Walter Scott" },
+      { "q": "Which fictional detective was created by Edinburgh-born writer Arthur Conan Doyle?", "a": "Sherlock Holmes" },
+      { "q": "Edinburgh sits on the southern shore of which firth?", "a": "The Firth of Forth" },
+      { "q": "A gun is fired from Edinburgh Castle on most days of the year. At what time?", "a": "One o'clock (1pm)" },
+      { "q": "Edinburgh's old nickname \"Auld Reekie\" refers to what?", "a": "Its smoke (smoky chimneys)" }
+    ]
+  },
+  "notes": [
+    "Arthur's Seat, an extinct volcano in Holyrood Park; see Historic Environment Scotland or Arthur's Seat (Wikipedia).",
+    "Edinburgh Festival Fringe, held every August since 1947; see edfringe.com.",
+    "Skye Terrier, per his statue by Greyfriars Kirkyard and Greyfriars Bobby (Wikipedia); accept 'a terrier'.",
+    "Stevenson was born in Edinburgh in 1850; see the Robert Louis Stevenson Wikipedia article or the RLS Club.",
+    "Castle to Holyroodhouse, about a Scots mile long; see Royal Mile (Wikipedia) or VisitScotland.",
+    "Waverley station is named after Scott's Waverley novels; see Edinburgh Waverley (Wikipedia) or Network Rail.",
+    "Conan Doyle was born at Picardy Place, Edinburgh, in 1859; see Arthur Conan Doyle (Wikipedia).",
+    "Firth of Forth; see Firth of Forth (Wikipedia) or any map of Edinburgh and Leith.",
+    "The One O'Clock Gun, fired daily except Sundays, Good Friday and Christmas Day; see Edinburgh Castle (Historic Environment Scotland).",
+    "'Auld Reekie' means 'Old Smoky', from coal and wood smoke; see Auld Reekie in the Dictionaries of the Scots Language or Wikipedia. Accept 'smoke', 'smoky chimneys' or 'being smelly/smoky'."
+  ]
+}

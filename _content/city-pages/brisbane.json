@@ -1,0 +1,34 @@
+{
+  "slug": "brisbane",
+  "title": "Brisbane Trivia Night: Ten Local Questions to Read Out",
+  "description": "Plan a Brisbane trivia night around storm season and Origin, with a free local round on the Story Bridge, Expo 88, the Gabba and Bluey, ready to read out.",
+  "h1": "A Brisbane Trivia Night Under the Jacarandas",
+  "kicker": "Storm season, Origin arguments and ten questions on Brisbane.",
+  "poem": [
+    "October turns Brisbane purple. The jacarandas drop their flowers over New Farm and the university lawns at St Lucia, and for a few weeks every footpath looks freshly painted. The river takes its time getting anywhere, doubling back on itself in long brown loops, and the CityCats cut across it with their wakes curling into the mangroves.",
+    "Summer arrives as weather with a timetable. The heat builds all afternoon, the sky over the western suburbs goes the colour of a bruise, and at about four the storm comes through, hammering the tin roofs of the old Queenslanders up on their stumps. Afterwards the streets steam and the city drifts out onto verandahs. That is when trivia night starts: ceiling fans turning, a table of engineers from the same office, a team arguing over whether a Maroons question counts as sport or religion.",
+    "The Valley has been a place for bands since The Saints were making a racket in the suburbs in the seventies, and the same stubbornness runs through the quizmasters, the comedy rooms and the pub duos who play a Wednesday to twenty people. They are why a Brisbane weeknight goes anywhere at all. Walking home late, the big steel bridge is lit over Kangaroo Point, and the river is still going the long way round."
+  ],
+  "sections": [
+    {
+      "h2": "North side, south side, and the Origin question",
+      "paras": [
+        "Brisbane crowds are friendly and loud, and sport wins a room fastest. State of Origin is close to sacred, so a Maroons question always lands, but ask about the history rather than whose fault last year was. The Broncos, the Lions and summer Tests at the Gabba give you material for every month, and the north side against south side rivalry is good for a laugh as long as you keep it even.",
+        "Local rounds write themselves: Expo 88, the 1982 Commonwealth Games, Bluey, the Bee Gees' Redcliffe years, Moreton Bay bugs. Mind the weather. Summer storms tend to roll through in the late afternoon, so a 7pm start usually misses them, and Origin nights and Ekka week in August will empty any room that competes."
+      ]
+    },
+    {
+      "h2": "From The Saints to a Wednesday in the Valley",
+      "paras": [
+        "Brisbane keeps producing bands the world notices later. The Saints released their first single themselves in 1976, The Go-Betweens followed a few years on, and there is now a bridge over the river named after them. Each of them started in small rooms in front of small crowds, the part of the story that gets left out.",
+        "It still works that way: the Valley, West End and the suburban pubs run on people who play, host and compère for a modest fee. Buy the ticket, stay for the second set, and enter the quiz with a team name the host can read out without blushing. Starting one at the footy club? The Brisbane round on this page was written to be read under a ceiling fan."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#7a1030",
+    "paper": "#faf4f2",
+    "ink": "#1e1014",
+    "motif": "∿"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "slug": "auckland",
+  "title": "Auckland Quiz Night: A Free Local Round for Your Pub Quiz",
+  "description": "Ten questions on Rangitoto, the Sky Tower, Eden Park and Tāmaki Makaurau for an Auckland quiz night, free to read out or print, with notes on filling a room.",
+  "h1": "An Auckland Quiz Night Between Two Harbours",
+  "kicker": "Volcanoes, sails and a pōhutukawa summer, in ten questions.",
+  "poem": [
+    "Auckland is built across a field of old volcanoes. The cones rise out of the suburbs like green upturned bowls, and from the top of Maungawhau you can see one harbour glittering with sails to the east and the other lying flat and silver to the west.",
+    "The weather comes in off the Tasman in bands: a shower, a burst of sun, a rainbow over the harbour bridge, a shower again. Nobody trusts an umbrella; they own a hooded jacket and patience. In December the pōhutukawa flower red along the coast and the city tips into its long summer of barbecues. The rest of the year belongs to quiz night: teams crowded round a table on a Tuesday, an answer sheet going soggy under a jug, a fierce debate about whether the pavlova belongs to New Zealand or to Australia.",
+    "The people who make those nights keep the city's other evenings alive too: the quizmaster with a clipboard and a streak of mischief, the covers band in the corner, the comic trying new jokes on Karangahape Road. Auckland is spread out and easy to stay home in, so every room that fills on a weeknight has been earned. From the last ferry into Devonport, the Sky Tower stands lit over the water like a needle stuck in the dark."
+  ],
+  "sections": [
+    {
+      "h2": "From the Shore to South Auckland: pitching the questions",
+      "paras": [
+        "Auckland rooms are mixed in every sense, so write a quiz that rewards more than one kind of knowledge. Rugby is the safe bet, and Eden Park's two World Cup finals give you history as well as sport. Add the Warriors and the Blues, then balance them with sailing, Pacific music and a te reo Māori question or two, pronounced with care. People notice when a host has bothered.",
+        "Local rounds come easily: the volcanoes, the harbour bridge, the America's Cup, Lorde, the years when Auckland was the capital. Summer runs from Christmas deep into February and pulls everyone to the beach, so quiz night really lives in the wetter months. Traffic is the city's other weather: start at 7.30 so the team from across the bridge makes round one."
+      ]
+    },
+    {
+      "h2": "Getting Aucklanders across the bridge on a weeknight",
+      "paras": [
+        "Auckland's live scene has always had to fight its own geography. The city sprawls along its motorways, and a band, a comic or a quizmaster can easily end up playing to half a room because the audience stayed home across the harbour. Plenty of acts who reached bigger stages started in exactly those rooms, on K Road and in suburban clubs, kept going by a few loyal regulars.",
+        "So make the trip. See the band at the local, book a comedian nobody has heard of yet at the autumn comedy festival, and turn up for quiz night with a team name the host can say to the whole room. Starting one at the rugby club? The Auckland round on this page will carry the first ten minutes."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0b6e7f",
+    "paper": "#f1f7f7",
+    "ink": "#0c1e22",
+    "motif": "△"
+  }
+}

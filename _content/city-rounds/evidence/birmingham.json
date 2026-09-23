@@ -1,0 +1,86 @@
+{
+  "slug": "birmingham",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Brummie_dialect",
+      "quote": "\"Brummie\" is also a demonym for people from Birmingham",
+      "match": "Brummie",
+      "note": "Accept 'Brum' for the accent at the host's discretion; 'Brummie' is the standard answer for both."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Bournville",
+      "quote": "Bournville is a 19th century model village on the southwest side of Birmingham, England, founded by the Quaker Cadbury family for employees at its Cadbury's factory",
+      "match": "Bournville",
+      "note": "Was in northern Worcestershire when founded; now a Birmingham suburb, so the question holds."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:History_of_Birmingham",
+      "quote": "Birmingham became known as the \"City of a thousand trades\" because of the wide variety of goods manufactured there",
+      "match": "trades",
+      "note": "The phrase is not in en:Birmingham, only in History of Birmingham and Economy of Birmingham. 'Workshop of the World' is a rival nickname, but the question's wording fixes the answer."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Black_Sabbath",
+      "quote": "Black Sabbath were an English heavy metal band formed in Birmingham in 1968",
+      "match": "Black Sabbath",
+      "note": "Question gives a lot away (year, Ozzy); fine for a family round."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Peaky_Blinders_(TV_series)",
+      "quote": "it follows the exploits of the Peaky Blinders crime gang in the direct aftermath of the First World War",
+      "match": "Peaky Blinders",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "verdict": "unclear",
+      "wiki": "en:Balti_(food)",
+      "quote": "A region of Birmingham with many balti restaurants has become known as the Balti Triangle",
+      "match": "Balti",
+      "note": "Answer is right, but the premise 'named after the steel pan' is disputed: the article's Origin section gives a rival derivation from Baltistan (Pat Chapman) against the cooking-pot one (Colleen Taylor Sen). Suggested rewording: 'Which curry, served in a thin steel bowl of the same name, was developed in Birmingham in the 1970s?'"
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:2022_Commonwealth_Games",
+      "quote": "commonly known as Birmingham 2022",
+      "match": "2022",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:1982_European_Cup_final",
+      "quote": "Aston Villa defeated Bundesliga winners Bayern Munich 1-0 at De Kuip in Rotterdam",
+      "match": "Aston Villa",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:J._R._R._Tolkien",
+      "quote": "Tolkien's mother took him to live with her parents in Kings Heath, Birmingham",
+      "match": "Tolkien",
+      "note": "Born in Bloemfontein, South Africa (1892), so 'childhood' not 'born' is the right wording, as written."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Red_Red_Wine",
+      "quote": "UB40 recorded a cover version in 1983 for their album Labour of Love",
+      "match": "UB40",
+      "note": "UK number one in 1983 per en:UB40. Neil Diamond wrote it, but the question asks for the Birmingham band."
+    }
+  ]
+}

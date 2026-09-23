@@ -1,0 +1,86 @@
+{
+  "slug": "brisbane",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Brisbane",
+      "quote": "which in turn was named after Thomas Brisbane, the British-born governor of New South Wales from 1821 to 1825",
+      "match": "governor of New South Wales",
+      "note": "Strictly the city is named after the Brisbane River, which is named after him; the question's framing is fine for a pub round."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Story_Bridge",
+      "quote": "The Story Bridge is a heritage-listed steel cantilever bridge spanning the Brisbane River",
+      "match": "Story Bridge",
+      "note": "The new Kangaroo Point Bridge (pedestrian/cycle, cable-stayed) also lands at Kangaroo Point, but \"steel cantilever\" excludes it."
+    },
+    {
+      "n": 3,
+      "verdict": "unclear",
+      "wiki": "en:Brisbane_Broncos",
+      "quote": "The Brisbane Broncos are an Australian professional rugby league football club based in Red Hill, a suburb of Brisbane",
+      "match": "Broncos",
+      "note": "Since 2023 Brisbane has a second NRL club: the Dolphins (Redcliffe-based, most home games at Suncorp Stadium in Brisbane; en:Dolphins_(NRL)). \"Brisbane's NRL team\" now has two defensible answers. Reword: \"Which Brisbane NRL club, founded in 1987, is nicknamed after a wild horse?\" or \"What is the nickname of the NRL club named after the city, the Brisbane ...?\""
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Queensland_rugby_league_team",
+      "quote": "Nicknamed the Maroons after the colour of their jersey",
+      "match": "Maroons",
+      "note": "Accept \"maroon\"."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:The_Gabba",
+      "quote": "is a stadium located in the Brisbane suburb of Woolloongabba",
+      "match": "Woolloongabba",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:1982_Commonwealth_Games",
+      "quote": "The 1982 Commonwealth Games were held in Brisbane, Australia",
+      "match": "1982",
+      "note": "Watch for \"2018\": those Games were on the Gold Coast, not Brisbane. Brisbane's 2032 event is the Olympics."
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:South_Bank_Parklands",
+      "quote": "The parkland, on the transformed site of Brisbane's World Expo 88",
+      "match": "World Expo 88",
+      "note": "The question gives \"1988\", so this is close to a giveaway; accept \"Expo 88\"."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Brisbane",
+      "quote": "the popular children's animated television series Bluey is produced and set in Brisbane",
+      "match": "Bluey",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Bee_Gees",
+      "quote": "Barry Gibb unveiled a statue of the Bee Gees as well as unveiling \"Bee Gees Way\" (a walkway filled with photos and videos of the Bee Gees) in honour of the Bee Gees in Redcliffe, Queensland, Australia",
+      "match": "Bee Gees",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Slipper_lobster",
+      "quote": "All the species of slipper lobsters are edible, and some, such as the Moreton Bay bug and the Balmain bug",
+      "match": "slipper lobster",
+      "note": "Accept \"crustacean\"? It is true but less specific; the host should decide. en:Thenus also has \"Thenus orientalis is a species of slipper lobster\"."
+    }
+  ]
+}

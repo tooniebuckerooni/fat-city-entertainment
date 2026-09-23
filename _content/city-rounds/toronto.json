@@ -6,16 +6,46 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "What is the name of Toronto's NHL team?", "a": "The Toronto Maple Leafs" },
-      { "q": "The Toronto Blue Jays won back-to-back World Series titles in which two years?", "a": "1992 and 1993" },
-      { "q": "In which year did the Toronto Raptors win their first NBA championship?", "a": "2019" },
-      { "q": "Which Great Lake lies along Toronto's waterfront?", "a": "Lake Ontario" },
-      { "q": "The CN Tower takes its initials from which company, which built it?", "a": "Canadian National (the railway)" },
-      { "q": "Which Toronto-born rapper did most to popularise the nickname \"The 6\"?", "a": "Drake" },
-      { "q": "Before it was incorporated as a city in 1834, Toronto was known by what name?", "a": "York" },
-      { "q": "The Hall of Fame for which sport is in downtown Toronto, partly housed in an old bank building?", "a": "Hockey" },
-      { "q": "Toronto's famous peameal bacon is rolled in what today?", "a": "Cornmeal" },
-      { "q": "What was the Rogers Centre called when it opened in 1989?", "a": "SkyDome" }
+      {
+        "q": "What is the name of Toronto's NHL team?",
+        "a": "The Toronto Maple Leafs"
+      },
+      {
+        "q": "The Toronto Blue Jays won back-to-back World Series titles in which two years?",
+        "a": "1992 and 1993"
+      },
+      {
+        "q": "In which year did the Toronto Raptors win their first NBA championship?",
+        "a": "2019"
+      },
+      {
+        "q": "Which Great Lake lies along Toronto's waterfront?",
+        "a": "Lake Ontario"
+      },
+      {
+        "q": "When it opened, the \"CN\" in CN Tower stood for which company, which built it?",
+        "a": "Canadian National (the railway)"
+      },
+      {
+        "q": "Which Toronto-born rapper did most to popularise the nickname \"The 6\"?",
+        "a": "Drake"
+      },
+      {
+        "q": "Before it was incorporated as a city in 1834, Toronto was known by what name?",
+        "a": "York"
+      },
+      {
+        "q": "The Hall of Fame for which sport is in downtown Toronto, partly housed in an old bank building?",
+        "a": "Hockey"
+      },
+      {
+        "q": "Toronto's famous peameal bacon is rolled in what today?",
+        "a": "Cornmeal"
+      },
+      {
+        "q": "What was the Rogers Centre called when it opened in 1989?",
+        "a": "SkyDome"
+      }
     ]
   },
   "notes": [
@@ -23,7 +53,7 @@
     "1992 and 1993 World Series; see MLB.com World Series history.",
     "2019 NBA Finals, beat Golden State; see NBA.com Finals history.",
     "Lake Ontario; see City of Toronto waterfront pages or any atlas.",
-    "Built by Canadian National Railway, opened 1976; see the CN Tower's official history page.",
+    "Canadian National Railway; the tower was later renamed Canada's National Tower, hence 'when it opened'.",
     "Drake, born in Toronto 1986, popularised 'The 6' around his 2016 album Views; see Drake (Wikipedia) or Toronto nicknames coverage.",
     "Town of York renamed Toronto on incorporation, 6 March 1834; see City of Toronto 'Toronto history' pages.",
     "Hockey Hall of Fame, Brookfield Place, includes the former Bank of Montreal building at Yonge and Front; see hhof.com.",

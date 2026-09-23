@@ -1,0 +1,86 @@
+{
+  "slug": "melbourne",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Melbourne",
+      "quote": "is the capital and most populous city of the Australian state of Victoria",
+      "match": "Victoria",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Yarra_River",
+      "quote": "The lower stretches of the Yarra are where Victoria's state capital Melbourne was established in 1835",
+      "match": "Yarra",
+      "note": "The Maribyrnong also flows through Greater Melbourne, but 'centre' makes the Yarra single-answer. Accept 'Birrarung'."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Melbourne_Cricket_Ground",
+      "quote": "The MCG is the host venue of the annual AFL Grand Final",
+      "match": "MCG",
+      "note": "Grand Finals of 2020 (Gabba) and 2021 (Perth) were moved by COVID; the MCG is the standing host and the present tense is correct."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Melbourne_Cup",
+      "quote": "The event starts at 3:00 pm on the first Tuesday of November",
+      "match": "November",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:1956_Summer_Olympics",
+      "quote": "were an international multi-sport event held in Melbourne, Victoria, Australia, from 22 November to 8 December 1956",
+      "match": "1956",
+      "note": "Same sentence: the equestrian events were held in Stockholm in June 1956. Same year, so no ambiguity."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Flinders_Street_railway_station",
+      "quote": "The space \"under the clocks\" or \"on the steps\" leading to the dome has been a popular informal meeting place for Melburnians since the station's opening.",
+      "match": "station",
+      "note": "The article is Flinders Street station's own, so 'the station' is Flinders Street; no single sentence there names both. Same article: 'The Melbourne saying \"I'll meet you under the clocks\" refers to the row of indicator clocks above the main entrance'."
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Phar_Lap",
+      "quote": "Phar Lap's skin was preserved by Louis Paul Jonas and is now exhibited as a taxidermy mount by Melbourne Museum.",
+      "match": "Phar Lap",
+      "note": "Won the 1930 Melbourne Cup and raced until 1932, so 'early 1930s' holds."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Ned_Kelly",
+      "quote": "Kelly was tried for murder, convicted and hanged at the Melbourne Gaol.",
+      "match": "Kelly",
+      "note": "Died 11 November 1880 per the lead ('December 1854 – 11 November 1880')."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Neighbours",
+      "quote": "Neighbours focus is the fictional Ramsay Street, a residential cul-de-sac in the fictional Melbourne suburb of Erinsborough.",
+      "match": "Neighbours",
+      "note": "Changed recently: the same article says Neighbours 'aired from 1985 to 2025' ('In February 2025, the series was cancelled again, with production concluding in July and the final episode airing on 11 December'). The answer stands, but 'filmed in Melbourne's suburbs' now reads as current; suggest 'Which long-running soap (1985-2025), filmed in Melbourne's suburbs, was set on Ramsay Street?'"
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Royal_Exhibition_Building",
+      "quote": "The most significant event to occur in the Exhibition Building was the opening of the first Parliament of Australia on 9 May 1901",
+      "match": "Exhibition Building",
+      "note": ""
+    }
+  ]
+}

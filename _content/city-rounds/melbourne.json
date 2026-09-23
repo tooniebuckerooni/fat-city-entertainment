@@ -6,16 +6,46 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Melbourne is the capital of which Australian state?", "a": "Victoria" },
-      { "q": "Which river flows through the centre of Melbourne?", "a": "The Yarra" },
-      { "q": "Which sporting ground, known to locals as \"the G\", hosts the AFL Grand Final?", "a": "The Melbourne Cricket Ground (MCG)" },
-      { "q": "The Melbourne Cup is run on the first Tuesday of which month?", "a": "November" },
-      { "q": "In which year did Melbourne host the Summer Olympic Games?", "a": "1956" },
-      { "q": "Melburnians arrange to meet \"under the clocks\" at which railway station?", "a": "Flinders Street Station" },
-      { "q": "Which champion racehorse of the early 1930s is on display at Melbourne Museum?", "a": "Phar Lap" },
-      { "q": "Which bushranger was hanged at the Old Melbourne Gaol in 1880?", "a": "Ned Kelly" },
-      { "q": "Which long-running soap, filmed in Melbourne's suburbs, is set on Ramsay Street?", "a": "Neighbours" },
-      { "q": "Which building in Carlton Gardens hosted the opening of Australia's first federal parliament in 1901?", "a": "The Royal Exhibition Building" }
+      {
+        "q": "Melbourne is the capital of which Australian state?",
+        "a": "Victoria"
+      },
+      {
+        "q": "Which river flows through the centre of Melbourne?",
+        "a": "The Yarra"
+      },
+      {
+        "q": "Which sporting ground, known to locals as \"the G\", hosts the AFL Grand Final?",
+        "a": "The Melbourne Cricket Ground (MCG)"
+      },
+      {
+        "q": "The Melbourne Cup is run on the first Tuesday of which month?",
+        "a": "November"
+      },
+      {
+        "q": "In which year did Melbourne host the Summer Olympic Games?",
+        "a": "1956"
+      },
+      {
+        "q": "Melburnians arrange to meet \"under the clocks\" at which railway station?",
+        "a": "Flinders Street Station"
+      },
+      {
+        "q": "Which champion racehorse of the early 1930s is on display at Melbourne Museum?",
+        "a": "Phar Lap"
+      },
+      {
+        "q": "Which bushranger was hanged at the Old Melbourne Gaol in 1880?",
+        "a": "Ned Kelly"
+      },
+      {
+        "q": "Which long-running soap, filmed in Melbourne's suburbs, was set on Ramsay Street?",
+        "a": "Neighbours"
+      },
+      {
+        "q": "Which building in Carlton Gardens hosted the opening of Australia's first federal parliament in 1901?",
+        "a": "The Royal Exhibition Building"
+      }
     ]
   },
   "notes": [
@@ -27,7 +57,7 @@
     "'Meet me under the clocks' refers to the clocks over the main entrance of Flinders Street Station; see Wikipedia 'Flinders Street railway station'.",
     "Phar Lap (raced 1928 to 1932); his mounted hide is displayed at Melbourne Museum; see Museums Victoria / Wikipedia 'Phar Lap'.",
     "Ned Kelly hanged at Old Melbourne Gaol on 11 November 1880; see National Trust Old Melbourne Gaol / Wikipedia 'Ned Kelly'.",
-    "Neighbours, set on Ramsay Street in fictional Erinsborough, filmed in Melbourne (Pin Oak Court, Vermont South); see Wikipedia 'Neighbours'.",
+    "Neighbours (1985-2025); ended December 2025, hence past tense.",
     "First Parliament of Australia opened at the Royal Exhibition Building on 9 May 1901; see Museums Victoria / UNESCO World Heritage listing."
   ]
 }

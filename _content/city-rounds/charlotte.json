@@ -6,16 +6,58 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Charlotte's nickname, \"The Queen City\", honours which queen?", "a": "Queen Charlotte, wife of King George III" },
-      { "q": "Charlotte is the seat of which county?", "a": "Mecklenburg County" },
-      { "q": "What is the name of Charlotte's NFL team?", "a": "The Carolina Panthers" },
-      { "q": "What is the name of Charlotte's NBA team?", "a": "The Charlotte Hornets" },
-      { "q": "Which motorsport's Hall of Fame opened in Charlotte in 2010?", "a": "NASCAR" },
-      { "q": "Charlotte's downtown is usually called by what name?", "a": "Uptown" },
-      { "q": "Which major US bank has its headquarters in Charlotte?", "a": "Bank of America" },
-      { "q": "The Charlotte arts district NoDa takes its name from which street?", "a": "North Davidson Street" },
-      { "q": "Charlotte's Major League Soccer team began play in 2022. What is it called?", "a": "Charlotte FC" },
-      { "q": "What is the three-letter code for Charlotte Douglas International Airport?", "a": "CLT" }
+      {
+        "q": "Charlotte, \"The Queen City\", is named after the wife of which British king?",
+        "a": "George III"
+      },
+      {
+        "q": "Charlotte is the seat of which county?",
+        "a": "Mecklenburg County"
+      },
+      {
+        "q": "What is the name of Charlotte's NFL team?",
+        "a": "The Carolina Panthers"
+      },
+      {
+        "q": "What is the name of Charlotte's NBA team?",
+        "a": "The Charlotte Hornets"
+      },
+      {
+        "q": "Which racing organization opened its Hall of Fame in Uptown Charlotte in 2010?",
+        "a": "NASCAR"
+      },
+      {
+        "q": "Charlotte's downtown is usually called by what name?",
+        "a": "Uptown"
+      },
+      {
+        "q": "Which bank, whose name is on the Carolina Panthers' stadium, has its headquarters in Charlotte?",
+        "a": "Bank of America"
+      },
+      {
+        "q": "The Charlotte arts district NoDa takes its name from which street?",
+        "a": "North Davidson Street"
+      },
+      {
+        "q": "Charlotte's Major League Soccer team began play in 2022. What is it called?",
+        "a": "Charlotte FC"
+      },
+      {
+        "q": "What is the three-letter code for Charlotte Douglas International Airport?",
+        "a": "CLT"
+      }
     ]
-  }
+  },
+  "notes": [
+    "Queen Charlotte of Mecklenburg-Strelitz, wife of George III; see en:Charlotte,_North_Carolina.",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "Bank of America Stadium; Bank of America HQ in Charlotte. Truist is also HQ'd there, hence the stadium clue.",
+    "",
+    "",
+    ""
+  ]
 }

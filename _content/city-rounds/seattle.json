@@ -1,0 +1,63 @@
+{
+  "title": "Seattle Trivia Night",
+  "round": {
+    "name": "Local Round: Seattle",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "The Space Needle was built for which event?",
+        "a": "The 1962 World's Fair"
+      },
+      {
+        "q": "Seattle's nickname, the \"_____ City\", comes from which gemstone?",
+        "a": "Emerald"
+      },
+      {
+        "q": "At which Seattle market do the fishmongers famously throw fish to one another?",
+        "a": "Pike Place Market"
+      },
+      {
+        "q": "Which guitarist, born in Seattle in 1942, recorded \"Purple Haze\"?",
+        "a": "Jimi Hendrix"
+      },
+      {
+        "q": "Which snow-capped volcano can be seen southeast of Seattle on a clear day?",
+        "a": "Mount Rainier"
+      },
+      {
+        "q": "Nirvana, Pearl Jam and Soundgarden are associated with which music genre that came out of the Seattle scene?",
+        "a": "Grunge"
+      },
+      {
+        "q": "Which TV sitcom's title character was a psychiatrist with a radio call-in show in Seattle?",
+        "a": "Frasier"
+      },
+      {
+        "q": "The Fremont Troll sculpture crouches under the north end of which bridge?",
+        "a": "The Aurora Bridge"
+      },
+      {
+        "q": "Seattle lies between Lake Washington and which inlet of the Pacific Ocean?",
+        "a": "Puget Sound"
+      },
+      {
+        "q": "What is the name of Seattle's Major League Baseball team?",
+        "a": "The Seattle Mariners"
+      }
+    ]
+  },
+  "notes": [
+    "Built for the Century 21 Exposition (the 1962 Seattle World's Fair); see the Space Needle's own history page or Wikipedia.",
+    "Official nickname 'The Emerald City', chosen through a tourism contest in the early 1980s; see Seattle (Wikipedia) or HistoryLink.org.",
+    "Fish throwing at Pike Place Fish Market inside Pike Place Market; see pikeplacemarket.org or Pike Place Fish Market (Wikipedia).",
+    "Hendrix was born in Seattle on 27 November 1942; 'Purple Haze' released 1967; see Jimi Hendrix (Wikipedia) or HistoryLink.org.",
+    "Mount Rainier lies about 60 miles southeast of Seattle; see the National Park Service Mount Rainier pages.",
+    "Grunge; see Grunge (Wikipedia) or the Museum of Pop Culture (MoPOP). Nirvana formed in Aberdeen but is part of the Seattle scene.",
+    "Frasier (NBC, 1993-2004): Dr Frasier Crane hosts a KACL radio show in Seattle; see Frasier (Wikipedia).",
+    "Fremont Troll, under the north end of the George Washington Memorial (Aurora) Bridge, 1990; see Fremont Troll (Wikipedia). Accept either bridge name.",
+    "Puget Sound; reworded so Elliott Bay (part of the Sound) is no longer a rival answer.",
+    "Seattle Mariners, MLB since 1977; see MLB.com or Seattle Mariners (Wikipedia)."
+  ]
+}

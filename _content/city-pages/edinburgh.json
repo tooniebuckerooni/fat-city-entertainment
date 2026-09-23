@@ -1,0 +1,34 @@
+{
+  "slug": "edinburgh",
+  "title": "Edinburgh Pub Quiz: A Free Local Round for Quiz Night",
+  "description": "Castle, Greyfriars Bobby and the Old Town: ten free questions for an Edinburgh pub quiz, and advice on setting a quiz for the city's rooms outside August.",
+  "h1": "An Edinburgh Pub Quiz, Old Town to Leith",
+  "kicker": "Ten local questions for a grey Tuesday between the closes.",
+  "poem": [
+    "Edinburgh is built of weather and stone. The haar rolls in off the sea and swallows the castle by lunchtime, lets it go by four, and the old tenements change colour with the light, from wet slate to honey to coal. Closes drop away from the High Street so steeply that a wrong turn leaves you three storeys below where you started, and the wind still finds you.",
+    "Each August the whole town becomes a stage. The rest of the year belongs to the people who live here, and in the dark months, with the sun down before the shops shut, they go looking for a warm room and a reason to talk. The pub quiz is that reason: flatmates, lecturers, nurses off shift and pensioners hunched over an answer sheet, arguing politely about the date of the Act of Union.",
+    "Behind each of those nights is somebody with a microphone: the quizmaster with a folder of handwritten rounds, the fiddler in a back room in Leith, the comic who came up for August once and never went home. They keep the city lit between festivals. Walk home and the Old Town is stacked black against the sky, one window glowing high in a tenement, the castle floodlit on its rock, and the haar coming back over the rooftops."
+  ],
+  "sections": [
+    {
+      "h2": "Quizzing an Edinburgh Crowd Between the Festivals",
+      "paras": [
+        "Edinburgh rooms are sharp and well read: students and lecturers, lawyers and civil servants, and people who have lived here for forty years and will correct your pronunciation of Sciennes (say it 'sheens'). Scottish history always goes down well, from Mary, Queen of Scots to the Enlightenment. Literary rounds suit a UNESCO City of Literature, and a round of Scots words splits any table between natives and incomers. Football means Hearts and Hibs, so ask about history, not loyalties.",
+        "Mind the calendar. In August your regulars are either performing or hiding, so many quizzes take a break. October to March is the best of it, when the early dark pushes everyone indoors. Keep clear of derby days and Six Nations weekends at Murrayfield."
+      ]
+    },
+    {
+      "h2": "The Other Eleven Months: Keeping Edinburgh's Small Stages Lit",
+      "paras": [
+        "The August festivals get the headlines, but they last a few weeks. The rest of the year Edinburgh's live scene runs smaller: a traditional session in a back room, a comedy night in a cellar, a quiz written by hand. Often the same people put on shows in August, and the weeknight bookings are what keep them working, and living here, the other eleven months.",
+        "So support the year-round crowd. Go to the ceilidh that is not aimed at tourists, catch the comic from last August's flyer when they come back in February, and learn your quizmaster's name. If your local has no quiz, offer to run one: the Edinburgh round below gives a new host ten questions to read out on a wet Wednesday."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#7b1e2b",
+    "paper": "#faf4f3",
+    "ink": "#1a0e10",
+    "motif": "♜"
+  }
+}

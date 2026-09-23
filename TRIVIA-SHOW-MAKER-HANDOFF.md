@@ -151,3 +151,16 @@ const TIER_CAPS = {
 
 Remember the Worker is deployed by pasting into the Cloudflare dashboard, so a
 `TIER_CAPS` change is not live until re-pasted.
+
+## PDF text is made printable on the way in (23 Sept 2026)
+
+`pdfgen.js` wraps jsPDF's `text`, `splitTextToSize` and `getTextWidth` with
+`pdfSafe()`. The built-in fonts draw only Windows-1252; any other character
+(a Māori macron, Polish Ł, an emoji) used to make jsPDF re-encode the whole
+string as UTF-16, printing the line as spaced-out garbage cut off at that
+letter. Now an undrawable accented letter prints as its base letter and
+anything else as "?". Found by `_tools/test-round-autoload.js`, which
+text-extracts the generated PDFs; it reproduces the old failure on the Auckland
+round and passes on the fix. `?round=<slug>` autoload is documented in
+CLAUDE.md under "City pages".
+

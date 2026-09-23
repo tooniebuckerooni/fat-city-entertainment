@@ -1,0 +1,34 @@
+{
+  "slug": "birmingham",
+  "title": "Birmingham Pub Quiz: Free Local Round and Hosting Notes",
+  "description": "Cadbury, the Bullring, Villa and Sabbath in ten free questions for a Birmingham pub quiz, plus notes on what a Brummie crowd enjoys and when to run it.",
+  "h1": "A Birmingham Pub Quiz, Brummie Rules Apply",
+  "kicker": "Canals, curry and ten free questions for your quiz night.",
+  "poem": [
+    "Birmingham was built to make things, and it still has the look of a workshop that never quite closed. The canals run dark and level under brick bridges, towpaths slick after rain, past warehouses that are flats now and a lock-keeper's cottage or two. In the Jewellery Quarter there are still benches where someone is setting a stone. The Bullring rises out of the old market streets, and the Selfridges building catches the low winter sun on thousands of silver discs.",
+    "It is a city of neighbourhoods that talk to each other in one unmistakable accent. Moseley, Kings Heath, Digbeth, Erdington: every one has a local with a quiz on a Tuesday or a Sunday, teams of workmates and students and old friends from school squeezed round tables built for four. Somebody always gets the Villa question wrong on purpose to start a row. The picture round comes back with a coffee ring on it.",
+    "The city that gave the world heavy metal learned to do it in back rooms on weeknights, loud, in front of whoever turned up. Quizmasters, open mics, comedy upstairs and bands in Digbeth arches keep that going. Afterwards the buses crawl down the Hagley Road in the drizzle, and the balti houses along the Ladypool Road still have their lights on."
+  ],
+  "sections": [
+    {
+      "h2": "Villa, Blues and the balti: what Brum wants from a quiz",
+      "paras": [
+        "Brummies are proud of the city and quietly tired of hearing it run down, so a local round goes down well: Cadbury and Bournville, the canals, the Bullring, Spaghetti Junction, Tolkien's childhood in Sarehole, Peaky Blinders, the balti. A music round is home turf, with Sabbath, UB40, Duran Duran, ELO and The Streets all to draw on. On football, ask about the history and never make anyone pick between Villa and Blues.",
+        "Midweek is quiz night across most of the city. Check the fixture list before booking a derby night, and expect student teams to vanish in exam season and flood back in October. Finish in time for people to catch the last train back to Wolverhampton or Solihull."
+      ]
+    },
+    {
+      "h2": "From heavy metal to the open mic: why Brum's back rooms matter",
+      "paras": [
+        "Four lads from Aston started a sound the whole world copied, and they did it playing pubs and small halls to whoever would listen. That is the Birmingham story more than once: reggae, bhangra, grime and folk all came up through back rooms and basements before anyone gave them a proper stage. With several universities in the city, those rooms are also where each new intake of students finds out what a night out can be.",
+        "Keep the rooms open. Go to the band you have not heard of in Digbeth, the comedy night upstairs, and the quiz at the local, and put something in the quizmaster's pint glass. If your pub has no quiz yet, ask for a quiet midweek night and open with the Birmingham round below."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#7a1f3d",
+    "paper": "#f8f3f4",
+    "ink": "#1c0f14",
+    "motif": "◆"
+  }
+}

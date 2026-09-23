@@ -6,16 +6,46 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "The Sydney Opera House was designed by an architect from which country?", "a": "Denmark (Jørn Utzon)" },
-      { "q": "Sydney hosted the Summer Olympic Games in which year?", "a": "2000" },
-      { "q": "What affectionate nickname do Sydneysiders give the Harbour Bridge?", "a": "The Coathanger" },
-      { "q": "The City2Surf fun run finishes at which famous Sydney beach?", "a": "Bondi Beach" },
-      { "q": "In which year did the First Fleet arrive at Sydney Cove?", "a": "1788" },
-      { "q": "What is the official name of the natural harbour better known as Sydney Harbour?", "a": "Port Jackson" },
-      { "q": "The Manly ferry leaves from which harbourside transport hub in the city centre?", "a": "Circular Quay" },
-      { "q": "Which historic precinct at the southern end of the Harbour Bridge was the site of the colony's earliest European settlement?", "a": "The Rocks" },
-      { "q": "Which harbourside amusement park at Milsons Point is entered through a giant smiling face?", "a": "Luna Park" },
-      { "q": "Which AFL club, originally from South Melbourne, moved to Sydney in the 1980s?", "a": "The Sydney Swans" }
+      {
+        "q": "The Sydney Opera House was designed by an architect from which country?",
+        "a": "Denmark (Jørn Utzon)"
+      },
+      {
+        "q": "Sydney hosted the Summer Olympic Games in which year?",
+        "a": "2000"
+      },
+      {
+        "q": "What affectionate nickname do Sydneysiders give the Harbour Bridge?",
+        "a": "The Coathanger"
+      },
+      {
+        "q": "The City2Surf fun run finishes at which famous Sydney beach?",
+        "a": "Bondi Beach"
+      },
+      {
+        "q": "In which year did the First Fleet arrive at Sydney Cove?",
+        "a": "1788"
+      },
+      {
+        "q": "What is the official name of the natural harbour better known as Sydney Harbour?",
+        "a": "Port Jackson"
+      },
+      {
+        "q": "The Manly ferry leaves from which harbourside transport hub in the city centre?",
+        "a": "Circular Quay"
+      },
+      {
+        "q": "Which historic precinct on the western side of Circular Quay grew up around the colony's first settlement in 1788?",
+        "a": "The Rocks"
+      },
+      {
+        "q": "Which harbourside amusement park at Milsons Point is entered through a giant smiling face?",
+        "a": "Luna Park"
+      },
+      {
+        "q": "Which AFL club, originally South Melbourne, moved to Sydney in 1982?",
+        "a": "The Sydney Swans"
+      }
     ]
   },
   "notes": [
@@ -26,7 +56,7 @@
     "First Fleet arrived January 1788, marked by 26 January; see National Museum of Australia.",
     "Port Jackson is the official name of the harbour; see Port Jackson on Wikipedia or the NSW Geographical Names Board.",
     "Manly ferry runs from Circular Quay wharf; see transportnsw.info.",
-    "The Rocks, beside Sydney Cove, is the first European settlement site; see Sydney Living Museums or Wikipedia.",
+    "The Rocks. Reworded away from 'southern end of the bridge', which fits Dawes Point.",
     "Luna Park Sydney opened 1935 with its face entrance; see lunaparksydney.com or Wikipedia.",
     "South Melbourne relocated to Sydney in 1982, renamed Sydney Swans; see sydneyswans.com.au or Wikipedia."
   ]

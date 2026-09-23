@@ -158,6 +158,8 @@ function siblings(city) {
 }
 
 const pageWords = {};
+const texts = {};
+const motifs = new Map();
 
 for (const city of generated) {
   const src = path.join(REPO, "_content", "city-pages", `${city.slug}.json`);
@@ -200,6 +202,9 @@ ${more}
   const visible = [c.title, c.description, c.h1, c.kicker, ...c.poem, ...(c.sections || []).flatMap(s => [s.h2, ...s.paras])].join(" ");
   if (/[–—]|&mdash;|&ndash;/.test(visible)) problems.push(`${city.slug}: em- or en-dash in visitor-facing copy`);
   pageWords[city.slug] = visible.split(/\s+/).filter(Boolean).length;
+  texts[city.slug] = visible;
+  if (look.motif && motifs.has(look.motif)) problems.push(`${city.slug}: motif ${look.motif} is already ${motifs.get(look.motif)}'s`);
+  else motifs.set(look.motif, city.slug);
 
   stage(`${ROOT}/${city.slug}/index.html`, shellPage({
     url, title: c.title, description: c.description,
@@ -280,6 +285,23 @@ ${groups || `<div class="paragraph">The first cities are on their way.</div>`}
     next = block ? xml.replace("</urlset>", () => `${block}\n</urlset>`) : xml;
   }
   if (next !== xml) changes.push([file, next, block ? "sitemap block" : "remove sitemap block"]);
+}
+
+// Sameness. Pages written from one brief converge on the same sentences, and
+// thirty city pages that share their prose read as doorway pages however good
+// each one is alone. Any six-word run on three or more pages is printed. It is
+// a warning, not a PROBLEM, because a phrase like "the end of the night" can
+// fairly recur; read the list and rewrite what is a fingerprint.
+{
+  const seen = new Map();
+  for (const [slug, text] of Object.entries(texts)) {
+    const w = text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").match(/[a-z0-9']+/g) || [];
+    const grams = new Set();
+    for (let i = 0; i + 6 <= w.length; i++) grams.add(w.slice(i, i + 6).join(" "));
+    for (const g of grams) seen.set(g, (seen.get(g) || []).concat(slug));
+  }
+  const shared = [...seen].filter(([, s]) => s.length >= 3).sort((a, b) => b[1].length - a[1].length);
+  for (const [g, s] of shared.slice(0, 12)) console.log(`  SAMENESS "${g}" on ${s.length} pages: ${s.join(", ")}`);
 }
 
 for (const [file, body, what] of changes) {

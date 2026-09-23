@@ -1,0 +1,34 @@
+{
+  "slug": "boston",
+  "title": "Boston Trivia Night: Plan One With a Free Local Round",
+  "description": "A free 10-question Boston trivia night round on Fenway, the Tea Party and the Revolution, plus notes on pacing a room around Sox games, snow and move-in week.",
+  "h1": "Trivia Night in Boston, From Fenway to the Harbor",
+  "kicker": "Ten free local questions for a room that knows its history.",
+  "poem": [
+    "Boston keeps its history underfoot. A line of red brick runs through the sidewalks past burying grounds where John Hancock and Samuel Adams lie, and the old joke says the crooked streets downtown still follow the cow paths. In February the harbor wind walks you sideways up State Street; in October the Back Bay brownstones turn the color of cider.",
+    "It is a college town wrapped around an old port, where first-years and retired firefighters from Dorchester will both tell you, with total conviction, what really happened at Bunker Hill. That certainty makes for a great trivia night. Teams bring a kitchen-table knowledge of the Revolution and a lifetime of Red Sox box scores, and the room goes quiet for a history question the way other towns go quiet for a penalty kick.",
+    "Boston has always had people willing to stand up in a small room: folk singers in Harvard Square coffeehouses, comics building a stand-up scene in the eighties, quizmasters reading out question nine in Somerville. They make a Tuesday in February worth leaving the house for. And when the last round is scored, the T rumbles somewhere underfoot, the Citgo sign burns red and blue over Kenmore Square, and snow starts again along the Esplanade."
+  ],
+  "sections": [
+    {
+      "h2": "Sox, Snow and the Revolution: Reading a Boston Room",
+      "paras": [
+        "Boston crowds take their history personally, so a Revolution round lands every time: the Tea Party, the midnight riders, Bunker Hill (fought mostly on Breed's Hill, a question in itself). Sports carry the other half of the night, and a century of Red Sox heartbreak means a sports round has to be fair, so ask about history rather than this season's roster. Clam chowder, the Fluffernutter and North End cannoli make a food round that starts the right argument.",
+        "Plan around the calendar. September brings move-in week and new faces; winter is peak indoor season, though a nor'easter will empty a room fast. Check before booking against a playoff game, and leave Patriots' Day alone: half your regulars will be cheering on Boylston Street."
+      ]
+    },
+    {
+      "h2": "Coffeehouses, Comedy Rooms and a City That Turns Over Every May",
+      "paras": [
+        "Every May a large share of Boston's audience graduates and leaves, and every September a new one arrives knowing nobody. That is why live nights matter so much here. A standing Tuesday trivia night, a Sunday folk session or an open mic is where a newcomer first finds a regular table, and the people running those rooms are turning a town of short leases into a neighborhood.",
+        "Keep that going. Go to the open mic when your friend is on the list, stay for the last comic on the bill, and learn your host's name. If your neighborhood has no trivia night, the Boston round on this page is ten questions a new host can read out on a first night, and a quick way to find the Breed's Hill pedants."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#007a33",
+    "paper": "#f2f8f4",
+    "ink": "#0c1a12",
+    "motif": "✦"
+  }
+}

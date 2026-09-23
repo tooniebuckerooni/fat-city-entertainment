@@ -1,0 +1,34 @@
+{
+  "slug": "ottawa",
+  "title": "Ottawa Trivia Night: A Free Local Round on the Capital",
+  "description": "Bytown, the Rideau Canal, the tulips and the Peace Tower: ten free questions for an Ottawa trivia night, written for rooms on both sides of the river.",
+  "h1": "Canal Ice, Tulips and a Trivia Night in Ottawa",
+  "kicker": "Ten free questions on the capital, from Bytown to Winterlude.",
+  "poem": [
+    "Ottawa's winter light comes in low and gold across the canal, where people skate to work with a coffee in one mitt and a briefcase in the other. The locks step down beside Parliament Hill to the river, the Gatineau Hills sit blue on the far shore, and the Peace Tower keeps watch over the snowbanks of Lowertown. In May the whole city blooms in tulip beds, as if making up for February.",
+    "Between those seasons come long evenings, and trivia night was made for them. A room in the Glebe or Hintonburg fills with boots and scarves and teams who argue in two languages. The public servant knows every Governor General in order, the student from Sandy Hill knows every song on the radio, and the geography round is ruthless in a town that sends people all over the world and hears about it when they come home.",
+    "The summer festivals get the crowds, but the winter weeknight is what keeps performers in this city. The host with a scoresheet and a bilingual pun, the fiddler at the back, the comic testing a new bit on a Thursday: they keep the season warm. Walking home over the bridge, the river runs dark between shelves of ice, and Gatineau's lights shine back from the other side."
+  ],
+  "sections": [
+    {
+      "h2": "Questions for a Crowd on Both Sides of the River",
+      "paras": [
+        "An Ottawa room often includes people who crossed a bridge from Quebec to get there, so be generous with language: accept an answer in French or English, and a bilingual bonus question goes down well. The crowd tends to be well informed and fond of Canadian history, so local rounds write themselves: Bytown and the canal, the Dutch tulips, the Peace Tower, the Senators and Redblacks, and how the Stanley Cup got its name.",
+        "Build around the calendar. Winterlude and skateway season in February are peak indoor months, the student year empties the room during exams in December and April, and May belongs to the Tulip Festival. Summer festival season is busy, so a quiz earns its regulars from October on."
+      ]
+    },
+    {
+      "h2": "Winter Is When Ottawa's Small Stages Earn Their Keep",
+      "paras": [
+        "Ottawa has long, cold winters and a big student population, and together they make the city's live scene. Carleton, the University of Ottawa and Algonquin College keep feeding open mics, house bands and improv troupes, and every November they need somewhere warm to play. A weekly trivia night is one of those places: a paid gig for a host, a stage for the band that follows, and a reason for a neighbourhood to leave the couch in January.",
+        "So go out when it is minus twenty. Winter is long here, and the rooms that keep it bearable only stay open if someone crosses the snowbank on a Wednesday to fill them. The Ottawa round on this page will carry your first night."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#2f7a67",
+    "paper": "#f2f7f5",
+    "ink": "#0e1a17",
+    "motif": "⌂"
+  }
+}

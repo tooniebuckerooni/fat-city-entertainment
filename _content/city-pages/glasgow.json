@@ -1,0 +1,34 @@
+{
+  "slug": "glasgow",
+  "title": "Glasgow Pub Quiz: Ten Free Questions on the Dear Green Place",
+  "description": "The Clyde, the Subway and an old rhyme, set as ten free questions for a Glasgow pub quiz, with advice on match days, patter and the long dark of winter.",
+  "h1": "A Glasgow Pub Quiz, Patter Included",
+  "kicker": "Ten questions on the city by the Clyde, for a wet night.",
+  "poem": [
+    "Glasgow's weather comes in off the Atlantic and rarely asks permission. Rain crosses the Clyde in sheets, the sandstone tenements darken with it, and then the sun breaks over the Necropolis for eleven minutes and the whole city behaves as though it has been promised summer. People here talk to strangers at bus stops. They talk to strangers everywhere.",
+    "All that talk needs somewhere warm to go. On a wet Wednesday in the West End or the Southside, tables fill with flatmates, workmates and old pals who have been doing the same pub quiz for years, and the team names are sharper than the answers. The patter is half the game. A wrong answer in Glasgow is not a failure; it is material, and the next table will be using it by the picture round.",
+    "Glasgow has always taken its entertainment in person: the dance halls of the East End, packed gigs by the river, the comics who learned the trade in front of rooms that told them exactly how it was going. The quizmaster with the temperamental microphone belongs to that line, alongside the folk session and the band on at nine. Step out after the last round and the pavements are shining, the lamps lie doubled in the Clyde, and the Subway is rattling home under the river."
+  ],
+  "sections": [
+    {
+      "h2": "Patter, Picture Rounds and Match-Day Timing",
+      "paras": [
+        "Glasgow teams are quick and they like to heckle, so give the quizmaster room to answer back and build in rounds that reward sharp wits: a picture round, a music round, and ten questions on the city itself. The river and its shipbuilding past, the tenements, the city's own bands and the great Irn-Bru question will all get a table going. Football is the obvious local subject and the riskiest, so ask about the game and its history rather than asking anyone to pick a side.",
+        "Mind the calendar. Winter here is long and dark, which suits a quiz, and January brings the Celtic Connections festival crowds. Old Firm match days change the mood across the whole city, so check the fixtures before you set a date."
+      ]
+    },
+    {
+      "h2": "A City of Music Built in Small Rooms",
+      "paras": [
+        "Glasgow is a UNESCO City of Music, and anyone who has stood in a steaming crowd by the Clyde knows why. Much of that reputation was built in small rooms on ordinary weeknights, by bands playing to forty people and comics trying new material on students who had come in out of the rain. Those same back rooms run the pub quiz, and all of them survive on regulars.",
+        "So buy a ticket for the support act, stay for the second half of the open mic, and learn your quizmaster's name. If your local has a dead Monday, suggest a quiz and open it with the Glasgow round on this page; Trivia Show Maker will print the answer sheets before the next downpour."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0065bd",
+    "paper": "#f1f5fb",
+    "ink": "#0c1420",
+    "motif": "☓"
+  }
+}

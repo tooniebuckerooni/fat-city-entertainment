@@ -1,0 +1,86 @@
+{
+  "slug": "edinburgh",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Arthur's_Seat",
+      "quote": "Arthur's Seat is an ancient extinct volcano. It is the main peak of a group of hills in Edinburgh, Scotland, which form most of Holyrood Park",
+      "match": "Arthur's Seat",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Edinburgh_Festival_Fringe",
+      "quote": "The Fringe is an open access festival",
+      "match": "Fringe",
+      "note": "Accept \"Edinburgh Festival Fringe\" too. \"Open-access\" is what separates it from the Edinburgh International Festival, which also runs in August."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Greyfriars_Bobby",
+      "quote": "was a Skye Terrier or Dandie Dinmont Terrier who became known in 19th-century Edinburgh",
+      "match": "Skye Terrier",
+      "note": "The breed is genuinely disputed (a 2022 book argues Dandie Dinmont Terrier); the question's \"traditionally said to be\" is what makes Skye Terrier the single answer. Keep that wording."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Robert_Louis_Stevenson",
+      "quote": "Born and educated in Edinburgh, Stevenson suffered from serious bronchial trouble for much of his life",
+      "match": "Stevenson",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Royal_Mile",
+      "quote": "The Royal Mile runs between Edinburgh Castle and Holyrood Palace",
+      "match": "Royal Mile",
+      "note": "Wikipedia calls it a \"term\" for a series of streets rather than a nickname; harmless."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Edinburgh_Waverley_railway_station",
+      "quote": "The collective name \"Waverley\", after the Waverley Novels by Sir Walter Scott",
+      "match": "Walter Scott",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Arthur_Conan_Doyle",
+      "quote": "He is best known for his four novels and fifty-six short stories about the fictional consulting detective Sherlock Holmes",
+      "match": "Sherlock Holmes",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Edinburgh",
+      "quote": "Edinburgh lies on the southern shore of the Firth of Forth",
+      "match": "Firth of Forth",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Edinburgh_Castle",
+      "quote": "The One O'Clock Gun is a time signal, fired every day at precisely one p.m., excepting Sunday, Good Friday and Christmas Day",
+      "match": "One o'clock",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Edinburgh",
+      "quote": "The city is nicknamed Auld Reekie, Scots for Old Smoky, for the views from the country of the smoke-covered Old Town",
+      "match": "smoke",
+      "note": "Accept \"smoke\" / \"smell\"? Only smoke is supported; \"smell\" is a common pub guess and should be marked wrong."
+    }
+  ]
+}

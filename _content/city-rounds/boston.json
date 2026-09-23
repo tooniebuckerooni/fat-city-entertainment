@@ -1,0 +1,33 @@
+{
+  "title": "Boston Trivia Night",
+  "round": {
+    "name": "Local Round: Boston",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      { "q": "In which year did the Boston Tea Party take place?", "a": "1773" },
+      { "q": "What is the name of the red-brick walking route that links sixteen of Boston's historic sites?", "a": "The Freedom Trail" },
+      { "q": "The tall left-field wall at Fenway Park is known by what nickname?", "a": "The Green Monster" },
+      { "q": "The USS Constitution, berthed in Charlestown, is better known by what nickname?", "a": "Old Ironsides" },
+      { "q": "How many lanterns were hung in the steeple of the Old North Church on the night of Paul Revere's ride?", "a": "Two" },
+      { "q": "Which annual race, first run in 1897, finishes on Boylston Street each April?", "a": "The Boston Marathon" },
+      { "q": "Boston's nickname \"Beantown\" comes from which dish, traditionally slow-cooked with molasses?", "a": "Baked beans" },
+      { "q": "In Robert McCloskey's picture book Make Way for Ducklings, the duck family settles in which Boston park?", "a": "The Public Garden" },
+      { "q": "Which river separates Boston from Cambridge?", "a": "The Charles River" },
+      { "q": "Which 1980s TV sitcom was set in a Boston bar \"where everybody knows your name\"?", "a": "Cheers" }
+    ]
+  },
+  "notes": [
+    "16 December 1773; see Boston Tea Party (Wikipedia) or the Boston Tea Party Ships & Museum history pages.",
+    "2.5-mile route marked in red brick, 16 official sites; see the Freedom Trail Foundation's own site.",
+    "Left-field wall at Fenway Park; see Green Monster (Wikipedia) or MLB.com's Red Sox ballpark pages.",
+    "USS Constitution, nicknamed Old Ironsides in the War of 1812, berthed at Charlestown Navy Yard; see the USS Constitution Museum.",
+    "Two lanterns signalled the British were crossing by water ('one if by land, two if by sea'); see the Old North Church's own history pages.",
+    "First Boston Marathon 19 April 1897, finish line on Boylston Street; see the Boston Athletic Association (baa.org).",
+    "Boston baked beans with molasses gave the city the name Beantown; see Boston baked beans (Wikipedia).",
+    "The Mallards settle in the Public Garden lagoon, with bronze statues there since 1987; see Make Way for Ducklings (Wikipedia).",
+    "The Charles River divides Boston and Cambridge; see Charles River (Wikipedia) or the Charles River Watershed Association.",
+    "Cheers (NBC, 1982-1993), set in a Boston bar, theme 'Where Everybody Knows Your Name'; see Cheers (Wikipedia)."
+  ]
+}

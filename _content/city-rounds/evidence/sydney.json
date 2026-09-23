@@ -1,0 +1,86 @@
+{
+  "slug": "sydney",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Sydney_Opera_House",
+      "quote": "Designed by Danish architect Jørn Utzon and completed by an Australian architectural team headed by Peter Hall",
+      "match": "Jørn Utzon",
+      "note": "Completed by an Australian team (Peter Hall), but the question asks who designed it, so Denmark is single-answer."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:2000_Summer_Olympics",
+      "quote": "were an international multi-sport event held from 15 September to 1 October 2000 in Sydney, New South Wales, Australia",
+      "match": "2000",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Sydney_Harbour_Bridge",
+      "quote": "Nicknamed \"the Coathanger\" because of its arch-based design",
+      "match": "Coathanger",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Bondi_Beach",
+      "quote": "Bondi Beach is the end point of the City to Surf Fun Run which is held each year in August.",
+      "match": "Bondi Beach",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:First_Fleet",
+      "quote": "1,373 are believed to have landed at Sydney Cove in January 1788",
+      "match": "1788",
+      "note": "The fleet reached Botany Bay first (18-20 January 1788) and moved to Sydney Cove on 26 January; same year either way."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Port_Jackson",
+      "quote": "Port Jackson, commonly known as Sydney Harbour, is a natural harbour on the east coast of Australia",
+      "match": "Port Jackson",
+      "note": "Pedantic caveat, not enough to change the verdict: the same article says Port Jackson 'consists of the waters of Sydney Harbour, Middle Harbour, North Harbour, and the Lane Cove and Parramatta rivers', i.e. Sydney Harbour is also the name of one part of it. 'Official name' is fair; optional softer wording: 'What is the name of the natural harbour, commonly called Sydney Harbour, on which the city stands?'"
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Manly_ferry_service",
+      "quote": "The Manly ferry service (numbered F1) operates on Sydney Harbour, connecting the Sydney suburb of Manly with Circular Quay in the CBD",
+      "match": "Circular Quay",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "unclear",
+      "wiki": "en:The_Rocks,_New_South_Wales",
+      "quote": "The Rocks was established shortly after the colony's formation in 1788.",
+      "match": "The Rocks",
+      "note": "The Rocks is the intended answer, but the clue 'at the southern end of the Harbour Bridge' fits Dawes Point more literally: en:Dawes_Point says 'Dawes Point is located on the north-western edge of the Sydney central business district, at the southern end of Sydney Harbour Bridge, adjacent to The Rocks', and it too dates from 1788 ('the site of the first guns mounted in Sydney by Dawes in 1788'). Millers Point is also next door, and 'earliest European settlement' also invites 'Sydney Cove'. Suggested rewording: 'Which historic precinct on the western side of Circular Quay, named for the local sandstone its early buildings used, grew up with the 1788 settlement?'"
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Luna_Park_Sydney",
+      "quote": "Luna Park Sydney is a heritage-listed amusement park located in Milsons Point, New South Wales, Australia, on the northern shore of Sydney Harbour.",
+      "match": "Luna Park",
+      "note": "Same article on the face: 'The park's signature entrance face, designed by Rupert Browne, was placed between two Art Deco-style towers'."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Sydney_Swans",
+      "quote": "On 29 July 1981, the VFL formally accepted the proposal, and paved the way for the Swans to shift to Sydney in 1982.",
+      "match": "Swans",
+      "note": "Minor anachronism: at the time of the move (1982) the competition was the VFL; it became the AFL in 1990. Answer unaffected; could say 'Which club, originally South Melbourne, moved to Sydney in 1982?'"
+    }
+  ]
+}

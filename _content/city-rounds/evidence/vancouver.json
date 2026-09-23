@@ -1,0 +1,86 @@
+{
+  "slug": "vancouver",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:2010_Winter_Olympics",
+      "quote": "were an international winter multi-sport event held from February 12 to 28, 2010 in Vancouver, Canada",
+      "match": "2010",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Expo_86",
+      "quote": "The 1986 World Exposition on Transportation and Communication, or simply Expo 86, was a world's fair held in Vancouver",
+      "match": "Expo 86",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "verdict": "unclear",
+      "wiki": "en:Stanley_Cup",
+      "quote": "is named after Lord Stanley of Preston, the governor general of Canada, who donated it as an award to Canada's top-ranking amateur ice hockey club",
+      "match": "Stanley",
+      "note": "Correct (Stanley Park is named after the same Lord Stanley, per en:Stanley_Park), but the question gives the answer away: \"Stanley\" plus \"famous trophy\" is Stanley Cup for anyone in a Canadian room. Suggested rewording that keeps the fact but needs knowledge: \"The Governor General who gave Stanley Park its name also donated a trophy first awarded in 1893. In which sport?\" (answer: ice hockey)."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Gastown",
+      "quote": "Gastown was Vancouver's first neighbourhood and was named for \"Gassy\" Jack Deighton",
+      "match": "Gastown",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Vancouver_Canucks",
+      "quote": "The Vancouver Canucks are a professional ice hockey team based in Vancouver",
+      "match": "Vancouver Canucks",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:BC_Lions",
+      "quote": "The Lions compete in the West Division of the Canadian Football League (CFL), and play their home games at BC Place",
+      "match": "Lions",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Lions_Gate_Bridge",
+      "quote": "The Lions Gate Bridge, opened in 1938 and officially known as the First Narrows Bridge, is a suspension bridge that crosses the first narrows of Burrard Inlet",
+      "match": "Lions Gate Bridge",
+      "note": "Accept \"First Narrows Bridge\", its official name. The Ironworkers Memorial (Second Narrows) Bridge also crosses Burrard Inlet but not from Stanley Park, and is not a suspension bridge."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Vancouver",
+      "quote": "The city takes its name from George Vancouver, who explored the inner harbour of Burrard Inlet in 1792",
+      "match": "George",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Vancouver",
+      "quote": "In 1969, Greenpeace was founded in Vancouver",
+      "match": "Greenpeace",
+      "note": "Answer is solid, but the date in the question is not: en:Vancouver says 1969 (the Don't Make a Wave Committee), en:Greenpeace says 1971. The answer does not change, but consider dropping \"in the early 1970s\" so no one challenges the premise."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Strait_of_Georgia",
+      "quote": "The Strait of Georgia or the Georgia Strait is an arm of the Salish Sea between Vancouver Island and the extreme southwestern mainland coast of British Columbia",
+      "match": "Strait of Georgia",
+      "note": "Accept \"Georgia Strait\". \"Salish Sea\" is the wider body and is not a strait, so the question's \"strait\" excludes it."
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "title": "Austin Trivia Night",
+  "round": {
+    "name": "Local Round: Austin",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Austin's unofficial slogan, seen on bumper stickers and T-shirts, urges everyone to \"Keep Austin\" what?",
+        "a": "Weird"
+      },
+      {
+        "q": "A huge colony of Mexican free-tailed bats roosts under which downtown Austin bridge?",
+        "a": "The Congress Avenue Bridge (officially the Ann W. Richards Congress Avenue Bridge)"
+      },
+      {
+        "q": "Which long-running PBS concert series, whose pilot was taped with Willie Nelson, takes its name from the city?",
+        "a": "Austin City Limits"
+      },
+      {
+        "q": "What is the nickname of the University of Texas at Austin's sports teams?",
+        "a": "The Longhorns"
+      },
+      {
+        "q": "Which spring-fed swimming pool in Zilker Park stays cool all year round?",
+        "a": "Barton Springs Pool"
+      },
+      {
+        "q": "Which music, film and tech festival, known by four letters, takes over Austin every March?",
+        "a": "South by Southwest (SXSW)"
+      },
+      {
+        "q": "Lady Bird Lake in downtown Austin is a reservoir on which river?",
+        "a": "The Colorado River"
+      },
+      {
+        "q": "Which US president's presidential library stands on the University of Texas at Austin campus?",
+        "a": "Lyndon B. Johnson"
+      },
+      {
+        "q": "Before it was renamed Austin, the settlement on the site was known by what name, shared with a famous battle?",
+        "a": "Waterloo"
+      },
+      {
+        "q": "Austin officially calls itself the \"Live Music Capital of the\" what?",
+        "a": "World"
+      }
+    ]
+  },
+  "notes": [
+    "Coined around 2000 by Red Wassenich and popularised by BookPeople and Waterloo Records; see 'Keep Austin Weird' on Wikipedia.",
+    "Renamed for Ann Richards in 2006; accept either name.",
+    "Pilot taped 1974 with Willie Nelson; see Austin City Limits Wikipedia / acltv.com history page.",
+    "Texas Longhorns; see texassports.com (UT Athletics).",
+    "Spring-fed pool in Zilker Park, around 68-70F year round; see City of Austin Parks and Recreation (austintexas.gov).",
+    "SXSW held each March since 1987; see sxsw.com and SXSW Wikipedia.",
+    "Lady Bird Lake (formerly Town Lake) is a reservoir on the Colorado River of Texas; see Lady Bird Lake Wikipedia / City of Austin.",
+    "LBJ Presidential Library, on the UT Austin campus; see lbjlibrary.org.",
+    "Settlement of Waterloo chosen as capital site in 1839 and renamed Austin after Stephen F. Austin; see Texas State Historical Association Handbook of Texas, 'Austin, TX'.",
+    "City adopted 'Live Music Capital of the World' in 1991; see City of Austin Music & Entertainment Division / Visit Austin."
+  ]
+}

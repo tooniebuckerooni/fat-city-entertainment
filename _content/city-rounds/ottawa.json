@@ -1,0 +1,63 @@
+{
+  "title": "Ottawa Trivia Night",
+  "round": {
+    "name": "Local Round: Ottawa",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Which Ottawa waterway, a UNESCO World Heritage Site, becomes a skateway in most winters?",
+        "a": "The Rideau Canal"
+      },
+      {
+        "q": "Which monarch chose Ottawa as the capital in 1857?",
+        "a": "Queen Victoria"
+      },
+      {
+        "q": "Before it was renamed in 1855, what was Ottawa called?",
+        "a": "Bytown"
+      },
+      {
+        "q": "Which Quebec city sits directly across the river from Parliament Hill?",
+        "a": "Gatineau"
+      },
+      {
+        "q": "What is the name of the clock tower at the centre of Parliament's Centre Block?",
+        "a": "The Peace Tower"
+      },
+      {
+        "q": "What is the name of Ottawa's CFL team?",
+        "a": "The Ottawa Redblacks"
+      },
+      {
+        "q": "Which country sends Ottawa tulip bulbs every year, in thanks for sheltering its royal family during the Second World War?",
+        "a": "The Netherlands"
+      },
+      {
+        "q": "Which Ottawa-born singer had a 1957 hit with \"Diana\" and later wrote the English lyrics to \"My Way\"?",
+        "a": "Paul Anka"
+      },
+      {
+        "q": "Lord Stanley donated hockey's Stanley Cup while living in Ottawa. What office did he hold?",
+        "a": "Governor General of Canada"
+      },
+      {
+        "q": "What is the name of the winter festival, held every February in Ottawa and Gatineau, known for its ice sculptures?",
+        "a": "Winterlude"
+      }
+    ]
+  },
+  "notes": [
+    "Rideau Canal; 2022-23 had no skating days, hence 'most winters'.",
+    "Queen Victoria selected Ottawa as capital of the Province of Canada on 31 December 1857; see Ottawa (Wikipedia) or Canadian Encyclopedia 'Ottawa'.",
+    "Bytown, named for Lt-Col John By, renamed Ottawa on incorporation as a city in 1855; see Canadian Encyclopedia 'Bytown'.",
+    "Gatineau, Quebec, faces Parliament Hill across the Ottawa River; see any map or Gatineau (Wikipedia).",
+    "The Peace Tower, the clock and bell tower of Centre Block, completed 1927; see Library of Parliament or parl.ca 'Peace Tower'.",
+    "Ottawa Redblacks, CFL team since 2014, Grey Cup champions 2016; see CFL.ca team page.",
+    "The Dutch royal family (Princess Juliana) sheltered in Ottawa during WWII; the Netherlands sends bulbs yearly, origin of the Canadian Tulip Festival. See tulipfestival.ca history.",
+    "Paul Anka, born Ottawa 30 July 1941; 'Diana' was a 1957 hit, and he wrote the English lyrics to 'My Way' (1969). See Paul Anka (Wikipedia).",
+    "Lord Stanley of Preston, Governor General 1888-1893, donated the Dominion Hockey Challenge Cup in 1892; see Hockey Hall of Fame (hhof.com) Stanley Cup history.",
+    "Winterlude (Bal de Neige), run by Canadian Heritage since 1979 across Ottawa and Gatineau each February; see canada.ca Winterlude pages or Winterlude (Wikipedia)."
+  ]
+}

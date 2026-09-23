@@ -1,0 +1,63 @@
+{
+  "title": "Washington, DC Trivia Night",
+  "round": {
+    "name": "Local Round: Washington, DC",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "What do the letters in \"Washington, DC\" stand for?",
+        "a": "District of Columbia"
+      },
+      {
+        "q": "Which river separates Washington from Arlington, Virginia?",
+        "a": "The Potomac"
+      },
+      {
+        "q": "Which French-born engineer drew up the original 1791 plan for the capital's streets and avenues?",
+        "a": "Pierre L'Enfant"
+      },
+      {
+        "q": "Which country gave Washington its famous cherry trees in 1912?",
+        "a": "Japan"
+      },
+      {
+        "q": "Which Smithsonian museum on the National Mall displays the Wright brothers' 1903 Flyer?",
+        "a": "The National Air and Space Museum"
+      },
+      {
+        "q": "Which famous blue diamond is on display at the National Museum of Natural History?",
+        "a": "The Hope Diamond"
+      },
+      {
+        "q": "Which Washington team won its first Stanley Cup in 2018?",
+        "a": "The Washington Capitals"
+      },
+      {
+        "q": "Which jazz composer and bandleader, born in Washington in 1899, made his name at Harlem's Cotton Club?",
+        "a": "Duke Ellington"
+      },
+      {
+        "q": "Chuck Brown is called the \"Godfather\" of which percussion-driven funk style born in Washington?",
+        "a": "Go-go"
+      },
+      {
+        "q": "What is the name of the smoky, spicy sausage, usually served with chili and onions, that is Washington's signature local dish?",
+        "a": "The half-smoke"
+      }
+    ]
+  },
+  "notes": [
+    "District of Columbia, established by the Residence Act of 1790; see Washington, D.C. (Wikipedia) or dc.gov.",
+    "The Potomac River forms the District's southwest boundary with Virginia; Arlington lies directly across it. See Potomac River (Wikipedia) or any map.",
+    "Pierre Charles L'Enfant, born in Paris, prepared the plan in 1791 at George Washington's request; see the National Park Service 'L'Enfant Plan' page.",
+    "Gift of about 3,000 trees from the city of Tokyo, planted 27 March 1912; see the National Park Service 'History of the Cherry Trees' page.",
+    "Replaced the Smithson nationality question (born in Paris, British; arguable either way).",
+    "Hope Diamond, donated by Harry Winston in 1958, displayed at the Smithsonian's National Museum of Natural History; see naturalhistory.si.edu.",
+    "Capitals beat the Vegas Golden Knights in the 2018 Stanley Cup Final, the franchise's first title; see NHL.com Stanley Cup history.",
+    "Edward Kennedy 'Duke' Ellington, born 29 April 1899 in Washington, led the Cotton Club orchestra from 1927; see Duke Ellington (Wikipedia) or dukeellington.com.",
+    "Chuck Brown (1936-2012), 'Godfather of Go-Go'; go-go was made DC's official music in 2020. See Go-go (Wikipedia) or Library of Congress coverage.",
+    "The half-smoke, a coarse smoked sausage, typically pork and beef, often served with chili, mustard and onions; see Half-smoke (Wikipedia)."
+  ]
+}

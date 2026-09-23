@@ -1,0 +1,34 @@
+{
+  "slug": "austin",
+  "title": "Austin Trivia Night: A Free Round of Local Questions",
+  "description": "Bats, Barton Springs and the Capitol: ten free questions for an Austin trivia night, with notes on Longhorn Saturdays, summer heat and live-music weeknights.",
+  "h1": "Bats, Brisket and Ten Questions on Austin",
+  "kicker": "Warm nights, full patios and a local round to open with.",
+  "poem": [
+    "Summer arrives early in Austin and leaves late. By May the limestone holds the heat long after dark, the cicadas hum like a power line, and the whole town learns to live after sundown: on patios under string lights, on the rail of a downtown bridge while a river of bats pours out from underneath and smudges itself across the dusk.",
+    "Then the rooms fill. Kayaks drift back to the docks on Lady Bird Lake, the grackles start their racket over every taco trailer parking lot on the east side, and a trivia night gathers its regulars: grad students, state workers, software people, and a man who has lived in Travis Heights since the seventies. They crowd around one answer sheet and argue about which brisket line is worth the wait.",
+    "Somebody has to stand at the front, and here that job has a long pedigree. The fiddler at a Sunday dance hall, the songwriter third on the sign-up sheet on Red River, the comic working a quiet Wednesday and the quizmaster with a cordless mic all keep the weeknights from going silent. Walk out after the last round and the air is still warm, the Capitol dome glows against the dark, and somewhere down the block a band is loading out."
+  ],
+  "sections": [
+    {
+      "h2": "Burnt Orange Saturdays and Hundred-Degree Tuesdays",
+      "paras": [
+        "Austin rooms are young and mixed: students from UT, state and tech workers, and plenty of people who moved here recently and love proving they know the city better than the natives. Lean into that. A round on the city itself works well (the bats, the springs, the Capitol, the river through downtown), and so does music, the one subject an Austin crowd takes personally. Tex-Mex, barbecue and the breakfast taco will start a friendly fight every time.",
+        "Plan around the calendar. Fall Saturdays belong to college football, so keep your night midweek. March brings festival crowds and a lot of visitors. In high summer, start after the heat breaks and keep the air conditioning honest."
+      ]
+    },
+    {
+      "h2": "Keeping Austin's Weeknights Loud",
+      "paras": [
+        "Austin built its name on live music played in small rooms to people who showed up on a Tuesday. A trivia night runs on the same things: a regular crowd, a person at the front, and a cover charge or a tip jar that helps pay somebody's rent. As the city has grown and rents have climbed, working musicians and comics have felt the squeeze, and a weeknight audience is one of the few things that helps them.",
+        "So pay the cover, drop a few dollars in the jar for the songwriter, and learn the name of the person who runs your quiz. If your bar has a dead Wednesday and nobody running anything, start something there. The Austin round on this page covers your first ten questions; the regulars are the part you have to earn."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#bf5700",
+    "paper": "#fbf4ec",
+    "ink": "#1c130c",
+    "motif": "★"
+  }
+}

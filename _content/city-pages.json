@@ -51,8 +51,8 @@
       "name": "Boston",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/boston/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -69,8 +69,8 @@
       "name": "Washington, DC",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/washington-dc/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -96,8 +96,8 @@
       "name": "Austin",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/austin/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -123,8 +123,8 @@
       "name": "Seattle",
       "country": "US",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/seattle/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -177,8 +177,8 @@
       "name": "Ottawa",
       "country": "CA",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/ottawa/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -213,8 +213,8 @@
       "name": "Birmingham",
       "country": "GB",
       "term": "pub quiz",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/birmingham/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -231,8 +231,8 @@
       "name": "Edinburgh",
       "country": "GB",
       "term": "pub quiz",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/edinburgh/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -240,8 +240,8 @@
       "name": "Glasgow",
       "country": "GB",
       "term": "pub quiz",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/glasgow/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -276,8 +276,8 @@
       "name": "Brisbane",
       "country": "AU",
       "term": "trivia night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/brisbane/index.html",
+      "status": "draft",
       "lang": "en"
     },
     {
@@ -285,8 +285,8 @@
       "name": "Auckland",
       "country": "NZ",
       "term": "quiz night",
-      "page": null,
-      "status": "planned",
+      "page": "trivia-nights/auckland/index.html",
+      "status": "draft",
       "lang": "en"
     }
   ]

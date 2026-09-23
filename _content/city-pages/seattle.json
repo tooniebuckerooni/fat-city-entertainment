@@ -1,0 +1,34 @@
+{
+  "slug": "seattle",
+  "title": "Seattle Trivia Night Questions and a Free Local Round",
+  "description": "Plan a Seattle trivia night for the long gray season: rounds on the Sound, the ferries and grunge, plus 10 free local questions to read out or print.",
+  "h1": "Seattle Trivia Night, Rain or Shine",
+  "kicker": "Ten free questions for the long gray season.",
+  "poem": [
+    "The rain in Seattle is rarely a storm. It is a fine gray drift that settles on your sleeve somewhere between the ferry terminal and the bus stop, and most people here gave up umbrellas long ago. From October to June the light comes in low and silver off Puget Sound, the hills of Capitol Hill and Queen Anne shine wet under the streetlamps, and the Olympics sit out west behind the cloud like a rumor.",
+    "People say the city is polite and hard to get to know, and a trivia night is how that gets fixed. A table of coworkers from South Lake Union, two nurses off shift, a couple who met on the Bainbridge ferry: by the third round they are sharing a pencil and arguing about which year the Sonics left. Windows fog over. Somebody in a fleece knows every Soundgarden B-side. The polite city turns out to be loud once it has a scoreboard.",
+    "This is a place where a whole sound once grew out of small rooms on wet weeknights, played by unknowns for crowds who came anyway. Hosts and comics and bands still work those rooms. Walk home past the cranes on the waterfront, and on a rare clear evening the mountain is out, pink and enormous over the south end of the city."
+  ],
+  "sections": [
+    {
+      "h2": "Questions for the Emerald City, from the Sound to the Space Needle",
+      "paras": [
+        "Seattle crowds like to be tested on their own backyard, so a local round earns its place: the ferries, Pike Place, the Space Needle, Boeing, the Fremont Troll, and who makes the best teriyaki. A music round leaning on Hendrix, grunge and the Sub Pop years will be answered at speed. Keep the tech questions light; half the room may work in it and would rather not.",
+        "The calendar decides attendance. The gray months are prime indoor season and weeknights fill easily. From July through September people are out on the water and in the mountains, so start later and expect smaller teams. Check the Seahawks schedule before a Sunday or Monday booking, and the Mariners in the summer."
+      ]
+    },
+    {
+      "h2": "Small rooms, wet weeknights and the sound that came out of them",
+      "paras": [
+        "Seattle's best-known music was not made in arenas. It was made in taverns, all-ages halls and basements through long wet winters, in front of crowds of forty who turned out because it was Tuesday and there was something on. The same is true of the city's comedy open mics and its quiz nights: the room exists because a few people keep coming back to it.",
+        "So buy a ticket to the band you have never heard of, stay for the comic's closing bit, and tip the trivia host who spent Sunday afternoon writing questions. If your neighborhood has no quiz night, start one with the Seattle round below, and Trivia Show Maker can print the answer sheets before the rain lets up."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#0b6e4f",
+    "paper": "#f1f6f3",
+    "ink": "#0e1a16",
+    "motif": "∴"
+  }
+}

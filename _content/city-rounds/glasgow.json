@@ -1,0 +1,63 @@
+{
+  "title": "Glasgow Pub Quiz",
+  "round": {
+    "name": "Local Round: Glasgow",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Which river flows through the centre of Glasgow?",
+        "a": "The Clyde"
+      },
+      {
+        "q": "Glasgow's two biggest football clubs are known together as the Old Firm. Name both.",
+        "a": "Celtic and Rangers"
+      },
+      {
+        "q": "Glasgow's Subway, with its small orange trains, is nicknamed the \"Clockwork\" what?",
+        "a": "Orange"
+      },
+      {
+        "q": "The statue of the Duke of Wellington outside the Gallery of Modern Art is famous for usually wearing what on his head?",
+        "a": "A traffic cone"
+      },
+      {
+        "q": "Which Glasgow-born architect and designer drew up the Glasgow School of Art's best-known building?",
+        "a": "Charles Rennie Mackintosh"
+      },
+      {
+        "q": "Complete the city's motto: \"Let Glasgow\" what?",
+        "a": "Flourish"
+      },
+      {
+        "q": "Which saint, also called Kentigern, is the patron saint of Glasgow?",
+        "a": "St Mungo"
+      },
+      {
+        "q": "In the old rhyme about Glasgow's coat of arms, there is a bird that never flew, a tree that never grew, a bell that never rang, and what that never swam?",
+        "a": "A fish"
+      },
+      {
+        "q": "Salvador Dalí's painting Christ of Saint John of the Cross hangs in which Glasgow museum and gallery?",
+        "a": "Kelvingrove"
+      },
+      {
+        "q": "Glasgow's riverside concert venue, first called the Clyde Auditorium, is now officially named after which armoured animal?",
+        "a": "The Armadillo"
+      }
+    ]
+  },
+  "notes": [
+    "River Clyde; see River Clyde Wikipedia / Glasgow City Council.",
+    "Celtic FC and Rangers FC, the 'Old Firm'; see Old Firm Wikipedia.",
+    "Clockwork Orange; origin of the nickname is disputed, so no causal claim.",
+    "Wellington statue (1844) outside GoMA, coned since the 1980s; see Duke of Wellington statue, Glasgow, Wikipedia.",
+    "Mackintosh (born Glasgow 1868) designed the Glasgow School of Art building (the Mackintosh Building); see gsa.ac.uk and Mackintosh Wikipedia.",
+    "City motto 'Let Glasgow Flourish'; see Coat of arms of Glasgow Wikipedia / Glasgow City Council.",
+    "St Mungo (Kentigern), patron saint, Glasgow Cathedral; see Saint Mungo Wikipedia.",
+    "Rhyme 'the bird that never flew, the tree that never grew, the bell that never rang, the fish that never swam'; see Glasgow City Council coat of arms page.",
+    "Dalí's Christ of Saint John of the Cross bought by Glasgow in 1952, hung at Kelvingrove Art Gallery and Museum; see Glasgow Museums.",
+    "Officially the SEC Armadillo since the rename."
+  ]
+}

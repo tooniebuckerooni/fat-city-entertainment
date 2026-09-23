@@ -1,0 +1,34 @@
+{
+  "slug": "washington-dc",
+  "title": "Trivia Night in Washington, DC: Ten Local Questions",
+  "description": "L'Enfant's plan, the cherry trees, go-go and the half-smoke: ten free questions for a Washington, DC trivia night, ready to read aloud or print.",
+  "h1": "A District Trivia Night, From the Monuments to Go-Go",
+  "kicker": "Ten questions on the District, from L'Enfant to the half-smoke.",
+  "poem": [
+    "Washington keeps two clocks. One runs on the calendar of the Mall: blossoms around the Tidal Basin, school groups in matching T-shirts, July heat pressing on the Reflecting Pool like a lid on a pot. The other runs in the rowhouse blocks the tour buses skip, in Petworth and Brookland and on the hills east of the Anacostia, where porches face each other and the Metro hums under Georgia Avenue.",
+    "Trivia night lives on the second clock. This is a town of people who read the footnotes, so a Tuesday team of four might hold someone who can list the rivers of Mongolia and someone who swears the answer is in a museum they pass daily and never enter. The rounds run polite and careful, then turn loud at the tiebreak, when strangers who met at the bar an hour ago start hugging over the Hope Diamond.",
+    "It is the city of Duke Ellington and Chuck Brown, of punk shows in church basements and a go-go beat still leaking from car windows on summer nights. The host with the clipboard, the band loading in off U Street, the comic trying new jokes on a Wednesday: they keep that going. Late, after the last round, the dome and the obelisk stand lit over the rooftops, and the neighborhoods are still awake."
+  ],
+  "sections": [
+    {
+      "h2": "Rounds for a Town That Reads the Footnotes",
+      "paras": [
+        "Washington crowds know their general knowledge, so pitch it high and keep one round friendly for the table that came to catch up. Local material is rich and mostly free of arguments: L'Enfant's street plan, the Smithsonian's odder holdings, which Metro line is which color on the map, the half-smoke, go-go, the Capitals' 2018 Stanley Cup. So many people here grew up somewhere else that a round on the fifty states always lands. Leave partisan politics out entirely; most of the room spends all day near it.",
+        "Watch the calendar. Cherry blossom season fills the city with visitors, summer humidity drives everyone indoors, and August goes quiet as people leave town. September through early summer is the strong stretch for a weekly trivia night."
+      ]
+    },
+    {
+      "h2": "The Go-Go Lesson: Small Rooms Keep a Scene Alive",
+      "paras": [
+        "Washington's best-loved music never depended on the big stages. Go-go grew up in dance halls and school gyms, the city's punk bands built a national following out of all-ages shows in borrowed rooms, and jazz on U Street thrived because people came out on ordinary weeknights. A trivia night is part of the same local economy: a regular reason to leave the apartment, and a steady gig for the musicians and comics who often host them.",
+        "It matters doubly in a city where so many people arrive for a job and stay a few years. A weekly quiz is how newcomers find their people. The go-go bands kept this city dancing through decades nobody else was watching; the least a Tuesday crowd can do is show up for whoever is on stage now."
+      ]
+    }
+  ],
+  "look": {
+    "accent": "#c8102e",
+    "paper": "#fbf4f5",
+    "ink": "#15171d",
+    "motif": "✩"
+  }
+}

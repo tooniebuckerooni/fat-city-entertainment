@@ -1,0 +1,63 @@
+{
+  "title": "Brisbane Trivia Night",
+  "round": {
+    "name": "Local Round: Brisbane",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Brisbane takes its name from Sir Thomas Brisbane. Which colonial office did he hold?",
+        "a": "Governor of New South Wales"
+      },
+      {
+        "q": "What is the name of the steel cantilever bridge that crosses the river to Kangaroo Point?",
+        "a": "The Story Bridge"
+      },
+      {
+        "q": "Which Brisbane NRL club, founded in 1987, is named after a wild horse?",
+        "a": "The Broncos"
+      },
+      {
+        "q": "In State of Origin, the Queensland side is known by what colour?",
+        "a": "The Maroons"
+      },
+      {
+        "q": "The cricket ground known as the Gabba takes its nickname from which suburb?",
+        "a": "Woolloongabba"
+      },
+      {
+        "q": "Brisbane hosted the Commonwealth Games in which year?",
+        "a": "1982"
+      },
+      {
+        "q": "South Bank Parklands was built on the site of which 1988 event?",
+        "a": "World Expo 88"
+      },
+      {
+        "q": "Which animated series about a family of dogs is set in Brisbane?",
+        "a": "Bluey"
+      },
+      {
+        "q": "Which band of brothers spent part of their childhood in Redcliffe, where a walkway now honours them?",
+        "a": "The Bee Gees"
+      },
+      {
+        "q": "The Moreton Bay bug, a local favourite on the plate, is a type of what?",
+        "a": "Lobster (a slipper lobster)"
+      }
+    ]
+  },
+  "notes": [
+    "Named for Sir Thomas Brisbane, Governor of NSW 1821 to 1825; see Brisbane on Wikipedia or the Queensland State Archives.",
+    "Story Bridge, opened 1940, links Fortitude Valley and Kangaroo Point; see Story Bridge on Wikipedia or Brisbane City Council.",
+    "Brisbane Broncos; the Dolphins (2023) also play in Brisbane, hence the clues.",
+    "Queensland Maroons; see State of Origin on Wikipedia or nrl.com.",
+    "Brisbane Cricket Ground is in Woolloongabba, hence 'the Gabba'; see thegabba.com.au.",
+    "XII Commonwealth Games, Brisbane, 1982; see thecgf.com or Wikipedia.",
+    "South Bank Parklands opened 1992 on the former World Expo 88 site; see visit.southbank.com.au or Wikipedia.",
+    "Bluey (ABC Kids, Ludo Studio) is set and made in Brisbane; see Bluey (TV series) on Wikipedia.",
+    "The Gibb brothers lived in Redcliffe from 1958; Bee Gees Way opened there in 2013; see Redcliffe on Wikipedia or visitmoretonbayregion.com.au.",
+    "Moreton Bay bug (Thenus orientalis) is a slipper lobster; see Thenus orientalis on Wikipedia or the Queensland Government fisheries pages."
+  ]
+}

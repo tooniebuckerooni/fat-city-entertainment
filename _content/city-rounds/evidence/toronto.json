@@ -1,0 +1,86 @@
+{
+  "slug": "toronto",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Toronto_Maple_Leafs",
+      "quote": "The Toronto Maple Leafs, officially the Toronto Maple Leaf Hockey Club and colloquially known as the Leafs, are a professional ice hockey team based in Toronto",
+      "match": "Toronto Maple Leafs",
+      "note": ""
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Toronto_Blue_Jays",
+      "quote": "back-to-back World Series championships in 1992 and 1993",
+      "match": "1992 and 1993",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Toronto_Raptors",
+      "quote": "In the 2019 playoffs, the Raptors won their first Eastern Conference title and advanced to their first NBA Finals, where they won their first NBA championship",
+      "match": "2019",
+      "note": "Accept \"2018-19 season\" as well; the title was won in June 2019."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Toronto",
+      "quote": "It is located on a harbour at the northwestern shore of Lake Ontario",
+      "match": "Lake Ontario",
+      "note": ""
+    },
+    {
+      "n": 5,
+      "verdict": "unclear",
+      "wiki": "en:CN_Tower",
+      "quote": "Its name \"CN\" refers to Canadian National, the railway company that built the tower",
+      "match": "Canadian National",
+      "note": "Right as history, but the present tense \"takes its initials from\" is out of date: the same article says the tower was officially renamed Canada's National Tower (from Canadian National Tower) and the CN railway logo was removed, so a room can argue \"Canada's National\". Suggested rewording: \"When it was built, the CN in CN Tower stood for which company, which built it?\""
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Drake_(musician)",
+      "quote": "Drake later popularized the term \"The Six\" in 2015 in relation to his hometown Toronto",
+      "match": "Drake",
+      "note": "\"Did most to popularise\" is a judgement, but Wikipedia credits Drake directly and no rival answer is plausible."
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Toronto",
+      "quote": "York was renamed and incorporated in 1834 as the City of Toronto",
+      "match": "York",
+      "note": "Accept \"Town of York\". The name Toronto itself predates York (it was used for the area before 1793), but the question pins it to the name immediately before 1834 incorporation, which is York."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Hockey_Hall_of_Fame",
+      "quote": "The Hockey Hall of Fame is a museum and hall of fame located in Toronto, Ontario, Canada",
+      "match": "Hockey",
+      "note": "Same article: it is inside Brookfield Place and a historic Bank of Montreal building, which fixes the \"old bank building\" clue."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Peameal_bacon",
+      "quote": "Since the end of World War I, it has been rolled in ground yellow cornmeal",
+      "match": "cornmeal",
+      "note": "The word \"today\" in the question is doing the right work: it was originally rolled in ground yellow peas, hence the name."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Rogers_Centre",
+      "quote": "Rogers Centre (originally SkyDome) is a retractable roof stadium in downtown Toronto",
+      "match": "SkyDome",
+      "note": "Opened 3 June 1989; renamed Rogers Centre in 2005."
+    }
+  ]
+}

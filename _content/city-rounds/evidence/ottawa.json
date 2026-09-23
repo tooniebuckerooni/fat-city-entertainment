@@ -1,0 +1,86 @@
+{
+  "slug": "ottawa",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "unclear",
+      "wiki": "en:Rideau_Canal",
+      "quote": "the section of the Rideau Canal passing through central Ottawa has been re-purposed as what is officially the world's largest and second longest skating rink",
+      "match": "Rideau Canal",
+      "note": "Answer is right, but 'every winter' is false: the same article records the 2022-23 season as 'the first ever season with zero skating days'. Suggested rewording: 'Which Ottawa waterway, a UNESCO World Heritage Site, becomes a skateway in most winters?'"
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Ottawa",
+      "quote": "Queen Victoria selected the city as the permanent capital of the Province of Canada",
+      "match": "Queen Victoria",
+      "note": "Strictly capital of the Province of Canada (effective 31 December 1857), which carried over to the Dominion in 1867."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Ottawa",
+      "quote": "In 1855, Bytown was renamed Ottawa and obtained city status",
+      "match": "Bytown",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Gatineau",
+      "quote": "Gatineau is a city in southwestern Quebec, Canada. It is located on the northern bank of the Ottawa River, directly across from Ottawa, Ontario",
+      "match": "Gatineau",
+      "note": "The sector facing Parliament Hill is Hull, a separate city until the 2002 amalgamation; hosts may want to accept Hull from older players."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Peace_Tower",
+      "quote": "The Peace Tower is a focal bell and clock tower sitting on the central axis of the Centre Block",
+      "match": "Peace Tower",
+      "note": "Centre Block is closed for renovation (into the 2030s), but the tower's name is unchanged."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Ottawa_Redblacks",
+      "quote": "the Redblacks are the third CFL team to play in the city of Ottawa",
+      "match": "Redblacks",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Canadian_Tulip_Festival",
+      "quote": "The Netherlands continues to send 20,000 bulbs to Canada each year",
+      "match": "Netherlands",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Diana_(Paul_Anka_song)",
+      "quote": "\"Diana\" is a song written and first performed by Paul Anka, who recorded it in May 1957",
+      "match": "Paul Anka",
+      "note": "Born in Ottawa and wrote the English lyrics to 'My Way' per en:Paul_Anka."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Frederick_Stanley,_16th_Earl_of_Derby",
+      "quote": "served as Colonial Secretary from 1885 to 1886 and Governor General of Canada from 1888 to 1893",
+      "match": "Governor General of Canada",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Winterlude",
+      "quote": "Winterlude is an annual winter festival held in Ottawa, Ontario and Gatineau, Quebec",
+      "match": "Winterlude",
+      "note": "French name Bal de Neige; accept it."
+    }
+  ]
+}
