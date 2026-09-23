@@ -1,0 +1,86 @@
+{
+  "slug": "philadelphia",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Philadelphia",
+      "quote": "Penn named the city Philadelphia, which is Greek for 'brotherly love'",
+      "match": "brotherly love",
+      "note": "Very well known (City of Brotherly Love), but unambiguous."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Liberty_Bell",
+      "quote": "the Liberty Bell today is located across the street from Independence Hall in the Liberty Bell Center",
+      "match": "Liberty Bell",
+      "note": ""
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Independence_Hall",
+      "quote": "the Declaration of Independence was adopted there on July 4, 1776",
+      "match": "Declaration of Independence",
+      "note": ""
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Philadelphia_City_Hall",
+      "quote": "including the statue of city founder William Penn atop its tower",
+      "match": "William Penn",
+      "note": "Mild giveaway: 'founder of Pennsylvania' points hard at Penn. Acceptable for a family round."
+    },
+    {
+      "n": 5,
+      "verdict": "unclear",
+      "wiki": "en:Philadelphia_Museum_of_Art",
+      "quote": "In October 2025, the museum rebranded as the \"Philadelphia Art Museum\" after more than a year of planning",
+      "match": "Philadelphia",
+      "note": "Answer is right, but the building renamed itself in October 2025 (Philadelphia_Museum_of_Art article: 'rebranded as the \"Philadelphia Art Museum\"'). Steps confirmed in en:Rocky_Steps ('72 stone steps leading up to the East entrance of the Philadelphia Museum of Art'). A room will give either name. Fix: change the answer to 'The Philadelphia Museum of Art (renamed the Philadelphia Art Museum in 2025)' so the host accepts both."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Cheesesteak",
+      "quote": "A cheesesteak (also known as a Philadelphia cheesesteak, Philly cheesesteak, cheesesteak sandwich, cheese steak, or steak and cheese) is a sandwich made from thinly sliced pieces of beefsteak",
+      "match": "cheesesteak",
+      "note": "Same article: 'American cheese, provolone, and Cheez Whiz are the most commonly used cheeses'. A hoagie is a different sandwich, so no second answer."
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Mummers_Parade",
+      "quote": "The Mummers Parade is held each New Year's Day in Philadelphia",
+      "match": "New Year's Day",
+      "note": ""
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Super_Bowl_LII",
+      "quote": "The underdog Eagles defeated the Patriots with a score of 41–33 to win their first Super Bowl",
+      "match": "Patriots",
+      "note": "The Eagles have since won a second (Super Bowl LIX, Feb 2025, over Kansas City), so the question must keep both 'first' and 'February 2018'; it does."
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Delaware_River",
+      "quote": "Benjamin Franklin Bridge crosses the Delaware, connecting Philadelphia and Camden, New Jersey",
+      "match": "Delaware",
+      "note": ""
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Boathouse_Row",
+      "quote": "Boathouse Row is row of fifteen boathouses on the east bank of the Schuylkill River in Philadelphia",
+      "match": "Schuylkill River",
+      "note": "Lights: 'In 1979, lights ... were installed to outline each of the boathouses'."
+    }
+  ]
+}

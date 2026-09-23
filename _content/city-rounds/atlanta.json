@@ -6,20 +6,50 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Before it was called Marthasville and then Atlanta, the settlement at the end of the Western and Atlantic Railroad was known by what name?", "a": "Terminus" },
-      { "q": "Which soft drink was first sold in Atlanta in 1886, created by pharmacist John Pemberton?", "a": "Coca-Cola" },
-      { "q": "Which civil rights leader and Nobel Peace Prize winner was born in Atlanta in 1929?", "a": "Martin Luther King Jr." },
-      { "q": "Atlanta author Margaret Mitchell won the Pulitzer Prize for which 1936 novel?", "a": "Gone with the Wind" },
-      { "q": "In which year did Atlanta host the Summer Olympic Games?", "a": "1996" },
-      { "q": "In 1974, which Braves slugger broke Babe Ruth's career home run record in Atlanta?", "a": "Hank Aaron" },
-      { "q": "Which Union general captured Atlanta in 1864 before his March to the Sea?", "a": "William Tecumseh Sherman" },
-      { "q": "Atlanta's main airport is named after William Hartsfield and which other Atlanta mayor?", "a": "Maynard Jackson" },
-      { "q": "Which 24-hour cable news channel did Ted Turner launch from Atlanta in 1980?", "a": "CNN" },
-      { "q": "The Atlanta hip-hop duo OutKast was made up of Andre 3000 and which other rapper?", "a": "Big Boi" }
+      {
+        "q": "The settlement at the end of the Western and Atlantic Railroad, later renamed Marthasville and then Atlanta, was first known by what name?",
+        "a": "Terminus"
+      },
+      {
+        "q": "Which soft drink was first sold in Atlanta in 1886, created by pharmacist John Pemberton?",
+        "a": "Coca-Cola"
+      },
+      {
+        "q": "Which civil rights leader and Nobel Peace Prize winner was born in Atlanta in 1929?",
+        "a": "Martin Luther King Jr."
+      },
+      {
+        "q": "Atlanta author Margaret Mitchell won the Pulitzer Prize for which 1936 novel?",
+        "a": "Gone with the Wind"
+      },
+      {
+        "q": "In which year did Atlanta host the Summer Olympic Games?",
+        "a": "1996"
+      },
+      {
+        "q": "In 1974, which Braves slugger broke Babe Ruth's career home run record in Atlanta?",
+        "a": "Hank Aaron"
+      },
+      {
+        "q": "Which Union general captured Atlanta in 1864 before his March to the Sea?",
+        "a": "William Tecumseh Sherman"
+      },
+      {
+        "q": "Atlanta's main airport is named after William Hartsfield and which other Atlanta mayor?",
+        "a": "Maynard Jackson"
+      },
+      {
+        "q": "Which 24-hour cable news channel did Ted Turner launch from Atlanta in 1980?",
+        "a": "CNN"
+      },
+      {
+        "q": "The Atlanta hip-hop duo OutKast was made up of Andre 3000 and which other rapper?",
+        "a": "Big Boi"
+      }
     ]
   },
   "notes": [
-    "Named Terminus (end of the Western & Atlantic line), renamed Marthasville 1843, then Atlanta 1845; see History of Atlanta (Wikipedia).",
+    "Terminus, then Thrasherville, then Marthasville; 'first' rules out Thrasherville.",
     "John Pemberton, Atlanta pharmacist, first sold Coca-Cola at Jacob's Pharmacy in May 1886; see Coca-Cola (Wikipedia) or coca-colacompany.com history.",
     "Born 15 January 1929 at 501 Auburn Avenue, Atlanta; Nobel Peace Prize 1964; see Martin Luther King Jr. (Wikipedia) or the NPS MLK National Historical Park.",
     "Gone with the Wind (1936), Pulitzer Prize for Fiction 1937; Mitchell was born in Atlanta; see Margaret Mitchell (Wikipedia).",

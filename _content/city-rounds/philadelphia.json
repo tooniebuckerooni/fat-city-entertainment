@@ -6,16 +6,46 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Philadelphia's name comes from Greek words meaning what?", "a": "Brotherly love" },
-      { "q": "Which famous cracked bell is on display across the street from Independence Hall?", "a": "The Liberty Bell" },
-      { "q": "Which founding document was adopted at Independence Hall on July 4, 1776?", "a": "The Declaration of Independence" },
-      { "q": "The statue on top of Philadelphia City Hall shows which man, the founder of Pennsylvania?", "a": "William Penn" },
-      { "q": "In the film Rocky, Rocky Balboa runs up the front steps of which building?", "a": "The Philadelphia Museum of Art" },
-      { "q": "Which sandwich of thin-sliced beef on a long roll, often with Cheez Whiz or provolone, is the city's best-known food?", "a": "The cheesesteak" },
-      { "q": "On which day of the year does the Mummers Parade take place?", "a": "New Year's Day" },
-      { "q": "The Eagles won their first Super Bowl in February 2018 by beating which team?", "a": "The New England Patriots" },
-      { "q": "Which river separates Philadelphia from Camden, New Jersey?", "a": "The Delaware River" },
-      { "q": "Boathouse Row, whose outline lights up at night, stands on the bank of which river?", "a": "The Schuylkill River" }
+      {
+        "q": "Philadelphia's name comes from Greek words meaning what?",
+        "a": "Brotherly love"
+      },
+      {
+        "q": "Which famous cracked bell is on display across the street from Independence Hall?",
+        "a": "The Liberty Bell"
+      },
+      {
+        "q": "Which founding document was adopted at Independence Hall on July 4, 1776?",
+        "a": "The Declaration of Independence"
+      },
+      {
+        "q": "The statue on top of Philadelphia City Hall shows which man, the founder of Pennsylvania?",
+        "a": "William Penn"
+      },
+      {
+        "q": "In the film Rocky, Rocky Balboa runs up the front steps of which building?",
+        "a": "The Philadelphia Museum of Art (renamed the Philadelphia Art Museum in 2025)"
+      },
+      {
+        "q": "Which sandwich of thin-sliced beef on a long roll, often with Cheez Whiz or provolone, is the city's best-known food?",
+        "a": "The cheesesteak"
+      },
+      {
+        "q": "On which day of the year does the Mummers Parade take place?",
+        "a": "New Year's Day"
+      },
+      {
+        "q": "The Eagles won their first Super Bowl in February 2018 by beating which team?",
+        "a": "The New England Patriots"
+      },
+      {
+        "q": "Which river separates Philadelphia from Camden, New Jersey?",
+        "a": "The Delaware River"
+      },
+      {
+        "q": "Boathouse Row, whose outline lights up at night, stands on the bank of which river?",
+        "a": "The Schuylkill River"
+      }
     ]
   },
   "notes": [
@@ -23,7 +53,7 @@
     "Liberty Bell displayed at the Liberty Bell Center, across Chestnut Street from Independence Hall; see Liberty Bell (Wikipedia) or nps.gov/inde.",
     "Declaration adopted 4 July 1776 at the Pennsylvania State House (Independence Hall); see Independence Hall (Wikipedia) or nps.gov/inde.",
     "Alexander Milne Calder's bronze William Penn statue tops the City Hall tower; see Philadelphia City Hall (Wikipedia).",
-    "The 'Rocky Steps' at the Philadelphia Museum of Art; see Rocky Steps (Wikipedia) or philamuseum.org.",
+    "Rocky steps; the museum rebranded as the Philadelphia Art Museum in Oct 2025, accept either.",
     "Philly cheesesteak, credited to Pat and Harry Olivieri in the 1930s; see Cheesesteak (Wikipedia).",
     "Mummers Parade held every New Year's Day since 1901; see Mummers Parade (Wikipedia).",
     "Super Bowl LII, 4 February 2018, Eagles 41, Patriots 33, their first Super Bowl title; see Super Bowl LII (Wikipedia) or NFL.com.",

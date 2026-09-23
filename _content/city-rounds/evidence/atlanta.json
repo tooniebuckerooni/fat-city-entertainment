@@ -1,0 +1,86 @@
+{
+  "slug": "atlanta",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "unclear",
+      "wiki": "en:Atlanta",
+      "quote": "the area around the milepost had developed into a settlement, first known as Terminus, and later Thrasherville",
+      "match": "Terminus",
+      "note": "Wikipedia gives THREE names before Atlanta: Terminus, then Thrasherville, then Marthasville ('renamed Marthasville to honor Governor Wilson Lumpkin's daughter Martha'). 'Before it was called Marthasville' therefore admits Thrasherville too. Fix: 'Before it was called Marthasville and then Atlanta, the settlement at the end of the Western and Atlantic Railroad was FIRST known by what name?' (Also note 'end of the railroad' is a strong hint at Terminus; acceptable.)"
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Coca-Cola",
+      "quote": "In 1886, when Atlanta and Fulton County passed prohibition legislation, Pemberton responded by developing Coca-Cola",
+      "match": "Coca-Cola",
+      "note": "First sale: 'The first sales were at Jacob's Pharmacy in Atlanta, Georgia, on May 8, 1886'."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Martin_Luther_King_Jr.",
+      "quote": "Michael King Jr. was born on January 15, 1929, in Atlanta",
+      "match": "King Jr",
+      "note": "Born Michael King Jr., later Martin Luther King Jr. Nobel: 'King won the 1964 Nobel Peace Prize'. No other Atlanta-born 1929 Nobel laureate."
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:Gone_with_the_Wind_(novel)",
+      "quote": "Margaret Mitchell received the Pulitzer Prize for Fiction for Gone with the Wind",
+      "match": "Gone with the Wind",
+      "note": "Published 1936, prize awarded 1937; the question says '1936 novel', which is right."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:1996_Summer_Olympics",
+      "quote": "were an international multi-sport event held from July 19 to August 4, 1996, in Atlanta, Georgia",
+      "match": "1996",
+      "note": ""
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Atlanta–Fulton_County_Stadium",
+      "quote": "On April 8, 1974, Hank Aaron became baseball's all-time career home run leader by hitting his 715th home run",
+      "match": "Hank Aaron",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Atlanta",
+      "quote": "a four-month-long siege of the city by the Union Army under the command of General William Tecumseh Sherman",
+      "match": "Sherman",
+      "note": "Atlanta_campaign: 'the city fell on September 2, setting the stage for Sherman's March to the Sea'. The question's 'March to the Sea' is a strong hint, but the answer is unique."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Hartsfield–Jackson_Atlanta_International_Airport",
+      "quote": "In 2003, the Atlanta City Council voted to rename Hartsfield–Jackson Atlanta International Airport to honor former mayor Maynard Jackson",
+      "match": "Maynard Jackson",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:CNN",
+      "quote": "CNN is the first television channel to provide 24-hour news coverage",
+      "match": "CNN",
+      "note": "Same sentence: 'Founded on June 1, 1980, by American media proprietor Ted Turner and Reese Schonfeld as a 24-hour cable news channel and headquartered in Atlanta'. Co-founder Schonfeld does not change the answer."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:Outkast",
+      "quote": "consisting of Big Boi (Antwan Patton) and André 3000",
+      "match": "Big Boi",
+      "note": ""
+    }
+  ]
+}

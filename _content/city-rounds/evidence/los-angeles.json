@@ -1,0 +1,86 @@
+{
+  "slug": "los-angeles",
+  "checked": "2026-09-23",
+  "items": [
+    {
+      "n": 1,
+      "verdict": "confirmed",
+      "wiki": "en:Pueblo_de_Los_Ángeles",
+      "quote": "shortened to the Pueblo de los Ángeles (\"town of the angels\"), was the Spanish civilian pueblo",
+      "match": "the angels",
+      "note": "The city article gives the literal translation only inside a {{lit|The Angels}} template, which the checker strips, so the Pueblo article is cited. A pedant may offer the full founding name (Our Lady the Queen of the Angels), but the question says 'Los Angeles', so 'The Angels' is the one answer."
+    },
+    {
+      "n": 2,
+      "verdict": "confirmed",
+      "wiki": "en:Hollywood_Sign",
+      "quote": "The contract stipulated that \"LAND\" be removed to spell \"Hollywood\"",
+      "match": "LAND",
+      "note": "Also: 'originally erected in 1923 ... spelled out HOLLYWOODLAND'. Easy for anyone who knows the Hollywoodland story, but not ambiguous."
+    },
+    {
+      "n": 3,
+      "verdict": "confirmed",
+      "wiki": "en:Los_Angeles_Dodgers",
+      "quote": "For the 1958 season, the Dodgers moved to Los Angeles and kept their nickname",
+      "match": "Dodgers",
+      "note": "Same article: 'After 68 seasons in Brooklyn, Dodgers owner and president Walter O'Malley moved the franchise to Los Angeles before the 1958 season.'"
+    },
+    {
+      "n": 4,
+      "verdict": "confirmed",
+      "wiki": "en:La_Brea_Tar_Pits",
+      "quote": "Among the prehistoric Pleistocene species associated with the La Brea Tar Pits are Columbian mammoths, dire wolves",
+      "match": "La Brea Tar Pits",
+      "note": "Same article: 'Hancock Park was established around a cluster of tar pits' and the saber-toothed cat (Smilodon fatalis) is the state fossil found there. Excavation is ongoing."
+    },
+    {
+      "n": 5,
+      "verdict": "confirmed",
+      "wiki": "en:Los_Angeles_Memorial_Coliseum",
+      "quote": "the Coliseum became the first stadium to host the Summer Olympic Games twice",
+      "match": "Coliseum",
+      "note": "Article also: 'previously hosting in 1932 and 1984'. Rose Bowl hosted 1984 football only, not both Games, so no second answer."
+    },
+    {
+      "n": 6,
+      "verdict": "confirmed",
+      "wiki": "en:Hollywood_Walk_of_Fame",
+      "quote": "embedded in the sidewalks along fifteen blocks of Hollywood Boulevard and three blocks of Vine Street",
+      "match": "Vine Street",
+      "note": ""
+    },
+    {
+      "n": 7,
+      "verdict": "confirmed",
+      "wiki": "en:Los_Angeles_Lakers",
+      "quote": "Inspired by Minnesota's nickname, \"Land of 10,000 Lakes\", the team rechristened themselves the Lakers",
+      "match": "Minnesota",
+      "note": "They played in Minneapolis; a room might say 'Minneapolis', but the question asks for the state."
+    },
+    {
+      "n": 8,
+      "verdict": "confirmed",
+      "wiki": "en:Walt_Disney_Concert_Hall",
+      "quote": "The Walt Disney Concert Hall was designed by world-renowned architect Frank Gehry",
+      "match": "Frank Gehry",
+      "note": ""
+    },
+    {
+      "n": 9,
+      "verdict": "confirmed",
+      "wiki": "en:Grauman's_Chinese_Theatre",
+      "quote": "Nearly 200 Hollywood celebrity handprints, footprints, and autographs are in the concrete of the theater's forecourt",
+      "match": "footprints",
+      "note": "Host should accept 'handprints', 'footprints' or either with signatures/autographs; the blocks carry all three. TCL naming confirmed current: 'officially branded as the TCL Chinese Theatre for sponsorship reasons'."
+    },
+    {
+      "n": 10,
+      "verdict": "confirmed",
+      "wiki": "en:University_of_California,_Los_Angeles",
+      "quote": "The University of California, Los Angeles (UCLA) is a public land-grant research university in the Westwood neighborhood of Los Angeles",
+      "match": "UCLA",
+      "note": "Also: 'UCLA student-athletes compete as the Bruins'."
+    }
+  ]
+}
