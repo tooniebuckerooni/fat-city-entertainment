@@ -6,21 +6,51 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Which engineer designed the Clifton Suspension Bridge?", "a": "Isambard Kingdom Brunel" },
-      { "q": "Which Brunel steamship, launched in 1843, is now a museum in a Bristol dry dock?", "a": "The SS Great Britain" },
-      { "q": "Which river runs through the gorge beneath the Clifton Suspension Bridge?", "a": "The River Avon" },
-      { "q": "In 1497 John Cabot sailed from Bristol to North America aboard which ship?", "a": "The Matthew" },
-      { "q": "The Bristol studio Aardman created which inventor and his clever dog?", "a": "Wallace and Gromit" },
-      { "q": "Which Bristol act released the 1991 album Blue Lines?", "a": "Massive Attack" },
-      { "q": "Which anonymous street artist, whose early work appeared on Bristol walls in the 1990s, has never confirmed their identity?", "a": "Banksy" },
-      { "q": "Which Hollywood star of North by Northwest was born Archibald Leach in Bristol?", "a": "Cary Grant" },
-      { "q": "Bristol Rovers are one of the city's professional football clubs. Which is the other?", "a": "Bristol City" },
-      { "q": "Every August, hundreds of hot-air balloons lift off from Ashton Court for which event?", "a": "The Bristol International Balloon Fiesta" }
+      {
+        "q": "Whose winning design of 1831 was the basis for the Clifton Suspension Bridge, finished after his death?",
+        "a": "Isambard Kingdom Brunel"
+      },
+      {
+        "q": "Which steamship, launched in 1843, is now a museum in a Bristol dry dock?",
+        "a": "The SS Great Britain"
+      },
+      {
+        "q": "Which river runs through the gorge beneath the Clifton Suspension Bridge?",
+        "a": "The River Avon"
+      },
+      {
+        "q": "In 1497 John Cabot sailed from Bristol to North America aboard which ship?",
+        "a": "The Matthew"
+      },
+      {
+        "q": "The Bristol studio Aardman created which inventor and his clever dog?",
+        "a": "Wallace and Gromit"
+      },
+      {
+        "q": "Which Bristol act released the 1991 album Blue Lines?",
+        "a": "Massive Attack"
+      },
+      {
+        "q": "Which anonymous street artist, whose early work appeared on Bristol walls in the 1990s, has never confirmed their identity?",
+        "a": "Banksy"
+      },
+      {
+        "q": "Which Hollywood star of North by Northwest was born Archibald Leach in Bristol?",
+        "a": "Cary Grant"
+      },
+      {
+        "q": "Bristol Rovers are one of the city's professional football clubs. Which is the other?",
+        "a": "Bristol City"
+      },
+      {
+        "q": "Every August, more than a hundred hot-air balloons lift off from Ashton Court for which event?",
+        "a": "The Bristol International Balloon Fiesta"
+      }
     ]
   },
   "notes": [
-    "Designed by Brunel (winning design, 1831), completed 1864 after his death; see Clifton Suspension Bridge (Wikipedia) or the Clifton Suspension Bridge Trust.",
-    "SS Great Britain launched 1843, now a museum ship in the Great Western Dockyard, Bristol; see SS Great Britain (Wikipedia) or ssgreatbritain.org.",
+    "Brunel; completed 1864 to a design by Barlow and Hawkshaw based on Brunel's, hence 'basis' and 'after his death'.",
+    "SS Great Britain; no longer names Brunel, which gave Q1 away.",
     "The Avon Gorge carries the River Avon beneath the bridge; see Avon Gorge (Wikipedia).",
     "Cabot's 1497 voyage from Bristol on the Matthew; see John Cabot and Matthew (ship) on Wikipedia.",
     "Aardman Animations is based in Bristol and created Wallace and Gromit; see Aardman Animations (Wikipedia).",
@@ -28,6 +58,6 @@
     "Banksy's early work was in Bristol's 1990s underground scene and his identity is unconfirmed; see Banksy (Wikipedia).",
     "Cary Grant born Archibald Alec Leach in Horfield, Bristol, 1904; starred in North by Northwest (1959); see Cary Grant (Wikipedia).",
     "Bristol City play at Ashton Gate, Bristol Rovers at the Memorial Stadium; see Bristol City F.C. and Bristol Rovers F.C. (Wikipedia).",
-    "Bristol International Balloon Fiesta held each August at Ashton Court; see Bristol International Balloon Fiesta (Wikipedia) or bristolballoonfiesta.co.uk."
+    "Bristol International Balloon Fiesta; 'more than a hundred' matches the organisers' own figure."
   ]
 }

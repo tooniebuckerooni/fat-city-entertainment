@@ -6,27 +6,57 @@
     "ageRange": "family",
     "points": 10,
     "questions": [
-      { "q": "Which river winds through Edmonton's long green river valley?", "a": "The North Saskatchewan River" },
-      { "q": "Galaxyland amusement park and the World Waterpark are both inside which Edmonton shopping centre?", "a": "West Edmonton Mall" },
-      { "q": "Between 1984 and 1990, which NHL team won the Stanley Cup five times?", "a": "The Edmonton Oilers" },
-      { "q": "In 1988 the Oilers traded Wayne Gretzky to which team?", "a": "The Los Angeles Kings" },
-      { "q": "In 2021 Edmonton's CFL team took on which new name?", "a": "The Elks" },
-      { "q": "The original Fort Edmonton was a trading post of which fur-trade company?", "a": "The Hudson's Bay Company" },
-      { "q": "Which Back to the Future star was born in Edmonton in 1961?", "a": "Michael J. Fox" },
-      { "q": "How many glass pyramids make up the Muttart Conservatory?", "a": "Four" },
-      { "q": "Which steel bridge, opened in 1913, carries a heritage streetcar across the river valley in summer?", "a": "The High Level Bridge" },
-      { "q": "Thanks to the Fringe, the Folk Music Festival and many more, Edmonton is known by which nickname?", "a": "Festival City" }
+      {
+        "q": "Which river winds through Edmonton's long green river valley?",
+        "a": "The North Saskatchewan River"
+      },
+      {
+        "q": "Galaxyland amusement park and the World Waterpark are both inside which Edmonton shopping centre?",
+        "a": "West Edmonton Mall"
+      },
+      {
+        "q": "Between 1984 and 1990, which NHL team won the Stanley Cup five times?",
+        "a": "The Edmonton Oilers"
+      },
+      {
+        "q": "In 1988 Edmonton traded Wayne Gretzky to which NHL team?",
+        "a": "The Los Angeles Kings"
+      },
+      {
+        "q": "In 2021 Edmonton's CFL team took on which new name?",
+        "a": "The Elks"
+      },
+      {
+        "q": "The original Fort Edmonton was a trading post of which fur-trade company?",
+        "a": "The Hudson's Bay Company"
+      },
+      {
+        "q": "Which Back to the Future star was born in Edmonton in 1961?",
+        "a": "Michael J. Fox"
+      },
+      {
+        "q": "How many large glass display pyramids house the Muttart Conservatory's plant collections?",
+        "a": "Four"
+      },
+      {
+        "q": "Which steel bridge, opened in 1913, carries a heritage streetcar across the river valley in summer?",
+        "a": "The High Level Bridge"
+      },
+      {
+        "q": "Thanks to the Fringe, the Folk Music Festival and many more, Edmonton is known by which nickname?",
+        "a": "Festival City"
+      }
     ]
   },
   "notes": [
     "The North Saskatchewan River flows through the centre of Edmonton; see North Saskatchewan River and Edmonton River Valley (Wikipedia).",
     "Galaxyland and World Waterpark are attractions inside West Edmonton Mall; see West Edmonton Mall (Wikipedia) or wem.ca.",
     "Oilers won the Cup in 1984, 1985, 1987, 1988 and 1990; see Edmonton Oilers (Wikipedia) or NHL.com.",
-    "Gretzky traded to Los Angeles on 9 August 1988 ('The Trade'); see Wayne Gretzky trade (Wikipedia).",
+    "Los Angeles Kings; reworded so it no longer names the Oilers and gives Q3 away.",
     "Formerly the Edmonton Eskimos; renamed the Edmonton Elks in June 2021; see Edmonton Elks (Wikipedia).",
     "Fort Edmonton was a Hudson's Bay Company post founded in 1795; see Fort Edmonton (Wikipedia) or Fort Edmonton Park.",
     "Michael J. Fox born 9 June 1961 in Edmonton, Alberta; see Michael J. Fox (Wikipedia).",
-    "Muttart Conservatory's four glass pyramids house its display gardens; see Muttart Conservatory (Wikipedia) or the City of Edmonton's site.",
+    "Four display pyramids; a fifth small skylight pyramid over the foyer is why the question says 'display'.",
     "High Level Bridge opened 1913; the Edmonton Radial Railway Society runs a streetcar over it in summer; see High Level Bridge (Edmonton) on Wikipedia.",
     "Edmonton's 'Festival City' nickname, from its many festivals including the Edmonton International Fringe Festival; see Edmonton (Wikipedia, Nicknames) or Explore Edmonton."
   ]
