@@ -148,6 +148,7 @@
   /* Only ever reads /trivia-show-maker/rounds/<slug>.json, never a path from
      the URL: a free-form ?load= would open any JSON on the site, including the
      paid shows' source files. Published by _tools/add-city-rounds.js. */
+  const SHOW_ROUNDS = 5; /* every pre-made show is five rounds */
   function autoloadRound() {
     let slug = null;
     try { slug = new URLSearchParams(location.search).get("round"); } catch (e) { return; }
@@ -160,20 +161,31 @@
     if (!/^[a-z0-9-]{1,40}$/.test(slug)) return;
     fetch("/trivia-show-maker/rounds/" + slug + ".json", { cache: "no-cache" })
       .then(res => { if (!res.ok) throw new Error(res.status); return res.json(); })
-      .then(obj => {
+      .then(async obj => {
         if (!obj || !obj.round || !Array.isArray(obj.round.questions)) throw new Error("bad round");
         const round = normRound(obj.round);
-        const dup = state.rounds.some(r => r.name === round.name && r.questions[0] && r.questions[0].q === round.questions[0].q);
-        if (dup) { toast(round.name + " is already in your show."); return; }
-        const empty = !String(state.game.title || "").trim() && state.rounds.every(r => !r.name.trim() && r.questions.every(q => !q.q.trim() && !q.a.trim()));
-        if (empty) {
-          state.rounds = [round];
-          state.game.title = String(obj.title || "");
-        } else {
-          state.rounds.push(round);
+        // A published round starts a new night: it is round 1, and the rest
+        // of a standard five-round show is left empty for the host to fill.
+        // (It used to append to whatever was already saved, which put a
+        // visitor's Montreal round fourth behind three leftover rounds.)
+        const first = state.rounds[0];
+        if (first && first.name === round.name && first.questions[0] && first.questions[0].q === round.questions[0].q) {
+          toast(round.name + " is already round 1 of your show."); return;
         }
+        const empty = !String(state.game.title || "").trim() && state.rounds.every(r => !r.name.trim() && r.questions.every(q => !q.q.trim() && !q.a.trim()));
+        if (!empty && !(await confirmModal(
+          "Start a new show with " + round.name + " as round 1? This replaces the show you're working on. Use Save first if you want to keep it.",
+          "Start new show", "Keep my show"))) {
+          toast("Your show is unchanged."); return;
+        }
+        const d = DEFAULT_STATE();
+        d.branding = state.branding;   // keep their logo and colours
+        d.options = state.options;
+        d.game.title = String(obj.title || "");
+        d.rounds = [round].concat(Array.from({ length: SHOW_ROUNDS - 1 }, () => blankRound("", 10)));
+        state = d;
         applyControls(); renderRounds(); save();
-        toast(empty ? "Loaded " + round.name + "." : "Added " + round.name + " to the end of your show.");
+        toast("Loaded " + round.name + " as round 1. Rounds 2 to " + SHOW_ROUNDS + " are yours to fill.");
         try { if (typeof gtag === "function") gtag("event", "load_round", { round: slug, origin: "url" }); } catch (e) {}
       })
       .catch(() => toast("That round isn't available right now."));

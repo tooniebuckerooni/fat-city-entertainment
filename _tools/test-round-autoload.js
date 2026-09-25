@@ -14,7 +14,8 @@
 // tested before it is ever served. Nothing in the repo is written.
 //
 // What it proves, per round:
-//   - the round lands: title, one round, 10 questions, every q and a identical
+//   - the round lands as round 1 of a fresh five-round show (rounds 2-5 empty),
+//     with its title, 10 questions, every q and a identical
 //     to the source, byte for byte (accents, curly quotes, « » included);
 //   - the ?round= parameter is stripped from the address bar;
 //   - the Host Packet PDF and the Question Packet PDF both contain every
@@ -22,8 +23,9 @@
 //     the check a screen cannot make: a PDF font that cannot draw "é" or "’"
 //     prints a blank or a wrong glyph, and nobody sees it until the night.
 // And once, the behaviours that protect a visitor's own work:
-//   - a show already in progress gets the round APPENDED, title untouched;
-//   - loading the same round twice adds it once;
+//   - a show already in progress is only replaced after the visitor confirms;
+//     "Keep my show" leaves it byte for byte, and reloading the link once it is
+//     already round 1 changes nothing;
 //   - other query parameters (utm_*) survive the strip;
 //   - a traversal or malformed slug fetches nothing and changes nothing;
 //   - a missing round, a malformed file and a wrong-shaped file each leave the
@@ -136,7 +138,10 @@ const pass = (what) => console.log(`  ok   ${what}`);
     const got = s.rounds;
     const want = src.round.questions;
     if (s.game.title === src.title) pass(`title "${s.game.title}"`); else fail(`title "${s.game.title}" != "${src.title}"`);
-    if (got.length === 1 && got[0].name === src.round.name) pass(`one round, "${got[0].name}"`); else fail(`rounds: ${got.map(r => r.name).join(" | ")}`);
+    const rest = got.slice(1);
+    if (got.length === 5 && got[0].name === src.round.name && rest.every(r => !r.name && r.questions.length === 10 && r.questions.every(q => !q.q && !q.a)))
+      pass(`round 1 is "${got[0].name}", rounds 2-5 empty`);
+    else fail(`rounds: ${got.map(r => r.name || "(empty)").join(" | ")}`);
     const diffs = want.filter((q, i) => !got[0] || !got[0].questions[i] || got[0].questions[i].q !== q.q || got[0].questions[i].a !== q.a);
     if (got[0] && got[0].questions.length === want.length && !diffs.length) pass(`${want.length} questions and answers identical to source`);
     else fail(`${diffs.length} question(s) differ from source`);
@@ -176,19 +181,38 @@ const pass = (what) => console.log(`  ok   ${what}`);
       rounds: [{ name: "My Round", questions: [{ q: "Mine?", a: "Yes" }] }, { name: "Second", questions: [{ q: "Two?", a: "2" }] }] };
     await page.evaluate(([k, v]) => localStorage.setItem(k, JSON.stringify(v)), [STORE_KEY, mine]);
 
+    const mineBefore = JSON.stringify(await (async () => { await page.goto(`${BASE}/trivia-show-maker/`); await settle(page); return state(page); })());
+
+    // Decline: the show in progress must survive untouched.
     await page.goto(`${BASE}/trivia-show-maker/?round=${probe.slug}&utm_source=city-page`);
+    await page.waitForSelector("#confirm-modal:not([hidden])", { timeout: 5000 }).catch(() => {});
+    const asked = await page.isVisible("#confirm-modal");
+    if (asked) await page.click("#confirm-modal .confirm-cancel");
     await settle(page);
     let s = await state(page);
-    const names = s.rounds.map(r => r.name);
-    if (s.game.title === "My Pub Night" && names.length === 3 && names[0] === "My Round" && names[1] === "Second") pass(`appended to an existing show, title and rounds kept (${names.join(" | ")})`);
-    else fail(`existing show changed: title "${s.game.title}", rounds ${names.join(" | ")}`);
+    if (asked && JSON.stringify(s) === mineBefore) pass(`existing show: asked first, "Keep my show" left it untouched`);
+    else fail(`existing show: asked=${asked}, changed=${JSON.stringify(s) !== mineBefore}`);
     if (/utm_source=city-page/.test(page.url()) && !/round=/.test(page.url())) pass("utm_source kept, round stripped");
     else fail(`address after load: ${page.url()}`);
 
+    // Accept: a fresh five-round show, round 1 the city, branding kept.
+    await page.goto(`${BASE}/trivia-show-maker/?round=${probe.slug}`);
+    await page.waitForSelector("#confirm-modal:not([hidden])", { timeout: 5000 });
+    await page.click("#confirm-modal .confirm-ok");
+    await settle(page);
+    s = await state(page);
+    const names = s.rounds.map(r => r.name || "(empty)");
+    if (s.rounds.length === 5 && s.rounds[0].questions.length === 10 && s.rounds.slice(1).every(r => !r.name) && s.game.title !== "My Pub Night")
+      pass(`"Start new show" replaced it: ${names.join(" | ")}`);
+    else fail(`after accepting: title "${s.game.title}", ${names.join(" | ")}`);
+
+    // The same link again: no prompt, no change.
+    const once = JSON.stringify(s);
     await page.goto(`${BASE}/trivia-show-maker/?round=${probe.slug}`);
     await settle(page);
     s = await state(page);
-    if (s.rounds.length === 3) pass(`same round again refused: "${await toast(page)}"`); else fail(`duplicate added (${s.rounds.length} rounds)`);
+    if (JSON.stringify(s) === once && !(await page.isVisible("#confirm-modal"))) pass(`same link again: nothing changed ("${await toast(page)}")`);
+    else fail("reloading the same round changed the show or prompted");
 
     const before = JSON.stringify(await state(page));
     for (const bad of ["../_content/trivia-shows/gk-night-one.tgp", "..%2F_content%2Ftrivia-shows%2Fgk-night-one.tgp", "LONDON", `${probe.slug}.json`, "a".repeat(41), "", "%00"]) {

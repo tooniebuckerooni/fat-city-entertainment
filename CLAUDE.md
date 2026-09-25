@@ -809,10 +809,14 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   `trivia-show-maker/js/app.js`). It fetches ONLY `/trivia-show-maker/rounds/<slug>.json`
   with the slug checked against `[a-z0-9-]`, never a path from the URL, because
   the paid shows' `.tgp.json` sources sit in `_content/trivia-shows/` on the
-  same origin and a free-form `?load=` would open them in one click. On an empty
-  show it loads the round and its title; otherwise it **appends** and never
-  clobbers someone's saved work, refuses a duplicate, and strips the parameter so
-  a reload does not add it twice. Fires GA4 `load_round`.
+  same origin and a free-form `?load=` would open them in one click. **It starts
+  a fresh five-round show: the city round is round 1, rounds 2-5 are empty**
+  (owner's call 25 Sept 2026, after a live Montréal load landed fourth behind
+  three leftover rounds; it used to append). Branding and page options carry
+  over. If a show is already in progress it **asks first** ("Start new show" /
+  "Keep my show") and Keep leaves it byte for byte; the same link again when the
+  round is already round 1 does nothing. Strips the parameter. Fires GA4
+  `load_round`.
 - **Re-run after `new-content-page.js`**, which regenerates `charlotte-events.html`
   whole and drops the block. In the Monday loop; clicks report `origin: city-round`.
 
