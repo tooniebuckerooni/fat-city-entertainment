@@ -109,3 +109,56 @@ sitewide, and this failure throws a real catchable exception that should
 have shown up), but it was a real, previously-unguarded failure mode
 regardless of exact attribution to this specific session batch.
 
+
+---
+
+## 2026-10-03
+
+**Data used this run:** GSC Performance export (Web, last 3 months, 2026-06-30
+to 2026-09-29, pulled 2026-10-02): Chart, Pages, Queries, Countries, Devices,
+Search appearance. **Not available:** GA4, Clarity, Statcounter, LemonSqueezy
+orders (so nothing here says anything about revenue), Ahrefs (plan-gated) and
+Semrush (no API units). Backlink delta not updated this run.
+
+**Headline:** 1,075 clicks, 36,591 impressions, 2.94% CTR over 92 days, about
+11.7 clicks a day. **Flat since mid-July**: 14-day buckets run 126, 164, 176,
+164, 169, 188, then 88 for the final 8 days (11/day). Impressions are steady at
+about 5,000-6,000 per 14 days. No growth and no decline; nothing in the 3.5
+weeks of travel moved it.
+
+**Brand carries a lot of it.** The 13 brand queries ("fat city entertainment"
+and variants) delivered 242 clicks, 22% of all clicks and 55% of the 439 that
+GSC attributes to a listed query (the other 636 are anonymised). Home page: 319
+clicks, mostly branded. Non-brand discovery is the small, hard-won part.
+
+**Where the non-brand clicks are:** the generator (`/bingocardgenerator.html`,
+131 clicks, 4,503 impressions, position 17.2 as a page, 8.3 for its head
+query "music bingo card generator" at 2.69% CTR), the Gold Club playlist
+library (108 clicks, pos 8.7), `/musicdoboffbingocards.html` (77 clicks, pos
+12.7), and the anagrams answer-sheet PDF (63 clicks, pos 7.7, 2,271
+impressions, still ranking by the owner's decision of 27 Aug). Blog: 168 clicks
+on 14,659 impressions (1.1%). Store products: 59 clicks. Song library pages: 59
+clicks across 50 pages, almost all at position 6-10, so the pages rank and the
+CTR is the weak part.
+
+**Countries:** US 756 clicks (70%), Canada 139 at 8.5% CTR and position 9.6,
+UK 72 on 1,818 impressions (4.0%), Australia 21 on 879. **Devices:** mobile
+551 clicks at position 8.8, desktop 507 at 18.4. **Search appearance:** product
+snippets 27 clicks on 1,174 impressions, so the Product schema is working.
+
+**City pages, first read (live since 23 Sept, so 6 to 8 days):** all 10 wave 1
+pages already have impressions (149 in total, Montreal 42 at position 8.4,
+London 21, Vancouver 16) and 0 clicks. They are indexed. Far too early to judge
+traffic; re-read in 3 to 4 weeks. Montreal is the only one with local-intent
+queries already ("trivia night montreal", "quiz night montreal", pos 5.7-6.4).
+
+**The "how to host a trivia night" family is not ranking** (positions 40 to
+90 on about 40 queries) and `how-many-trivia-questions-for-a-trivia-night` sits
+at position 4.9 with a 0.51% CTR on 1,560 impressions, which is low enough to
+look like an AI-answer or snippet capture rather than a snippet to fix.
+
+**Worth doing, none done:** (1) title and meta tests on the three head-term
+pages above, since position 8 to 10 with 2 to 3% CTR is where a better snippet
+is worth a click or two a day; (2) re-pull in 3 to 4 weeks for the city pages;
+(3) get GA4 `begin_checkout` by product and LemonSqueezy September orders so the
+traffic can finally be tied to sales.
