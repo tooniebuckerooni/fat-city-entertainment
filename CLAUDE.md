@@ -1308,6 +1308,11 @@ retired on purpose, not lost.
   reading before any new Generator perk**: the live Generator 2.0 redemption
   codes sit in plaintext in tracked `_content/redemption-docs/make_pdfs.py`, in
   a public repo with `.nojekyll` on.
+- `ELECTION-PLAN.md` — the US midterms push (election night 3 Nov 2026), written
+  8 Oct: a non-partisan broadcast-moments bingo card (generator preload) and a
+  civics trivia round (`?round=election-night`), the dated plan around the
+  Halloween takedown and the Christmas sends, social copy, and three owner
+  decisions still open. Plan only; nothing built yet.
 - `IMAGE-OPTIMIZATION.md` — **the image runbook.** Audited 7 Sept 2026: 137 MB of
   uploads, 615 orphaned files (57.9 MB), and two category pages carrying 2.0 MB
   and 1.4 MB of images because tiles serve 1200px files into a 210px box. Says
