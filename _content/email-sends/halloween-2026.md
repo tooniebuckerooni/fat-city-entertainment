@@ -1,5 +1,49 @@
 # Halloween send (direction A)
 
+> ## PASTE-READY VERSION, 10 Oct 2026 (send this weekend)
+>
+> Rewritten 9 Oct for the date (three weeks out, not seven) and the
+> `SPOOKY20` sale. The longer draft below is kept for its reasoning; **this is
+> the one to paste.** Send only once `SPOOKY20` exists in LemonSqueezy, scoped
+> to p189. The copy says "use code SPOOKY20", which is true the moment the code
+> exists; once the agent sets the entry `live` in `ls-buy.js`, the site also
+> fills it in for the buyer.
+>
+> **Subject:** Halloween is three weeks out. Your game night is one download.
+> (Alternative: *Your Halloween night, sorted*)
+> **Preheader:** 20% off the Halloween Complete Pack until the 31st. Print it tonight.
+>
+> **Your Halloween night, sorted.**
+>
+> Halloween is three weeks from Saturday. Download a PDF this afternoon, print
+> it, press play. No app, nothing to install, nothing to learn.
+>
+> **This month only: 20% off the Halloween Complete Pack.** $28.78 instead of
+> $35.97 with code **SPOOKY20** at checkout. Ends 31 October.
+>
+> **The whole night: Halloween Complete Pack.** Three ways to run Halloween in
+> one download: music bingo with the playlist ready on Spotify and Apple Music, a
+> print and play trivia night, and the game show for a screen. Plus a free month
+> of Bingo Card Generator 2.0 to make your own cards. (After the free month it
+> continues as a paid monthly subscription unless you cancel. Cancel any time.)
+>
+> **Just the bingo: Halloween Party music bingo, $11.99.** Thirty songs
+> everybody knows and 250 randomized cards, so a full room plays at once.
+>
+> **Hosting all year: the Holidays 6-Pack, $57.56.** Halloween, Christmas and
+> four more seasonal nights, with a free month of the Generator on the same terms.
+>
+> Read the songs first: all 30 Halloween songs are free to read on the page.
+>
+> **[Get your Halloween night sorted]**
+>
+> **The one link** (header image, body links, button):
+> `https://www.fatcityentertainment.com/go/halloween/?utm_source=sender&utm_medium=email&utm_campaign=halloween-2026`
+>
+> Prices read off the product pages 9 Oct 2026: p189 $35.97 ($28.78 with the
+> code, discount rounded to the cent), p97 $11.99, p155 $57.56.
+
+
 **Status: written, UNSENT, and still the next one out.** Nothing in it needs a
 repo change first.
 
