@@ -47,6 +47,9 @@ const SKIP_DIRS = new Set(["_tools", ".git", "node_modules", "assets", "files", 
 const BADGES = {
   p189: { lead: "1 Month Free", sub: "Bingo Card Generator 2.0" },
   p155: { lead: "1 Month Free", sub: "Bingo Card Generator 2.0" },
+  // p190 Christmas Complete Pack, staged 9 Oct 2026. Badged while staged so its
+  // tiles inherit the badge the moment add-store-tile.js places them.
+  p190: { lead: "1 Month Free", sub: "Bingo Card Generator 2.0" },
 };
 
 const START = (pid) => `<!-- fce:perk-badge:${pid} -->`;

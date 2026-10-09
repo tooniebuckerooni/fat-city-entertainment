@@ -100,7 +100,7 @@ window.LS_LINKS = {
   "p172": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/4d220aa4-1e49-4b98-b182-6725c52b009b", // [x] General Knowledge Night Four — Print and Play Trivia Show — $11.99 USD — /store/p172/triviashowgkfour.html
   "p173": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/95419519-2a45-4270-bdcd-6f6cf236581a", // [x] General Knowledge Night Five — Print and Play Trivia Show — $11.99 USD — /store/p173/triviashowgkfive.html
   "p174": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/ef2bf715-0e66-48de-990d-e97dc03de553", // [x] Halloween Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p174/triviashowhalloween.html
-  "p175": "", // [ ] Christmas Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p175/triviashowchristmas.html
+  "p175": "", // [ ] Christmas Trivia Night: Print and Play Trivia Show — $11.99 USD — /store/p175/triviashowchristmas.html
   "p176": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/9896b9b4-aa5d-4f33-8ea1-bb503d8d6c98", // [x] General Knowledge Trivia Shows — 5-Pack — $44.99 USD — /store/p176/triviashowgk5pack.html
   "p177": "", // [ ] Classroom Trivia: Math — Print and Play, Grades 5–8 — $8.99 USD — /store/p177/triviashowclassroommath.html
   "p178": "", // [ ] Classroom Trivia: Science — Print and Play, Grades 5–8 — $8.99 USD — /store/p178/triviashowclassroomscience.html
@@ -115,6 +115,7 @@ window.LS_LINKS = {
   "p187": "", // [ ] The 80s and 90s Trivia Night — Print and Play Trivia Show — $11.99 USD — /store/p187/triviashowrewind.html
   "p188": "", // [ ] Pop Culture Trivia Shows — 5-Pack — $44.99 USD — /store/p188/triviashowpopculture5pack.html
   "p189": "https://bingocardgenerator.lemonsqueezy.com/checkout/buy/43a558b5-33e1-49d0-baa7-1570fac9c2c3", // [x] Halloween Complete Pack - Music Bingo & 2 Trivia Shows — $35.97 USD — /store/p189/halloweencompletepack.html
+  "p190": "", // [ ] Christmas Complete Pack - 3 Christmas Games & a Print and Play Trivia Show — $54.99 USD — /store/p190/christmascompletepack.html
 }
 
 // USD display prices for NEW pages that use <span class="ls-price" data-product="...">

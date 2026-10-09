@@ -209,7 +209,7 @@ links and already draws traffic. It currently converts nothing. Add a product
 CTA. Same argument applies to the other 49 library pages, so treat Halloween as
 the pilot.
 
-### 10. Seasonal banner — SHIPPED 11 Sept. Promo bar dropped.
+### 10. Seasonal banner — SHIPPED 11 Sept, RETIRED 9 Oct (no sales; see HOLIDAY-SALE-2026.md). Promo bar dropped.
 **Owner's call, 11 Sept: skip the promo bar, just do the banner.** So this is
 not `promo-bar.js` and not a discount. `_tools/add-halloween-banner.js` puts a
 plain announcement block on the nine entry pages a shopper actually lands on:

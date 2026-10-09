@@ -291,3 +291,40 @@ build(
         "Or type fatcityentertainment.com/cards/halloween",
     )],
 )
+
+# ------------------------------------------------------- Christmas bundle
+# p190 Christmas Complete Pack (staged 9 Oct 2026). Same shape as Halloween:
+# the free month plus a one-click handoff of the whole Christmas Party game to
+# the generator via OUR short URL, /cards/christmas/.
+#
+# OPTIONAL KEY, on purpose: the four codes above are required, this one is not,
+# so the existing leaflets keep building before the owner has created the
+# Christmas code. Add "christmas" to redemption-codes.json and re-run once it
+# exists in LemonSqueezy (Monthly plan, $0, scoped to Generator 2.0 Monthly).
+if CODES.get("christmas"):
+    build(
+        "christmas-bcg2-redemption.pdf",
+        "1 Month Free: Bingo Card Generator 2.0",
+        "Your bonus with the Christmas Complete Pack",
+        CODES["christmas"],
+        "Monthly",
+        "Activate my free month of Generator 2.0",
+        STEPS("Monthly"),
+        [
+            "Make your own Christmas cards in your company colours, with office in-jokes or your "
+            "venue's name on them. Your bundle already includes 250 ready-to-print cards, so this "
+            "is for the party you want something different.",
+            "Your first month is completely free. After 30 days it <b>automatically renews at the "
+            "regular Monthly price</b> unless you cancel first.",
+            CANCEL,
+        ],
+        FINE_SUB,
+        extra_links=[(
+            "Open the Christmas game in the generator",
+            "https://www.fatcityentertainment.com/cards/christmas/",
+            "All 32 songs, the title and a Christmas palette, already filled in. "
+            "Or type fatcityentertainment.com/cards/christmas",
+        )],
+    )
+else:
+    print("make_pdfs.py: no 'christmas' code yet, skipping christmas-bcg2-redemption.pdf")

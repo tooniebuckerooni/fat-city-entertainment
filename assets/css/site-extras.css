@@ -2330,3 +2330,202 @@ ol.fce-tl li {
 .fce-delivery-terms strong {
   color: #24242a;
 }
+
+/* Seasonal countdown chip (_tools/add-season-countdown.js + assets/js/fce-countdown.js,
+   9 Oct 2026). Sits under the buy button on a seasonal product and in the hero
+   of a seasonal hub. Ships `hidden`; the script reveals it only inside its date
+   window, so nothing here needs a takedown to stop being true. In normal flow,
+   never fixed: the mobile header is position:fixed;top:0 and anything that
+   floats over it covers the hamburger (the retired promo bar did exactly that). */
+.fce-countdown {
+  display: block;
+  margin: 14px 0 6px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.fce-countdown[hidden] { display: none; }
+.fce-countdown-head { font-weight: 700; }
+.fce-countdown--halloween {
+  background: #1a1410;
+  color: #f3e9de;
+  border-left: 4px solid #ff7518;
+}
+.fce-countdown--halloween .fce-countdown-head { color: #ff9a4d; }
+.fce-countdown--christmas {
+  background: #f6f1e7;
+  color: #23302a;
+  border-left: 4px solid #b3202a;
+}
+.fce-countdown--christmas .fce-countdown-head { color: #1f5a3d; }
+/* A neutral treatment for any other season added to SEASONS (the election
+   promo, Valentine's) until it gets its own palette. */
+.fce-countdown:not(.fce-countdown--halloween):not(.fce-countdown--christmas) {
+  background: #f3f3f6;
+  color: #24242a;
+  border-left: 4px solid #24242a;
+}
+
+/* Seasonal hub pages (halloween-trivia-and-music-bingo.html,
+   christmas-trivia-and-music-bingo.html), 9 Oct 2026. The owner asked for
+   "showiness": a hero with the countdown, then the products as picture cards
+   instead of paragraphs, the complete pack first and wide. Built from
+   _tools/new-content-pages.json; prices in the cards come from {{price:pNN}}
+   tokens read off each product page, never typed.
+   Every painted property is scoped to --halloween or --christmas, the same
+   rule as .fce-hw-banner: a bare class carries layout only. */
+.fce-season { font-family: "Montserrat", Arial, sans-serif; }
+.fce-season-hero {
+  margin: 0 0 28px;
+  padding: 40px 32px 34px;
+  border-radius: 14px;
+  text-align: center;
+}
+.wsite-not-footer .fce-season-hero h1.wsite-content-title {
+  margin: 6px 0 10px;
+  font-size: 40px;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.fce-season-kicker {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.fce-season-lede {
+  max-width: 620px;
+  margin: 0 auto 18px;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.fce-season-hero .fce-countdown {
+  display: inline-block;
+  margin: 0 auto 18px;
+  text-align: left;
+}
+.fce-season-hero .fce-countdown[hidden] { display: none; }
+.fce-season-hero a.fce-season-btn {
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.fce-season-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 18px;
+  margin: 0 0 30px;
+}
+.fce-season-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  text-decoration: none;
+}
+.fce-season-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+.fce-season-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 14px 16px 16px;
+}
+.fce-season-card-tag {
+  margin: 0 0 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.fce-season-card-name {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.fce-season-card-line {
+  flex: 1;
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.fce-season-card-price {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 800;
+}
+.fce-season-card--feature { grid-column: 1 / -1; }
+@media (min-width: 700px) {
+  .fce-season-card--feature { flex-direction: row; }
+  .fce-season-card--feature img { width: 46%; aspect-ratio: auto; min-height: 240px; }
+  .fce-season-card--feature .fce-season-card-body { padding: 26px 28px; justify-content: center; }
+  .fce-season-card--feature .fce-season-card-name { font-size: 24px; }
+  .fce-season-card--feature .fce-season-card-line { flex: 0; font-size: 15.5px; }
+}
+@media (max-width: 640px) {
+  .fce-season-hero { padding: 30px 18px 26px; }
+  .wsite-not-footer .fce-season-hero h1.wsite-content-title { font-size: 30px; }
+  .fce-season-lede { font-size: 15.5px; }
+}
+
+/* --halloween: black, pumpkin, bone */
+.fce-season--halloween .fce-season-hero {
+  background: #141414;
+  background: radial-gradient(ellipse at 50% 120%, #3a210c 0%, #141414 62%);
+  color: #f3e9de;
+}
+.fce-season--halloween .fce-season-hero h1.wsite-content-title { color: #ffffff; }
+.fce-season--halloween .fce-season-kicker { color: #ff9a4d; }
+.fce-season--halloween .fce-season-hero .fce-countdown--halloween { background: rgba(255, 117, 24, 0.12); }
+.fce-season--halloween a.fce-season-btn { background: #ff7518; color: #141414; }
+.fce-season--halloween a.fce-season-btn:hover { background: #ff9a4d; color: #141414; }
+.fce-season--halloween .fce-season-card { background: #1c1712; color: #e9ded2; border: 1px solid #2e241b; }
+.fce-season--halloween .fce-season-card:hover { border-color: #ff7518; }
+.fce-season--halloween .fce-season-card-tag { color: #ff9a4d; }
+.fce-season--halloween .fce-season-card-name { color: #ffffff; }
+.fce-season--halloween .fce-season-card-price { color: #ffb066; }
+
+/* --christmas: evergreen, cranberry, cream */
+.fce-season--christmas .fce-season-hero {
+  background: #17402d;
+  background: radial-gradient(ellipse at 50% -20%, #2b6a4a 0%, #17402d 55%, #0f2c1f 100%);
+  color: #f6efe2;
+}
+.fce-season--christmas .fce-season-hero h1.wsite-content-title { color: #ffffff; }
+.fce-season--christmas .fce-season-kicker { color: #f2c26b; }
+.fce-season--christmas .fce-season-hero .fce-countdown--christmas { background: rgba(246, 241, 231, 0.95); }
+.fce-season--christmas a.fce-season-btn { background: #b3202a; color: #ffffff; }
+.fce-season--christmas a.fce-season-btn:hover { background: #cf2f3a; color: #ffffff; }
+.fce-season--christmas .fce-season-card { background: #fbf8f2; color: #33413a; border: 1px solid #e6dccb; }
+.fce-season--christmas .fce-season-card:hover { border-color: #b3202a; }
+.fce-season--christmas .fce-season-card-tag { color: #b3202a; }
+.fce-season--christmas .fce-season-card-name { color: #17402d; }
+.fce-season--christmas .fce-season-card-price { color: #b3202a; }
+
+/* The promo calendar's chip (PROMOS in assets/js/ls-buy.js, 9 Oct 2026). Built
+   at runtime under the price only while a live, dated code covers this
+   product, so there is no markup to take down. In flow, never fixed. */
+.fce-promo-chip {
+  margin: 8px 0 12px;
+  padding: 9px 13px;
+  border-radius: 8px;
+  background: #fff4e5;
+  border: 1px solid #f3c58a;
+  color: #4a3416;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.45;
+}
+.fce-promo-chip strong { color: #b0122b; }

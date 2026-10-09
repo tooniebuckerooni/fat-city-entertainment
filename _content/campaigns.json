@@ -28,5 +28,35 @@
     "song_list": "halloween-party",
     "song_list_label": "See all 30 Halloween songs, free",
     "cta": "p189"
+  },
+  "christmas": {
+    "direction": "a",
+    "send": "Christmas party season: first send 20 to 22 Oct 2026",
+    "title": "Your Christmas party, sorted",
+    "meta": "Christmas music bingo and trivia for the staff party, the pub quiz and the family night: printable cards, a game show and ready-made playlists. Instant download.",
+    "hero": "Your Christmas party, sorted.",
+    "sub": "One host, a printer and a speaker. Download tonight, print in ten minutes, run it every December after.",
+    "products": [
+      "p103",
+      "p42",
+      "p155"
+    ],
+    "picks": {
+      "p103": {
+        "label": "The crowd pleaser",
+        "blurb": "Thirty-two Christmas songs everybody sings along to, 250 randomized cards and the playlist ready to press play."
+      },
+      "p42": {
+        "label": "The whole party",
+        "blurb": "A Christmas game show, a round of music trivia with a final challenge, and the Christmas Party music bingo cards. Built for a staff party with a screen."
+      },
+      "p155": {
+        "label": "Best value",
+        "blurb": "Christmas plus five more seasonal nights, from Valentine’s to Halloween, and a free month of the Bingo Card Generator. Buy once, host all year."
+      }
+    },
+    "song_list": "christmas-party",
+    "song_list_label": "See every Christmas song, free",
+    "cta": "p42"
   }
 }

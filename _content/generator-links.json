@@ -24,9 +24,31 @@
       "title": "Halloween Party Music Bingo",
       "songList": "Halloween Party",
       "theme": "custom",
-      "colours": ["#141414", "#F2F2F2", "#FF7518", "#141414", "#FF7518"],
+      "colours": [
+        "#141414",
+        "#F2F2F2",
+        "#FF7518",
+        "#141414",
+        "#FF7518"
+      ],
       "utm_content": "halloween-redemption-pdf",
       "note": "Shipped with the p189 Halloween Complete Pack redemption PDF."
+    },
+    {
+      "slug": "christmas",
+      "name": "Christmas Party music bingo",
+      "title": "Christmas Party Music Bingo",
+      "songList": "Christmas Party",
+      "theme": "custom",
+      "colours": [
+        "#FBF8F2",
+        "#17402D",
+        "#B3202A",
+        "#FFFFFF",
+        "#1F5A3D"
+      ],
+      "utm_content": "christmas-redemption-pdf",
+      "note": "Ships with the p190 Christmas Complete Pack redemption PDF (staged 9 Oct 2026)."
     }
   ]
 }

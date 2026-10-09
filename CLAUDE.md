@@ -86,6 +86,11 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   `/halloween-trivia-and-music-bingo.html` which until then was linked from
   exactly ONE page despite being in the sitemap — **take it down after 1 Nov
   with `--remove --write`**, which restores the menu byte for byte),
+  **Christmas** (SEASONAL, added 9 Oct 2026 via `_tools/add-christmas-nav.js`,
+  directly after Halloween and so first once Halloween comes off, pointing at
+  the hub `/christmas-trivia-and-music-bingo.html`; **take it down after 26 Dec
+  with `--remove --write`**, proved byte for byte across 516 pages before it
+  went on),
   Music Bingo Card Downloads, **Free Song Lists** (added Aug 27 2026 via
   `_tools/add-song-lists-nav.js` — a separate insert-into-existing-dropdown
   script, because `add-trivia-store-nav.js` only builds the dropdown whole and
@@ -583,6 +588,36 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   unrelated lines across 4 pages (`defer` → `defer=""`, `&` → `&amp;`) for 18
   lazy attributes. Reverted. It needs a dry-run flag and a targeted regex before
   anyone uses it again. Every other `_tools/` script is dry-run by default.
+- **The Halloween banner is RETIRED, 9 Oct 2026** (owner: *"I don't think our
+  current Halloween Banner helped us any. No sales yet. Drop the banner keep the
+  product."*). `ACTIVE = false` in the tool strips it from every page on every
+  run, so the Monday check stays quiet; `true` restores it. The note below is the
+  history. What replaced it is on the product page, not the entry page:
+- **Seasonal countdown chip** (`_tools/add-season-countdown.js` +
+  `assets/js/fce-countdown.js`, 9 Oct 2026, idempotent, `--remove --write`
+  byte for byte). *"22 days to Halloween. Venues book two to four weeks out."*
+  under the buy button of each product in a `SEASONS` entry. Ships `hidden`, the
+  script reveals it only between `from` and the date on the visitor's calendar,
+  so a forgotten season reads as nothing rather than a stale count. In the
+  Monday loop.
+- **The promo calendar is `PROMOS` in `assets/js/ls-buy.js`** (9 Oct 2026):
+  dated, per-product LemonSqueezy discount codes, set up once in the dashboard
+  and switched on and off by date. Between its dates, on the products it names,
+  an entry prefills `checkout[discount_code]` on the buy button and the sticky
+  bar and puts a chip under the price that states the price after the code,
+  read off the page. **`live: false` is the safety catch: flip an entry only
+  once the owner confirms the code exists, scoped to exactly those products,
+  with an LS expiry at least a day after `end`** (dates are UTC midnights, `end`
+  exclusive). Why codes and not price changes: the owner is at the dashboard on
+  a few weekends, and a price change needs a visit to start and another to end.
+  The schedule and every reason is `HOLIDAY-SALE-2026.md`.
+- **Seasonal hubs carry `{{price:pNN}}` tokens** in `_tools/new-content-pages.json`,
+  which `new-content-page.js` fills from each product page's own `itemprop`
+  at build time, so the hubs are re-run-after-repricing pages, not hand prose.
+  `--only <slug>[,<slug>]` rebuilds just those (the tool otherwise rebuilds all
+  six, including `charlotte-events.html`). Their hero/card styling is
+  `.fce-season--halloween` / `--christmas` in `site-extras.css`, and clicks
+  report `origin: season-hub`.
 - **Seasonal Halloween banner** (`_tools/add-halloween-banner.js`, idempotent,
   SEPT 2026): an announcement block between `<!-- fce:halloween-banner -->`
   markers on the nine entry pages, styled `.fce-hw-banner*`. **Not
@@ -1294,6 +1329,12 @@ retired on purpose, not lost.
   compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
   copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
   current 5 Sept, not 9 Sept.
+- `HOLIDAY-SALE-2026.md` — **start here for Halloween's last weeks through New
+  Year's (written 9 Oct 2026).** The weekend LemonSqueezy checklist, the 16-code
+  promo calendar with dates and scopes, the staged Christmas Complete Pack
+  (p190) and p175 launch commands, the takedown calendar, and the handoff to the
+  election promo (1 to 8 Nov is kept clear for it). Email drafts are in
+  `_content/email-sends/holiday-2026.md`.
 - `HALLOWEEN-PLAN.md` — **the Halloween 2026 push, written 10 Sept, worked
   again 11 Sept.** §11 is the four-line `?load=` handler the generator needs
   before the preload links do anything, and §12 is the autoload pricing move

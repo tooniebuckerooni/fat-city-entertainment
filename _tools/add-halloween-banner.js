@@ -38,6 +38,17 @@ const REMOVE = process.argv.includes("--remove");
 // treatments live in site-extras.css, so nothing else moves.
 const TONE = "subtle";
 
+// ACTIVE: false RETIRES THE BANNER EVERYWHERE, 9 Oct 2026 (owner's call): "I
+// don't think our current Halloween Banner helped us any. No sales yet. Drop
+// the banner keep the product." The Complete Pack (p189), the nav item, the hub
+// and the c40 seasonal order all stay; only this block comes off.
+//
+// A switch rather than a one-off --remove --write, so the tool still OWNS the
+// seven pages: with ACTIVE false every run takes the strip branch, the Monday
+// health check reads "would update: 0" instead of nagging to put it back, and
+// flipping it to true restores the block exactly. Same idiom as RETIRED below.
+const ACTIVE = false;
+
 const START = "<!-- fce:halloween-banner -->";
 const END = "<!-- /fce:halloween-banner -->";
 const BLOCK_RE = /\n?[ \t]*<!-- fce:halloween-banner -->[\s\S]*?<!-- \/fce:halloween-banner -->/g;
@@ -119,10 +130,11 @@ const ANCHOR_RE = /(<div id="wsite-content"[^>]*>)/;
 
 let changed = 0, missing = 0, noAnchor = 0, unchanged = 0;
 const price = packPrice();
-if (!REMOVE) console.log(`p189 price read from its own page: ${money(price)}\n`);
+if (!ACTIVE) console.log("ACTIVE is false: the banner is retired on every page.\n");
+if (!REMOVE && ACTIVE) console.log(`p189 price read from its own page: ${money(price)}\n`);
 
 for (const rel of PAGES.concat(RETIRED)) {
-  const retired = RETIRED.indexOf(rel) !== -1;
+  const retired = !ACTIVE || RETIRED.indexOf(rel) !== -1;
   const abs = path.join(REPO, rel);
   if (!fs.existsSync(abs)) { console.log(`  missing: ${rel}`); missing++; continue; }
   const html = fs.readFileSync(abs, "utf8");

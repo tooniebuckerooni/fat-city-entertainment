@@ -30,7 +30,35 @@ const SPEC = path.join(__dirname, "new-content-pages.json");
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;")
   .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
-const specs = JSON.parse(fs.readFileSync(SPEC, "utf8"));
+const ONLY = (() => {
+  const i = process.argv.indexOf("--only");
+  return i === -1 ? null : new Set(process.argv[i + 1].split(","));
+})();
+const specs = JSON.parse(fs.readFileSync(SPEC, "utf8"))
+  .filter((s) => !ONLY || ONLY.has(s.slug));
+
+// {{price:pNN}} in a spec's body or description is replaced with that
+// product's price READ OFF ITS OWN PAGE at build time (9 Oct 2026). The
+// Halloween hub quoted $39.99 for two days after its pack moved to $35.97,
+// because the price was typed into this file. A token makes the hub a
+// category-2 price (baked from the source page, right again on the next run)
+// instead of hand prose nothing owns. So this tool is on the
+// re-run-after-repricing list for every spec that uses one:
+//   node _tools/new-content-page.js --write --only <slug>
+function priceOf(pid) {
+  const dir = path.join(REPO, "store", pid);
+  for (const f of fs.existsSync(dir) ? fs.readdirSync(dir) : []) {
+    if (!f.endsWith(".html")) continue;
+    const m = fs.readFileSync(path.join(dir, f), "utf8").match(/itemprop="price"\s+content="([0-9.]+)"/);
+    if (m) return "$" + Number(m[1]).toFixed(2);
+  }
+  throw new Error(`{{price:${pid}}}: no itemprop price under store/${pid}/`);
+}
+const fillPrices = (str) => str.replace(/\{\{price:(p\d+)\}\}/g, (m, pid) => priceOf(pid));
+for (const s of specs) {
+  s.body = fillPrices(s.body);
+  s.description = fillPrices(s.description);
+}
 
 // The content region runs from the opening #wsite-content div to the footer.
 const CONTENT_OPEN = '<div id="wsite-content"';

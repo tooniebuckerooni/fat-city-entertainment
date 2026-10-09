@@ -60,6 +60,12 @@ function insertAt(html) {
 
 const TRIVIA = { href: "/trivia-night-guide.html", text: "trivia night guide" };
 const BINGO = { href: "/bingo-card-generator-guide.html", text: "bingo card generator guide" };
+// The seasonal hubs (9 Oct 2026). Same job one level over: the only Halloween
+// and Christmas editorial on the site is six posts from 2017 to 2020, and none
+// of them pointed at the hub that sells this year's games. A hub page with no
+// internal links in is the orphan the Halloween hub already was once.
+const HALLOWEEN = { href: "/halloween-trivia-and-music-bingo.html", text: "Halloween trivia and music bingo" };
+const CHRISTMAS = { href: "/christmas-trivia-and-music-bingo.html", text: "Christmas trivia and music bingo" };
 
 // slug -> the pillar it belongs under, and the sentence that links to it.
 // Varied on purpose: ten identical closing lines across ten posts reads as
@@ -85,10 +91,28 @@ const UPLINKS = {
     "New to hosting, or rebuilding the format from scratch? Start with our"],
   "how-to-build-a-custom-trivia-night-with-the-trivia-show-maker": [TRIVIA,
     "For the night around the questions, from rounds and pacing to prizes, see the"],
+  "halloween-trivia-and-music-bingo-game-downloads-for-2019": [HALLOWEEN,
+    "This post is from 2019. This year's lineup, including the Halloween Complete Pack, is on our"],
+  "complete-halloween-trivia-game-show-questions-answers-ready-for-download": [HALLOWEEN,
+    "Planning this year's night? Everything we make for Halloween is together on our"],
+  "book-your-christmas-party-entertainment-now-for-a-bonus-discount-early-bird-special-on-until-september-31-2017": [CHRISTMAS,
+    "This year's games, ready to download tonight, are all in one place on our"],
+  "5-easy-ways-to-entertain-your-friends-or-coworkers-for-the-christmas-holidays": [CHRISTMAS,
+    "Would rather have the games ready-made? Everything we make for the season is on our"],
+  "staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment": [CHRISTMAS,
+    "Back in the room this year? The printable games for an in-person party are on our"],
+  "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": [CHRISTMAS,
+    "Every Christmas game we make, at this year's prices, is on our"],
 };
 
 // Second halves, so each sentence ends naturally rather than on the link.
 const TAILS = {
+  "halloween-trivia-and-music-bingo-game-downloads-for-2019": " page.",
+  "complete-halloween-trivia-game-show-questions-answers-ready-for-download": " page.",
+  "book-your-christmas-party-entertainment-now-for-a-bonus-discount-early-bird-special-on-until-september-31-2017": " page.",
+  "5-easy-ways-to-entertain-your-friends-or-coworkers-for-the-christmas-holidays": " page.",
+  "staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment": " page.",
+  "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": " page.",
   "19-music-bingo-games-our-crowds-cant-get-enough-of": " is for.",
   "decade-by-decade-music-bingo-playlist-guide": " walks through it.",
 };
@@ -111,8 +135,13 @@ for (const [slug, [pillar, lead]] of Object.entries(UPLINKS)) {
     // A post that already links to its pillar in hand-written prose is left
     // alone; a second link to the same page in the same paragraph block is
     // noise, not authority.
-    if (html.includes(pillar.href)) { already++; continue; }
+    // The BODY only. The seasonal hubs are also in the nav dropdown on every
+    // page, so a whole-document check read every seasonal post as "already
+    // linked" and placed nothing (found 9 Oct 2026, the first run).
     const at = insertAt(html);
+    const bodyStart = html.indexOf('id="wsite-content"');
+    if (html.slice(bodyStart === -1 ? 0 : bodyStart, at === -1 ? html.length : at)
+      .includes(pillar.href)) { already++; continue; }
     if (at === -1) { console.log(`  no body end found: ${rel}`); noAnchor++; continue; }
     html = html.slice(0, at) + block + "\n" + html.slice(at);
   }

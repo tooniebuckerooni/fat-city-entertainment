@@ -17,6 +17,108 @@
 // cache-bust to keep in step and another entry in the weekly health check, for
 // no behaviour this file cannot reach.
 (function () {
+  // THE PROMO CALENDAR (9 Oct 2026). Dated, per-product LemonSqueezy discount
+  // codes, set up ONCE in the dashboard and then run by the calendar: the owner
+  // is at the dashboard on a few weekends, not on the day a sale starts, so a
+  // sale that needs a dashboard visit to begin or end is a sale that overruns.
+  //
+  // For each entry, on the product pages it names and only between its dates:
+  //   - the code is prefilled into the checkout URL (the same documented
+  //     checkout[discount_code] parameter the sitewide promo uses), and
+  //   - a chip under the price says what it is and when it ends.
+  // Outside the window, or with `live: false`, nothing happens at all.
+  //
+  // `live` IS THE SAFETY CATCH. Flip it to true only once the code really
+  // exists in LemonSqueezy, scoped to exactly these products, with a start on
+  // or before `start` and an expiry at least ONE DAY AFTER `end` (dates here are
+  // UTC midnights; a buffer means no visitor anywhere sees a chip the checkout
+  // has already stopped honouring). A chip promising a discount the checkout
+  // does not apply is the p140 failure from the buyer's side.
+  //
+  // SCOPE EVERY CODE TO ITS PRODUCTS in LemonSqueezy. The store is shared with
+  // the Bingo Card Generator subscriptions; an unscoped code discounts those too.
+  //
+  // `end` is EXCLUSIVE: "2026-11-01" means the last day is 31 Oct. Copy a visitor
+  // reads, so no em-dashes in `name` (CLAUDE.md). Owner's playbook, with the
+  // reasons behind every entry: HOLIDAY-SALE-2026.md.
+  var PROMOS = [
+    { code: "SPOOKY20", name: "Halloween Countdown", pct: 20,
+      start: "2026-10-10", end: "2026-11-01", live: false,
+      products: ["p189"] },
+    // Nov 1 to 8 is deliberately empty: the election promo's week.
+    { code: "EARLYBIRD15", name: "Christmas Early Bird", pct: 15,
+      start: "2026-11-09", end: "2026-11-27", live: false,
+      products: ["p190", "p42", "p155"] },
+    { code: "BLACKFRIDAY25", name: "Black Friday", pct: 25,
+      start: "2026-11-27", end: "2026-12-01", live: false,
+      products: ["p190", "p189", "p42", "p155", "p131", "p130", "p112",
+                 "p147", "p101", "p168", "p165", "p166", "p176", "p127",
+                 "p108", "p162", "p128", "p123", "p126", "p49", "p28"] },
+    // The 12 Days of Fat City: one PACK a day, 30% off, for 24 hours. Packs
+    // only, on purpose: a single at 30% off is $8.39, a hair under the 5-pack's
+    // $8.40 a game, and the ladder is the AOV engine (pricing-strategy skill).
+    { code: "12DAYS-1", name: "12 Days of Fat City, day 1", pct: 30, start: "2026-12-01", end: "2026-12-02", live: false, products: ["p190"] },
+    { code: "12DAYS-2", name: "12 Days of Fat City, day 2", pct: 30, start: "2026-12-02", end: "2026-12-03", live: false, products: ["p165"] },
+    { code: "12DAYS-3", name: "12 Days of Fat City, day 3", pct: 30, start: "2026-12-03", end: "2026-12-04", live: false, products: ["p131"] },
+    { code: "12DAYS-4", name: "12 Days of Fat City, day 4", pct: 30, start: "2026-12-04", end: "2026-12-05", live: false, products: ["p42"] },
+    { code: "12DAYS-5", name: "12 Days of Fat City, day 5", pct: 30, start: "2026-12-05", end: "2026-12-06", live: false, products: ["p147"] },
+    { code: "12DAYS-6", name: "12 Days of Fat City, day 6", pct: 30, start: "2026-12-06", end: "2026-12-07", live: false, products: ["p155"] },
+    { code: "12DAYS-7", name: "12 Days of Fat City, day 7", pct: 30, start: "2026-12-07", end: "2026-12-08", live: false, products: ["p176"] },
+    { code: "12DAYS-8", name: "12 Days of Fat City, day 8", pct: 30, start: "2026-12-08", end: "2026-12-09", live: false, products: ["p166"] },
+    { code: "12DAYS-9", name: "12 Days of Fat City, day 9", pct: 30, start: "2026-12-09", end: "2026-12-10", live: false, products: ["p127"] },
+    { code: "12DAYS-10", name: "12 Days of Fat City, day 10", pct: 30, start: "2026-12-10", end: "2026-12-11", live: false, products: ["p168"] },
+    { code: "12DAYS-11", name: "12 Days of Fat City, day 11", pct: 30, start: "2026-12-11", end: "2026-12-12", live: false, products: ["p130"] },
+    { code: "12DAYS-12", name: "12 Days of Fat City, day 12", pct: 30, start: "2026-12-12", end: "2026-12-13", live: false, products: ["p112"] },
+    { code: "NEWYEAR20", name: "New Year's Eve", pct: 20,
+      start: "2026-12-26", end: "2027-01-02", live: false,
+      products: ["p101", "p147"] },
+  ];
+  window.FCE_PROMOS = PROMOS;
+
+  function utc(d) { var p = d.split("-"); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  function promoFor(pid) {
+    var now = Date.now();
+    for (var i = 0; i < PROMOS.length; i++) {
+      var pr = PROMOS[i];
+      if (!pr.live || pr.products.indexOf(pid) === -1) continue;
+      if (now >= utc(pr.start) && now < utc(pr.end)) return pr;
+    }
+    return null;
+  }
+  function addCode(url, code) {
+    if (url.indexOf("lemonsqueezy.com/checkout/buy/") === -1) return url;
+    if (url.indexOf("checkout[discount_code]") !== -1) return url;
+    return url + (url.indexOf("?") === -1 ? "?" : "&") +
+      "checkout[discount_code]=" + encodeURIComponent(code);
+  }
+  var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  function promoChip(pr) {
+    if (document.querySelector(".fce-promo-chip")) return;
+    var area = document.getElementById("wsite-com-product-price-area");
+    if (!area || !area.parentNode) return;
+    var last = new Date(utc(pr.end) - 86400000);
+    var chip = document.createElement("p");
+    chip.className = "fce-promo-chip";
+    var b = document.createElement("strong");
+    b.textContent = pr.name + ": " + pr.pct + "% off";
+    chip.appendChild(b);
+    // The price after the code, read off this page's own itemprop (never baked),
+    // rounded the way a percentage discount is: the discount to the cent first.
+    // A page already showing "22% OFF" plus a chip saying "20% off" reads as a
+    // puzzle; a figure does not.
+    var el = area.querySelector('[itemprop="price"]');
+    var price = el ? parseFloat(el.getAttribute("content")) : NaN;
+    var pay = "";
+    if (price > 0) {
+      var cents = Math.round(price * 100);
+      pay = " You pay $" + ((cents - Math.round(cents * pr.pct / 100)) / 100).toFixed(2) + ";";
+    }
+    chip.appendChild(document.createTextNode("." + pay +
+      " the code is applied at checkout for you. Ends " +
+      last.getUTCDate() + " " + MONTHS[last.getUTCMonth()] + "."));
+    area.parentNode.insertBefore(chip, area.nextSibling);
+  }
+
   // While a sitewide promo is live (window.FCE_PROMO, set by promo-bar.js —
   // a deferred script, so it runs before our DOMContentLoaded init), append
   // the discount code to LemonSqueezy checkout URLs so the sale price is
@@ -40,7 +142,11 @@
       var link = (window.LS_LINKS || {})[btn.getAttribute("data-product")] || "";
       var pending = btn.parentNode.querySelector(".ls-pending");
       if (link) {
-        btn.setAttribute("href", withPromoCode(link));
+        var pr = promoFor(btn.getAttribute("data-product"));
+        btn.setAttribute("href", pr ? addCode(link, pr.code) : withPromoCode(link));
+        if (pr && btn.id === "wsite-com-product-add-to-cart") {
+          try { promoChip(pr); } catch (e) { /* never break a buy button */ }
+        }
         // Already baked in? Don't append the class a second time.
         if (!/(^|\s)lemonsqueezy-button(\s|$)/.test(btn.className)) {
           btn.className += " lemonsqueezy-button";

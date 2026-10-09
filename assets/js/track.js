@@ -113,6 +113,10 @@
     // A city page's free local round. It carries .fce-copy for its styling, so
     // it has to be checked before that entry or every click reads "page-copy".
     [".fce-city-round", "city-round"],
+    // A seasonal hub's hero and picture cards (9 Oct 2026). Its own origin so a
+    // season can be judged by whether the hub produced checkouts, which is the
+    // question the retired Halloween banner never let anyone answer.
+    [".fce-season", "season-hub"],
     [".fce-copy", "page-copy"],
     // A listing-page tile. Without this a tile click and an ordinary body link
     // both reported "page", so nothing could tell whether the storefront grid

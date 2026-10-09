@@ -196,6 +196,10 @@ jobs:
             # round and JSON-LD blocks other tools own, so an unchanged page reads
             # 0. Proved by editing one sentence of a city's copy without a rebuild
             # and watching "would update: 1" fire, then go quiet after --write.
+            # add-christmas-nav and add-season-countdown joined 9 Oct 2026. Both
+            # report "would update: N page(s)"; proved by deleting the Christmas
+            # item from one page and the countdown block from another and
+            # watching the matcher fire on each, then go quiet after --write.
             for t in add-cross-sell add-price-ladder add-jsonld add-tracking \
                      add-tracklists canonicalize-trailing-slash normalize-url-encoding \
                      bake-buy-links add-page-copy build-song-library build-campaign-pages \
@@ -209,7 +213,8 @@ jobs:
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
                      restyle-featured-nav remove-costume-performers-nav \
-                     vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm; do
+                     vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm \
+                     add-christmas-nav add-season-countdown; do
               OUT="$(node _tools/$t.js 2>&1)"
               if echo "$OUT" | grep -Eq "$DRIFT"; then
                 echo "DRIFTED: $t"

@@ -201,7 +201,7 @@
   {
     "id": "p175",
     "slug": "triviashowchristmas",
-    "name": "Christmas Trivia Night — Print and Play Trivia Show",
+    "name": "Christmas Trivia Night: Print and Play Trivia Show",
     "title": "Christmas Trivia Night - Printable Holiday Pub Trivia Show, 50 Questions",
     "price": "11.99",
     "template": "store/p9/thewildwest.html",
@@ -217,8 +217,8 @@
         "href": "/store/c6/triviagameshows/"
       }
     ],
-    "description": "A ready-to-run Christmas trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play — no projector, no PowerPoint, no prep.",
-    "body": "<div><p>The Long Night — a complete Christmas trivia show for the season when every venue, office and community hall wants one and nobody has time to write it.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. It travels: the Around the World round covers Sinterklaas, the Yule Lads, Las Posadas and the Gävle goat, so a room of any background has a way in.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Christmas Around the World</strong></li><li><strong>Christmas at the Movies</strong></li><li><strong>Carols and Songs</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong> — every question in running order, with the answers.</li><li><strong>Team answer sheets</strong> — one per round, ready to photocopy.</li><li><strong>Score sheet</strong> — room for up to 12 teams.</li><li><strong>Tiebreaker</strong> — a closest-wins question for when two tables finish level.</li></ul><p>Carols and Songs is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
+    "description": "A ready-to-run Christmas trivia show: five rounds, 50 questions, a tiebreaker and every sheet you need. Print and play: no projector, no PowerPoint, no prep.",
+    "body": "<div><p>The Long Night: a complete Christmas trivia show for the season when every venue, office and community hall wants one and nobody has time to write it.</p><p>Five rounds, 50 questions and a tiebreaker, written to run about two hours with a break. It travels: the Around the World round covers Sinterklaas, the Yule Lads, Las Posadas and the Gävle goat, so a room of any background has a way in.</p><p><strong>The rounds:</strong></p><ul><li><strong>Warm-Up</strong></li><li><strong>Christmas Around the World</strong></li><li><strong>Christmas at the Movies</strong></li><li><strong>Carols and Songs</strong></li><li><strong>True or False</strong></li></ul><p><strong>What's included:</strong></p><ul><li><strong>Host packet</strong>: every question in running order, with the answers.</li><li><strong>Team answer sheets</strong>: one per round, ready to photocopy.</li><li><strong>Score sheet</strong>: room for up to 12 teams.</li><li><strong>Tiebreaker</strong>: a closest-wins question for when two tables finish level.</li></ul><p>Carols and Songs is worth double, so a table that starts slow can still take it.</p><p>No screen, no projector and no software. If you can print, you can host it.</p></div>"
   },
   {
     "id": "p176",
@@ -555,5 +555,33 @@
     ],
     "description": "Everything we make for Halloween in one download: 250-card music bingo with the playlists, a print and play trivia show, the game show presentation, and a free month of Bingo Card Generator 2.0.",
     "body": "<div><p>Everything we make for Halloween, in one download.</p>\n<ul>\n<li><strong>Halloween Party Music Bingo.</strong> 250 cards, 30 songs, the callsheet, and the playlist already sequenced on Spotify and Apple Music.</li>\n<li><strong>Halloween Trivia Night.</strong> Five rounds and a tiebreaker, print and play.</li>\n<li><strong>Halloween Party Game Show.</strong> The same night on a screen.</li>\n<li><strong>1 month free of Bingo Card Generator 2.0, with one-click autoload.</strong> One link drops this game straight into the generator. Confirm your colours, add your logo and your venue details, print. Nothing to retype.</li>\n</ul>\n<p>Spooky rather than gruesome, so it plays in a pub and it plays at a staff party. Yours to run every year.</p></div>"
+  },
+  {
+    "id": "p190",
+    "slug": "christmascompletepack",
+    "name": "Christmas Complete Pack - 3 Christmas Games & a Print and Play Trivia Show",
+    "title": "Christmas Complete Pack - Music Bingo, a Christmas Game Show, Music Trivia and a Print and Play Trivia Night",
+    "price": "65.98",
+    "sale_price": "54.99",
+    "template": "store/p49/FBTgk5pack1.html",
+    "image": "/uploads/4/3/3/6/43362499/christmas-trivia-game-board.png",
+    "publish": false,
+    "breadcrumb": [
+      {
+        "name": "Trivia Store",
+        "href": "/store/c1/triviastore/"
+      },
+      {
+        "name": "Bundles",
+        "href": "/store/c34/Music_Bingo_%26_Trivia_Bundles.html"
+      }
+    ],
+    "includes": [
+      "p42 Christmas Special: game show, music trivia and Christmas Party music bingo",
+      "p175 Christmas Trivia Night (print and play)",
+      "1 month Bingo Card Generator 2.0"
+    ],
+    "description": "Everything we make for Christmas in one download: Christmas music bingo with the playlist, the Christmas game show and music trivia presentations, a print and play trivia night, and a free month of Bingo Card Generator 2.0.",
+    "body": "<div><p>Everything we make for Christmas, in one download.</p>\n<ul>\n<li><strong>Christmas Party Music Bingo.</strong> 250 cards, the callsheet, and the playlist ready on Spotify and Apple Music.</li>\n<li><strong>Christmas Game Show.</strong> Five festive categories on the big screen.</li>\n<li><strong>Music Trivia Game Show.</strong> Five rounds of music trivia with a final challenge and bonus rounds.</li>\n<li><strong>Christmas Trivia Night.</strong> Five rounds and a tiebreaker, print and play, no screen required.</li>\n<li><strong>1 month free of Bingo Card Generator 2.0, with one-click autoload.</strong> One link drops the Christmas game straight into the generator. Set your colours, add your logo and the company name, print. Nothing to retype.</li>\n</ul>\n<p>Built for the staff party: a screen for the game show, paper for the quiz, a speaker for the bingo. Yours to run every Christmas.</p></div>"
   }
 ]

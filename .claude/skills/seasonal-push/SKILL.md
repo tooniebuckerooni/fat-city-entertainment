@@ -135,6 +135,25 @@ the arithmetic in the `.fce-value-math` block, not in prose.
 **No em-dashes in anything a visitor reads.** Fix it in the tool's template, not
 on the generated page.
 
+**A banner on the entry pages did not sell (Halloween 2026).** Four weeks on
+seven entry pages, no sales, retired 9 Oct. It was a note about the season on
+pages where nobody had chosen a game yet. What replaced it puts the deadline
+where the decision is made: `add-season-countdown.js` under the buy button of
+each seasonal product, and the hub as a picture-card page with a countdown in
+its hero. Before building a banner for the next season, build those.
+
+**Schedule sales as dated codes, not price changes.** The owner is at the
+LemonSqueezy dashboard on a few weekends. `PROMOS` in `ls-buy.js` takes a dated,
+scoped code and runs it: chip under the price, code prefilled, gone on the end
+date. Set every code up in one sitting, with an LS expiry a day past `end`, and
+keep `live: false` until each one is confirmed. A real price change is still
+right for a permanent reprice or a launch.
+
+**Check the reach before the offer.** No sales at ~380 visits a month says
+little about the price. Check that the season's email actually went out first:
+Halloween 2026's was written in September and, as far as the repo knew on 9 Oct,
+never sent.
+
 ## Reusing a tool for the next season
 
 - `add-halloween-nav.js` / `add-halloween-banner.js`: copy to
@@ -142,6 +161,9 @@ on the generated page.
   id and copy. They are ~90 lines each and the anchoring logic is the fiddly
   part; keep it. Match nav items by their **link**, never by a `<li>` id, which
   Weebly rewrites to `active` on the current page.
+- `add-season-countdown.js` (`SEASONS`), `PROMOS` in `ls-buy.js`, and a hub
+  spec in `new-content-pages.json` using the `.fce-season--<name>` styling
+  (add a palette block to `site-extras.css` for a new season): **map entries**.
 - `add-perk-badge.js`, `build-generator-links.js`,
   `check-value-stacks.js` (`MIXED_PACKS`), `add-cross-sell.js`
   (`BUNDLES`/`PERKS`), `order-store-tiles.js`: **map entry only**.
