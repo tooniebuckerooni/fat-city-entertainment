@@ -76,6 +76,19 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   have saved about 500px of 3,445; the mechanism had to go where the words were. Never type prose into the page itself — those
   pages are nested multicol `<table>` scaffolding with inline `<font>` tags, and
   hand-editing them is how a live layout gets broken.
+- **The homepage and About page lead with the WHY** (`_tools/flip-to-why.js`,
+  9 Oct 2026, owner's call after Simon Sinek's Golden Circle: *"We're
+  Entertainers. We're ice-breakers. We bring people together in trying
+  times."*). The hero headline/button are exact swaps (the one line is the
+  `HEADLINE` constant), the homepage belief block is `_content/copy/why-home.html`
+  between `<!-- fce:why -->` markers above the old copy (nothing below moved),
+  and the About column is `_content/copy/why-about.html`. The original About
+  column is saved in `_content/copy/about-original.html`; `--remove --write`
+  restores both pages byte for byte (proved). Edit the partials, re-run; in the
+  Monday loop. The owner is working through the rest (video, Host's Creed,
+  Green Room post, Community Nights) in the **Why Workshop** artifact, chunk by
+  chunk. The old homepage copy below the block still carries 13 visible
+  em-dashes; it is the HOW/WHAT rewrite chunk, not a hand fix.
 - New content pages are cloned from a live page's shell (see
   `_tools/new-content-page.js` / `make-*-page.js`) so they inherit nav/footer.
 - Top-level nav: **Trivia Store (dropdown) · ★ Featured! (dropdown) · Our

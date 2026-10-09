@@ -214,7 +214,7 @@ jobs:
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
                      restyle-featured-nav remove-costume-performers-nav \
                      vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm \
-                     add-christmas-nav add-season-countdown; do
+                     add-christmas-nav add-season-countdown flip-to-why; do
               OUT="$(node _tools/$t.js 2>&1)"
               if echo "$OUT" | grep -Eq "$DRIFT"; then
                 echo "DRIFTED: $t"
