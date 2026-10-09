@@ -60,6 +60,17 @@ const SWAPS_HOME = [
     to: `<span class="wsite-button-inner">${BUTTON}</span>`,
   },
 ];
+// The "Bruce, Venue Manager" quote came down 9 Oct 2026: owner, in the Why
+// Workshop, "Not real, take it down". Real reviews take its place, between
+// <!-- fce:reviews --> markers filled from _content/copy/why-reviews.html. The
+// swap only plants the empty marker pair, so editing the partial never breaks
+// the inverse.
+const BRUCE = '<h2 class="wsite-content-title">"Finally, a way to <strong>fill seats and boost revenue</strong> without the stress. Fat City’s music bingo and trivia nights have been a game-changer for our repeat business!" — <em>Bruce, Venue Manager</em><br></h2>';
+const REVIEWS_EMPTY = "<!-- fce:reviews --><!-- /fce:reviews -->";
+const REVIEWS_RE = /<!-- fce:reviews -->[\s\S]*?<!-- \/fce:reviews -->/;
+const REVIEWS_PARTIAL = "_content/copy/why-reviews.html";
+SWAPS_HOME.push({ from: BRUCE, to: REVIEWS_EMPTY });
+
 const SWAPS_ABOUT = [
   {
     from: "<title>About Fat City Entertainment — Hosting Trivia &amp; Music Bingo Since 1999</title>",
@@ -108,7 +119,14 @@ let changed = 0;
 // ---- homepage
 {
   const html = read(HOME);
-  let next = applySwaps(html, SWAPS_HOME, HOME, problems).replace(BLOCK_RE, "");
+  // Empty the reviews block first, so the swap below can see its own marker
+  // pair in either direction.
+  let next = html.replace(REVIEWS_RE, () => REVIEWS_EMPTY);
+  next = applySwaps(next, SWAPS_HOME, HOME, problems).replace(BLOCK_RE, "");
+  if (!REMOVE && next.includes(REVIEWS_EMPTY)) {
+    next = next.replace(REVIEWS_EMPTY, () =>
+      `<!-- fce:reviews -->\n${read(REVIEWS_PARTIAL).trim()}\n<!-- /fce:reviews -->`);
+  }
   if (!REMOVE) {
     const col = column(next);
     if (!col) problems.push(`${HOME}: no content column`);

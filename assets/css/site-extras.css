@@ -2619,3 +2619,46 @@ ul.fce-why-beliefs li {
   line-height: 1.5;
 }
 .fce-why-close { margin-top: 30px; }
+
+/* Real reviews on the homepage, in place of the "Bruce" placeholder quote
+   (flip-to-why.js, 9 Oct 2026). Quoted word for word; a review cut off in the
+   source ends in "..." rather than being finished for the reviewer. */
+.fce-reviews { margin: 6px 0 34px; font-family: "Montserrat", Arial, sans-serif; }
+p.fce-reviews-kicker {
+  margin: 0 0 14px;
+  text-align: center;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9a7a14;
+}
+.fce-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.fce-review {
+  margin: 0;
+  padding: 18px 20px;
+  background: #faf8f2;
+  border-top: 3px solid #c9a227;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.fce-review blockquote {
+  margin: 0;
+  padding: 0;
+  background: none;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: #24242a;
+}
+/* main_style.css draws a grey box and a big opening quote mark on every
+   blockquote; the text here carries its own quotation marks. */
+.fce-review blockquote:before { content: none; }
+.fce-review figcaption { margin-top: auto; font-size: 13.5px; font-weight: 700; color: #6a6158; }

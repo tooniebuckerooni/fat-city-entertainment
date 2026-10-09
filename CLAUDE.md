@@ -85,7 +85,14 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   and the About column is `_content/copy/why-about.html`. The original About
   column is saved in `_content/copy/about-original.html`; `--remove --write`
   restores both pages byte for byte (proved). Edit the partials, re-run; in the
-  Monday loop. The owner is working through the rest (video, Host's Creed,
+  Monday loop. **The "Bruce, Venue Manager" quote was a placeholder and is gone**
+  (owner, Why Workshop chunk 1, 9 Oct 2026: "Not real, take it down"). Four real
+  quotes replace it from `_content/copy/why-reviews.html` between
+  `<!-- fce:reviews -->` markers: three from the 2022 Google-reviews screenshot
+  on `yycevents.html`, one from `faqs.html`. Word for word; a review cut off in
+  the source ends in "...". **Never invent or polish a testimonial.** Google
+  reviews cannot be fetched from the sandbox, so new ones come from the owner
+  (two Google Business accounts). The owner is working through the rest (video, Host's Creed,
   Green Room post, Community Nights) in the **Why Workshop** artifact, chunk by
   chunk. The old homepage copy below the block still carries 13 visible
   em-dashes; it is the HOW/WHAT rewrite chunk, not a hand fix.
