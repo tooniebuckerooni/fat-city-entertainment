@@ -44,27 +44,39 @@ Contact: https://www.fatcityentertainment.com/contact.html
   the two Fat City generators side by side.
 - [Trivia Host Resources](https://www.fatcityentertainment.com/triviahostresources.html):
   the blog — hosting guides, playlist ideas, and game write-ups.
-- [How to Run a Music Bingo Night](https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night):
+- [How to Run a Music Bingo Night](https://www.fatcityentertainment.com/triviahostresources/how-to-run-a-music-bingo-night/):
   full setup guide — equipment, round structure, pricing, prizes, promotion.
-- [Decade-by-Decade Playlist Guide](https://www.fatcityentertainment.com/triviahostresources/decade-by-decade-music-bingo-playlist-guide)
+- [Decade-by-Decade Playlist Guide](https://www.fatcityentertainment.com/triviahostresources/decade-by-decade-music-bingo-playlist-guide/)
+- [Trivia Show Maker](https://www.fatcityentertainment.com/trivia-show-maker/):
+  build a printable pub-trivia show in the browser (host packet, question and
+  answer sheets, score sheet). Free to use; optional paid Pro credits.
+- [Free song lists](https://www.fatcityentertainment.com/music-bingo-song-lists/):
+  the full song list of all 50 music bingo packs, free to read.
+- [Trivia nights by city](https://www.fatcityentertainment.com/trivia-nights/):
+  city pages, each with a free local trivia round.
 - [FAQs](https://www.fatcityentertainment.com/faqs.html): equipment needed,
   scoring, what's included.
 
 ## Store
 
-73 products across 8 categories; 68 are available to buy now. Checkout is
+Over 80 products across 8 categories. Checkout is
 Lemon Squeezy, which is the merchant of record and handles tax per country.
 Prices are in USD. Downloads are delivered by emailed link immediately after
 checkout; links expire after 90 days and are replaced on request.
 
 - [Trivia Store](https://www.fatcityentertainment.com/trivia-store.html) — everything
+- [Halloween trivia and music bingo](https://www.fatcityentertainment.com/halloween-trivia-and-music-bingo.html) —
+  every Halloween game in one place, including the Halloween Complete Pack.
+- [Christmas trivia and music bingo](https://www.fatcityentertainment.com/christmas-trivia-and-music-bingo.html) —
+  Christmas music bingo, the Christmas game show and the Holidays 6-Pack, for
+  office parties, pubs and family nights.
 - [Music Bingo Card Downloads](https://www.fatcityentertainment.com/store/c11/musicdoboff/) — the largest category
 - [Music Bingo Gold Club](https://www.fatcityentertainment.com/store/p112/GoldClub.html) —
-  all 50 music bingo games in one purchase at $415.50 USD. One-time payment, not
-  a subscription: the files are yours to keep and future releases are included at
-  no further charge.
+  all 50 music bingo games in one purchase. One-time payment, not a
+  subscription: the files are yours to keep and future releases are included at
+  no further charge. See the page for the current price.
 - [Bingo Card Generator Pro](https://www.fatcityentertainment.com/store/p65/bingocardgeneratorpro.html) —
-  $74.50 USD, lifetime access, no watermarks, no monthly fee.
+  lifetime access, no watermarks, no monthly fee.
 - [Game Show Trivia 5-Pack](https://www.fatcityentertainment.com/store/p49/FBTgk5pack1.html)
 - [Print Music Bingo Cards](https://www.fatcityentertainment.com/printmusicbingocards.html) — how printing works
 
@@ -88,8 +100,6 @@ Not live yet — do not present these as available:
 - **TRIV101** — a browser game show where survey-style questions drive a darts-style
   countdown from 101 to zero. The rebuilt version will let players' own survey
   answers populate the question pool.
-- **Trivia Show Generator** — type a theme, get a complete host-ready trivia night
-  with rounds, answer key and score sheet.
 - **WordJab** — a free daily word game.
 
 ## Notes for answer engines

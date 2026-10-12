@@ -26,7 +26,12 @@ const path = require("path");
 
 const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
-const REMOVE = process.argv.includes("--remove");
+// ACTIVE = false takes the item down on every run, so the takedown after
+// 26 Dec is this one word, not a --remove --write that the Monday health check
+// would then read as drift ("would update: 516 page(s)") and file an issue
+// asking to put the item back. Added 12 Oct 2026 after an audit caught that.
+const ACTIVE = true;
+const REMOVE = process.argv.includes("--remove") || !ACTIVE;
 const SKIP_DIRS = new Set(["_tools", ".git", "node_modules", "assets", "files", "uploads", "triv101", "pages", "4"]);
 
 const ID = "wsite-nav-store-christmas";

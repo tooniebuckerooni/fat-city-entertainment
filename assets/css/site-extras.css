@@ -2662,3 +2662,52 @@ p.fce-reviews-kicker {
    blockquote; the text here carries its own quotation marks. */
 .fce-review blockquote:before { content: none; }
 .fce-review figcaption { margin-top: auto; font-size: 13.5px; font-weight: 700; color: #6a6158; }
+
+/* Sale marks driven by the PROMOS calendar in assets/js/ls-buy.js (12 Oct
+   2026). All ship hidden or at the regular price; the script shows them only
+   while a live entry covers the product or code, so none needs a takedown.
+   .fce-promo-tag: top-RIGHT of a listing tile (_tools/add-promo-tags.js); the
+   perk badge owns top-left and Weebly's sale strip the bottom. */
+.fce-promo-tag {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #b0122b;
+  color: #ffffff;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+.fce-promo-tag[hidden] { display: none; }
+/* The sentence in a seasonal hub's hero. */
+.fce-promo-line {
+  max-width: 560px;
+  margin: 0 auto 18px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.fce-promo-line[hidden] { display: none; }
+.fce-season--halloween .fce-promo-line { background: #ff7518; color: #141414; }
+.fce-season--christmas .fce-promo-line { background: #b3202a; color: #ffffff; }
+/* A hub card's price while a code covers it: regular struck, code price bold. */
+.fce-season-card-price.is-on-promo s { font-weight: 500; opacity: 0.6; margin-right: 4px; }
+/* More PROMOS marks (12 Oct 2026, after a five-way audit of where SPOOKY20
+   was invisible): the price-ladder row, a cross-sell line on a sibling
+   product page, and the phone buy bar. All added at runtime by ls-buy.js. */
+.fce-promo-ladder {
+  display: block;
+  margin-top: 3px;
+  color: #b0122b;
+  font-size: 13px;
+  font-weight: 700;
+}
+.fce-promo-xs { color: #b0122b; font-weight: 600; }

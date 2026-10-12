@@ -43,10 +43,15 @@ Same link as that file already uses.
 > this afternoon, press play on the playlist, and you are hosting tonight.
 >
 > **The Halloween Complete Pack** has all three: music bingo with the playlist, a
-> print and play trivia night, and the game show for a screen. 20% off until
-> Saturday, no code needed.
+> print and play trivia night, and the game show for a screen. **$28.78 with code
+> SPOOKY20**, which takes 20% off our Halloween games and four best-selling packs
+> until Saturday night. From our site it is applied at checkout for you.
 >
 > [Get the Halloween games]
+
+(Updated 12 Oct for the widened SPOOKY20. "Until Saturday night" is true: since
+12 Oct the site ends a sale at the visitor's own midnight, and the code itself
+runs until 2 Nov in LemonSqueezy. Re-read the prices if anything is repriced.)
 
 **Link:**
 `https://www.fatcityentertainment.com/go/halloween/?utm_source=sender&utm_medium=email&utm_campaign=halloween-lastcall-2026`

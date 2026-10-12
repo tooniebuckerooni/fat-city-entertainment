@@ -214,7 +214,7 @@ jobs:
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
                      restyle-featured-nav remove-costume-performers-nav \
                      vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm \
-                     add-christmas-nav add-season-countdown flip-to-why; do
+                     add-christmas-nav add-season-countdown flip-to-why add-promo-tags; do
               OUT="$(node _tools/$t.js 2>&1)"
               if echo "$OUT" | grep -Eq "$DRIFT"; then
                 echo "DRIFTED: $t"
@@ -263,7 +263,7 @@ jobs:
             # brace silently by skipping ahead, so the only sign is rules not
             # applying somewhere further down.
             for t in check-value-stacks check-trivia-shows check-ls-links check-tile-structure \
-                     fix-product-divs check-linked-prices check-css-balance; do
+                     fix-product-divs check-linked-prices check-css-balance check-promos; do
               OUT="$(node _tools/$t.js 2>&1)"
               if [ $? -ne 0 ]; then
                 echo "FAILED: $t"

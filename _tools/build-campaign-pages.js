@@ -160,6 +160,12 @@ a.buy{display:inline-block;background:var(--gold);color:#fff;
   transition:background .15s}
 a.buy:hover,a.buy:focus{background:var(--gold-dark);color:#fff}
 a.buy:focus-visible{outline:3px solid var(--green);outline-offset:2px}
+/* Written by ls-buy.js under a button only while a live PROMOS entry covers
+   that product, so it needs no takedown (12 Oct 2026). */
+.fce-promo-note{margin:12px 0 0;padding:9px 12px;border-radius:4px;
+  background:#fff4e5;border:1px solid #f3c58a;color:#4a3416;
+  font-family:"Montserrat",Arial,sans-serif;font-size:14px;line-height:1.45}
+.final .fce-promo-note{display:inline-block}
 
 .included{background:var(--card);border:1px solid var(--rule);border-radius:5px;
   padding:20px 22px}

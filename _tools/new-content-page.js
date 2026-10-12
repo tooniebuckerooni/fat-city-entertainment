@@ -54,7 +54,11 @@ function priceOf(pid) {
   }
   throw new Error(`{{price:${pid}}}: no itemprop price under store/${pid}/`);
 }
-const fillPrices = (str) => str.replace(/\{\{price:(p\d+)\}\}/g, (m, pid) => priceOf(pid));
+// {{amount:pNN}} is the same figure without the "$", for a data attribute
+// (the hub cards' data-fce-price, which ls-buy.js reads to show a sale price).
+const fillPrices = (str) => str
+  .replace(/\{\{price:(p\d+)\}\}/g, (m, pid) => priceOf(pid))
+  .replace(/\{\{amount:(p\d+)\}\}/g, (m, pid) => priceOf(pid).slice(1));
 for (const s of specs) {
   s.body = fillPrices(s.body);
   s.description = fillPrices(s.description);

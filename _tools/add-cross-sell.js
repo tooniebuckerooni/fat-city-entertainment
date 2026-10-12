@@ -193,7 +193,14 @@ const GOLD_SINGLES = [
 // AT p189 and read its price.
 const NO_BLOCK = new Set(["p189", "p155"]);
 
-const link = (pid) => `<a href="${PRODUCTS[pid].path}">${PRODUCTS[pid].name}</a>`;
+// data-fce-price is the linked product's own charged price, so ls-buy.js can
+// add "on sale until ..." beside a link while a PROMOS entry covers it, with
+// nothing about the sale ever baked into this block (12 Oct 2026).
+const link = (pid) => {
+  const pr = priceOf(pid);
+  const attr = pr ? ` data-fce-price="${pr.amount.toFixed(2)}"` : "";
+  return `<a href="${PRODUCTS[pid].path}"${attr}>${PRODUCTS[pid].name}</a>`;
+};
 const isPid = (c) => /^p\d+$/.test(c) && PRODUCTS[c];
 // A component reads as a link when it has its own page, and as plain text when
 // it is only sold inside the bundle.

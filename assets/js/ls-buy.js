@@ -30,9 +30,13 @@
   //
   // `live` IS THE SAFETY CATCH. Flip it to true only once the code really
   // exists in LemonSqueezy, scoped to exactly these products, with a start on
-  // or before `start` and an expiry at least ONE DAY AFTER `end` (dates here are
-  // UTC midnights; a buffer means no visitor anywhere sees a chip the checkout
-  // has already stopped honouring). A chip promising a discount the checkout
+  // or before `start` and an expiry at least ONE DAY AFTER `end`. Dates are the
+  // VISITOR'S OWN midnights (changed 12 Oct 2026; they were UTC midnights, which
+  // ended SPOOKY20 at 5pm Pacific on Halloween itself, while the countdown chip
+  // was telling the same visitor to buy tonight). The last time zone reaches
+  // `end` about 10:00 UTC the next day, so the one-day LS buffer still covers
+  // every visitor, and no one anywhere sees a chip the checkout has stopped
+  // honouring. A chip promising a discount the checkout
   // does not apply is the p140 failure from the buyer's side.
   //
   // SCOPE EVERY CODE TO ITS PRODUCTS in LemonSqueezy. The store is shared with
@@ -77,7 +81,10 @@
   ];
   window.FCE_PROMOS = PROMOS;
 
-  function utc(d) { var p = d.split("-"); return Date.UTC(+p[0], +p[1] - 1, +p[2]); }
+  // Local midnight of a "YYYY-MM-DD" date, on the visitor's calendar. (Named
+  // utc() before 12 Oct 2026, when it was one; kept short because it is used
+  // throughout this file.)
+  function utc(d) { var p = d.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]).getTime(); }
   function promoFor(pid) {
     var now = Date.now();
     for (var i = 0; i < PROMOS.length; i++) {
@@ -98,11 +105,14 @@
     if (document.querySelector(".fce-promo-chip")) return;
     var area = document.getElementById("wsite-com-product-price-area");
     if (!area || !area.parentNode) return;
-    var last = new Date(utc(pr.end) - 86400000);
+    var last = new Date(utc(pr.end) - 1);
     var chip = document.createElement("p");
     chip.className = "fce-promo-chip";
     var b = document.createElement("strong");
-    b.textContent = pr.name + ": " + pr.pct + "% off";
+    // A page whose price area already shows a struck-through compare-at and a
+    // "22% OFF" badge gets "an extra 20% off", so the two read as stacked.
+    var extra = /show-price-on-sale/.test(area.className) ? "an extra " : "";
+    b.textContent = pr.name + ": " + extra + pr.pct + "% off";
     chip.appendChild(b);
     // The price after the code, read off this page's own itemprop (never baked),
     // rounded the way a percentage discount is: the discount to the cent first.
@@ -117,8 +127,121 @@
     }
     chip.appendChild(document.createTextNode("." + pay +
       " the code is applied at checkout for you. Ends " +
-      last.getUTCDate() + " " + MONTHS[last.getUTCMonth()] + "."));
+      last.getDate() + " " + MONTHS[last.getMonth()] + "."));
     area.parentNode.insertBefore(chip, area.nextSibling);
+  }
+
+  // Promo marks ANYWHERE the calendar should be visible, not just under a
+  // product's price (12 Oct 2026, after the owner asked where SPOOKY20 was
+  // visible beyond the email: only on the eight product pages). Three hooks,
+  // all shipped `hidden` or showing the regular price, and all switched by the
+  // same PROMOS entry, so they appear and vanish on its dates with no takedown:
+  //   [data-fce-promo-pid="pNN"]   a tile tag: becomes "20% off" (add-promo-tags.js)
+  //   [data-fce-promo-code="CODE"] a sentence: "<name>: 20% off <data-fce-promo-text>
+  //                                with code CODE. Ends 31 Oct." (hub hero)
+  //   [data-fce-promo-price="pNN"] with data-fce-price="35.97": shows the
+  //                                regular price struck through and the price
+  //                                after the code (hub cards)
+  // Every number is derived from the entry and the page's own price; nothing
+  // about a sale is ever typed into a page.
+  function promoByCode(code){
+    var now = Date.now();
+    for (var i = 0; i < PROMOS.length; i++) {
+      var pr = PROMOS[i];
+      if (pr.live && pr.code === code && now >= utc(pr.start) && now < utc(pr.end)) return pr;
+    }
+    return null;
+  }
+  function endLabel(pr){ var d = new Date(utc(pr.end) - 1); return d.getDate() + " " + MONTHS[d.getMonth()]; }
+  function afterCode(price, pct){ var c = Math.round(price * 100); return (c - Math.round(c * pct / 100)) / 100; }
+  function promoMarks(){
+    var i, el, pr;
+    var tags = document.querySelectorAll("[data-fce-promo-pid]");
+    for (i = 0; i < tags.length; i++) {
+      el = tags[i]; pr = promoFor(el.getAttribute("data-fce-promo-pid"));
+      if (!pr) continue;
+      // A tile already showing Weebly's own sale strip ("22% OFF", from the
+      // pack's value-stack compare-at) says "Extra 20% off", so the two
+      // percentages read as stacked rather than as a contradiction.
+      var tile = el.closest ? el.closest("[data-id]") : null;
+      var striped = tile && tile.querySelector(".category__image-sale-banner-wrapper.sale-active");
+      el.textContent = (striped ? "Extra " : "") + pr.pct + "% off";
+      el.setAttribute("title", pr.name + ": " + pr.pct + "% off with code " + pr.code + " until " + endLabel(pr));
+      el.removeAttribute("hidden");
+    }
+    var lines = document.querySelectorAll("[data-fce-promo-code]");
+    for (i = 0; i < lines.length; i++) {
+      el = lines[i]; pr = promoByCode(el.getAttribute("data-fce-promo-code"));
+      if (!pr) continue;
+      var b = document.createElement("strong");
+      b.textContent = pr.name + ": " + pr.pct + "% off";
+      el.textContent = "";
+      el.appendChild(b);
+      el.appendChild(document.createTextNode(" " + (el.getAttribute("data-fce-promo-text") || "") +
+        " with code " + pr.code + ", taken off at checkout. Ends " + endLabel(pr) + "."));
+      el.removeAttribute("hidden");
+    }
+    var prices = document.querySelectorAll("[data-fce-promo-price]");
+    for (i = 0; i < prices.length; i++) {
+      el = prices[i]; pr = promoFor(el.getAttribute("data-fce-promo-price"));
+      var reg = parseFloat(el.getAttribute("data-fce-price"));
+      if (!pr || !(reg > 0)) continue;
+      var was = document.createElement("s");
+      was.textContent = "$" + reg.toFixed(2);
+      el.textContent = "";
+      el.appendChild(was);
+      el.appendChild(document.createTextNode(" $" + afterCode(reg, pr.pct).toFixed(2)));
+      el.className += " is-on-promo";
+    }
+    // An email landing page (/go/<campaign>/): its buttons carry data-fce-price,
+    // the product page's own button does not. A reader sent there by "20% off"
+    // should see it before checkout, not only at it.
+    var btns = document.querySelectorAll(".ls-buy[data-product][data-fce-price]");
+    for (i = 0; i < btns.length; i++) {
+      el = btns[i]; pr = promoFor(el.getAttribute("data-product"));
+      var row = el.parentNode;
+      if (!pr || !row || !row.parentNode || (row.nextSibling && row.nextSibling.className === "fce-promo-note")) continue;
+      var note = document.createElement("p");
+      note.className = "fce-promo-note";
+      note.textContent = pr.name + ": " + pr.pct + "% off, you pay $" +
+        afterCode(parseFloat(el.getAttribute("data-fce-price")), pr.pct).toFixed(2) +
+        ". The code " + pr.code + " is applied at checkout. Ends " + endLabel(pr) + ".";
+      row.parentNode.insertBefore(note, row.nextSibling);
+    }
+    // Cross-sell blocks on OTHER product pages ("The pack is $35.97..."): one
+    // sentence per block per promo product it links, price from the link's own
+    // data-fce-price (written by add-cross-sell.js).
+    var xs = document.querySelectorAll(".fce-cross-sell a[data-fce-price]");
+    for (i = 0; i < xs.length; i++) {
+      el = xs[i];
+      var m2 = (el.getAttribute("href") || "").match(/\/store\/(p\d+)\//);
+      pr = m2 && promoFor(m2[1]);
+      var block = el.closest ? el.closest(".fce-cross-sell") : null;
+      if (!pr || !block || block.querySelector('.fce-promo-xs[data-for="' + m2[1] + '"]')) continue;
+      var sp = document.createElement("span");
+      sp.className = "fce-promo-xs";
+      sp.setAttribute("data-for", m2[1]);
+      sp.textContent = " " + pr.name + ": " + el.textContent.trim() + " is $" +
+        afterCode(parseFloat(el.getAttribute("data-fce-price")), pr.pct).toFixed(2) +
+        " until " + endLabel(pr) + ", code " + pr.code + " applied at checkout.";
+      block.appendChild(sp);
+    }
+    // The storefront's price ladder: a row whose tier links a promo product
+    // gets the after-code price beside its own (read off the row).
+    var rows = document.querySelectorAll(".fce-ladder tr");
+    for (i = 0; i < rows.length; i++) {
+      var a = rows[i].querySelector('th a[href*="/store/p"]');
+      var cell = rows[i].querySelector(".fce-ladder-price");
+      var m3 = a && (a.getAttribute("href") || "").match(/\/store\/(p\d+)\//);
+      pr = m3 && promoFor(m3[1]);
+      if (!pr || !cell || cell.querySelector(".fce-promo-ladder")) continue;
+      var m4 = cell.textContent.match(/\$([0-9,]+\.[0-9]{2})/);
+      if (!m4) continue;
+      var lp = document.createElement("span");
+      lp.className = "fce-promo-ladder";
+      lp.textContent = "$" + afterCode(parseFloat(m4[1].replace(/,/g, "")), pr.pct).toFixed(2) + " with " + pr.code;
+      cell.appendChild(lp);
+    }
   }
 
   // While a sitewide promo is live (window.FCE_PROMO, set by promo-bar.js —
@@ -137,6 +260,7 @@
   }
 
   function init() {
+    try { promoMarks(); } catch (e) { /* never let a sale tag break a buy button */ }
     var buttons = document.querySelectorAll(".ls-buy[data-product]");
     var anyActive = false;
     for (var i = 0; i < buttons.length; i++) {
@@ -277,6 +401,19 @@
       document.createTextNode(((onSale ? sale : list) || {}).textContent
         ? ((onSale ? sale : list).textContent).trim() : "")
     );
+    // A live promo: show what the bar's button actually charges, not the page
+    // price (the clone carries the code), so the bar agrees with the chip.
+    var bp = promoFor(btn.getAttribute("data-product"));
+    var ip = document.querySelector('#wsite-com-product-price-area [itemprop="price"]');
+    var ipv = ip ? parseFloat(ip.getAttribute("content")) : NaN;
+    if (bp && ipv > 0) {
+      price.textContent = "";
+      var w2 = document.createElement("span");
+      w2.className = "fce-buybar-was";
+      w2.textContent = "$" + ipv.toFixed(2);
+      price.appendChild(w2);
+      price.appendChild(document.createTextNode("$" + afterCode(ipv, bp.pct).toFixed(2) + " USD"));
+    }
     meta.appendChild(name);
     meta.appendChild(price);
 

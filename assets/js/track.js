@@ -218,10 +218,28 @@
         // text. Without this a campaign click reported item_name "Get it now",
         // which is the button, not the thing being bought.
         var p = product && product.item_id === pid ? product : itemFromButton(a);
+        // The promo code ls-buy.js prefilled, if any (12 Oct 2026), so a sale
+        // like SPOOKY20 can be counted in GA4 (`coupon` is a standard GA4
+        // ecommerce field), and `value` is what the checkout will ask for
+        // rather than the list price. Read off the href at click time, after
+        // ls-buy.js has set it; the sticky-bar clone carries the same href.
+        var cm = (a.getAttribute("href") || "").match(/checkout(?:\[|%5B)discount_code(?:\]|%5D)=([^&#]+)/i);
+        var coupon = cm ? decodeURIComponent(cm[1]) : undefined;
+        var promo = null;
+        try {
+          for (var k = 0; coupon && window.FCE_PROMOS && k < window.FCE_PROMOS.length; k++)
+            if (window.FCE_PROMOS[k].code === coupon) promo = window.FCE_PROMOS[k];
+        } catch (e2) {}
+        var paid = p.price;
+        if (promo && typeof p.price === "number") {
+          var c0 = Math.round(p.price * 100);
+          paid = (c0 - Math.round(c0 * promo.pct / 100)) / 100;
+        }
         send("begin_checkout", {
           currency: "USD",
-          value: p.price,
-          items: [{ item_id: pid, item_name: p.item_name, price: p.price }],
+          value: paid,
+          coupon: coupon,
+          items: [{ item_id: pid, item_name: p.item_name, price: paid, coupon: coupon }],
           origin: originOf(a),
           vendor: a.classList.contains("kdp-buy") ? "amazon" : "lemonsqueezy",
         });

@@ -1,5 +1,9 @@
 # Halloween send (direction A)
 
+> **SUPERSEDED 12 Oct 2026.** The send that actually went out (scheduled for
+> Tue 13 Oct) used the widened SPOOKY20: eight products, written in the session
+> and recorded in `EMAIL-CAMPAIGNS.md`. Keep the text below for reference only.
+>
 > ## PASTE-READY VERSION, 10 Oct 2026 (send this weekend)
 >
 > Rewritten 9 Oct for the date (three weeks out, not seven) and the

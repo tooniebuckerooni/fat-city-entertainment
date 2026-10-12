@@ -101,12 +101,18 @@ const UPLINKS = {
     "Would rather have the games ready-made? Everything we make for the season is on our"],
   "staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment": [CHRISTMAS,
     "Back in the room this year? The printable games for an in-person party are on our"],
+  // An autumn post (12 Oct 2026): an audit found it reached the Halloween hub
+  // only through the nav. (fall-trivia-night-ideas... has the same gap but
+  // already carries its trivia-guide uplink, and the tool places one per post.)
+  "5-ways-to-excite-your-guests-this-fall-season": [HALLOWEEN,
+    "Planning for the end of October? Our Halloween games, ready to print, are on the"],
   "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": [CHRISTMAS,
     "Every Christmas game we make, at this year's prices, is on our"],
 };
 
 // Second halves, so each sentence ends naturally rather than on the link.
 const TAILS = {
+  "5-ways-to-excite-your-guests-this-fall-season": " page.",
   "halloween-trivia-and-music-bingo-game-downloads-for-2019": " page.",
   "complete-halloween-trivia-game-show-questions-answers-ready-for-download": " page.",
   "book-your-christmas-party-entertainment-now-for-a-bonus-discount-early-bird-special-on-until-september-31-2017": " page.",

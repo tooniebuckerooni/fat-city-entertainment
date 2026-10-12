@@ -631,6 +631,21 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   exclusive). Why codes and not price changes: the owner is at the dashboard on
   a few weekends, and a price change needs a visit to start and another to end.
   The schedule and every reason is `HOLIDAY-SALE-2026.md`.
+  **Dates are the VISITOR'S local midnights since 12 Oct 2026** (they were UTC,
+  which ended SPOOKY20 at 5pm Pacific on Halloween itself). **The same entry also
+  drives every other sale mark on the site, all at runtime, none baked**: tile
+  tags (`_tools/add-promo-tags.js` plants hidden `data-fce-promo-pid` spans on
+  every tile of any product in PROMOS, reading PROMOS itself; tag reads "Extra
+  20% off" where Weebly's sale strip is already showing), hub lines and card
+  prices (`data-fce-promo-code` / `data-fce-promo-price` in the hub specs, with
+  the `{{amount:pNN}}` token), a note under each `/go/` button, a sentence on
+  sibling cross-sells (links carry `data-fce-price` from `add-cross-sell.js`),
+  the storefront ladder, and the phone buy bar. GA4 `begin_checkout` carries
+  `coupon` and the after-code `value`. **`_tools/check-promos.js`** (Monday,
+  exit status) checks every live entry's products, links, dates and overlaps; it
+  cannot see LemonSqueezy, so `live` stays the owner's word. All of this came
+  from a five-agent audit on 12 Oct 2026; the owner-side findings are in
+  `HOLIDAY-SALE-2026.md`.
 - **Seasonal hubs carry `{{price:pNN}}` tokens** in `_tools/new-content-pages.json`,
   which `new-content-page.js` fills from each product page's own `itemprop`
   at build time, so the hubs are re-run-after-repricing pages, not hand prose.

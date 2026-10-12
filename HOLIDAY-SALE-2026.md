@@ -106,12 +106,14 @@ For **every** code: percentage discount, **limited to the listed products only**
 (the store is shared with the Generator subscriptions, so an unscoped code
 discounts those as well), **start on or before** the start date, and
 **expire one day after** the end date. The extra day is deliberate: the site
-switches each sale off at midnight UTC, so no visitor anywhere sees a promise
-the checkout has already stopped honouring.
+switches each sale off at the visitor's own midnight (since 12 Oct; it was UTC
+midnight, which ended a sale at 5pm Pacific on its last day), and the last time
+zone gets there about 10:00 UTC the next day, so no visitor anywhere sees a
+promise the checkout has already stopped honouring.
 
 | Code | % | Site shows it | Set LS expiry | Products |
 |---|---|---|---|---|
-| `SPOOKY20` | 20 | 10 Oct to 31 Oct | 2 Nov | p189 Halloween Complete Pack |
+| `SPOOKY20` | 20 | 12 Oct to 31 Oct (**LIVE**) | 2 Nov | p189 Halloween Complete Pack, p97 Halloween Party, p174 Halloween Trivia Night, p33 Halloween Party Game Show, p155 Holidays 6-Pack, p147 Decades 5-Pack, p131 Starter Pack, p112 Gold Club |
 | `EARLYBIRD15` | 15 | 9 Nov to 26 Nov | 28 Nov | p190 Christmas Complete Pack, p42 Christmas Special, p155 Holidays 6-Pack |
 | `BLACKFRIDAY25` | 25 | 27 Nov to 30 Nov | 2 Dec | every pack and club: p190 p189 p42 p155 p131 p130 p112 p147 p101 p168 p165 p166 p176 p127 p108 p162 p128 p123 p126 p49 p28 |
 | `12DAYS-1` | 30 | 1 Dec | 3 Dec | p190 Christmas Complete Pack |
@@ -160,12 +162,23 @@ typed in. The code is added to the buy button and the sticky phone bar
 automatically. With `live: false`, or outside its dates, an entry does nothing at
 all.
 
-### Halloween Countdown: 20% off the Complete Pack (10 to 31 Oct)
-p189 drops from $35.97 to **$28.78** at checkout: three games and a Generator month,
-less than three singles bought one at a time ($40.97). **Singles stay at full
-price on purpose:** the pack is the deal, and a cheap single pulls buyers down
-the ladder. Paired with the countdown chip, it gives a shopper a reason to buy
-today.
+### Halloween Sale: 20% off eight products (12 to 31 Oct, LIVE)
+**Widened on 12 Oct**, owner's call: one code, not sixteen, so one email could
+carry it. The Halloween line (p189 $28.78, p97 and p174 $9.59, p33 $13.59) plus
+the four best-selling packs (p147 $33.59, p155 $46.05, p131 $63.20, p112 $309.19).
+This plan originally kept singles at full price so they would not pull buyers
+down the ladder; at 20% for nineteen days the pack still undercuts its three
+singles ($28.78 against $32.77), so the ladder holds where it matters.
+**Side effect, accepted unless the owner says otherwise:** Silver (p130) is the
+one club NOT in the code, so while it runs Silver costs more per game ($7.75)
+than Bronze ($6.32) or Gold.
+
+Where the sale shows on the site (all switched by the same `PROMOS` entry, so
+nothing needs a takedown): the chip under the price on the eight product pages,
+a "20% off" tag on their store tiles, a line in the Halloween hub hero, struck
+prices on both hubs' cards, a note under each button on `/go/halloween/`, a
+sentence on sibling pages' "also in a pack" lines, the price table on the
+storefront, and the phone buy bar. GA4's `begin_checkout` now carries `coupon`.
 
 ### Election week (1 to 8 Nov): left empty
 That week belongs to the election promo. See section 8.
