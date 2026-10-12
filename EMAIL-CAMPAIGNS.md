@@ -160,6 +160,7 @@ Record per send, in this doc, as they happen:
 |---|---|---|---|---|---|---|---|
 | **FIRST SEND, ~8-14 Sept — OWNER TO FILL** | **not direction A** | | | | | | |
 | Halloween, late Sept / early Oct | was to be A | | | | | | |
+| **Halloween, Tue 13 Oct 2026 (scheduled 12 Oct)**: SPOOKY20, 20% off 8 products, link `/go/halloween/?utm_campaign=halloween-2026` | owner's own layout | | | | | | |
 | Christmas, mid-to-late Oct | B | | | | | | |
 | Bundles, early-to-mid Nov | C | | | | | | |
 | Last-minute, early Dec | winner | | | | | | |
