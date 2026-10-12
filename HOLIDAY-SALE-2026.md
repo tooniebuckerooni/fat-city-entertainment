@@ -17,6 +17,32 @@ p147, p131, p112). Checked in Chromium on all eight pages and `/go/halloween/`.
 The e-blast for it is the 12 Oct version in this conversation's record and
 goes out Tue 13 Oct. The other fifteen codes in section 3D are still optional.
 
+## 0b. Audit, 12 Oct 2026: what still needs the owner
+
+Five read-only audits found every place SPOOKY20 was invisible; the site-side
+fixes shipped the same day (see CLAUDE.md, promo calendar). These remain, in
+order of sales per minute:
+
+1. **LemonSqueezy abandoned-cart emails:** check they are on (Settings, Recovery).
+   Two minutes, costs nothing unless it recovers a sale.
+2. **Resend Tuesday's email to non-openers on Fri 16 Oct**, new subject
+   ("Still looking for a Halloween game night?"). Check the Sender allowance.
+3. **A plain-text note to past buyers** (opted-in only), and **texts to 20 to 30
+   venue, DJ and karaoke contacts**. Copy for both is in the session record.
+4. **Google Business Profile Offer post** on both profiles: SPOOKY20, 13 to 31 Oct.
+5. **Sister site** (bingocardgenerator2 `index.html:871`, the "Short on time?"
+   line): swap to the Halloween sale with UTMs, retire 1 Nov. Owner's OK first:
+   that repo's NEXT.md says leave it alone during its spam-update recovery.
+6. **Welcome email** (`triv101-api/src/index.js`): a Halloween line until 31 Oct.
+   Needs a dashboard re-paste, so only worth it this week.
+7. **Decisions:** Silver (p130) is the only club outside the code (costs more per
+   game than Bronze or Gold until 31 Oct); p33 is "Halloween Party Game Show" in
+   the email but "Halloween Trivia Party Pack (2 Games)" on its page; no
+   cross-sell anywhere points at the Starter Pack (p131).
+8. **Christmas groundwork, worth starting now:** an Etsy listing for the
+   Christmas games (reviews by December), a LemonSqueezy affiliate program for
+   DJs and karaoke hosts, Christmas pins on Pinterest.
+
 ## 1. Where things stand, honestly
 
 - **The Halloween banner is gone, the product stays.** Owner's read, 9 Oct: four
