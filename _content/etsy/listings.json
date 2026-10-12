@@ -1,0 +1,561 @@
+{
+  "_readme": "Etsy launch kit data. Edit here, then: node _tools/build-etsy-kit.js --write (text) and --images (renders listing images and Start Here PDFs to _content/etsy/out/, gitignored). Prices are NOT stored: each listing reads its product page's own itemprop price, so Etsy and the site quote one figure. Customer-facing: no em-dashes, and the tool refuses one.",
+  "shop": {
+    "name_options": [
+      "FatCityEntertainment",
+      "FatCityGames",
+      "FatCityGameNight"
+    ],
+    "title": "Music bingo and trivia nights that bring people together",
+    "announcement": "We have been hosting music bingo and trivia nights on live crowds since 1999, and every game here is one we would run ourselves. Everything is an instant digital download: print the cards, press play on the playlist, and you are hosting tonight. Questions about a game? Send us a message, we answer every one.",
+    "about_story_headline": "We bring people together.",
+    "about_story": "My first shows were in 1999, hosting \"Name That Tune\" in Calgary. More than twenty-five years of standing in front of rooms later, the job is still the same: unite an audience and break down the walls people walk in with.\n\nWe are entertainers. We are ice-breakers. Times are hard for a lot of people, and a game night is one of the few places left where strangers sit at the same table, laugh at the same wrong answer and leave knowing each other's names. That is why we do this.\n\nEvery game in this shop got tried out on a live crowd first, which is why the questions land, why the rounds are the length they are, and why the songs are ones people actually shout along to. We hand you the night, tested and ready, so you can be the one who brings your people together.\n\nWhat we believe: a room full of strangers is one good game away from being a crowd. Everyone gets to play, and nobody should leave a game night feeling stupid. Phones down, heads up. And the host is the hero: our job is to make you look great.\n\nQuestions, or a night we have not covered yet? Send me a message. I read them all.\n\nDusty Ramsbottom, Entertainer and Founder",
+    "sections": [
+      "Christmas and Holiday",
+      "Music Bingo by Decade",
+      "Music Bingo Packs",
+      "Trivia Nights",
+      "Halloween"
+    ],
+    "policies": {
+      "digital_downloads": "This is a digital download. Nothing is shipped. Your files are ready on the Etsy Purchases page the moment payment clears, and Etsy emails you a link too.",
+      "returns": "Because digital files cannot be returned, Etsy does not offer automatic returns on them. We still stand behind every game: if a file will not open, prints wrong, or the game is not what the listing described, message us and we will fix it, replace it, or refund you.",
+      "exchanges": "Bought one game and want the pack? Message us within 30 days with your order number and we will credit what you paid toward a larger pack in this shop.",
+      "faq": [
+        [
+          "What do I need to host?",
+          "A printer, a pen for each player and a way to play music out loud. The playlists are on Spotify and Apple Music, and the callsheet lists every song in play order if you would rather use your own music."
+        ],
+        [
+          "What paper size are the cards?",
+          "They are made for US Letter paper, printed landscape. On A4, choose \"Fit to page\" when you print."
+        ],
+        [
+          "How many people can play?",
+          "Each game has 250 different cards, so up to 250 players, each with a unique card."
+        ],
+        [
+          "Can I use these at a paid event or a bar?",
+          "Yes. Host as many nights as you like, at home, at work or at your venue. Please do not resell or share the files themselves."
+        ],
+        [
+          "Do I need a screen or software for the trivia nights?",
+          "No. The printable trivia nights are paper only: a host packet to read from, team answer sheets and a score sheet. The game show listings are the exception, they run in Microsoft PowerPoint on a TV or projector, and the listing says so."
+        ]
+      ]
+    },
+    "thank_you_message": "Thank you for your order! Start with the file called START HERE: it has the playlist links for your game and the three steps to hosting. Print the cards landscape on Letter paper (on A4, choose \"Fit to page\"). If anything does not open or print right, message us and a real host will sort it out. Have a great night.",
+    "about_links_note": "Etsy allows a link to your own website on the shop About page only. Do not put the website, a discount code for it, or any \"buy it cheaper on our site\" line in a listing, a message or a file: Etsy treats steering a buyer off Etsy to buy as fee avoidance."
+  },
+  "shared": {
+    "how_bingo": [
+      "Print the cards (landscape) and hand one to each player.",
+      "Open the playlist from your START HERE file and press play. About 60 seconds of each song is plenty.",
+      "Players mark the song they hear. Call a line, four corners or a blackout, and keep the callsheet handy to check a winner."
+    ],
+    "how_trivia": [
+      "Print the team answer sheets and the score sheet. Keep the host packet for yourself.",
+      "Read each round out loud. Teams write their answers and hand the sheet in.",
+      "Mark, read the scores, and use the tiebreaker if two tables finish level."
+    ],
+    "how_gameshow": [
+      "Open the game in Microsoft PowerPoint on a TV or projector.",
+      "Teams pick a category and a value, and you reveal the question with a click.",
+      "Play the matching playlist between rounds and keep score on the board."
+    ],
+    "good_to_know": [
+      "Instant digital download. Nothing is shipped.",
+      "Cards print on US Letter, landscape. On A4, choose \"Fit to page\".",
+      "Host it as many times as you like, at home, at work or at your venue.",
+      "If anything is not right, message us and we will fix it or refund you."
+    ],
+    "about": "Fat City Entertainment has hosted music bingo and trivia on live crowds since 1999. We are entertainers and ice-breakers, and every game here is one we have run ourselves."
+  },
+  "listings": [
+    {
+      "pid": "p103",
+      "slug": "christmas-music-bingo",
+      "kind": "bingo",
+      "section": "Christmas and Holiday",
+      "title": "Christmas Music Bingo, 250 Printable Cards with Playlist, Office Christmas Party Game, Holiday Song Bingo",
+      "tags": [
+        "christmas bingo",
+        "music bingo",
+        "christmas party game",
+        "office party game",
+        "holiday party game",
+        "christmas songs",
+        "printable bingo",
+        "song bingo",
+        "xmas party game",
+        "family game night",
+        "work christmas party",
+        "holiday music game",
+        "christmas activity"
+      ],
+      "opener": "The office Christmas party, the family get-together, the pub on a December Friday: this is the game that gets every table singing. 250 printable music bingo cards built from the Christmas songs everyone knows, with a ready-made playlist so you just press play.",
+      "includes": [
+        "250 different music bingo cards, Christmas song titles in the squares",
+        "Callsheet with all 32 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "Christmas Party"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-christmas-party-sample-cards.png",
+      "accent": "#b3122e",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-christmas-party.jpeg"
+    },
+    {
+      "pid": "p42",
+      "slug": "christmas-game-show-3-pack",
+      "kind": "gameshow",
+      "section": "Christmas and Holiday",
+      "title": "Christmas Game Show 3-Pack, PowerPoint Trivia Game, Music Trivia and Christmas Music Bingo, Office Holiday Party Games",
+      "tags": [
+        "christmas trivia",
+        "powerpoint game",
+        "christmas game show",
+        "office party game",
+        "holiday party game",
+        "music trivia",
+        "christmas bingo",
+        "big screen game",
+        "team building game",
+        "xmas party games",
+        "work christmas party",
+        "christmas quiz",
+        "holiday trivia"
+      ],
+      "opener": "A whole Christmas party night in one download. Open with a Christmas game show on the big screen, keep the energy up with a music trivia round, and finish with music bingo for the whole room.",
+      "includes": [
+        "Game 1: Christmas game show, five themed categories (Microsoft PowerPoint)",
+        "Game 2: Music trivia, five categories with a Final Challenge and bonus rounds (Microsoft PowerPoint)",
+        "Game 3: Christmas music bingo, 250 printable cards and the callsheet",
+        "START HERE guide with all three playlists"
+      ],
+      "needs": "Games 1 and 2 need Microsoft PowerPoint and a TV or projector.",
+      "packs": [
+        "Christmas Party"
+      ],
+      "playlists": [
+        [
+          "Game 1: Christmas game show music",
+          "https://open.spotify.com/playlist/5LkJ39qOOgl19b7rzhTf8d",
+          ""
+        ],
+        [
+          "Game 2: Music trivia",
+          "https://open.spotify.com/playlist/6IQOMSdYhXhaiOcT0NC82H",
+          ""
+        ]
+      ],
+      "hero": "uploads/4/3/3/6/43362499/christmas-party-trivia-3-pack.png",
+      "sample": "uploads/4/3/3/6/43362499/christmas-party-music-bingo-sample-cards-full.png",
+      "accent": "#1f6b3a",
+      "art": "uploads/4/3/3/6/43362499/christmas-party-trivia-3-pack.png"
+    },
+    {
+      "pid": "p155",
+      "slug": "holiday-music-bingo-6-pack",
+      "kind": "bingo",
+      "section": "Christmas and Holiday",
+      "title": "Holiday Music Bingo 6-Pack, 1,500 Printable Cards with Playlists, Christmas, Halloween, Valentine's and St Patrick's Day",
+      "tags": [
+        "holiday bingo",
+        "music bingo",
+        "seasonal party game",
+        "christmas bingo",
+        "halloween bingo",
+        "valentines day game",
+        "st patricks day game",
+        "mothers day activity",
+        "april fools game",
+        "printable bingo",
+        "song bingo",
+        "senior activity",
+        "bar game night"
+      ],
+      "opener": "A party for every season, in one download. Six music bingo games, one for each holiday worth throwing a night for, each with 250 printable cards and its own ready-made playlist.",
+      "includes": [
+        "Valentine's Day, St. Patrick's Day, April Fools, Mother's Day, Halloween and Christmas",
+        "250 different cards for each game, 1,500 in all",
+        "A callsheet for each game, every song in play order",
+        "START HERE guide with all six Spotify and Apple Music playlists"
+      ],
+      "packs": [
+        "Girls Vs Boys",
+        "St. Patrick's Day",
+        "April Fools (Soundalikes)",
+        "Rocker Moms",
+        "Halloween Party",
+        "Christmas Party"
+      ],
+      "pack_labels": [
+        "Valentine's Day",
+        "St. Patrick's Day",
+        "April Fools",
+        "Mother's Day",
+        "Halloween",
+        "Christmas"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-christmas-party-sample-cards.png",
+      "perk_note": "The site version of this pack includes a month of Bingo Card Generator 2.0. Leave it out of the Etsy listing unless you have a redemption code that can be used more than once.",
+      "accent": "#7a2e8a",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-holidays-6-pack.jpeg"
+    },
+    {
+      "pid": "p147",
+      "slug": "decades-music-bingo-5-pack",
+      "kind": "bingo",
+      "section": "Music Bingo Packs",
+      "title": "Decades Music Bingo 5-Pack, 60s 70s 80s 90s 2000s, 1,250 Printable Song Bingo Cards with Playlists, Retro Party Game",
+      "tags": [
+        "decades party",
+        "music bingo",
+        "80s party game",
+        "90s party game",
+        "70s party",
+        "60s party",
+        "retro party game",
+        "printable bingo",
+        "song bingo",
+        "birthday party game",
+        "reunion game",
+        "senior activity",
+        "bar game night"
+      ],
+      "opener": "Take the room through the decades, one game at a time. Five music bingo games, each built from the biggest songs of its decade, from the 60s to the 2000s. Our best-selling pack, because there is a decade for everyone at the table.",
+      "includes": [
+        "The 60s, The 70s, The 80s, The 90s and The 2000s",
+        "250 different cards for each game, 1,250 in all",
+        "Artist version and song title version of each game",
+        "A callsheet for each game and START HERE with all ten playlist links"
+      ],
+      "packs": [
+        "The 60s",
+        "The 70s",
+        "The 80s",
+        "The 90s",
+        "The 2000s"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-the-90s-sample-cards.png",
+      "accent": "#d9531e",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-decades-5-pack.jpeg"
+    },
+    {
+      "pid": "p101",
+      "slug": "the-year-was-music-bingo-5-pack",
+      "kind": "bingo",
+      "section": "Music Bingo Packs",
+      "title": "New Years Eve Music Bingo 5-Pack, The Year Was 1983 1992 2001 2009 2022, 1,250 Printable Cards with Playlists",
+      "tags": [
+        "new years eve game",
+        "nye party game",
+        "music bingo",
+        "new years party",
+        "birthday year party",
+        "printable bingo",
+        "song bingo",
+        "80s party game",
+        "90s party game",
+        "2000s party",
+        "class reunion game",
+        "party game adults",
+        "bar game night"
+      ],
+      "opener": "Ring in the new year with a game about the old ones. Five music bingo games, each one a single year of hits: 1983, 1992, 2001, 2009 and 2022. Perfect for New Year's Eve, a milestone birthday or a class reunion.",
+      "includes": [
+        "The Year Was 1983, 1992, 2001, 2009 and 2022",
+        "250 different cards for each game, 1,250 in all",
+        "A callsheet for each game, every song in play order",
+        "START HERE guide with all ten playlist links"
+      ],
+      "packs": [
+        "The Year Was 1983",
+        "The Year Was 1992",
+        "The Year Was 2001",
+        "The Year Was 2009",
+        "The Year Was 2022"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-the-year-was-5-pack-sample-cards.jpeg",
+      "accent": "#c79a1b",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-the-year-was-5-pack.jpeg"
+    },
+    {
+      "pid": "p144",
+      "slug": "80s-music-bingo",
+      "kind": "bingo",
+      "section": "Music Bingo by Decade",
+      "title": "80s Music Bingo, 250 Printable Cards with Playlist, 80s Party Game, Retro Song Bingo for Birthdays and Bar Nights",
+      "tags": [
+        "80s music bingo",
+        "80s party",
+        "80s party game",
+        "music bingo",
+        "printable bingo",
+        "song bingo",
+        "retro party game",
+        "50th birthday game",
+        "40th birthday game",
+        "decade party",
+        "class reunion game",
+        "bar game night",
+        "party game adults"
+      ],
+      "opener": "High energy pop, big rock and the ballads everyone sings along to. The 80s is the decade every room knows by heart, which makes this the easiest music bingo night you will ever host.",
+      "includes": [
+        "250 different cards, artist version and song title version",
+        "Callsheet with all 35 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "The 80s"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-the-80s-sample-cards.png",
+      "accent": "#e0218a",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-the-80s.png"
+    },
+    {
+      "pid": "p113",
+      "slug": "90s-music-bingo",
+      "kind": "bingo",
+      "section": "Music Bingo by Decade",
+      "title": "90s Music Bingo, 250 Printable Cards with Playlist, 90s Party Game, Alternative Rock Song Bingo for Adults",
+      "tags": [
+        "90s music bingo",
+        "90s party",
+        "90s party game",
+        "music bingo",
+        "printable bingo",
+        "song bingo",
+        "retro party game",
+        "40th birthday game",
+        "grunge party",
+        "decade party",
+        "class reunion game",
+        "bar game night",
+        "party game adults"
+      ],
+      "opener": "Flannel, feedback and a whole lot of angst. The 90s game is built from the alternative and rock anthems that a certain age group will shout every word of.",
+      "includes": [
+        "250 different cards, artist version and song title version",
+        "Callsheet with all 30 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "The 90s"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-the-90s-sample-cards.png",
+      "accent": "#2a7f8f",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-the-90s.jpeg"
+    },
+    {
+      "pid": "p115",
+      "slug": "70s-music-bingo",
+      "kind": "bingo",
+      "section": "Music Bingo by Decade",
+      "title": "70s Music Bingo, 250 Printable Cards with Playlist, 70s Disco and Rock Party Game, Retro Song Bingo",
+      "tags": [
+        "70s music bingo",
+        "70s party",
+        "70s party game",
+        "disco party game",
+        "music bingo",
+        "printable bingo",
+        "song bingo",
+        "retro party game",
+        "60th birthday game",
+        "decade party",
+        "senior activity",
+        "bar game night",
+        "party game adults"
+      ],
+      "opener": "Disco on one side of the room, rock on the other. The 70s game has the songs that started the argument, and everybody still knows the words.",
+      "includes": [
+        "250 different cards, artist version and song title version",
+        "Callsheet with all 36 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "The 70s"
+      ],
+      "accent": "#b5651d",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-the-70s-sample-cards.png",
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-the-70s-sample-cards.png"
+    },
+    {
+      "pid": "p62",
+      "slug": "golden-oldies-music-bingo",
+      "kind": "bingo",
+      "section": "Music Bingo by Decade",
+      "title": "Golden Oldies Music Bingo, 250 Printable Cards with Playlist, 50s and 60s Songs, Senior Activity and Family Game",
+      "tags": [
+        "oldies music bingo",
+        "golden oldies",
+        "senior activity",
+        "nursing home game",
+        "50s party game",
+        "60s party",
+        "music bingo",
+        "printable bingo",
+        "song bingo",
+        "family game night",
+        "retirement party",
+        "70th birthday game",
+        "sock hop party"
+      ],
+      "opener": "All the favourites, all the way back to the malt shop. Golden Oldies is our most family-friendly music bingo game: everyone from the grandkids to the grandparents knows these songs.",
+      "includes": [
+        "250 different cards, artist version and song title version",
+        "Callsheet with all 33 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "Golden Oldies"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-golden-oldies-sample-cards.png",
+      "accent": "#c0392b",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-golden-oldies.jpeg"
+    },
+    {
+      "pid": "p63",
+      "slug": "hair-bands-music-bingo",
+      "kind": "bingo",
+      "section": "Music Bingo by Decade",
+      "title": "Hair Bands Music Bingo, 250 Printable Cards with Playlist, 80s Rock Party Game, Song Bingo for Bar Nights",
+      "tags": [
+        "80s rock party",
+        "hair metal party",
+        "music bingo",
+        "80s party game",
+        "rock party game",
+        "printable bingo",
+        "song bingo",
+        "bar game night",
+        "50th birthday game",
+        "retro party game",
+        "party game adults",
+        "classic rock game",
+        "decade party"
+      ],
+      "opener": "Big hair, bigger choruses. Hair Bands is our loudest music bingo game: the arena rock and new wave of the 70s, 80s and 90s, and a guaranteed sing-along.",
+      "includes": [
+        "250 different cards, artist version and song title version",
+        "Callsheet with all 31 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "Hair Bands"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/music-bingo-hair-bands-sample-cards.png",
+      "accent": "#5b2a86",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-hair-bands.jpeg"
+    },
+    {
+      "pid": "p169",
+      "slug": "pub-trivia-night-one",
+      "kind": "trivia",
+      "section": "Trivia Nights",
+      "title": "Printable Pub Trivia Night, 50 Questions with Answers, 5 Rounds, Host Packet and Answer Sheets, No Screen Needed",
+      "tags": [
+        "pub trivia",
+        "trivia night",
+        "printable trivia",
+        "trivia questions",
+        "quiz night",
+        "bar trivia",
+        "trivia game",
+        "general knowledge",
+        "fundraiser game",
+        "team building game",
+        "adult game night",
+        "pub quiz",
+        "trivia for adults"
+      ],
+      "opener": "A complete trivia night you can print and host tonight. Five rounds, 50 questions and a tiebreaker, written to get a brand-new room playing without scaring anyone off. Runs about two hours with a break.",
+      "includes": [
+        "Host packet: every question in running order, with the answers",
+        "Team answer sheets, one per round, ready to photocopy",
+        "Score sheet for up to 12 teams",
+        "A closest-wins tiebreaker, and one double-points round so a slow starter can still win"
+      ],
+      "rounds": [
+        "Warm-Up",
+        "Around the World",
+        "At the Movies",
+        "Moments in History",
+        "True or False"
+      ],
+      "hero": "uploads/4/3/3/6/43362499/trivia-show-gk-night-one.png",
+      "accent": "#1d4e89",
+      "art": "uploads/4/3/3/6/43362499/trivia-show-gk-night-one.png"
+    },
+    {
+      "pid": "p176",
+      "slug": "pub-trivia-5-pack",
+      "kind": "trivia",
+      "section": "Trivia Nights",
+      "title": "Pub Trivia 5-Pack, Five Printable Trivia Nights, 250 Questions with Answers, Weekly Bar Quiz, No Screen Needed",
+      "tags": [
+        "pub trivia",
+        "trivia night",
+        "printable trivia",
+        "trivia questions",
+        "quiz night",
+        "bar trivia",
+        "weekly trivia",
+        "general knowledge",
+        "fundraiser game",
+        "team building game",
+        "adult game night",
+        "pub quiz",
+        "trivia bundle"
+      ],
+      "opener": "Five complete trivia nights in one download: enough to run a weekly night for over a month without writing a single question. They get harder as you go, from The Opener to The Decider.",
+      "includes": [
+        "Five shows: The Opener, The Regular, The Mixer, The Curveball and The Decider",
+        "250 questions, five rounds of ten per night, no repeats across the set",
+        "A host packet, team answer sheets and a score sheet for every night",
+        "A tiebreaker for every night"
+      ],
+      "hero": "uploads/4/3/3/6/43362499/trivia-show-gk-5pack.png",
+      "accent": "#1d4e89",
+      "art": "uploads/4/3/3/6/43362499/trivia-show-gk-5pack.png"
+    },
+    {
+      "pid": "p97",
+      "slug": "halloween-music-bingo",
+      "kind": "bingo",
+      "section": "Halloween",
+      "title": "Halloween Music Bingo, 250 Printable Cards with Playlist, Halloween Party Game for Adults and Families",
+      "tags": [
+        "halloween bingo",
+        "music bingo",
+        "halloween party game",
+        "halloween games",
+        "spooky party game",
+        "printable bingo",
+        "song bingo",
+        "halloween activity",
+        "office halloween",
+        "family game night",
+        "party game adults",
+        "monster mash",
+        "halloween songs"
+      ],
+      "opener": "No Halloween party is complete without it. Thirty spooky songs, from the ones the kids know to the ones the grown-ups love, on 250 printable music bingo cards with a ready-made playlist.",
+      "includes": [
+        "250 different cards, spooky song titles in the squares",
+        "Callsheet with all 30 songs in play order",
+        "START HERE guide with the Spotify and Apple Music playlist links"
+      ],
+      "packs": [
+        "Halloween Party"
+      ],
+      "sample": "uploads/4/3/3/6/43362499/halloween-party-music-bingo-sample-cards.png",
+      "accent": "#e8731a",
+      "art": "uploads/4/3/3/6/43362499/music-bingo-halloween-party.jpeg"
+    }
+  ]
+}

@@ -890,6 +890,30 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
 - **Re-run after `new-content-page.js`**, which regenerates `charlotte-events.html`
   whole and drops the block. In the Monday loop; clicks report `origin: city-round`.
 
+## Etsy launch kit (`_content/etsy/`, 12 Oct 2026)
+
+- **`_tools/build-etsy-kit.js`** builds it from `_content/etsy/listings.json`:
+  `--write` regenerates `LISTINGS.md` (paste-ready copy), `--images` renders
+  five 2700x2025 images and a `START-HERE.pdf` per listing, plus the shop
+  banner and icon, into `_export/etsy/` (gitignored). The owner's checklist is
+  `_content/etsy/README.md`. 13 listings as of that date; the shop is not open yet.
+- **Prices are read off each product page, never stored**, so Etsy and the site
+  agree. Re-run `--write` after any repricing.
+- **START HERE is the file an Etsy buyer cannot do without.** On the site the
+  playlists are linked on the product page, which an Etsy buyer never sees.
+- **The tool refuses**: a title over 140 characters, other than 13 tags, a tag
+  over 20 characters, a trademark tag, an em-dash, and **any link or our domain
+  in a listing** (Etsy treats steering a buyer off Etsy as fee avoidance; the
+  shop About page is the one allowed place, typed by the owner).
+- **The `trivia-category-cards-*-full.jpeg` images are one generic photo** of
+  other games (Food Fight, Out of This World), shared across products. Never use
+  one as a specific product's artwork; a first draft put it on the Christmas hero.
+- **`song-lists.json` has no Spotify link for six packs** (The 90s, Anagrams,
+  Antonyms, Life's A Beach, Cities, Video Games): their product pages use
+  Spotify's older `/user/<name>/playlist/<id>` URL, which the library's extractor
+  missed, so the library pages show Apple only for them. The kit falls back to
+  the product page's single link. The library itself is not fixed yet.
+
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
 from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
