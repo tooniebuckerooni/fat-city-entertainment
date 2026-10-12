@@ -7,6 +7,16 @@ switches each one on and off by date. **Start with section 3.**
 
 ---
 
+## 0. LIVE NOW (12 Oct 2026)
+
+**`SPOOKY20` is live**: 20% off eight products until 31 Oct (LS expiry 2 Nov),
+switched on in `PROMOS` after the owner confirmed it in LemonSqueezy. The owner
+could do one code, not sixteen, so it was widened from p189 alone to the
+Halloween line (p189, p97, p174, p33) plus the four best-selling packs (p155,
+p147, p131, p112). Checked in Chromium on all eight pages and `/go/halloween/`.
+The e-blast for it is the 12 Oct version in this conversation's record and
+goes out Tue 13 Oct. The other fifteen codes in section 3D are still optional.
+
 ## 1. Where things stand, honestly
 
 - **The Halloween banner is gone, the product stays.** Owner's read, 9 Oct: four
