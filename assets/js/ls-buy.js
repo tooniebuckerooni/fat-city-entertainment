@@ -42,9 +42,11 @@
   // reads, so no em-dashes in `name` (CLAUDE.md). Owner's playbook, with the
   // reasons behind every entry: HOLIDAY-SALE-2026.md.
   var PROMOS = [
-    { code: "SPOOKY20", name: "Halloween Countdown", pct: 20,
-      start: "2026-10-10", end: "2026-11-01", live: false,
-      products: ["p189"] },
+    // Widened 12 Oct 2026 (owner, one code only, 5-10 products): the Halloween
+    // line plus the four best-selling packs, so one email can carry one code.
+    { code: "SPOOKY20", name: "Halloween Sale", pct: 20,
+      start: "2026-10-12", end: "2026-11-01", live: false,
+      products: ["p189", "p97", "p174", "p33", "p155", "p147", "p131", "p112"] },
     // Nov 1 to 8 is deliberately empty: the election promo's week.
     { code: "EARLYBIRD15", name: "Christmas Early Bird", pct: 15,
       start: "2026-11-09", end: "2026-11-27", live: false,
