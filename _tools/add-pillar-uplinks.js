@@ -66,6 +66,10 @@ const BINGO = { href: "/bingo-card-generator-guide.html", text: "bingo card gene
 // internal links in is the orphan the Halloween hub already was once.
 const HALLOWEEN = { href: "/halloween-trivia-and-music-bingo.html", text: "Halloween trivia and music bingo" };
 const CHRISTMAS = { href: "/christmas-trivia-and-music-bingo.html", text: "Christmas trivia and music bingo" };
+// The Christmas Party pack itself (18 Oct 2026). It is the page Google shows for
+// "christmas music bingo", and nothing in the editorial linked to it by that
+// phrase. The Thanksgiving post is the natural bridge into December.
+const CHRISTMAS_MUSIC_BINGO = { href: "/store/p103/christmasparty.html", text: "Christmas music bingo" };
 
 // slug -> the pillar it belongs under, and the sentence that links to it.
 // Varied on purpose: ten identical closing lines across ten posts reads as
@@ -108,6 +112,8 @@ const UPLINKS = {
     "Planning for the end of October? Our Halloween games, ready to print, are on the"],
   "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": [CHRISTMAS,
     "Every Christmas game we make, at this year's prices, is on our"],
+  "3-thanksgiving-themed-bingo-ideas": [CHRISTMAS_MUSIC_BINGO,
+    "Thanksgiving starts the run to December. When the staff party comes round, our"],
 };
 
 // Second halves, so each sentence ends naturally rather than on the link.
@@ -119,6 +125,7 @@ const TAILS = {
   "5-easy-ways-to-entertain-your-friends-or-coworkers-for-the-christmas-holidays": " page.",
   "staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment": " page.",
   "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": " page.",
+  "3-thanksgiving-themed-bingo-ideas": " game has 250 printable cards and the playlist ready to press play.",
   "19-music-bingo-games-our-crowds-cant-get-enough-of": " is for.",
   "decade-by-decade-music-bingo-playlist-guide": " walks through it.",
 };

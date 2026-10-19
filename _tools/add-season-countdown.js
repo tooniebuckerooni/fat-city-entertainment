@@ -54,6 +54,17 @@ const SEASONS = [
     from: "2026-11-15",
     pids: ["p103", "p42", "p175", "p155", "p190"],
   },
+  {
+    // New Year's Eve (added 18 Oct 2026): the same two packs as NEWYEAR20 in
+    // ls-buy.js PROMOS and the 27 Dec send in HOLIDAY-SALE-2026.md. Shows from
+    // 1 Dec; neither pack is in the Christmas entry, so first-match never bites.
+    // No palette of its own: it takes the neutral chip style in site-extras.css.
+    key: "newyear",
+    event: "New Year's Eve",
+    date: "2026-12-31",
+    from: "2026-12-01",
+    pids: ["p101", "p147"],
+  },
 ];
 
 const START = "<!-- fce:countdown -->";

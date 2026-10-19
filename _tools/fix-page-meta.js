@@ -173,6 +173,27 @@ for (const file of walk(REPO).sort()) {
       "<title>Trivia Store: Browse All Downloadable Trivia Games &amp; Music Bingo - Fat City Entertainment</title>");
     oneOffs++;
   }
+  // The Christmas Party pack is the page Google shows for "christmas music
+  // bingo": Search Console, 28 days to 16 Oct 2026, put that query at ~75
+  // impressions (position 8) against 4 for every "christmas party bingo"
+  // variant, and the Christmas hub had only 22 impressions in total. So the
+  // title and description lead with the phrase people search. The product name
+  // and the H1 ("Christmas Party - 250 Music Bingo Cards") are untouched: a
+  // rename reaches LemonSqueezy, and the H1 keeps "Christmas Party" on the page.
+  // og:description was still the store-wide "Great bingo games..." boilerplate.
+  // Function replacers on purpose: a "$" in a string replacement is re-read.
+  if (rel === "store/p103/christmasparty.html") {
+    const T = "Christmas Music Bingo: 250 Printable Cards and Playlists";
+    const D = "Christmas music bingo for staff parties and family nights: 250 printable " +
+      "cards plus ready-made Spotify and Apple Music playlists. Download and play tonight.";
+    html = setDesc(html, D);
+    html = html.replace(/<title>[\s\S]*?<\/title>/i, () => `<title>${esc(T)}</title>`);
+    html = html.replace(/<meta name="twitter:title" content="[^"]*">/i, () => `<meta name="twitter:title" content="${esc(T)}">`);
+    html = html.replace(/<meta name="twitter:description" content="[^"]*">/i, () => `<meta name="twitter:description" content="${esc(D)}">`);
+    html = html.replace(/<meta property="og:title" content="[^"]*">/i, () => `<meta property="og:title" content="${esc(T)}">`);
+    html = html.replace(/<meta property="og:description" content="[^"]*">/i, () => `<meta property="og:description" content="${esc(D)}">`);
+    oneOffs++;
+  }
 
   // 2. og:title / og:description for pages that have none.
   if (!/property="og:title"/i.test(html)) {
