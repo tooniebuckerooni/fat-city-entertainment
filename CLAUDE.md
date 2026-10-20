@@ -914,6 +914,31 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   missed, so the library pages show Apple only for them. The kit falls back to
   the product page's single link. The library itself is not fixed yet.
 
+## Song-list extraction damage (repaired 20 Oct 2026)
+
+- **`_tools/repair-song-lists.js` fixed 213 rows in 25 packs** of
+  `_content/song-lists.json`, and 10 in `_content/tracklists.json`. Two shapes,
+  both from the original PDF extraction: (1) on every callsheet's SECOND page the
+  artist's first letter sat at the end of the song cell and the first letters of
+  the third column sat at the end of the artist (*"Walk This Way   A" /
+  "erosmith   A"*). **On the puzzle packs that third column is the answer**, so
+  one letter of it was published on about 60 rows; (2) 26 rows where a wrapped
+  title or artist was glued onto the row above (*"Walking in Memphis San
+  Francisco (Be Sure to"*). Rule (1) keys on a run of two or more spaces, which
+  no real cell has, so it is idempotent; the 26 are hand fixes in `MANUAL`, each
+  guarded by the damaged text it replaces. The tool exits non-zero if any padded
+  cell survives, so re-run it after any new extraction.
+- **Order after a song-list edit:** `build-song-library.js --write`,
+  `add-jsonld.js --write`, `add-tracklists.js --write`,
+  `build-generator-links.js --write`, then `etsy` kit `--write`.
+- **Do NOT run `sitemap-lastmod.js --write` after it.** It re-dated about 99
+  URLs, including pages nothing had touched (`contact.html`, unchanged library
+  pages), which is the false freshness signal the `MODIFIED` map rule warns about.
+  Date only the URLs that really changed.
+- **One open question for the owner, not acted on:** Hair Bands rows 24 to 31
+  (Whitney Houston, Rick Astley, *The Final Countdown*) look like another pack's
+  page. Only the callsheet can say.
+
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
 from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
