@@ -1,6 +1,6 @@
 {
   "title": "Christmas Warm-Up Trivia",
-  "status": "draft",
+  "status": "live",
   "round": {
     "name": "Christmas Warm-Up",
     "format": "open",
@@ -32,12 +32,12 @@
         "a": "French"
       },
       {
-        "q": "In \"The Nightmare Before Christmas\", Jack Skellington is the Pumpkin King of which town?",
-        "a": "Halloween Town"
+        "q": "In \"The Nightmare Before Christmas\", what is the name of Jack Skellington's ghost dog?",
+        "a": "Zero"
       },
       {
         "q": "Which British dessert is traditionally doused in brandy, set alight and sometimes hides a silver coin?",
-        "a": "Christmas pudding (also called plum pudding)"
+        "a": "Christmas pudding (also called plum pudding or figgy pudding)"
       },
       {
         "q": "Which singer recorded \"Rockin' Around the Christmas Tree\" in 1958, when she was just 13?",

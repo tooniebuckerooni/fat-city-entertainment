@@ -16,7 +16,7 @@ We've been filling gaps like that since 1999. A good game gets people off their 
 We're not printing the answers here, because the fun is in the room. But here's a taste:
 
 - What was the name of the ship that carried the Pilgrims across the Atlantic in 1620?
-- Which NFL team has hosted a home game on Thanksgiving Day nearly every year since 1934?
+- Which NFL team has played at home on Thanksgiving Day nearly every year since 1934?
 - Which writer campaigned for years to make Thanksgiving a national holiday, and also wrote "Mary Had a Little Lamb"?
 
 The first one, everybody gets. The last one, somebody's uncle will swear he knows and then won't.

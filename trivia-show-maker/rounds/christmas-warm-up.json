@@ -1,0 +1,51 @@
+{
+  "title": "Christmas Warm-Up Trivia",
+  "round": {
+    "name": "Christmas Warm-Up",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "In the song \"Frosty the Snowman\", Frosty has a corncob pipe and what kind of nose?",
+        "a": "A button nose"
+      },
+      {
+        "q": "Finish the carol line for me: \"Deck the halls with boughs of...\"",
+        "a": "Holly"
+      },
+      {
+        "q": "Fill in the last word of Mariah Carey's 1994 hit: \"All I Want for Christmas Is...\"",
+        "a": "You"
+      },
+      {
+        "q": "Which Russian composer wrote the music for the ballet \"The Nutcracker\"?",
+        "a": "Pyotr Ilyich Tchaikovsky"
+      },
+      {
+        "q": "In the Philippines, homes glow at Christmas with a star-shaped lantern. What is it called?",
+        "a": "A parol"
+      },
+      {
+        "q": "The carol \"O Holy Night\" was first written as a poem in which language?",
+        "a": "French"
+      },
+      {
+        "q": "In \"The Nightmare Before Christmas\", what is the name of Jack Skellington's ghost dog?",
+        "a": "Zero"
+      },
+      {
+        "q": "Which British dessert is traditionally doused in brandy, set alight and sometimes hides a silver coin?",
+        "a": "Christmas pudding (also called plum pudding or figgy pudding)"
+      },
+      {
+        "q": "Which singer recorded \"Rockin' Around the Christmas Tree\" in 1958, when she was just 13?",
+        "a": "Brenda Lee"
+      },
+      {
+        "q": "The tune we sing \"Hark! The Herald Angels Sing\" to was adapted from a cantata by which German composer?",
+        "a": "Felix Mendelssohn"
+      }
+    ]
+  }
+}

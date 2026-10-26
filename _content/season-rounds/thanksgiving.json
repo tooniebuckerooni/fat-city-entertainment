@@ -1,6 +1,6 @@
 {
   "title": "Thanksgiving Trivia",
-  "status": "draft",
+  "status": "live",
   "round": {
     "name": "Thanksgiving Trivia",
     "format": "open",
@@ -32,7 +32,7 @@
         "a": "The Wampanoag"
       },
       {
-        "q": "Which NFL team has hosted a home game on Thanksgiving Day nearly every year since 1934?",
+        "q": "Which NFL team has played at home on Thanksgiving Day nearly every year since 1934?",
         "a": "The Detroit Lions"
       },
       {
@@ -44,7 +44,7 @@
         "a": "Sarah Josepha Hale"
       },
       {
-        "q": "Every year since 1947, the president has been presented with a live turkey at the White House. Which industry group presents it?",
+        "q": "Since 1947, the president has been presented with a Thanksgiving turkey at the White House. Which industry group presents it?",
         "a": "The National Turkey Federation"
       }
     ]

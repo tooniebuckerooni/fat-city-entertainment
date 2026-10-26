@@ -1,0 +1,51 @@
+{
+  "title": "Thanksgiving Trivia",
+  "round": {
+    "name": "Thanksgiving Trivia",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Which department store puts on the famous giant-balloon parade through New York City every Thanksgiving morning?",
+        "a": "Macy's"
+      },
+      {
+        "q": "Which tart red berry usually turns up on the table as a sauce or a jelly alongside the turkey?",
+        "a": "Cranberry"
+      },
+      {
+        "q": "US Thanksgiving always lands on the fourth one of these in November. Which day of the week?",
+        "a": "Thursday"
+      },
+      {
+        "q": "What was the name of the ship that carried the Pilgrims across the Atlantic in 1620?",
+        "a": "The Mayflower"
+      },
+      {
+        "q": "The harvest feast often called the first Thanksgiving took place in Plymouth in which year?",
+        "a": "1621"
+      },
+      {
+        "q": "Which Native American people, led by Massasoit, shared that famous harvest feast with the Plymouth colonists?",
+        "a": "The Wampanoag"
+      },
+      {
+        "q": "Which NFL team has played at home on Thanksgiving Day nearly every year since 1934?",
+        "a": "The Detroit Lions"
+      },
+      {
+        "q": "Our neighbours in Canada celebrate Thanksgiving earlier, on the second Monday of which month?",
+        "a": "October"
+      },
+      {
+        "q": "Which writer and magazine editor campaigned for years to make Thanksgiving a national holiday, and also wrote the nursery rhyme \"Mary Had a Little Lamb\"?",
+        "a": "Sarah Josepha Hale"
+      },
+      {
+        "q": "Since 1947, the president has been presented with a Thanksgiving turkey at the White House. Which industry group presents it?",
+        "a": "The National Turkey Federation"
+      }
+    ]
+  }
+}

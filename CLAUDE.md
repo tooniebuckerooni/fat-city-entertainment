@@ -939,6 +939,37 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   (Whitney Houston, Rick Astley, *The Final Countdown*) look like another pack's
   page. Only the callsheet can say.
 
+## Free seasonal rounds and the 26 Oct 2026 season push
+
+- **`_content/season-rounds/<slug>.json` -> `_tools/publish-season-rounds.js`**
+  publishes free 10-question rounds to `trivia-show-maker/rounds/<slug>.json`
+  for `/trivia-show-maker/?round=<slug>`, exactly like a city round but not tied
+  to the city list (a slug that collides with a city is refused, so the two
+  tools never fight over a file). Live 26 Oct 2026: `election-night`,
+  `thanksgiving`, `christmas-warm-up`. Draft publishes nothing; live-to-draft
+  unpublishes. In the Monday loop (proved: an edited answer fires, restoring it
+  goes quiet).
+- **Same evidence bar as the cities:** `node _tools/check-city-rounds.js
+  --season` reads `_content/season-rounds/evidence/`. 30/30 on 26 Oct, from a
+  checker that did not write the rounds; it caught one giveaway question
+  ("Pumpkin King of which town"), replaced with Jack's dog Zero.
+- **`christmas-warm-up` shares no topic with the paid Christmas show**
+  (`_content/trivia-shows/christmas-long-night.tgp.json`). Keep it that way:
+  the free round is a taster, not a substitute.
+- **Election night is non-partisan by rule** (`ELECTION-PLAN.md`): no names, no
+  parties, nothing that depends on the result, no voting logistics beyond a
+  vote.gov link. `/cards/election-night/` is a `generator-links.json` entry with
+  explicit squares in a neutral navy/cream/gold palette.
+- **The Christmas hub was rebuilt 26 Oct** (owner: Halloween felt "corporate and
+  bland and overpriced"): Sue W.'s verbatim "Best company xmas party ever." in
+  the hero, a Free / single / whole-party price strip so Christmas visibly starts
+  at nothing, three hosting steps, and two verbatim reviews. **c40 Holidays is
+  Christmas-first** (`order-store-tiles.js`, revert after 26 Dec; the comment
+  holds the exact revert lists). Christmas countdown chips from 1 Nov.
+- Next sends: "Three parties" Wed 28 Oct, Christmas launch Wed 4 Nov
+  (`_content/email-sends/holiday-2026.md`); owner's list in
+  `HOLIDAY-SALE-2026.md` section 00.
+
 ## Email campaign pages (`/go/<campaign>/`)
 Landing pages for the Sender sends, built by `_tools/build-campaign-pages.js`
 from `_content/campaigns.json`. `/go/halloween/` shipped 28 Aug 2026.
@@ -1413,6 +1444,10 @@ retired on purpose, not lost.
   compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
   copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
   current 5 Sept, not 9 Sept.
+- `ELECTION-PLAN.md` — the US midterms push (election night 3 Nov 2026):
+  written 8 Oct on a side branch, built 26 Oct at its own recommendations (free
+  card, free civics round, a post, no send of its own). Social copy is in
+  section 4. Wind-down 6 Nov: retitle the post evergreen.
 - `HOLIDAY-SALE-2026.md` — **start here for Halloween's last weeks through New
   Year's (written 9 Oct 2026).** The weekend LemonSqueezy checklist, the 16-code
   promo calendar with dates and scopes, the staged Christmas Complete Pack
