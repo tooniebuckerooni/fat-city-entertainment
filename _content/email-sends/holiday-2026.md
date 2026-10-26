@@ -36,12 +36,13 @@ still tells them apart.
 
 > Party season starts next Tuesday, and we made you something for each one.
 >
-> **Election night (Tue 3 Nov).** A free bingo card where the squares are
+> **Election night (Tue 3 Nov).** Free Election Night Bingo you play on your
+> phone. Everyone who taps the link gets their own card, and the squares are
 > things that happen on every results broadcast: "too close to call", the giant
 > touchscreen map, a victory speech that runs long. No parties, no candidates,
-> works whoever you're rooting for. Plus ten questions on how US elections
-> actually work, loaded into our free Trivia Show Maker in one tap.
-> [Get the election night games]
+> works whoever you're rooting for. Hit BINGO and share your card to your story.
+> Plus ten questions on how US elections actually work, loaded into our free
+> Trivia Show Maker in one tap. [Get your election night card]
 >
 > **Thanksgiving (Thu 26 Nov).** Ten free Thanksgiving trivia questions for the
 > gap between dinner and pie, and free Thanksgiving bingo cards for the kids'

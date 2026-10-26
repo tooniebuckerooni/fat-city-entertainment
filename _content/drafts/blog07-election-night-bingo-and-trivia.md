@@ -1,5 +1,5 @@
 **Title tag:** Election Night Bingo and Trivia: Free Games for Your US Midterms Watch Party
-**Meta description:** A free election night bingo card and a 10-question election trivia round for your US midterms watch party. One tap each, non-partisan, and ready to print.
+**Meta description:** A free election night bingo card and a 10-question election trivia round for your US midterms watch party. Your own card on your phone, one tap to share, non-partisan.
 **Target keyword:** election night bingo
 **Secondary keywords:** election night party games, election trivia, election watch party games, midterms bingo card
 
@@ -7,17 +7,17 @@
 
 Election night is a long night. The polls close, the maps light up, and then a room full of people sits and watches an anchor tap a touchscreen for four hours. Somebody has to keep the party alive. That somebody is you.
 
-We've been hosting rooms full of strangers since 1999, and the trick is always the same: give people something to do together besides stare at their phones. So we built two free games for the US midterms on Tuesday, 3 November. Both are one tap. Both work whoever you're rooting for.
+We've been hosting rooms full of strangers since 1999, and the trick is always the same: give people something to do together besides doom-scroll. So we built two free games for the US midterms on Tuesday, 3 November. Both are one tap. Both work whoever you're rooting for.
 
 ## Game 1: Election Night Bingo
 
 The squares on this card are things that happen on every results broadcast, on every channel, in every election. No candidates. No parties. Nothing that depends on who wins. If the anchor says "too early to call," everybody at the party gets to mark it, no matter which way they voted.
 
-[Open the Election Night Bingo card](/cards/election-night/). It opens the Bingo Card Generator with every square already filled in. Pick how many cards you need, print, done.
+**[Get your free Election Night Bingo card](https://bingocardgenerator.online/election-night-bingo.html?utm_source=fatcityentertainment&utm_medium=referral&utm_campaign=election-night-2026&utm_content=blog-post).** It opens on your phone with a card that is yours alone: everyone who taps the link gets a different one. Tap a square when it happens on the broadcast, and when you fill a line, hit Share to post your card to your story or the group chat. Your friends tap the link and get their own.
 
-One honest note: free downloads from the generator carry a small "FREE DEMO" watermark on each card. It plays fine. If you'd rather hand out clean cards (or you want your own colours and a bigger stack), a Day Pass removes the watermark for 24 hours.
+Hosting the watch party and want paper on the coffee table? [Load all the squares into the Bingo Card Generator](/cards/election-night/) and print a different card for each guest. Free printed cards carry a small "FREE DEMO" mark; a Day Pass removes it if you'd rather hand out clean ones.
 
-Here are the 24 squares, plus the free space in the middle:
+Here are the squares you might get, plus the free space in the middle:
 
 - Someone says "too early to call"
 - A network projects a winner

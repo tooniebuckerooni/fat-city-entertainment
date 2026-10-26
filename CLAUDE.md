@@ -956,6 +956,16 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
 - **`christmas-warm-up` shares no topic with the paid Christmas show**
   (`_content/trivia-shows/christmas-long-night.tgp.json`). Keep it that way:
   the free round is a taster, not a substitute.
+- **Election Night Bingo is a card you PLAY ON YOUR PHONE, on the sister site**
+  (owner, 26 Oct: "free cards shareable using BingoCardGenerator.Online... We're
+  going viral"): `bingocardgenerator.online/election-night-bingo.html`, built in
+  `tooniebuckerooni/bingocardgenerator2` by `play-card.js` from
+  `play/election-night.json`. Every visitor gets their own card (seeded per
+  device), taps to mark, and Share sends a story-sized picture carrying the link.
+  Embed copy at `/play/election-night.html`. The election post's main link goes
+  there; `/cards/election-night/` stays as the print path. **The viral playbook is
+  `ELECTION-PLAN.md` section 4.** The engine is generic: office Christmas party
+  bingo is one more JSON file.
 - **Election night is non-partisan by rule** (`ELECTION-PLAN.md`): no names, no
   parties, nothing that depends on the result, no voting logistics beyond a
   vote.gov link. `/cards/election-night/` is a `generator-links.json` entry with

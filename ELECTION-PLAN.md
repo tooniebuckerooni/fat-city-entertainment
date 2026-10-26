@@ -126,7 +126,142 @@ links from the Trivia Show Maker and generator guide posts are enough.
 
 ---
 
-## 4. Social
+## 4. GOING VIRAL (rewritten 26 Oct 2026, supersedes the old section 4 below)
+
+Owner, 26 Oct: "Election Night Bingo free cards shareable using
+BingoCardGenerator.Online... make sharing easy on TikTok, Instagram, Facebook and
+Twitter. We're going viral."
+
+**The one link everything points at:**
+`https://bingocardgenerator.online/election-night-bingo.html`
+Shorter to say out loud: **bingocardgenerator.online/election-night-bingo**
+(GitHub Pages serves it without the `.html`). Add `?utm_source=<platform>` when
+you paste it, so GA4 tells the platforms apart (`tiktok`, `instagram`,
+`facebook`, `x`, `reddit`, `youtube`).
+
+**Why it can spread:** every person who opens the link gets their own card on
+their phone, taps squares during the broadcast, and the Share button turns
+their card into a story-sized picture **with the link printed on it**. So every
+share is an invitation, and BINGO cards say BINGO. That loop (open, play,
+share, a friend opens) is the whole strategy. Your posts only have to start it.
+
+### Before you post anything (10 minutes, on your own phone)
+1. Open the link on your phone. Tap five squares in a row. Watch BINGO appear.
+2. Tap **Share my card**. Confirm Instagram, TikTok and Facebook appear in
+   the share sheet, and post one test story to yourself (Close Friends).
+3. Tap **Post on X** and **Facebook** once each and cancel, so you know what a
+   follower sees.
+4. Paste the link into a DM to yourself: the preview should show the navy
+   and gold card image. If it shows something older, Facebook's Sharing
+   Debugger (developers.facebook.com/tools/debug) has a "Scrape Again" button.
+
+### The video that does the work (shoot once, post everywhere)
+A **9 to 12 second vertical screen recording** on your phone. No talking head
+needed.
+- 0 to 2s: the TV (or a laptop) with results coverage, text on screen:
+  **"Election night bingo, but everyone gets their own card"**
+- 2 to 8s: screen recording: open the link, the card appears, tap, tap, tap,
+  the fifth tap, **BINGO!**
+- 8 to 12s: tap Share, the story picture slides up. Text: **"Free. Link in bio."**
+- Sound: a trending sound in the app (pick it in the app, never download one).
+  Turn the original audio down.
+Then cut a second one, the "POV": text "POV: someone at the watch party says
+'too early to call' and you get BINGO", same footage. Two hooks, same clip;
+whichever does better, post more like it.
+
+### Platform by platform
+**TikTok** (best odds of a real spike)
+- Post the clip Tue 27 Oct, a POV version Thu 29, a "tomorrow night" version
+  Mon 2 Nov, and a short "who's got BINGO yet?" on the night.
+- Caption: "Free election night bingo. Everyone gets their own card, no
+  politics, works whoever you're rooting for. Link in bio #ElectionNight
+  #WatchParty #PartyGames #ElectionNightBingo"
+- TikTok does not make links in captions clickable: put the link in your bio
+  (with `?utm_source=tiktok`) and say "link in bio" in the video.
+- Reply to comments with a video reply for the first few, which TikTok tends
+  to show widely.
+
+**Instagram Reels and Stories**
+- Same clip as a Reel. Caption as TikTok, "link in bio".
+- **Stories are where the share loop lives:** post your own BINGO card picture
+  as a story with a **Link sticker** to the page (`utm_source=instagram`). Ask
+  people to "share your card and tag us"; repost the ones that tag you (that is
+  their permission) on the night.
+- A carousel on Thu 29 Oct: slide 1 "Election Night Bingo", slides 2 to 4 the
+  squares, last slide "your own card free, link in bio". Carousels get saved,
+  and saved posts resurface on the night.
+
+**YouTube Shorts**
+- Same clip. Title: "Election Night Bingo (free, on your phone)". Put the link
+  in the description and a **pinned comment**; Shorts descriptions are not
+  clickable in the feed, so also say "link in the description".
+- If you have a long-form video on the channel, link the Short to it with the
+  "related video" field; that click is the one that works.
+
+**Facebook**
+- Post in host, bar-owner, teacher and party-planning **groups you already
+  belong to** (never cold-join and post). Value first: "Made a free election
+  night bingo card for watch parties: every square is something from the
+  broadcast, no politics. Everyone who opens it gets their own card." Link in
+  the post is fine on Facebook.
+- On your page, the Reel plus a link post. The share button's Facebook option
+  makes a clean link preview.
+
+**X / Twitter**
+- Post the clip with the link. On the night, quote-post the moments ("Who
+  just marked 'too close to call'?") with the link, never about the result.
+- The card's **Post on X** button pre-writes a tweet with the link and
+  #ElectionNight #ElectionNightBingo #WatchParty.
+
+**Reddit** (high reward, easy to get wrong: read each sub's sidebar rules first)
+- Reddit punishes promotion. Lead with the thing itself: post the square list
+  as text, mention "I made a free version you can play on your phone, every
+  person gets their own card" and put the link in a comment only if the sub
+  allows it, or only when someone asks.
+- Where it fits: teacher and civics-teacher communities (an election-night
+  activity for students), college and dorm communities, party-planning and
+  hosting communities, bartender and bar-owner communities, and the "what are
+  you doing for election night" threads that appear in big general subs that
+  week. **Never** post in politics subreddits.
+- Post as yourself ("I run trivia and bingo nights"). Answer every comment.
+  One or two good posts beat ten thin ones; a removed post can get the domain
+  flagged.
+
+### Hashtags (pick 3 to 5, never candidate or party tags)
+#ElectionNight #ElectionNightBingo #WatchParty #PartyGames #BingoNight
+#Midterms2026 (neutral, factual; skip it if a platform's trend for it turns
+partisan).
+
+### On the night (Tue 3 Nov)
+- Morning: "Polls are open, and so is your bingo card" story with the link sticker.
+- 6pm Eastern: the clip again ("starting soon").
+- Every hour or so: a story asking which square everyone's on; repost tagged
+  BINGO cards.
+- **Never post about a result.** Not a reaction, not a congratulations, not a
+  joke. If replies turn political, hide them and reply only about the game:
+  "This one's for everyone, we're just here for the bingo."
+- Paid ads are a no: Meta and Google treat election content as political ads
+  (they need authorization), and Pinterest refuses them. Organic only.
+
+### Heavy traffic: what was checked, and what to watch
+- **The page is static** (GitHub Pages, about 15 KB compressed for a visitor,
+  no server, no account, no database). Pages' soft limit of 100 GB a month is
+  several million visits. The game runs on the visitor's phone.
+- **Watch it live:** GA4 for bingocardgenerator.online, Realtime. Events:
+  `play_card_dealt`, `play_bingo`, `share` (with `method`: native, download,
+  x, facebook, copy_link). A rising `share` count is the viral loop working.
+- **If it spikes:** nothing to scale. Do keep the generator's homepage in mind:
+  "Print a stack" sends hosts there, and it is the heavier page, still static.
+- **If something breaks:** the card loads one file, `play/election-night.json`.
+  Any problem there shows "The card could not load. Refresh to try again"
+  rather than a blank page.
+
+### After it (Fri 6 Nov)
+One wrap post ("Still counting? Your card still works"), then switch everything
+to Christmas: the same play-on-your-phone engine can run **office Christmas
+party bingo** by adding one JSON file, which is the obvious next viral card.
+
+## 4 (old). Social, written 8 Oct (superseded by the section above)
 
 Lead with a 15-second **screen recording**: tap the link, the card fills in, and
 it prints. That's the hook no competitor has. Post natively; don't just paste a
