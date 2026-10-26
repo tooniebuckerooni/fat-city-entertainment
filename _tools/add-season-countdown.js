@@ -51,7 +51,7 @@ const SEASONS = [
     key: "christmas",
     event: "Christmas",
     date: "2026-12-25",
-    from: "2026-11-15",
+    from: "2026-11-01", // was 15 Nov; brought forward 26 Oct 2026 (owner: "FULL go Christmas"), the day Halloween comes down
     pids: ["p103", "p42", "p175", "p155", "p190"],
   },
   {

@@ -49,6 +49,47 @@
       ],
       "utm_content": "christmas-redemption-pdf",
       "note": "Ships with the p190 Christmas Complete Pack redemption PDF (staged 9 Oct 2026)."
+    },
+    {
+      "slug": "election-night",
+      "name": "Election Night bingo",
+      "title": "Election Night Bingo",
+      "squares": [
+        "Someone says \"too early to call\"",
+        "A network projects a winner",
+        "The touchscreen map gets zoomed in",
+        "\"Bellwether county\"",
+        "Exit poll numbers",
+        "A concession speech",
+        "A victory speech runs long",
+        "\"Too close to call\"",
+        "Someone mentions a recount",
+        "Mail-in ballots still being counted",
+        "\"Record turnout\"",
+        "A swing state graphic",
+        "The anchor checks a laptop on air",
+        "\"Path to 218\"",
+        "A long line at a polling place",
+        "An \"I Voted\" sticker on screen",
+        "Split screen of two headquarters",
+        "Balloons or confetti on standby",
+        "\"Decision Desk\"",
+        "A precinct \"still out\"",
+        "Someone says \"historic\"",
+        "The Senate balance graphic",
+        "A live shot from a county clerk's office",
+        "Coverage goes past midnight"
+      ],
+      "theme": "custom",
+      "colours": [
+        "#FBF6EA",
+        "#1B2A4A",
+        "#1B2A4A",
+        "#F3E3B5",
+        "#C9A227"
+      ],
+      "utm_content": "election-night-2026",
+      "note": "Free, non-partisan (ELECTION-PLAN.md): broadcast moments only, no names, no outcome squares. Neutral navy/cream/gold, never one party's colour. Built 26 Oct 2026."
     }
   ]
 }

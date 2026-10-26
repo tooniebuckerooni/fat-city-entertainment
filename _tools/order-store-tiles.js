@@ -66,18 +66,17 @@ const PAGES = [
   // Holidays: calendar order, then the packs smallest to largest. The music
   // bingo game and the trivia pack for the same holiday sit together.
   { rel: "store/c40/holidays/index.html",
-    // SEASONAL, 10 Sept 2026 - REVERT AFTER 1 NOV 2026 to
-    // ["111", "136", "149", "72", "97", "103"] (calendar order).
-    // Halloween is the one holiday whose buying window is short and whose
-    // products were scattered: p174 was not in this category at all until
-    // today, so a shopper browsing Holidays for Halloween saw one of the
-    // three things we sell for it. Halloween trio first for the season,
-    // calendar order behind it.
-    order: ["189", "97", "174", "33", "111", "136", "149", "72", "103"],
-    // The 2-packs are all the same size, so calendar order decides between
-    // them rather than leaving it arbitrary: Valentine's, St Patrick's,
-    // Halloween, then the Christmas 3-pack and the 6-pack that covers the year.
-    last: ["135", "53", "42", "155"] },
+    // SEASONAL, CHRISTMAS FIRST from 26 Oct 2026 (owner: "FULL go Christmas";
+    // Halloween's buying window had closed). REVERT AFTER 26 DEC 2026 to
+    //   order: ["111", "136", "149", "72", "97", "103"]
+    //   last:  ["135", "53", "42", "155"]
+    // (calendar order, the pre-Halloween state). Christmas trio first: the
+    // 3-game party, the single, the 6-pack whose sixth game is Christmas.
+    // Halloween's three move to sit with p97 in calendar order, not removed.
+    // Add "190" and "175" at the front when those launch.
+    // History: Halloween-first 10 Sept to 26 Oct 2026.
+    order: ["42", "103", "155", "111", "136", "149", "72", "97", "174", "33", "189"],
+    last: ["135", "53"] },
 
   // Bundles: largest basket first. Question packs and the two ebooks are not
   // game bundles, so they follow rather than interleave by size.

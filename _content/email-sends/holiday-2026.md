@@ -21,6 +21,91 @@ below, then send #1 here as the last call. If it has, skip straight to #1.
 
 ---
 
+## NEXT SEND (written 26 Oct 2026): "Three parties", Wed 28 Oct, morning
+
+**Replaces #1, the Halloween last call.** Owner, 26 Oct: Halloween parties did
+not sell, so this list's next open goes to what is coming instead. SPOOKY20
+still runs to 31 Oct on its own, and this send mentions it in one line at most.
+It gives away three things and sells nothing directly: a reason to open the
+next four emails, which are the Christmas ones. **Three links on purpose** (the
+one-link rule is for sales sends); each carries its own `utm_content`, so GA4
+still tells them apart.
+
+**Subject:** Three parties are coming. We made the games for free.
+**Preview:** Election night, Thanksgiving, and the office Christmas party.
+
+> Party season starts next Tuesday, and we made you something for each one.
+>
+> **Election night (Tue 3 Nov).** A free bingo card where the squares are
+> things that happen on every results broadcast: "too close to call", the giant
+> touchscreen map, a victory speech that runs long. No parties, no candidates,
+> works whoever you're rooting for. Plus ten questions on how US elections
+> actually work, loaded into our free Trivia Show Maker in one tap.
+> [Get the election night games]
+>
+> **Thanksgiving (Thu 26 Nov).** Ten free Thanksgiving trivia questions for the
+> gap between dinner and pie, and free Thanksgiving bingo cards for the kids'
+> table. [Get the Thanksgiving games]
+>
+> **The office Christmas party.** Somebody has to run it. We've been that
+> somebody since 1999, and it's the easiest job in the room. Next week we open
+> Christmas properly, with an early bird for whoever plans first.
+> [See the Christmas games]
+>
+> We bring people together. This season, you get to be the one who does it.
+>
+> Dusty, Fat City Entertainment
+
+**Links** (all three, in order):
+- `https://www.fatcityentertainment.com/triviahostresources/election-night-bingo-and-trivia/?utm_source=sender&utm_medium=email&utm_campaign=three-parties-2026&utm_content=election`
+- `https://www.fatcityentertainment.com/triviahostresources/thanksgiving-trivia-and-bingo/?utm_source=sender&utm_medium=email&utm_campaign=three-parties-2026&utm_content=thanksgiving`
+- `https://www.fatcityentertainment.com/christmas-trivia-and-music-bingo.html?utm_source=sender&utm_medium=email&utm_campaign=three-parties-2026&utm_content=christmas`
+
+(Check the two post URLs resolve before scheduling: they go live with the
+26 Oct commit. "Early bird next week" is only true if EARLYBIRD15 is created in
+LemonSqueezy for 4 Nov; if it won't be, cut that sentence.)
+
+---
+
+## Christmas launch, REWRITTEN 26 Oct 2026: Wed 4 Nov, morning
+
+**Replaces #2 below (which was Tue 10 Nov).** The day after the election, so
+nothing competes with it, and the owner's call to go full Christmas. Halloween's
+sends read corporate; this one is a host talking to a host. **Send only after
+the agent has flipped EARLYBIRD15 to `live`.** If p190 has launched by then,
+the agent swaps it in as the lead and the prices below are re-read.
+
+**Subject:** You're running the Christmas party. Good news: it's easy.
+**Preview:** Print the cards, press play, take the credit. 15% off the Christmas packs.
+
+> Somebody always ends up running the Christmas party. If it's you this year,
+> here's the secret we've learned in twenty-five years of doing it: it's the
+> easiest job in the room.
+>
+> Hand everyone a bingo card. Press play on the Christmas playlist. Within ten
+> minutes someone is shouting BINGO over Mariah Carey, and the accounts team is
+> high-fiving the warehouse. That's the whole trick.
+>
+> **The Christmas Special** is the whole party: a Christmas game show on the
+> big screen, a music trivia round, and the music bingo. **$45.89 with the early
+> bird** (was $53.99). Just the music bingo? **$11.99**, for up to 250 players.
+>
+> Early bird: **15% off the Christmas packs until 26 November**, no code needed.
+>
+> One reviewer called it "Best company xmas party ever." We'd like to hear you
+> say it too.
+>
+> [Make Christmas easy]
+
+**Link:**
+`https://www.fatcityentertainment.com/christmas-trivia-and-music-bingo.html?utm_source=sender&utm_medium=email&utm_campaign=christmas-launch-2026`
+
+(Prices are EARLYBIRD15 on the 26 Oct page prices, computed the way the promo
+chip does: p42 $53.99 to $45.89, p155 $57.56 to $48.93, p190 $54.99 to $46.74.
+The quote is Sue W.'s, verbatim, from `_content/copy/why-reviews.html`.)
+
+---
+
 ## 0. Addition to the main Halloween send (if still unsent)
 
 Add one line above the button:
@@ -32,7 +117,7 @@ Same link as that file already uses.
 
 ---
 
-## 1. Halloween last call. Send Tue 27 Oct, morning
+## 1. Halloween last call. Send Tue 27 Oct, morning (SUPERSEDED 26 Oct: see "Three parties" above)
 
 **Subject:** Halloween is Saturday. Your game night downloads in a minute.
 **Preview:** Music bingo, trivia and a game show, printed this afternoon.
@@ -62,7 +147,7 @@ runs until 2 Nov in LemonSqueezy. Re-read the prices if anything is repriced.)
 
 ---
 
-## 2. Christmas party season opens. Send Tue 10 Nov
+## 2. Christmas party season opens. Send Tue 10 Nov (SUPERSEDED 26 Oct: see the Wed 4 Nov rewrite above)
 
 **Subject:** The office Christmas party, sorted in one download
 **Preview:** Music bingo, a game show and a trivia night. Early bird until the 26th.

@@ -7,6 +7,80 @@ switches each one on and off by date. **Start with section 3.**
 
 ---
 
+## 00. THIS WEEK (written 26 Oct 2026): the owner's list, in order
+
+Owner, 26 Oct: Halloween parties did not sell; move fast on Election Party,
+Thanksgiving and "FULL go Christmas", and make Christmas warmer than Halloween,
+which felt "corporate and bland and overpriced". What the agent shipped that
+day is in section 00b. What only the owner can do:
+
+**Tomorrow, at the desk (about an hour):**
+1. **Sender: schedule "Three parties" for Wed 28 Oct, morning.** Copy and the
+   three tagged links are at the top of `_content/email-sends/holiday-2026.md`.
+   It replaces the Halloween last call; don't send that one.
+2. **LemonSqueezy, in this order** (details in section 3):
+   - a. Launch **p175 Christmas Trivia Night** at $11.99 (3A).
+   - b. Create **p190 Christmas Complete Pack** (3B). Price: see decision 1 below.
+   - c. Create **EARLYBIRD15**: 15% off, scoped to exactly p190, p42 and p155,
+     starts 4 Nov, **expires 28 Nov** (a day after the site's end). Then tell
+     the agent "EARLYBIRD15 is live" and it flips the switch.
+   - d. If there's time in the same sitting: BLACKFRIDAY25, the twelve 12DAYS
+     codes and NEWYEAR20 (3D). Each is optional and each stays off until you say.
+   Then tell the agent which of a to d are done. It runs the launch commands in
+   section 6.
+3. **Google Search Console:** request indexing for
+   `/triviahostresources/election-night-bingo-and-trivia/`,
+   `/triviahostresources/thanksgiving-trivia-and-bingo/` and
+   `/christmas-trivia-and-music-bingo.html`. Election night is in eight days, so
+   the first matters most.
+4. **Social, from Tue 27 Oct:** the election posts in `ELECTION-PLAN.md`
+   section 4. The hook is a 15-second screen recording of tapping
+   `/cards/election-night/` and watching the card fill in.
+5. **Song lists:** the Hair Bands rows 24 to 31 question and the shortened titles
+   (see CLAUDE.md, "Song-list extraction damage"). You said tomorrow.
+
+**Two decisions:**
+1. **Christmas Complete Pack price. Recommendation: keep $54.99 as staged.**
+   Halloween's problem was probably not price. A Halloween party is rarely
+   anyone's job, while the office Christmas party is, and it is booked from
+   late October. The pricing-strategy skill says the same: at about 30 orders a
+   month a price change cannot be measured, and on a ~100% margin a cut is a
+   straight revenue cut. What the site was missing was a visible cheap way in,
+   so the Christmas hub now leads with three prices: **Free** (a 10-question
+   round), **$11.99** (music bingo for up to 250 players) and the whole party.
+   $54.99 is a true value stack ($53.99 + $11.99 = $65.98 bought separately,
+   plus a Generator month), and with the early bird it is $46.74. The
+   alternative is **$49.99** (early bird $42.49), which makes the Complete Pack
+   cheaper than the Christmas Special inside it. That works as a decoy, but it
+   reads oddly on the page. Your call; tell the agent before creating it in
+   LemonSqueezy, so the site and the checkout agree.
+2. **Early bird start: 4 Nov (recommended, already set on the site, still off)
+   or the original 9 Nov.** 4 Nov is the day after the election, so Christmas
+   gets November to itself, and the launch email goes out that day.
+
+**Sun 1 Nov, the agent's job (no action from you):** take Halloween down: the
+nav item, the Halloween countdown chip, `SPOOKY20` set to `live: false`
+(it ends at the visitor's midnight on the 31st anyway). The Christmas
+countdown appears on its own from 1 Nov.
+
+## 00b. Shipped 26 Oct 2026
+
+- **Election night** (`ELECTION-PLAN.md`, now on main): a free 24-square
+  broadcast-moments card at `/cards/election-night/`, a 10-question civics
+  round at `/trivia-show-maker/?round=election-night`, and a post. No names,
+  no parties, no outcomes.
+- **Thanksgiving:** a free 10-question round (`?round=thanksgiving`) and a post
+  that sends the bingo half to the sister site's Thanksgiving page, then bridges
+  to the office Christmas party.
+- **Christmas, full go:** the hub rebuilt warmer (Sue W.'s real "Best company
+  xmas party ever." in the hero, a Free / $11.99 / whole-party price strip, three
+  hosting steps, two verbatim reviews), a free `christmas-warm-up` round that
+  shares no topic with the paid show, Holidays (c40) reordered Christmas-first,
+  and Christmas countdown chips from 1 Nov instead of 15 Nov.
+- **Every free round passed the city rounds' evidence pipeline** (an
+  independent checker quoting Wikipedia, re-fetched by `check-city-rounds.js
+  --season`) before it went live.
+
 ## 0. LIVE NOW (12 Oct 2026)
 
 **`SPOOKY20` is live**: 20% off eight products until 31 Oct (LS expiry 2 Nov),

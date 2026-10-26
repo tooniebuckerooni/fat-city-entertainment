@@ -4,6 +4,7 @@
 //   node _tools/check-city-rounds.js            all cities with a round
 //   node _tools/check-city-rounds.js london     one city
 //   node _tools/check-city-rounds.js --offline  structure only, no fetching
+//   node _tools/check-city-rounds.js --season   the free seasonal rounds instead
 //
 // Evidence lives in _content/city-rounds/evidence/<slug>.json, written by a
 // fact-checker who did NOT write the round:
@@ -94,14 +95,21 @@ async function article(ref) {
 }
 
 (async () => {
-  const cities = JSON.parse(fs.readFileSync(path.join(REPO, "_content", "city-pages.json"), "utf8")).cities
-    .filter(c => c.status !== "planned" && (!ONLY.length || ONLY.includes(c.slug)));
+  // --season checks the free seasonal rounds (_content/season-rounds/, published by
+  // publish-season-rounds.js) instead of the cities. Same evidence rules.
+  const SEASON = process.argv.includes("--season");
+  const dir = path.join(REPO, "_content", SEASON ? "season-rounds" : "city-rounds");
+  const cities = SEASON
+    ? fs.readdirSync(dir).filter(f => f.endsWith(".json")).map(f => ({ slug: f.replace(/\.json$/, "") }))
+        .filter(c => !ONLY.length || ONLY.includes(c.slug))
+    : JSON.parse(fs.readFileSync(path.join(REPO, "_content", "city-pages.json"), "utf8")).cities
+        .filter(c => c.status !== "planned" && (!ONLY.length || ONLY.includes(c.slug)));
   let pass = 0, total = 0;
   const report = [];
 
   for (const city of cities) {
-    const round = JSON.parse(fs.readFileSync(path.join(REPO, "_content", "city-rounds", `${city.slug}.json`), "utf8")).round;
-    const evFile = path.join(REPO, "_content", "city-rounds", "evidence", `${city.slug}.json`);
+    const round = JSON.parse(fs.readFileSync(path.join(dir, `${city.slug}.json`), "utf8")).round;
+    const evFile = path.join(dir, "evidence", `${city.slug}.json`);
     const qs = round.questions;
     total += qs.length;
     if (!fs.existsSync(evFile)) { report.push(`${city.slug}: NO EVIDENCE FILE (0/${qs.length})`); continue; }

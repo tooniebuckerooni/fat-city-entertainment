@@ -52,8 +52,8 @@
       start: "2026-10-12", end: "2026-11-01", live: true, // owner confirmed live 12 Oct 2026
       products: ["p189", "p97", "p174", "p33", "p155", "p147", "p131", "p112"] },
     // Nov 1 to 8 is deliberately empty: the election promo's week.
-    { code: "EARLYBIRD15", name: "Christmas Early Bird", pct: 15,
-      start: "2026-11-09", end: "2026-11-27", live: false,
+    { code: "EARLYBIRD15", name: "Christmas Early Bird", pct: 15, // start moved 9 Nov to 4 Nov on 26 Oct 2026 (owner: full go Christmas)
+      start: "2026-11-04", end: "2026-11-27", live: false,
       products: ["p190", "p42", "p155"] },
     { code: "BLACKFRIDAY25", name: "Black Friday", pct: 25,
       start: "2026-11-27", end: "2026-12-01", live: false,

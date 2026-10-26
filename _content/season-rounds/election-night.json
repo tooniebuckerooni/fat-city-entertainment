@@ -1,0 +1,52 @@
+{
+  "title": "Election Night Trivia",
+  "status": "draft",
+  "round": {
+    "name": "Election Night: How US Elections Work",
+    "format": "open",
+    "ageRange": "family",
+    "points": 10,
+    "questions": [
+      {
+        "q": "Let's start with the big room: how many voting seats are there in the US House of Representatives?",
+        "a": "435"
+      },
+      {
+        "q": "Members of the House face the voters again pretty quickly. How long is one House term?",
+        "a": "Two years"
+      },
+      {
+        "q": "The 26th Amendment, ratified in 1971, lowered the minimum voting age in the United States from 21 to what?",
+        "a": "18"
+      },
+      {
+        "q": "Senators serve staggered terms. Roughly what fraction of the Senate's seats is up for election every two years?",
+        "a": "One third"
+      },
+      {
+        "q": "There are 538 electoral votes in the Electoral College. How many does a candidate need to win the presidency outright?",
+        "a": "270"
+      },
+      {
+        "q": "Ratified in 1920, which numbered amendment to the US Constitution barred states from denying the vote on account of sex?",
+        "a": "The 19th Amendment"
+      },
+      {
+        "q": "What is the minimum age to serve as a member of the US House of Representatives?",
+        "a": "25"
+      },
+      {
+        "q": "House seats are shared out among the states again every ten years, based on the results of what national count?",
+        "a": "The census"
+      },
+      {
+        "q": "Before 1913, US senators were chosen by state legislatures. Which numbered amendment gave that choice directly to the voters?",
+        "a": "The 17th Amendment"
+      },
+      {
+        "q": "In what year did Congress pass the law setting one nationwide day, the Tuesday after the first Monday in November, for choosing presidential electors?",
+        "a": "1845"
+      }
+    ]
+  }
+}
