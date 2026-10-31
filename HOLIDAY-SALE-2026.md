@@ -440,9 +440,9 @@ on 1 Nov.
 
 | Date | What | How |
 |---|---|---|
-| 1 Nov | Halloween nav item | `add-halloween-nav.js --remove --write` |
-| 1 Nov | c40 Halloween-first order | revert in `order-store-tiles.js`, Christmas first |
-| automatic | Halloween countdown chips, SPOOKY20 | switch off by date |
+| DONE 31 Oct | Halloween nav item | `ACTIVE = false` in `add-halloween-nav.js` |
+| DONE 26 Oct | c40 Halloween-first order | Christmas first in `order-store-tiles.js` |
+| DONE 31 Oct | Halloween countdown chips, SPOOKY20, storefront Halloween tiles | `RETIRED` in `add-season-countdown.js`; SPOOKY20 out of `PROMOS`; p189/p174 tiles off the storefront, p42/p103 on |
 | 26 Dec | Christmas nav item | `add-christmas-nav.js --remove --write` |
 | 2 Jan | Christmas countdown markup, c40 Christmas-first order | `SEASONS` / `order-store-tiles.js` |
 | automatic | Every promo-calendar sale | switches off by date |

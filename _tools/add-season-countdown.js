@@ -37,13 +37,7 @@ const WRITE = process.argv.includes("--write");
 const REMOVE = process.argv.includes("--remove");
 
 const SEASONS = [
-  {
-    key: "halloween",
-    event: "Halloween",
-    date: "2026-10-31",
-    from: "2026-10-01",
-    pids: ["p97", "p174", "p33", "p189"],
-  },
+  // Halloween (p97 p174 p33 p189, 1 to 31 Oct 2026) retired 31 Oct 2026.
   {
     // Christmas runs on party season, not the 25th: staff parties land in the
     // first three weeks of December, so the chip appears from mid-November and
@@ -92,8 +86,26 @@ function pageFor(pid) {
   return null;
 }
 
+// RETIRED: products whose season is over. A season taken out of SEASONS would
+// otherwise leave its chips orphaned on those pages (found 31 Oct 2026, when
+// removing Halloween changed 0 pages), so every run strips them here instead.
+// A pid that is also in a live season above is left to that season.
+const RETIRED = ["p97", "p174", "p33", "p189"]; // Halloween 2026
+
 let changed = 0, unchanged = 0, missing = 0;
 const seen = new Set();
+const live = new Set(SEASONS.flatMap((s) => s.pids));
+for (const pid of RETIRED) {
+  if (live.has(pid)) continue;
+  const abs = pageFor(pid);
+  if (!abs) continue;
+  const html = fs.readFileSync(abs, "utf8");
+  const next = html.replace(BLOCK_RE, "");
+  if (next === html) { unchanged++; continue; }
+  changed++;
+  console.log(`  ${WRITE ? "removed from" : "would remove from"}: ${path.relative(REPO, abs)} (retired season)`);
+  if (WRITE) fs.writeFileSync(abs, next);
+}
 for (const s of SEASONS) {
   for (const pid of s.pids) {
     if (seen.has(pid)) { console.log(`  ${pid}: already in an earlier season, skipped`); continue; }

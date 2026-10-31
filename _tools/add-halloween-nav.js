@@ -34,7 +34,7 @@ const WRITE = process.argv.includes("--write");
 // 1 Nov is this one word, not a --remove --write that the Monday health check
 // would then read as drift ("would update: 516 page(s)") and file an issue
 // asking to put the item back. Added 12 Oct 2026 after an audit caught that.
-const ACTIVE = true;
+const ACTIVE = false; // taken down 31 Oct 2026 (owner: "pull the Halloween stuff now. Clean start."). true restores it.
 const REMOVE = process.argv.includes("--remove") || !ACTIVE;
 const SKIP_DIRS = new Set(["_tools", ".git", "node_modules", "assets", "files", "uploads", "triv101", "pages", "4"]);
 

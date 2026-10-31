@@ -42,7 +42,11 @@ const REPO = path.resolve(__dirname, "..");
 const WRITE = process.argv.includes("--write");
 
 // Packs and clubs first, biggest basket first.
-const STOREFRONT = ["189", "112", "130", "131", "155", "147", "101", "168", "166", "165",
+// Christmas first from 31 Oct 2026 (the two Christmas tiles were added that day
+// and p189/p174 Halloween tiles taken off: owner, "pull the Halloween stuff now").
+// After Christmas, drop "42" and "103" here and take their tiles off with
+// add-store-tile.js --remove --pages storefront,store-root.
+const STOREFRONT = ["42", "103", "112", "130", "131", "155", "147", "101", "168", "166", "165",
                     "127", "162", "108", "128", "49", "123", "176"];
 
 // Smallest to largest, for the foot of the music bingo category.
@@ -87,13 +91,15 @@ const PAGES = [
   // of the category. New print-and-play shows lead, older presentation packs
   // follow.
   { rel: "store/c6/triviagameshows/index.html",
-    order: ["189", "174", "176", "173", "172", "171", "170", "169", "49", "123",
-            "28", "126", "9", "13", "53", "33", "42"],
+    // Christmas Special first, Halloween to the back, from 31 Oct 2026.
+    order: ["42", "176", "173", "172", "171", "170", "169", "49", "123",
+            "28", "126", "9", "13", "53", "189", "174", "33"],
     last: ["18"] },
   { rel: "store/c34/Music_Bingo_&_Trivia_Bundles.html",
-    order: ["189", "112", "130", "131", "155", "147", "168", "101", "176", "49",
-            "165", "166", "28", "127", "162", "108", "123", "42", "126",
-            "128", "33", "53", "135"],
+    // Christmas Special first, Halloween pack to the seasonal tail, 31 Oct 2026.
+    order: ["42", "112", "130", "131", "155", "147", "168", "101", "176", "49",
+            "165", "166", "28", "127", "162", "108", "123", "126",
+            "128", "189", "33", "53", "135"],
     // The two ebooks sit together at the foot: they are the only Amazon/KDP
     // items in the store, and the only two with no price to compare.
     last: ["24", "25", "27", "26", "18", "900"] },

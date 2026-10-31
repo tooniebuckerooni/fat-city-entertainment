@@ -104,8 +104,8 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   holds **Halloween** (SEASONAL, added 11 Sept 2026 via
   `_tools/add-halloween-nav.js`, first in the dropdown, pointing at the hub
   `/halloween-trivia-and-music-bingo.html` which until then was linked from
-  exactly ONE page despite being in the sitemap — **take it down after 1 Nov
-  with `--remove --write`**, which restores the menu byte for byte),
+  exactly ONE page despite being in the sitemap — **TAKEN DOWN 31 Oct 2026**
+  by `ACTIVE = false` in the tool, so every run strips it; `true` restores it),
   **Christmas** (SEASONAL, added 9 Oct 2026 via `_tools/add-christmas-nav.js`,
   directly after Halloween and so first once Halloween comes off, pointing at
   the hub `/christmas-trivia-and-music-bingo.html`; **take it down after 26 Dec
@@ -976,6 +976,18 @@ that the free Sender plan is nearly full. Addresses move from Resend to Sender
   at nothing, three hosting steps, and two verbatim reviews. **c40 Holidays is
   Christmas-first** (`order-store-tiles.js`, revert after 26 Dec; the comment
   holds the exact revert lists). Christmas countdown chips from 1 Nov.
+- **Halloween came down 31 Oct 2026** (owner: "pull the Halloween stuff now.
+  Clean start."): nav item (`ACTIVE = false`), SPOOKY20 out of `PROMOS`, the
+  countdown chips (a `RETIRED` pid list in `add-season-countdown.js` strips a
+  finished season every run; removing a season from `SEASONS` alone ORPHANED
+  its chips on four pages and reported 0 changes), the hub's sale line. The
+  storefront and its c1 twin lost the p189 and p174 tiles and gained **p42 and
+  p103** (Christmas-first in `order-store-tiles.js`; after Christmas take those
+  two off with `add-store-tile.js --remove --pages storefront,store-root`); c6
+  and c34 lead with p42. Every Halloween product stays on sale in its
+  categories, and the hub stays live for next year. The sister site's Dabby
+  Halloween hero was retired the same day (bingocardgenerator2 PR #41), with an
+  Election Night Bingo pill in its place until 6 Nov.
 - Next sends: "Three parties" Wed 28 Oct, Christmas launch Wed 4 Nov
   (`_content/email-sends/holiday-2026.md`); owner's list in
   `HOLIDAY-SALE-2026.md` section 00.

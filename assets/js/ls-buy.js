@@ -48,9 +48,8 @@
   var PROMOS = [
     // Widened 12 Oct 2026 (owner, one code only, 5-10 products): the Halloween
     // line plus the four best-selling packs, so one email can carry one code.
-    { code: "SPOOKY20", name: "Halloween Sale", pct: 20,
-      start: "2026-10-12", end: "2026-11-01", live: true, // owner confirmed live 12 Oct 2026
-      products: ["p189", "p97", "p174", "p33", "p155", "p147", "p131", "p112"] },
+    // SPOOKY20 (20% off p189 p97 p174 p33 p155 p147 p131 p112, 12 to 31 Oct 2026)
+    // was retired 31 Oct 2026 with the rest of Halloween. Its LS code expires 2 Nov.
     // Nov 1 to 8 is deliberately empty: the election promo's week.
     { code: "EARLYBIRD15", name: "Christmas Early Bird", pct: 15, // start moved 9 Nov to 4 Nov on 26 Oct 2026 (owner: full go Christmas)
       start: "2026-11-04", end: "2026-11-27", live: false,
