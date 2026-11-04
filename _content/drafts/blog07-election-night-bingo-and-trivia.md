@@ -1,13 +1,13 @@
-**Title tag:** Election Night Bingo and Trivia: Free Games for Your US Midterms Watch Party
-**Meta description:** A free election night bingo card and a 10-question election trivia round for your US midterms watch party. Your own card on your phone, one tap to share, non-partisan.
+**Title tag:** Election Night Bingo and Trivia: Free Games for Your Watch Party
+**Meta description:** A free election night bingo card and a 10-question election trivia round for any US election watch party. Your own card on your phone, one tap to share, non-partisan.
 **Target keyword:** election night bingo
 **Secondary keywords:** election night party games, election trivia, election watch party games, midterms bingo card
 
-# Election Night Bingo and Trivia: Two Free Games for Your US Midterms Watch Party
+# Election Night Bingo and Trivia: Two Free Games for Your Watch Party
 
 Election night is a long night. The polls close, the maps light up, and then a room full of people sits and watches an anchor tap a touchscreen for four hours. Somebody has to keep the party alive. That somebody is you.
 
-We've been hosting rooms full of strangers since 1999, and the trick is always the same: give people something to do together besides doom-scroll. So we built two free games for the US midterms on Tuesday, 3 November. Both are one tap. Both work whoever you're rooting for.
+We've been hosting rooms full of strangers since 1999, and the trick is always the same: give people something to do together besides doom-scroll. So we built two free games for US election nights: midterms, presidential years, even a big local race. Both are one tap. Both work whoever you're rooting for.
 
 ## Game 1: Election Night Bingo
 

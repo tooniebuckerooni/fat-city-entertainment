@@ -6,7 +6,13 @@ that ranks for "election night bingo" / "election trivia", with each game openin
 pre-filled in its tool. Not a sale, not a nav item, and not allowed to cost the
 Halloween run or the Christmas sends any attention.
 
-Status, **26 Oct 2026: BUILT** (eight days out, so the owner decisions in
+Status, **4 Nov 2026: WOUND DOWN.** Election night ran with minimal results
+(owner: "Remove it from main pages"). Off the Trivia Host Resources index and the
+sister site's homepage pill. The post and `bingocardgenerator.online/election-night-bingo.html`
+stay live and are retitled evergreen (any US election night), ready to re-promote
+before 2028 or a big local race. `/cards/election-night/` and the free round stay.
+
+Earlier status, **26 Oct 2026: BUILT** (eight days out, so the owner decisions in
 section 6 were taken at their recommendations: free, preload plus Day Pass
 upsell (no separate PDF capture), "Election Night Bingo" in the title). Live:
 `/cards/election-night/` (24 squares, neutral navy/cream/gold), the round at

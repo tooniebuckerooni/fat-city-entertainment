@@ -1,7 +1,8 @@
 # Implementation brief — fall pricing + 20 new products
 
 Written 2 Sept 2026. **Batch 1 shipped 5 Sept 2026** — see "Launch log" below.
-The rest is still staged on `claude/fall-pricing-premade-games-zpcjsj`.
+The rest was staged on `claude/fall-pricing-premade-games-zpcjsj`, which is fully
+merged into `main` (checked 4 Nov 2026); nothing is waiting on that branch.
 
 > ## Launch log — batch 1, 5 Sept 2026
 >

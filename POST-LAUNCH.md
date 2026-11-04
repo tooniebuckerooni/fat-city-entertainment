@@ -30,6 +30,9 @@ and the custom 404. Last updated July 25, 2026.
 
 ## Waiting on you
 
+> **Stale as of 4 Nov 2026.** This table predates the fall work. The current
+> owner list is `HOLIDAY-SALE-2026.md` section 00; check there first.
+
 Roughly in order of impact.
 
 | # | What | Why it's blocking |

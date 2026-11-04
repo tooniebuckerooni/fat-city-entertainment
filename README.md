@@ -1,65 +1,56 @@
-# Fat City Entertainment — fatcityentertainment.com
+# Fat City Entertainment (fatcityentertainment.com)
 
-Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.com), migrated off Weebly to GitHub Pages in June 2026. **Every public URL from the Weebly site is preserved** — pages, store products, store categories, blog posts, blog archives/categories, and pagination.
+Static site for [www.fatcityentertainment.com](https://www.fatcityentertainment.com):
+a Weebly export, served by **GitHub Pages from `main`** (custom domain via `CNAME`,
+`.nojekyll` on). DNS is on Namecheap. There is no server and no build step for the
+marketing site; every public URL from the Weebly days is preserved.
 
-The DNS cutover to GitHub Pages is complete. **See [POST-LAUNCH.md](POST-LAUNCH.md)**
-for the prioritized punch list of what's still outstanding.
+**For anything beyond a quick look, read [CLAUDE.md](CLAUDE.md).** It is the
+maintained record of how the site works, which tool owns which part of a page, and
+the traps that have already bitten. This README is only a map. (Rewritten 4 Nov
+2026; the earlier version described the June 2026 migration and had gone stale.)
 
 ## What's here
 
 | Path | What it is |
 |------|------------|
-| `*.html` | The site's main pages (same filenames as on Weebly) |
-| `store/pNN/*.html` | 71 product pages (original URLs, LemonSqueezy checkout) |
-| `store/cNN/...` | 8 store category pages |
-| `triviahostresources/<slug>/` | 107 blog posts + archives, categories, pagination |
-| `trivia-store.html` | Store landing page |
-| `uploads/`, `files/` | All images, media, theme CSS/JS from Weebly |
-| `assets/` | Self-hosted CSS/fonts/JS that used to come from Weebly's CDN |
-| `musicbingohandbook.html` | Music Bingo Handbook sales funnel (live page, new product) |
-| `pages/*.html` | Staged 2.0 drafts (noindex, not linked) — incl. the new TRIV101 & Trivia Generator placeholders |
-| `_tools/` | The scraper/transformer scripts used for the migration (not served) |
+| `*.html` | Main pages (same filenames as on Weebly) |
+| `store/pNN/` | Product pages, about 99 (LemonSqueezy checkout; two ebooks sell on Amazon) |
+| `store/cNN/` | Store category pages (9) |
+| `trivia-store.html` | The storefront |
+| `triviahostresources/` | The blog: about 120 posts, plus noindexed listing shells |
+| `music-bingo-song-lists/` | The free Song List Library (built from `_content/song-lists.json`) |
+| `trivia-nights/` | City pages with free local rounds (built from `_content/city-pages.json`) |
+| `trivia-show-maker/` | The Trivia Show Maker app |
+| `triv101/` | Triv 101, the host-run game |
+| `go/` | Email campaign landing pages (noindex, not in the sitemap) |
+| `cards/` | Short redirect links that preload games into the sister Bingo Card Generator |
+| `assets/` | Site CSS and JS (`site-extras.css`, `ls-buy.js`, `track.js`, ...) |
+| `uploads/`, `files/` | Images, media and the Weebly theme |
+| `_content/` | Source data and copy partials that the tools turn into pages |
+| `_tools/` | The Node tools that build and check the site (not served) |
+| `triv101-api/`, `greenroom-api/`, `tgp-ai-gateway/` | Cloudflare Worker sources (deployed by dashboard paste, not by this repo) |
 
-## Selling products (LemonSqueezy)
+## Changing things
 
-See **[LEMONSQUEEZY-TODO.md](LEMONSQUEEZY-TODO.md)**. Short version: as you re-create each product in LemonSqueezy (**prices are now USD**), paste its buy link into [`assets/js/ls-links.js`](assets/js/ls-links.js), then update the displayed price everywhere with `node _tools/set-usd-price.js pNN <usd> [<sale>]`. The buy button on that product page activates automatically and opens LemonSqueezy's overlay checkout right on the page.
+- **Generated pages are owned by tools in `_tools/`.** Edit the data or the tool,
+  then re-run it with `--write`. A hand edit to a generated page is reverted by the
+  next run. Every tool except `add-lazy-images.js` is a dry run by default.
+- **Prices**: change LemonSqueezy first, then `node _tools/set-usd-price.js`, then
+  the re-run list in CLAUDE.md ("Repricing a product").
+- **Buy links**: `assets/js/ls-links.js`, then `node _tools/bake-buy-links.js --write`.
+- **Sales**: the dated `PROMOS` list in `assets/js/ls-buy.js`. The schedule is in
+  `HOLIDAY-SALE-2026.md`.
+- Finish with `node _tools/check-links.js` (run `npm install --prefix _tools` once).
+  Zero broken references is the bar.
 
-## Contact forms
+## Checks
 
-The booking/contact forms previously posted to Weebly's servers. They are now pointed at a Formspree placeholder — create a free form at [formspree.io](https://formspree.io) and replace `YOUR_FORM_ID` everywhere it appears (in `contact.html`, `musicbingonearme.html`, `virtualevents.html`, `vrtriviaparty.html`, and `yycevents.html` — search for `formspree.io/f/YOUR_FORM_ID`).
+`.github/workflows/site-health.yml` runs every tool as a dry run each Monday and
+opens a GitHub issue if anything has drifted. `bake-green-room.yml` refreshes the
+Green Room comments daily.
 
-## Going live (GitHub Pages, optionally fronted by Cloudflare)
+## Related
 
-Because the original design is preserved and the store is **not** consolidated,
-every URL stays exactly where it was — so the only redirect needed is apex → www,
-which GitHub Pages does on its own. No custom redirect rules required.
-
-1. GitHub repo → **Settings → Pages**: Source = **Deploy from a branch**,
-   Branch = `main`, folder = `/ (root)`. `.nojekyll` keeps files served as-is.
-   You get a `tooniebuckerooni.github.io/...` URL to sanity-check.
-2. **DNS** (registrar is Squarespace Domains). Two equivalent options:
-   - **Plain GitHub Pages:** point `www` CNAME → `tooniebuckerooni.github.io`,
-     and apex `@` A-records → `185.199.108.153 / .109 / .110 / .111`.
-   - **GitHub Pages + Cloudflare** (same stack as the other sites): add the domain
-     in Cloudflare, set its nameservers at Squarespace, then in Cloudflare DNS add
-     proxied `CNAME www → tooniebuckerooni.github.io` and `CNAME @ →
-     tooniebuckerooni.github.io` (apex flattening); SSL/TLS mode = **Full**.
-3. GitHub repo → **Settings → Pages → Custom domain** = `www.fatcityentertainment.com`,
-   Save (this writes the `CNAME` file). Wait for the cert, then tick **Enforce
-   HTTPS**. GitHub auto-redirects the apex to `www`. *(No `CNAME` file is committed
-   yet on purpose, so the github.io staging URL keeps working before cutover.)*
-4. Spot-check ~10 old URLs + one real Lemon Squeezy sale, **then** retire Weebly.
-
-Until DNS is switched, the Weebly site stays live — nothing breaks.
-
-## Redesign (saved for later, incremental rollout)
-
-A redesigned theme for `index.html`, `trivia-store.html`, and `contact.html`
-(shared `styles.css`, Lemon Squeezy overlay, Web3Forms contact) lives on branch
-**`claude/fat-city-migration-t5xd8p`**. It is intentionally *not* live yet — the
-plan is to roll it in one page at a time after the site is confirmed working
-on the new host. To preview it, check out that branch and open the files.
-
-## Editing pages
-
-Pages are plain HTML — edit and push. There is no build step. The `_tools/` scripts were one-time migration tooling; you don't need them for day-to-day edits.
+The Bingo Card Generator lives in its own repo,
+`tooniebuckerooni/bingocardgenerator2`, at bingocardgenerator.online.

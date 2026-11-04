@@ -92,8 +92,9 @@ jobs:
             # CATALOGUE INVERSION *is* a failure, as of 5 Sept 2026. It was
             # excluded while two rungs were knowingly inverted — firing weekly
             # on a known issue trains everyone to ignore the check. That is no
-            # longer the situation: the catalogue is monotonic end to end, so
-            # zero is the baseline and any inversion is real drift. It is also
+            # longer the situation: the only inversions are the owner-accepted ones
+            # (Holidays p155 since 9 Sept), which add-price-ladder.js reports as
+            # "accepted" and so do not match. Zero NEW is the baseline and any inversion is real drift. It is also
             # load-bearing now, because the ladder copy claims "the more you buy
             # at once, the less each night costs" — an inversion makes a live
             # claim false, not just a rung awkward.

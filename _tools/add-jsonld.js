@@ -50,6 +50,7 @@ const ANSWER_PAGES = new Set(["what-is-music-bingo.html", "music-bingo-rules.htm
 // meaningful when it reflects a real edit, so this list is hand-maintained
 // rather than derived from git, which can't tell content changes from those.
 const MODIFIED = new Map([
+  ["election-night-bingo-and-trivia", "2026-11-04"], // made evergreen after election night (dates and "midterms" out of the title)
   ["8-tips-for-hosting-a-most-excellent-trivia-show", "2026-07-31"],
   ["creating-the-perfect-music-bingo-sheet-a-video-tutorial", "2026-07-31"],
   ["how-to-create-an-awesome-music-bingo-party-event-in-3-easy-steps", "2026-07-31"],
@@ -258,9 +259,12 @@ function collection(html, url) {
   const name = clean(attr(html, /<h1[^>]*id="wsite-com-title"[^>]*>([\s\S]*?)<\/h1>/i) || pageTitle(html) || "");
   if (!name) return null;
 
-  // The product tiles already on the page, in the order they appear.
+  // The product tiles already on the page, in the order they appear. The class
+  // attribute is "wsite-com-category-product-name wsite-com-link-text" on the live
+  // pages; matching the bare class exactly found 0 tiles on all 8 categories, so
+  // no ItemList was ever emitted (found by the 31 Oct 2026 state-of-site audit).
   const items = [];
-  const re = /<a[^>]+href="(\/store\/p\d+\/[^"]+)"[^>]*>[\s\S]*?<div class="wsite-com-category-product-name"[^>]*>([\s\S]*?)<\/div>/gi;
+  const re = /<a[^>]+href="(\/store\/p\d+\/[^"]+)"[^>]*>[\s\S]*?<div class="wsite-com-category-product-name(?: [^"]*)?"[^>]*>([\s\S]*?)<\/div>/gi;
   let m;
   while ((m = re.exec(html))) {
     const nm = clean(m[2]);
@@ -486,7 +490,18 @@ for (const file of walk(REPO).sort()) {
       ]));
       bump("product");
     }
-  } else if (/^store\/c\d+/.test(rel)) {
+  } else if (rel === "trivia-store.html") {
+    // The canonical storefront. It carried no JSON-LD at all while its
+    // non-canonical twin store/c1/triviastore/ did (31 Oct 2026 audit).
+    const c = collection(html, url);
+    if (c) {
+      graph.push(c, breadcrumbs([
+        { name: "Home", url: SITE + "/" },
+        { name: "Trivia Store", url: SITE + "/trivia-store.html" },
+      ]));
+      bump("category");
+    }
+} else if (/^store\/c\d+/.test(rel)) {
     const c = collection(html, url);
     if (c) {
       graph.push(c, breadcrumbs([

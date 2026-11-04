@@ -225,8 +225,9 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   the categories already reach **80 of 81** products, the only orphan being p3, the
   T-shirt.
   **Two things found while measuring this, neither acted on.** `store/c1/triviastore/`
-  is a **byte-identical duplicate of the storefront with 0 inbound links**, so every
-  storefront tool has to list it twice; and `store/c42/hardgames` is **13 curated
+  duplicates the storefront, so every storefront tool has to list it twice (corrected
+  4 Nov 2026: it is not byte-identical, and it has about 164 inbound links, nearly all
+  from the store breadcrumb, so it is not an orphan); and `store/c42/hardgames` is **13 curated
   tiles against 37 products the `challenging` facet tags**, so the page and the facet
   now disagree about what "hard" means. That one is a curation call, not a tooling
   bug.
@@ -1416,8 +1417,9 @@ no sandbox. It closes the issue automatically when things are clean again.
   HTTP 403, while ordinary pushes work). There is no GitHub MCP tool for it
   either. Stale branches have to be removed from the repo's Branches page in the
   browser, or with `git push origin --delete <branch>` from a normal machine.
-  The 11 Sept 2026 backlog of 38 remote branches has since been cleared: on
-  23 Sept 2026 the remote held only `main` and the current feature branch.
+  The 11 Sept 2026 backlog of 38 remote branches was cleared by 23 Sept, but it
+  grew back: **47 remote branches on 4 Nov 2026**. Clearing them is an owner job in
+  the browser.
 - **Images the user pastes into chat are not reachable as files.** There's no
   path on disk to read or copy them from — ask for a URL or an upload
   (`_tools/` scripts take an `/uploads/...` path) instead of searching for it.
@@ -1466,7 +1468,10 @@ retired on purpose, not lost.
   compare-ats (p101, p128, p127, p108, p162), Phase 4 (artwork), Phase 5 (the
   copy/CTA trim pass). Re-verify Phase 0's numbers before resuming — they were
   current 5 Sept, not 9 Sept.
-- `ELECTION-PLAN.md` — the US midterms push (election night 3 Nov 2026):
+- `ELECTION-PLAN.md` — the US midterms push (election night 3 Nov 2026).
+  **Wound down 4 Nov** (owner: "minimal results. Remove it from main pages"):
+  off the blog index and the sister homepage; the post and the play page stay
+  live, retitled evergreen, for the next election. It was
   written 8 Oct on a side branch, built 26 Oct at its own recommendations (free
   card, free civics round, a post, no send of its own). Social copy is in
   section 4. Wind-down 6 Nov: retitle the post evergreen.
@@ -1488,8 +1493,9 @@ retired on purpose, not lost.
   score is **not** worth chasing (the page is 40 KB and 0.06 MB of images, so
   the score is small-sample noise, not weight), and carries a **blocker worth
   reading before any new Generator perk**: the live Generator 2.0 redemption
-  codes sit in plaintext in tracked `_content/redemption-docs/make_pdfs.py`, in
-  a public repo with `.nojekyll` on.
+  codes sat in plaintext in tracked `_content/redemption-docs/make_pdfs.py`, in
+  a public repo with `.nojekyll` on. **Resolved 10 Sept**: codes now load from
+  untracked `redemption-codes.json`; the three old codes still need rotating.
 - `IMAGE-OPTIMIZATION.md` — **the image runbook.** Audited 7 Sept 2026: 137 MB of
   uploads, 615 orphaned files (57.9 MB), and two category pages carrying 2.0 MB
   and 1.4 MB of images because tiles serve 1200px files into a 210px box. Says

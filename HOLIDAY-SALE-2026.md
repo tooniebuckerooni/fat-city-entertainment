@@ -213,8 +213,8 @@ promise the checkout has already stopped honouring.
 
 | Code | % | Site shows it | Set LS expiry | Products |
 |---|---|---|---|---|
-| `SPOOKY20` | 20 | 12 Oct to 31 Oct (**LIVE**) | 2 Nov | p189 Halloween Complete Pack, p97 Halloween Party, p174 Halloween Trivia Night, p33 Halloween Party Game Show, p155 Holidays 6-Pack, p147 Decades 5-Pack, p131 Starter Pack, p112 Gold Club |
-| `EARLYBIRD15` | 15 | 9 Nov to 26 Nov | 28 Nov | p190 Christmas Complete Pack, p42 Christmas Special, p155 Holidays 6-Pack |
+| `SPOOKY20` | 20 | 12 Oct to 31 Oct (retired 31 Oct) | 2 Nov | p189 Halloween Complete Pack, p97 Halloween Party, p174 Halloween Trivia Night, p33 Halloween Party Game Show, p155 Holidays 6-Pack, p147 Decades 5-Pack, p131 Starter Pack, p112 Gold Club |
+| `EARLYBIRD15` | 15 | 4 Nov to 26 Nov (moved from 9 Nov, 26 Oct) | 28 Nov | p190 Christmas Complete Pack, p42 Christmas Special, p155 Holidays 6-Pack |
 | `BLACKFRIDAY25` | 25 | 27 Nov to 30 Nov | 2 Dec | every pack and club: p190 p189 p42 p155 p131 p130 p112 p147 p101 p168 p165 p166 p176 p127 p108 p162 p128 p123 p126 p49 p28 |
 | `12DAYS-1` | 30 | 1 Dec | 3 Dec | p190 Christmas Complete Pack |
 | `12DAYS-2` | 30 | 2 Dec | 4 Dec | p165 Around the World 4-Pack |
@@ -418,13 +418,13 @@ node _tools/add-halloween-nav.js --remove --write
 The Halloween **hub stays live** (it builds authority to re-use next year). The
 Halloween **countdown chips switch themselves off** on 1 Nov; take the markup down
 whenever convenient with `add-season-countdown.js` (remove the Halloween entry
-from `SEASONS` and re-run `--write`). `SPOOKY20` stops showing at midnight UTC
-on 1 Nov.
+from `SEASONS` and re-run `--write`). `SPOOKY20` came out of `PROMOS` on 31 Oct
+(owner: "clean start"), a few hours before Halloween evening.
 
 **Clear for the election promo:**
-- **The week of 1 to 8 Nov has no sale on the calendar.** Christmas Early Bird
-  starts 9 Nov. If the election promo needs to run longer, move `EARLYBIRD15`'s
-  `start` in `ls-buy.js` (and tell the owner to match it in LemonSqueezy).
+- **Superseded 26 Oct:** `EARLYBIRD15` now runs **4 Nov to 27 Nov** (end exclusive)
+  in `ls-buy.js`, still `live: false` until the owner confirms the code in
+  LemonSqueezy. The election ran with no promo and was wound down 4 Nov.
 - **A dated discount = one `PROMOS` entry in `ls-buy.js`.** Scope it, date it,
   leave `live: false` until the owner confirms the code exists. You get the
   chip under the price and the code at checkout, with no takedown needed.
