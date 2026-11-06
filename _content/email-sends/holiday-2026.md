@@ -176,12 +176,14 @@ agent swaps it in as the lead pick; this send should wait for that.)
 
 ## 3. Black Friday. Send Fri 27 Nov, 7am
 
-**Subject:** Black Friday: 25% off every pack and club
+**Subject:** Black Friday: up to 40% off every game we make
 **Preview:** The biggest discount we run all year. Until Monday.
 
-> Once a year. **25% off every multi-game pack and every Music Bingo Club**,
-> Friday to Monday, no code needed.
+> Once a year, Friday to Monday, no code needed: **40% off every music bingo
+> game, 30% off every trivia show, and 25% off every pack and club.**
 >
+> - **Any music bingo game:** $7.19 (was $11.99)
+> - **Any General Knowledge trivia night:** $8.39 (was $11.99)
 > - **Starter Pack (Bronze), 10 games:** $59.25 (was $79.00)
 > - **Christmas Complete Pack:** $41.24 (was $54.99)
 > - **Silver Club, 25 games:** $145.31 (was $193.75)
@@ -200,10 +202,11 @@ any pack is repriced before 27 Nov.**
 
 ### 3b. Cyber Monday reminder. Send Mon 30 Nov, 9am
 
-**Subject:** Last day: 25% off every pack
+**Subject:** Last day: up to 40% off
 **Preview:** Black Friday pricing ends tonight.
 
-> Last call. 25% off every pack and club ends tonight, no code needed.
+> Last call. 40% off music bingo, 30% off trivia and 25% off every pack ends
+> tonight, no code needed.
 >
 > [Shop before midnight]
 

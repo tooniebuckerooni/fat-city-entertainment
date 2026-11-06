@@ -216,6 +216,8 @@ promise the checkout has already stopped honouring.
 | `SPOOKY20` | 20 | 12 Oct to 31 Oct (retired 31 Oct) | 2 Nov | p189 Halloween Complete Pack, p97 Halloween Party, p174 Halloween Trivia Night, p33 Halloween Party Game Show, p155 Holidays 6-Pack, p147 Decades 5-Pack, p131 Starter Pack, p112 Gold Club |
 | `EARLYBIRD15` | 15 | 4 Nov to 26 Nov (moved from 9 Nov, 26 Oct) | 28 Nov | p190 Christmas Complete Pack, p42 Christmas Special, p155 Holidays 6-Pack |
 | `BLACKFRIDAY25` | 25 | 27 Nov to 30 Nov | 2 Dec | every pack and club: p190 p189 p42 p155 p131 p130 p112 p147 p101 p168 p165 p166 p176 p127 p108 p162 p128 p123 p126 p49 p28 |
+| `BFMUSIC40` | 40 | 27 Nov to 30 Nov | 2 Dec | every single music bingo game (42): p62 p63 p71 p72 p81 p92 p95 p97 p100 p102 p103 p106 p109 p110 p111 p113 p114 p115 p116 p117 p121 p122 p124 p129 p132 p133 p136 p138 p141 p143 p144 p145 p146 p148 p149 p153 p156 p158 p159 p160 p163 p167 |
+| `BFTRIVIA30` | 30 | 27 Nov to 30 Nov | 2 Dec | every single trivia show (8): p9 p13 p169 p170 p171 p172 p173 p174 |
 | `12DAYS-1` | 30 | 1 Dec | 3 Dec | p190 Christmas Complete Pack |
 | `12DAYS-2` | 30 | 2 Dec | 4 Dec | p165 Around the World 4-Pack |
 | `12DAYS-3` | 30 | 3 Dec | 5 Dec | p131 Starter Pack (Bronze) |
@@ -292,8 +294,23 @@ It ends the day before Black Friday, so the two never overlap.
 The year's one big sale, and it goes on the top of the ladder, where the order
 value is. Starter Pack **$59.25**, Silver **$145.31**, Gold **$289.87**, every
 5-pack **$31.49**. A flat percentage keeps the ladder in order (each rung is still
-cheaper per game than the one below), so no new inversion. Singles, the Generator
-and the Zoom booking are excluded.
+cheaper per game than the one below), so no new inversion. The Generator and the
+Zoom booking are excluded.
+
+**Singles joined 6 Nov 2026** (owner: "40% off all individual music bingo games.
+30% off individual trivia games"): `BFMUSIC40` takes every one-game music bingo
+to **$7.19**, `BFTRIVIA30` takes the General Knowledge nights and Halloween
+Trivia Night to **$8.39** and Sports Pub Night and The Wild West to **$16.44**.
+**The three codes run together or not at all.** A $7.19 single is cheaper per
+game than every pack at full price (a 5-pack is $8.40 a game), so singles at 40%
+with packs at full price would pull every buyer down to a one-game order. With
+the packs at 25% off, every pack is still cheaper per game than a sale single:
+2-pack $6.75, 3-pack $6.50, 5-pack $6.30, Bronze $5.93. No product is in two
+codes. Previewed in Chromium at 27 Nov on p103, p169, p147, c11 and the
+storefront: the chip, the tile tag and the checkout code are right on each.
+**p190 is in BLACKFRIDAY25 but has no checkout link yet**; if it has not
+launched by 27 Nov, take it out of that entry before going live, or
+`check-promos.js` fails.
 
 ### The 12 Days of Fat City: 30% off one pack a day (1 to 12 Dec)
 The showiest piece, and the one built to make people come back. Twelve packs, one

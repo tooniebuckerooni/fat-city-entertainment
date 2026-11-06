@@ -59,6 +59,25 @@
       products: ["p190", "p189", "p42", "p155", "p131", "p130", "p112",
                  "p147", "p101", "p168", "p165", "p166", "p176", "p127",
                  "p108", "p162", "p128", "p123", "p126", "p49", "p28"] },
+    // Black Friday SINGLES (owner, 6 Nov 2026: "40% off all individual music
+    // bingo games. 30% off individual trivia games"). Same four days as
+    // BLACKFRIDAY25 on the packs, and that is what keeps the ladder honest: a
+    // single at 40% off is $7.19, cheaper per game than every pack at full
+    // price ($8.40 for a 5-pack), but with the packs at 25% off every pack is
+    // still cheaper per game than a sale single (5-pack $6.30, 3-pack $6.50,
+    // 2-pack $6.75, Bronze $5.93). Run all three or none. Singles are every
+    // one-game music bingo and trivia product per store-facets.js, 6 Nov 2026;
+    // packs are in BLACKFRIDAY25, so no product is in two codes.
+    { code: "BFMUSIC40", name: "Black Friday", pct: 40,
+      start: "2026-11-27", end: "2026-12-01", live: false,
+      products: ["p100", "p102", "p103", "p106", "p109", "p110", "p111", "p113", "p114", "p115",
+                 "p116", "p117", "p121", "p122", "p124", "p129", "p132", "p133", "p136", "p138",
+                 "p141", "p143", "p144", "p145", "p146", "p148", "p149", "p153", "p156", "p158",
+                 "p159", "p160", "p163", "p167", "p62", "p63", "p71", "p72", "p81", "p92",
+                 "p95", "p97"] },
+    { code: "BFTRIVIA30", name: "Black Friday", pct: 30,
+      start: "2026-11-27", end: "2026-12-01", live: false,
+      products: ["p9", "p13", "p169", "p170", "p171", "p172", "p173", "p174"] },
     // The 12 Days of Fat City: one PACK a day, 30% off, for 24 hours. Packs
     // only, on purpose: a single at 30% off is $8.39, a hair under the 5-pack's
     // $8.40 a game, and the ladder is the AOV engine (pricing-strategy skill).
