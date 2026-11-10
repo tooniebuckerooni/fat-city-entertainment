@@ -118,7 +118,13 @@ figure" cell for the Gold Club. That is a table null marker, not prose; it stays
   Virtual Events. **Trivia Nights by City** (added 23 Sept 2026 via `_tools/add-city-nav.js`, directly under Free Song Lists, links the `/trivia-nights/` hub never a single city; `--remove --write` restores all 505 pages byte for byte, verified). **Featured!** dropdown holds Triv 101, **Trivia Show Maker**
   (`/trivia-show-maker/`, live; this line said "Trivia Generator (coming soon)"
   until 23 Sept 2026), and BingoCardGenerator.Online (external link to
-  https://bingocardgenerator.online/, UTM-tagged). Hub page: `/features.html`. **Bingo
+  https://bingocardgenerator.online/, UTM-tagged, and **`rel="nofollow"` since
+  10 Nov 2026** via `_tools/nofollow-bcg-nav.js`: the sister site took a site-wide
+  Google demotion inside the September 2026 spam update, and ~1,000 identical
+  template links from one domain was the likeliest cause on this side. Insurance,
+  not proven. Only the nav item is nofollowed; **editorial links to the sister
+  site in page copy stay followed on purpose**. `--remove --write` restores the
+  old rel byte for byte, and the tool is in the Monday loop). Hub page: `/features.html`. **Bingo
   Card Maker** dropdown (added Aug 13 2026, via
   `_tools/add-bingocardmaker-nav.js`) holds Free Generator, Generator Pro
   (Lifetime Access), All-Purpose Generator (renamed from "Generator 2" Aug 18

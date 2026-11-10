@@ -214,7 +214,7 @@ jobs:
                      add-bingocardmaker-nav rename-generator2-nav \
                      rename-trivia-generator-nav drop-blog-nav-dropdown \
                      restyle-featured-nav remove-costume-performers-nav \
-                     vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm \
+                     vary-bcg-nav-anchor add-halloween-nav tag-bcg-nav-utm nofollow-bcg-nav \
                      add-christmas-nav add-season-countdown flip-to-why add-promo-tags \
                      publish-season-rounds; do
               OUT="$(node _tools/$t.js 2>&1)"
