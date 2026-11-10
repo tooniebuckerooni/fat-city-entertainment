@@ -1457,6 +1457,11 @@ superseded by what's actually in the repo. If you're looking for a doc this
 file used to mention and it's gone, check `git log -- <filename>`; it was
 retired on purpose, not lost.
 
+- `MERGE-PLAN.md` — **read before touching any branch cut before 10 Nov 2026.**
+  That day's nav nofollow and favicon change touched about 765 pages, so every
+  older branch must merge `main` before running a tool. Lists every branch with
+  unmerged work, the merge order, the one real overlap ahead (the Christmas hub
+  spec), what is waiting on the owner, and the dated sitewide edits to come.
 - `IMPLEMENTATION-BRIEF.md` — **start here for the fall 2026 pricing work and
   the 20 new pre-made trivia shows.** What is staged, what needs doing in
   LemonSqueezy and in what order, and the four decisions still open. The
