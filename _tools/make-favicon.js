@@ -1,16 +1,13 @@
 // Generate the site's favicon set.
 //
-// The mark is a 16x16 pixel-art city skyline, traced from Dustin's own
-// fat_city_favicon.psd (a flat 16x16 RGB image, #373737 on white — no layers,
-// no gradients, just the pixel grid). Reconstructed as vector rects at the
-// source resolution rather than upscaling the raster, so it stays pixel-sharp
-// at every size instead of blurring past 16px. PIXELS below is that grid, read
-// as one string per row ("#" = ink, "." = white); regenerate it by re-running
-// the trace against a new PSD if the art changes.
+// The mark is a pixel-art city skyline that spells F-A-T (an F, a building, a
+// T), from Dustin's own fat_city_favicon.psd, inside a gold frame. Drawn as
+// vector rects on a whole-pixel grid so it stays sharp at every size; see
+// PIXELS below for why the grid is 14x14.
 //
 //   node _tools/make-favicon.js
 //
-// Writes favicon.ico, favicon-16/32/48.png and apple-touch-icon.png to the root,
+// Writes favicon.svg, favicon.ico, favicon-16/32/48.png and apple-touch-icon.png to the root,
 // then add-favicon-links.js puts the <link> tags on every page.
 const fs = require("fs");
 const path = require("path");
@@ -22,37 +19,49 @@ const REPO = path.resolve(__dirname, "..");
 // mid-dark gray wash out toward the background and read as blurry. Black
 // keeps more contrast through that blend, same silhouette either way.
 const INK = "#000000";
-const GRID = 16;
+// REDRAWN ON A 14x14 GRID (10 Nov 2026). The traced PSD is 16x16 and ran edge to
+// edge, so fitting it inside the gold frame meant scaling it to 12/16. A 16px
+// drawing squeezed into 12px cannot land on whole pixels: at tab size the
+// building in the middle turned into a blob, and Firefox (which also rescales
+// the icon on 125%/150% displays) showed it as a smudge. The owner's report and
+// screenshot are what prompted this.
+//
+// The mark is the same F, building, T skyline, redrawn by hand two pixels
+// narrower and shorter: the centre building keeps its outline and shoulders
+// with two windows instead of three. With a ONE unit frame the whole icon is a
+// 16x16 grid, so 16, 32 and 48px are exact 1x, 2x and 3x copies with no
+// resampling anywhere. The original 16x16 trace is in git history (before this
+// commit) if the art is ever wanted back at a size that can hold it.
+const GRID = 16;   // full icon, frame included
+const ART = 14;    // the mark itself
 const PIXELS = [
-  "######....######",
-  "######....######",
-  "##...........##.",
-  "##...#####...##.",
-  "##...#...#...##.",
-  "##...#.#.#...##.",
-  "###..#.#.#...##.",
-  "###..#.#.#...##.",
-  "##...#...#...##.",
-  "##.###...###.##.",
-  "##.#.......#.##.",
-  "##.#.#.#.#.#.##.",
-  "##.#.#.#.#.#.##.",
-  "##.#.#.#.#.#.##.",
-  "##.#.......#.##.",
-  "##.#.......#.##.",
+  "#####....#####",
+  "#####....#####",
+  "##..#####..##.",
+  "##..#...#..##.",
+  "##..#.#.#..##.",
+  "###.#.#.#..##.",
+  "###.#...#..##.",
+  "##.##...##.##.",
+  "##.#.....#.##.",
+  "##.#.#.#.#.##.",
+  "##.#.#.#.#.##.",
+  "##.#.#.#.#.##.",
+  "##.#.....#.##.",
+  "##.#.....#.##.",
 ];
 
 // Merge each row's consecutive ink pixels into one <rect> instead of one per
 // pixel — same crisp result, a fraction of the markup.
 function pixelRects() {
   const rects = [];
-  for (let y = 0; y < GRID; y++) {
+  for (let y = 0; y < ART; y++) {
     let x = 0;
-    while (x < GRID) {
+    while (x < ART) {
       if (PIXELS[y][x] === "#") {
         const x0 = x;
-        while (x < GRID && PIXELS[y][x] === "#") x++;
-        rects.push(`  <rect x="${x0}" y="${y}" width="${x - x0}" height="1"/>`);
+        while (x < ART && PIXELS[y][x] === "#") x++;
+        rects.push(`  <rect x="${x0 + BORDER}" y="${y + BORDER}" width="${x - x0}" height="1"/>`);
       } else {
         x++;
       }
@@ -61,15 +70,8 @@ function pixelRects() {
   return rects.join("\n");
 }
 
-// The traced grid runs edge-to-edge (the roofline spans col 0-15), which pokes
-// past the circular crop a launcher/new-tab tile applies to a favicon. MARGIN
-// scales the whole mark down around the canvas centre rather than touching
-// PIXELS, so it stays a faithful trace of the source PSD at every size.
-const MARGIN = 2; // grid units inset on every side, clears the border below
-const SCALE = (GRID - 2 * MARGIN) / GRID;
-
 const GOLD = "#D4AF37";
-const BORDER = 2; // grid units thick
+const BORDER = 1; // grid units thick; GRID = ART + 2 * BORDER
 function borderRects() {
   const t = BORDER;
   return [
@@ -86,7 +88,7 @@ const svg = () => `
   <g fill="${GOLD}">
 ${borderRects()}
   </g>
-  <g fill="${INK}" transform="translate(${GRID / 2} ${GRID / 2}) scale(${SCALE}) translate(${-GRID / 2} ${-GRID / 2})">
+  <g fill="${INK}">
 ${pixelRects()}
   </g>
 </svg>`;
@@ -128,6 +130,11 @@ function ico(pngs) {
   for (const s of [16, 32, 48]) {
     fs.writeFileSync(path.join(REPO, `favicon-${s}x${s}.png`), await png(s));
   }
+  // The SVG is what Firefox and Chrome use when offered one. crispEdges keeps
+  // every edge hard at whatever size the tab strip asks for, including the
+  // 20px and 24px a 125% or 150% display wants, where a PNG would be resampled.
+  fs.writeFileSync(path.join(REPO, "favicon.svg"), svg().trim() + "\n");
+
   // Apple wants a square with no transparency and no rounding of its own.
   fs.writeFileSync(path.join(REPO, "apple-touch-icon.png"), await png(180));
 
