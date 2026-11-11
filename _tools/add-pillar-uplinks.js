@@ -71,6 +71,14 @@ const CHRISTMAS = { href: "/christmas-trivia-and-music-bingo.html", text: "Chris
 // phrase. The Thanksgiving post is the natural bridge into December.
 const CHRISTMAS_MUSIC_BINGO = { href: "/store/p103/christmasparty.html", text: "Christmas music bingo" };
 
+// The election night post (11 Nov 2026). It came off the blog index on 4 Nov
+// (owner: "remove it from main pages") and that was its LAST internal link, so
+// the site's best page of the previous month (178 clicks in 28 days) became an
+// orphan, reachable from the sitemap only; Ahrefs flagged it a week later. One
+// quiet link from an evergreen events post keeps it connected for the next
+// election without putting it back on a main page.
+const ELECTION = { href: "/triviahostresources/election-night-bingo-and-trivia/", text: "election night bingo and trivia" };
+
 // slug -> the pillar it belongs under, and the sentence that links to it.
 // Varied on purpose: ten identical closing lines across ten posts reads as
 // boilerplate to a reader and as a footprint to a crawler.
@@ -110,6 +118,8 @@ const UPLINKS = {
   // already carries its trivia-guide uplink, and the tool places one per post.)
   "5-ways-to-excite-your-guests-this-fall-season": [HALLOWEEN,
     "Planning for the end of October? Our Halloween games, ready to print, are on the"],
+  "10-creative-ways-to-use-music-bingo-and-trivia-games-at-your-next-event": [ELECTION,
+    "Hosting a watch party? Two free games made for any election night are in our"],
   "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": [CHRISTMAS,
     "Every Christmas game we make, at this year's prices, is on our"],
   "3-thanksgiving-themed-bingo-ideas": [CHRISTMAS_MUSIC_BINGO,
@@ -125,6 +135,7 @@ const TAILS = {
   "5-easy-ways-to-entertain-your-friends-or-coworkers-for-the-christmas-holidays": " page.",
   "staff-christmas-parties-will-be-a-bit-different-this-year-but-we-have-you-covered-with-virtual-event-entertainment": " page.",
   "save-money-for-some-christmas-party-games-by-downloading-these-awesome-and-wildly-fun-games": " page.",
+  "10-creative-ways-to-use-music-bingo-and-trivia-games-at-your-next-event": " post.",
   "3-thanksgiving-themed-bingo-ideas": " game has 250 printable cards and the playlist ready to press play.",
   "19-music-bingo-games-our-crowds-cant-get-enough-of": " is for.",
   "decade-by-decade-music-bingo-playlist-guide": " walks through it.",
