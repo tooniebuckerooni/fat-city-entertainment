@@ -42,7 +42,8 @@ const PERSON_ID = `${SITE}/#dustin-ramsbottom`;
 
 // Pages written in the direct-answer format, whose Q&A schema is read out of
 // their own headings rather than hand-maintained alongside them.
-const ANSWER_PAGES = new Set(["what-is-music-bingo.html", "music-bingo-rules.html"]);
+const ANSWER_PAGES = new Set(["what-is-music-bingo.html", "music-bingo-rules.html",
+  "music-bingo-software.html", "trivia-night-software.html"]);
 
 // Posts that got a genuine content edit during the Jul 2026 SEO pass — title,
 // meta, description, or H1 actually changed, not just sitewide infrastructure

@@ -37,6 +37,10 @@ const PAGES = {
   "holidayparty": "holidayparty.html",
   "yycevents": "yycevents.html",
   "vrtriviaparty": "vrtriviaparty.html",
+  // 13 Nov 2026: the page Google shows for "music bingo cards" (about position 8,
+  // the biggest search the site is in reach of). Four question-shaped sections
+  // answering what a searcher asks next. Facts are from the product pages.
+  "musicdoboffbingocards": "musicdoboffbingocards.html",
 };
 
 const OPEN = "<!-- fce:copy -->";
